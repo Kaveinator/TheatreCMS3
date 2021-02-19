@@ -193,6 +193,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Areas\Blog.css" />
+    <Content Include="Content\Areas\Production.css" />
+    <Content Include="Content\Areas\Rental.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
