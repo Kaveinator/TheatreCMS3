@@ -11,6 +11,7 @@
 
 body {
     padding-bottom: 20px;
+    background-color: var(--dark-color);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -57,4 +58,17 @@ textarea {
 
 .navbar {
     background-color: #800000;
+}
+
+.CMS-text-white{
+    color: var(--light-color);
+}
+
+h1.CMS-text-bigger{
+    text-align:center;
+    font-size:75px;
+}
+
+a.CMS-text-bigger{
+    font-size:36px;
 }
