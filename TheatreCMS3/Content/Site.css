@@ -39,6 +39,7 @@ textarea {
     margin-right: 8px;
     background-color: #CD853F;
     border-radius: 5px;
+    justify-content: center;
 }
 
 .nav > li:hover {
@@ -58,6 +59,11 @@ textarea {
 
 .navbar {
     background-color: #800000;
+}
+
+.reg-sign-in {
+    margin-left: 70px;
+    justify-content: right;
 }
 
 .CMS-text-white{
