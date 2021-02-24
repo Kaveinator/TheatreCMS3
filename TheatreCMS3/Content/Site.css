@@ -10,7 +10,6 @@
 }
 
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -32,4 +31,30 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.nav > li {
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: #CD853F;
+    border-radius: 5px;
+}
+
+.nav > li:hover {
+    background-color: #DEB887;
+}
+
+.nav > li > a {
+    color: #000000;
+    font-weight: bold;
+}
+
+.navbar-icon-red {
+    margin-right: 150px;
+    height: 42px;
+    width: auto;
+}
+
+.navbar {
+    background-color: #800000;
 }
