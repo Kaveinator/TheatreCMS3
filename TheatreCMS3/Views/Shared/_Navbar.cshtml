@@ -1,42 +1,40 @@
 ﻿@*<div class="navbar navbar-inverse navbar-fixed-top .navbar .navbar-expand{-sm|-md|-lg|-xl}">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png"/></a>
-            
-            <span><a href="#" class="icon-bar">Production</span>
-            <span><a href="#" class="icon-bar">Rental</span>
-            <span><a href="#" class="icon-bar">Blog</span>
-        </div>
-    </div>
-</div>*@
+        <div class="container">
+            <div class="navbar-header">
+                <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png"/></a>
 
+                <span><a href="#" class="icon-bar">Production</span>
+                <span><a href="#" class="icon-bar">Rental</span>
+                <span><a href="#" class="icon-bar">Blog</span>
+            </div>
+        </div>
+    </div>*@
+
+@Html.Partial("_LoginPartial")
 
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top nav-pills nav-fill ">
-    <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png" class="navbar-icon-red"/></a>
-    
-
-    <div class="">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Production<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Rental</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-            </li>
-            <li class="nav-item reg-sign-in">
-                <a class="nav-link" href="#">Register</a>
-            </li>
-            <li class="nav-item reg-sign-in">
-                <a class="nav-link" href="#">Sign In</a>
-            </li>
-        </ul>
-        
-    </div>
+    <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png" class="navbar-icon-red" /></a>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Production<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Rental</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+        </li>
+        <li class="nav-item reg-sign-in">
+            <a class="nav-link" href="#">Register</a>
+        </li>
+        <li class="nav-item reg-sign-in">
+            <a class="nav-link" href="#">Sign In</a>
+        </li>
+        @Html.Partial("_LoginPartial")
+    </ul>
 </nav>
+
