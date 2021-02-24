@@ -173,6 +173,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Production\Controllers\ProductionPhotoController.cs" />
+    <Compile Include="Areas\Production\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Production\ProductionAreaRegistration.cs" />
     <Compile Include="Areas\Rental\RentalAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -380,9 +382,8 @@
     <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
-    <Folder Include="Areas\Production\Controllers\" />
     <Folder Include="Areas\Production\Data\" />
-    <Folder Include="Areas\Production\Models\" />
+    <Folder Include="Areas\Production\Views\ProductionPhoto\" />
     <Folder Include="Areas\Production\Views\Shared\" />
     <Folder Include="Areas\Rental\Controllers\" />
     <Folder Include="Areas\Rental\Data\" />
