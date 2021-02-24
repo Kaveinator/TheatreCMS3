@@ -12,6 +12,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: var(--dark-color);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -32,4 +33,17 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.CMS-text-white{
+    color: var(--light-color);
+}
+
+h1.CMS-text-bigger{
+    text-align:center;
+    font-size:75px;
+}
+
+a.CMS-text-bigger{
+    font-size:36px;
 }
