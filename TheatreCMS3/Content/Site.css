@@ -35,6 +35,15 @@ textarea {
     max-width: 280px;
 }
 
-.white{
+.CMS-text-white{
     color: var(--light-color);
+}
+
+h1.CMS-text-bigger{
+    text-align:center;
+    font-size:75px;
+}
+
+a.CMS-text-bigger{
+    font-size:36px;
 }
