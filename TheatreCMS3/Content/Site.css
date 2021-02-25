@@ -37,7 +37,7 @@ textarea {
 .nav > li {
     margin-left: 8px;
     margin-right: 8px;
-    background-color: #CD853F;
+    background-color: var(--secondary-color);
     border-radius: 5px;
     justify-content: center;
 }
@@ -58,13 +58,13 @@ textarea {
 }
 
 .navbar {
-    background-color: #800000;
+    background-color: var(--main-bg-color);
 }
 
-.reg-sign-in {
-    margin-left: 70px;
-    justify-content: right;
-}
+/*#reg-sign-in {
+    margin-left: 40vw;
+    
+}*/
 
 .CMS-text-white{
     color: var(--light-color);
