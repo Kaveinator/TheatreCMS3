@@ -48,36 +48,21 @@ a.CMS-text-bigger{
     font-size:36px;
 }
 /*Adding CSS for Theatre Vertigo About page*/
-#aboutPage-card1:hover {
+#aboutPage-Card-Img:hover {
     background-color: var(--dark-color);
-    box-shadow: 2px 2px var(--secondary-color);
     opacity: .8;
     transition: .15s;
+}
+#aboutPage-Card:hover {
     border-color: var(--secondary-color);
+    border-style: double;
 }
-#aboutPage-card2:hover {
+#aboutPage-Card-Bdy {
     background-color: var(--dark-color);
-    box-shadow: 2px 2px var(--secondary-color);
-    opacity: .8;
-    transition: .15s;
 }
-#aboutPage-card3:hover {
-    background-color: var(--dark-color);
-    box-shadow: 2px 2px var(--secondary-color);
-    opacity: .8;
-    transition: .15s
-}
-#aboutPage-card4:hover {
-    background-color: var(--dark-color);
-    box-shadow: 2px 2px var(--secondary-color);
-    opacity: .8;
-    transition: .15s;
-}
-#aboutPage-card5:hover {
-    background-color: var(--dark-color);
-    box-shadow: 2px 2px var(--secondary-color);
-    opacity: .8;
-    transition: .15s;
+#aboutPage-Card-Text {
+    text-align: center;
+    color: var(--light-color);
 }
 .aboutPage-History {
     text-align: left;
@@ -88,16 +73,6 @@ a.CMS-text-bigger{
     text-align:center;
     color: var(--light-color);
     padding: 40px;
-
-}
-.aboutPage-Ensemble {
-    text-align:center;
-    color: var(--main-bg-color);
-    padding: 40px;
-    text-decoration: underline;
-    font-weight: bold;
-    text-decoration-color: var(--secondary-color);
-
 }
 .aboutPage-Mission {
     text-align: center;
@@ -112,5 +87,4 @@ a.CMS-text-bigger{
     text-decoration: underline;
     font-weight: bold;
     text-decoration-color: var(--secondary-color);
-
 }

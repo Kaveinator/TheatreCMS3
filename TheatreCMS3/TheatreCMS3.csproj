@@ -205,6 +205,11 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\dummy.txt" />
+    <Content Include="Content\images\Ensemble_1.jpg" />
+    <Content Include="Content\images\Ensemble_2.jpg" />
+    <Content Include="Content\images\Ensemble_3.jpg" />
+    <Content Include="Content\images\Ensemble_4.jpg" />
+    <Content Include="Content\images\Ensemble_5.jpg" />
     <Content Include="Content\images\Ensemble_Re1.jpg" />
     <Content Include="Content\images\Ensemble_Re2.jpg" />
     <Content Include="Content\images\Ensemble_Re3.jpg" />
