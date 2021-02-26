@@ -205,7 +205,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\dummy.txt" />
-    <Content Include="Content\images\redNavbar.jpg" />
+    <Content Include="Content\images\TheatreVertigoLogo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
