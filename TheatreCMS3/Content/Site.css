@@ -48,6 +48,12 @@ a.CMS-text-bigger{
     font-size:36px;
 }
 /*Adding CSS for Theatre Vertigo About page*/
+#aboutPage-Card-Img {
+    width: auto;
+    max-width: 100%;
+    height: 75%;
+    object-fit: cover;
+}
 #aboutPage-Card-Img:hover {
     background-color: var(--dark-color);
     opacity: .8;
