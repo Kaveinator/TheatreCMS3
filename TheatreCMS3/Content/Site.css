@@ -48,25 +48,25 @@ a.CMS-text-bigger{
     font-size:36px;
 }
 /*Adding CSS for Theatre Vertigo About page*/
-#aboutPage-Card-Img {
+.aboutPage-Card-Img {
     width: auto;
     max-width: 100%;
     height: 75%;
     object-fit: cover;
 }
-#aboutPage-Card-Img:hover {
+.aboutPage-Card-Img:hover {
     background-color: var(--dark-color);
     opacity: .8;
     transition: .15s;
 }
-#aboutPage-Card:hover {
+.aboutPage-Card:hover {
     border-color: var(--secondary-color);
     border-style: double;
 }
-#aboutPage-Card-Bdy {
+.aboutPage-Card-Bdy {
     background-color: var(--dark-color);
 }
-#aboutPage-Card-Text {
+.aboutPage-Card-Text {
     text-align: center;
     color: var(--light-color);
 }
