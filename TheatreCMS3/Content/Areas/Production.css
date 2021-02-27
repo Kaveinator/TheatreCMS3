@@ -12,6 +12,31 @@ body {
 }
 
 .form-styling {
-    background-color: var(--main-bg-color);
-    color: aqua;
+    background-color: var(--light-color);
+    border-radius: 5px;
 }
+
+.form-title {
+    padding: 5px;
+    background-color: var(--light-color);
+}
+
+.input-field-changes:focus, .input-field-changes:active {
+    background-color: #F5F5F5;
+    outline: var(--secondary-color);
+    /*box-shadow: none; play around with opacity on the colors for box shadow and border color*/  
+    border-color: var(--dark-color);
+}
+
+.btn-changes {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+/*use opacity for the button colors as well*/
+
+.btn-changes-2 {
+    margin-left: 15px;
+    background-color: var(--subscriber-main);
+}
+
+/* shorten whitespace on boxes, add placeholder for input fields, align everything in the center, make whole containers bigger */
