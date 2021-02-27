@@ -10,7 +10,6 @@
 }
 
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
     background-color: var(--dark-color);
 }
@@ -33,6 +32,33 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+/* Styling and positioning for the Navbar */
+.nav > li {
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.nav > li:hover {
+    background-color: #DEB887;
+}
+
+.nav > li > a {
+    color: #000000;
+    font-weight: bold;
+}
+
+.navbar-icon-red {
+    height: 42px;
+    width: auto;
+}
+
+.navbar {
+    background-color: var(--main-bg-color);
 }
 
 .CMS-text-white{
