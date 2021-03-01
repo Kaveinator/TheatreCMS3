@@ -173,7 +173,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Production\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Production\Controllers\ProductionPhotosController.cs" />
+    <Compile Include="Areas\Production\Models\CastMember.cs" />
     <Compile Include="Areas\Production\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Production\ProductionAreaRegistration.cs" />
     <Compile Include="Areas\Rental\RentalAreaRegistration.cs" />
@@ -255,6 +257,13 @@
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="Areas\Production\Views\CastMembers\Create.cshtml" />
+    <Content Include="Areas\Production\Views\CastMembers\Delete.cshtml" />
+    <Content Include="Areas\Production\Views\CastMembers\Details.cshtml" />
+    <Content Include="Areas\Production\Views\CastMembers\Edit.cshtml" />
+    <Content Include="Areas\Production\Views\CastMembers\Index.cshtml" />
+    <Content Include="Properties\serviceDependencies.json" />
+    <Content Include="Properties\serviceDependencies.local.json" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
