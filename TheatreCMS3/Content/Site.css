@@ -7,6 +7,7 @@
     --light-color: #FFFBFB; /* White */
     --dark-color: #000000; /* Black */
     --subscriber-main: #9D7C39; /* Dark Gold */
+    --light-blue: rgb(93, 123, 244) /*Light Blue - Added color on top of original*/
 }
 
 body {
@@ -29,11 +30,11 @@ body {
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 .CMS-text-white{
     color: var(--light-color);
