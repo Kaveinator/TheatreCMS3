@@ -11,7 +11,6 @@
 }
 
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
     background-color: var(--dark-color);
 }
@@ -36,6 +35,33 @@ textarea {
     max-width: 280px;
 }*/
 
+/* Styling and positioning for the Navbar */
+.nav > li {
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.nav > li:hover {
+    background-color: #DEB887;
+}
+
+.nav > li > a {
+    color: #000000;
+    font-weight: bold;
+}
+
+.navbar-icon-red {
+    height: 42px;
+    width: auto;
+}
+
+.navbar {
+    background-color: var(--main-bg-color);
+}
+
 .CMS-text-white{
     color: var(--light-color);
 }
@@ -47,4 +73,51 @@ h1.CMS-text-bigger{
 
 a.CMS-text-bigger{
     font-size:36px;
+}
+/*Adding CSS for Theatre Vertigo About page*/
+.aboutPage-Card-Img {
+    width: auto;
+    max-width: 100%;
+    height: 75%;
+    object-fit: cover;
+}
+.aboutPage-Card-Img:hover {
+    background-color: var(--dark-color);
+    opacity: .8;
+    transition: .15s;
+}
+.aboutPage-Card:hover {
+    border-color: var(--secondary-color);
+    border-style: double;
+}
+.aboutPage-Card-Bdy {
+    background-color: var(--dark-color);
+}
+.aboutPage-Card-Text {
+    text-align: center;
+    color: var(--light-color);
+}
+.aboutPage-History {
+    text-align: left;
+    color: var(--light-color);
+    padding: 40px;
+}
+.aboutPage-Board {
+    text-align:center;
+    color: var(--light-color);
+    padding: 40px;
+}
+.aboutPage-Mission {
+    text-align: center;
+    color: var(--light-color);
+    padding: 40px;
+
+}
+.aboutPage-h1 {
+    color: var(--main-bg-color);
+    text-align: center;
+    padding: 15px;
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration-color: var(--secondary-color);
 }
