@@ -1,60 +1,45 @@
-﻿/* CSS color variables */
-:root { /* Color palette for css */
-    --main-bg-color: #DB1A11; /* Red */
-    --main-secondary-color: #F04D44; /* Red, a shade lighter */
-    --secondary-color: #D6972A; /* Yellow gold */
-    --light-color: #FFFBFB; /* White */
-    --dark-color: #000000; /* Black */
-    --subscriber-main: #9D7C39; /* Dark Gold */
-    --light-blue: rgb(93, 123, 244) /*Light Blue*/
+﻿body {
 }
 
-body {
-}
-
-.form-styling {
+.prodphoto-form-styling {
     background-color: var(--light-color);
     border-radius: 5px;
-    width: 30vw;
-    height: 30vh;
     margin-left: auto;
     margin-right: auto;
 }
 
-.form-title {
+.prodphoto-form-title {
     padding: 5px;
     background-color: var(--light-color);
-    width: 30vw;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 4vh;
+    white-space: nowrap;
 }
 
-.input-field-changes {
+.prodphoto-input-field {
     margin: 0 0 3vh 0;
     background-color: var(--light-color);
     background-color: #F5F5F5;
     width: 100%;
 }
 
-.input-field-changes:focus, .input-field-changes:active {
+.prodphoto-input-field:focus, .input-field-changes:active {
     background-color: var(--light-color);
     box-shadow: 0 0 0 0.2rem rgba(93, 123, 244, 0.4);
-    /*0 0 0 0.2rem rgb(0 123 255 / 25%)*/
-    /*box-shadow: none; play around with opacity on the colors for box shadow and border color*/
-    /*border-color: var(--dark-color);*/
 }
 
-.btn-changes {
-    background-color: rgba(93, 123, 244, .8);
+.prodphoto-btn {
+    background-color: rgba(93, 123, 244, .7);
     color: var(--dark-color);
     border-radius: 5px;
     width: auto;
     min-width: 7vw;
+    margin-left: .4vw;
 }
 
-.btn-changes-2 {
-    margin-left: 15px;
+.prodphoto-btn-2 {
     background-color: var(--light-blue);
     border-radius: 5px;
     width: auto;
@@ -62,18 +47,16 @@ body {
     min-width: 7vw;
 }
 
-.btn-together {
+.prodphoto-btn-together {
     padding: 10px;
     margin-right: auto;
     margin-left: auto;
 }
 
-.btn-changes:hover {
+.prodphoto-btn:hover {
     opacity: .8;
 }
 
-.btn-changes-2:hover {
+.prodphoto-btn-2:hover {
     opacity: .8;
 }
-
-/* shorten whitespace on boxes, add placeholder for input fields, align everything in the center, make whole containers bigger */
