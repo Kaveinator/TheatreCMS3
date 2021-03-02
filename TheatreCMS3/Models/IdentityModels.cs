@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using TheatreCMS3.Areas.Production.Models;
 
 namespace TheatreCMS3.Models
 {
@@ -29,5 +30,7 @@ namespace TheatreCMS3.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Productions> Productions { get; set; }
     }
 }
