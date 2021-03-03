@@ -17,10 +17,18 @@ namespace TheatreCMS3.Areas.Production.Models
         public string/*?*/ Playwright { get; set; }
         [Required]
         public string Description { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime OpeningDay { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime ClosingDay { get; set; }
         //public ProductionPhoto Default { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime ShowtimeEve { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime ShowtimeMat { get; set; }
         [Required]
         public string TicketLink { get; set; }
