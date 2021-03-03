@@ -13,23 +13,27 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top nav-pills nav-fill ">
-    <div class="container-fluid">
-        <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png" class="navbar-icon-red" /></a>
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Production<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Rental</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-            </li>
+  <div class="container-fluid">
+    <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png" class="navbar-icon-red" /></a>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
+      </li>
+      <li class=" navbar dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Production <span class="caret"></span></a>
+        <ul class="dropdown-menu navMenuDrop">
+          <li>@Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Production" }, new { @class = "navMenuDrop" }) </li>
+          <li>@Html.ActionLink("Production Photos", "Index", "ProductionPhotos", new { Area = "Production" } , new { @class = "navMenuDrop" })</li>
         </ul>
-        @Html.Partial("_LoginPartial")
-    </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Rental</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+    </ul>
+  @Html.Partial("_LoginPartial")
+  </div>
 </nav>
 
