@@ -19,12 +19,14 @@
       <li class="nav-item">
         <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
       </li>
-      <li class=" navbar dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Production <span class="caret"></span></a>
-        <ul class="dropdown-menu navMenuDrop">
-          <li>@Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Production" }, new { @class = "navMenuDrop" }) </li>
-          <li>@Html.ActionLink("Production Photos", "Index", "ProductionPhotos", new { Area = "Production" } , new { @class = "navMenuDrop" })</li>
-        </ul>
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Production
+        </a>
+        <div class="dropdown-menu navMD1" aria-labelledby="navbarDropdownMenuLink">
+          @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Production" }, new { @class = "dropdown-item navMD2" })
+          @Html.ActionLink("Production Photos", "Index", "ProductionPhotos", new { Area = "Production" }, new { @class = "dropdown-item navMD2" })
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Rental</a>

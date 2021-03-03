@@ -36,16 +36,14 @@ textarea {
 
 /* Styling and positioning for the Navbar */
 
-/*added .navMenuDrop to specifically accommodate the drop menu inorder to match the color schema */
-.navMenuDrop {
+/*added .navMD1/MD2 to accommodate menu drop color schema */
+.navMD1 {
     background-color: var(--secondary-color);
-    color: #000000;
+}
+
+.navMD2 {
+    color: var(--dark-color);
     font-weight: bold;
-    margin-left: 8px;
-    margin-right: 8px;
-    border-radius: 5px;
-    justify-content: center;
-    text-align: center;
 }
 .nav > li {
     margin-left: 8px;
