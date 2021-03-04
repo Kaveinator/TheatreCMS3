@@ -4,15 +4,15 @@
     ViewBag.Title = "Create";
 }
 
-<h1 class="cast_member-create-h1">Create Cast Member</h1>
+<h1 class="cast_member-create--h1">Create Cast Member</h1>
 
-<div class="cast_member-create--form_container col-12 col-sm-12 col-md-6">
+<div class="cast_member-create--form_container col-12 col-sm-12 col-md-8 col-lg-6">
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal cast_member-create--form">
-        <h4 class="cast_member-create-h1">Add New Cast Member</h4>
+        <h4 class="cast_member-create--h4">Add New Cast Member</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -47,10 +47,10 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group cast_member-create--current_member">
             @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-12">
-                <div class="checkbox">
+                <div class="check-box">
                     @Html.EditorFor(model => model.CurrentMember)
                     @Html.ValidationMessageFor(model => model.CurrentMember, "", new { @class = "text-danger" })
                 </div>
@@ -81,18 +81,11 @@
             </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-around">
           <div class="form-group cast_member-create--submit_btn">
-            <div class="col-md-offset-2">
               <input type="submit" value="Create" class="btn btn-default" />
-            </div>
           </div>
-
-          <div class="cast_member-create--back_btn">
-            <div class="h">
-              @Html.ActionLink("Back to List", "Index")
-            </div>
-          </div>
+              @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default cast_member-create--back_btn " })
         </div>
     </div>
     
