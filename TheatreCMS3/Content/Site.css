@@ -84,7 +84,7 @@ a.CMS-text-bigger{
 
 .dropdown-item:hover, .dropdown-item:focus {
     color: var(--dark-color);
-    background-color: var(--secondary-color);
+    background-color: #DEB887;
 }
 
 .navMD1 {
