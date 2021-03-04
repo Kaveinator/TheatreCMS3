@@ -74,6 +74,33 @@ h1.CMS-text-bigger{
 a.CMS-text-bigger{
     font-size:36px;
 }
+/*Styling for _Footer.cshtml*/
+.footer-all {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    position: absolute;
+    bottom: 0;
+}
+.footer-content {
+    padding-top: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.footer-links {
+    height: 24px;
+    /*height has to be entered manually due to floating elements*/
+    /*ensures padding/margin relative to other elements responds as expected*/
+}
+.footer-address {
+    padding-top: 8px;
+    line-height: 20px;
+}
+.footer-copyright {
+    width: 115px;
+    text-align: right;
+    position:absolute;
+    bottom: 0;
+}
 /*Adding CSS for Theatre Vertigo About page*/
 .aboutPage-Card-Img {
     width: auto;
