@@ -7,6 +7,7 @@
     --light-color: #FFFBFB; /* White */
     --dark-color: #000000; /* Black */
     --subscriber-main: #9D7C39; /* Dark Gold */
+    --light-blue: rgb(93, 123, 244) /*Light Blue - Added color on top of original*/
 }
 
 body {
@@ -28,11 +29,11 @@ body {
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 /* Styling and positioning for the Navbar */
 
@@ -73,6 +74,33 @@ h1.CMS-text-bigger{
 
 a.CMS-text-bigger{
     font-size:36px;
+}
+/*Styling for _Footer.cshtml*/
+.footer-all {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    position: absolute;
+    bottom: 0;
+}
+.footer-content {
+    padding-top: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.footer-links {
+    height: 24px;
+    /*height has to be entered manually due to floating elements*/
+    /*ensures padding/margin relative to other elements responds as expected*/
+}
+.footer-address {
+    padding-top: 8px;
+    line-height: 20px;
+}
+.footer-copyright {
+    width: 115px;
+    text-align: right;
+    position:absolute;
+    bottom: 0;
 }
 
 
