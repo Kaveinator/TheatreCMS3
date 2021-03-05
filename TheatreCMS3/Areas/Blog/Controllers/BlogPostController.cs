@@ -5,14 +5,15 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Data;
 using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Models;
+using System.Data.Entity;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
     public class BlogPostController : Controller
     {
-        BlogPostContext db = new BlogPostContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
 
 
