@@ -1,4 +1,96 @@
-﻿body {
+﻿/* CSS color variables */
+/*:root { /* Color palette for css */
+    /*--main-bg-color: #DB1A11;  Red */
+    /*--main-secondary-color: #F04D44;*/ /* Red, a shade lighter */
+    /*--secondary-color: #D6972A;*/ /* Yellow gold */
+    /*--light-color: #FFFBFB;*/ /* White */
+    /*--dark-color: #000000;*/ /* Black */
+    /*--subscriber-main: #9D7C39;*/ /* Dark Gold */
+/*}*/
+body {
+}
+.cast_member-create--h1 {
+    text-align: center;
+    color: var(--light-color);
+    padding: 30px;
+}
+.cast_member-create--h4 {
+    text-align: center;
+    color: var(--dark-color);
+    padding: 30px;
+}
+
+.cast_member-create--form_container {
+    text-align: center;
+    border: solid 20px;
+    border-radius: 25px;
+    border-color: var(--main-bg-color);
+    background-color: var(--light-color);
+    margin-left: auto;
+    margin-right: auto;
+}
+.cast_member-create--form {
+    text-align: left;
+}
+.cast_member-create--current_member {
+    text-align: center;
+    padding: 20px;
+}
+.cast_member-create--submit_btn {
+    text-align: center;
+    background-color: var(--main-bg-color);
+    border-radius: 10px;
+    width: auto;
+    margin-top: 50px;
+    padding: 10px;
+    
+}
+.cast_member-create--submit_btn:hover {
+    opacity: .8;
+}
+.check-box {
+    text-align: center;
+}
+.cast_member-create--back_btn {
+    margin-top: 50px;
+    text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 10px;
+    width: auto;
+    margin-bottom: 15px;
+}
+.cast_member-create--back_btn:hover {
+    opacity: .8;
+}
+.cast_member-create--form_group {
+    background-color: lightgrey;
+    border: 2px solid var(--dark-color);
+    outline: none;
+    width: 100%;
+    text-align: left;
+    margin: auto;
+    margin: auto;
+}
+.cast_member-create--bio_form_group, textarea {
+    background-color: lightgrey;
+    border: 2px solid var(--dark-color);
+    outline: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cast_member-create--form_group:focus, textarea:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 3px var(--secondary-color);
+    color: var(--main-secondary-color);
+    background-color: rgba(204, 238, 255, .9);
+}
+.cast_member-create--bio_form_group:focus, textarea:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 3px var(--secondary-color);
+    color: var(--main-secondary-color);
+    background-color: rgba(204, 238, 255, .9);
 }
 
 .prodphoto-form-styling {
