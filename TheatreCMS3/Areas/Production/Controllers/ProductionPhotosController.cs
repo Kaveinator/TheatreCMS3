@@ -15,11 +15,22 @@ namespace TheatreCMS3.Areas.Production.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Production/ProductionPhotoes
+        //GET: Production/ProductionPhotos
         public ActionResult Index()
         {
+
+
             return View(db.ProductionPhotos.ToList());
         }
+
+        //public ActionResult Index()
+        //{
+        /// whaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat is this "s" doing in the select statement. doesn't it have to be a table name??
+        //    var productionPhotos = from s in db.ProductionPhotos
+        //                           select s;
+        //    productionPhotos = productionPhotos.OrderByDescending(s => s.Title);
+        //    return View(productionPhotos.ToList());
+        //}
 
         // GET: Production/ProductionPhotoes/Details/5
         public ActionResult Details(int? id)

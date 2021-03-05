@@ -14,7 +14,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 4vh;
+    margin-top: 8vh;
     white-space: nowrap;
 }
 
@@ -60,3 +60,63 @@
 .prodphoto-btn-2:hover {
     opacity: .8;
 }
+
+.prodphoto-card {
+    border: none;
+    max-height: 55vh;
+    margin-bottom: 3.5vh;
+}
+
+.prodphoto-desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    min-height: 5.1vh;
+}
+
+.prodphoto-index-btn {
+    background-color: var(--main-bg-color);
+    color: var(--dark-color);
+    border-radius: 5px;
+    width: auto;
+    min-width: 2vw;
+    margin-bottom: 4vh;
+}
+
+.prodphoto-index-btn:hover {
+    opacity: .7;
+    color: var(--dark-color);
+}
+
+.prodphoto-center-elements {
+    text-align: center;
+}
+
+.prodphoto-title-spacing {
+    margin-top: 5vh;
+    color: var(--light-color);
+    text-align: center;
+}
+
+.prodphoto-badge {
+    background-color: rgba(93, 123, 244, .8);
+    color: var(--dark-color);
+}
+
+.prodphoto-badge:hover {
+    background-color: rgba(93, 123, 244, 1);
+    color: var(--dark-color);
+}
+
+.prodphoto-card-title {
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    color: var(--light-color);
+    text-align: center;
+}
+
+/*set up border of picture to be flush. make sure to add title above card and is small letters. clickable pictures to bring to details page. make pill buttons in theme with website. 
+    make photos organized by name.
+*/
