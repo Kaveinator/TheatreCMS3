@@ -87,11 +87,12 @@ a.CMS-text-bigger{
     background-color: #DEB887;
 }
 
-.navMD1 {
+/* Navbar dropdown menu background color*/
+.dropdownbckgrndclr {
     background-color: var(--secondary-color);
 }
-
-.navMD2 {
+/*Navbar dropdown menu text color*/
+.dropdowntxt {
     color: var(--dark-color);
     font-weight: bold;
 }
