@@ -79,7 +79,8 @@ a.CMS-text-bigger{
     background-color: var(--dark-color);
     color: var(--light-color);
     position: absolute;
-    bottom: 0;
+    /*bottom: 0; ----------------------- Kevin commented this out because the footer was in the 
+     middle of my page. toggling this property in devtools fixed it so it was at the bottom*/
 }
 .footer-content {
     padding-top: 12px;

@@ -23,10 +23,10 @@
         {
             if (item.Title == item2)
             {
-                <div class="col-6 col-sm-6 col-md-4">
+                <div class="col-9 col-sm-6 col-md-4">
                     <div class="card prodphoto-card">
                         <a href="@Url.Action("Details", null, new { id = item.ProPhotoId })">
-                            <img class="card-img-top" src="..\..\..\..\Content\images\macbeth.png" alt="Card image cap">
+                            <img class="card-img-top" src="~/Content/images/macbeth.png" alt="Card image cap">
                         </a>
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
