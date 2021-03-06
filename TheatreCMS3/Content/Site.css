@@ -36,6 +36,7 @@ textarea {
 }*/
 
 /* Styling and positioning for the Navbar */
+
 .nav > li {
     margin-left: 8px;
     margin-right: 8px;
@@ -102,6 +103,29 @@ a.CMS-text-bigger{
     position:absolute;
     bottom: 0;
 }
+
+
+/* Additional Styling for the Navbar dropdown menu to override the default bootstrap color schema */
+.nav-link.active, .nav-pills .show > .nav-link {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: var(--dark-color);
+    background-color: #DEB887;
+}
+
+/* Navbar dropdown menu background color*/
+.dropdownbckgrndclr {
+    background-color: var(--secondary-color);
+}
+/*Navbar dropdown menu text color*/
+.dropdowntxt {
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
 /*Adding CSS for Theatre Vertigo About page*/
 .aboutPage-Card-Img {
     width: auto;

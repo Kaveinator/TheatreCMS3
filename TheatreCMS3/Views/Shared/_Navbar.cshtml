@@ -13,23 +13,30 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top nav-pills nav-fill ">
-    <div class="container-fluid">
-        <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png" class="navbar-icon-red" /></a>
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Production<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Rental</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-            </li>
-        </ul>
-        @Html.Partial("_LoginPartial")
-    </div>
+  <div class="container-fluid">
+    <a href="~/Home/Index"><img src="~/Content/images/TheatreLogo.png" class="navbar-icon-red" /></a>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
+      </li>
+      <li class="nav nav-item dropdown ">
+        <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Production
+        </a>
+        <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+          @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Production" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Production Photos", "Index", "ProductionPhotos", new { Area = "Production" }, new { @class = "dropdown-item dropdowntxt" })
+          @Html.ActionLink("Productions", "Index", "Productions", new { Area = "Production" }, new { @class = "dropdown-item dropdowntxt" })
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Rental</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+    </ul>
+  @Html.Partial("_LoginPartial")
+  </div>
 </nav>
 
