@@ -21,32 +21,21 @@ body {
 .blogpost-btn {
     margin-left: 8px;
     margin-right: 8px;
+    border-radius: 5px;
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.blogpost-btnclr1 {
     background-color: #2A69D6;
-    border-radius: 5px;
-    justify-content: center;
-    color: var(--dark-color);
-    font-weight: bold;
 }
-
-.blogpost-btn-2 {
-    margin-left: 8px;
-    margin-right: 8px;
+.blogpost-btnclr2 {
     background-color: var(--secondary-color);
-    border-radius: 5px;
-    justify-content: center;
-    color: var(--dark-color);
-    font-weight: bold;
 }
 
-.blogpost-btn-together {
-    padding: 10px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.blogpost-btn:hover {
-    opacity: .8;
-}
+    .blogpost-btn:hover {
+        opacity: .8;
+    }
 
 .blogpost-btn-2:hover {
     opacity: .8;
