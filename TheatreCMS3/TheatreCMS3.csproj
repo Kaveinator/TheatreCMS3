@@ -219,7 +219,11 @@
     <Content Include="Content\images\Cast_Img_4.jpg" />
     <Content Include="Content\images\Cast_Img_6.jpg" />
     <Content Include="Content\images\Cast_Img_7.jpg" />
+    <Content Include="Content\images\DollsHouse.png" />
     <Content Include="Content\images\dummy.txt" />
+    <Content Include="Content\images\macbeth.png" />
+    <Content Include="Content\images\MidsummerNightDream.png" />
+    <Content Include="Content\images\Tempest.png" />
     <Content Include="Content\images\TheatreLogo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

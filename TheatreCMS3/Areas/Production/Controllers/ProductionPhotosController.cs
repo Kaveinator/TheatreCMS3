@@ -15,9 +15,11 @@ namespace TheatreCMS3.Areas.Production.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Production/ProductionPhotoes
+        //GET: Production/ProductionPhotos
         public ActionResult Index()
         {
+
+
             return View(db.ProductionPhotos.ToList());
         }
 
