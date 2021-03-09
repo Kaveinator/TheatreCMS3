@@ -77,10 +77,11 @@ a.CMS-text-bigger{
 }
 /*Styling for _Footer.cshtml*/
 .footer-all {
+    width: 100%; /*Added to make footer full width */
     background-color: var(--dark-color);
     color: var(--light-color);
-    position: absolute;
-    /*bottom: 0; ----------------------- Kevin commented this out because the footer was in the 
+    position: fixed; /*changed from absolute to fixed to make visable when scrolling*/
+    bottom: 0; /*----------------------- Kevin commented this out because the footer was in the 
      middle of my page. toggling this property in devtools fixed it so it was at the bottom*/
 }
 .footer-content {
