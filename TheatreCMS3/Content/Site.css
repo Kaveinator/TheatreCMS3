@@ -36,6 +36,7 @@ textarea {
 }*/
 
 /* Styling and positioning for the Navbar */
+
 .nav > li {
     margin-left: 8px;
     margin-right: 8px;
@@ -74,6 +75,57 @@ h1.CMS-text-bigger{
 a.CMS-text-bigger{
     font-size:36px;
 }
+/*Styling for _Footer.cshtml*/
+.footer-all {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    position: absolute;
+    /*bottom: 0; ----------------------- Kevin commented this out because the footer was in the 
+     middle of my page. toggling this property in devtools fixed it so it was at the bottom*/
+}
+.footer-content {
+    padding-top: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.footer-links {
+    height: 24px;
+    /*height has to be entered manually due to floating elements*/
+    /*ensures padding/margin relative to other elements responds as expected*/
+}
+.footer-address {
+    padding-top: 8px;
+    line-height: 20px;
+}
+.footer-copyright {
+    width: 115px;
+    text-align: right;
+    position:absolute;
+    bottom: 0;
+}
+
+
+/* Additional Styling for the Navbar dropdown menu to override the default bootstrap color schema */
+.nav-link.active, .nav-pills .show > .nav-link {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: var(--dark-color);
+    background-color: #DEB887;
+}
+
+/* Navbar dropdown menu background color*/
+.dropdownbckgrndclr {
+    background-color: var(--secondary-color);
+}
+/*Navbar dropdown menu text color*/
+.dropdowntxt {
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
 /*Adding CSS for Theatre Vertigo About page*/
 .aboutPage-Card-Img {
     width: auto;

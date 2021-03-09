@@ -4,36 +4,43 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h1 class="prodphoto-title-spacing">Upcoming Plays</h1>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+@* need to make a list from the model that represents all unique names of plays, then in each loop, I need to have an if statement that gathers all same named items into the same row, with the title above it *@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProPhotoId })
-        </td>
-    </tr>
+@{ HashSet<string> uniqueTitle = new HashSet<string>(Model.Select(x => x.Title)); }
+
+<div class="prodphoto-center-elements">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "badge badge-pill prodphoto-index-btn" })
+</div>
+
+@foreach (var item2 in uniqueTitle)
+{
+    <h4 class="prodphoto-center-elements prodphoto-card-title">@item2</h4>
+    <div class="row justify-content-center">
+
+        @foreach (var item in Model)
+        {
+            if (item.Title == item2)
+            {
+                <div class="col-9 col-sm-6 col-md-4">
+                    <div class="card prodphoto-card">
+                        <a href="@Url.Action("Details", null, new { id = item.ProPhotoId })">
+                            <img class="card-img-top" src="~/Content/images/macbeth.png" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                            <p class="card-text prodphoto-desc">@Html.DisplayFor(modelItem => item.Description)</p>
+                            <div class="prodphoto-center-elements">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }, new { @class = "badge badge-pill prodphoto-badge" })
+                                @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }, new { @class = "badge badge-pill prodphoto-badge" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId }, new { @class = "badge badge-pill prodphoto-badge" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
 }
-
-</table>
