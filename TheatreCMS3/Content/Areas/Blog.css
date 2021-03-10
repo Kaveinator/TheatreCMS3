@@ -68,3 +68,15 @@ body {
     box-shadow: 0 0 3px var(--secondary-color);
     background-color: var(--light-color);
 }
+
+.blogpost-index-bckclr {
+   background-color: var(--light-color);
+}
+
+.truncatetxt {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
