@@ -1,14 +1,70 @@
-﻿body {
+﻿/* CSS color variables */
+/*:root { /* Color palette for css */
+/*--main-bg-color: #DB1A11;  Red */
+/*--main-secondary-color: #F04D44;*/ /* Red, a shade lighter */
+/*--secondary-color: #D6972A;*/ /* Yellow gold */
+/*--light-color: #FFFBFB;*/ /* White */
+/*--dark-color: #000000;*/ /* Black */
+/*--subscriber-main: #9D7C39;*/ /* Dark Gold */
+/*}*/
+
+
+body {
 }
 
-.blogpost-index-bckclr {
-   background-color: var(--light-color);
+.blogpost-h1 {
+    text-align: center;
+    color: var(--light-color);
+    padding: 30px;
 }
 
-.truncatetxt {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.blogpost-btn {
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 5px;
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.blogpost-btnclr1 {
+    background-color: #2A69D6;
+}
+.blogpost-btnclr2 {
+    background-color: var(--secondary-color);
+}
+
+    .blogpost-btn:hover {
+        opacity: .8;
+    }
+
+.blogpost-btn-2:hover {
+    opacity: .8;
+}
+
+.blogpost-form-container {
+    text-align: left;
+    border: solid 5px;
+    border-radius: 5px;
+    background-color: var(--light-color);
+    border-color: var(--secondary-color);
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.blogpost-form-group {
+    background-color: #f6f6f6;
+    border: 2px solid lightgrey;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    margin: auto;
+    margin: auto;
+}
+
+.blogpost-form-group:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 3px var(--secondary-color);
+    background-color: var(--light-color);
 }
