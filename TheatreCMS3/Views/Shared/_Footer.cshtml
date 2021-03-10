@@ -2,10 +2,10 @@
 <footer class="footer-all"> @*Taking out container to make footer full width*@
   <div class="float-left footer-content">
       <div class="footer-links">
-          @Html.ActionLink("About", "About", "Home", null, new { @class = "float-left" })
+          @Html.ActionLink("About", "About", "Home", new { @class = "float-left", area="" }, null)
           @*<a class="float-left" href="#">About</a> added action link above *@
           @*<a class="float-right" href="3">Contact</a> added action link below *@
-          @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "float-right" })
+          @Html.ActionLink("Contact", "Contact", "Home", new { @class = "float-right", area="" }, null)
       </div>
       <p class="footer-address">2110 SE 10TH AVE<br />
       Portland OR 97214<br />
