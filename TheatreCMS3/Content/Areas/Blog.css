@@ -80,3 +80,13 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.btn-on-bottom {
+    position: absolute;
+    bottom: 10px;
+    
+}
+.centered {
+    text-align: center;
+}
+
