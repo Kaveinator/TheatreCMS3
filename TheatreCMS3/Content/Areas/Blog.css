@@ -1,2 +1,14 @@
 ﻿body {
 }
+
+.blogpost-index-bckclr {
+   background-color: var(--light-color);
+}
+
+.truncatetxt {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
