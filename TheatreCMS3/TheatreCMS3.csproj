@@ -184,6 +184,7 @@
     <Compile Include="Areas\Production\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Production\Models\Productions.cs" />
     <Compile Include="Areas\Production\ProductionAreaRegistration.cs" />
+    <Compile Include="Areas\Rental\Models\RentalRequest.cs" />
     <Compile Include="Areas\Rental\RentalAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -438,7 +439,6 @@
     <Folder Include="Areas\Production\Views\ProductionPhoto\" />
     <Folder Include="Areas\Rental\Controllers\" />
     <Folder Include="Areas\Rental\Data\" />
-    <Folder Include="Areas\Rental\Models\" />
     <Folder Include="Areas\Rental\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
