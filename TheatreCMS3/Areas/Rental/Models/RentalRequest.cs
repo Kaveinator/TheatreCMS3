@@ -15,10 +15,13 @@ namespace TheatreCMS3.Areas.Rental.Models
         public string ContactPerson { get; set; }
         public string Company { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime RequestedTime { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime StartTime { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime EndTime { get; set; }
         public string ProjectInfo { get; set; }
         public int RentalCode { get; set; }
