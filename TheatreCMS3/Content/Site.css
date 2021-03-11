@@ -195,7 +195,7 @@ a.CMS-text-bigger {
     box-shadow: inset var(--dark-color) 1px 2px 20px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
     .formContainer {
         width: 100%;
     }
