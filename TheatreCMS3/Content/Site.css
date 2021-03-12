@@ -1,12 +1,11 @@
 ﻿/* CSS color variables */
 :root { /* Color palette for css */
-    --main-bg-color: #DB1A11; /* Red */
-    --main-secondary-color: #F04D44; /* Red, a shade lighter */
+    --main-color: #DB1A11; /* Red */
+    --main-color--light: #F04D44; /* Red, a shade lighter */
     --secondary-color: #D6972A; /* Yellow gold */
+    --secondary-color--dark: #9D7C39; /* Dark Gold */
     --light-color: #FFFBFB; /* White */
     --dark-color: #000000; /* Black */
-    --subscriber-main: #9D7C39; /* Dark Gold */
-    --light-blue: rgb(93, 123, 244) /*Light Blue - Added color on top of original*/
 }
 
 body {
@@ -59,7 +58,7 @@ textarea {
 }
 
 .navbar {
-    background-color: var(--main-bg-color);
+    background-color: var(--main-color);
 }
 
 .CMS-text-white {
@@ -176,7 +175,7 @@ a.CMS-text-bigger {
 }
 
 .aboutPage-h1 {
-    color: var(--main-bg-color);
+    color: var(--main-color);
     text-align: center;
     padding: 15px;
     text-decoration: underline;
@@ -189,9 +188,9 @@ a.CMS-text-bigger {
 .formContainer {
     margin: 10% auto;
     width: 750px;
-    background-color: var(--subscriber-main);
+    background-color: var(--secondary-color--dark);
     border: ridge 10px;
-    border-color: var(--main-secondary-color);
+    border-color: var(--main-color--light);
     box-shadow: inset var(--dark-color) 1px 2px 20px;
 }
 
@@ -212,7 +211,7 @@ a.CMS-text-bigger {
 .LoginButton > .btn-warning {
     background-color: var(--secondary-color);
     border: outset 2px;
-    border-color: var(--main-secondary-color);
+    border-color: var(--main-color--light);
     font-weight: bold;
     box-shadow: var(--dark-color) .8px .8px 5px;
 }
@@ -220,6 +219,6 @@ a.CMS-text-bigger {
     .LoginButton > .btn-warning:hover {
         background-color: #b57b16;
         border: inset 2px;
-        border-color: var(--main-bg-color);
+        border-color: var(--main-color);
         box-shadow: inset var(--dark-color) 1px 1px 5px;
     }
