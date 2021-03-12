@@ -28,14 +28,21 @@ body {
 
 .blogpost-btnclr1 {
     background-color: #2A69D6;
+    color: var(--light-color);
+}
+.blogpost-btnclr1:hover {
+    color: var(--light-color);
 }
 .blogpost-btnclr2 {
     background-color: var(--secondary-color);
 }
+.blogpost-btnclr3 {
+    background-color: var(--main-bg-color);
+}
 
-    .blogpost-btn:hover {
-        opacity: .8;
-    }
+.blogpost-btn:hover {
+    opacity: .8;
+}
 
 .blogpost-btn-2:hover {
     opacity: .8;
@@ -67,4 +74,7 @@ body {
     border: 2px solid var(--secondary-color);
     box-shadow: 0 0 3px var(--secondary-color);
     background-color: var(--light-color);
+}
+.txtclr2 {
+    color: var(--light-color);
 }
