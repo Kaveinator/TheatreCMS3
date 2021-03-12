@@ -11,16 +11,17 @@
 </p>
 
 @foreach (var item in Model)
-{ 
-
+{
+@*accordion container for view of requests*@
 <div class="container-fluid">
     <div id="accordion">
-        <div class="card">
+        <div class="card rental-rentalrequest--container">
+            @*top part of accordion that will show contact person, company name, and time unlil request/ time remaining*@
             <div class="card-header">
-                <div class="container" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <div class="container" data-toggle="collapse" data-target="#collapse@(item.RentalRequestID) " aria-expanded="false" aria-controls="collapseOne">
                     <div class="row">
                         <div class="col-md-8">
-                                @Html.DisplayNameFor(model => model.Company)
+                                @Html.DisplayFor(modelItem => item.Company)
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -31,45 +32,59 @@
                                 @Html.DisplayFor(modelItem => item.ContactPerson)
                         </div>
                         <div class="col-md-4">
-                           
-                                @Html.DisplayFor(modelItem => item.StartTime)
+                           @*Time remaining or until starts*@
+                                @(item.StartTime-DateTime.Now)
+                                
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="collapseOne" class="collapse" data-parent="#accordion">
+            @*More details of the rental request when top part of the accordion is clicked*@
+            <div id="collapse@(item.RentalRequestID)" class="collapse container" data-parent="#accordion">
                 <div class="card-body">
-                    <table class="test1">
-                        <tr>
-                            <td>
-                                Start Time<br />
-                                @Html.DisplayFor(modelItem => item.StartTime)
-                            </td>
-                            <td>
-                                End Time<br />
-                                @Html.DisplayFor(modelItem => item.EndTime)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.RentalCode)<br />
-                                @Html.DisplayFor(modelItem => item.ProjectInfo)<br />
-                                @Html.DisplayFor(modelItem => item.RentalCode)<br />
-                                @Html.DisplayFor(modelItem => item.Accepted)<br />
-                                @Html.DisplayFor(modelItem => item.ContractSigned)<br /><br />
-                                @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
-
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="row rental-rentalrequest--row-center">
+                        <div class="col-md-4">
+                            Start Time
+                        </div>
+                        <div class="col-md-4">
+                            End Time
+                        </div>
+                    </div>
+                    <div class="row rental-rentalrequest--row-center">
+                        <div class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.StartTime)
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.EndTime)
+                        </div>
+                    </div>
+                    <div class="flex-column">
+                        <div class="p-2">
+                            @Html.DisplayFor(modelItem => item.RentalCode)
+                        </div>
+                        <div class="p-2">
+                            @Html.DisplayFor(modelItem => item.ProjectInfo)
+                        </div>
+                        <div class="p-2">
+                            @Html.DisplayFor(modelItem => item.RentalCode)
+                        </div>
+                        <div class="p-2">
+                            @Html.DisplayFor(modelItem => item.Accepted)
+                        </div>
+                        <div class="p-2">
+                            @Html.DisplayFor(modelItem => item.ContractSigned)
+                        </div>
+                        <div class="p-2">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
+ </div>
 
 }
 

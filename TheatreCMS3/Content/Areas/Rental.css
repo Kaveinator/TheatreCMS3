@@ -15,10 +15,13 @@ body {
 .rental-rentalrequest--container {
     background-color: var(--secondary-color);
 }
-.rental-rentalrequest--table tr {
+.rental-rentalrequest--row {
     color: #bd1a11;
     display: flex;
     align-content: center;
     background-color: #d6972a;
     text-decoration: none;
+}
+.rental-rentalrequest--row-center {
+    justify-content: center;
 }
