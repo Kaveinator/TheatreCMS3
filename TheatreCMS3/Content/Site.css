@@ -1,5 +1,4 @@
-﻿
-/* CSS color variables */
+﻿/* CSS color variables */
 :root { /* Color palette for css */
     --main-bg-color: #DB1A11; /* Red */
     --main-secondary-color: #F04D44; /* Red, a shade lighter */
@@ -21,8 +20,8 @@ body {
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
 */
 .dl-horizontal dt {
     white-space: normal;
@@ -45,14 +44,14 @@ textarea {
     justify-content: center;
 }
 
-.nav > li:hover {
-    background-color: #DEB887;
-}
+    .nav > li:hover {
+        background-color: #DEB887;
+    }
 
-.nav > li > a {
-    color: #000000;
-    font-weight: bold;
-}
+    .nav > li > a {
+        color: #000000;
+        font-weight: bold;
+    }
 
 .navbar-icon-red {
     height: 42px;
@@ -63,17 +62,17 @@ textarea {
     background-color: var(--main-bg-color);
 }
 
-.CMS-text-white{
+.CMS-text-white {
     color: var(--light-color);
 }
 
-h1.CMS-text-bigger{
-    text-align:center;
-    font-size:75px;
+h1.CMS-text-bigger {
+    text-align: center;
+    font-size: 75px;
 }
 
-a.CMS-text-bigger{
-    font-size:36px;
+a.CMS-text-bigger {
+    font-size: 36px;
 }
 /*Styling for _Footer.cshtml*/
 .footer-all {
@@ -84,27 +83,30 @@ a.CMS-text-bigger{
     bottom: 0; /*----------------------- Kevin commented this out because the footer was in the 
      middle of my page. toggling this property in devtools fixed it so it was at the bottom*/
 }
+
 .footer-content {
     padding-top: 12px;
     padding-left: 30px;
     padding-right: 30px;
 }
+
 .footer-links {
     height: 24px;
     /*height has to be entered manually due to floating elements*/
     /*ensures padding/margin relative to other elements responds as expected*/
 }
+
 .footer-address {
     padding-top: 8px;
     line-height: 20px;
 }
+
 .footer-copyright {
     width: 115px;
     text-align: right;
-    position:absolute;
+    position: absolute;
     bottom: 0;
 }
-
 
 /* Additional Styling for the Navbar dropdown menu to override the default bootstrap color schema */
 .nav-link.active, .nav-pills .show > .nav-link {
@@ -134,38 +136,45 @@ a.CMS-text-bigger{
     height: 75%;
     object-fit: cover;
 }
-.aboutPage-Card-Img:hover {
-    background-color: var(--dark-color);
-    opacity: .8;
-    transition: .15s;
-}
+
+    .aboutPage-Card-Img:hover {
+        background-color: var(--dark-color);
+        opacity: .8;
+        transition: .15s;
+    }
+
 .aboutPage-Card:hover {
     border-color: var(--secondary-color);
     border-style: double;
 }
+
 .aboutPage-Card-Bdy {
     background-color: var(--dark-color);
 }
+
 .aboutPage-Card-Text {
     text-align: center;
     color: var(--light-color);
 }
+
 .aboutPage-History {
     text-align: left;
     color: var(--light-color);
     padding: 40px;
 }
+
 .aboutPage-Board {
-    text-align:center;
+    text-align: center;
     color: var(--light-color);
     padding: 40px;
 }
+
 .aboutPage-Mission {
     text-align: center;
     color: var(--light-color);
     padding: 40px;
-
 }
+
 .aboutPage-h1 {
     color: var(--main-bg-color);
     text-align: center;
@@ -174,3 +183,43 @@ a.CMS-text-bigger{
     font-weight: bold;
     text-decoration-color: var(--secondary-color);
 }
+
+/* LOGIN PAGE */
+
+.formContainer {
+    margin: 10% auto;
+    width: 750px;
+    background-color: var(--subscriber-main);
+    border: ridge 10px;
+    border-color: var(--main-secondary-color);
+    box-shadow: inset var(--dark-color) 1px 2px 20px;
+}
+
+@media screen and (max-width: 850px) {
+    .formContainer {
+        width: 100%;
+    }
+}
+
+#loginForm {
+    margin: 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 100%;
+    color: var(--light-color);
+}
+
+.LoginButton > .btn-warning {
+    background-color: var(--secondary-color);
+    border: outset 2px;
+    border-color: var(--main-secondary-color);
+    font-weight: bold;
+    box-shadow: var(--dark-color) .8px .8px 5px;
+}
+
+    .LoginButton > .btn-warning:hover {
+        background-color: #b57b16;
+        border: inset 2px;
+        border-color: var(--main-bg-color);
+        box-shadow: inset var(--dark-color) 1px 1px 5px;
+    }
