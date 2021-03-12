@@ -9,73 +9,138 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactPerson)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Company)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequestedTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectInfo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Accepted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContractSigned)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactPerson)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Company)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RequestedTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectInfo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Accepted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContractSigned)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalRequestID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalRequestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalRequestID })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{ 
+
+<div class="container-fluid">
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header">
+                <div class="container" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <div class="row">
+                        <div class="col-md-8">
+                                @Html.DisplayNameFor(model => model.Company)
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                           
+                                @Html.DisplayFor(modelItem => item.ContactPerson)
+                        </div>
+                        <div class="col-md-4">
+                           
+                                @Html.DisplayFor(modelItem => item.StartTime)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="collapseOne" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <table class="test1">
+                        <tr>
+                            <td>
+                                Start Time<br />
+                                @Html.DisplayFor(modelItem => item.StartTime)
+                            </td>
+                            <td>
+                                End Time<br />
+                                @Html.DisplayFor(modelItem => item.EndTime)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RentalCode)<br />
+                                @Html.DisplayFor(modelItem => item.ProjectInfo)<br />
+                                @Html.DisplayFor(modelItem => item.RentalCode)<br />
+                                @Html.DisplayFor(modelItem => item.Accepted)<br />
+                                @Html.DisplayFor(modelItem => item.ContractSigned)<br /><br />
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 }
 
-</table>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accepted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractSigned)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactPerson)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestedTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectInfo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RentalCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Accepted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContractSigned)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+                </td>
+            </tr>
+        }
+
+    </table>

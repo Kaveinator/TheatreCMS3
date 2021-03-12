@@ -1,2 +1,24 @@
-﻿body {
+﻿
+/* CSS color variables */
+:root { /* Color palette for css */
+    --main-bg-color: #DB1A11; /* Red */
+    --main-secondary-color: #F04D44; /* Red, a shade lighter */
+    --secondary-color: #D6972A; /* Yellow gold */
+    --light-color: #FFFBFB; /* White */
+    --dark-color: #000000; /* Black */
+    --subscriber-main: #9D7C39; /* Dark Gold */
+    --light-blue: rgb(93, 123, 244) /*Light Blue - Added color on top of original*/
+}
+body {
+}
+
+.rental-rentalrequest--container {
+    background-color: var(--secondary-color);
+}
+.rental-rentalrequest--table tr {
+    color: #bd1a11;
+    display: flex;
+    align-content: center;
+    background-color: #d6972a;
+    text-decoration: none;
 }
