@@ -73,7 +73,7 @@ body {
    background-color: var(--light-color);
 }
 
-.truncatetxt {
+.blogpost-truncatetxt {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -81,11 +81,20 @@ body {
     text-overflow: ellipsis;
 }
 
-.btn-on-bottom {
+.blogpost-btn-on-bottom-1 {
     position: absolute;
-    bottom: 25px;
-    display: inline-block;
+    bottom: 20px;
 }
-.centered {
-    text-align: center;
+
+.blogpost-btn-on-bottom-2 {
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
 }
+
+.blogpost-btn-on-bottom-3 {
+    position: absolute;
+    bottom: 20px;
+    right: 45px;
+}
+
