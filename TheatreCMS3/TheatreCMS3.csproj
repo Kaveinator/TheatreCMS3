@@ -186,6 +186,10 @@
     <Compile Include="Areas\Production\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Production\Models\Productions.cs" />
     <Compile Include="Areas\Production\ProductionAreaRegistration.cs" />
+    <Compile Include="Areas\Rental\Controllers\TheaterRentalController.cs" />
+    <Compile Include="Areas\Rental\Models\RentalEquipment.cs" />
+    <Compile Include="Areas\Rental\Models\RentalRoom.cs" />
+    <Compile Include="Areas\Rental\Models\TheaterRental.cs" />
     <Compile Include="Areas\Rental\RentalAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -288,6 +292,13 @@
     <Content Include="Areas\Blog\Views\BlogPost\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Delete.cshtml" />
+    <Content Include="Areas\Rental\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Rental\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Rental\Views\TheaterRental\Create.cshtml" />
+    <Content Include="Areas\Rental\Views\TheaterRental\Delete.cshtml" />
+    <Content Include="Areas\Rental\Views\TheaterRental\Details.cshtml" />
+    <Content Include="Areas\Rental\Views\TheaterRental\Edit.cshtml" />
+    <Content Include="Areas\Rental\Views\TheaterRental\Index.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
@@ -443,10 +454,7 @@
     <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Production\Data\" />
     <Folder Include="Areas\Production\Views\ProductionPhoto\" />
-    <Folder Include="Areas\Rental\Controllers\" />
     <Folder Include="Areas\Rental\Data\" />
-    <Folder Include="Areas\Rental\Models\" />
-    <Folder Include="Areas\Rental\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

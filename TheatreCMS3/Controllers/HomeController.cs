@@ -12,14 +12,14 @@ namespace TheatreCMS3.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
+        [HttpGet]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
