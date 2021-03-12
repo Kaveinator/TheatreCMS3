@@ -179,12 +179,6 @@
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
     <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Blog\Models\Comment.cs" />
-    <Compile Include="Areas\Production\Controllers\CastMembersController.cs" />
-    <Compile Include="Areas\Production\Controllers\ProductionPhotosController.cs" />
-    <Compile Include="Areas\Production\Models\CastMember.cs" />
-    <Compile Include="Areas\Production\Models\ProductionPhoto.cs" />
-    <Compile Include="Areas\Production\Controllers\ProductionsController.cs" />
-    <Compile Include="Areas\Production\Models\Productions.cs" />
     <Compile Include="Areas\Production\ProductionAreaRegistration.cs" />
     <Compile Include="Areas\Rental\Controllers\TheaterRentalController.cs" />
     <Compile Include="Areas\Rental\Models\RentalEquipment.cs" />
@@ -260,31 +254,13 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Areas\Production\Views\web.config" />
     <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Rental\Views\web.config" />
-    <Content Include="Areas\Production\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Production\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Production\Views\ProductionPhotos\Create.cshtml" />
-    <Content Include="Areas\Production\Views\ProductionPhotos\Delete.cshtml" />
-    <Content Include="Areas\Production\Views\ProductionPhotos\Details.cshtml" />
-    <Content Include="Areas\Production\Views\ProductionPhotos\Edit.cshtml" />
-    <Content Include="Areas\Production\Views\ProductionPhotos\Index.cshtml" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
-    <Content Include="Areas\Production\Views\CastMembers\Create.cshtml" />
-    <Content Include="Areas\Production\Views\CastMembers\Delete.cshtml" />
-    <Content Include="Areas\Production\Views\CastMembers\Details.cshtml" />
-    <Content Include="Areas\Production\Views\CastMembers\Edit.cshtml" />
-    <Content Include="Areas\Production\Views\CastMembers\Index.cshtml" />
     <Content Include="Properties\serviceDependencies.json" />
     <Content Include="Properties\serviceDependencies.local.json" />
-    <Content Include="Areas\Production\Views\Productions\Create.cshtml" />
-    <Content Include="Areas\Production\Views\Productions\Delete.cshtml" />
-    <Content Include="Areas\Production\Views\Productions\Details.cshtml" />
-    <Content Include="Areas\Production\Views\Productions\Edit.cshtml" />
-    <Content Include="Areas\Production\Views\Productions\Index.cshtml" />
     <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Index.cshtml" />
@@ -304,6 +280,7 @@
     <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
+    <Content Include="Areas\Production\Views\web.config" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -452,8 +429,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Blog\Data\" />
+    <Folder Include="Areas\Production\Controllers\" />
     <Folder Include="Areas\Production\Data\" />
-    <Folder Include="Areas\Production\Views\ProductionPhoto\" />
+    <Folder Include="Areas\Production\Models\" />
+    <Folder Include="Areas\Production\Views\Shared\" />
     <Folder Include="Areas\Rental\Data\" />
   </ItemGroup>
   <ItemGroup>
