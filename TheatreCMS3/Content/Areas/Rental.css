@@ -13,6 +13,10 @@ body {
 }
 
 .rental-rentalrequest--container {
+    background-color: var(--main-bg-color);
+    color: var(--light-color);
+}
+.rental-rentalrequest--dropdown {
     background-color: var(--secondary-color);
 }
 .rental-rentalrequest--row {

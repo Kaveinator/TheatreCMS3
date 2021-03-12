@@ -13,7 +13,7 @@
 @foreach (var item in Model)
 {
 @*accordion container for view of requests*@
-<div class="container-fluid">
+<div class="container-fluid mb-4">
     <div id="accordion">
         <div class="card rental-rentalrequest--container">
             @*top part of accordion that will show contact person, company name, and time unlil request/ time remaining*@
@@ -40,7 +40,7 @@
                 </div>
             </div>
             @*More details of the rental request when top part of the accordion is clicked*@
-            <div id="collapse@(item.RentalRequestID)" class="collapse container" data-parent="#accordion">
+            <div id="collapse@(item.RentalRequestID)" class="collapse container rental-rentalrequest--dropdown" data-parent="#accordion">
                 <div class="card-body">
                     <div class="row rental-rentalrequest--row-center">
                         <div class="col-md-4">
