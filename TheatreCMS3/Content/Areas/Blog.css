@@ -28,6 +28,10 @@ body {
 
 .blogpost-btnclr1 {
     background-color: #2A69D6;
+    color: var(--light-color);
+}
+.blogpost-btnclr1:hover {
+    color: var(--light-color);
 }
 .blogpost-btnclr2 {
     background-color: var(--secondary-color);
