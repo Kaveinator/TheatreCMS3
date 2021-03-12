@@ -177,6 +177,8 @@
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
+    <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Production\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Production\Controllers\ProductionPhotosController.cs" />
     <Compile Include="Areas\Production\Models\CastMember.cs" />
@@ -297,6 +299,11 @@
     <Content Include="Areas\Rental\Views\TheaterRental\Details.cshtml" />
     <Content Include="Areas\Rental\Views\TheaterRental\Edit.cshtml" />
     <Content Include="Areas\Rental\Views\TheaterRental\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

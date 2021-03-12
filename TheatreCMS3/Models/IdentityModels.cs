@@ -35,7 +35,7 @@ namespace TheatreCMS3.Models
         public System.Data.Entity.DbSet<Areas.Production.Models.CastMember> CastMembers { get; set; }
         public System.Data.Entity.DbSet<Areas.Blog.Models.BlogPost> BlogPosts { get; set; }
         public DbSet<Productions> Productions { get; set; }
-
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rental.Models.TheaterRental> TheaterRentals { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.Comment> Comments { get; set; }
     }
 }
