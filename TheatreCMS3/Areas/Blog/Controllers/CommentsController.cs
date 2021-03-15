@@ -6,114 +6,108 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Production.Models;
+using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Production.Controllers
+namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class ProductionPhotosController : Controller
+    public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        //GET: Production/ProductionPhotos
+        // GET: Blog/Comments
         public ActionResult Index()
         {
-
-
-            return View(db.ProductionPhotos.ToList());
+            return View(db.Comments.ToList());
         }
 
-        // GET: Production/ProductionPhotoes/Details/5
+        // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
-            if (productionPhoto == null)
+            Comment comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return HttpNotFound();
             }
-            return View(productionPhoto);
+            return View(comment);
         }
 
-        // GET: Production/ProductionPhotoes/Create
+        // GET: Blog/Comments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Production/ProductionPhotoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Blog/Comments/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "CommentId,Message,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
-                db.ProductionPhotos.Add(productionPhoto);
+                db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(productionPhoto);
+            return View(comment);
         }
 
-        // GET: Production/ProductionPhotoes/Edit/5
+        // GET: Blog/Comments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
-            if (productionPhoto == null)
+            Comment comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return HttpNotFound();
             }
-            return View(productionPhoto);
+            return View(comment);
         }
 
-        // POST: Production/ProductionPhotoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Blog/Comments/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "CommentId,Message,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(productionPhoto).State = EntityState.Modified;
+                db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(productionPhoto);
+            return View(comment);
         }
 
-        // GET: Production/ProductionPhotoes/Delete/5
+        // GET: Blog/Comments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
-            if (productionPhoto == null)
+            Comment comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return HttpNotFound();
             }
-            return View(productionPhoto);
+            return View(comment);
         }
 
-        // POST: Production/ProductionPhotoes/Delete/5
+        // POST: Blog/Comments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
-            db.ProductionPhotos.Remove(productionPhoto);
+            Comment comment = db.Comments.Find(id);
+            db.Comments.Remove(comment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -3,7 +3,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using TheatreCMS3.Areas.Production.Models;
 
 namespace TheatreCMS3.Models
 {
@@ -31,10 +30,8 @@ namespace TheatreCMS3.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Areas.Production.Models.ProductionPhoto> ProductionPhotos { get; set; }
-        public System.Data.Entity.DbSet<Areas.Production.Models.CastMember> CastMembers { get; set; }
         public System.Data.Entity.DbSet<Areas.Blog.Models.BlogPost> BlogPosts { get; set; }
-        public DbSet<Productions> Productions { get; set; }
-        public System.Data.Entity.DbSet<Areas.Rental.Models.RentalRequest> RentalRequest { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rental.Models.TheaterRental> TheaterRentals { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.Comment> Comments { get; set; }
     }
 }
