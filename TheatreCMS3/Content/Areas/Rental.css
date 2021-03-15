@@ -14,7 +14,7 @@ body {
 
 /* CREATE RENTAL */
 
-.createContainer {
+.rentalContainer {
     margin: 10% auto;
     width: 750px;
     background-color: var(--secondary-color--dark);
@@ -24,12 +24,12 @@ body {
 }
 
 @media screen and (max-width: 875px) {
-    .createContainer {
+    .rentalContainer {
         width: 100%;
     }
 }
 
-#createForm {
+#rentalForm {
     margin: 25px;
     margin-left: 10%;
     margin-right: 10%;
@@ -39,7 +39,7 @@ body {
 }
 
 /*Create Rental Button*/
-.createButton > .btn-warning {
+.rentalButton > .btn-warning {
     background-color: var(--main-color--light);
     border: outset 2px;
     border-color: var(--secondary-color);
@@ -49,11 +49,11 @@ body {
     width: 100%;
     display: flex;
     font-weight: 500;
-    justify-content:center;
+    justify-content: center;
     box-shadow: var(--dark-color) .8px .8px 5px;
 }
 
-    .createButton > .btn-warning:hover {
+    .rentalButton > .btn-warning:hover {
         background-color: var(--secondary-color);
         border: inset 2px;
         border-color: var(--main-color);
