@@ -10,9 +10,18 @@
 }
 
 body {
+    
 }
 
-/* CREATE RENTAL */
+
+/* CREATE/EDIT RENTAL */
+
+h2 {
+    text-align: center;
+    letter-spacing: 3px;
+    color: var(--light-color);
+    padding-top: 50px;
+}
 
 .rentalContainer {
     margin: 10% auto;
@@ -40,40 +49,42 @@ body {
 
 /*Create Rental Button*/
 .rentalButton > .btn-warning {
-    background-color: var(--main-color--light);
+    background-color: var(--secondary-color);
     border: outset 2px;
-    border-color: var(--secondary-color);
-    color: var(--light-color);
+    border-color: var(--main-color);
+    color: var(--dark-color);
     position: relative;
     margin-top: 25px;
     width: 100%;
     display: flex;
-    font-weight: 500;
+    font-weight: 700;
+    letter-spacing: 3px;
     justify-content: center;
     box-shadow: var(--dark-color) .8px .8px 5px;
 }
 
     .rentalButton > .btn-warning:hover {
-        background-color: var(--secondary-color);
+        background-color: var(--main-color--light);
         border: inset 2px;
-        border-color: var(--main-color);
-        color: var(--dark-color);
+        border-color: var(--secondary-color);
+        color: var(--light-color);
         box-shadow: inset var(--dark-color) 1px 1px 12px;
     }
 
 /*Back To List */
-.BackToButton a {
+.BackToRentals a {
     background-color: var(--secondary-color);
     border: outset 2px;
-    border-color: var(--main-color--light);
+    border-color: var(--main-color);
     color: var(--dark-color);
     width: 100%;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 2px;
     justify-content: center;
     display: flex;
     box-shadow: var(--dark-color) .8px .8px 5px;
 }
-.BackToButton > .btn-warning:hover {
+.BackToRentals > .btn-warning:hover {
     background-color: var(--main-color);
     border: inset 2px;
     border-color: var(--secondary-color);
@@ -83,7 +94,7 @@ body {
 }
 
 /*Input Border*/
-.form-control:focus {
+.rental-input:focus {
     border-color: var(--main-color);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
 }

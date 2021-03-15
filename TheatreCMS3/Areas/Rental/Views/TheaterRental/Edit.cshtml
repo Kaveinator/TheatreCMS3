@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit Rental</h2>
+
 
 
 @using (Html.BeginForm())
@@ -13,14 +13,15 @@
     
 <div class="rentalContainer">
   <div class="col-sm-12 col-md-12 col-lg-12">
-    <section id="rentalForm">
+    <h2>Edit Rental</h2>
+    <section id="rentalForm col-sm-12 col-md-12 col-lg-12">
       @Html.ValidationSummary(true, "", new { @class = "text-danger" })
       @Html.HiddenFor(model => model.TheaterRentalID)
 
       <div class="form-group">
         @Html.LabelFor(model => model.RentalName, "Edit Rental Name", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-12">
-          @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control" } })
+          @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control rental-input" } })
           @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
         </div>
       </div>
@@ -28,7 +29,7 @@
       <div class="form-group">
         @Html.LabelFor(model => model.RentalCost, "Edit Rental Cost", htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-12">
-          @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control" } })
+          @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control rental-input" } })
           @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
         </div>
       </div>
@@ -36,7 +37,7 @@
       <div class="form-group">
         @Html.LabelFor(model => model.FlawsAndDamages, "Edit Flaws And Damages", htmlAttributes: new { @class = "control-label col-md-8" })
         <div class="col-md-12">
-          @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control" } })
+          @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control rental-input" } })
           @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
         </div>
       </div>
@@ -47,11 +48,11 @@
         </div>
       </div>
       <div class="form-group">
-        <div class="BackToButton col-md-12">
+        <div class="BackToRentals col-md-12">
           @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-warning" })
         </div>
       </div>
-      
+
     </section>
   </div>
 </div>
