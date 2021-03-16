@@ -34,22 +34,22 @@
                                 @Html.DisplayFor(modelItem => item.ContactPerson)
                             </div>
                             <div class="col-md-4">
+                                @*Time remaining or until starts - ## days, ## hrs, ## mins using ToShortDateString()*@
                                 @{ DateTime timeToday = DateTime.Now;
-                                    TimeSpan timeRemaining = item.EndTime - DateTime.Now;
-                                    TimeSpan timeToStart = item.StartTime - DateTime.Now;
+                                    TimeSpan timeRemaining = item.EndTime - timeToday;
+                                    TimeSpan timeToStart = item.StartTime - timeToday;
 
-                                    @*Time remaining or until starts - ## days, ## hrs, ## mins*@
 
                                     if (item.StartTime > DateTime.Now)
                                     {
                                         @*Time until rental starts*@
 
-                                        @(item.StartTime - DateTime.Now)
+                                        @(timeToStart.ToString(@"dd\.hh\:mm"));
                                     }
                                     else
                                     {
                                         @*Time remaining*@
-                                        @(item.EndTime - DateTime.Now)
+                                        @(timeRemaining.ToString(@"dd\.hh\:mm"));
                                     }
                                 }
                             </div>
