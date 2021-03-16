@@ -222,3 +222,13 @@ a.CMS-text-bigger {
         border-color: var(--main-color);
         box-shadow: inset var(--dark-color) 1px 1px 5px;
     }
+
+    /* REGISTER PAGE */
+    .Register-headings {
+        color: var(--secondary-color);
+    }
+
+    .Register-button {
+        background-color: var(--secondary-color);
+        font-weight: bold;
+    }
