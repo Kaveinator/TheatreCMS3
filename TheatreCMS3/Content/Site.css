@@ -224,6 +224,7 @@ a.CMS-text-bigger {
     }
 
     /* REGISTER PAGE */
+
     .Register-headings {
         color: var(--secondary-color);
     }
@@ -231,4 +232,12 @@ a.CMS-text-bigger {
     .Register-button {
         background-color: var(--secondary-color);
         font-weight: bold;
+    }
+
+    .Register-input {
+        background-color: var(--secondary-color--dark);
+    }
+
+    .Register-input:hover {
+        box-shadow: -2px -2px 5px var(--light-color) inset;
     }
