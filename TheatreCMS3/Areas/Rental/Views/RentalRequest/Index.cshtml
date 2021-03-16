@@ -26,9 +26,21 @@
                                 @Html.DisplayFor(modelItem => item.Company)
                             </div>
                             <div class="col-md-4">
+                                @if (item.StartTime > DateTime.Now)
+                                {
+                                    @*Time until rental starts*@
+                                    <p>Time until rental starts:</p>
+
+                                }
+                                else
+                                {
+                                    @*Time remaining*@
+                                    <p>Time remaining in rental:</p>
+                                }
                             </div>
                         </div>
                         <div class="row">
+  
                             <div class="col-md-8">
 
                                 @Html.DisplayFor(modelItem => item.ContactPerson)
