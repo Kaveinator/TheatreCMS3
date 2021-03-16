@@ -45,6 +45,7 @@ textarea {
 
     .nav > li:hover {
         background-color: #DEB887;
+        border-radius: .25rem;
     }
 
     .nav > li > a {
@@ -61,8 +62,60 @@ textarea {
     background-color: var(--main-color);
 }
 
-.CMS-text-white {
-    color: var(--light-color);
+.navbar-light .navbar-nav .nav-link { /* make text indside black */
+    color: black !important;
+}
+
+.navbar-light navbar-toggler { /* removing hamburger's border the hard way */
+    border-color: rgba(0,0,0,0) !important;
+}
+
+.navbar--hamburger { /* hiding in desktop mode */
+    display: none;
+}
+
+@media screen and (max-width: 850px) { /* fixing navbar elements only within the mobile view */
+    .nav-item { /* hiding regular nav in mobile */
+        display: none;
+    }
+    .navbar--hamburger {
+        display: block;
+        position: relative;
+    }
+    .navbar--hamburger .nav-item {
+        display: block;
+    }
+    .navbar-toggler {
+        display: block;
+        background-color: var(--secondary-color);
+        position: absolute;
+        top: -19px;
+        border: none;
+    }
+    .navbar-toggler-icon {
+        top: 30px;
+    }
+    .navbar-collapse {
+        position: absolute;
+        top: 25px;
+        left: -73px;
+        background-color: var(--secondary-color);
+        border-radius: .25rem;
+    }
+    .navbar-nav .nav-item {
+        text-align: left;
+    }
+    .navbar-nav .nav-link {
+        margin-bottom: 1px;
+        padding: 5px;
+    }
+    .dropdown-menu {
+        border: none;
+    }
+    .dropdown-item {
+        border-radius: .25rem;
+    }
+
 }
 
 h1.CMS-text-bigger {
