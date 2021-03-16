@@ -223,50 +223,50 @@ a.CMS-text-bigger {
         box-shadow: inset var(--dark-color) 1px 1px 5px;
     }
 
-    /* REGISTER PAGE */
+/* REGISTER PAGE */
 
-    .Register-div {
-        max-width: 100%;
-    }
 
-    .Register-form {
-        width: 50%;
-        margin: 5px auto;
-        background-color: rgb(50 50 50);
-        border-radius: 10px;
-    }
+/* Style form with smaller size, centered element, discerning background, shape, and shadow */
+.Register-form {
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(50 50 50);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
 
-    .Register-heading2 {
-        color: var(--secondary-color);
-        text-align: center;
-        margin: 10px 10px;
-    }
+/* Center align headings and format color and spacing */
+.Register-headings {
+    color: var(--secondary-color);
+    text-align: center;
+    margin: 10px 10px;
+    padding-top: 5px;
+}
 
-    .Register-heading4 {
-        color: var(--secondary-color);
-        padding: 5px 10px 0px;
-    }
+/* Allow elements to fill entire form and be centered */
+.Register-div {
+    padding: 10px;
+    max-width: 100%;
+    text-align: center;
+}
 
-    .Register-labels {
-        color: var(--secondary-color);
-        max-width: 100%;
-    }
+/* Change background color of input fields */
+.Register-input {
+    background-color: var(--light-color);
+}
 
-    .Register-button {
-        background-color: var(--secondary-color);
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
+/* Hover effects for input fields */
+.Register-input:hover {
+    box-shadow: 0px 0px 10px var(--secondary-color--dark);
+}
 
-    .Register-button:hover {
-        box-shadow: 0px 0px 5px var(--light-color);
-    }
+/* Style submit button */
+.Register-button {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
 
-    .Register-input {
-        background-color: var(--secondary-color--dark);
-        margin: 0 auto;
-    }
-
-    .Register-input:hover {
-        box-shadow: 0px 0px 5px var(--light-color) ;
-    }
+/* Button hover effect */
+.Register-button:hover {
+    box-shadow: 0px 0px 5px var(--light-color);
+}

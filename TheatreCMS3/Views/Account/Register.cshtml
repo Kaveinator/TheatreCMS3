@@ -3,34 +3,34 @@
     ViewBag.Title = "Register";
 }
 
-<h2 class="Register-heading2">@ViewBag.Title</h2>
+<h2 class="Register-headings">@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal Register-form", role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "Register-form", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4 class="Register-heading4">Create a new account</h4>
+    <h4 class="Register-headings">Create a new account</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 Register-labels" })
+        @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 Register-labels" })*@
         <div class="col-md-10 Register-div">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control Register-input" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control Register-input", placeholder = "Email Address" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 Register-labels" })
+        @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 Register-labels" })*@
         <div class="col-md-10 Register-div">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control Register-input" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control Register-input", placeholder = "Password" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 Register-labels" })
+        @*@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 Register-labels" })*@
         <div class="col-md-10 Register-div">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control Register-input" })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control Register-input", placeholder = "Confirm Password" })
         </div>
     </div>
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-10 Register-div">
             <input type="submit" class="btn btn-default Register-button" value="Register" />
         </div>
     </div>
