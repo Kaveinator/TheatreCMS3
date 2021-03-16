@@ -1,15 +1,15 @@
 ﻿
 /* CSS color variables */
-:root { /* Color palette for css */
-    --main-color: #DB1A11; /* Red */
-    --main-color--light: #F04D44; /* Red, a shade lighter */
-    --secondary-color: #D6972A; /* Yellow gold */
-    --light-color: #FFFBFB; /* White */
-    --dark-color: #000000; /* Black */
-    --secondary-color--dark: #9D7C39; /* Dark Gold */
-    --light-blue: rgb(93, 123, 244) /*Light Blue - Added color on top of original*/
+/*:root {*/ /* Color palette for css */
+    /*--main-color: #DB1A11;*/ /* Red */
+    /*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
+    /*--secondary-color: #D6972A;*/ /* Yellow gold */
+    /*--light-color: #FFFBFB;*/ /* White */
+    /*--dark-color: #000000;*/ /* Black */
+    /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+    /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
   
-}
+/*}*/
 body {
 }
 
@@ -18,12 +18,16 @@ body {
     color: var(--light-color);
 }
 .rental-rentalrequest--dropdown {
-    background-color: var(--secondary-color);
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
 }
 .rental-rentalrequest--row {
-    color: #bd1a11;
+    color: var(--main-color);
     display: flex;
     align-content: center;
-    background-color: #d6972a;
+    background-color: var(--secondary-color);
     text-decoration: none;
+}
+.rental-rentalrequest--header {
+    color: var(--light-color);
 }

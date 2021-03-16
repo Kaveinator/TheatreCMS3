@@ -4,9 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center rental-rentalrequest--header mt-2">Rental Requests</h2>
 
-<p>
+<p class="text-center">
     @Html.ActionLink("Create New", "Create")
 </p>
 
@@ -70,7 +70,7 @@
                 @*More details of the rental request when top part of the accordion is clicked*@
                 <div id="collapse@(item.RentalRequestID)" class="collapse container rental-rentalrequest--dropdown" data-parent="#accordion">
                     <div class="card-body">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center text-center">
                             <div class="col-md-4">
                                 Start Time
                             </div>
@@ -78,7 +78,7 @@
                                 End Time
                             </div>
                         </div>
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center text-center">
                             <div class="col-md-4">
                                 @Html.DisplayFor(modelItem => item.StartTime)
                             </div>
