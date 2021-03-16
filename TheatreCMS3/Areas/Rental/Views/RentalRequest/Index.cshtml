@@ -56,12 +56,12 @@
                                     {
                                         @*Time until rental starts*@
 
-                                        @(timeToStart.ToString(@"dd\.hh\:mm"));
+                                        @(string.Format("{0:%d} days, {0:%h} hours, {0:%m} minutes", timeToStart));
                                     }
                                     else
                                     {
                                         @*Time remaining*@
-                                        @(timeRemaining.ToString(@"dd\.hh\:mm"));
+                                        @(string.Format("{0:%d} days, {0:%h} hours, {0:%m} minutes", timeRemaining));
                                     }
                                 }
                             </div>
@@ -79,7 +79,7 @@
                                 End Time
                             </div>
                         </div>
-                        <div class="row rental-rentalrequest--row-center">
+                        <div class="row center">
                             <div class="col-md-4">
                                 @Html.DisplayFor(modelItem => item.StartTime)
                             </div>
