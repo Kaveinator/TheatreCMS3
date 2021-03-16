@@ -230,23 +230,32 @@ a.CMS-text-bigger {
 .Register-form {
     width: 50%;
     margin: 0 auto;
+    padding-top: 10px;
     background-color: rgb(50 50 50);
     border-radius: 10px;
     box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
 }
 
 /* Center align headings and format color and spacing */
-.Register-headings {
+.Register-heading2 {
     color: var(--secondary-color);
     text-align: center;
-    margin: 10px 10px;
+    margin-bottom: 25px;
+    padding-top: 5px;
+}
+
+/* Center align headings and format color and spacing */
+.Register-heading4 {
+    color: var(--secondary-color);
+    text-align: center;
     padding-top: 5px;
 }
 
 /* Allow elements to fill entire form and be centered */
 .Register-div {
     padding: 10px;
-    max-width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -264,6 +273,7 @@ a.CMS-text-bigger {
 .Register-button {
     background-color: var(--secondary-color);
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 /* Button hover effect */
