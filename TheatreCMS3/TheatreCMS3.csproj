@@ -194,8 +194,10 @@
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
+    <Compile Include="Areas\Rental\Controllers\RentalRequestController.cs" />
     <Compile Include="Areas\Rental\Controllers\TheaterRentalController.cs" />
     <Compile Include="Areas\Rental\Models\RentalEquipment.cs" />
+    <Compile Include="Areas\Rental\Models\RentalRequest.cs" />
     <Compile Include="Areas\Rental\Models\RentalRoom.cs" />
     <Compile Include="Areas\Rental\Models\TheaterRental.cs" />
     <Compile Include="Areas\Rental\RentalAreaRegistration.cs" />
@@ -296,6 +298,11 @@
     <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
     <Content Include="Areas\Prod\Views\web.config" />
+    <Content Include="Areas\Rental\Views\RentalRequest\Create.cshtml" />
+    <Content Include="Areas\Rental\Views\RentalRequest\Delete.cshtml" />
+    <Content Include="Areas\Rental\Views\RentalRequest\Details.cshtml" />
+    <Content Include="Areas\Rental\Views\RentalRequest\Edit.cshtml" />
+    <Content Include="Areas\Rental\Views\RentalRequest\Index.cshtml" />
     <Content Include="Areas\Prod\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Prod\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Create.cshtml" />

@@ -4,78 +4,105 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center rental-rentalrequest--header mt-2">Rental Requests</h2>
 
-<p>
+<p class="text-center">
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactPerson)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Company)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequestedTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectInfo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Accepted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContractSigned)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactPerson)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Company)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RequestedTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectInfo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Accepted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContractSigned)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalRequestID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalRequestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalRequestID })
-        </td>
-    </tr>
-}
 
-</table>
+@*accordion container for view of requests*@
+<div class="container-fluid mb-4">
+    <div id="accordion">
+        @foreach (var item in Model)
+        {
+            <div class="card rental-rentalrequest--container mb-4">
+                @*top part of accordion that will show contact person, company name, and time unlil request/ time remaining*@
+
+                <div class="card-header">
+                    <div class="container" data-toggle="collapse" data-target="#collapse@(item.RentalRequestID) " aria-expanded="false" aria-controls="collapseOne">
+                        <div class="row">
+                            <div class="col-md-8">
+                                @Html.DisplayFor(modelItem => item.Company)
+                            </div>
+                            <div class="col-md-4">
+                                @if (item.StartTime > DateTime.Now)
+                                {
+                                    @*Time until rental starts*@
+                                    <p>Time until rental starts:</p>
+                                }
+                                else
+                                {
+                                    @*Time remaining*@
+                                    <p>Time remaining in rental:</p>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+  
+                            <div class="col-md-8">
+
+                                @Html.DisplayFor(modelItem => item.ContactPerson)
+                            </div>
+                            <div class="col-md-4">
+                                @*Time remaining or until starts - ## days, ## hrs, ## mins using ToShortDateString()*@
+                                @{ DateTime timeToday = DateTime.Now;
+                                    TimeSpan timeRemaining = item.EndTime - timeToday;
+                                    TimeSpan timeToStart = item.StartTime - timeToday;
+
+
+                                    if (item.StartTime > DateTime.Now)
+                                    {
+                                        @*Time until rental starts*@
+
+                                        @(string.Format("{0:%d} days, {0:%h} hours, {0:%m} minutes", timeToStart));
+                                    }
+                                    else
+                                    {
+                                        @*Time remaining*@
+                                        @(string.Format("{0:%d} days, {0:%h} hours, {0:%m} minutes", timeRemaining));
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*More details of the rental request when top part of the accordion is clicked*@
+                <div id="collapse@(item.RentalRequestID)" class="collapse container rental-rentalrequest--dropdown" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-md-4">
+                                Start Time<br />
+                                @Html.DisplayFor(modelItem => item.StartTime)
+                            </div>
+                            <div class="col-md-4">
+                                End Time<br />
+                                @Html.DisplayFor(modelItem => item.EndTime)
+                            </div>
+                        </div>
+                       
+                        <div class="flex-column">
+                            <div class="p-2">
+                                Rental Code: @Html.DisplayFor(modelItem => item.RentalCode)
+                            </div>
+                            <div class="p-2">
+                                Project Info: @Html.DisplayFor(modelItem => item.ProjectInfo)
+                            </div>
+                            <div class="p-2">
+                                Accepted: @Html.DisplayFor(modelItem => item.Accepted)
+                            </div>
+                            <div class="p-2">
+                                Contract Signed: @Html.DisplayFor(modelItem => item.ContractSigned)
+                            </div>
+                            <div class="p-2">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    }
+        </div>
+ </div>
