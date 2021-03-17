@@ -102,17 +102,17 @@ textarea {
         background-color: var(--secondary-color);
         border-radius: .25rem;
     }
-    .navbar-nav .nav-item {
+    .navbar-nav .nav-item .navbar-hamburger--navitem {
         text-align: left;
     }
-    .navbar-nav .nav-link {
+    .navbar-nav .nav-link .navbar-hamburger--navlink {
         margin-bottom: 1px;
         padding: 5px;
     }
-    .dropdown-menu {
+    .dropdown-menu .navbar-hamburger--dropdownmenu {
         border: none;
     }
-    .dropdown-item {
+    .dropdown-item .navbar-hamburger--drowndownitem {
         border-radius: .25rem;
     }
 
