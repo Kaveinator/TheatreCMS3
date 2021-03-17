@@ -9,42 +9,42 @@
 }
 /*Text color classes*/
 .cms-text-main {
-    color: #DB1A11;
+    color: var(--main-color);
 }
 .cms-text-main-light {
-    color: #F04D44;
+    color: var(--main-color--light);
 }
 .cms-text-secondary {
-    color: #D6972A;
+    color: var(--secondary-color);
 }
 .cms-text-secondary-dark {
-    color: #9D7C39;
+    color: var(--secondary-color--dark);
 }
 .cms-text-light {
-    color: #FFFBFB;
+    color: var(--light-color);
 }
 .cms-text-dark {
-    color: #000000;
+    color: var(--dark-color);
 }
 /*End color classes*/
 /*Background color classes*/
 .cms-bg-main {
-    background-color: #DB1A11;
+    background-color: var(--main-color);
 }
 .cms-bg-main-light {
-    background-color: #F04D44;
+    background-color: var(--main-color--light);
 }
 .cms-bg-secondary {
-    background-color: #D6972A;
+    background-color: var(--secondary-color);
 }
 .cms-bg-secondary-dark {
-    background-color: #9D7C39;
+    background-color: var(--secondary-color--dark);
 }
 .cms-bg-light {
-    background-color: #FFFBFB;
+    background-color: var(--light-color);
 }
-.ms-bg-dark {
-    background-color: #000000;
+.cms-bg-dark {
+    background-color: var(--dark-color);
 }
 /*End background color classes*/
 body {
@@ -164,7 +164,7 @@ a.CMS-text-bigger {
 }
 /*Navbar dropdown menu text color*/
 .dropdowntxt {
-    color: var(--ligh-color); /*Changing color temporarily from dark to light.*/
+    color: var(--dark-color);
     font-weight: bold;
 }
 
