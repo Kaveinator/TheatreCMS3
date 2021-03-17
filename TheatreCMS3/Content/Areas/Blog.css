@@ -75,9 +75,9 @@ body {
     box-shadow: 0 0 3px var(--secondary-color);
     background-color: var(--light-color);
 }
-.txtclr2 {
-    color: var(--light-color);
-}
+/*.txtclr2 {
+    color: var(--light-color);   /*Commenting out instead of deleting.
+}*/
 
 .blogpost-btn-on-bottom-1{
     position: absolute;

@@ -7,10 +7,50 @@
     --light-color: #FFFBFB; /* White */
     --dark-color: #000000; /* Black */
 }
-
+/*Text color classes*/
+.cms-text-main {
+    color: #DB1A11;
+}
+.cms-text-main-light {
+    color: #F04D44;
+}
+.cms-text-secondary {
+    color: #D6972A;
+}
+.cms-text-secondary-dark {
+    color: #9D7C39;
+}
+.cms-text-light {
+    color: #FFFBFB;
+}
+.cms-text-dark {
+    color: #000000;
+}
+/*End color classes*/
+/*Background color classes*/
+.cms-bg-main {
+    background-color: #DB1A11;
+}
+.cms-bg-main-light {
+    background-color: #F04D44;
+}
+.cms-bg-secondary {
+    background-color: #D6972A;
+}
+.cms-bg-secondary-dark {
+    background-color: #9D7C39;
+}
+.cms-bg-light {
+    background-color: #FFFBFB;
+}
+.ms-bg-dark {
+    background-color: #000000;
+}
+/*End background color classes*/
 body {
     padding-bottom: 20px;
     background-color: var(--dark-color);
+    color: #fffbfb;     /*This should default all text to the white of the site.*/
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -124,7 +164,7 @@ a.CMS-text-bigger {
 }
 /*Navbar dropdown menu text color*/
 .dropdowntxt {
-    color: var(--dark-color);
+    color: var(--ligh-color); /*Changing color temporarily from dark to light.*/
     font-weight: bold;
 }
 
