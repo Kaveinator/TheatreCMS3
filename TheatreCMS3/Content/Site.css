@@ -7,10 +7,50 @@
     --light-color: #FFFBFB; /* White */
     --dark-color: #000000; /* Black */
 }
-
+/*Text color classes*/
+.cms-text-main {
+    color: var(--main-color);
+}
+.cms-text-main-light {
+    color: var(--main-color--light);
+}
+.cms-text-secondary {
+    color: var(--secondary-color);
+}
+.cms-text-secondary-dark {
+    color: var(--secondary-color--dark);
+}
+.cms-text-light {
+    color: var(--light-color);
+}
+.cms-text-dark {
+    color: var(--dark-color);
+}
+/*End color classes*/
+/*Background color classes*/
+.cms-bg-main {
+    background-color: var(--main-color);
+}
+.cms-bg-main-light {
+    background-color: var(--main-color--light);
+}
+.cms-bg-secondary {
+    background-color: var(--secondary-color);
+}
+.cms-bg-secondary-dark {
+    background-color: var(--secondary-color--dark);
+}
+.cms-bg-light {
+    background-color: var(--light-color);
+}
+.cms-bg-dark {
+    background-color: var(--dark-color);
+}
+/*End background color classes*/
 body {
     padding-bottom: 20px;
     background-color: var(--dark-color);
+    color: var(--main-color);     /*This should default all text to the white of the site.*/
 }
 
 /* Set padding to keep content from hitting the edges */
