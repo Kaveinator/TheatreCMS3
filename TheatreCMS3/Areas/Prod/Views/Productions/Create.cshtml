@@ -18,7 +18,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description" } })
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Playwright, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Playwright, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Playwright, new { htmlAttributes = new { @class = "form-control", placeholder = "Playwright" } })
                     @Html.ValidationMessageFor(model => model.Playwright, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Runtime, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "form-control", placeholder = "Runtime" } })
                     @Html.ValidationMessageFor(model => model.Runtime, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.OpeningDay, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "form-control", placeholder = "Opening Day" } })
                     @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -58,7 +58,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ClosingDay, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "form-control", placeholder = "Closing Day" } })
                     @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -66,7 +66,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ShowTimeEve, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "form-control", placeholder = "Show Time Evening" } })
                     @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -74,7 +74,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ShowTimeMat, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "form-control", placeholder = "Show Time Matinee" } })
                     @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -82,7 +82,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control", placeholder = "Season" } })
                     @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -100,7 +100,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.TicketLink, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "form-control", placeholder = "Ticket Link" } })
                     @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
                 </div>
             </div>
