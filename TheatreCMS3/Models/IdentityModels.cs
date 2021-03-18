@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using TheatreCMS3.Areas.Production.Models;
 
 namespace TheatreCMS3.Models
 {
@@ -34,5 +35,7 @@ namespace TheatreCMS3.Models
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rental.Models.TheaterRental> TheaterRentals { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rental.Models.RentalRequest> RentalRequest { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.Comment> Comments { get; set; }
+       
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Production.Models.ProductionPhoto> ProductionPhotoes { get; set; }
     }
 }
