@@ -20,7 +20,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         [DisplayFormat(DataFormatString ="{0:HH:mm}", ApplyFormatInEditMode =true)]
         public DateTime ShowTimeEve { get; set; }
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:HH-mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime ShowTimeMat { get; set; }
         public int Season { get; set; }
         public bool IsWorldPremier { get; set; }
