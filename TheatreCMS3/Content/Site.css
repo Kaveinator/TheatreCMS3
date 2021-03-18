@@ -50,7 +50,7 @@
 body {
     padding-bottom: 20px;
     background-color: var(--dark-color);
-    color: var(--main-color);     /*This should default all text to the white of the site.*/
+    color: var(--light-color);     /*This should default all text to the white of the site.*/
 }
 
 /* Set padding to keep content from hitting the edges */
