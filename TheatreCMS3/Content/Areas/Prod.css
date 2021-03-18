@@ -1,6 +1,24 @@
-﻿.Production-CreateEdit--header {
+﻿.Production--formBox {
+    padding: 10px;
+    background-color: var(--main-color--light);
+}
+
+.Production--form {
+    padding: 10px;
+    background-color: var(--dark-color);
+}
+
+.Production--header {
     padding-top: 50px;
     margin-bottom: 25px;
-    color: #D6972A;
+    color: var(--secondary-color);
     text-align: center;
+}
+
+.Production--buttonBox {
+    text-align: center;
+}
+
+.Production--button {
+    font-weight: bold;
 }
