@@ -11,13 +11,13 @@ namespace TheatreCMS3.Areas.Prod.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> YearJoined { get; set; }   /*Is nullable*/
+        public Nullable<int> YearJoined { get; set; }
         public PositionEnum MainRole { get; set; }
         public string Bio { get; set; }
-        //public Byte[] Photo { get; set; }   //This will be a photo of said cast member.    Commented out to be made working later in another story.
+        //public Byte[] Photo { get; set; }
         public bool CurrentMember { get; set; }
         public string Character { get; set; }
-        public Nullable<int> CastYearLeft { get; set; }  /*Is nullable*/
-        public Nullable<int> DebutYear { get; set; }  /*Is nullable*/
-    }  /*The layout and how this is displayed to the client will need to be updated.*/
+        public Nullable<int> CastYearLeft { get; set; }
+        public Nullable<int> DebutYear { get; set; }
+    }
 }
