@@ -455,6 +455,10 @@
     <Folder Include="Areas\Prod\Models\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rental\Data\" />
+    <Folder Include="UIUX\Images\" />
+    <Folder Include="UIUX\Mockups\" />
+    <Folder Include="UIUX\Prototypes\" />
+    <Folder Include="UIUX\Wireframes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
