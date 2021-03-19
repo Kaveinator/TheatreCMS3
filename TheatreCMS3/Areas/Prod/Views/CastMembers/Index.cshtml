@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CastMember>
+@*@Styles.Render("~/Content/Areas/Prod.css")*@
 
 @{
     ViewBag.Title = "Index";
@@ -22,6 +23,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Bio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CurrentMember)
@@ -51,6 +55,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Bio)
+        </td>
+        <td>
+            <img alt="@item.ID" @*class="pic"*@ src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)"/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CurrentMember)
