@@ -2,17 +2,26 @@
 
 /* Outer form container */
 .Production--formBox {
-    padding: 20px;
+    padding: 4px;
     margin: 0 auto;
     margin-bottom: 50px;
+    border-radius: 10px;
     width: 60%;
     background-color: var(--main-color--light);
 }
 
+/* Create wider fields on small screens */
+@media screen and (max-width: 990px) {
+    .Production--formBox {
+        width: 100%;
+    }
+}
+
 /* Inner form container */
 .Production--form {
-    padding: 20px;
-    background-color: var(--dark-color);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--light-color);
 }
 
 /* Headings */
@@ -21,6 +30,11 @@
     margin-bottom: 25px;
     color: var(--secondary-color);
     text-align: center;
+}
+
+/* Field labels */
+.Production--label {
+    color: var(--dark-color);
 }
 
 /* Input field containers */
