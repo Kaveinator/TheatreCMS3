@@ -44,3 +44,7 @@
     background-color: var(--main-color--light);
     font-weight: bold;
 }
+
+.Production--button:hover {
+    opacity: 90%;
+}
