@@ -1,11 +1,13 @@
 ﻿.Production--formBox {
-    padding: 10px;
+    padding: 20px;
+    margin: 0 auto;
     margin-bottom: 50px;
+    width: 60%;
     background-color: var(--main-color--light);
 }
 
 .Production--form {
-    padding: 10px;
+    padding: 20px;
     background-color: var(--dark-color);
 }
 
