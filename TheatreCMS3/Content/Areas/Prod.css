@@ -16,6 +16,18 @@
     text-align: center;
 }
 
+.Production--input-div {
+    max-width: 100%;
+}
+
+.Production--input {
+    background-color: var(--secondary-color);
+}
+
+.Production--input:focus {
+    border: 2px solid var(--main-color);
+}
+
 .Production--buttonBox {
     text-align: center;
 }
