@@ -30,6 +30,7 @@
 	border-radius: .25rem;
 	padding: 0px 0px 5px 0px;
 	width: 75%;
+	color: var(--dark-color);
 }
 .prod-calendar--group { /* all form elements together */
 	flex-wrap: wrap;
