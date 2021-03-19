@@ -67,18 +67,21 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CastMembers/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id) /*HttpPostedFileBase postedFile*/
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             CastMember castMember = db.CastMembers.Find(id);
             if (castMember == null)
             {
                 return HttpNotFound();
             }
             return View(castMember);
+            
+            
         }
 
         // POST: Prod/CastMembers/Edit/5
@@ -86,8 +89,22 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID, Name, YearJoined, MainRole, Bio, Photo, CurrentMember, Character, CastYearLeft, DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "ID, Name, YearJoined, MainRole, Bio, Photo, CurrentMember, Character, CastYearLeft, DebutYear")] CastMember castMember, HttpPostedFileBase postedFile)
         {
+            if (postedFile is null)
+            {
+                throw new ArgumentNullException(nameof(postedFile));
+            }
+            else
+            {
+                byte[] bytes;
+                using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+                {
+                    bytes = br.ReadBytes(postedFile.ContentLength);
+                }
+                castMember.Photo = bytes;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(castMember).State = EntityState.Modified;
