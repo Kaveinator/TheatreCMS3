@@ -1,5 +1,5 @@
 ﻿/*formatting so the pictures display uniformly on the webpage.*/
-/*.pic {
-    max-width: 250px;
-    height: 250px;
-}*/
+.pic {
+    max-width: 100%;
+    height: auto;
+}

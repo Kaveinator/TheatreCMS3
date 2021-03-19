@@ -373,3 +373,8 @@ a.CMS-text-bigger {
 .Register-button:hover {
     box-shadow: 0px 0px 5px var(--light-color);
 }
+
+.pic {
+    max-width: 250px;
+    height: 250px;
+}
