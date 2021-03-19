@@ -32,11 +32,6 @@
     text-align: center;
 }
 
-/* Field labels */
-.Production--label {
-    color: var(--dark-color);
-}
-
 /* Input field containers */
 .Production--input-div {
     max-width: 100%;
@@ -52,10 +47,6 @@
 }
 
 /* Buttons */
-.Production--buttonBox {
-    text-align: center;
-}
-
 .Production--button {
     background-color: var(--secondary-color);
     font-weight: bold;
