@@ -1,1 +1,9 @@
-﻿
+﻿.prod-calendar--button {
+	display: inline-block;
+	background-color: var(--secondary-color);
+	color: black;
+}
+
+.prod-calendar--create {
+	margin-bottom: 55px;
+}
