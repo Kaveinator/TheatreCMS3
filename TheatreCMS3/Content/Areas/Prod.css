@@ -1,4 +1,7 @@
-﻿.Production--formBox {
+﻿/* PRODUCTION AREA STYLING */
+
+/* Outer form container */
+.Production--formBox {
     padding: 20px;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -6,11 +9,13 @@
     background-color: var(--main-color--light);
 }
 
+/* Inner form container */
 .Production--form {
     padding: 20px;
     background-color: var(--dark-color);
 }
 
+/* Headings */
 .Production--header {
     padding-top: 50px;
     margin-bottom: 25px;
@@ -18,10 +23,12 @@
     text-align: center;
 }
 
+/* Input field containers */
 .Production--input-div {
     max-width: 100%;
 }
 
+/* Inputs */
 .Production--input {
     background-color: var(--secondary-color);
 }
@@ -30,6 +37,7 @@
     border: 2px solid var(--main-color);
 }
 
+/* Buttons */
 .Production--buttonBox {
     text-align: center;
 }
