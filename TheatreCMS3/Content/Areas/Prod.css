@@ -1,5 +1,6 @@
 ﻿.Production--formBox {
     padding: 10px;
+    margin-bottom: 50px;
     background-color: var(--main-color--light);
 }
 
@@ -20,5 +21,12 @@
 }
 
 .Production--button {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.Production--button-list {
+    margin-left: 5px;
+    background-color: var(--main-color--light);
     font-weight: bold;
 }

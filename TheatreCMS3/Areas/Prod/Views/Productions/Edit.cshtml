@@ -109,17 +109,18 @@
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10 Production--buttonBox">
-                    <input type="submit" value="Save" class="btn btn-warning Production--button" />
-                </div>
+				<div class="col-md-offset-2 col-md-10 Production--buttonBox">
+					<input type="submit" value="Save" class="btn btn-warning Production--button" />
+					@Html.ActionLink("Back to List", "Index", null, new { @class = "btn Production--button Production--button-list" })
+				</div>
             </div>
         </div>
     </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
