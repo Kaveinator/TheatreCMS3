@@ -11,109 +11,107 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class ProductionPhotosController : Controller
+    public class ProductionsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        //GET: Production/ProductionPhotos
+        // GET: Prod/Productions
         public ActionResult Index()
         {
-
-
-            return View(db.ProductionPhotoes.ToList());
+            return View(db.Productions.ToList());
         }
 
-        // GET: Production/ProductionPhotoes/Details/5
+        // GET: Prod/Productions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionPhoto productionPhoto = db.ProductionPhotoes.Find(id);
-            if (productionPhoto == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(productionPhoto);
+            return View(production);
         }
 
-        // GET: Production/ProductionPhotoes/Create
+        // GET: Prod/Productions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Production/ProductionPhotoes/Create
+        // POST: Prod/Productions/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProductionID,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremier,TicketLink")] Production production)
         {
             if (ModelState.IsValid)
             {
-                db.ProductionPhotoes.Add(productionPhoto);
+                db.Productions.Add(production);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(productionPhoto);
+            return View(production);
         }
 
-        // GET: Production/ProductionPhotoes/Edit/5
+        // GET: Prod/Productions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionPhoto productionPhoto = db.ProductionPhotoes.Find(id);
-            if (productionPhoto == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(productionPhoto);
+            return View(production);
         }
 
-        // POST: Production/ProductionPhotoes/Edit/5
+        // POST: Prod/Productions/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "ProductionID,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremier,TicketLink")] Production production)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(productionPhoto).State = EntityState.Modified;
+                db.Entry(production).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(productionPhoto);
+            return View(production);
         }
 
-        // GET: Production/ProductionPhotoes/Delete/5
+        // GET: Prod/Productions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionPhoto productionPhoto = db.ProductionPhotoes.Find(id);
-            if (productionPhoto == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(productionPhoto);
+            return View(production);
         }
 
-        // POST: Production/ProductionPhotoes/Delete/5
+        // POST: Prod/Productions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProductionPhoto productionPhoto = db.ProductionPhotoes.Find(id);
-            db.ProductionPhotoes.Remove(productionPhoto);
+            Production production = db.Productions.Find(id);
+            db.Productions.Remove(production);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

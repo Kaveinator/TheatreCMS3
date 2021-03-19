@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace TheatreCMS3.Areas.Production.Models
+namespace TheatreCMS3.Areas.Prod.Models
 {
     [Table("ProductionPhotos")]
     public class ProductionPhoto
