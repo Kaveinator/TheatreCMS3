@@ -42,7 +42,7 @@
 	background-color: lightgray !important;
 }
 
-.form-control:focus {
+.prod-calendar--control:focus {
 	box-shadow: 0 0 0 0.1rem var(--main-color--light);
 	border-color: var(--main-color--light);
 }
