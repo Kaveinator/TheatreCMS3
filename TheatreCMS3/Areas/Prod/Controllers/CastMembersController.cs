@@ -93,7 +93,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (postedFile is null)
             {
-                throw new ArgumentNullException(nameof(postedFile));
+                return RedirectToAction("Index");
             }
             else
             {
