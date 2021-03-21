@@ -7,9 +7,31 @@
 <h2 class="Production--header">Productions</h2>
 
 <div class="text-center">
-    @Html.ActionLink("Create New", "Create", null, new { @class="btn Production--button"})
+    @Html.ActionLink("Create New", "Create", null, new { @class="btn Production--button mb-3"})
 </div>
-<table class="table">
+
+<div class="card-deck mb-5">
+	@foreach (var item in Model)
+	{
+	<div class="card">
+		<a href="@Url.Action("Details", new { id = item.ProductionID })">
+			<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img" alt="" />
+        </a>
+		<div class="card-body">
+			<h5 class="card-title cms-text-dark text-center">@Html.DisplayFor(modelItem => item.Title)</h5>
+		</div>
+		<div class="card-footer text-center">
+			<p>
+				@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
+				@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
+			</p>
+		</div>
+	</div>
+            
+	}
+</div>
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -90,4 +112,4 @@
     </tr>
 }
 
-</table>
+</table>*@
