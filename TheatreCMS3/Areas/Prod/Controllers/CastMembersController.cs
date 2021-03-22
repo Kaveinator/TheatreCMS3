@@ -106,11 +106,24 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID, Name, YearJoined, MainRole, Bio, Photo, CurrentMember, Character, CastYearLeft, DebutYear")] CastMember castMember, HttpPostedFileBase postedFile)
         {
-            if (postedFile is null)
-            {
-                return RedirectToAction("Index");
-            }
-            else
+            //if (postedFile == null)
+            //{
+            //    string query = "Select Content from dbo.CastMembers";
+            //    using (SqlConnection connection = new SqlConnection())
+            //    using (SqlCommand command = new SqlCommand(query, connection))
+            //    {
+            //        connection.Open();
+            //        using (SqlDataReader d = command.ExecuteReader())
+            //        {
+            //            if (d.Read())
+            //            {
+            //                byte[] byteArray = (byte[])d["Photo"];
+            //            }
+            //        }
+            //    }
+            //}
+
+            if (postedFile != null)
             {
                 byte[] bytes;
                 using (BinaryReader br = new BinaryReader(postedFile.InputStream))
