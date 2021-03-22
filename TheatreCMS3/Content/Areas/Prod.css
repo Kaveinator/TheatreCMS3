@@ -68,7 +68,13 @@
 
 /* PRODUCTIONS INDEX PAGE */
 
+.Production--cardOverlay {
+	opacity: 0;
+}
 
+.Production--cardOverlay:hover {
+	opacity: 1;
+}
 
 /* END PRODUCTIONS INDEX PAGE */
 
