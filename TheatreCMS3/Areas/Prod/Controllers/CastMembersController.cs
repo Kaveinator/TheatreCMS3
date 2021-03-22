@@ -9,7 +9,6 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
-using System.Data.SqlClient;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -64,12 +63,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(castMember);
         }
 
         // GET: Prod/CastMembers/Edit/5
-        public ActionResult Edit(int? id) /*HttpPostedFileBase postedFile*/
+        public ActionResult Edit(int? id, Byte[] pic) /*HttpPostedFileBase postedFile*/
         {
             if (id == null)
             {
@@ -81,22 +79,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
-            string query = "Select Content from dbo.CastMembers";
-            using (SqlConnection connection = new SqlConnection(DbContext))
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                connection.Open();
-                using (SqlDataReader d = command.ExecuteReader())
-                {
-                    if (d.Read())
-                    {
-                        byte[] byteArray = (byte[])d["Photo"];
-                    }
-                }
-            }
             return View(castMember);
-            
-            
         }
 
         // POST: Prod/CastMembers/Edit/5
@@ -106,31 +89,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID, Name, YearJoined, MainRole, Bio, Photo, CurrentMember, Character, CastYearLeft, DebutYear")] CastMember castMember, HttpPostedFileBase postedFile)
         {
-            //if (postedFile == null)
-            //{
-            //    string query = "Select Content from dbo.CastMembers";
-            //    using (SqlConnection connection = new SqlConnection())
-            //    using (SqlCommand command = new SqlCommand(query, connection))
-            //    {
-            //        connection.Open();
-            //        using (SqlDataReader d = command.ExecuteReader())
-            //        {
-            //            if (d.Read())
-            //            {
-            //                byte[] byteArray = (byte[])d["Photo"];
-            //            }
-            //        }
-            //    }
-            //}
-
-            if (postedFile != null)
+            if (postedFile == null)
             {
-                byte[] bytes;
-                using (BinaryReader br = new BinaryReader(postedFile.InputStream))
-                {
-                    bytes = br.ReadBytes(postedFile.ContentLength);
-                }
-                castMember.Photo = bytes;
+                var castM = db.CastMembers.AsNoTracking().First(cast => castMember.ID == cast.ID);
+                castMember.Photo = castM.Photo;
             }
 
             if (ModelState.IsValid)
