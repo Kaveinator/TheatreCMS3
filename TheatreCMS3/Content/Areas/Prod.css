@@ -1,4 +1,131 @@
-﻿/*formatting so the pictures display uniformly on the webpage.*/
+﻿h2 {
+	color: white;
+	margin-top: 7px;
+	text-align: center;
+}
+
+/* PRODUCTION AREA STYLING */
+
+/* Outer form container */
+.Production--formBox {
+    padding: 4px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    width: 60%;
+    background-color: var(--main-color--light);
+}
+
+/* Create wider fields on small screens */
+@media screen and (max-width: 990px) {
+    .Production--formBox {
+        width: 100%;
+    }
+}
+
+/* Inner form container */
+.Production--form {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--light-color);
+}
+
+/* Headings */
+.Production--header {
+    padding-top: 50px;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+/* Input field containers */
+.Production--input-div {
+    max-width: 100%;
+}
+
+/* Inputs */
+.Production--input {
+    background-color: var(--secondary-color);
+}
+
+.Production--input:focus {
+    border: 2px solid var(--main-color);
+}
+
+/* Buttons */
+.Production--button {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.Production--button-list {
+    margin-left: 5px;
+    background-color: var(--main-color--light);
+    font-weight: bold;
+}
+
+.Production--button:hover {
+    opacity: 0.9;
+}
+
+.prod-calendar--button {
+	display: inline-block;
+	background-color: var(--secondary-color);
+	color: black !important;
+	font-weight: bold;
+	text-decoration: none;
+	margin-left: 5px;
+}
+
+.prod-calendar--button a {
+	color: black;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+}
+
+	.prod-calendar--button:hover { /* matched hover effect from other pages */
+		background-color: #DEB887;
+	}
+
+.prod-calendar--create { /* whole form container*/
+	margin-bottom: 55px;
+	background-color: white;
+	border-radius: .25rem;
+	padding: 0px 0px 5px 0px;
+	width: 75%;
+	color: var(--dark-color);
+}
+.prod-calendar--group { /* all form elements together */
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.prod-calendar--control { /* form field color */
+	background-color: lightgray !important;
+}
+
+.prod-calendar--control:focus {
+	box-shadow: 0 0 0 0.1rem var(--main-color--light);
+	border-color: var(--main-color--light);
+}
+
+.prod-calendar--btns {
+	display: flex;
+	justify-content: center;
+	text-decoration: none !important;
+	margin-top: .5rem;
+}
+
+@media screen and (max-width: 850px) {
+	.prod-calendar--create {
+		width: 100%;
+		padding: 0px 15px 5px 15px;
+	}
+}
+/*formatting so the pictures display uniformly on the webpage.*/
 .pic {
     max-width: 100%;
     height: auto;
