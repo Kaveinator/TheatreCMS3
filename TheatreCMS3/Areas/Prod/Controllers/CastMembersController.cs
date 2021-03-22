@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.Data.SqlClient;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -56,6 +57,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 bytes = br.ReadBytes(postedFile.ContentLength);
             }
             castMember.Photo = bytes;
+
             if (ModelState.IsValid)
             {
                 db.CastMembers.Add(castMember);
@@ -78,6 +80,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             if (castMember == null)
             {
                 return HttpNotFound();
+            }
+            string query = "Select Content from dbo.CastMembers";
+            using (SqlConnection connection = new SqlConnection(DbContext))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                using (SqlDataReader d = command.ExecuteReader())
+                {
+                    if (d.Read())
+                    {
+                        byte[] byteArray = (byte[])d["Photo"];
+                    }
+                }
             }
             return View(castMember);
             
