@@ -1,4 +1,7 @@
-﻿/* CSS color variables */
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+/* Do not uncomment these color variables */
+
+/* CSS color variables */
 /*:root { /* Color palette for css */
 /*--main-color: #DB1A11;  Red */
 /*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
@@ -8,100 +11,3 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-
-body {
-}
-
-.blogpost-h1 {
-    text-align: center;
-    color: var(--light-color);
-    padding: 30px;
-}
-
-.blogpost-btn {
-    margin-left: 8px;
-    margin-right: 8px;
-    border-radius: 5px;
-    color: var(--dark-color);
-    font-weight: bold;
-}
-
-.blogpost-btnclr1 {
-    background-color: #2A69D6;
-    color: var(--light-color);
-}
-.blogpost-btnclr1:hover {
-    color: var(--light-color);
-}
-.blogpost-btnclr2 {
-    background-color: var(--secondary-color);
-}
-.blogpost-btnclr3 {
-    background-color: var(--main-bg-color);
-}
-
-.blogpost-btn:hover {
-    opacity: .8;
-}
-
-.blogpost-btn-2:hover {
-    opacity: .8;
-}
-
-.blogpost-form-container {
-    text-align: left;
-    border: solid 5px;
-    border-radius: 5px;
-    background-color: var(--light-color);
-    border-color: var(--secondary-color);
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--dark-color);
-    font-weight: bold;
-}
-
-.blogpost-form-group {
-    background-color: #f6f6f6;
-    border: 2px solid lightgrey;
-    outline: none;
-    width: 100%;
-    text-align: left;
-    margin: auto;
-    margin: auto;
-}
-
-.blogpost-form-group:focus {
-    border: 2px solid var(--secondary-color);
-    box-shadow: 0 0 3px var(--secondary-color);
-    background-color: var(--light-color);
-}
-/*.txtclr2 {
-    color: var(--light-color);   /*Commenting out instead of deleting.
-}*/
-
-.blogpost-btn-on-bottom-1{
-    position: absolute;
-    bottom: 25px;
-}
-
-.blogpost-btn-on-bottom-2 {
-    position: absolute;
-    bottom: 25px;
-    left: 100px;
-}
-
-.blogpost-btn-on-bottom-3 {
-    position: absolute;
-    bottom: 25px;
-    right: 45px;
-}
-
-.blogpost-btn-spacing {
-    margin-bottom: 4.5rem;
-}
-
-.blogpost-img-fluid {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
