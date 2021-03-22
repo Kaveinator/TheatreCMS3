@@ -1,10 +1,7 @@
-﻿h2 {
-	color: white;
-	margin-top: 7px;
-	text-align: center;
-}
+﻿/* PRODUCTION AREA STYLING */
 
-/* PRODUCTION AREA STYLING */
+
+/* CREATE AND EDIT PRODCUTIONS PAGES*/
 
 /* Outer form container */
 .Production--formBox {
@@ -38,12 +35,11 @@
     text-align: center;
 }
 
-/* Input field containers */
+/* Input fields  */
 .Production--input-div {
     max-width: 100%;
 }
 
-/* Inputs */
 .Production--input {
     background-color: var(--secondary-color);
 }
@@ -68,6 +64,22 @@
     opacity: 0.9;
 }
 
+/* END CREATE AND EDIT PRODUCTION PAGES */
+
+/* PRODUCTIONS INDEX PAGE */
+
+
+
+/* END PRODUCTIONS INDEX PAGE */
+
+
+h2 {
+	color: white;
+	margin-top: 7px;
+	text-align: center;
+}
+
+
 .prod-calendar--button {
 	display: inline-block;
 	background-color: var(--secondary-color);
@@ -84,9 +96,11 @@
 	justify-content: center;
 }
 
-	.prod-calendar--button:hover { /* matched hover effect from other pages */
-		background-color: #DEB887;
-	}
+.prod-calendar--button:hover { /* matched hover effect from other pages */
+	background-color: #DEB887;
+}
+
+
 
 .prod-calendar--create { /* whole form container*/
 	margin-bottom: 55px;
