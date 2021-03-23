@@ -64,8 +64,15 @@
 					@Html.ActionLink("Productions", "Index", "Productions", new { Area = "Production" }, new { @class = "dropdown-item dropdowntxt" })
 				</div>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Rental</a>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Rental
+				</a>
+                <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+                    @Html.ActionLink("Rental Requests", "Index", "RentalRequest", new { Area = "Rental" }, new { @class = "dropdown-item dropdowntxt" })
+                    @Html.ActionLink("Rental", "Index", "Rental", new { Area = "Rental" }, new { @class = "dropdown-item dropdowntxt" })
+                    @Html.ActionLink("Rental History", "Index", "RentalHistory", new { Area = "Rental" }, new { @class = "dropdown-item dropdowntxt" })
+                </div>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
