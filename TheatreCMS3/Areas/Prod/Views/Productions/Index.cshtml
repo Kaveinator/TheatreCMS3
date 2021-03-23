@@ -1,45 +1,51 @@
-﻿
-@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+﻿@*@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>*@
+
+@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Production>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Productions";
 }
 
 
 <!-- Title -->
 <h2 class="Production--header text-left ml-2">Productions</h2>
 
+<!-- Create Button -->
+<div class="text-left ml-2">
+	@Html.ActionLink("Create New", "Create", null, new { @class = "btn Production--button mb-3" })
+</div>
+
 <!-- Search Bar -->
-@using(Html.BeginForm())
+@using (Html.BeginForm("Index", "Production", FormMethod.Get))
 {
 	<p class="cms-text-secondary ml-2">
 		Find Title: <br />
-		@Html.TextBox("SearchString")
+		@Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
 		<input type="submit" value="Search" />
 	</p>
 }
-
-<!-- Create Button -->
-<div class="text-left ml-2">
-    @Html.ActionLink("Create New", "Create", null, new { @class="btn Production--button mb-3"})
-</div>
-
+<p class="ml-2">
+	Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+</p>
 <!-- Card box -->
 <div class="container p-1 mb-5">
 
-    <!-- Flex-wrap row with responsive number of columns -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 no-gutters mb-5">
+	<!-- Flex-wrap row with responsive number of columns -->
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 no-gutters mb-5">
 
-        <!-- Iterate Productions table and create a card for each row -->
-	    @foreach (var item in Model)
-	    {
+		<!-- Iterate Productions table and create a card for each row -->
+		@foreach (var item in Model)
+		{
 
-            <!-- Card -->
+			<!-- Card -->
 			<div>
 				<div class="card w-auto  mx-1 mb-2 p-0 cms-bg-secondary">
 
 					<div class="Production--cardImage">
-						<!-- Production Image -->				
+						<!-- Production Image -->
 						@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.Title)" />*@
 						<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="Default Photo" />
 
@@ -49,7 +55,7 @@
 								@Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
 								@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
 								@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
-							</p>           
+							</p>
 						</div>
 					</div>
 
@@ -60,7 +66,8 @@
 
 				</div>
 			</div>
-	    }
+		}
 
-    </div>
+	</div>
 </div>
+<br />
