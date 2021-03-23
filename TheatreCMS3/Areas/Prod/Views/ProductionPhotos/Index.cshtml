@@ -10,30 +10,37 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.PhotoFile)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Title)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Description)
+    </th>
+    <th></th>
+  </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProPhotoId })
-        </td>
-    </tr>
+<tr>
+
+  <td>
+    <img alt="@item.ProPhotoId" class="foto" src="data:image/jpg;base64,@Convert.ToBase64String(item.PhotoFile)" />
+  </td>
+  <td>
+    @Html.DisplayFor(modelItem => item.Title)
+  </td>
+  <td>
+    @Html.DisplayFor(modelItem => item.Description)
+  </td>
+  <td>
+    @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
+    @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
+  </td>
+</tr>
 }
 
 </table>
