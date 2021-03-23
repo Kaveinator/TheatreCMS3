@@ -49,7 +49,7 @@
 /*End background color classes*/
 
 body {
-    padding-bottom: 20px;
+    
     background-color: var(--dark-color);
     color: var(--light-color);     /*This should default all text to the white of the site.*/
     min-height:100vh;
@@ -177,16 +177,6 @@ footer{
     margin-top:auto;
 }
 
-.footer-all {
-    width: 100%; /*Added to make footer full width */
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    position: relative; 
-    margin-top:auto;
-    bottom: 0; /*----------------------- Kevin commented this out because the footer was in the 
-     middle of my page. toggling this property in devtools fixed it so it was at the bottom*/
-
-}
 
 
 .footer-content {
