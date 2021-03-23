@@ -27,19 +27,18 @@
             <!-- Card -->
 		    <div class="card w-auto  mx-1 mb-2 p-0 cms-bg-secondary">
 
-                <!-- Production Image and link to Details Page -->
-			    <a href="@Url.Action("Details", new { id = item.ProductionID })">
-					@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.Title)" />*@
-				    <img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="" />
-			    </a>
+                <!-- Production Image -->				
+				@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.Title)" />*@
+				<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="" />
 
-                <!-- Hover overlay with Edit and Delete link buttons -->
+                <!-- Hover overlay with Details, Edit, and Delete link buttons -->
 			    <div class="card-img-overlay text-center Production--cardOverlay">
-			        <p>
-				        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
-				        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
-			        </p>           
-		        </div>
+					<p>
+						@Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
+						@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
+						@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
+					</p>           
+		        </div>				
 
                 <!-- Production Title -->
 			    <div class="card-title my-0 p-1">
