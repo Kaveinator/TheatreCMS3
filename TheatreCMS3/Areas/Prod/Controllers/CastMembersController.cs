@@ -94,6 +94,15 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 var castM = db.CastMembers.AsNoTracking().First(cast => castMember.ID == cast.ID);
                 castMember.Photo = castM.Photo;
             }
+            else
+            {
+                byte[] bytes;
+                using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+                {
+                    bytes = br.ReadBytes(postedFile.ContentLength);
+                }
+                castMember.Photo = bytes;
+            }
 
             if (ModelState.IsValid)
             {
