@@ -14,7 +14,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public Nullable<int> YearJoined { get; set; }
         public PositionEnum MainRole { get; set; }
         public string Bio { get; set; }
-        //public Byte[] Photo { get; set; }
+        public Byte[] Photo { get; set; }
         public bool CurrentMember { get; set; }
         public string Character { get; set; }
         public Nullable<int> CastYearLeft { get; set; }

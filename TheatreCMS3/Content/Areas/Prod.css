@@ -125,3 +125,9 @@
 		padding: 0px 15px 5px 15px;
 	}
 }
+
+/*formatting so the pictures display uniformly on the webpage.*/
+.castMember-pic {
+    max-width: 100%;
+    height: auto;
+}
