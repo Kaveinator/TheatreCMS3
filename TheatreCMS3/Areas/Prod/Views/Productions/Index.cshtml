@@ -32,17 +32,17 @@
 				<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="" />
 
                 <!-- Hover overlay with Details, Edit, and Delete link buttons -->
-			    <div class="card-img-overlay text-center Production--cardOverlay">
+			    @*<div class="card-img-overlay text-center Production--cardOverlay">
 					<p>
 						@Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
 						@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
 						@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
 					</p>           
-		        </div>				
+		        </div>*@				
 
                 <!-- Production Title -->
-			    <div class="card-title my-0 p-1">
-				    <h5 class="card-title cms-text-dark text-center my-0">@Html.DisplayFor(modelItem => item.Title)</h5>
+			    <div class="card-title my-0 p-1 Production--cardTitle overflow-auto">
+				    <h5 class="card-title cms-text-dark text-center my-0 ">@Html.DisplayFor(modelItem => item.Title)</h5>
 			    </div>
 
 		    </div>
