@@ -26,10 +26,15 @@
 		<input type="submit" value="Search" />
 	</p>
 }
-<p class="ml-2">
+
+<!-- Page Navigation -->
+<p class="ml-2 my-1 p-0 cms-text-secondary">
 	Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</p>
+<p>
 	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
 </p>
+
 <!-- Card box -->
 <div class="container p-1 mb-5">
 
@@ -39,14 +44,14 @@
 		<!-- Iterate Productions table and create a card for each row -->
 		@foreach (var item in Model)
 		{
-
 			<!-- Card -->
 			<div>
 				<div class="card w-auto  mx-1 mb-2 p-0 cms-bg-secondary">
 
 					<div class="Production--cardImage">
+
 						<!-- Production Image -->
-						@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.Title)" />*@
+						@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.DefaultPhoto)" />*@
 						<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="Default Photo" />
 
 						<!-- Hover overlay with Details, Edit, and Delete link buttons -->
