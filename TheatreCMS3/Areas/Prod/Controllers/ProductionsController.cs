@@ -25,7 +25,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 productions = productions.Where(p => p.Title.Contains(searchString));
             }
 
-            return View(db.Productions.ToList());
+            return View(productions.ToList());
         }
 
         // GET: Prod/Productions/Details/5
