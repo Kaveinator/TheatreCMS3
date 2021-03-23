@@ -68,8 +68,13 @@
 
 /* PRODUCTIONS INDEX PAGE */
 
+.Production--cardImage {
+	position: relative;
+}
+
 .Production--cardOverlay {
 	opacity: 0;
+	transition: .5s ease;
 }
 
 .Production--cardOverlay:hover {

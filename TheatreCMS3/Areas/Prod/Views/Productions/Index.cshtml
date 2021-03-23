@@ -7,10 +7,10 @@
 
 
 <!-- Title -->
-<h2 class="Production--header">Productions</h2>
+<h2 class="Production--header text-left ml-2">Productions</h2>
 
 <!-- Create Button -->
-<div class="text-center">
+<div class="text-left ml-2">
     @Html.ActionLink("Create New", "Create", null, new { @class="btn Production--button mb-3"})
 </div>
 
@@ -27,18 +27,20 @@
             <!-- Card -->
 		    <div class="card w-auto  mx-1 mb-2 p-0 cms-bg-secondary">
 
-                <!-- Production Image -->				
-				@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.Title)" />*@
-				<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="" />
+				<div class="Production--cardImage">
+					<!-- Production Image -->				
+					@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.Title)" />*@
+					<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="Default Photo" />
 
-                <!-- Hover overlay with Details, Edit, and Delete link buttons -->
-			    @*<div class="card-img-overlay text-center Production--cardOverlay">
-					<p>
-						@Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
-						@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
-						@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
-					</p>           
-		        </div>*@				
+					<!-- Hover overlay with Details, Edit, and Delete link buttons -->
+					<div class="card-img-overlay text-center Production--cardOverlay">
+						<p>
+							@Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
+							@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
+							@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
+						</p>           
+					</div>
+				</div>
 
                 <!-- Production Title -->
 			    <div class="card-title my-0 p-1 Production--cardTitle overflow-auto">
