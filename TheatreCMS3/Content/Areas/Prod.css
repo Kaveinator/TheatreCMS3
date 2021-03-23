@@ -1,7 +1,7 @@
 ﻿/* PRODUCTION AREA STYLING */
 
 
-/* CREATE AND EDIT PRODCUTIONS PAGES*/
+/* CREATE AND EDIT PRODUCTIONS PAGES*/
 
 /* Outer form container */
 .Production--formBox {
@@ -68,6 +68,7 @@
 
 /* PRODUCTIONS INDEX PAGE */
 
+/* Card Hover Overlay */
 .Production--cardImage {
 	position: relative;
 }
@@ -81,6 +82,7 @@
 	opacity: 1;
 }
 
+/* Size title box to prevent automatic sizing and force overflow */
 .Production--cardTitle {
 	height: 40px;
 }
