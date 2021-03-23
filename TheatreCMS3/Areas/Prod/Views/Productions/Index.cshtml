@@ -9,6 +9,16 @@
 <!-- Title -->
 <h2 class="Production--header text-left ml-2">Productions</h2>
 
+<!-- Search Bar -->
+@using(Html.BeginForm())
+{
+	<p class="cms-text-secondary ml-2">
+		Find Title: <br />
+		@Html.TextBox("SearchString")
+		<input type="submit" value="Search" />
+	</p>
+}
+
 <!-- Create Button -->
 <div class="text-left ml-2">
     @Html.ActionLink("Create New", "Create", null, new { @class="btn Production--button mb-3"})
