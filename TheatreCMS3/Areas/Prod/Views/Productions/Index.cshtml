@@ -1,34 +1,43 @@
 ﻿
-@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Production>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Productions";
 }
-
 
 <!-- Title -->
 <h2 class="Production--header text-left ml-2">Productions</h2>
 
-<!-- Search Bar -->
-@using(Html.BeginForm())
-{
-	<p class="cms-text-secondary ml-2">
-		Find Title: <br />
-		@Html.TextBox("SearchString")
-		<input type="submit" value="Search" />
-	</p>
-}
-
 <!-- Create Button -->
 <div class="text-left ml-2">
-    @Html.ActionLink("Create New", "Create", null, new { @class="btn Production--button mb-3"})
+	@Html.ActionLink("Create New", "Create", null, new { @class = "btn Production--button mb-3" })
 </div>
+
+<!-- Search Bar -->
+@using (Html.BeginForm("Index", "Productions", FormMethod.Get))
+{
+<p class="cms-text-secondary ml-2">
+	Find Title: <br />
+	@Html.TextBox("SearchString")
+	<input type="submit" value="Search" />
+</p>
+}
+
+<!-- Page Navigation -->
+<p class="ml-2 my-1 p-0 cms-text-secondary">
+	Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</p>
+<p>
+	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+</p>
 
 <!-- Card box -->
 <div class="container p-1 mb-5">
 
-    <!-- Flex-wrap row with responsive number of columns -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 no-gutters mb-5">
+	<!-- Flex-wrap row with responsive number of columns -->
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 no-gutters mb-5">
 
 		<!-- Iterate Productions table and create a card for each row -->
 		@foreach (var item in Model)
@@ -49,7 +58,7 @@
 								@Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
 								@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
 								@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
-							</p>           
+							</p>
 						</div>
 					</div>
 
@@ -60,7 +69,7 @@
 
 				</div>
 			</div>
-	    }
+		}
 
-    </div>
+	</div>
 </div>
