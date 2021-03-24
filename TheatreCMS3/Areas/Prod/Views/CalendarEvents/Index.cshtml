@@ -17,6 +17,18 @@
 		<div class="col-1 prod-calendar--date">
 			<h3 class="display-3 font-weight-normal">@Html.DisplayFor(modelItem => item.StartDate.Value.Day)</h3>
 			<h4 class="prod-calendar--month text-uppercase">@item.StartDate.Value.ToString("MMM")</h4>
+			<div class="prod-calendar--eventlength ">
+				<a href="#" title="Click for more info" data-toggle="popover" data-trigger="focus" data-content="This is day {0} of the event.">
+					@if (item.StartTime == null)
+					{
+						<p>All Day <i class="fas fa-clock"></i></p>
+					}
+					else
+					{
+						<p>@(item.EndDate.Value.Day - item.StartDate.Value.Day) Days <i class="fas fa-clock"></i></p>
+					}
+				</a>
+			</div>
 		</div>
 		<div class="col-11 prod-calendar--event">
 			<h4 class="prod-calendar--title">@Html.DisplayFor(modelItem => item.Title)</h4>
@@ -33,11 +45,21 @@
 				</ul>
 			</div>
 
-			<p class="prod-calendar--daytime">@Html.DisplayFor(modelItem => item.StartDate.Value.DayOfWeek), @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)</p>
+			<p class="prod-calendar--daytime">
+				@if (item.StartTime == null)
+				{
+					@Html.DisplayFor(modelItem => item.StartDate.Value.DayOfWeek)
+				}
+				else
+				{
+					<text>
+						@Html.DisplayFor(modelItem => item.StartDate.Value.DayOfWeek), @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
+					</text>
+				}
+			</p>
 			<p class="prod-calendar--desc">@Html.DisplayFor(modelItem => item.Description)</p>
 		</div>
 	</div>
 }
 <hr class="prod-calendar--hr" />
-
 

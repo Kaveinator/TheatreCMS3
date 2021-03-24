@@ -43,7 +43,7 @@
 	background-color: lightgray !important;
 }
 
-.form-control:focus {
+.prod-calendar--control:focus { /* create form field outline */
 	box-shadow: 0 0 0 0.1rem var(--main-color--light);
 	border-color: var(--main-color--light);
 }
@@ -65,6 +65,9 @@
 	}
 	.prod-calendar--date h4 {
 		font-size: 1.2rem !important;
+	}
+	.prod-calendar--eventlength p {
+		font-size: .7rem;
 	}
 }
 
@@ -94,7 +97,19 @@
 .prod-calendar--month {
 	display: block;
 	text-align: center;
-	opacity: .5;	
+	opacity: .5;
+	margin-bottom: 0px;
+}
+
+.prod-calendar--eventlength {
+	text-align: center;
+}
+
+.prod-calendar--eventlength p {
+	display: inline-block;
+	font-size: .9rem;
+	opacity: .5;
+	text-align: center;
 }
 
 .prod-calendar--event {
@@ -121,19 +136,25 @@
 	text-align: center;
 	font-size: 1.2rem;
 	font-weight: 500;
-	min-width: 6rem;
+	min-width: 5rem;
 	color: black !important;
 	background-color: white !important;
+	padding-bottom: 0px;
+	padding-top: 0px;
 }
 
-
+.prod-calendar--leftmenu li:hover {
+	background-color: lightgray;
+}
 
 .prod-calendar--leftmenu a {
 	text-decoration: none;
 	color: black !important;
-	padding: 0px !important;
 }
 
+.prod-calendar--leftbtn {
+	padding: 0px;
+}
 
 .prod-calendar--leftbtn::before {
 	content: none !important;
@@ -144,10 +165,10 @@
 }
 
 .prod-calendar--desc {
-	border: 2px solid lightgrey;
+	border: 1px solid lightgrey;
 	border-radius: .25rem;
-	padding: .25rem;
-	color: lightgray;
+	padding: .5rem;
+	color: black;
 }
 
 .prod-calendar--hr {
