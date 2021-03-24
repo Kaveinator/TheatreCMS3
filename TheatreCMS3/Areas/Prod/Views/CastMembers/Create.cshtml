@@ -11,7 +11,7 @@
 {
   @Html.AntiForgeryToken()
 
-  <div class="form-horizontal text-center">
+  <div class="form-horizontal">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="Castmember--castformgroup">
       @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -88,14 +88,14 @@
     </div>
 
     <div class="Castmember--castformgroup">
-      <div class="col-md-offset-2 col-md-10">
+      <div class="col-md-offset-2 col-md-10 text-center">
         <input type="submit" value="Create" class="Castmember--Createbutton" />
       </div>
     </div>
   </div>
 }
 
-<div>
+<div class="text-center">
     @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "Castmember--Backtolist" })
 </div>
 
