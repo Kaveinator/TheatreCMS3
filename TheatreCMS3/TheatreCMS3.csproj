@@ -188,7 +188,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
-    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
@@ -466,6 +465,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
+    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Rental\Data\" />
