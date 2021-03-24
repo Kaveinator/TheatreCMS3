@@ -19,7 +19,14 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/Productions
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+            // Retain sort order during page changes.
             ViewBag.CurrentSort = sortOrder;
+
             // If search string is changed set "page" to 1.
             if (searchString != null)
             {
@@ -46,10 +53,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             productions = productions.OrderBy(p => p.Title);
 
             // Set page size.
-            int pageSize = 10;
-
+            int pageSize = 10;            
+            
             // Retain value of "page" or set to 1 if "page" is null.
             int pageNumber = (page ?? 1);
+            
 
             // Return list to view with page number and page size.
             return View(productions.ToPagedList(pageNumber, pageSize));
