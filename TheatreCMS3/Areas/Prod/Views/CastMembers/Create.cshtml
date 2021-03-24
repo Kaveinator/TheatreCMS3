@@ -7,7 +7,7 @@
 <h2>Create Cast Member</h2>
 
 
-@using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { @class = "Production--formBox", enctype = "multipart/form-data" }))
 {
   @Html.AntiForgeryToken()
 
