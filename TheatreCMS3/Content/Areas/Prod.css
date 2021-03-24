@@ -137,7 +137,7 @@
 /*Cast member styling*/
 /*Form styling*/
 .Castmember--castformgroup {
-	margin-right: -130px;
+	
 }
 
 .Castmember--formBox {
@@ -161,6 +161,8 @@
 	border-radius: 4px;
 	font-weight: 500;
 	display: inline-block;
+	margin-top: 6px;
+	margin-bottom: 4px;
 }
 
 	.Castmember--Backtolist:hover {
@@ -174,6 +176,8 @@
 	border-radius: 4px;
 	font-weight: bold;
 	display: inline-block;
+	margin-top: 8px;
+	margin-bottom: 4px;
 }
 
 .Castmember--Createbutton:hover {
