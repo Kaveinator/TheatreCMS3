@@ -7,6 +7,7 @@
     --light-color: #FFFBFB; /* White */
     --dark-color: #000000; /* Black */
 }
+
 /*Text color classes*/
 .cms-text-main {
     color: var(--main-color);
@@ -27,6 +28,7 @@
     color: var(--dark-color);
 }
 /*End color classes*/
+
 /*Background color classes*/
 .cms-bg-main {
     background-color: var(--main-color);

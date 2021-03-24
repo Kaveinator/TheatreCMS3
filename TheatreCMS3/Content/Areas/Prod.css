@@ -20,6 +20,14 @@
     }
 }
 
+.Castmember--castform {
+	border-radius: 2px;
+}
+	.Castmember--castform:focus {
+		background-color: var(--secondary-color);
+		border: 3px solid var(--main-color);
+	}
+
 /* Inner form container */
 .Production--form {
     padding: 10px;
@@ -164,6 +172,60 @@ h2 {
 	
 
 
+}
+
+/*Cast member styling*/
+/*Form styling*/
+.Castmember--castformgroup {
+	
+}
+
+.Castmember--formBox {
+	padding: 4px;
+	border-radius: 10px;
+	width: 60%;
+	background-color: var(--main-color--light);
+	margin: auto;
+}
+
+@media screen and (max-width: 990px) {
+	.Castmember--formBox {
+		width: 100%;
+	}
+}
+
+/*Button styling*/
+.Castmember--Backtolist {
+	color: black;
+	background-color: var(--main-color);
+	border-radius: 4px;
+	font-weight: 500;
+	display: inline-block;
+	margin-top: 6px;
+	margin-bottom: 4px;
+}
+
+	.Castmember--Backtolist:hover {
+		opacity: 0.9;
+		color: black;
+		text-decoration: none !important;
+	}
+
+.Castmember--Createbutton {
+	background-color: var(--secondary-color);
+	border-radius: 4px;
+	font-weight: bold;
+	display: inline-block;
+	margin-top: 8px;
+	margin-bottom: 4px;
+}
+
+.Castmember--Createbutton:hover {
+	opacity: 0.9;
+}
+
+.Castmember--photoupload {
+	background-color: var(--secondary-color);
 }
 
 /*formatting so the pictures display uniformly on the webpage.*/
