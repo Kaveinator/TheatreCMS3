@@ -8,8 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
-using PagedList;
-
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -18,43 +16,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/Productions
-        public ViewResult Index(string currentFilter, string searchString, int? page)
+        public ActionResult Index(string searchString)
         {
-            // If page link is clicked, "page" is page number to display.
-            // On first page load, all parameters are null and "page" is set to 1.
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            // Otherwise retain search string during page changes.
-            else
-            {
-                searchString = currentFilter;
-            }
-
-            // Provide view with current filter string.
-            ViewBag.CurrentFilter = searchString;
-
-            // Query database for table rows.
             var productions = from p in db.Productions select p;
 
-            // If search string is not empty get search results.
             if (!String.IsNullOrEmpty(searchString))
             {
                 productions = productions.Where(p => p.Title.Contains(searchString));
             }
 
-            // Sort results ascending by title.
-            productions = productions.OrderBy(p => p.Title);
-
-            // Set page size.
-            int pageSize = 6;
-
-            // Retain value of "page" or set to 1 if "page" is null.
-            int pageNumber = (page ?? 1);
-
-            // Return list to view with page number and page size.
-            return View(productions.ToPagedList(pageNumber, pageSize));
+            return View(productions.ToList());
         }
 
         // GET: Prod/Productions/Details/5
