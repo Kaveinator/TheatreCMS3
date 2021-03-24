@@ -46,7 +46,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             productions = productions.OrderBy(p => p.Title);
 
             // Set page size.
-            int pageSize = 6;
+            int pageSize = 10;
 
             // Retain value of "page" or set to 1 if "page" is null.
             int pageNumber = (page ?? 1);

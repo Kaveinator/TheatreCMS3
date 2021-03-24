@@ -18,26 +18,18 @@
 <!-- Search Bar -->
 @using (Html.BeginForm("Index", "Productions", FormMethod.Get))
 {
-<p class="cms-text-secondary ml-2">
-	Find Title: <br />
-	@Html.TextBox("SearchString")
-	<input type="submit" value="Search" />
-</p>
+	<p class="cms-text-secondary ml-2">
+		Find Title: <br />
+		@Html.TextBox("SearchString")
+		<input type="submit" value="Search" />
+	</p>
 }
 
-<!-- Page Navigation -->
-<p class="ml-2 my-1 p-0 cms-text-secondary">
-	Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-</p>
-<p>
-	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
-</p>
-
 <!-- Card box -->
-<div class="container p-1 mb-5">
+<div class="container p-1">
 
 	<!-- Flex-wrap row with responsive number of columns -->
-	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 no-gutters mb-5">
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 no-gutters mb-1">
 
 		<!-- Iterate Productions table and create a card for each row -->
 		@foreach (var item in Model)
@@ -73,3 +65,12 @@
 
 	</div>
 </div>
+
+<!-- Page Navigation -->
+<p class="ml-2 my-1 p-0 cms-text-secondary">
+	Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</p>
+<p>
+	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+</p>
+
