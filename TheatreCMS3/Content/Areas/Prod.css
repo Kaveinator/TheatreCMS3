@@ -148,11 +148,20 @@ h2 {
 	margin-top: .5rem;
 }
 
+.productionphoto-image {
+	max-width: 100%;
+	height: auto;
+}
+
 @media screen and (max-width: 850px) {
 	.prod-calendar--create {
 		width: 100%;
 		padding: 0px 15px 5px 15px;
 	}
+
+	
+
+
 }
 
 /*formatting so the pictures display uniformly on the webpage.*/

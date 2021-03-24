@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
+
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -49,8 +51,14 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProPhotoId,Title, PhotoFile, Description")] ProductionPhoto productionPhoto, HttpPostedFileBase postedFile)
         {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            {
+                bytes = br.ReadBytes(postedFile.ContentLength);
+            }
+            productionPhoto.PhotoFile = bytes;
             if (ModelState.IsValid)
             {
                 db.ProductionPhotoes.Add(productionPhoto);
@@ -62,7 +70,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Production/ProductionPhotoes/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, Byte[] photoF)
         {
             if (id == null)
             {
@@ -81,8 +89,23 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "ProPhotoId,Title, PhotoFile, Description")] ProductionPhoto productionPhoto, HttpPostedFileBase postedFile)
         {
+            if (postedFile == null)
+            {
+                var foto = db.ProductionPhotoes.AsNoTracking().First(prod => productionPhoto.ProPhotoId == prod.ProPhotoId);
+                productionPhoto.PhotoFile = foto.PhotoFile;
+            }
+           
+            else
+            {
+                byte[] bytes;
+                using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+                {
+                    bytes = br.ReadBytes(postedFile.ContentLength);
+                }
+                productionPhoto.PhotoFile = bytes;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(productionPhoto).State = EntityState.Modified;
