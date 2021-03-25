@@ -1,6 +1,6 @@
 ﻿var ProductionDetailPostBackURL = '/Prod/Productions/DetailsModal';
 $(function () {
-    $("#").click(function () {
+    $("#ModalButton").click(function () {
         var $buttonClicked = $(this);
         var id = $buttonClicked.attr('data-id');
         $.ajax({
