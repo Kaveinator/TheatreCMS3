@@ -48,7 +48,7 @@
 						<div class="card-img-overlay text-center Production--cardOverlay">
 							<p>
 								@*<button type="submit" class="badge badge-pill badge-warning" data-toggle="modal" data-target="#Details">Details</button>*@
-								@Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
+								@Html.ActionLink("Details", "DetailsModal", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
 								@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
 								@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
 							</p>
