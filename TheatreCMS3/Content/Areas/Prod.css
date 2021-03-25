@@ -1,10 +1,7 @@
-﻿h2 {
-	color: white;
-	margin-top: 7px;
-	text-align: center;
-}
+﻿/* PRODUCTION AREA STYLING */
 
-/* PRODUCTION AREA STYLING */
+
+/* CREATE AND EDIT PRODUCTIONS PAGES*/
 
 /* Outer form container */
 .Production--formBox {
@@ -23,6 +20,14 @@
     }
 }
 
+.Castmember--castform {
+	border-radius: 2px;
+}
+	.Castmember--castform:focus {
+		background-color: var(--secondary-color);
+		border: 3px solid var(--main-color);
+	}
+
 /* Inner form container */
 .Production--form {
     padding: 10px;
@@ -38,12 +43,11 @@
     text-align: center;
 }
 
-/* Input field containers */
+/* Input fields  */
 .Production--input-div {
     max-width: 100%;
 }
 
-/* Inputs */
 .Production--input {
     background-color: var(--secondary-color);
 }
@@ -68,6 +72,39 @@
     opacity: 0.9;
 }
 
+/* END CREATE AND EDIT PRODUCTION PAGES */
+
+/* PRODUCTIONS INDEX PAGE */
+
+/* Card Hover Overlay */
+.Production--cardImage {
+	position: relative;
+}
+
+.Production--cardOverlay {
+	opacity: 0;
+	transition: .5s ease;
+}
+
+.Production--cardOverlay:hover {
+	opacity: 1;
+}
+
+/* Size title box to prevent automatic sizing and force overflow */
+.Production--cardTitle {
+	height: 40px;
+}
+
+/* END PRODUCTIONS INDEX PAGE */
+
+
+h2 {
+	color: white;
+	margin-top: 7px;
+	text-align: center;
+}
+
+
 .prod-calendar--button {
 	display: inline-block;
 	background-color: var(--secondary-color);
@@ -84,9 +121,11 @@
 	justify-content: center;
 }
 
-	.prod-calendar--button:hover { /* matched hover effect from other pages */
-		background-color: #DEB887;
-	}
+.prod-calendar--button:hover { /* matched hover effect from other pages */
+	background-color: #DEB887;
+}
+
+
 
 .prod-calendar--create { /* whole form container*/
 	margin-bottom: 55px;
@@ -119,11 +158,74 @@
 	margin-top: .5rem;
 }
 
+.productionphoto-image {
+	max-width: 100%;
+	height: auto;
+}
+
 @media screen and (max-width: 850px) {
 	.prod-calendar--create {
 		width: 100%;
 		padding: 0px 15px 5px 15px;
 	}
+
+	
+
+
+}
+
+/*Cast member styling*/
+/*Form styling*/
+.Castmember--castformgroup {
+	
+}
+
+.Castmember--formBox {
+	padding: 4px;
+	border-radius: 10px;
+	width: 60%;
+	background-color: var(--main-color--light);
+	margin: auto;
+}
+
+@media screen and (max-width: 990px) {
+	.Castmember--formBox {
+		width: 100%;
+	}
+}
+
+/*Button styling*/
+.Castmember--Backtolist {
+	color: black;
+	background-color: var(--main-color);
+	border-radius: 4px;
+	font-weight: 500;
+	display: inline-block;
+	margin-top: 6px;
+	margin-bottom: 4px;
+}
+
+	.Castmember--Backtolist:hover {
+		opacity: 0.9;
+		color: black;
+		text-decoration: none !important;
+	}
+
+.Castmember--Createbutton {
+	background-color: var(--secondary-color);
+	border-radius: 4px;
+	font-weight: bold;
+	display: inline-block;
+	margin-top: 8px;
+	margin-bottom: 4px;
+}
+
+.Castmember--Createbutton:hover {
+	opacity: 0.9;
+}
+
+.Castmember--photoupload {
+	background-color: var(--secondary-color);
 }
 
 /*formatting so the pictures display uniformly on the webpage.*/

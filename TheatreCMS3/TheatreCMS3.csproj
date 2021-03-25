@@ -100,6 +100,12 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -188,6 +194,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
@@ -247,6 +255,7 @@
     <Content Include="Content\images\MidsummerNightDream.png" />
     <Content Include="Content\images\Tempest.png" />
     <Content Include="Content\images\TheatreLogo.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -320,6 +329,11 @@
     <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />

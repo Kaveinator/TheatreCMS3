@@ -7,6 +7,7 @@
     --light-color: #FFFBFB; /* White */
     --dark-color: #000000; /* Black */
 }
+
 /*Text color classes*/
 .cms-text-main {
     color: var(--main-color);
@@ -27,6 +28,7 @@
     color: var(--dark-color);
 }
 /*End color classes*/
+
 /*Background color classes*/
 .cms-bg-main {
     background-color: var(--main-color);
@@ -47,10 +49,15 @@
     background-color: var(--dark-color);
 }
 /*End background color classes*/
+
 body {
-    padding-bottom: 20px;
+    
     background-color: var(--dark-color);
     color: var(--light-color);     /*This should default all text to the white of the site.*/
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -167,14 +174,12 @@ a.CMS-text-bigger {
     font-size: 36px;
 }
 /*Styling for _Footer.cshtml*/
-.footer-all {
-    width: 100%; /*Added to make footer full width */
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    position: fixed; /*changed from absolute to fixed to make visable when scrolling*/
-    bottom: 0; /*----------------------- Kevin commented this out because the footer was in the 
-     middle of my page. toggling this property in devtools fixed it so it was at the bottom*/
+
+footer{
+    margin-top:auto;
 }
+
+
 
 .footer-content {
     padding-top: 12px;
@@ -196,7 +201,7 @@ a.CMS-text-bigger {
 .footer-copyright {
     width: 115px;
     text-align: right;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 

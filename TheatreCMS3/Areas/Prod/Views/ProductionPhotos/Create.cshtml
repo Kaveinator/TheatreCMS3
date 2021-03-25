@@ -7,9 +7,18 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.PhotoFile, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        <input type="file" name="postedFile" />
+        @Html.ValidationMessageFor(model => model.PhotoFile, "", new { @class = "text-danger" })
+      </div>
+    </div>
+
     
     <div class="form-horizontal">
         <h4>ProductionPhoto</h4>
