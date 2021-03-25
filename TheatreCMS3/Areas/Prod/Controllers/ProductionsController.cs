@@ -70,7 +70,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
-            return PartialView(production);
+            return PartialView("_DetailsModal", production);
         }
 
         // GET: Prod/Productions/Details/5
