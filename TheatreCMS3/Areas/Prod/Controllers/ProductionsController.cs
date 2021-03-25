@@ -63,6 +63,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(productions.ToPagedList(pageNumber, pageSize));
         }
 
+        public ActionResult DetailsModal(int id)
+        {
+            Production production = db.Productions.Find(id);
+            if (production == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView(production);
+        }
+
         // GET: Prod/Productions/Details/5
         public ActionResult Details(int? id)
         {
