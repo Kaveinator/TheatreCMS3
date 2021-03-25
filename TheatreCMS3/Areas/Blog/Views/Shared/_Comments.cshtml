@@ -1,0 +1,24 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.Comment
+
+<tr>
+  <td>
+    @Html.DisplayFor(m => m.Message)
+  </td>
+  <td>
+    @Html.DisplayFor(m => m.CommentDate)
+  </td>
+  <td>
+    @Html.DisplayFor(m => m.Likes)
+  </td>
+  <td>
+    @Html.DisplayFor(m => m.Dislikes)
+  </td>
+  <td>
+    @Model.LikesRatio()
+  </td>
+  <td>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentID }) |
+    @Html.ActionLink("Details", "Details", new { id = Model.CommentID }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.CommentID })
+  </td>
+</tr>

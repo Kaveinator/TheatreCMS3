@@ -28,28 +28,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Message)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Likes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dislikes)
-            </td>
-            <td>
-                @item.LikesRatio()
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CommentID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CommentID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CommentID })
-            </td>
-        </tr>
+        @Html.Partial("_Comments", item)
     }
 
 </table>
