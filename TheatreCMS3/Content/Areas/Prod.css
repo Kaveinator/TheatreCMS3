@@ -67,7 +67,12 @@
 		font-size: 1.2rem !important;
 	}
 	.prod-calendar--eventlength p {
-		font-size: .7rem;
+		font-size: .7rem !important;
+		width: max-content;
+		text-align: center !important;
+	}
+	.prod-calendar--date {
+		text-align: center !important;
 	}
 }
 
@@ -110,6 +115,16 @@
 	font-size: .9rem;
 	opacity: .5;
 	text-align: center;
+	text-decoration: none;
+	color: black;
+}
+
+.prod-calendar--pop:focus {
+	outline: none;
+}
+
+.prod-calendar--pop {
+	margin-bottom: 0;
 }
 
 .prod-calendar--event {
@@ -127,9 +142,43 @@
 	margin-bottom: 0;
 }
 
-.prod-calendar--dropleft {
+.prod-calendar--titledays {
+	display: flex;
+	
+}
+
+.prod-calendar--daysleft {
+	background-color: var(--secondary-color);
+	font-weight: 700;
+	border-radius: .25rem;
+	padding: 4px;
+	margin-left: .75rem;
+	font-size: .85rem;
+	display: block;
+	margin-bottom: 0;
+
+}
+
+.prod-calendar--lastday {
+	background-color: var(--main-color);
+	color: white;
+	font-weight: 700;
+	border-radius: .25rem;
+	padding: 4px;
+	margin-left: .75rem;
+	font-size: .85rem;
+	display: block;
+	margin-bottom: 0;
+}
+
+.prod-calendar--leftbtn {
 	float: right;
-	margin-top: -30px;
+	display: block;
+}
+
+.prod-calendar--dropleft {
+	display: block;
+	margin-left: auto;
 }
 
 .prod-calendar--leftmenu {
@@ -154,6 +203,7 @@
 
 .prod-calendar--leftbtn {
 	padding: 0px;
+	max-height: 20px;
 }
 
 .prod-calendar--leftbtn::before {
