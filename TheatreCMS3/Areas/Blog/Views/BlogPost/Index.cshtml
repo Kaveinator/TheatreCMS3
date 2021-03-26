@@ -9,43 +9,33 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Posted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPostId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPostId })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    <div class="blog-post-card-container">
+        <div class="card blog-post-card">
+            <!-- find way to remove card and footer edges -->
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <div class="blog-post-card-thumbnail">
+                        <img src="//placehold.it/200" class="img-fluid " alt="">
+                    </div>
+                    <!-- have to figure out how to change this so there is a max, make it look uniform-->
+                    
+                </div>
+                <div class="col">
+                    <div class="card-block px-2 blog-post-card-text-block">
+                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h4>
+                        <p class="text-muted">@Html.DisplayFor(modelItem => item.Posted) by @Html.DisplayFor(modelItem => item.Author)</p>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Content)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-post-card-footer w-100">
+                <a href="@Url.Action("Edit", new { id = item.BlogPostId })" class="btn blog-post-button3"><i class="fas fa-edit"></i> Edit</a>
+                <a href="@Url.Action("Details", new { id = item.BlogPostId })" class="btn blog-post-button3"><i class="fas fa-info"></i> Details</a>
+                <a href="@Url.Action("Delete", new { id = item.BlogPostId })" class="btn blog-post-button4"><i class="fas fa-trash"></i> Delete</a>
+            </div>
+        </div>
+    </div>
 }
-
-</table>
