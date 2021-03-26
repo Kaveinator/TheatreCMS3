@@ -47,9 +47,7 @@
 						<!-- Hover overlay with Details, Edit, and Delete link buttons -->
 						<div class="card-img-overlay text-center Production--cardOverlay">
 							<p>
-								@*<a href="javascript:void(0);" id="ModalButton" data-id="@item.ProductionID">Details</a>*@
-								@*<button type="submit" id="ModalButton" class="badge badge-pill badge-warning" data-id="@item.ProductionID">Details</button>*@
-								@Html.ActionLink("Details", "DetailsModal", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning", @id = "ModalButton" })
+								<a href="#" type="submit" class="badge badge-pill cms-bg-secondary ModalButton Production--a" data-id="@item.ProductionID" data-target="#ModalContent">Details</a>
 								@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
 								@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
 							</p>

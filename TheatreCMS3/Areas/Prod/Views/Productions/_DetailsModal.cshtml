@@ -1,70 +1,69 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.Production
 
-<div>
 
-	<div class="modal-header">
-		<h4 class="modal-title">@Html.DisplayFor(model => model.Title)</h4>
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	</div>
+<div class="p-1">
+	<h4 class="">@Html.DisplayFor(model => model.Title)</h4>
 
 	<hr />
 
-	<div class="modal-body">
+	<table class="table-dark m-auto w-100">
 
-		<table>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.Description)</td>
+			<td>@Html.DisplayFor(model => model.Description)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.Description)</td>
-				<td>@Html.DisplayFor(model => model.Description)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.Playwright)</td>
+			<td>@Html.DisplayFor(model => model.Playwright)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.Playwright)</td>
-				<td>@Html.DisplayFor(model => model.Playwright)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.Runtime)</td>
+			<td>@Html.DisplayFor(model => model.Runtime)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.Runtime)</td>
-				<td>@Html.DisplayFor(model => model.Runtime)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.OpeningDay)</td>
+			<td>@Html.DisplayFor(model => model.OpeningDay)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.OpeningDay)</td>
-				<td>@Html.DisplayFor(model => model.OpeningDay)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.ClosingDay)</td>
+			<td>@Html.DisplayFor(model => model.ClosingDay)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.ClosingDay)</td>
-				<td>@Html.DisplayFor(model => model.ClosingDay)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.ShowTimeEve)</td>
+			<td>@Html.DisplayFor(model => model.ShowTimeEve)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.ShowTimeEve)</td>
-				<td>@Html.DisplayFor(model => model.ShowTimeEve)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.ShowTimeMat)</td>
+			<td>@Html.DisplayFor(model => model.ShowTimeMat)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.ShowTimeMat)</td>
-				<td>@Html.DisplayFor(model => model.ShowTimeMat)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.Season)</td>
+			<td>@Html.DisplayFor(model => model.Season)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.Season)</td>
-				<td>@Html.DisplayFor(model => model.Season)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.IsWorldPremier)</td>
+			<td>@Html.DisplayFor(model => model.IsWorldPremier)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.IsWorldPremier)</td>
-				<td>@Html.DisplayFor(model => model.IsWorldPremier)</td>
-			</tr>
+		<tr>
+			<td>@Html.DisplayNameFor(model => model.TicketLink)</td>
+			<td>@Html.DisplayFor(model => model.TicketLink)</td>
+		</tr>
 
-			<tr>
-				<td>@Html.DisplayNameFor(model => model.TicketLink)</td>
-				<td>@Html.DisplayFor(model => model.TicketLink)</td>
-			</tr>
+	</table>
 
-		</table>
-
+	<div class="modal-footer">
+		<button type="button" class="btn cms-bg-dark cms-text-light" data-dismiss="modal">Close</button>
 	</div>
 
 </div>
+
+@*</div>*@
