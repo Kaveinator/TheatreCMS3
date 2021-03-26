@@ -1,24 +1,44 @@
-﻿@model TheatreCMS3.Areas.Blog.Models.Comment
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+<table class="table">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Message)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.CommentDate)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Likes)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Dislikes)
+    </th>
+    <th></th>
+  </tr>
 
-<tr>
-  <td>
-    @Html.DisplayFor(m => m.Message)
-  </td>
-  <td>
-    @Html.DisplayFor(m => m.CommentDate)
-  </td>
-  <td>
-    @Html.DisplayFor(m => m.Likes)
-  </td>
-  <td>
-    @Html.DisplayFor(m => m.Dislikes)
-  </td>
-  <td>
-    @Model.LikesRatio()
-  </td>
-  <td>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentID }) |
-    @Html.ActionLink("Details", "Details", new { id = Model.CommentID }) |
-    @Html.ActionLink("Delete", "Delete", new { id = Model.CommentID })
-  </td>
-</tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(m => item.Message)
+      </td>
+      <td>
+        @Html.DisplayFor(m => item.CommentDate)
+      </td>
+      <td>
+        @Html.DisplayFor(m => item.Likes)
+      </td>
+      <td>
+        @Html.DisplayFor(m => item.Dislikes)
+      </td>
+     
+
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.CommentID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.CommentID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CommentID })
+      </td>
+    </tr>
+  }
+</table>
