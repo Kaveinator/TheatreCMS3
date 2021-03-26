@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Controllers;
 using TheatreCMS3.Models;
 
@@ -29,6 +30,8 @@ namespace TheatreCMS3.Areas.Blog.Models
         {
             return Likes / (Convert.ToDouble(Likes) + Dislikes);
         }
+
+        
 
     }
 
