@@ -1,3 +1,4 @@
 ﻿$(function () {
-	$('[data-toggle="popover"]').popover()
+	$('.prod-calendar--pop').popover()
 })
+
