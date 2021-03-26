@@ -19,6 +19,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.CommentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentDate)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Likes)
         </dt>
 
@@ -37,6 +45,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

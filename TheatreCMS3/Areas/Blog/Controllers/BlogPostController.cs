@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
-using System.Data.Entity;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -15,16 +15,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-
-
-        // GET: Blog/BlogPost
+        // GET: Blog/BlogPosts
         public ActionResult Index()
         {
-
             return View(db.BlogPosts.ToList());
         }
 
-        // GET: Blog/BlogPost/Details/5
+        // GET: Blog/BlogPosts/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,38 +36,30 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // GET: Blog/BlogPost/Create
+        // GET: Blog/BlogPosts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/BlogPost/Create
+        // POST: Blog/BlogPosts/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPostId,Title,Content,Posted,Author")]BlogPost blogPost)
+        public ActionResult Create([Bind(Include = "BlogPostId,Title,Content,Posted,Author")] BlogPost blogPost)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    db.BlogPosts.Add(blogPost);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                db.BlogPosts.Add(blogPost);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            }
-            catch (DataException /* dex */)
-            {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
-            }
             return View(blogPost);
         }
 
-
-
-        // GET: Blog/BlogPost/Edit/5
+        // GET: Blog/BlogPosts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,49 +74,30 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // POST: Blog/BlogPost/Edit/5
-        [HttpPost, ActionName("Edit")]
+        // POST: Blog/BlogPosts/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPost(int? id)
+        public ActionResult Edit([Bind(Include = "BlogPostId,Title,Content,Posted,Author")] BlogPost blogPost)
         {
-            if (id == null)
+            if (ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                db.Entry(blogPost).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            var blogpostToUpdate = db.BlogPosts.Find(id);
-            if (TryUpdateModel(blogpostToUpdate, "",
-               new string[] { "BlogPostId","Title","Content","Posted","Author" }))
-            {
-                try
-                {
-                    db.SaveChanges();
-
-                    return RedirectToAction("Index");
-                }
-                catch (DataException /* dex */)
-                {
-                    //Log the error (uncomment dex variable name and add a line here to write a log.
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
-                }
-            }
-            return View(blogpostToUpdate);
+            return View(blogPost);
         }
 
-        // GET: Blog/BlogPost/Delete/5
-        public ActionResult Delete(int? id, bool? saveChangesError = false)
+        // GET: Blog/BlogPosts/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            if (saveChangesError.GetValueOrDefault())
-            {
-                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
-            }
-            BlogPost blogPost= db.BlogPosts.Find(id);
-           
-
-
+            BlogPost blogPost = db.BlogPosts.Find(id);
             if (blogPost == null)
             {
                 return HttpNotFound();
@@ -135,22 +105,14 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // POST: Blog/BlogPost/Delete/5
-        [HttpPost]
+        // POST: Blog/BlogPosts/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                BlogPost blogPost = db.BlogPosts.Find(id);
-                db.BlogPosts.Remove(blogPost);
-                db.SaveChanges();
-            }
-            catch (DataException/* dex */)
-            {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
-                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
-            }
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            db.BlogPosts.Remove(blogPost);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

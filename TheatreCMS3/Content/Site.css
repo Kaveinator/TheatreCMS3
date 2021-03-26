@@ -8,9 +8,56 @@
     --dark-color: #000000; /* Black */
 }
 
-body {
-    padding-bottom: 20px;
+/*Text color classes*/
+.cms-text-main {
+    color: var(--main-color);
+}
+.cms-text-main-light {
+    color: var(--main-color--light);
+}
+.cms-text-secondary {
+    color: var(--secondary-color);
+}
+.cms-text-secondary-dark {
+    color: var(--secondary-color--dark);
+}
+.cms-text-light {
+    color: var(--light-color);
+}
+.cms-text-dark {
+    color: var(--dark-color);
+}
+/*End color classes*/
+
+/*Background color classes*/
+.cms-bg-main {
+    background-color: var(--main-color);
+}
+.cms-bg-main-light {
+    background-color: var(--main-color--light);
+}
+.cms-bg-secondary {
+    background-color: var(--secondary-color);
+}
+.cms-bg-secondary-dark {
+    background-color: var(--secondary-color--dark);
+}
+.cms-bg-light {
+    background-color: var(--light-color);
+}
+.cms-bg-dark {
     background-color: var(--dark-color);
+}
+/*End background color classes*/
+
+body {
+    
+    background-color: var(--dark-color);
+    color: var(--light-color);     /*This should default all text to the white of the site.*/
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -127,14 +174,12 @@ a.CMS-text-bigger {
     font-size: 36px;
 }
 /*Styling for _Footer.cshtml*/
-.footer-all {
-    width: 100%; /*Added to make footer full width */
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    position: fixed; /*changed from absolute to fixed to make visable when scrolling*/
-    bottom: 0; /*----------------------- Kevin commented this out because the footer was in the 
-     middle of my page. toggling this property in devtools fixed it so it was at the bottom*/
+
+footer{
+    margin-top:auto;
 }
+
+
 
 .footer-content {
     padding-top: 12px;
@@ -156,7 +201,7 @@ a.CMS-text-bigger {
 .footer-copyright {
     width: 115px;
     text-align: right;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
@@ -275,3 +320,61 @@ a.CMS-text-bigger {
         border-color: var(--main-color);
         box-shadow: inset var(--dark-color) 1px 1px 5px;
     }
+
+/* REGISTER PAGE */
+
+
+/* Style form with smaller size, centered element, discerning background, shape, and shadow */
+.Register-form {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: rgb(50 50 50);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+
+/* Center align headings and format color and spacing */
+.Register-heading2 {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+
+/* Center align headings and format color and spacing */
+.Register-heading4 {
+    color: var(--secondary-color);
+    text-align: center;
+    padding-top: 5px;
+}
+
+/* Allow elements to fill entire form and be centered */
+.Register-div {
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Change background color of input fields */
+.Register-input {
+    background-color: var(--light-color);
+}
+
+/* Hover effects for input fields */
+.Register-input:hover {
+    box-shadow: 0px 0px 10px var(--secondary-color--dark);
+}
+
+/* Style submit button */
+.Register-button {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Button hover effect */
+.Register-button:hover {
+    box-shadow: 0px 0px 5px var(--light-color);
+}

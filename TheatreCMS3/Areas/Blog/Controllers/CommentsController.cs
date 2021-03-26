@@ -43,9 +43,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // POST: Blog/Comments/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,Likes,Dislikes")] Comment comment)
+
+
+        public ActionResult Create([Bind(Include = "CommentID,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -73,9 +77,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // POST: Blog/Comments/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Message,Likes,Dislikes")] Comment comment)
+        public ActionResult Edit([Bind(Include = "CommentID,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
