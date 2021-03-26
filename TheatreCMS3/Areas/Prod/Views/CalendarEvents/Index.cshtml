@@ -29,7 +29,7 @@
 					}
 					else
 					{
-						<p>@(item.EndDate.Value.Day - item.StartDate.Value.Day) Days <i class="fas fa-clock"></i></p>
+						<p>@((item.EndDate - item.StartDate).Value.Days) Days <i class="fas fa-clock"></i></p>
 					}
 				</a>
 			</div>
@@ -38,7 +38,7 @@
 			<div class="prod-calendar--titledays">
 				<h4 class="prod-calendar--title">@Html.DisplayFor(modelItem => item.Title)</h4>
 				@* calculates if it is the last day, how many days left or not started *@
-				@if (item.EndDate == DateTime.Now && item.EndDate != item.StartDate)
+				@if (item.EndDate == DateTime.Now.Date)
 				{
 					<p class="prod-calendar--lastday">Last Day!</p>
 				}
@@ -90,3 +90,4 @@
 }
 <hr class="prod-calendar--hr" />
 
+ @*&& item.EndDate != item.StartDate*@
