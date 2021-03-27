@@ -308,6 +308,7 @@
     <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <Content Include="Areas\Blog\Views\web.config" />
+    <Content Include="Areas\Prod\Views\Productions\_DetailsModal.cshtml" />
     <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />

@@ -95,6 +95,22 @@
 	height: 40px;
 }
 
+/* Modal style */
+#ModalContent {
+	background-color: var(--secondary-color);
+	color: var(--dark-color);
+}
+
+/* Retain badge appearance for modal link */
+.Production--a {
+	color: var(--dark-color);
+}
+
+.Production--a:hover {
+	color: var(--dark-color);
+	opacity: 70%;
+}
+
 /* END PRODUCTIONS INDEX PAGE */
 
 
