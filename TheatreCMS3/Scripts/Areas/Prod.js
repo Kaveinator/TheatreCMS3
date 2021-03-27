@@ -15,3 +15,7 @@ $(function () {
         });    
     });
 });
+$(function () {
+	$('.prod-calendar--pop').popover()
+})
+
