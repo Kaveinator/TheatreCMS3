@@ -1,44 +1,50 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
-<table class="table">
+
+<link rel="stylesheet" href="~/Content/Areas/Blog.css" />
+
+@*<table class="table">
   <tr>
-    <th>
-      @Html.DisplayNameFor(model => model.Message)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.CommentDate)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Likes)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Dislikes)
-    </th>
-    <th></th>
-  </tr>
+      <th>
+        @Html.DisplayNameFor(model => model.Message)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.CommentDate)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Likes)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Dislikes)
+      </th>
+    </tr>*@
+
+  @*//get rid of tables. start foreach loop with div. display data within div.*@
+
 
 
   @foreach (var item in Model)
   {
-    <tr>
-      <td>
-        @Html.DisplayFor(m => item.Message)
-      </td>
-      <td>
-        @Html.DisplayFor(m => item.CommentDate)
-      </td>
-      <td>
-        @Html.DisplayFor(m => item.Likes)
-      </td>
-      <td>
-        @Html.DisplayFor(m => item.Dislikes)
-      </td>
-     
 
-      <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.CommentID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.CommentID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.CommentID })
-      </td>
-    </tr>
+    var endTime = DateTime.Now;
+    int numDays = Convert.ToInt32(Convert.ToDateTime(endTime).Subtract(Convert.ToDateTime(item.CommentDate)).TotalDays);
+    <tr>
+
+      <div class="commentdate "> @item.Author , @numDays days ago </div>
+        <div class="message"> @item.Message</div> 
+           
+            <div class="likes far fa-thumbs-up">  @item.Likes</div> 
+              <div class="dislikes far fa-thumbs-down"> @item.Dislikes</div>
+                <div class="trash fas fa-trash"></div>
+
+
+                
+
+
+                <div class="details">
+                  @Html.ActionLink("Reply", "Reply", new { id = item.CommentID })  |  
+                  @*@Html.ActionLink("Details", "Details", new { id = item.CommentID }) |*@
+                  @*@Html.ActionLink("Delete", "Delete", new { id = item.CommentID })*@
+                </div>
+</tr>
   }
 </table>
