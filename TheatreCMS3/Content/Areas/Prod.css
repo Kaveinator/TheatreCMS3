@@ -98,16 +98,16 @@
 /* Modal style */
 #ModalContent {
 	background-color: var(--secondary-color);
-	color: black;
+	color: var(--dark-color);
 }
 
 /* Retain badge appearance for modal link */
 .Production--a {
-	color: black;
+	color: var(--dark-color);
 }
 
 .Production--a:hover {
-	color: black;
+	color: var(--dark-color);
 	opacity: 70%;
 }
 
