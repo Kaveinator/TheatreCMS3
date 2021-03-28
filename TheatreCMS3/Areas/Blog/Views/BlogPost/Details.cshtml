@@ -4,47 +4,43 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>BlogPost</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Posted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Posted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-
-    </dl>
+<div class="blog-post-div">
+    <h2 class="blog-post-header">Blog Post Details</h2>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="blog-post-card-container">
+    <div class="card blog-post-card">
+        <div class="no-gutters">
+            <div class="blog-post-div">
+                <h4 class="blog-post-spacer">@Html.DisplayFor(model => model.Title)</h4>
+                <div class="blog-post-card-image">
+                    <img src="//placehold.it/500" class="img-fluid " alt="">
+                </div>
+            </div>
+            <div class="blog-post-spacer2">
+                <div class="blog-post-card-text-container2">
+                    <p class="text-muted">by @Html.DisplayFor(model => model.Author)</p>
+                    <p class="text-muted">@Html.DisplayFor(model => model.Posted)</p>
+                    <p class="card-text blog-post-spacer2">@Html.DisplayFor(model => model.Content)</p>
+                </div>
+                <div class="row blog-post-card-button-container2">
+                    <div class="col-8 blog-post-card-button-container-left blog-post-no-padding">
+                        <!-- need to find way to make this look good on mobile too -->
+                        <a href="@Url.Action("Index", new {  })" class="btn blog-post-button3 col-4"><i class="fas fa-chevron-left"></i> Back</a>
+                        <a href="@Url.Action("Edit", new { id = Model.BlogPostId })" class="btn blog-post-button3 col-4"><i class="fas fa-edit"></i> Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <div class="col-8 blog-post-card-button-container-left blog-post-no-padding">
+        <!-- need to find way to make this look good on mobile too -->
+        <a href="@Url.Action("Index", new {  })" class="btn blog-post-button3 col-4"><i class="fas fa-chevron-left"></i> Back</a>
+        <a href="@Url.Action("Edit", new { id = Model.BlogPostId })" class="btn blog-post-button3 col-4"><i class="fas fa-edit"></i> Edit</a>
+    </div>
+    <div class="col-4 blog-post-card-button-container-right blog-post-no-padding">
+        <!-- need to find way to make this look good on mobile too -->
+        <a href="@Url.Action("Delete", new { id = Model.BlogPostId })" class="btn blog-post-button4 col-8"><i class="fas fa-trash"></i> Delete</a>
+    </div> *@
