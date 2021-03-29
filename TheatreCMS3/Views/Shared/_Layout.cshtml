@@ -1,30 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@ViewBag.Title - My ASP.NET Application</title>
-  @Styles.Render("~/Content/css")
-  @Scripts.Render("~/bundles/modernizr")
-  @if (ViewContext.RouteData.DataTokens["area"] != null)
-  {
-    <link rel="stylesheet" href="~/Content/Areas/@(ViewContext.RouteData.DataTokens["area"]).css" />
-  }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @if (ViewContext.RouteData.DataTokens["area"] != null)
+    {
+        <link rel="stylesheet" href="~/Content/Areas/@(ViewContext.RouteData.DataTokens["area"]).css" />
+    }
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-  @Html.Partial("_Navbar")
-  <div class="container body-content">
-    @RenderBody()
-    <hr />
-  </div>
- @Html.Partial("_Footer")
+    @Html.Partial("_Navbar")
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    @Html.Partial("_Footer")
 
-  @Scripts.Render("~/bundles/jquery")
-  @Scripts.Render("~/bundles/bootstrap")
-  @if (ViewContext.RouteData.DataTokens["area"] != null)
-  {
-    <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
-  }
-  @RenderSection("scripts", required: false)
+    @if (ViewContext.RouteData.DataTokens["area"] != null)
+    {
+        <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
+    }
+    @RenderSection("scripts", required: false)
 </body>
 </html>

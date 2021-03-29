@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace TheatreCMS3.Areas.Rental
+namespace TheatreCMS3.Areas.Rent
 {
-    public class RentalAreaRegistration : AreaRegistration 
+    public class RentAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Rental";
+                return "Rent";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Rental_default",
-                "Rental/{controller}/{action}/{id}",
+                "Rent_default",
+                "Rent/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }
