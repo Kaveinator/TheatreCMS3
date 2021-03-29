@@ -18,33 +18,37 @@
       </th>
     </tr>*@
 
-  @*//get rid of tables. start foreach loop with div. display data within div.*@
+@*//get rid of tables. start foreach loop with div. display data within div.*@
 
 
 
-  @foreach (var item in Model)
-  {
+@foreach (var item in Model)
+{
 
-    var endTime = DateTime.Now;
-    int numDays = Convert.ToInt32(Convert.ToDateTime(endTime).Subtract(Convert.ToDateTime(item.CommentDate)).TotalDays);
+  var endTime = DateTime.Now;
+  int numDays = Convert.ToInt32(Convert.ToDateTime(endTime).Subtract(Convert.ToDateTime(item.CommentDate)).TotalDays);
+  <tr>
+
+    <div class="comment-date "> Author @item.Author , @numDays days ago </div>
+    <div class="comment-message"> @item.Message</div>
+
+    <div class="comment-likes far fa-thumbs-up">  @item.Likes</div>
+    <div class="comment-dislikes far fa-thumbs-down"> @item.Dislikes</div>
+    <div class="comment-reply">  @Html.ActionLink("Reply", "Reply", new { id = item.CommentID })</div>
+  </tr>
+
+
+
     <tr>
+      <div class="comment-details">
 
-      <div class="commentdate "> @item.Author , @numDays days ago </div>
-        <div class="message"> @item.Message</div> 
-           
-            <div class="likes far fa-thumbs-up">  @item.Likes</div> 
-              <div class="dislikes far fa-thumbs-down"> @item.Dislikes</div>
-                <div class="trash fas fa-trash"></div>
+        <div class="fas fa-edit"> @Html.ActionLink("Edit", "Edit", new { id = item.CommentID })</div>
 
+        <div class="fas fa-info-circle"> @Html.ActionLink("Details", "Details", new { id = item.CommentID }) </div>
 
-                
-
-
-                <div class="details">
-                  @Html.ActionLink("Reply", "Reply", new { id = item.CommentID })  |  
-                  @*@Html.ActionLink("Details", "Details", new { id = item.CommentID }) |*@
-                  @*@Html.ActionLink("Delete", "Delete", new { id = item.CommentID })*@
-                </div>
-</tr>
+        <div class="comment-delete fas fa-trash"> @Html.ActionLink("Delete", "Delete", new { id = item.CommentID }) </div>
+        
+      </div>
+    </tr>
+  
   }
-</table>

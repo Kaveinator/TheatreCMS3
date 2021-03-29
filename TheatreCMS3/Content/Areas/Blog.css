@@ -12,7 +12,7 @@
 /*}*/
 
 
-.message {
+.comment-message {
     justify-content: left;
     padding-top: 5px;
     background-color: black;
@@ -21,30 +21,30 @@
     font-size: larger;
 }
 
-.commentdate{
+.comment-date{
     border-top: 1px solid gray;
-    text-align: right;
-    padding-top: 7px;
+    text-align: left;
+    padding-top: 10px;
     color:gray;
     
 }
 
-.details{
+.comment-details{
     text-align: right;
-    color: gray;
-    padding-bottom: 2px;
+    color: white;
+    padding-top: 20px;
 }
 
 
-.dislikes {
+.comment-dislikes {
     border: 1px solid black;
     padding-top: 20px;
     float: left;
-    width: 90%;
+    width: 10%;
     color: gray
 }
 
-.likes {
+.comment-likes {
     padding-top: 20px;
     border: 1px solid black;
     float: left;
@@ -52,11 +52,15 @@
     color: #D6972A;
 }
 
-.trash {
-    padding-top: 3px;
-    border: 1px solid black;
-    float: right;
-    color: gray;
-    padding-bottom: 2px;
+.comment-reply {
     
+    border: 1px solid black;
+    padding-top: 20px;
+    float: left;
+    width: 80%;
+    color: gray
+}
+
+.comment-delete{
+    color:red
 }
