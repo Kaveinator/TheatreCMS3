@@ -57,10 +57,10 @@
             <div class="modal-footer blog-post-modal-footer">
                 <button type="button" class="btn blog-post-button" data-dismiss="modal">Close</button>
                 @*@using (Html.BeginForm("Delete", "BlogPost", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-                        <button type="submit" class="btn blog-post-button2"><i class="fas fa-trash"></i> Delete</button> <!-- this button is sizing oddly -->
-                    }*@
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn blog-post-button2"><i class="fas fa-trash"></i> Delete</button> <!-- this button is sizing oddly -->
+                }*@
                 <button type="submit" class="btn blog-post-button2">Delete</button>
             </div>
         </div>
@@ -68,9 +68,9 @@
 </div>
 
 @*@using (Html.BeginForm("Delete", "BlogPost"))
-    {
+{
 
-    }*@
+}*@
 
 <script type="text/javascript">
     $('#confirmDelete').on('click', '.btn-ok', function (e) {
@@ -90,21 +90,21 @@
 
 
 @*$.ajax({
-        type: "POST",
-        url: '@Url.Action("Delete", "BlogPost")',
-        data: { id: 10 },
-        contentType: 'application/json; charset=utf-8',
-        success: function (data) {
+    type: "POST",
+    url: '@Url.Action("Delete", "BlogPost")',
+    data: { id: 10 },
+    contentType: 'application/json; charset=utf-8',
+    success: function (data) {
 
-        }
+    }
 
-    })
+})
 
-    [HttpPost]
-    public JsonResult Delete(int id)
-    {
-        var
-    }*@
+[HttpPost]
+public JsonResult Delete(int id)
+{
+    var
+}*@
 
 
 <!-- Button trigger modal -->
