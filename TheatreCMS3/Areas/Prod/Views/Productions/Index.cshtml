@@ -41,13 +41,13 @@
 					<div class="Production--cardImage">
 
 						<!-- Production Image -->
-						@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.DefaultPhoto)" />*@
+						@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.Title)" />*@
 						<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="Default Photo" />
 
 						<!-- Hover overlay with Details, Edit, and Delete link buttons -->
 						<div class="card-img-overlay text-center Production--cardOverlay">
 							<p>
-								@Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-warning" })
+								<a href="#" type="submit" class="badge badge-pill cms-bg-secondary ModalButton Production--a" data-id="@item.ProductionID" data-target="#ModalContent">Details</a>
 								@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
 								@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
 							</p>
@@ -74,3 +74,17 @@
 	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
 </p>
 
+<!-- Details Modal -->
+<div class="modal" id="Details" tabindex="-1">
+
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+		<div class="modal-content">
+
+			<div id="ModalContent"></div>
+
+		</div>
+
+	</div>
+
+</div>

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
@@ -61,6 +59,26 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
             // Return list to view with page number and page size.
             return View(productions.ToPagedList(pageNumber, pageSize));
+        }
+
+        // Render Partial View to Details Modal.
+        [HttpPost]
+        public ActionResult DetailsModal(string id)
+        {
+            // Convert query string to integer for record search.
+            int record = Convert.ToInt32(id);
+
+            // Find matching database record.
+            Production production = db.Productions.Find(record);
+
+            // Return error if record not located.
+            if (production == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Return partial view with matching record.
+            return PartialView("_DetailsModal", production);
         }
 
         // GET: Prod/Productions/Details/5
