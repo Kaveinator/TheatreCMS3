@@ -186,6 +186,33 @@
     padding: 0;
 }
 
+.blog-post-modal-dialog {
+
+}
+
+.blog-post-modal-content {
+    background-color: #333333;
+    border: 0;
+    box-shadow: 0px 0px 0.5rem var(--dark-color);
+}
+
+.blog-post-modal-header {
+    border-bottom: 0;
+}
+
+.blog-post-close {
+    color: var(--light-color);
+    text-shadow: 0px 0px 0.5rem var(--dark-color);
+}
+
+.blog-post-modal-body {
+
+}
+
+.blog-post-modal-footer {
+    border-top: 0;
+}
+
 /* END BLOG POST */
 
 /*.btn-toolbar {
