@@ -1,54 +1,42 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
-<link rel="stylesheet" href="~/Content/Areas/Blog.css" />
-
-@*<table class="table">
-  <tr>
-      <th>
-        @Html.DisplayNameFor(model => model.Message)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.CommentDate)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.Likes)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.Dislikes)
-      </th>
-    </tr>*@
-
-@*//get rid of tables. start foreach loop with div. display data within div.*@
-
-
 
 @foreach (var item in Model)
 {
 
   var endTime = DateTime.Now;
   int numDays = Convert.ToInt32(Convert.ToDateTime(endTime).Subtract(Convert.ToDateTime(item.CommentDate)).TotalDays);
-  <tr>
 
-    <div class="comment-date "> Author @item.Author , @numDays days ago </div>
-    <div class="comment-message"> @item.Message</div>
-
-    <div class="comment-likes far fa-thumbs-up">  @item.Likes</div>
-    <div class="comment-dislikes far fa-thumbs-down"> @item.Dislikes</div>
-    <div class="comment-reply">  @Html.ActionLink("Reply", "Reply", new { id = item.CommentID })</div>
-  </tr>
-
-
-
-    <tr>
-      <div class="comment-details">
-
-        <div class="fas fa-edit"> @Html.ActionLink("Edit", "Edit", new { id = item.CommentID })</div>
-
-        <div class="fas fa-info-circle"> @Html.ActionLink("Details", "Details", new { id = item.CommentID }) </div>
-
-        <div class="comment-delete fas fa-trash"> @Html.ActionLink("Delete", "Delete", new { id = item.CommentID }) </div>
-        
-      </div>
-    </tr>
-  
+  if (item.Author == null)
+  {
+    <div class="comment-date "> Author , @numDays days ago </div>
   }
+  else
+  {
+    <div class="comment-date "> @item.Author.UserName , @numDays days ago </div>
+  }
+
+  <div class="comment-message"> @item.Message</div>
+
+  
+    <div class="comment-likes far fa-thumbs-up">  @item.Likes</div>
+
+    <div class="comment-dislikes far fa-thumbs-down"> @item.Dislikes</div>
+
+    <div class="comment-reply">  @Html.ActionLink("Reply", "Reply", new { id = item.CommentID })</div>
+    <div class="comment-details">
+      <a href="@Url.Action("Edit", new { id = item.CommentID })">
+        <i class="comment-edit fas fa-edit"></i>
+      </a>
+      <a href="@Url.Action("Details", new { id = item.CommentID })">
+        <i class="comment-details fas fa-info-circle"></i>
+      </a>
+      <a href="@Url.Action("Delete", new { id = item.CommentID })">
+        <i class="comment-delete fas fa-trash"></i>
+      </a>
+    </div>
+    
+ 
+
+
+}

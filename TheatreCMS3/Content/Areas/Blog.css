@@ -14,7 +14,7 @@
 
 .comment-message {
     justify-content: left;
-    padding-top: 5px;
+    padding-top: 10px;
     background-color: black;
     color: #D6972A;
     text-wrap: normal;
@@ -38,27 +38,35 @@
 
 .comment-dislikes {
     border: 1px solid black;
-    padding-top: 20px;
+    padding-top: 40px;
     float: left;
-    width: 10%;
-    color: gray
+    width: 7%;
+    color: gray;
+   text-align:left;
 }
 
 .comment-likes {
-    padding-top: 20px;
+    padding-top: 40px;
     border: 1px solid black;
     float: left;
-    width: 10%;
+    width: 7%;
     color: #D6972A;
+    text-align: left;
 }
 
 .comment-reply {
-    
+    padding-top: 36px;
     border: 1px solid black;
-    padding-top: 20px;
     float: left;
-    width: 80%;
-    color: gray
+    width: 50%;
+    color: #D6972A;
+    text-align:left;
+}
+.comment-details {
+    color: white
+}
+.comment-edit {
+    color: white
 }
 
 .comment-delete{
