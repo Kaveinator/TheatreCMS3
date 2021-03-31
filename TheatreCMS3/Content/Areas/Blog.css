@@ -170,6 +170,14 @@
     margin-top: auto;
 }
 
+.blog-post-card-button-container2 {
+    padding-top: 1rem;
+    /*text-align: center;*/
+    margin-top: auto;
+    margin-right: 0;
+    margin-left: 0;
+}
+
 .blog-post-card-button-container-left {
     text-align: left;
 }
