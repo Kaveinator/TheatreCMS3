@@ -21,33 +21,32 @@
     font-size: larger;
 }
 
-.comment-date{
+.comment-date {
     border-top: 1px solid gray;
     text-align: left;
     padding-top: 10px;
-    color:gray;
-    
+    color: #FFFBFB;
 }
 
-.comment-details{
+.comment-details {
     text-align: right;
-    color: white;
+    color: #FFFBFB;
     padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 
 .comment-dislikes {
-    border: 1px solid black;
     padding-top: 40px;
     float: left;
     width: 7%;
-    color: gray;
-   text-align:left;
+    color: #FFFBFB;
+    text-align: left;
 }
 
 .comment-likes {
     padding-top: 40px;
-    border: 1px solid black;
+    
     float: left;
     width: 7%;
     color: #D6972A;
@@ -56,19 +55,19 @@
 
 .comment-reply {
     padding-top: 36px;
-    border: 1px solid black;
+    
     float: left;
     width: 50%;
     color: #D6972A;
     text-align:left;
 }
 .comment-details {
-    color: white
+    color: #FFFBFB;
 }
 .comment-edit {
-    color: white
+    color: #FFFBFB;
 }
 
-.comment-delete{
-    color:red 
+.comment-delete {
+    color: #DB1A11;
 }
