@@ -33,7 +33,7 @@
                     <div class="blog-post-card-button-container">
                         <a href="@Url.Action("Edit", new { id = item.BlogPostId })" class="btn blog-post-button"><i class="fas fa-edit"></i> Edit</a>
                         <a href="@Url.Action("Details", new { id = item.BlogPostId })" class="btn blog-post-button"><i class="fas fa-info"></i> Details</a>
-                        <button type="button" class="btn blog-post-button2" data-toggle="modal" data-target="#confirmDelete" data-item-id="@item.BlogPostId" data-item-description="@item.Title"><i class="fas fa-trash"></i> Delete</button>
+                        <button type="button" class="btn blog-post-button2" data-toggle="modal" data-target="#confirmDelete" data-item-id="@item.BlogPostId" data-item-title="@item.Title"><i class="fas fa-trash"></i> Delete</button>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete: <span class="description"></span>
+                Are you sure you want to delete: <span class="title"></span>
             </div>
             <div class="modal-footer blog-post-modal-footer">
                 <button type="button" class="btn blog-post-button" data-dismiss="modal">Close</button>
@@ -61,50 +61,74 @@
                     @Html.AntiForgeryToken()
                     <button type="submit" class="btn blog-post-button2"><i class="fas fa-trash"></i> Delete</button> <!-- this button is sizing oddly -->
                 }*@
-                <button type="submit" class="btn blog-post-button2">Delete</button>
+                <button type="submit" class="btn blog-post-button2" id="deleteButton">Delete</button>
             </div>
         </div>
     </div>
 </div>
 
 @*@using (Html.BeginForm("Delete", "BlogPost"))
-{
+    {
 
-}*@
+    }*@
 
 <script type="text/javascript">
-    $('#confirmDelete').on('click', '.btn-ok', function (e) {
+    function gettoken() {
+        var token = '@Html.AntiForgeryToken()';
+        token = $(token).val();
+        return token;
+    }
+    $('#confirmDelete').on('click', '#deleteButton', function (e) {
         var $modalDiv = $(e.delegateTarget);
         var id = $(this).data('itemId');
-        $modalDiv.addClass('loading');
-        $.post('/Blog/BlogPost/Delete/' + id).then(function () {
-            $modalDiv.modal('hide').removeClass('loading');
-        });
+        $.ajax({ url: '/Blog/BlogPost/Delete/' + id, type: 'POST', data: {__RequestVerificationToken: gettoken()}})
+        $modalDiv.addClass('blog-post-loading'); //add class to hide deleted post? and add banner for deletion
+        //$.post('/Blog/BlogPost/Delete/' + id).then(function () {
+        //    $modalDiv.modal('hide').removeClass('blog-post-loading');
+        //});
+        setTimeout(function () {
+            $modalDiv.modal('hide').removeClass('blog-post-loading');
+        }, 1000)
     });
     $('#confirmDelete').on('show.bs.modal', function (e) {
         var data = $(e.relatedTarget).data();
-        $('.description', this).text(data.itemDescription);
-        $('.btn-ok', this).data('itemId', data.itemId);
+        $('.title', this).text(data.itemTitle);
+        $('#deleteButton', this).data('itemId', data.itemId);
     });
 </script>
 
 
+@*$('#confirm-delete').on('click', '.btn-ok', function(e) {
+    var $modalDiv = $(e.delegateTarget);
+    var id = $(this).data('itemId');
+    $modalDiv.addClass('loading');
+    $.post('/RepFilters/Delete/' + id).then(function () {
+        $modalDiv.modal('hide').removeClass('loading');
+    });
+});
+$('#confirm-delete').on('show.bs.modal', function(e) {
+    var data = $(e.relatedTarget).data();
+    $('.description', this).text(data.itemDescription);
+    $('.btn-ok', this).data('itemId', data.itemId);
+});*@
+
+
 @*$.ajax({
-    type: "POST",
-    url: '@Url.Action("Delete", "BlogPost")',
-    data: { id: 10 },
-    contentType: 'application/json; charset=utf-8',
-    success: function (data) {
+        type: "POST",
+        url: '@Url.Action("Delete", "BlogPost")',
+        data: { id: 10 },
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
 
-    }
+        }
 
-})
+    })
 
-[HttpPost]
-public JsonResult Delete(int id)
-{
-    var
-}*@
+    [HttpPost]
+    public JsonResult Delete(int id)
+    {
+        var
+    }*@
 
 
 <!-- Button trigger modal -->
