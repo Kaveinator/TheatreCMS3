@@ -181,14 +181,14 @@ footer{
 
 /*content on left side*/
 .footer-content {
-    padding-top: 75px;
+    padding-top: 120px;
     padding-left: 100px;
     padding-right: 100px;
 }
 
 /*content on right side*/
 .footer-rcontent {
-    padding-top: 120px;
+    padding-top: 175px;
     padding-left: 100px;
     padding-right: 100px;
 }
