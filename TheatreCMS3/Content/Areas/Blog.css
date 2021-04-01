@@ -16,7 +16,7 @@
     justify-content: left;
     padding-top: 10px;
     background-color: black;
-    color: #D6972A;
+    color: var(--secondary-color);
     text-wrap: normal;
     font-size: larger;
 }
@@ -25,12 +25,12 @@
     border-top: 1px solid gray;
     text-align: left;
     padding-top: 10px;
-    color: #FFFBFB;
+    color: var(--light-color);
 }
 
 .comment-details {
     text-align: right;
-    color: #FFFBFB;
+    color: var(--light-color);
     padding-top: 20px;
     padding-bottom: 10px;
 }
@@ -40,34 +40,32 @@
     padding-top: 40px;
     float: left;
     width: 7%;
-    color: #FFFBFB;
+    color: var(--light-color);
     text-align: left;
 }
 
 .comment-likes {
     padding-top: 40px;
-    
     float: left;
     width: 7%;
-    color: #D6972A;
+    color: var(--secondary-color);
     text-align: left;
 }
 
 .comment-reply {
     padding-top: 36px;
-    
     float: left;
     width: 50%;
-    color: #D6972A;
-    text-align:left;
+    color: var(--secondary-color);
+    text-align: left;
 }
 .comment-details {
-    color: #FFFBFB;
+    color: var(--light-color);
 }
 .comment-edit {
-    color: #FFFBFB;
+    color: var(--light-color);
 }
 
 .comment-delete {
-    color: #DB1A11;
+    color: var(--main-color);
 }
