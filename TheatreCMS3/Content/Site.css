@@ -179,18 +179,24 @@ footer{
     margin-top:auto;
 }
 
-
-
+/*content on left side*/
 .footer-content {
-    padding-top: 12px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-top: 75px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/*content on right side*/
+.footer-rcontent {
+    padding-top: 120px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .footer-links {
     height: 24px;
     /*height has to be entered manually due to floating elements*/
-    /*ensures padding/margin relative to other elements responds as expected*/
+    /*ensures padding/margin relative to other elements responds as expected    */
 }
 
 .footer-address {
@@ -198,11 +204,37 @@ footer{
     line-height: 20px;
 }
 
+/*copyright when it appears on left for small devices*/
 .footer-copyright {
     width: 115px;
     text-align: right;
     position: relative;
-    bottom: 0;
+}
+
+/*copyright when it apears on right for large devices*/
+.footer-lcopyright {
+    padding-top: 0;
+    width: 115px;
+    position: relative;
+    padding-bottom: 0;
+}
+
+/*content on right disappears on small devices*/
+@media only screen and (max-width: 600px) {  
+    .footer-rcontent {
+        opacity: 0;
+    }
+}
+
+/*icons and copyright on left disappear on large devices*/
+@media only screen and (min-width: 601px) {  
+    .footer-icons {
+        opacity: 0;
+    }
+
+    .footer-lcopyright {
+        opacity: 0;
+    }
 }
 
 /* Additional Styling for the Navbar dropdown menu to override the default bootstrap color schema */
