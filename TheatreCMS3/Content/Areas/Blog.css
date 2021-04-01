@@ -190,10 +190,6 @@
     padding: 0;
 }
 
-.blog-post-modal-dialog {
-
-}
-
 .blog-post-modal-content {
     background-color: #333333;
     border: 0;
@@ -209,16 +205,17 @@
     text-shadow: 0px 0px 0.5rem var(--dark-color);
 }
 
-.blog-post-modal-body {
-
-}
-
 .blog-post-modal-footer {
     border-top: 0;
 }
 
-.blog-post-loading {
+.blog-post-hide {
+    display: none;
+}
 
+.blog-post-alert-text {
+    font-weight: bold;
+    text-align: center;
 }
 
 /* END BLOG POST */
