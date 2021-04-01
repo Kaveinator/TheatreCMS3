@@ -210,3 +210,61 @@
 }*/
 
 /* END BLOG POST */
+
+.comment-message {
+    justify-content: left;
+    padding-top: 10px;
+    background-color: black;
+    color: var(--secondary-color);
+    text-wrap: normal;
+    font-size: larger;
+}
+
+.comment-date {
+    border-top: 1px solid gray;
+    text-align: left;
+    padding-top: 10px;
+    color: var(--light-color);
+}
+
+.comment-details {
+    text-align: right;
+    color: var(--light-color);
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+.comment-dislikes {
+    padding-top: 40px;
+    float: left;
+    width: 7%;
+    color: var(--light-color);
+    text-align: left;
+}
+
+.comment-likes {
+    padding-top: 40px;
+    float: left;
+    width: 7%;
+    color: var(--secondary-color);
+    text-align: left;
+}
+
+.comment-reply {
+    padding-top: 36px;
+    float: left;
+    width: 50%;
+    color: var(--secondary-color);
+    text-align: left;
+}
+.comment-details {
+    color: var(--light-color);
+}
+.comment-edit {
+    color: var(--light-color);
+}
+
+.comment-delete {
+    color: var(--main-color);
+}
