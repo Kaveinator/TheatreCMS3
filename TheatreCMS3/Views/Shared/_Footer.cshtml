@@ -1,5 +1,13 @@
 ﻿<footer>
     <div class="float-left footer-content">
+
+        <div class="float-left footer-icons">
+            <span>
+                <i class="fab fa-facebook-f fa-2x"></i> &nbsp;
+                <i class="fab fa-youtube fa-2x"></i> &nbsp;
+                <i class="fab fa-twitter fa-2x"></i>
+            </span>
+        </div>
         <div class="footer-links">
             @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "float-left" })
             @*<a class="float-left" href="#">About</a> added action link above *@
@@ -11,8 +19,13 @@
             Portland OR 97214<br />
             (503) 482-8655
         </p>
+        <p class="footer-lcopyright">
+                <i class="far fa-copyright"></i>
+                @DateTime.Now.Year
+        </p>
     </div>
-    <div class="float-right footer-content">
+    
+    <div class="float-right footer-rcontent">
         <span>
             <i class="fab fa-facebook-f fa-2x"></i> &nbsp;
             <i class="fab fa-youtube fa-2x"></i> &nbsp;
@@ -23,4 +36,5 @@
             @DateTime.Now.Year
         </p>
     </div>
+    
 </footer>

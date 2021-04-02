@@ -179,18 +179,21 @@ footer{
     margin-top:auto;
 }
 
-
-
+/*content on left side*/
 .footer-content {
-    padding-top: 12px;
+    padding-top: 120px;
     padding-left: 30px;
-    padding-right: 30px;
+    }
+
+/*content on right side*/
+.footer-rcontent {
+    display: none;
 }
 
 .footer-links {
     height: 24px;
     /*height has to be entered manually due to floating elements*/
-    /*ensures padding/margin relative to other elements responds as expected*/
+    /*ensures padding/margin relative to other elements responds as expected    */
 }
 
 .footer-address {
@@ -198,13 +201,37 @@ footer{
     line-height: 20px;
 }
 
+/*copyright when it appears on left for small devices*/
 .footer-copyright {
     width: 115px;
     text-align: right;
     position: relative;
-    bottom: 0;
 }
 
+/*copyright when it apears on right for large devices*/
+.footer-lcopyright {
+    width: 115px;
+    position: relative;
+}
+
+/*icons and copyright on left disappear on large devices*/
+@media only screen and (min-width: 500px) {  
+    .footer-icons {
+        display: none;
+    }
+    .footer-lcopyright {
+        display: none;
+    }
+    .footer-content {
+        padding-left: 100px;
+    }
+    .footer-rcontent {
+        display: unset;
+        padding-top: 140px;
+        padding-right: 100px;
+    }
+}
+/**/
 /* Additional Styling for the Navbar dropdown menu to override the default bootstrap color schema */
 .nav-link.active, .nav-pills .show > .nav-link {
     color: var(--dark-color);
