@@ -5,9 +5,10 @@
 }
 
 <!-- Alert -->
-
-<div class="alert alert-success blog-post-alert-text blog-post-spacer2 blog-post-hide" id="alert">
-    The blog post was deleted successfully <i class="fas fa-check"></i>
+<div class="blog-post-div">
+    <div class="alert alert-success blog-post-alert blog-post-alert-text blog-post-spacer2 blog-post-alert-fade" id="alert">
+        The blog post was deleted successfully <i class="fas fa-check"></i>
+    </div>
 </div>
 
 <div class="blog-post-div">
@@ -19,7 +20,6 @@
 </p>
 
 <!-- Blog Posts -->
-
 @foreach (var item in Model)
 {
     <div class="blog-post-card-container" id="@item.BlogPostId">
@@ -72,25 +72,28 @@
         token = $(token).val();
         return token;
     }
+    function showAlert() {
+        $('#alert').addClass('in');
+    }
+    function hideAlert() {
+        $('#alert').removeClass('in');
+    }
     $('#confirmDelete').on('click', '#deleteButton', function (e) {
         var $modalDiv = $(e.delegateTarget);
         var id = $(this).data('itemId');
         var $postDiv = $('#' + id);
-        $.ajax({ url: '/Blog/BlogPost/Delete/' + id, type: 'POST', data: {__RequestVerificationToken: gettoken()}})
+        //$.ajax({ url: '/Blog/BlogPost/Delete/' + id, type: 'POST', data: {__RequestVerificationToken: gettoken()}})
         $postDiv.addClass('blog-post-hide');
         $modalDiv.modal('hide');
-        $('#alert').show();
+        showAlert();
         setTimeout(function () {
-            $('#alert').hide();
+            hideAlert();
         }, 3000)
     });
     $('#confirmDelete').on('show.bs.modal', function (e) {
         var data = $(e.relatedTarget).data();
         $('.title', this).text(data.itemTitle);
         $('#deleteButton', this).data('itemId', data.itemId);
-    });
-    $(document).ready(function () {
-        $('#alert').hide();
     });
 </script>
 

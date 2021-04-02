@@ -213,9 +213,26 @@
     display: none;
 }
 
+.blog-post-alert {
+    position: fixed;
+    z-index: 999;
+    /*display: inline-block;*/
+    width: auto;
+}
+
 .blog-post-alert-text {
     font-weight: bold;
     text-align: center;
+}
+
+.blog-post-alert-fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.25s linear;
+    transition: opacity 0.25s linear;
+}
+
+.blog-post-alert-fade.in {
+    opacity: 1;
 }
 
 /* END BLOG POST */
