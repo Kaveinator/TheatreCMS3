@@ -4751,7 +4751,7 @@ input[type="button"].btn-block {
 .card {
   position: relative;
   display: -ms-flexbox;
-  display: flex;
+  display: inline-table;
   -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;
@@ -4884,7 +4884,7 @@ input[type="button"].btn-block {
   margin-bottom: 15px;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 800px) {
   .card-deck {
     display: -ms-flexbox;
     display: flex;
@@ -4906,7 +4906,7 @@ input[type="button"].btn-block {
   margin-bottom: 15px;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 800px) {
   .card-group {
     display: -ms-flexbox;
     display: flex;
@@ -4952,7 +4952,7 @@ input[type="button"].btn-block {
   margin-bottom: 0.75rem;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 800px) {
   .card-columns {
     -webkit-column-count: 3;
     -moz-column-count: 3;
