@@ -162,8 +162,32 @@ textarea {
     .dropdown-item .navbar-hamburger--drowndownitem {
         border-radius: .25rem;
     }
-
 }
+
+#navdropRight {
+    display: none;
+}
+@media screen and (max-width: 1000px){
+    #navdropRight{
+        display: block;
+        position: relative;
+    }
+    .drpbtnRight .nav-link {
+        display: none;
+    }
+    #dropIcon {
+        font-size: 2em;
+        color: var(--secondary-color);     
+    }
+    #navdropRight .dropdown-menu {
+        position: absolute;
+        background-color: var(--secondary-color); 
+        color: black;
+        font-weight: 900;
+        right: 0;
+    }
+}
+
 
 h1.CMS-text-bigger {
     text-align: center;
