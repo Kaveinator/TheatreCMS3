@@ -182,15 +182,12 @@ footer{
 /*content on left side*/
 .footer-content {
     padding-top: 120px;
-    padding-left: 100px;
-    padding-right: 100px;
-}
+    padding-left: 30px;
+    }
 
 /*content on right side*/
 .footer-rcontent {
-    padding-top: 175px;
-    padding-left: 100px;
-    padding-right: 100px;
+    display: none;
 }
 
 .footer-links {
@@ -213,30 +210,28 @@ footer{
 
 /*copyright when it apears on right for large devices*/
 .footer-lcopyright {
-    padding-top: 0;
     width: 115px;
     position: relative;
-    padding-bottom: 0;
-}
-
-/*content on right disappears on small devices*/
-@media only screen and (max-width: 600px) {  
-    .footer-rcontent {
-        opacity: 0;
-    }
 }
 
 /*icons and copyright on left disappear on large devices*/
-@media only screen and (min-width: 601px) {  
+@media only screen and (min-width: 500px) {  
     .footer-icons {
-        opacity: 0;
+        display: none;
     }
-
     .footer-lcopyright {
-        opacity: 0;
+        display: none;
+    }
+    .footer-content {
+        padding-left: 100px;
+    }
+    .footer-rcontent {
+        display: unset;
+        padding-top: 140px;
+        padding-right: 100px;
     }
 }
-
+/**/
 /* Additional Styling for the Navbar dropdown menu to override the default bootstrap color schema */
 .nav-link.active, .nav-pills .show > .nav-link {
     color: var(--dark-color);
