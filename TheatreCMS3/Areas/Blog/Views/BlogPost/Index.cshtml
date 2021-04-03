@@ -5,8 +5,8 @@
 }
 
 <!-- Alert -->
-<div class="blog-post-div">
-    <div class="alert alert-success blog-post-alert blog-post-alert-text blog-post-spacer2 blog-post-alert-fade" id="alert">
+<div class="blog-post-div blog-post-alert">
+    <div class="alert alert-success blog-post-alert-text blog-post-spacer2 blog-post-alert-fade" id="alert">
         The blog post was deleted successfully <i class="fas fa-check"></i>
     </div>
 </div>
@@ -82,7 +82,7 @@
         var $modalDiv = $(e.delegateTarget);
         var id = $(this).data('itemId');
         var $postDiv = $('#' + id);
-        //$.ajax({ url: '/Blog/BlogPost/Delete/' + id, type: 'POST', data: {__RequestVerificationToken: gettoken()}})
+        $.ajax({ url: '/Blog/BlogPost/Delete/' + id, type: 'POST', data: {__RequestVerificationToken: gettoken()}})
         $postDiv.addClass('blog-post-hide');
         $modalDiv.modal('hide');
         showAlert();
