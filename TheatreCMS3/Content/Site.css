@@ -179,13 +179,17 @@ textarea {
         font-size: 2em;
         color: var(--secondary-color);     
     }
-    #navdropRight .dropdown-menu {
+    #navdropRight .dropdown-menu{
         position: absolute;
         background-color: var(--secondary-color); 
         color: black;
         font-weight: 900;
         right: 0;
     }
+    #navdropRight .dropdown-item {
+        font-weight: bold;       
+    }
+
 }
 
 
