@@ -228,17 +228,16 @@ footer{
 
 /*Adding CSS for Theatre Vertigo About page*/
 .aboutPage-Card-Img {
+    display: flex;
     width: auto;
-    max-width: 100%;
     height: 75%;
-    object-fit: cover;
 }
 
-    .aboutPage-Card-Img:hover {
-        background-color: var(--dark-color);
-        opacity: .8;
-        transition: .15s;
-    }
+.aboutPage-Card-Img:hover {
+    background-color: var(--dark-color);
+    opacity: .8;
+    transition: .15s;
+}
 
 .aboutPage-Card:hover {
     border-color: var(--secondary-color);
@@ -246,12 +245,88 @@ footer{
 }
 
 .aboutPage-Card-Bdy {
-    background-color: var(--dark-color);
+    background-color: var(--dark-color);   
 }
 
 .aboutPage-Card-Text {
+    height: 25%;
     text-align: center;
+    word-break:break-word;
     color: var(--light-color);
+}
+
+/*Created @media at 3 different screen sizes to check work and customize at each layer*/
+/*This @media will apply when the screen is sized below 992px*/
+@media screen and (max-width: 992px) {
+    .aboutPage-Card-Img {
+        display: flex;
+        width: auto;
+        height: 60%;  
+    }
+
+    .aboutPage-Card {
+        display: flex;
+        position: center;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+    }
+
+    .aboutPage-Card-Text {
+        height: 40%;
+        text-align: center;
+        word-break: break-word;
+        color: var(--light-color);
+    }
+}
+
+
+/*This @media will apply when the screen is sized below 767px*/
+@media screen and (max-width: 767px) {
+    .aboutPage-Card-Img {
+        display: flex;
+        width: auto;
+        height: 40%;
+    }
+
+    .aboutPage-Card {
+        display: flex;
+    }
+
+    .aboutPage-Card-Text {
+        height: 60%;
+        text-align: center;
+        word-break: break-word;
+        color: var(--light-color);
+    }
+}
+
+/*This @media will apply when the screen is sized below 576px*/
+@media screen and (max-width: 577px) {
+    .aboutPage-Card-Img {
+        display: flex;
+        width: 100%;
+        height: 60%;
+    }
+/*Inline-table display looks great as the screens get smaller and smaller*/
+    .aboutPage-Card {
+        display: inline-table;
+        position: center;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+    }
+
+    .aboutPage-Card-Text {
+        height: 40%;
+        text-align: center;
+        word-break: break-word;
+        color: var(--light-color);
+    }
 }
 
 .aboutPage-History {
