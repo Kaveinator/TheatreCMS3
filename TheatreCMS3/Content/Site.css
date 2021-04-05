@@ -228,12 +228,12 @@ footer{
 
 /*Adding CSS for Theatre Vertigo About page*/
 .aboutPage-Card {
-    display: inline-table;
+    display: inline-flex;
     flex-wrap: wrap;
     width: auto;
     height: auto;
-    object-fit: unset;
 }
+
 .aboutPage-Card-Img {
     display: flex;
     width: auto;
