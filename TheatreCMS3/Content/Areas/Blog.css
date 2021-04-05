@@ -190,6 +190,52 @@
     padding: 0;
 }
 
+.blog-post-modal-content {
+    background-color: #333333;
+    border: 0;
+    box-shadow: 0px 0px 0.5rem var(--dark-color);
+}
+
+.blog-post-modal-header {
+    border-bottom: 0;
+}
+
+.blog-post-close {
+    color: var(--light-color);
+    text-shadow: 0px 0px 0.5rem var(--dark-color);
+}
+
+.blog-post-modal-footer {
+    border-top: 0;
+}
+
+.blog-post-hide {
+    display: none;
+}
+
+.blog-post-alert {
+    position: fixed;
+    z-index: 999;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.blog-post-alert-text {
+    font-weight: bold;
+    text-align: center;
+}
+
+.blog-post-alert-fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.25s linear;
+    transition: opacity 0.25s linear;
+}
+
+.blog-post-alert-fade.in {
+    opacity: 1;
+}
+
 /* END BLOG POST */
 
 /*.btn-toolbar {
