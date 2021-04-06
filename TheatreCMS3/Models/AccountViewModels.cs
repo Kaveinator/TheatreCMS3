@@ -49,9 +49,8 @@ namespace TheatreCMS3.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "EmailOrUsername")]     
+        public string EmailOrUsername { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
