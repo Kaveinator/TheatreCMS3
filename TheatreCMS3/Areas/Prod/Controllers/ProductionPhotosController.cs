@@ -14,13 +14,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/ProductionPhoto
+        // GET: Prod/ProductionPhotos
         public ActionResult Index()
         {
             return View(db.ProductionPhotos.ToList());
         }
 
-        // GET: Prod/ProductionPhoto/Upload
+        // GET: Prod/ProductionPhotos/Upload
         public ActionResult Upload()
         {
             return View();
@@ -41,7 +41,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(photo);
         }
 
-        // GET: Prod/ProductionPhoto/Edit/5
+        // GET: Prod/ProductionPhotos/Edit/5
         public ActionResult Edit(int? id)
         {
             // If no ID provided, return bad request code
@@ -73,7 +73,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(photo);
         }
 
-        // GET: Prod/ProductionPhoto/Details/5
+        // GET: Prod/ProductionPhotos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
