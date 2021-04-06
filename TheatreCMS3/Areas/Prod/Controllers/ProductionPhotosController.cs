@@ -32,14 +32,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Upload(ProductionPhoto photo)
         {
-            byte[] bytes;
-
-            using (BinaryReader br = new BinaryReader(photo.File.InputStream))
-            {
-                bytes = br.ReadBytes(photo.File.ContentLength);
-            }
-
-            photo.Photo = bytes;
+            photo.Photo = FileToBytes(photo.File);
 
             // If form is filled out correctly, add new photo to database and redirect to index
             if (ModelState.IsValid)
@@ -73,14 +66,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ProductionPhoto photo)
         {
-            byte[] bytes;
-
-            using (BinaryReader br = new BinaryReader(photo.File.InputStream))
-            {
-                bytes = br.ReadBytes(photo.File.ContentLength);
-            }
-
-            photo.Photo = bytes;
+            photo.Photo = FileToBytes(photo.File);
 
             // If form is filled out correctly, save changes to database and redirect to Index
             if (ModelState.IsValid)
@@ -129,6 +115,26 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        // Takes an HttpPostedFileBase and converts it to a byte array
+        public byte[] FileToBytes(HttpPostedFileBase file)
+        {
+            byte[] bytes;
+
+            using (BinaryReader br = new BinaryReader(file.InputStream))
+                bytes = br.ReadBytes(file.ContentLength);
+
+            return bytes;
+        }
+
+        public Image BytesToImage(byte[] bytes)
+        {
+
+
+
+
+            throw new NotImplementedException();
         }
     }
 }
