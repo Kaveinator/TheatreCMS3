@@ -15,13 +15,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/BlogPosts
+        // GET: Blog/BlogPost
         public ActionResult Index()
         {
             return View(db.BlogPosts.ToList());
         }
 
-        // GET: Blog/BlogPosts/Details/5
+        // GET: Blog/BlogPost/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // GET: Blog/BlogPosts/Create
+        // GET: Blog/BlogPost/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/BlogPosts/Create
+        // POST: Blog/BlogPost/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +59,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // GET: Blog/BlogPosts/Edit/5
+        // GET: Blog/BlogPost/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // POST: Blog/BlogPosts/Edit/5
+        // POST: Blog/BlogPost/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +90,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // GET: Blog/BlogPosts/Delete/5
+        // GET: Blog/BlogPost/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +105,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // POST: Blog/BlogPosts/Delete/5
+        // POST: Blog/BlogPost/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
