@@ -12,18 +12,23 @@
 .cms-text-main {
     color: var(--main-color);
 }
+
 .cms-text-main-light {
     color: var(--main-color--light);
 }
+
 .cms-text-secondary {
     color: var(--secondary-color);
 }
+
 .cms-text-secondary-dark {
     color: var(--secondary-color--dark);
 }
+
 .cms-text-light {
     color: var(--light-color);
 }
+
 .cms-text-dark {
     color: var(--dark-color);
 }
@@ -33,31 +38,34 @@
 .cms-bg-main {
     background-color: var(--main-color);
 }
+
 .cms-bg-main-light {
     background-color: var(--main-color--light);
 }
+
 .cms-bg-secondary {
     background-color: var(--secondary-color);
 }
+
 .cms-bg-secondary-dark {
     background-color: var(--secondary-color--dark);
 }
+
 .cms-bg-light {
     background-color: var(--light-color);
 }
+
 .cms-bg-dark {
     background-color: var(--dark-color);
 }
 /*End background color classes*/
 
 body {
-    
     background-color: var(--dark-color);
-    color: var(--light-color);     /*This should default all text to the white of the site.*/
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    
+    color: var(--light-color); /*This should default all text to the white of the site.*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -125,13 +133,16 @@ textarea {
     .nav-item { /* hiding regular nav in mobile */
         display: none;
     }
+
     .navbar--hamburger {
         display: block;
         position: relative;
     }
-    .navbar--hamburger .nav-item {
-        display: block;
-    }
+
+        .navbar--hamburger .nav-item {
+            display: block;
+        }
+
     .navbar-toggler {
         display: block;
         background-color: var(--secondary-color);
@@ -139,9 +150,11 @@ textarea {
         top: -19px;
         border: none;
     }
+
     .navbar-toggler-icon {
         top: 30px;
     }
+
     .navbar-collapse {
         position: absolute;
         top: 25px;
@@ -149,16 +162,20 @@ textarea {
         background-color: var(--secondary-color);
         border-radius: .25rem;
     }
+
     .navbar-nav .nav-item .navbar-hamburger--navitem {
         text-align: left;
     }
+
     .navbar-nav .nav-link .navbar-hamburger--navlink {
         margin-bottom: 1px;
         padding: 5px;
     }
+
     .dropdown-menu .navbar-hamburger--dropdownmenu {
         border: none;
     }
+
     .dropdown-item .navbar-hamburger--drowndownitem {
         border-radius: .25rem;
     }
@@ -167,29 +184,33 @@ textarea {
 #navdropRight {
     display: none;
 }
-@media screen and (max-width: 1000px){
-    #navdropRight{
+
+@media screen and (max-width: 1000px) {
+    #navdropRight {
         display: block;
         position: relative;
     }
+
     .drpbtnRight .nav-link {
         display: none;
     }
+
     #dropIcon {
         font-size: 2em;
-        color: var(--secondary-color);     
+        color: var(--secondary-color);
     }
-    #navdropRight .dropdown-menu{
+
+    #navdropRight .dropdown-menu {
         position: absolute;
-        background-color: var(--secondary-color); 
+        background-color: var(--secondary-color);
         color: black;
         font-weight: 900;
         right: 0;
     }
-    #navdropRight .dropdown-item {
-        font-weight: bold;       
-    }
 
+    #navdropRight .dropdown-item {
+        font-weight: bold;
+    }
 }
 
 
@@ -203,15 +224,15 @@ a.CMS-text-bigger {
 }
 /*Styling for _Footer.cshtml*/
 
-footer{
-    margin-top:auto;
+footer {
+    margin-top: auto;
 }
 
 /*content on left side*/
 .footer-content {
     padding-top: 120px;
     padding-left: 30px;
-    }
+}
 
 /*content on right side*/
 .footer-rcontent {
@@ -243,16 +264,19 @@ footer{
 }
 
 /*icons and copyright on left disappear on large devices*/
-@media only screen and (min-width: 500px) {  
+@media only screen and (min-width: 500px) {
     .footer-icons {
         display: none;
     }
+
     .footer-lcopyright {
         display: none;
     }
+
     .footer-content {
         padding-left: 100px;
     }
+
     .footer-rcontent {
         display: unset;
         padding-top: 140px;
@@ -296,11 +320,11 @@ footer{
     object-fit: cover;
 }
 
-.aboutPage-Card-Img:hover {
-    background-color: var(--dark-color);
-    opacity: .8;
-    transition: .15s;
-}
+    .aboutPage-Card-Img:hover {
+        background-color: var(--dark-color);
+        opacity: .8;
+        transition: .15s;
+    }
 
 .aboutPage-Card:hover {
     border-color: var(--secondary-color);
@@ -308,13 +332,13 @@ footer{
 }
 
 .aboutPage-Card-Bdy {
-    background-color: var(--dark-color);   
+    background-color: var(--dark-color);
 }
 
 .aboutPage-Card-Text {
     height: 25%;
     text-align: center;
-    word-break:break-word;
+    word-break: break-word;
     color: var(--light-color);
 }
 
@@ -324,7 +348,7 @@ footer{
     .aboutPage-Card-Img {
         display: flex;
         width: auto;
-        height: 60%;  
+        height: 60%;
     }
 
     .aboutPage-Card-Text {
@@ -476,10 +500,10 @@ footer{
     background-color: var(--light-color);
 }
 
-/* Hover effects for input fields */
-.Register-input:hover {
-    box-shadow: 0px 0px 10px var(--secondary-color--dark);
-}
+    /* Hover effects for input fields */
+    .Register-input:hover {
+        box-shadow: 0px 0px 10px var(--secondary-color--dark);
+    }
 
 /* Style submit button */
 .Register-button {
@@ -488,7 +512,7 @@ footer{
     margin-bottom: 10px;
 }
 
-/* Button hover effect */
-.Register-button:hover {
-    box-shadow: 0px 0px 5px var(--light-color);
-}
+    /* Button hover effect */
+    .Register-button:hover {
+        box-shadow: 0px 0px 5px var(--light-color);
+    }
