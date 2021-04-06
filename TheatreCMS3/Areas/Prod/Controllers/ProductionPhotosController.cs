@@ -7,6 +7,8 @@ using TheatreCMS3.Models;
 using System.Data.Entity;
 using TheatreCMS3.Areas.Prod.Models;
 using System.Net;
+using System.IO;
+using System.Drawing;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -28,8 +30,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Upload([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto photo)
+        public ActionResult Upload(ProductionPhoto photo)
         {
+            byte[] bytes;
+
+            using (BinaryReader br = new BinaryReader(photo.File.InputStream))
+            {
+                bytes = br.ReadBytes(photo.File.ContentLength);
+            }
+
+            photo.Photo = bytes;
+
             // If form is filled out correctly, add new photo to database and redirect to index
             if (ModelState.IsValid)
             {
@@ -60,8 +71,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto photo)
+        public ActionResult Edit(ProductionPhoto photo)
         {
+            byte[] bytes;
+
+            using (BinaryReader br = new BinaryReader(photo.File.InputStream))
+            {
+                bytes = br.ReadBytes(photo.File.ContentLength);
+            }
+
+            photo.Photo = bytes;
+
             // If form is filled out correctly, save changes to database and redirect to Index
             if (ModelState.IsValid)
             {

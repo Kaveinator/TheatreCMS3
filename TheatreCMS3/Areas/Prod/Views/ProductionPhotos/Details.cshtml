@@ -10,7 +10,9 @@
 <div>
     <div class="form-group font-weight-bolder">@Html.DisplayNameFor(model => model.Title)</div>
     <div class="form-group">@Html.DisplayFor(model => model.Title)</div>
-    <div class="form-group font-weight-bolder"">@Html.DisplayNameFor(model => model.Description)</div>
+    <div class="align-content-center">
+        <img alt="@Model.Title" src="data:image/jpg;base64,@Convert.ToBase64String(Model.Photo)" />
+    </div>
     <div class="form-group">@Html.DisplayFor(model => model.Description)</div>
 
     <div class="form-group">
