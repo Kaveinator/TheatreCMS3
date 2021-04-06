@@ -26,9 +26,4 @@ namespace TheatreCMS3.Areas.Rent.Models
         public bool Accepted { get; set; }
         public bool ContractSigned { get; set; }
     }
-
-  
-
-
-
 }
