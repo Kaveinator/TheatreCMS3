@@ -12,8 +12,11 @@ namespace TheatreCMS3.Areas.Rent.Models
         public int RentalRequestID { get; set; }
         public string ContactPerson { get; set; }
         public string Company { get; set; }
+        [DataType(DataType.Time)]
         public DateTime RequestedTime { get; set; }
+        [DataType(DataType.Time)]       
         public DateTime StartTime { get; set; }
+        [DataType(DataType.Time)]        
         public DateTime EndTime { get; set; }
         public string ProjectInfo { get; set; }
         public int RentalCode { get; set; }
