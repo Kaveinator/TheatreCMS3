@@ -17,8 +17,8 @@ namespace TheatreCMS3.Areas.Prod.Models
         public PositionEnum MainRole { get; set; }
         [Required]
         public string Bio { get; set; }
-        [Required]
-        public byte[] Photo { get; set; }
+        //[Required]
+        //public byte[] Photo { get; set; }
         [Required]
         public bool CurrentMember { get; set; }
         [Required]
