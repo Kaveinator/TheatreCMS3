@@ -1,15 +1,15 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.ProductionPhoto
 
 @{
-    ViewBag.Title = "Edit Photo";
+    ViewBag.Title = "Edit Production Photo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="text-center">
-    <h2 class="prod-photo-header">Edit Photo</h2>
+    <h2 class="prod-header">Edit Production Photo</h2>
 </div>
 
-@using (Html.BeginForm("Edit", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "prod-photo-form" }))
+@using (Html.BeginForm("Edit", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "prod-form" }))
 {
     @Html.AntiForgeryToken()
 
@@ -20,14 +20,14 @@
     @Html.HiddenFor(model => model.Image)
 
     <div class="prod-form-div">
-        <span class="prod-form-label">@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "prod-form-label" })</span>
-        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Image Title", required = "required" } })
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "prod-form-label" })
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control prod-input", placeholder = "Image Title", required = "required" } })
         @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
     </div>
 
     <div class="prod-form-div">
-        <span class="prod-form-label">@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })</span>
-        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Image Description" } })
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "prod-form-label" })
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control prod-input", placeholder = "Image Description" } })
         @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
     </div>
 

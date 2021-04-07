@@ -1,15 +1,15 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.ProductionPhoto
 
 @{
-    ViewBag.Title = "Upload New Photo";
+    ViewBag.Title = "Upload Production Photo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="text-center">
-    <h2 class="prod-photo-header">Create Production Photo</h2>
+    <h2 class="prod-header">Create Production Photo</h2>
 </div>
 
-@using (Html.BeginForm("Upload", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "prod-photo-form" }))
+@using (Html.BeginForm("Upload", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "prod-form" }))
 {
     @Html.AntiForgeryToken()
 
@@ -19,13 +19,13 @@
 
     <div class="prod-form-div">
         @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "prod-form-label" })
-        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control prod-photo-input", placeholder = "Image Title", required = "required" } })
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control prod-input", placeholder = "Image Title", required = "required" } })
         @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
     </div>
 
     <div class="prod-form-div">
         @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "prod-form-label" })
-        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control prod-photo-input", placeholder = "Image Description" } })
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control prod-input", placeholder = "Image Description" } })
         @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
     </div>
 
