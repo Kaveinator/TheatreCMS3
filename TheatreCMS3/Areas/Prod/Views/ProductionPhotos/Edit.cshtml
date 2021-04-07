@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="~/Scripts/Areas/Prod.js"></script>
+
 <h2>Edit Photo</h2>
 
 @using (Html.BeginForm("Edit", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -35,7 +37,7 @@
 
     <div class="form-group">
         <div class="col-md-10">
-            <input type="file" name="File" accept="image/*" />
+            <input type="file" id="file" name="File" accept="image/*" />
         </div>
     </div>
 
@@ -48,6 +50,12 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <a href="@Url.Action("Index")" class="btn btn-danger btn-block">Cancel</a>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <img id="preview" src="/ProductionPhotos/GetImage/@Model.ProPhotoId" alt="Image Preview" class="img-thumbnail bg-dark" />
         </div>
     </div>
 
