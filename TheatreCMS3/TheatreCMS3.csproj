@@ -204,7 +204,11 @@
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalSurveysController.cs" />
+    <Compile Include="Areas\Rent\Models\RentalRoom.cs" />
+    <Compile Include="Areas\Rent\Models\Rental Equipment.cs" />
+    <Compile Include="Areas\Rent\Models\Rental.cs" />
     <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
     <Compile Include="Areas\Rent\Models\RentalSurvey.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
@@ -279,6 +283,11 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Rent\Views\Rentals\Create.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Delete.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Details.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Edit.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Index.cshtml" />
     <Content Include="Areas\Prod\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Prod\Views\CastMembers\Create.cshtml" />
     <Content Include="Areas\Prod\Views\CastMembers\Delete.cshtml" />
