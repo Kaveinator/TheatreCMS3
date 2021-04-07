@@ -33,7 +33,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         public ActionResult Upload(ProductionPhoto photo)
         {
             // Convert uploaded file to byte[]
-            photo.Photo = FileToBytes(photo.File);
+            photo.Image = FileToBytes(photo.File);
 
             // If form is filled out correctly, add new photo to database and redirect to index
             if (ModelState.IsValid)
@@ -67,8 +67,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ProductionPhoto photo)
         {
-            // Convert uploaded file to byte[]
-            photo.Photo = FileToBytes(photo.File);
+            // Convert uploaded file to byte[] if new photo is uploaded
+            if (photo.File != null)
+                photo.Image = FileToBytes(photo.File);
 
             // If form is filled out correctly, save changes to database and redirect to Index
             if (ModelState.IsValid)
@@ -132,11 +133,20 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // Takes an ID of a ProductionPhoto and returns an image from its Photo byte[]
+        // <img src="/ProductionPhotos/GetImage/5" />
         public ActionResult GetImage(int id)
         {
-            byte[] bytes = db.ProductionPhotos.Find(id).Photo;
+            byte[] bytes = db.ProductionPhotos.Find(id).Image;
+
+            if (bytes == null)
+                return null;
 
             return File(bytes, "image/jpeg");
+        }
+
+        public byte[] GetBytes(int id)
+        {
+            return db.ProductionPhotos.Find(id).Image;
         }
     }
 }

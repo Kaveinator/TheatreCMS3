@@ -12,7 +12,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         [Required]
         public string Title { get; set; }
         public string Description { get; set; }
-        public byte[] Photo { get; set; }
+        public byte[] Image { get; set; }
         [NotMapped]
         public HttpPostedFileBase File { get; set; }
     }
