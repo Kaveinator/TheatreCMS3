@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -75,7 +76,9 @@ namespace TheatreCMS3.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            
+            
+            var result = await SignInManager.PasswordSignInAsync(FindUsername(model.EmailOrUsername), model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -89,7 +92,57 @@ namespace TheatreCMS3.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+            //Determine if input is email or username, return proper credentials 
+             string FindUsername(string input)
+            {
+                if (IsValidEmail(input))                                                    //If input is Email...
+                {
+                   using (var db = new ApplicationDbContext())
+                    {
+                        var query = db.Users
+                                      .Where(u => u.Email == input).FirstOrDefault();
+                        return query.UserName;                                              //Return associated Username.
+
+                    }
+                }
+                return input;                                                               //If not email, return input string assuming it is a Username
+            }
+
+            // Test for valid email input
+             bool IsValidEmail(string input)
+            {
+                if (string.IsNullOrWhiteSpace(input))
+                    return false;
+
+                try
+                {
+                    //Normalize the domain
+                    input = Regex.Replace(input, @"(@)(.+)$", DomainMapper, RegexOptions.None,
+                            TimeSpan.FromMilliseconds(200));
+                    //Examine the domain part of possible email and normalizes it 
+                    string DomainMapper(Match match)
+                    {
+                        // Use IdnMapping class to convert Unicode domain names.
+                        var idn = new IdnMapping();
+
+                        // Pull out and process domain name (throws Argumanet Exception on invalid)
+                        string domainName = idn.GetAscii(match.Groups[2].Value);
+
+                        return match.Groups[1].Value + domainName;
+                    }
+                }
+                catch (RegexMatchTimeoutException e) { return false; }
+                catch (ArgumentException e) { return false; }
+                try
+                {
+                    return Regex.IsMatch(input,
+                        @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                        RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+                }
+                catch (RegexMatchTimeoutException) { return false; }
+            }
         }
+       
 
         //
         // GET: /Account/VerifyCode
