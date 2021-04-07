@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="~/Scripts/Areas/Prod.js"></script>
-
 <h2>Upload New Photo</h2>
 
 @using (Html.BeginForm("Upload", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data" }))
