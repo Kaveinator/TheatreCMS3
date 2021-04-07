@@ -5,43 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Upload New Photo</h2>
+<div class="text-center">
+    <h2 class="prod-photo-header">Upload New Photo</h2>
+</div>
 
 @using (Html.BeginForm("Upload", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "prod-photo-form" }))
 {
     @Html.AntiForgeryToken()
 
-    <div>
+<div>
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="prod-form-div">
-            <span class="prod-form-label">@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })</span>
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control prod-photo-input", placeholder = "Image Title", required = "required" } })
-            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-        </div>
-
-        <div class="prod-form-div">
-            <span class="prod-form-label">@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 " })</span>
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control prod-photo-input", placeholder = "Image Description" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-        </div>
-
-        <div class="prod-form-div">
-            <input type="file" id="file" name="File" accept="image/*" required onchange="readURL(this);" />
-        </div>
-
-        <div class="prod-form-div">
-            <input type="submit" value="Upload" class="btn prod-btn btn-block" />
-        </div>
-
-        <div class="prod-form-div">
-            <a href="@Url.Action("Index")" class="btn prod-btn-danger btn-block">Cancel</a>
-        </div>
-
-        <div class="prod-form-div">
-            <img id="preview" src="#" alt="Image Preview" class="img-thumbnail bg-dark" />
-        </div>
-
+    <div class="prod-form-div">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "prod-form-label" })
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control prod-photo-input", placeholder = "Image Title", required = "required" } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
     </div>
+
+    <div class="prod-form-div">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "prod-form-label" })
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control prod-photo-input", placeholder = "Image Description" } })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="prod-form-div">
+        <input type="file" id="file" name="File" accept="image/*" required onchange="readURL(this);" />
+    </div>
+
+    <div class="prod-form-div">
+        <img id="preview" src="#" alt="Image Preview" class="img-thumbnail bg-dark" />
+    </div>
+
+    <div class="prod-form-div">
+        <input type="submit" value="Upload" class="btn prod-btn btn-block" />
+    </div>
+
+    <div class="prod-form-div">
+        <a href="@Url.Action("Index")" class="btn prod-btn-danger btn-block">Cancel</a>
+    </div>
+
+</div>
 }
