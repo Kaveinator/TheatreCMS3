@@ -5,11 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="~/Scripts/Areas/Prod.js"></script>
-
-<div class="text-center">
-    <h2 class="prod-photo-header m-3">Create Production Photo</h2>
-</div>
+<h2>Upload New Photo</h2>
 
 @using (Html.BeginForm("Upload", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "prod-photo-form" }))
 {
