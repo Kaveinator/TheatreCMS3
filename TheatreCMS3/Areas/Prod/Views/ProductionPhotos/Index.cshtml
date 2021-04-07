@@ -32,7 +32,9 @@ else
                 <tr>
                     <td>@photo.Title</td>
                     <td>@photo.Description</td>
-                    <td><img alt="@photo.Title" src="data:image/jpg;base64,@Convert.ToBase64String(photo.Photo)" /></td>
+                    <td>
+                        <img alt="@photo.Title" src="/ProductionPhotos/GetImage/@photo.ProPhotoId" />
+                    </td>
                     <td>
                         <a href="@Url.Action("Edit", new { id = photo.ProPhotoId })" class="btn btn-secondary"><i class="fas fa-edit"></i> Edit</a> 
                         <a href="@Url.Action("Details", new { id = photo.ProPhotoId })" class="btn btn-secondary"><i class="fas fa-info"></i> Details</a>

@@ -1,4 +1,5 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.ProductionPhoto
+@using TheatreCMS3.Areas.Prod.Controllers
 
 @{
     ViewBag.Title = "Photo Details";
@@ -8,10 +9,9 @@
 <h2>Photo Details</h2>
 
 <div>
-    <div class="form-group font-weight-bolder">@Html.DisplayNameFor(model => model.Title)</div>
     <div class="form-group">@Html.DisplayFor(model => model.Title)</div>
     <div class="align-content-center">
-        <img alt="@Model.Title" src="data:image/jpg;base64,@Convert.ToBase64String(Model.Photo)" />
+        <img alt="@Model.Title" src="/ProductionPhotos/GetImage/@Model.ProPhotoId" />
     </div>
     <div class="form-group">@Html.DisplayFor(model => model.Description)</div>
 
