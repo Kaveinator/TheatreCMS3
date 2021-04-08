@@ -4,72 +4,16 @@
     ViewBag.Title = "Create";
 }
 
-<h2><br />Create Rental Survey</h2>
-<br />
+<link rel="stylesheet" href="~/Content/Areas/Rent.css" />
 
+<h2><br />Create Rental Survey</h2><br />
 
-<div class="container-survey">
-    <style>
-         .container-survey {
-                background-color: #333131;
-                width: 100%;
-                border: 20px #d6972a;
-                border-style: solid;
-                padding: 50px;
-                                
-            }
-        
-
-    </style>
-
+<div class="rental-survey-container">
     @using (Html.BeginForm())
     {
-
-
-
-        <style>
-                /* box {
-                background-color: lightgrey;
-                width: 300px;
-                border: 15px solid green;
-                padding: 50px;
-                margin: 20px;
-            }*/
-
-                input [type=text] {
-                    outline: none;
-                }
-
-                    input[type=text]:focus {
-                        border-color: #bd1a11;
-                        background-color: #e9cd9e;
-                    }
-
-                input:hover {
-                    border-color: #bd1a11;
-                }
-        </style>
-
         @Html.AntiForgeryToken()
-
-
-
-
-
         <div class="form-horizontal">
             <hr />
-
-
-
-            @*<style>
-                    div {
-                        background-color: lightgrey;
-                        width: 300px;
-                        border: 15px solid green;
-                        padding: 50px;
-                        margin: 20px;
-                    }
-                </style>*@
             <div class="form-group">
 
                 @Html.LabelFor(model => model.RecommendRentalRating, "Would you recommend us to a friend who needs to rent theatre equipment?", htmlAttributes: new { @class = "control-label col-md" })
@@ -106,17 +50,6 @@
             <div class="form-group" style="text-align: center">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn" name="submit" />
-                    <style>
-                        .btn[name="submit"] {
-                            background-color: #d6972a;
-                            color: black;
-                            transition-duration: 0.4s;
-                        }
-
-                            .btn[name="submit"]:hover {
-                                background-color: #f8bc54;
-                            }
-                    </style>
                 </div>
             </div>
         </div>
@@ -125,17 +58,6 @@
     <div class="form-group" style="text-align: center">
         <div class="col-md-offset-2 col-md-10">
             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
-            <style>
-                .btn {
-                    background-color: rgb(229 75 66 / 0.93);
-                    color: black;
-                    transition-duration: 0.4s;
-                }
-
-                    .btn:hover {
-                        background-color: #fa5047;
-                    }
-            </style>
         </div>
     </div>
 </div>
