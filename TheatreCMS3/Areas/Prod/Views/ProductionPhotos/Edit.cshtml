@@ -5,43 +5,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit Photo</h2>
+<div class="text-center">
+    <h2 class="prod-photo-header">Edit Photo</h2>
+</div>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "prod-photo-form" }))
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+<div>
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ProPhotoId)
+    @Html.HiddenFor(model => model.Image)
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-        </div>
+    <div class="prod-form-div">
+        <span class="prod-form-label">@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "prod-form-label" })</span>
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Image Title", required = "required" } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-        </div>
+    <div class="prod-form-div">
+        <span class="prod-form-label">@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })</span>
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Image Description" } })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
     </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save Changes" class="btn btn-secondary btn-block" />
-        </div>
+    <div class="prod-form-div">
+        <input type="file" id="file" name="File" accept="image/*" />
     </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <a href="@Url.Action("Index")" class="btn btn-danger btn-block">Cancel</a>
-        </div>
+    <div class="prod-form-div">
+        <img id="preview" src="/ProductionPhotos/GetImage/@Model.ProPhotoId" alt="Image Preview" class="img-thumbnail bg-dark" />
+    </div>
+
+    <div class="prod-form-div">
+        <input type="submit" value="Save Changes" class="btn prod-btn btn-block" />
+    </div>
+
+    <div class="prod-form-div">
+        <a href="@Url.Action("Index")" class="btn prod-btn-danger btn-block">Cancel</a>
     </div>
 
 </div>

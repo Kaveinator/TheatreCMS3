@@ -1,1 +1,73 @@
-﻿
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+/* Do not uncomment these color variables */
+
+/* CSS color variables */
+/*:root { /* Color palette for css */
+/*--main-color: #DB1A11;  Red */
+/*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
+/*--secondary-color: #D6972A;*/ /* Yellow gold */
+/*--light-color: #FFFBFB;*/ /* White */
+/*--dark-color: #000000;*/ /* Black */
+/*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*}*/
+
+
+/* PRODUCTION PHOTO */
+.prod-photo-form {
+    margin: 0 auto;
+    max-width: 80%;
+    background-color: #333333;
+    box-shadow: 0 0 0.5rem 0 var(--secondary-color);
+    border-radius: 1rem;
+    padding: 1rem 0 1rem 0;
+}
+
+.prod-photo-input {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    width: 100%;
+}
+
+.prod-photo-input:focus {
+    border: 2px solid var(--secondary-color);
+    background-color: #EDD2A3;
+}
+
+.prod-photo-header {
+    color: var(--secondary-color);
+}
+
+.prod-photo-div {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.prod-form-div {
+    margin: 15px auto;
+    width: 80%;
+}
+
+.prod-form-label {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.prod-btn {
+    color: var(--light-color);
+    background-color: var(--secondary-color--dark);
+}
+
+.prod-btn:hover {
+    color: var(--light-color);
+    background-color: var(--secondary-color);
+}
+
+.prod-btn-danger {
+    color: var(--light-color);
+    background-color: var(--main-color);
+}
+
+.prod-btn-danger:hover {
+    color: var(--light-color);
+    background-color: var(--main-color--light);
+}
