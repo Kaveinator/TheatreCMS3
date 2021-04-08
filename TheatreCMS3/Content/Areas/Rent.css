@@ -10,3 +10,57 @@
   
 /*}*/
 
+
+/*rental survey styling*/
+.rental-survey-container {
+    background-color: #333131;
+    width: 100%;
+    border: 3px #d6972a;
+    border-radius: 25px;
+    border-style: solid;
+    padding: 25px;
+}
+
+.form-horizontal {
+    margin-right: 0px;
+
+}
+.form-group {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input [type=text] {
+    outline: none;
+}
+
+input[type=text]:focus {
+    border-color: #bd1a11;
+    background-color: #e9cd9e;
+}
+
+input:hover {
+    border-color: #bd1a11;
+}
+
+.btn[name="submit"] {
+    background-color: #d6972a;
+    color: black;
+    transition-duration: 0.4s;
+}
+
+.btn[name="submit"]:hover {
+    background-color: #f8bc54;
+}
+
+.btn {
+    background-color: rgb(229 75 66 / 0.93);
+    color: black;
+    transition-duration: 0.4s;
+}
+
+.btn:hover {
+    background-color: #fa5047;
+}
+
+/*end of rental survey styling*/
