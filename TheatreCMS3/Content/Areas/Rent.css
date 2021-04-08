@@ -11,56 +11,52 @@
 /*}*/
 
 
-/*rental survey styling*/
+/*rental survey create styling*/
 .rental-survey-container {
     background-color: #333131;
     width: 100%;
     border: 3px #d6972a;
     border-radius: 25px;
     border-style: solid;
-    padding: 25px;
+    padding: 50px;
+    padding-bottom: 25px;
 }
 
-.form-horizontal {
-    margin-right: 0px;
-
-}
-.form-group {
-    margin-left: auto;
-    margin-right: auto;
+.rental-survey-control-label {
+    padding-left: 0px;
 }
 
-input [type=text] {
+.rental-survey-input [type=text] {
     outline: none;
 }
 
-input[type=text]:focus {
+.rental-survey-input[type=text]:focus {
     border-color: #bd1a11;
     background-color: #e9cd9e;
 }
 
-input:hover {
+.rental-survey-input:hover {
     border-color: #bd1a11;
 }
 
-.btn[name="submit"] {
+.rental-survey-create-btn {
     background-color: #d6972a;
     color: black;
     transition-duration: 0.4s;
 }
 
-.btn[name="submit"]:hover {
+.rental-survey-create-btn:hover {
     background-color: #f8bc54;
 }
 
-.btn {
+.rental-survey-back-btn {
     background-color: rgb(229 75 66 / 0.93);
     color: black;
     transition-duration: 0.4s;
 }
 
-.btn:hover {
+.rental-survey-back-btn:hover {
     background-color: #fa5047;
 }
 
-/*end of rental survey styling*/
+/*end of rental survey create styling*/
