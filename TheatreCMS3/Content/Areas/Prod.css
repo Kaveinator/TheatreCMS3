@@ -12,34 +12,15 @@
 /*}*/
 
 
-/* PRODUCTION PHOTO */
-.prod-photo-form {
+/* PRODUCTION */
+
+.prod-form {
     margin: 0 auto;
     max-width: 80%;
     background-color: #333333;
     box-shadow: 0 0 0.5rem 0 var(--secondary-color);
     border-radius: 1rem;
     padding: 1rem 0 1rem 0;
-}
-
-.prod-photo-input {
-    color: var(--dark-color);
-    background-color: var(--light-color);
-    width: 100%;
-}
-
-.prod-photo-input:focus {
-    border: 2px solid var(--secondary-color);
-    background-color: #EDD2A3;
-}
-
-.prod-photo-header {
-    color: var(--secondary-color);
-}
-
-.prod-photo-div {
-    text-align: center;
-    margin: 0 auto;
 }
 
 .prod-form-div {
@@ -50,6 +31,21 @@
 .prod-form-label {
     font-weight: bold;
     font-size: larger;
+}
+
+.prod-input {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    width: 100%;
+}
+
+.prod-input:focus {
+    border: 2px solid var(--secondary-color);
+    background-color: #EDD2A3;
+}
+
+.prod-header {
+    color: var(--secondary-color);
 }
 
 .prod-btn {
