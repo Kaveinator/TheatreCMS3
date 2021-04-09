@@ -4,53 +4,60 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h3 style="text-align: center"><br />Delete Rental Survey?</h3>
+<br />
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>RentalSurvey</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RecommendRentalRating)
-        </dt>
+    <div class="rental-survey-delete-container text-center">
 
-        <dd>
-            @Html.DisplayFor(model => model.RecommendRentalRating)
-        </dd>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.LabelFor(model => model.RecommendRentalRating, "Would you recommend us to a friend who needs to rent theatre equipment?")
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RentalCost)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RecommendRentalRating)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RentalCost)
-        </dd>
+            <dt>
+                @Html.LabelFor(model => model.RentalCost, "What was the overall cost for your rental?")
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ExperienceRating)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RentalCost)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ExperienceRating)
-        </dd>
+            <dt>
+                @Html.LabelFor(model => model.ExperienceRating, "From a scale of 1-5 (1=Poor, 5= Excellent), how would you rate your overall experience with us?")
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Feedback)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ExperienceRating)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Feedback)
-        </dd>
+            <dt>
+                @Html.LabelFor(model => model.Feedback, "Comments/suggestions?")
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Feedback)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+         <div class="form-group text-center">
+            <input type="submit" value="Delete" class="btn rental-survey-create-btn" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn rental-survey-back-btn" })
+         </div>
+        }
+    </div>
 </div>
+
+
+
+
+   
