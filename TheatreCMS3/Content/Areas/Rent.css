@@ -60,3 +60,13 @@
 }
 
 /*end of rental survey create styling*/
+
+.rental-survey-details-container {
+    background-color: #333131;
+    width: 100%;
+    border: 3px #d6972a;
+    border-radius: 25px;
+    border-style: solid;
+    padding: 50px;
+    padding-bottom: 25px;
+}
