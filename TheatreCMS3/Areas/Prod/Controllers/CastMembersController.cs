@@ -83,15 +83,15 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId, Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, File")] CastMember castMember)
+        public ActionResult Edit( CastMember castMember)
         {
             // Convert uploaded file to byte[] if new photo is uploaded
             if (castMember.File != null)
                 castMember.Photo = FileToBytes(castMember.File);
-
+            
+               
             if (ModelState.IsValid)
             {
-                
                 db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
