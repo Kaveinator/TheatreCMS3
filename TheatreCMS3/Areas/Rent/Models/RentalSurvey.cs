@@ -7,9 +7,9 @@ namespace TheatreCMS3.Areas.Rent.Models
     {
         [Key]
         public int SurveyID { get; set; }
-        public int RecommendRentalRating { get; set; }
+        public string RecommendRentalRating { get; set; }
         public int RentalCost { get; set; }
         public int ExperienceRating { get; set; }
-        public String Feedback { get; set; }
+        public string Feedback { get; set; }
     }
 }
