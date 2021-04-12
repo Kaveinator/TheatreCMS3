@@ -81,10 +81,9 @@ a.detailsLink {
 
 .prod-btn-container {
     position:absolute;
-    top: 6rem;
-    
+    top: 6rem;  
     height: auto;
-    width: 100%;
+    width: auto;
 }
 
 .prod-overlay {
