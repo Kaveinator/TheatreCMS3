@@ -80,11 +80,11 @@ a.detailsLink {
 }
 
 .prod-btn-container {
-    position: absolute;  
-    bottom: 1rem;
-    right: 1rem;
+    position:absolute;
+    top: 6rem;
+    
     height: auto;
-    width: auto;
+    width: 100%;
 }
 
 .prod-overlay {
@@ -97,7 +97,7 @@ a.detailsLink {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: rgba(0, 0, 0, 0.5) ;
+    background-color: rgba(0, 0, 0, 0.3) ;
 }
 
 .prod-overlay:hover {
