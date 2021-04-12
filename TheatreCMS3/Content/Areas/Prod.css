@@ -71,13 +71,23 @@
 }
 
 /*Image Overlay Styling for Cast Members*/
-.container {
 
+a.detailsLink {
+    display: block;
+    width:auto;
+    height: inherit;
+    text-indent: -9999px; /*Hides the text*/
 }
 
+.prod-btn-container {
+    position: absolute;  
+    bottom: 1rem;
+    right: 1rem;
+    height: auto;
+    width: auto;
+}
 
-
-.overlay {
+.prod-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -87,9 +97,18 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: rgba 0, 0, 0, 0.5;
+    background-color: rgba(0, 0, 0, 0.5) ;
 }
 
-    .overlay:hover {
-        opacity: 1;
-    }
+.prod-overlay:hover {
+    opacity: 1;
+}
+
+.prod-icon {
+    color: rgba(255, 255, 255, 0.75);
+    transition: .2s ease
+}
+
+.prod-icon:hover {
+    color: var(--secondary-color);
+}
