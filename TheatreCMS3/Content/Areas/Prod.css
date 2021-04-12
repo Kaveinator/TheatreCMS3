@@ -67,3 +67,22 @@
     color: var(--light-color);
     background-color: var(--main-color--light);
 }
+
+.prod-img-thumb {
+    max-width: 300px;
+}
+
+.prod-title {
+    color: var(--light-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .15em;
+}
+
+.prod-img-overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: none;
+}
