@@ -25,11 +25,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionPhotos/Upload
         public ActionResult Upload()
         {
-            var productions = db.Productions.ToList();
-
-            if (productions != null)
-                ViewBag.ListOfProductions = productions;
-
+            ViewBag.ProductionList = ProductionList();
             return View();
         }
 
@@ -39,6 +35,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             // Convert uploaded file to byte[]
             photo.Image = FileToBytes(photo.File);
+
+            // Set production from chosen Id
+            photo.Production = db.Productions.Find(photo.ProductionId);
 
             // If form is filled out correctly, add new photo to database and redirect to index
             if (ModelState.IsValid)
@@ -65,6 +64,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             if (photo == null)
                 return HttpNotFound();
 
+            ViewBag.ProductionList = ProductionList();
+
             return View(photo);
         }
 
@@ -72,6 +73,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ProductionPhoto photo)
         {
+            // Update production with production that was selected
+            photo.Production = db.Productions.Find(photo.ProductionId);
+
             // Convert uploaded file to byte[] if new photo is uploaded
             if (photo.File != null)
                 photo.Image = FileToBytes(photo.File);
@@ -149,9 +153,22 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return File(bytes, "image/jpeg");
         }
 
-        public byte[] GetBytes(int id)
+        // Return a list of productions to populate dropdownlist form inputs
+        public List<SelectListItem> ProductionList()
         {
-            return db.ProductionPhotos.Find(id).Image;
+            var productions = new List<SelectListItem>();
+
+            foreach (Production production in db.Productions)
+            {
+                var item = new SelectListItem
+                {
+                    Text = production.Title,
+                    Value = production.ProductionId.ToString()
+                };
+                productions.Add(item);
+            }
+
+            return productions;
         }
     }
 }

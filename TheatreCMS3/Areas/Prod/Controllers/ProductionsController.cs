@@ -105,7 +105,6 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Production production)
         {
-
             using (var context = new ApplicationDbContext())
             {
                 if (ModelState.IsValid)
