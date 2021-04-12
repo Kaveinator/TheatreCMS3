@@ -6,10 +6,12 @@
 
 <h2>Index</h2>
 
-<p>
-  @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<div>
+  @Html.ActionLink("Create New", "Create",null, new { @class = "btn prod-btn  " })
+</div>
+
+
+@*<table class="table">
   <tr>
     <th>
       @Html.DisplayNameFor(model => model.Name)
@@ -73,18 +75,47 @@
     </tr>
   }
 
-</table>
-<h3>Gallery</h3>
-<div class="row">
-  @foreach (var castMember in Model)
-  {
-    @*<img alt="@castMember.Name" src="/CastMembers/GetImage/@castMember.CastMemberID" class="card-img-top" />*@
-
-    if (castMember.Photo != null)
+</table>*@
+@{
+    List<string> productionTitle = new List<string>();    //Make list for Production Title
+    foreach (var item in Model)
     {
-      <div class=" card bg-dark col-sm-2 text-center m-auto">
-        <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)">
-      </div>
+      productionTitle.Add(item.ProductionTitle);
     }
+    foreach (var title in productionTitle.Distinct())    //For Each Distinct ProductionTitle
+    {
+      <div>
+          <div class="prod-form-label">
+              @Html.DisplayFor(modelItem => title) <!--Display Title-->
+          </div>
+          <hr class="cms-bg-main-light mt-2 pb-2"/>   <!--Divider Line-->
+      </div>
+
+
+      <div class="row">
+        @foreach (var castMember in Model.Where(x => x.ProductionTitle == title.ToString()))   //For Each CastMember in that Production, Display Card
+        {
+         
+         <div class="card bg-dark m-sm-auto">            
+            <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
+            <div class=" overlay">
+              <div class ="buttons">
+                  @Html.ActionLink("Edit", "Edit", new { id = castMember.CastMemberID }) |
+                  @Html.ActionLink("Details", "Details", new { id = castMember.CastMemberID }) |
+                  @Html.ActionLink("Delete", "Delete", new { id = castMember.CastMemberID })
+              </div>
+            </div>            
+            <div class="card-body bg-dark text-light">
+               @Html.DisplayFor(modelItem => castMember.Name)
+               @Html.DisplayFor(modelItem => castMember.MainRole)
+            </div>
+      </div>
+        }
+      </div>
   }
-</div>
+}
+
+
+
+
+
