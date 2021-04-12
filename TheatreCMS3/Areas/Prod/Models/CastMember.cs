@@ -13,6 +13,8 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int CastMemberID { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
+        public string ProductionTitle { get; set; }
         public int? YearJoined { get; set; }
         [Required]
         public PositionEnum MainRole { get; set; }
