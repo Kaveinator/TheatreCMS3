@@ -16,7 +16,7 @@
 
 .prod-form {
     margin: 0 auto;
-    max-width: 80%;
+    max-width: 95%;
     background-color: #333333;
     box-shadow: 0 0 0.5rem 0 var(--secondary-color);
     border-radius: 1rem;
@@ -69,3 +69,27 @@
     color: var(--light-color);
     background-color: var(--main-color--light);
 }
+
+/*Image Overlay Styling for Cast Members*/
+.container {
+
+}
+
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba 0, 0, 0, 0.5;
+}
+
+    .overlay:hover {
+        opacity: 1;
+    }
