@@ -109,10 +109,14 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    // Can't pass DefaultPhoto as a Hidden form, so this is necessary to reset the photo with
+                    // the ProPhotoID passed through the form
                     production.DefaultPhoto = db.ProductionPhotos.Find(production.ProPhotoID);
+
                     db.Entry(production).State = EntityState.Modified;
                     db.SaveChanges();
 
+                    // Update DefaultPhoto's image if a new file was uploaded
                     if (production.File != null)
                     {
                         ProductionPhotosController photoController = new ProductionPhotosController();

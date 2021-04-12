@@ -25,7 +25,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionPhotos/Upload
         public ActionResult Upload()
         {
-            ViewBag.ProductionList = ProductionList();
+            ViewBag.ProductionList = GetProductionList();
             return View();
         }
 
@@ -47,6 +47,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ProductionList = GetProductionList();
             return View(photo);
         }
 
@@ -64,7 +65,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             if (photo == null)
                 return HttpNotFound();
 
-            ViewBag.ProductionList = ProductionList();
+            ViewBag.ProductionList = GetProductionList();
 
             return View(photo);
         }
@@ -88,6 +89,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ProductionList = GetProductionList();
             return View(photo);
         }
 
@@ -154,7 +156,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // Return a list of productions to populate dropdownlist form inputs
-        public List<SelectListItem> ProductionList()
+        public List<SelectListItem> GetProductionList()
         {
             var productions = new List<SelectListItem>();
 
