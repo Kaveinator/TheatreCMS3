@@ -37,7 +37,18 @@ namespace TheatreCMS3.Models
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.Production> Productions { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.Rental> Rentals { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalRequest> RentalRequests { get; set; }
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.CastMember> CastMembers { get; set; }         
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.CastMember> CastMembers { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Configures one-to-many relationship from Production to ProductionPhotos
+            modelBuilder.Entity<TheatreCMS3.Areas.Prod.Models.Production>()
+                .HasMany<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>(p => p.ProductionPhotos) // Production has many ProductionPhotos
+                .WithRequired(p => p.Production) // ProductionPhotos require a Production
+                .HasForeignKey<int>(p => p.ProductionId); // Sets the foreign key for the Production in ProductionPhoto
+        }
     }
+
 }

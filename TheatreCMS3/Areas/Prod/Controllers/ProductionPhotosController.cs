@@ -25,6 +25,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionPhotos/Upload
         public ActionResult Upload()
         {
+            var productions = db.Productions.ToList();
+
+            if (productions != null)
+                ViewBag.ListOfProductions = productions;
+
             return View();
         }
 

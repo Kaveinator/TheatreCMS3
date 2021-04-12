@@ -47,13 +47,37 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionId,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
+        public ActionResult Create(Production production)
         {
-            if (ModelState.IsValid)
+            using (var context = new ApplicationDbContext())
             {
-                db.Productions.Add(production);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Productions.Add(production);
+                    db.SaveChanges();
+
+                    // Create new production photo
+                    ProductionPhotosController photoController = new ProductionPhotosController();
+                    ProductionPhoto defaultPhoto = new ProductionPhoto
+                    {
+                        Title = production.Title,
+                        Description = production.Description,
+                        Image = photoController.FileToBytes(production.File),
+                        Production = production,
+                        ProductionId = production.ProductionId
+                    };
+
+                    db.ProductionPhotos.Add(defaultPhoto);
+                    db.SaveChanges();
+
+                    production.DefaultPhoto = defaultPhoto;
+                    production.ProPhotoID = defaultPhoto.ProPhotoId;
+
+                    db.Entry(production).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(production);
@@ -79,14 +103,32 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionId,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
+        public ActionResult Edit(Production production)
         {
-            if (ModelState.IsValid)
+
+            using (var context = new ApplicationDbContext())
             {
-                db.Entry(production).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    production.DefaultPhoto = db.ProductionPhotos.Find(production.ProPhotoID);
+                    db.Entry(production).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    if (production.File != null)
+                    {
+                        ProductionPhotosController photoController = new ProductionPhotosController();
+
+                        byte[] image = photoController.FileToBytes(production.File);
+                        production.DefaultPhoto.Image = image;
+
+                        db.Entry(production.DefaultPhoto).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+
+                    return RedirectToAction("Index");
+                }
             }
+
             return View(production);
         }
 
