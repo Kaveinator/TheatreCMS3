@@ -133,7 +133,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // Takes an HttpPostedFileBase and converts it to a byte array
-        public byte[] FileToBytes(HttpPostedFileBase file)
+        public static byte[] FileToBytes(HttpPostedFileBase file)
         {
             byte[] bytes;
 

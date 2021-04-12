@@ -49,35 +49,31 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Production production)
         {
-            using (var context = new ApplicationDbContext())
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                db.Productions.Add(production);
+                db.SaveChanges();
+
+                // Create new production photo
+                ProductionPhoto defaultPhoto = new ProductionPhoto
                 {
-                    db.Productions.Add(production);
-                    db.SaveChanges();
+                    Title = production.Title,
+                    Description = production.Description,
+                    Image = ProductionPhotosController.FileToBytes(production.File),
+                    Production = production,
+                    ProductionId = production.ProductionId
+                };
 
-                    // Create new production photo
-                    ProductionPhotosController photoController = new ProductionPhotosController();
-                    ProductionPhoto defaultPhoto = new ProductionPhoto
-                    {
-                        Title = production.Title,
-                        Description = production.Description,
-                        Image = photoController.FileToBytes(production.File),
-                        Production = production,
-                        ProductionId = production.ProductionId
-                    };
+                db.ProductionPhotos.Add(defaultPhoto);
+                db.SaveChanges();
 
-                    db.ProductionPhotos.Add(defaultPhoto);
-                    db.SaveChanges();
+                production.DefaultPhoto = defaultPhoto;
+                production.ProPhotoID = defaultPhoto.ProPhotoId;
 
-                    production.DefaultPhoto = defaultPhoto;
-                    production.ProPhotoID = defaultPhoto.ProPhotoId;
+                db.Entry(production).State = EntityState.Modified;
+                db.SaveChanges();
 
-                    db.Entry(production).State = EntityState.Modified;
-                    db.SaveChanges();
-
-                    return RedirectToAction("Index");
-                }
+                return RedirectToAction("Index");
             }
 
             return View(production);
@@ -105,31 +101,27 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Production production)
         {
-            using (var context = new ApplicationDbContext())
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    // Can't pass DefaultPhoto as a Hidden form, so this is necessary to reset the photo with
-                    // the ProPhotoID passed through the form
-                    production.DefaultPhoto = db.ProductionPhotos.Find(production.ProPhotoID);
+                // Can't pass DefaultPhoto as a Hidden form, so this is necessary to reset the photo with
+                // the ProPhotoID passed through the form
+                production.DefaultPhoto = db.ProductionPhotos.Find(production.ProPhotoID);
 
                     db.Entry(production).State = EntityState.Modified;
                     db.SaveChanges();
 
-                    // Update DefaultPhoto's image if a new file was uploaded
-                    if (production.File != null)
-                    {
-                        ProductionPhotosController photoController = new ProductionPhotosController();
+                // Update DefaultPhoto's image if a new file was uploaded
+                if (production.File != null)
+                {
 
-                        byte[] image = photoController.FileToBytes(production.File);
-                        production.DefaultPhoto.Image = image;
+                    byte[] image = ProductionPhotosController.FileToBytes(production.File);
+                    production.DefaultPhoto.Image = image;
 
-                        db.Entry(production.DefaultPhoto).State = EntityState.Modified;
-                        db.SaveChanges();
-                    }
-
-                    return RedirectToAction("Index");
+                    db.Entry(production.DefaultPhoto).State = EntityState.Modified;
+                    db.SaveChanges();
                 }
+
+                return RedirectToAction("Index");
             }
 
             return View(production);
