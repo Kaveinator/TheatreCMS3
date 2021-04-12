@@ -16,7 +16,7 @@
 
 .prod-form {
     margin: 0 auto;
-    max-width: 95%;
+    max-width: 80%;
     background-color: #333333;
     box-shadow: 0 0 0.5rem 0 var(--secondary-color);
     border-radius: 1rem;
