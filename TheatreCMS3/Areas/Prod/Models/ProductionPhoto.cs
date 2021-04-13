@@ -15,5 +15,8 @@ namespace TheatreCMS3.Areas.Prod.Models
         public byte[] Image { get; set; }
         [NotMapped]
         public HttpPostedFileBase File { get; set; }
+
+        public int ProductionId { get; set; }
+        public virtual Production Production { get; set; }
     }
 }

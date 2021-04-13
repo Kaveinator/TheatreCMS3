@@ -14,9 +14,11 @@
 
 /* PRODUCTION */
 
+
+
 .prod-form {
     margin: 0 auto;
-    max-width: 95%;
+    max-width: 80%;
     background-color: #333333;
     box-shadow: 0 0 0.5rem 0 var(--secondary-color);
     border-radius: 1rem;
@@ -97,6 +99,33 @@ a.detailsLink {
     opacity: 0;
     transition: .5s ease;
     background-color: rgba(0, 0, 0, 0.3) ;
+}
+
+    .overlay:hover {
+        opacity: 1;
+    }
+
+.prod-img-thumb {
+    max-width: 300px;
+}
+
+.prod-title {
+    color: var(--light-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .15em;
+}
+
+.prod-img-overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: none;
+}
+
+.prod-card {
+    margin-bottom: 25px;
 }
 
 .prod-overlay:hover {
