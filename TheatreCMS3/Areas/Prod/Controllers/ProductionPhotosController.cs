@@ -19,6 +19,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionPhotos
         public ActionResult Index()
         {
+            ViewBag.ProductionList = db.Productions;
+
             return View(db.ProductionPhotos.ToList());
         }
 

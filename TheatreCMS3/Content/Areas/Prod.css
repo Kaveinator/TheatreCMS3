@@ -72,6 +72,13 @@
     background-color: var(--main-color--light);
 }
 
+.photo-title {
+    border-bottom: 3px solid var(--secondary-color);
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
 /*Image Overlay Styling for Cast Members*/
 
 a.detailsLink {
