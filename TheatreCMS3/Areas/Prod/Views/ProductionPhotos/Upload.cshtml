@@ -30,6 +30,12 @@
     </div>
 
     <div class="prod-form-div">
+        @Html.LabelFor(model => model.Production, htmlAttributes: new { @class = "prod-form-label" })<br />
+        @Html.DropDownListFor(model => model.ProductionId, (IEnumerable<SelectListItem>)ViewBag.ProductionList, new { htmlAttributes = new { @class = "form-control prod-input" } })
+        @Html.ValidationMessageFor(model => model.Production, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="prod-form-div">
         <input type="file" id="file" name="File" accept="image/*" required onchange="readURL(this);" />
     </div>
 

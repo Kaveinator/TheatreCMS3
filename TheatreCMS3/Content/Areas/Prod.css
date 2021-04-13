@@ -14,6 +14,8 @@
 
 /* PRODUCTION */
 
+
+
 .prod-form {
     margin: 0 auto;
     max-width: 80%;
@@ -37,6 +39,11 @@
     color: var(--dark-color);
     background-color: #EDD2A3 ;
     width: 100%;
+}
+
+.prod-search {
+    color: var(--dark-color);
+    background-color: #EDD2A3;
 }
 
 .prod-input:focus {
@@ -70,14 +77,30 @@
     background-color: var(--main-color--light);
 }
 
-/*Image Overlay Styling for Cast Members*/
-.container {
-
+.photo-title {
+    border-bottom: 3px solid var(--secondary-color);
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
+/*Image Overlay Styling for Cast Members*/
 
+a.detailsLink {
+    display: block;
+    width:auto;
+    height: inherit;
+    text-indent: -9999px; /*Hides the text*/
+}
 
-.overlay {
+.prod-btn-container {
+    position:absolute;
+    top: 5rem;  
+    width:100%;
+    text-align: center;
+}
+
+.prod-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -87,9 +110,45 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: rgba 0, 0, 0, 0.5;
+    background-color: rgba(0, 0, 0, 0.3) ;
 }
 
     .overlay:hover {
         opacity: 1;
     }
+
+.prod-img-thumb {
+    max-width: 300px;
+}
+
+.prod-title {
+    color: var(--light-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .15em;
+}
+
+.prod-img-overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: none;
+}
+
+.prod-card {
+    margin-bottom: 25px;
+}
+
+.prod-overlay:hover {
+    opacity: 1;
+}
+
+.prod-icon {
+    color: rgba(255, 255, 255, 0.75);
+    transition: .2s ease
+}
+
+.prod-icon:hover {
+    color: var(--secondary-color);
+}

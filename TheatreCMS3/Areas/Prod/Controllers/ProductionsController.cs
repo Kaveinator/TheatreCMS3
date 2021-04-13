@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using PagedList;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -16,9 +17,29 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/Productions
-        public ActionResult Index()
+        public ActionResult Index(string currentFilter, string searchString, int? page)
         {
-            return View(db.Productions.ToList());
+            // Keeps track of search filter on different pages
+            if (searchString != null)
+                page = 1;
+            else
+                searchString = currentFilter;
+
+            ViewBag.CurrentFilter = searchString;
+
+            // Get productions and filter by searchString
+            var productions = from p in db.Productions
+                              select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                productions = productions.Where(p => p.Title.Contains(searchString));
+            }
+
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+
+            return View(productions.OrderBy(p => p.Title).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Prod/Productions/Details/5
@@ -47,12 +68,32 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionId,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
+        public ActionResult Create(Production production)
         {
             if (ModelState.IsValid)
             {
                 db.Productions.Add(production);
                 db.SaveChanges();
+
+                // Create new production photo
+                ProductionPhoto defaultPhoto = new ProductionPhoto
+                {
+                    Title = production.Title,
+                    Description = production.Description,
+                    Image = ProductionPhotosController.FileToBytes(production.File),
+                    Production = production,
+                    ProductionId = production.ProductionId
+                };
+
+                db.ProductionPhotos.Add(defaultPhoto);
+                db.SaveChanges();
+
+                production.DefaultPhoto = defaultPhoto;
+                production.ProPhotoID = defaultPhoto.ProPhotoId;
+
+                db.Entry(production).State = EntityState.Modified;
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -79,14 +120,30 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionId,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
+        public ActionResult Edit(Production production)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(production).State = EntityState.Modified;
-                db.SaveChanges();
+                // Can't pass DefaultPhoto as a Hidden form, so this is necessary to reset the photo with
+                // the ProPhotoID passed through the form
+                production.DefaultPhoto = db.ProductionPhotos.Find(production.ProPhotoID);
+
+                    db.Entry(production).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                // Update DefaultPhoto's image if a new file was uploaded
+                if (production.File != null)
+                {
+                    byte[] image = ProductionPhotosController.FileToBytes(production.File);
+                    production.DefaultPhoto.Image = image;
+
+                    db.Entry(production.DefaultPhoto).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
                 return RedirectToAction("Index");
             }
+
             return View(production);
         }
 

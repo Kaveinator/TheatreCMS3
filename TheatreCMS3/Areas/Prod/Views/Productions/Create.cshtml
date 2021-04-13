@@ -86,6 +86,14 @@
     </div>
 
     <div class="prod-form-div">
+        <input type="file" id="file" name="File" accept="image/*" required onchange="readURL(this);" />
+    </div>
+
+    <div class="prod-form-div">
+        <img id="preview" src="#" alt="Image Preview" class="img-thumbnail bg-dark" />
+    </div>
+
+    <div class="prod-form-div">
         <input type="submit" value="Create" class="btn prod-btn btn-block" />
     </div>
 
