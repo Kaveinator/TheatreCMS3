@@ -16,5 +16,17 @@ namespace TheatreCMS3.Areas.Blog.Models
         public DateTime CommentDate { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
+
+        public Comment()
+        {
+            CommentDate = DateTime.Now;
+        }
+
+        public double LikeRatio()
+        {
+            double likeRatio = Likes / (Likes + Dislikes);
+            return likeRatio;
+        }
+
     }
 }
