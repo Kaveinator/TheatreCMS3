@@ -25,6 +25,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             else
                 searchString = currentFilter;
 
+            ViewBag.CurrentFilter = searchString;
+
             // Get productions and filter by searchString
             var productions = from p in db.Productions
                               select p;
