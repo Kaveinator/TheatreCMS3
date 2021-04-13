@@ -49,6 +49,13 @@
     color: var(--secondary-color);
 }
 
+.prod-header-lg{
+    color: var(--secondary-color);
+    font-size: 3rem;
+    font-weight:700;
+    font-family:'Times New Roman', Times, serif
+}
+
 .prod-btn {
     color: var(--light-color);
     background-color: var(--secondary-color--dark);
@@ -111,3 +118,27 @@ a.detailsLink {
 .prod-icon:hover {
     color: var(--secondary-color);
 }
+
+/* CastMember Delete and Details Styling*/
+
+.prod-img-lg {
+    min-height:25rem;
+    width: auto;
+    margin: 2px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0.3rem  rgba(0, 0, 0, 0.80);
+}
+
+.prod-img-display {
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.prod-bio-display{
+
+}
+@media only screen and (max-width: 768px){
+    .prod-img-lg{min-height:10rem;}
+} 

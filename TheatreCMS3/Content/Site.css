@@ -98,15 +98,15 @@ textarea {
     justify-content: center;
 }
 
-    .nav > li:hover {
-        background-color: #DEB887;
-        border-radius: .25rem;
-    }
+.nav > li:hover {
+    background-color: #DEB887;
+    border-radius: .25rem;
+}
 
-    .nav > li > a {
-        color: #000000;
-        font-weight: bold;
-    }
+.nav > li > a {
+    color: #000000;
+    font-weight: bold;
+}
 
 .navbar-icon-red {
     height: 42px;
