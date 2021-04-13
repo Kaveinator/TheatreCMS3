@@ -9,15 +9,26 @@
     <h2 class="prod-header m-3">Productions</h2>
 </div>
 
+
 <div class="container">
-    <p>
-        <a href="@Url.Action("Create")" class="btn prod-btn">Create New Production</a>
-    </p>
-    @using (Html.BeginForm())
-    {
-        @Html.TextBox("searchString")
-        <input type="submit" value="Search" />
-    }
+
+    <div class="row mb-2">
+        <div class="col">
+            <a href="@Url.Action("Create")" class="btn prod-btn btn-block">Create New Production</a>
+        </div>
+        <div class="col"></div>
+        <div class="col text-right">
+            @using (Html.BeginForm())
+            {
+                <div class="input-group mb-3">
+                    @Html.TextBox("searchString", "", new { @class = "form-control prod-search", placeholder = "Search Productions" })
+                    <div class="input-group-append">
+                        <input type="submit" value="Search" class="btn prod-btn" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 
     @if (Model.Count() == 0)
     {
@@ -50,5 +61,5 @@
             }
 
         </div>
-        }
+    }
 </div>

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using PagedList;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -16,7 +17,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/Productions
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, int? page)
         {
             var productions = from p in db.Productions
                               select p;
