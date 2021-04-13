@@ -41,6 +41,11 @@
     width: 100%;
 }
 
+.prod-search {
+    color: var(--dark-color);
+    background-color: #EDD2A3;
+}
+
 .prod-input:focus {
     border: 2px solid var(--secondary-color);
     background-color: var(--light-color);
