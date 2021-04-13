@@ -37,7 +37,7 @@
             </div>
           </li>
           <li class="nav-item navbar-hamburger--navitem">
-            <a class="nav-link .navbar-hamburger--navlink" href="#">Rental</a>
+            <a class="nav nav-link dropdown-toggle .navbar-hamburger--navlink" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rental</a>
             <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
               @Html.ActionLink("Rental Requests", "Index", "RentalRequests", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
               @Html.ActionLink("Rental", "Index", "Rentals", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
