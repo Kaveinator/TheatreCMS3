@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+﻿
+@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
 @{
     ViewBag.Title = "Index";
@@ -10,7 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    <tr class="blog-header">
         <th>
             @Html.DisplayNameFor(model => model.Message)
         </th>
@@ -27,7 +28,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr class="blog-rows">
         <td>
             @Html.DisplayFor(modelItem => item.Message)
         </td>
