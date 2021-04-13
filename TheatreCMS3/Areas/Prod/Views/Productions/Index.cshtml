@@ -1,4 +1,7 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+﻿@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Production>
+@using PagedList.Mvc;
+
+<link rel="stylesheet" href="~/Content/PagedList.css" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -18,10 +21,11 @@
         </div>
         <div class="col"></div>
         <div class="col text-right">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Index", "", FormMethod.Get))
             {
                 <div class="input-group mb-3">
-                    @Html.TextBox("searchString", "", new { @class = "form-control prod-search", placeholder = "Search Productions" })
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string,
+                        new { @class = "form-control prod-search", placeholder = "Search Productions" })
                     <div class="input-group-append">
                         <input type="submit" value="Search" class="btn prod-btn" />
                     </div>
@@ -61,5 +65,13 @@
             }
 
         </div>
+        <div class="text-center">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        </div>
+        <div class="text-center">
+            @Html.PagedListPager(Model, page => Url.Action("Index",
+                new { page, currentFilter = ViewBag.CurrentFilter }))
+        </div>
     }
 </div>
+
