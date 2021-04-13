@@ -93,6 +93,13 @@ a.detailsLink {
     text-align: center;
 }
 
+.prod-overlay-icon-container {
+    position: absolute;
+    top: 7rem;
+    width: 100%;
+    text-align: center;
+}
+
 .prod-overlay {
     position: absolute;
     top: 0;
