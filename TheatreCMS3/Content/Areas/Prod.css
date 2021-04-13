@@ -14,6 +14,8 @@
 
 /* PRODUCTION */
 
+
+
 .prod-form {
     margin: 0 auto;
     max-width: 80%;
@@ -87,9 +89,32 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: rgba 0, 0, 0, 0.5;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
     .overlay:hover {
         opacity: 1;
     }
+
+.prod-img-thumb {
+    max-width: 300px;
+}
+
+.prod-title {
+    color: var(--light-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .15em;
+}
+
+.prod-img-overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: none;
+}
+
+.prod-card {
+    margin-bottom: 25px;
+}

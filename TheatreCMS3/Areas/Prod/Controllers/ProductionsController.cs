@@ -113,7 +113,6 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 // Update DefaultPhoto's image if a new file was uploaded
                 if (production.File != null)
                 {
-
                     byte[] image = ProductionPhotosController.FileToBytes(production.File);
                     production.DefaultPhoto.Image = image;
 

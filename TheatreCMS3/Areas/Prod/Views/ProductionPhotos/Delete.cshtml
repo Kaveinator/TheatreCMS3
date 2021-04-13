@@ -17,7 +17,7 @@
     <div class="prod-form-div font-weight-bolder">Production Title</div>
     <div class="prod-form-div">@Html.DisplayFor(model => model.Production.Title)</div>
     <div class="prod-form-div">
-        <img alt="@Model.Title" src="/ProductionPhotos/GetImage/@Model.ProPhotoId" />
+        <img alt="@Model.Title" src="/ProductionPhotos/GetImage/@Model.ProPhotoId" class="img-thumbnail bg-dark" />
     </div>
     <div class="prod-form-div font-weight-bolder" ">@Html.DisplayNameFor(model => model.Description)</div>
     <div class="prod-form-div">@Html.DisplayFor(model => model.Description)</div>
