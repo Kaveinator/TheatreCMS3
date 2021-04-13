@@ -4,47 +4,49 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h3 style="text-align: center"><br />Details for Rental Survey</h3><br />
 
 <div>
-    <h4>RentalSurvey</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RecommendRentalRating)
-        </dt>
+    <div class="rental-survey-details-container text-center">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.LabelFor(model => model.RecommendRentalRating, "Would you recommend us to a friend who needs to rent theatre equipment?")
+            </dt>
+            
+            <dd>
+                @Html.DisplayFor(model => model.RecommendRentalRating)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RecommendRentalRating)
-        </dd>
+            <dt>
+                @Html.LabelFor(model => model.RentalCost, "What was the overall cost for your rental?")
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RentalCost)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RentalCost)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RentalCost)
-        </dd>
+            <dt>
+                @Html.LabelFor(model => model.ExperienceRating, "From a scale of 1-5 (1=Poor, 5= Excellent), how would you rate your overall experience with us?")
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ExperienceRating)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ExperienceRating)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ExperienceRating)
-        </dd>
+            <dt>
+                @Html.LabelFor(model => model.Feedback, "Comments/suggestions?")
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Feedback)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Feedback)
+            </dd>
+        </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.Feedback)
-        </dd>
+        <div class="form-group text-center">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.SurveyID }, new { @class = "btn rental-survey-create-btn" }) 
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn rental-survey-back-btn" })
+        </div>
+       
+    </div>
 
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SurveyID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

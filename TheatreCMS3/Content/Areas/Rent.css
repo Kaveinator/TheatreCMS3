@@ -10,3 +10,78 @@
   
 /*}*/
 
+
+/*rental survey CREATE styling*/
+.rental-survey-container {
+    background-color: #333131;
+    width: 100%;
+    border: 3px #d6972a;
+    border-radius: 25px;
+    border-style: solid;
+    padding: 50px;
+    padding-bottom: 25px;
+}
+
+.rental-survey-control-label {
+    padding-left: 0px;
+}
+
+.rental-survey-input [type=text] {
+    outline: none;
+}
+
+.rental-survey-input[type=text]:focus {
+    border-color: #bd1a11;
+    background-color: #e9cd9e;
+}
+
+.rental-survey-input:hover {
+    border-color: #bd1a11;
+}
+
+.rental-survey-create-btn {
+    background-color: #d6972a;
+    color: black;
+    transition-duration: 0.4s;
+}
+
+.rental-survey-create-btn:hover {
+    background-color: #f8bc54;
+}
+
+.rental-survey-back-btn {
+    background-color: rgb(229 75 66 / 0.93);
+    color: black;
+    transition-duration: 0.4s;
+}
+
+.rental-survey-back-btn:hover {
+    background-color: #fa5047;
+}
+/*end of rental survey CREATE styling*/
+
+
+/*rental survey DETAILS styling*/
+.rental-survey-details-container {
+    background-color: #333131;
+    width: 100%;
+    border: 3px #d6972a;
+    border-radius: 25px;
+    border-style: solid;
+    padding: 50px;
+    padding-bottom: 25px;
+}
+/*end of rental survey DETAILS styling*/
+
+
+/*rental survey DELETE Styling*/
+.rental-survey-delete-container {
+    background-color: #333131;
+    width: 100%;
+    border: 3px #d6972a;
+    border-radius: 25px;
+    border-style: solid;
+    padding: 50px;
+    padding-bottom: 25px;
+}
+/*end of rental survey DELETE Styling*/

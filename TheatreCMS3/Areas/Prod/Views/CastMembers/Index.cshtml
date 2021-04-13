@@ -1,75 +1,121 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CastMember>
 
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Character)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </th>
-        <th></th>
-    </tr>
+<div>
+  @Html.ActionLink("Create New", "Create",null, new { @class = "btn prod-btn  " })
+</div>
 
-@foreach (var item in Model) {
+
+@*<table class="table">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Name)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.YearJoined)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.MainRole)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Bio)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.CurrentMember)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Character)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.CastYearLeft)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.DebutYear)
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearJoined)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainRole)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Character)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CastYearLeft)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DebutYear)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CastMemberID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CastMemberID })
-        </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Name)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.YearJoined)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.MainRole)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Bio)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.CurrentMember)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Character)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.CastYearLeft)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.DebutYear)
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.CastMemberID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberID })
+      </td>
     </tr>
+  }
+
+</table>*@
+@{
+    List<string> productionTitle = new List<string>();    //Make list for Production Title
+    foreach (var item in Model)
+    {
+      productionTitle.Add(item.ProductionTitle);
+    }
+    foreach (var title in productionTitle.Distinct())    //For Each Distinct ProductionTitle
+    {
+      <div>
+          <div class="prod-form-label">
+              @Html.DisplayFor(modelItem => title) <!--Display Title-->
+          </div>
+          <hr class="cms-bg-main-light mt-2 pb-2"/>   <!--Divider Line-->
+      </div>
+
+
+      <div class="row">
+        @foreach (var castMember in Model.Where(x => x.ProductionTitle == title.ToString()))   //For Each CastMember in that Production, Display Card
+        {
+         
+         <div class="card bg-dark m-sm-auto">            
+            <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
+            <div class=" overlay">
+              <div class ="buttons">
+                  @Html.ActionLink("Edit", "Edit", new { id = castMember.CastMemberID }) |
+                  @Html.ActionLink("Details", "Details", new { id = castMember.CastMemberID }) |
+                  @Html.ActionLink("Delete", "Delete", new { id = castMember.CastMemberID })
+              </div>
+            </div>            
+            <div class="card-body bg-dark text-light">
+               @Html.DisplayFor(modelItem => castMember.Name)
+               @Html.DisplayFor(modelItem => castMember.MainRole)
+            </div>
+      </div>
+        }
+      </div>
+  }
 }
 
-</table>
+
+
+
+

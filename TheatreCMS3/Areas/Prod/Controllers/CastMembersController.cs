@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +49,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberID,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberID,Name,ProductionTitle,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, File")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
+                castMember.Photo = FileToBytes(castMember.File);
+                
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,8 +83,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberID,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit( CastMember castMember)
         {
+            // Convert uploaded file to byte[] if new photo is uploaded
+            if (castMember.File != null)
+                castMember.Photo = FileToBytes(castMember.File);
+            
+               
             if (ModelState.IsValid)
             {
                 db.Entry(castMember).State = EntityState.Modified;
@@ -105,6 +114,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
+       
+
         // POST: Prod/CastMembers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -123,6 +134,26 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public byte[] FileToBytes(HttpPostedFileBase file)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(file.InputStream))
+                bytes = br.ReadBytes(file.ContentLength);
+            return bytes;
+        }
+
+        public byte[] GetBytes(int id)
+        {
+            return db.CastMembers.Find(id).Photo;
+        }
+
+        public ActionResult GetImage(int id)
+        {
+            byte[] bytes = db.CastMembers.Find(id).Photo;
+            if (bytes == null) return null;
+            return File(bytes, "image/jpg");
         }
     }
 }

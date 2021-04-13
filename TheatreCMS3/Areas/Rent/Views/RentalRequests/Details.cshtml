@@ -81,7 +81,23 @@
         <dd>
             @Html.DisplayFor(model => model.ContractSigned)
         </dd>
+         
+        <dt>
+            Rental Duration:    
+        </dt>
 
+        <dd>
+            @Model.GetRentalDuration()
+        </dd>
+
+        <dt>
+            Time Remaining:
+        </dt>
+
+        <dd>
+            @Model.GetTimeRemaining()
+        </dd>
+        
     </dl>
 </div>
 <p>

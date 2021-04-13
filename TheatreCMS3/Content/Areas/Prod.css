@@ -37,13 +37,14 @@
 
 .prod-input {
     color: var(--dark-color);
-    background-color: var(--light-color);
+    background-color: #EDD2A3 ;
     width: 100%;
 }
 
 .prod-input:focus {
     border: 2px solid var(--secondary-color);
-    background-color: #EDD2A3;
+    background-color: var(--light-color);
+    box-shadow: 0px 0px 5px var(--main-color--light);
 }
 
 .prod-header {
@@ -58,6 +59,7 @@
 .prod-btn:hover {
     color: var(--light-color);
     background-color: var(--secondary-color);
+    box-shadow: 0px 0px 5px var(--light-color)
 }
 
 .prod-btn-danger {
@@ -69,6 +71,30 @@
     color: var(--light-color);
     background-color: var(--main-color--light);
 }
+
+/*Image Overlay Styling for Cast Members*/
+.container {
+
+}
+
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+    .overlay:hover {
+        opacity: 1;
+    }
 
 .prod-img-thumb {
     max-width: 300px;
