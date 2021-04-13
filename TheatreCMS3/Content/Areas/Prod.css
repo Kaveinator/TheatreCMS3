@@ -129,7 +129,8 @@ a.detailsLink {
 /* CastMember Delete and Details Styling*/
 
 .prod-img-lg {
-    min-height:25rem;
+    height:25rem;
+ 
     width: auto;
     margin: 2px;
     border-radius: 8px;
@@ -147,5 +148,5 @@ a.detailsLink {
 
 }
 @media only screen and (max-width: 768px){
-    .prod-img-lg{min-height:10rem;}
+    .prod-img-lg{height:10rem;}
 } 
