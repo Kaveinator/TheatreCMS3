@@ -96,13 +96,13 @@
         @foreach (var castMember in Model.Where(x => x.ProductionTitle == title.ToString()))   //For Each CastMember in that Production, Display Card
         {
          
-         <div class="card bg-dark m-sm-auto h-25 mt-2">            
+         <div class="card bg-dark m-sm-auto w-25">            
             <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
             <div class="prod-overlay text-center">
               @Html.ActionLink("Details", "Details",null, new {id = castMember.CastMemberID }, new {@class = "detailsLink fas fa-edit" }) <!--Overlay link to Details-->
               <div class=" prod-btn-container text-center ">
-                <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberID } ) title="This is an icon"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
-                <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberID } ) title="This is an icon"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
+                <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberID } ) title="Edit"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
+                <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberID } ) title="Delete"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
               </div>
             </div>            
             <div class="card-body bg-dark text-light">
