@@ -14,6 +14,8 @@
 
 /* PRODUCTION */
 
+
+
 .prod-form {
     margin: 0 auto;
     max-width: 80%;
@@ -85,4 +87,8 @@
     top: 5px;
     left: 5px;
     display: none;
+}
+
+.prod-card {
+    margin-bottom: 25px;
 }
