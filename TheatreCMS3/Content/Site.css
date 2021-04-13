@@ -527,17 +527,17 @@ footer {
 }
 
 .contact-btn {
-    background-color: #bd1b12;
-    color: #fff;
-    border: 1.5px solid #fff;
+    background-color: var(--main-color);
+    color: var(--light-color);
+    border: 1.5px solid var(--light-color);
     border-radius: 10px;
 }
 
     .contact-btn:hover {
-        color: #fff;
+        color: var(--light-color);
     }
 
 .contact-title-underline {
     width: 150px;
-    border-top: 3px solid #bd1b12;
+    border-top: 3px solid var(--main-color);
 }
