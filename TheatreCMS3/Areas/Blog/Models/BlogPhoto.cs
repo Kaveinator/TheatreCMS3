@@ -9,6 +9,6 @@ namespace TheatreCMS3.Areas.Blog.Models
     {
         public int BlogPhotoId { get; set; }
         public string Title { get; set; }
-        public byte Photo { get; set; }
+        public byte[] Photo { get; set; }
     }
 }
