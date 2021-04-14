@@ -5,6 +5,9 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
     using TheatreCMS3.Areas.Prod.Models;
+    using TheatreCMS3.Areas.Prod.Controllers;
+    using System.Drawing;
+    using System.IO;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TheatreCMS3.Models.ApplicationDbContext>
     {
@@ -16,10 +19,8 @@
 
         protected override void Seed(TheatreCMS3.Models.ApplicationDbContext context)
         {
-            // Seed productions and photos then connect them properly
             SeedProductions(context);
             SeedProductionPhotos(context);
-            ConnectSeededProductionsWithPhotos();
         }
 
         // Seeds productions to the database
@@ -39,7 +40,8 @@
                     ShowTimeMat = DateTime.Now,
                     Season = 1,
                     IsWorldPremiere = false,
-                    TicketLink = "tickets"
+                    TicketLink = "tickets",
+                    ProPhotoID = 1
                 },
 
                 new Production
@@ -55,89 +57,97 @@
                     ShowTimeMat = DateTime.Now,
                     Season = 1,
                     IsWorldPremiere = false,
-                    TicketLink = "tickets"
+                    TicketLink = "tickets",
+                    ProPhotoID = 6
                 });
         }
 
         // Seeds some production photos to the database
         private void SeedProductionPhotos(TheatreCMS3.Models.ApplicationDbContext context)
         {
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+
             context.ProductionPhotos.AddOrUpdate(x => x.ProPhotoId,
                 new ProductionPhoto()
                 {
                     ProPhotoId = 1,
                     Title = "Hamilton",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Hamilton/01.jpg"),
                     ProductionId = 1
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
+                    ProPhotoId = 2,
                     Title = "Hamilton 02",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Hamilton/02.jpg"),
                     ProductionId = 1
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
+                    ProPhotoId = 3,
                     Title = "Hamilton 03",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Hamilton/03.jpg"),
                     ProductionId = 1
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
+                    ProPhotoId = 4,
                     Title = "Hamilton 04",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Hamilton/04.jpg"),
                     ProductionId = 1
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
+                    ProPhotoId = 5,
                     Title = "Hamilton 05",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Hamilton/05.jpg"),
                     ProductionId = 1
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
+                    ProPhotoId = 6,
                     Title = "Wicked",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Wicked/01.jpg"),
                     ProductionId = 2
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
+                    ProPhotoId = 7,
                     Title = "Wicked 02",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Wicked/02.jpg"),
                     ProductionId = 2
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
-                    Title = "Hamilton 03",
+                    ProPhotoId = 8,
+                    Title = "Wicked 03",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Wicked/03.jpg"),
                     ProductionId = 2
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
-                    Title = "Hamilton 04",
+                    ProPhotoId = 9,
+                    Title = "Wicked 04",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Wicked/04.jpg"),
                     ProductionId = 2
                 },
                 new ProductionPhoto()
                 {
-                    ProPhotoId = 1,
-                    Title = "Hamilton 05",
+                    ProPhotoId = 10,
+                    Title = "Wicked 05",
                     Description = "Photo Description",
+                    Image = File.ReadAllBytes(path + "/../Content/images/ProductionPhotos/Wicked/05.jpg"),
                     ProductionId = 2
                 });
-        }
-
-        private void ConnectSeededProductionsWithPhotos()
-        {
-
         }
     }
 }
