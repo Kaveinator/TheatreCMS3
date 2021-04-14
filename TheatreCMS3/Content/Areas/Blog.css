@@ -10,3 +10,21 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+.blog-header {
+    color: var(--secondary-color);
+}
+
+.blog-rows {
+    color: var(--light-color);
+}
+
+.comment-btn {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+.comment-del-btn {
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
