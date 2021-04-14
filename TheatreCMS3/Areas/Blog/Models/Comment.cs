@@ -43,8 +43,7 @@ namespace TheatreCMS3.Areas.Blog.Models
                 return string.Format("{0} minutes ago", minutes);
             if (seconds > 0)
                 return string.Format("{0} seconds", seconds);
-            return "Just now";
-            
+            return "Just now";            
         }
 
     }
