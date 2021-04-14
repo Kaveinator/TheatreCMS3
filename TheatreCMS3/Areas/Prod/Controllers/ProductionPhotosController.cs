@@ -174,5 +174,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
             return productions;
         }
+
+        public static void SeedPhotographer(ApplicationDbContext context)
+        {
+            var photographer = new ProductionPhotographer
+            {
+                UserName = "ProductionPhotographer",
+
+                Camera = "camera",
+                CameraCost = 100.00,
+                CameraSerialNumber = "serial"
+            };
+
+            context.Users.Add(photographer);
+        }
     }
 }

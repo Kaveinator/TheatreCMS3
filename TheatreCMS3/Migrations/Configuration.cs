@@ -5,6 +5,7 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
     using TheatreCMS3.Areas.Prod.Models;
+    using TheatreCMS3.Areas.Prod.Controllers;
     using System.IO;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TheatreCMS3.Models.ApplicationDbContext>
@@ -19,6 +20,8 @@
         {
             SeedProductions(context);
             SeedProductionPhotos(context);
+            
+            ProductionPhotosController.SeedPhotographer(context);
         }
 
         // Seeds productions to the database
