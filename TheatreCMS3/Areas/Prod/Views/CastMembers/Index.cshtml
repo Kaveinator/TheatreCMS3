@@ -100,7 +100,7 @@
             <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
             <div class="prod-overlay text-center">
               @Html.ActionLink("Details", "Details",null, new {id = castMember.CastMemberID }, new {@class = "detailsLink fas fa-edit" }) <!--Overlay link to Details-->
-              <div class=" prod-btn-container text-center ">
+              <div class=" prod-overlay-icon-container text-center ">
                 <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberID } ) title="Edit"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
                 <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberID } ) title="Delete"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
               </div>
