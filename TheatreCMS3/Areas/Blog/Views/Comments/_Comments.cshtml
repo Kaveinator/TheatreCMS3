@@ -3,30 +3,35 @@
 
 @foreach (var item in Model)
 {
-  <div class="card comment-card" style="width: 40vw;">
-    <div class="card-body">
-      <h5 class="card-title">@Html.DisplayFor(modelItem => item.Author)</h5>
-      <h6 class="card-subtitle mb-2 text-muted">@item.TimeSince()</h6>
-      <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
-      <button class="btn">
-        <i class="fas fa-thumbs-up fa-mdb"></i>
-      </button>
-      <label>@Html.DisplayFor(modelItem => item.Likes) </label>
-      <button class="btn">
-        <i class="fas fa-thumbs-down fa-mdb"></i>
-      </button>
-      <label>@Html.DisplayFor(modelItem => item.Dislikes) </label>
-      <button class="btn">
-        <i class="fas fa-reply"></i>
-        Reply
-      </button>
-      <button class="btn float-right trash">
-        <i class="fas fa-trash fa-mdb"></i>
-      </button>
+  <div class="card cms-text-dark">
+      <div class="card-body">
+          <h5 class="card-title">@Html.DisplayFor(modelItem => item.Author)</h5>
+          <h6 class="card-subtitle mb-2 text-muted">@item.TimeSince()</h6>
+          <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
+          
+          <asp:button class="btn likePost"  onclick="addLike()">
+              <i class="fas fa-thumbs-up fa-mdb"></i>
+          </asp:button>
+          <asp:label id="likes">@Html.DisplayFor(modelItem => item.Likes) </asp:label>
+          
+          <asp:Button class="btn dislikePost"  onclick="addDislike()">
+              <i class="fas fa-thumbs-down fa-mdb"></i>
+          </asp:button>
+          <asp:label id="dislikes">@Html.DisplayFor(modelItem => item.Dislikes) </asp:label>
+          
+          <button class="btn">
+              <i class="fas fa-reply"></i>
+              Reply
+          </button>
+          <button class="btn float-right cms-text-main">
+              <i class="fas fa-trash fa-mdb"></i>
+          </button>
 
-    </div>
+      </div>
   </div>
 }
+
+
 
 
 
