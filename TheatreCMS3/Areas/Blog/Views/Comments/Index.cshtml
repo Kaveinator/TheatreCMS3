@@ -2,13 +2,16 @@
 @model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
 
-  
+@{
+  Html.RenderPartial("_Comments");
+}
+
