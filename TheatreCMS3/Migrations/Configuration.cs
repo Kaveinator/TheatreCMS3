@@ -5,8 +5,6 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
     using TheatreCMS3.Areas.Prod.Models;
-    using TheatreCMS3.Areas.Prod.Controllers;
-    using System.Drawing;
     using System.IO;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TheatreCMS3.Models.ApplicationDbContext>
