@@ -9,9 +9,12 @@
     <h2 class="prod-header m-3">Production Photos</h2>
 </div>
 
-<p>
-    <a href="@Url.Action("Upload")" class="btn prod-btn">Upload New Photo</a>
-</p>
+@if (ViewContext.HttpContext.User.IsInRole("Production Photographer"))
+{
+    <p>
+        <a href="@Url.Action("Upload")" class="btn prod-btn">Upload New Photo</a>
+    </p>
+}
 
 @if (Model.Count() == 0)
 {
