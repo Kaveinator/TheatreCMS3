@@ -18,6 +18,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // GET: Blog/Comments
         public ActionResult Index()
         {
+
             return View(db.Comments.ToList());
         }
 
@@ -47,7 +48,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "CommentId,Author,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
