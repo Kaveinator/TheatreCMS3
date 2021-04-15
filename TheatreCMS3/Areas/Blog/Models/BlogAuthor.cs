@@ -15,8 +15,5 @@ namespace TheatreCMS3.Areas.Blog.Models
         public DateTime Left { get; set; }
     }
 
-    public class ApplicationDBContext : DbContext
-    {
-        public DbSet<BlogAuthor> BlogAuthors { get; set; } 
-    }
+   
 }

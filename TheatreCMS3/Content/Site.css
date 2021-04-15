@@ -436,12 +436,17 @@ footer {
     border-radius: 0 100px 0 0;
 }
 
-hr {
+.aboutPage-hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
-    border-top: 1px solid #FFFBFB;
+    border-top: 1px solid white;
     width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+    
+    
 
 /* LOGIN PAGE */
 

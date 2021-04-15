@@ -7,12 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
     public class BlogAuthorController : Controller
     {
-        private ApplicationDBContext db = new ApplicationDBContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Blog/BlogAuthor
         public ActionResult Index()
