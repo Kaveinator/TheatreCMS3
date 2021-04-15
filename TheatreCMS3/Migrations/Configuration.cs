@@ -5,7 +5,6 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
     using TheatreCMS3.Areas.Prod.Models;
-    using TheatreCMS3.Areas.Prod.Controllers;
     using System.IO;
     using TheatreCMS3.Models;
     using Microsoft.AspNet.Identity;
@@ -176,7 +175,7 @@
 
         private static void SeedUsers(UserManager<ApplicationUser> userManager)
         {
-            ProductionPhotosController.SeedProductionPhotographers(userManager);
+            ProductionPhotographer.SeedProductionPhotographers(userManager);
         }
     }
 }
