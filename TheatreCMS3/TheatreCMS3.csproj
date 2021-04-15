@@ -204,6 +204,7 @@
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionPhotographer.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
@@ -497,6 +498,7 @@
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_LoginBtnProductionPhotographer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
