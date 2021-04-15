@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
@@ -22,10 +23,15 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(db.Comments.ToList());
         }
 
-        
-        public JsonResult AddLike(int id)
+        //POST: Blog/Comments/Addlike
+
+        public async Task<JsonResult> AddLike(int id)
         {
-           
+            Comment comment = db.Comments.Find(id);
+            comment.Likes++;
+
+            return Json(new {success="" });
+
         }
 
 

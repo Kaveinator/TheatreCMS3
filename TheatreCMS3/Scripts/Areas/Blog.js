@@ -1,5 +1,5 @@
 ﻿$("#likeBtn").click(function () {
-    var Likes = $(likes).val();
+    var id = $(likes).val();
     $.ajax({
         type: "POST",
         url: '@Url.Action("Comments", "AddLike")',
