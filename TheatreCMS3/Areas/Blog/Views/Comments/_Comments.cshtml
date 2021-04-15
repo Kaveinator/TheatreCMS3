@@ -9,15 +9,15 @@
       <h6 class="card-subtitle mb-2 text-muted">@item.TimeSince()</h6>
       <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
 
-      <asp:button class="btn likePost" onclick="addLike()">
+      <button class="btn" id="likeBtn"onclick="addLike()">
         <i class="fas fa-thumbs-up fa-mdb"></i>
-      </asp:button>
-      <asp:label id="likes">@Html.DisplayFor(modelItem => item.Likes) </asp:label>
+      </button>
+      <label id="likes">@Html.DisplayFor(modelItem => item.Likes) </label>
 
-      <asp:Button class="btn dislikePost" onclick="addDislike()">
+      <Button class="btn" id="dislikeBtn">
         <i class="fas fa-thumbs-down fa-mdb"></i>
-      </asp:Button>
-      <asp:label id="dislikes">@Html.DisplayFor(modelItem => item.Dislikes) </asp:label>
+      </Button>
+      <label id="dislikes">@Html.DisplayFor(modelItem => item.Dislikes) </label>
 
       <button class="btn">
         <i class="fas fa-reply"></i>
