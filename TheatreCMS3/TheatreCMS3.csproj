@@ -252,6 +252,7 @@
     <Content Include="Content\images\macbeth.png" />
     <Content Include="Content\images\MidsummerNightDream.png" />
     <Content Include="Content\images\Tempest.png" />
+    <Content Include="Content\images\theater.jpg" />
     <Content Include="Content\images\TheatreLogo.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />

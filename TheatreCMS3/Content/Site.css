@@ -311,13 +311,16 @@ footer {
     flex-wrap: wrap;
     width: auto;
     height: auto;
+    background-color:black;
 }
 
 .aboutPage-Card-Img {
     display: flex;
-    width: auto;
-    height: 75%;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
+    border-radius: 50%;
+    background-color: black;
 }
 
     .aboutPage-Card-Img:hover {
@@ -356,6 +359,7 @@ footer {
         text-align: center;
         word-break: break-word;
         color: var(--light-color);
+        
     }
 }
 
@@ -393,7 +397,7 @@ footer {
 }
 
 .aboutPage-History {
-    text-align: left;
+    text-align: center;
     color: var(--light-color);
     padding: 40px;
 }
@@ -402,16 +406,25 @@ footer {
     text-align: center;
     color: var(--light-color);
     padding: 40px;
+    background-color: black;
 }
 
-.aboutPage-Mission {
+.aboutPage-About Us {
     text-align: center;
     color: var(--light-color);
     padding: 40px;
 }
 
-.aboutPage-h1 {
-    color: var(--main-color);
+.aboutPage-footer {
+    background-color: black;
+}
+
+.aboutPage-h3 {
+    font-family: Broadway;
+}
+
+.aboutPage-h4 {
+    color: white;
     text-align: center;
     padding: 15px;
     text-decoration: underline;
