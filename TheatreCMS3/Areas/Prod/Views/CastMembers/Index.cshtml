@@ -10,74 +10,8 @@
   @Html.ActionLink("Create New", "Create",null, new { @class = "btn prod-btn  " })
 </div>
 
-
-@*<table class="table">
-  <tr>
-    <th>
-      @Html.DisplayNameFor(model => model.Name)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.YearJoined)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.MainRole)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Bio)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.CurrentMember)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Character)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.CastYearLeft)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.DebutYear)
-    </th>
-    <th></th>
-  </tr>
-
-  @foreach (var item in Model)
-  {
-    <tr>
-      <td>
-        @Html.DisplayFor(modelItem => item.Name)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.YearJoined)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.MainRole)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.Bio)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.CurrentMember)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.Character)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.CastYearLeft)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.DebutYear)
-      </td>
-      <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.CastMemberID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberID })
-      </td>
-    </tr>
-  }
-
-</table>*@
 @{
-    List<string> productionTitle = new List<string>();    //Make list for Production Title
+    List<string> productionTitle = new List<string>();    //Make list for Production Titles
     foreach (var item in Model)
     {
       productionTitle.Add(item.ProductionTitle);
@@ -99,10 +33,10 @@
          <div class="card bg-dark m-sm-auto w-25">            
             <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
             <div class="prod-overlay text-center">
-              @Html.ActionLink("Details", "Details",null, new {id = castMember.CastMemberID }, new {@class = "detailsLink fas fa-edit" }) <!--Overlay link to Details-->
+              @Html.ActionLink("Details", "Details",null, new {id = castMember.CastMemberId }, new {@class = "detailsLink fas fa-edit" }) <!--Overlay link to Details-->
               <div class=" prod-overlay-icon-container text-center ">
-                <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberID } ) title="Edit"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
-                <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberID } ) title="Delete"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
+                <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberId } ) title="Edit"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
+                <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberId } ) title="Delete"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
               </div>
             </div>            
             <div class="card-body bg-dark text-light">

@@ -15,17 +15,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 {
     public class CastMembersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();  
 
         // GET: Prod/CastMembers
         public ActionResult Index()
         {
+            ViewBag.ProductionList = GetProductionList();
             return View(db.CastMembers.ToList());
         }
 
         // GET: Prod/CastMembers/Details/5
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -41,6 +43,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers/Create
         public ActionResult Create()
         {
+            ViewBag.ProductionList = GetProductionList();
+            
             return View();
         }
 
@@ -51,6 +55,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CastMemberID,Name,ProductionTitle,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, File")] CastMember castMember)
         {
+            
             if (ModelState.IsValid)
             {
                 castMember.Photo = FileToBytes(castMember.File);
@@ -66,6 +71,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.ProductionList = db.Productions;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -102,6 +108,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers/Delete/5
         public ActionResult Delete(int? id)
         {
+            ViewBag.ProductionList = db.Productions;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -136,6 +143,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             base.Dispose(disposing);
         }
 
+
+        //Photo Storage and Retrieval 
         public byte[] FileToBytes(HttpPostedFileBase file)
         {
             byte[] bytes;
@@ -154,6 +163,31 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             byte[] bytes = db.CastMembers.Find(id).Photo;
             if (bytes == null) return null;
             return File(bytes, "image/jpg");
+        }
+
+
+        // Return a list of productions to populate dropdownlist form inputs
+        public List<SelectListItem> GetProductionList()
+        {
+            var productions = new List<SelectListItem>();
+
+            foreach (Production production in db.Productions)
+            {
+                var item = new SelectListItem
+                {
+                    Text = production.Title,
+                    Value = production.ProductionId.ToString()
+
+                };
+                productions.Add(item);
+            }
+
+            return productions;
+        }
+
+        public HashSet<Production> GetProductions()
+        {
+            return null;
         }
     }
 }

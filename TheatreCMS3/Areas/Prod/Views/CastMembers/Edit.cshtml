@@ -10,7 +10,7 @@
     new { enctype = "multipart/form-data", @class = "prod-form"}))
   {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.CastMemberID)
+    @Html.HiddenFor(model => model.CastMemberId)
     @Html.HiddenFor(model => model.Photo)
 
   <div class="">
@@ -98,7 +98,7 @@
         <input type="file" id="file" name="File" accept="image/*" />
       </div>
       <div class="col-md-10 text-center">
-        <img id="preview" src="/CastMembers/GetImage/@Model.CastMemberID" alt="Image Preview" class="img-thumbnail bg-dark" />
+        <img id="preview" src="/CastMembers/GetImage/@Model.CastMemberId" alt="Image Preview" class="img-thumbnail bg-dark" />
       </div>
     </div>
 

@@ -18,7 +18,7 @@
 
   <!--CastMember Photo-->
   <div class="prod-img-display ">
-    <img id="display" src="/CastMembers/GetImage/@Model.CastMemberID" alt="@Model.Name's Cast Member Photo" class="prod-img-lg" />
+    <img id="display" src="/CastMembers/GetImage/@Model.CastMemberId" alt="@Model.Name's Cast Member Photo" class="prod-img-lg" />
   </div>
 
   <!--Bio-->
@@ -101,7 +101,7 @@
     </div>
     <!--Edit-->
     <div class="col-md-2 m-1 ">
-      <a href=@Url.Action("Edit", "CastMembers", new { id = Model.CastMemberID } ) title="Edit">
+      <a href=@Url.Action("Edit", "CastMembers", new { id = Model.CastMemberId} ) title="Edit">
         <i class=" text-nowrap far fa-edit fa-1x prod-btn mr-2 mb-1 btn ">&nbsp;Edit</i>
       </a>
     </div>

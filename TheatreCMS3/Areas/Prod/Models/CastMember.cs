@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Prod.Models
 {
     public class CastMember
     {
+        
         [Key]
-        public int CastMemberID { get; set; }
+        public int CastMemberId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -26,7 +30,14 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
         public int? DebutYear { get; set; }
-       
+        public List<string> ProdSelections { get; set; }
+        public CastMember()
+        {
+            this.Productions = new HashSet<Production>();
+        }
+        public virtual HashSet<Production> Productions { get; set; }
+
+
         //Photo conversion routing
         [NotMapped]
         public HttpPostedFileBase File { get; set; }
@@ -40,4 +51,34 @@ namespace TheatreCMS3.Areas.Prod.Models
         StageManager,
         Other
     }
-}  
+
+    public class ProdDBContext : ApplicationDbContext
+    {
+        public ProdDBContext() : base()
+        {
+        }
+        public DbSet<CastMember> CastMembers { get; set; }
+        public DbSet<Production> Productions { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<CastMember>()
+            //    .HasMany<Production>(c => c.Productions)
+            //    .WithMany(p => p.CastMembers)
+            //    .Map(cp =>
+            //    {
+            //        cp.MapLeftKey("ProdId");
+            //        cp.MapRightKey("CMemId");
+
+            //        cp.ToTable("ProductionCastMembers");
+            //    });
+            base.OnModelCreating(modelBuilder);
+        }
+    }
+}
+
+
+
+
+
+    
