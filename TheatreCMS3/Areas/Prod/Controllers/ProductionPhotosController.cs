@@ -9,6 +9,8 @@ using TheatreCMS3.Areas.Prod.Models;
 using System.Net;
 using System.IO;
 using System.Drawing;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -175,18 +177,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return productions;
         }
 
-        public static void SeedPhotographer(ApplicationDbContext context)
+        public static ProductionPhotographer SetUpDefaultPhotographer(ProductionPhotographer photographer)
         {
-            var photographer = new ProductionPhotographer
-            {
-                UserName = "ProductionPhotographer",
+            photographer.Camera = "Camera";
+            photographer.CameraCost = 500.00;
+            photographer.CameraSerialNumber = "serial number";
 
-                Camera = "camera",
-                CameraCost = 100.00,
-                CameraSerialNumber = "serial"
-            };
-
-            context.Users.Add(photographer);
+            return photographer;
         }
     }
 }

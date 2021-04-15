@@ -7,6 +7,9 @@
     using TheatreCMS3.Areas.Prod.Models;
     using TheatreCMS3.Areas.Prod.Controllers;
     using System.IO;
+    using TheatreCMS3.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TheatreCMS3.Models.ApplicationDbContext>
     {
@@ -20,8 +23,7 @@
         {
             SeedProductions(context);
             SeedProductionPhotos(context);
-            
-            ProductionPhotosController.SeedPhotographer(context);
+            SeedRolesAndUsers(context);
         }
 
         // Seeds productions to the database
@@ -150,6 +152,49 @@
                     Image = File.ReadAllBytes(path + "/Wicked/05.jpg"),
                     ProductionId = 2
                 });
+        }
+
+        private static void SeedRolesAndUsers(ApplicationDbContext context)
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            SeedRoles(roleManager);
+            SeedUsers(userManager);
+        }
+
+        private static void SeedRoles(RoleManager<IdentityRole> roleManager)
+        {
+            // Create production photographer user role
+            if (!roleManager.RoleExistsAsync("Production Photographer").Result)
+            {
+                var role = new IdentityRole();
+                role.Name = "Production Photographer";
+                roleManager.CreateAsync(role);
+            }
+        }
+
+        private static void SeedUsers(UserManager<ApplicationUser> userManager)
+        {
+            // Seeds a default ProductionPhotographer user
+            if (userManager.FindByNameAsync("ProductionPhotographer").Result == null)
+            {
+                var user = new ProductionPhotographer
+                {
+                    Id = "2",
+                    UserName = "ProductionPhotographer",
+                    Email = "photos@theatrevertigo.com",
+                    Camera = "Camera",
+                    CameraCost = 500.00,
+                    CameraSerialNumber = "camera serial"
+                };
+
+                // This is where the password is set
+                IdentityResult result = userManager.CreateAsync(user, "photos").Result;
+
+                if (result.Succeeded)
+                    userManager.AddToRoleAsync(user.Id, "Production Photographer").Wait();
+            }
         }
     }
 }
