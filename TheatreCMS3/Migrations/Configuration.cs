@@ -6,6 +6,9 @@
     using System.Linq;
     using TheatreCMS3.Areas.Prod.Models;
     using System.IO;
+    using TheatreCMS3.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TheatreCMS3.Models.ApplicationDbContext>
     {
@@ -19,6 +22,7 @@
         {
             SeedProductions(context);
             SeedProductionPhotos(context);
+            SeedRolesAndUsers(context);
         }
 
         // Seeds productions to the database
@@ -147,6 +151,31 @@
                     Image = File.ReadAllBytes(path + "/Wicked/05.jpg"),
                     ProductionId = 2
                 });
+        }
+
+        private static void SeedRolesAndUsers(ApplicationDbContext context)
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            SeedRoles(roleManager);
+            SeedUsers(userManager);
+        }
+
+        private static void SeedRoles(RoleManager<IdentityRole> roleManager)
+        {
+            // Create production photographer user role
+            if (!roleManager.RoleExistsAsync("Production Photographer").Result)
+            {
+                var role = new IdentityRole();
+                role.Name = "Production Photographer";
+                roleManager.CreateAsync(role);
+            }
+        }
+
+        private static void SeedUsers(UserManager<ApplicationUser> userManager)
+        {
+            ProductionPhotographer.SeedProductionPhotographers(userManager);
         }
     }
 }

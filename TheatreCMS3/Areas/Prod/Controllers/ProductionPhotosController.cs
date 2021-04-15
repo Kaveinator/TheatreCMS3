@@ -9,6 +9,8 @@ using TheatreCMS3.Areas.Prod.Models;
 using System.Net;
 using System.IO;
 using System.Drawing;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
