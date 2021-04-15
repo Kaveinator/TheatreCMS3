@@ -33,7 +33,7 @@ else
                 if (photo.ProductionId == production.ProductionId)
                 {
                     <div class="card bg-dark">
-                        <a href="@Url.Action("Details", "Productions", new { id = production.ProductionId })">
+                        <a href="@Url.Action("Details", "ProductionPhotos", new { id = photo.ProPhotoId })">
                             <img alt="@photo.Title" src="/ProductionPhotos/GetImage/@photo.ProPhotoId" class="card-img-top" />
                         </a>
                         <div class="card-title text-center p-1">
