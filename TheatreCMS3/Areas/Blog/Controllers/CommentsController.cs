@@ -24,14 +24,25 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         //POST: Blog/Comments/Addlike
-
-        public async Task<JsonResult> AddLike(int id)
+        [HttpPost]
+        public int AddLike(int id)
         {
             Comment comment = db.Comments.Find(id);
             comment.Likes++;
+            db.SaveChanges();
 
-            return Json(new {success="" });
+            return (comment.Likes);
+        }
 
+        //POST: Blog/Comments/AddDislike
+        [HttpPost]
+        public int AddDislike(int id)
+        {
+            Comment comment = db.Comments.Find(id);
+            comment.Dislikes++;
+            db.SaveChanges();
+
+            return (comment.Dislikes);
         }
 
 
