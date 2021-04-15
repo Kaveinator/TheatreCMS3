@@ -23,6 +23,8 @@
     </div>
     @Html.Partial("_Footer")
 
+    @Html.Partial("_LoginBtnProductionPhotographer")
+
     @if (ViewContext.RouteData.DataTokens["area"] != null)
     {
         <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>

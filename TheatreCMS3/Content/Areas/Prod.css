@@ -191,3 +191,9 @@ a.detailsLink {
 @media only screen and (max-width: 768px){
     .prod-img-lg{height:10rem;}
 } 
+
+.photographer-login {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
