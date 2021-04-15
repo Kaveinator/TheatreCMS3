@@ -18,7 +18,10 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // GET: Blog/Comments
         public ActionResult Index()
         {
-
+            void AddLike()
+            {
+                
+            }
             return View(db.Comments.ToList());
         }
 
