@@ -19,7 +19,7 @@ namespace TheatreCMS3.Areas.Blog.Models
 
         public Comment()
         {
-            CommentDate = DateTime.Now;         
+            CommentDate = DateTime.Now.ToUniversalTime();         
         }
 
         public double LikeRatio()
@@ -35,7 +35,9 @@ namespace TheatreCMS3.Areas.Blog.Models
             int minutes = ts.Minutes;
             int seconds = ts.Seconds;
 
-            if (days > 0)
+            if (days == 1)
+                return "Yesterday";
+            if (days > 1)
                 return string.Format("{0} days ago", days);
             if (hours > 0)
                 return string.Format("{0} hours ago", hours);
