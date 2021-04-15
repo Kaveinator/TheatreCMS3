@@ -21,14 +21,17 @@
         <a href="@Url.Action("Index")" class="btn prod-btn btn-block">Back To List</a>
     </div>
 
-    <div class="prod-form-div">
-        @if (Model.ProPhotoId == Model.Production.ProPhotoID)
-        {
-            <p>You cannot delete this photo because it is set as the default photo for the production '@Model.Production.Title'</p>
-        }
-        else
-        {
-            <a href="@Url.Action("Delete", new { id = Model.ProPhotoId })" class="btn prod-btn-danger btn-block"><i class="fas fa-trash"></i> Delete Photo</a>
-        }
-    </div>
+    @if (ViewContext.HttpContext.User.IsInRole("Production Photographer"))
+    {
+        <div class="prod-form-div">
+            @if (Model.ProPhotoId == Model.Production.ProPhotoID)
+            {
+                <p>You cannot delete this photo because it is set as the default photo for the production '@Model.Production.Title'</p>
+            }
+            else
+            {
+                <a href="@Url.Action("Delete", new { id = Model.ProPhotoId })" class="btn prod-btn-danger btn-block"><i class="fas fa-trash"></i> Delete Photo</a>
+            }
+        </div>
+    }
 </div>
