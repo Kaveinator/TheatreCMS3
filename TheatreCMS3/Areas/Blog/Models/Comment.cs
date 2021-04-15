@@ -49,16 +49,5 @@ namespace TheatreCMS3.Areas.Blog.Models
             return "Just now";            
         }
 
-        public void AddLike()
-        {
-            Likes++;
-        }
-
-        public void AddDislike()
-        {
-            Dislikes++;
-        }
-
-
     }
 }
