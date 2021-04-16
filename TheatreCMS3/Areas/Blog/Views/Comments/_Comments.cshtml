@@ -14,18 +14,17 @@
       </button>
       <label class="likes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Likes) </label>
 
-      <Button class="btn dislikeBtn" id="dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
+      <button class="btn dislikeBtn" id="dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
         <i class="fas fa-thumbs-down fa-mdb"></i>
-      </Button>
+      </button>
       <label class="dislikes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes) </label>
 
       <button class="btn">
-        <i class="fas fa-reply"></i>
+        <i class="fas fa-reply cms-text-secondary"></i>
         Reply
       </button>
 
-      @Html.ActionLink(" ", "Delete", new {id = item.CommentId }, new { @class = "btn fas fa-trash fa-mdb float-right cms-text-main" })
-   
+      @Html.ActionLink(" ", "Delete", new { id = item.CommentId }, new { @class = "btn fas fa-trash fa-mdb float-right cms-text-main" })
 
     </div>
   </div>
