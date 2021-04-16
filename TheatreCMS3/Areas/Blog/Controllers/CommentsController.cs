@@ -45,7 +45,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return (comment.Dislikes);
         }
 
-
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
         {

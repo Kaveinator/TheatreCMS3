@@ -9,7 +9,7 @@
             url: path,
             data: JSON.stringify({ "id": id }),
             success: function (result) {
-                $(".likes[data-CommentId="+id+"]").html(result);
+                $(".likes[data-CommentId=" + id + "]").html(result);               
             }
         });
     });
