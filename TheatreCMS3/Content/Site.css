@@ -430,9 +430,13 @@ footer {
 
 .aboutPage-header {
     border-radius: 0 100px 0 0;
-    
+    position: relative;
+    text-align: center;
+    color: white;
     
 }
+
+
 
 .aboutPage-hr {
     margin-top: 1rem;
