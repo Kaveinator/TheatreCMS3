@@ -13,7 +13,6 @@ namespace TheatreCMS3.Areas.Prod.Models
         public double CameraCost { get; set; }
         public string CameraSerialNumber { get; set; }
 
-
         public static void SeedProductionPhotographers(UserManager<ApplicationUser> userManager)
         {
             // Seeds a default ProductionPhotographer user

@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
@@ -12,131 +11,107 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class CommentsController : Controller
+    public class BlogPhotosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/Comments
+        // GET: Blog/BlogPhotos
         public ActionResult Index()
         {
-        
-            return View(db.Comments.ToList());
+            return View(db.BlogPhotoes.ToList());
         }
 
-        //POST: Blog/Comments/Addlike
-        [HttpPost]
-        public int AddLike(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            comment.Likes++;
-            db.SaveChanges();
-
-            return (comment.Likes);
-        }
-
-        //POST: Blog/Comments/AddDislike
-        [HttpPost]
-        public int AddDislike(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            comment.Dislikes++;
-            db.SaveChanges();
-
-            return (comment.Dislikes);
-        }
-
-
-        // GET: Blog/Comments/Details/5
+        // GET: Blog/BlogPhotos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // GET: Blog/Comments/Create
+        // GET: Blog/BlogPhotos/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/Comments/Create
+        // POST: Blog/BlogPhotos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Author,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                db.BlogPhotoes.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // GET: Blog/Comments/Edit/5
+        // GET: Blog/BlogPhotos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // POST: Blog/Comments/Edit/5
+        // POST: Blog/BlogPhotos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                db.Entry(blogPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // GET: Blog/Comments/Delete/5
+        // GET: Blog/BlogPhotos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // POST: Blog/Comments/Delete/5
+        // POST: Blog/BlogPhotos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
+            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+            db.BlogPhotoes.Remove(blogPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

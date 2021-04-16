@@ -19,13 +19,34 @@ namespace TheatreCMS3.Areas.Blog.Models
 
         public Comment()
         {
-            CommentDate = DateTime.Now;
+            CommentDate = DateTime.Now.ToUniversalTime();         
         }
 
         public double LikeRatio()
         {
             double likeRatio = Likes / (Likes + Dislikes);
             return likeRatio;
+        }
+        
+        public string TimeSince()
+        {
+            TimeSpan ts = DateTime.Now.ToUniversalTime().Subtract(CommentDate);
+            int days = ts.Days;
+            int hours = ts.Hours;
+            int minutes = ts.Minutes;
+            int seconds = ts.Seconds;
+
+            if (days == 1)
+                return "Yesterday";
+            if (days > 1)
+                return string.Format("{0} days ago", days);
+            if (hours > 0)
+                return string.Format("{0} hours ago", hours);
+            if (minutes > 0)
+                return string.Format("{0} minutes ago", minutes);
+            if (seconds > 0)
+                return string.Format("{0} seconds", seconds);
+            return "Just now";            
         }
 
     }
