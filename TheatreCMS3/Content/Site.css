@@ -409,11 +409,7 @@ footer {
     background-color: black;
 }
 
-.aboutPage-About Us {
-    text-align: center;
-    color: var(--light-color);
-    padding: 40px;
-}
+
 
 .aboutPage-footer {
     background-color: black;
@@ -434,6 +430,8 @@ footer {
 
 .aboutPage-header {
     border-radius: 0 100px 0 0;
+    
+    
 }
 
 .aboutPage-hr {
