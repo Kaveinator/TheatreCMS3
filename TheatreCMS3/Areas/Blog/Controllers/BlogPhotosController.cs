@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -47,8 +48,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase file)
         {
+            // Convert photo file to byte[]
+            blogPhoto.Photo = PhotoToByte(file);
+
             if (ModelState.IsValid)
             {
                 db.BlogPhotoes.Add(blogPhoto);
@@ -67,6 +71,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+
             if (blogPhoto == null)
             {
                 return HttpNotFound();
@@ -79,11 +84,21 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogPhoto).State = EntityState.Modified;
+                BlogPhoto currentDBItem = db.BlogPhotoes.Find(blogPhoto.BlogPhotoId);
+
+                if (file != null)
+                {
+                    currentDBItem.Photo = PhotoToByte(file);
+                }
+                else
+                {
+                    currentDBItem.Photo = currentDBItem.Photo;
+                }
+                currentDBItem.Title = blogPhoto.Title;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -124,5 +139,31 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        //turn image to a byte array to store in db
+        public static byte[] PhotoToByte(HttpPostedFileBase img)
+        {
+
+            byte[] bytes;
+
+            using (BinaryReader br = new BinaryReader(img.InputStream))
+                bytes = br.ReadBytes(img.ContentLength);
+
+            return bytes;
+        }
+
+        //return image from byte array in database
+        public ActionResult GetPhoto(int id)
+        {
+            //get image from blog photo db item id
+            byte[] bytes = db.BlogPhotoes.Find(id).Photo;
+
+            if (bytes == null)
+                return null;
+            //return byte array as an image file
+            return File(bytes, "image/jpeg");
+        }
+
     }
 }
