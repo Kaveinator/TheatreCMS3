@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
@@ -18,9 +19,32 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // GET: Blog/Comments
         public ActionResult Index()
         {
-
+        
             return View(db.Comments.ToList());
         }
+
+        //POST: Blog/Comments/Addlike
+        [HttpPost]
+        public int AddLike(int id)
+        {
+            Comment comment = db.Comments.Find(id);
+            comment.Likes++;
+            db.SaveChanges();
+
+            return (comment.Likes);
+        }
+
+        //POST: Blog/Comments/AddDislike
+        [HttpPost]
+        public int AddDislike(int id)
+        {
+            Comment comment = db.Comments.Find(id);
+            comment.Dislikes++;
+            db.SaveChanges();
+
+            return (comment.Dislikes);
+        }
+
 
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)

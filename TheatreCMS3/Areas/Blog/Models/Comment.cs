@@ -27,6 +27,7 @@ namespace TheatreCMS3.Areas.Blog.Models
             double likeRatio = Likes / (Likes + Dislikes);
             return likeRatio;
         }
+        
         public string TimeSince()
         {
             TimeSpan ts = DateTime.Now.ToUniversalTime().Subtract(CommentDate);
