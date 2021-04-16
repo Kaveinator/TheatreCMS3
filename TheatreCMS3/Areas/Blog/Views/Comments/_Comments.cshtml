@@ -1,44 +1,42 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
-<table class="table">
-  <tr class="blog-header">
-    <th>
-      @Html.DisplayNameFor(model => model.Message)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.CommentDate)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Likes)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Dislikes)
-    </th>
-    <th></th>
-  </tr>
 
-  @foreach (var item in Model)
-  {
-    <tr class="blog-rows">
-      <td>
-        @Html.DisplayFor(modelItem => item.Message)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.CommentDate)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.Likes)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.Dislikes)
-      </td>
-      <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
-      </td>
-    </tr>
-  }
+@foreach (var item in Model)
+{
+  <div class="card cms-text-dark">
+    <div class="card-body">
+      <h5 class="card-title">@Html.DisplayFor(modelItem => item.Author)</h5>
+      <h6 class="card-subtitle mb-2 text-muted">@item.TimeSince()</h6>
+      <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
 
-</table>
+      <button class="btn likeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddLike", "Comments", new { id = item.CommentId })">
+        <i class="fas fa-thumbs-up fa-mdb"></i>
+      </button>
+      <label class="likes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Likes) </label>
+
+      <button class="btn dislikeBtn" id="dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
+        <i class="fas fa-thumbs-down fa-mdb"></i>
+      </button>
+      <label class="dislikes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes) </label>
+
+      <button class="btn">
+        <i class="fas fa-reply cms-text-secondary"></i>
+        Reply
+      </button>
+
+      @Html.ActionLink(" ", "Delete", new { id = item.CommentId }, new { @class = "btn fas fa-trash fa-mdb float-right cms-text-main" })
+
+    </div>
+  </div>
+}
+
+
+
+
+
+
+
+
+
+
 
