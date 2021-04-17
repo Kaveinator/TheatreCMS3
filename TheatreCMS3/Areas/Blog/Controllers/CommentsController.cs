@@ -25,24 +25,24 @@ namespace TheatreCMS3.Areas.Blog.Controllers
 
         //POST: Blog/Comments/Addlike
         [HttpPost]
-        public int AddLike(int id)
+        public JsonResult AddLike(int id)
         {
             Comment comment = db.Comments.Find(id);
             comment.Likes++;
             db.SaveChanges();
 
-            return (comment.Likes);
+            return  Json(new {like = comment.Likes, ratio = comment.LikeRatio() });
         }
 
         //POST: Blog/Comments/AddDislike
         [HttpPost]
-        public int AddDislike(int id)
+        public JsonResult AddDislike(int id)
         {
             Comment comment = db.Comments.Find(id);
             comment.Dislikes++;
             db.SaveChanges();
 
-            return (comment.Dislikes);
+            return (Json(new {dislike = comment.Dislikes, ratio= comment.LikeRatio() }));
         }
 
         // GET: Blog/Comments/Details/5
