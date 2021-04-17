@@ -34,11 +34,16 @@ namespace TheatreCMS3.Areas.Prod.Models
         public bool IsWorldPremiere { get; set; }
         public string TicketLink { get; set; }
 
+        //Select List
         public Production()
         {
             this.CastMembers = new HashSet<CastMember>();
         }
         public virtual HashSet<CastMember> CastMembers { get; set; }
+        public bool IsSelected { get; set; }
+
+
+
 
         [NotMapped]
         public HttpPostedFileBase File { get; set; }

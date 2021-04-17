@@ -20,8 +20,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers
         public ActionResult Index()
         {
-            ViewBag.ProductionList = GetProductionList();
-            return View(db.CastMembers.ToList());
+            
+            ViewBag.ProductionTitles = GetProductionTitles();
+            return View(db.CastMembers.Include(x => x.Productions).ToList());
         }
 
         // GET: Prod/CastMembers/Details/5
@@ -39,13 +40,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             return View(castMember);
         }
-
+         
         // GET: Prod/CastMembers/Create
         public ActionResult Create()
         {
-            ViewBag.ProductionList = GetProductionList();
+
+            CastMember castMember = new CastMember();
+            castMember.ProductionsListItems = GetProductionList();
+            ViewBag.Productions = GetProductionList();
             
-            return View();
+            return View(castMember);
         }
 
         // POST: Prod/CastMembers/Create
@@ -53,12 +57,26 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberID,Name,ProductionTitle,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, File")] CastMember castMember)
+        public ActionResult Create(IEnumerable<string> selectedProductions , [Bind(Include = "CastMemberID,Name,YearJoined,ProductionTitles,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, File")] CastMember castMember)
         {
-            
+           
             if (ModelState.IsValid)
             {
-                castMember.Photo = FileToBytes(castMember.File);
+                if(selectedProductions == null)             //Null Protection, needs improvement.
+                {
+                     Content("<script language='javascript' type='text/javascript'>alert('Please Go Back and Select a Production!');</script>");    
+                }
+                castMember.SelectedProductions = selectedProductions;        //Save Production selection to model.
+                foreach(string selection in castMember.SelectedProductions)  //Then populate CastMember.Productions
+                {
+                    int selectionInt = Int32.Parse(selection);
+
+                   db.Productions.Where(p => p.ProductionId == selectionInt).SingleOrDefault();
+                    castMember.Productions.Add(db.Productions.Where(p => p.ProductionId == selectionInt).SingleOrDefault());
+                }
+                
+
+                castMember.Photo = FileToBytes(castMember.File);           //Convert Uploaded photo file to Byte[]
                 
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
@@ -68,9 +86,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
-        // GET: Prod/CastMembers/Edit/5
+        // GET: Prod/CastMembers/Edit/5                                                           Needs:  Pre-Select Existing Producitons
         public ActionResult Edit(int? id)
-        {
+        { 
             ViewBag.ProductionList = db.Productions;
             if (id == null)
             {
@@ -83,6 +101,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             return View(castMember);
         }
+
+       
 
         // POST: Prod/CastMembers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -166,7 +186,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
 
-        // Return a list of productions to populate dropdownlist form inputs
+        // Return a List of productions to populate dropdownlist form inputs
         public List<SelectListItem> GetProductionList()
         {
             var productions = new List<SelectListItem>();
@@ -176,18 +196,25 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 var item = new SelectListItem
                 {
                     Text = production.Title,
-                    Value = production.ProductionId.ToString()
-
+                    Value = production.ProductionId.ToString(),
+                    Selected = production.IsSelected
                 };
                 productions.Add(item);
             }
-
             return productions;
         }
-
-        public HashSet<Production> GetProductions()
+        public List<string> GetProductionTitles()
         {
-            return null;
+            var productionTitles = new List<string>();
+
+            foreach (Production production in db.Productions)
+            {
+                productionTitles.Add(production.Title);
+            }
+            return productionTitles;
         }
+
+
+
     }
 }

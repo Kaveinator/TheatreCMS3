@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CastMember>
-
+@using System.Linq;
 @{
   ViewBag.Title = "Index";
 }
@@ -11,12 +11,8 @@
 </div>
 
 @{
-    List<string> productionTitle = new List<string>();    //Make list for Production Titles
-    foreach (var item in Model)
-    {
-      productionTitle.Add(item.ProductionTitle);
-    }
-    foreach (var title in productionTitle.Distinct())    //For Each Distinct ProductionTitle
+   
+    foreach (var title in ViewBag.ProductionTitles)    //For Each Distinct ProductionTitle
     {
       <div>
           <div class="prod-form-label">
@@ -27,23 +23,27 @@
 
 
       <div class="row mb-2">
-        @foreach (var castMember in Model.Where(x => x.ProductionTitle == title.ToString()))   //For Each CastMember in that Production, Display Card
+        
+        @foreach (var castMember in Model)   //For Each CastMember in that Production, Display Card
         {
-         
-         <div class="card bg-dark m-sm-auto w-25">            
-            <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
-            <div class="prod-overlay text-center">
-              @Html.ActionLink("Details", "Details",null, new {id = castMember.CastMemberId }, new {@class = "detailsLink fas fa-edit" }) <!--Overlay link to Details-->
-              <div class=" prod-overlay-icon-container text-center ">
-                <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberId } ) title="Edit"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
-                <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberId } ) title="Delete"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
+           List<string> titlesList = castMember.Productions.Select(x => x.Title).ToList();
+           if (titlesList.Contains(title)) { 
+
+           <div class="card bg-dark m-sm-auto w-25">            
+              <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
+              <div class="prod-overlay text-center">
+                @Html.ActionLink("Details", "Details",null, new {id = castMember.CastMemberId }, new {@class = "detailsLink fas fa-edit" }) <!--Overlay link to Details-->
+                <div class=" prod-overlay-icon-container text-center ">
+                  <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberId } ) title="Edit"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
+                  <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberId } ) title="Delete"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
+                </div>
+              </div>            
+              <div class="card-body bg-dark text-light">
+                 @Html.DisplayFor(modelItem => castMember.Name)
+                 @Html.DisplayFor(modelItem => castMember.MainRole)
               </div>
-            </div>            
-            <div class="card-body bg-dark text-light">
-               @Html.DisplayFor(modelItem => castMember.Name)
-               @Html.DisplayFor(modelItem => castMember.MainRole)
-            </div>
-      </div>
+          </div>
+          }
         }
       </div>
   }

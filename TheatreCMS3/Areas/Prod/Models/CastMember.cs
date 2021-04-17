@@ -17,8 +17,6 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int CastMemberId { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
-        public string ProductionTitle { get; set; }
         public int? YearJoined { get; set; }
         [Required]
         public PositionEnum MainRole { get; set; }
@@ -30,12 +28,17 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
         public int? DebutYear { get; set; }
-        public List<string> ProdSelections { get; set; }
+        public List<string> ProductionTitles { get; set; }
+        
+        public IEnumerable<SelectListItem> ProductionsListItems { get; set; }
+        public IEnumerable<string> SelectedProductions { get; set; }
+        
         public CastMember()
         {
             this.Productions = new HashSet<Production>();
         }
         public virtual HashSet<Production> Productions { get; set; }
+
 
 
         //Photo conversion routing
