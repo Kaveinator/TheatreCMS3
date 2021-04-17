@@ -325,11 +325,11 @@ footer {
 
 }
 
-    .aboutPage-Card-Img:hover {
-        background-color: var(--dark-color);
-        opacity: .8;
-        transition: .15s;
-    }
+.aboutPage-Card-Img:hover {
+    background-color: var(--dark-color);
+    opacity: .8;
+    transition: .15s;
+}
 
 .aboutPage-Card:hover {
     border-color: var(--secondary-color);
