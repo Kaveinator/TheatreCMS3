@@ -122,6 +122,7 @@ form.blog-photo-form .form-control {
 .blog-photo-button {
     background-color: var(--dark-color);
     color: var(--light-color);
+    font-family: 'Font Awesome 5 Free';
 }
 .blog-photo-button:hover {
     background-color: var(--main-color);
@@ -138,4 +139,17 @@ form.blog-photo-form .form-control {
 }
 .blog-card:hover .blog-card-overlay {
     opacity: .35;
+}
+
+/*Delete and Details Pages*/
+.blog-delete-photo-buttons {
+    position: absolute;
+    bottom:5px;
+    left:5px;
+}
+.blog-delete-button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-family: 'Font Awesome 5 Free';
 }
