@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-12" })
-                        <img id="preview" src="/BlogPhotos/GetPhoto/@Model.BlogPhotoId" alt="@Model.Title" class="col-12 mb-2" />
+                        <img id="preview" src="/BlogPhotos/GetPhoto/@Model.BlogPhotoId" alt="@Model.Title" class="col-12 mb-2 blog-photo-preview" />
 
                         <input type="file" id="file" class="col-12" name="File" accept="image/*" onchange="readURL(this);" />
 
