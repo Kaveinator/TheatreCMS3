@@ -485,6 +485,23 @@ footer {
     
 }
 
+.blogAuthor-btn {
+    background-color: var(--light-color);
+    border: 1.5px solid black; 
+}
+
+    .btn-primary {
+        color: black;
+        text-align: center;
+    }
+
+    .btn-secondary {
+        background-color: var(--main-color--light);
+        color: white;
+        align-self: end;
+        
+    }
+
     
     
 
