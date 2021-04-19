@@ -94,7 +94,7 @@ form.blog-photo-form .form-control {
 /*Index Page*/
 /*Hide buttons and title until the card is hovered over*/ 
 .blog-card .show-hover {
-    transition: opacity 1s;
+    transition: opacity .33s;
     opacity: 0;
 }
 .blog-card:hover .show-hover {
@@ -125,14 +125,14 @@ form.blog-photo-form .form-control {
     color: var(--light-color);
 }
 /*Lighten the background when the card is hovered over*/
-.overlay {
+.blog-card-overlay {
     background: var(--light-color);
     opacity: 0;
     width: 100%;
     height: 100%;
     position: absolute;
-    transition: opacity 1s;
+    transition: opacity .33s;
 }
-.blog-card:hover .overlay {
+.blog-card:hover .blog-card-overlay {
     opacity: .35;
 }

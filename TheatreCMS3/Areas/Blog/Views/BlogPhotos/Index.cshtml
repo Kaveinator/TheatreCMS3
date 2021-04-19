@@ -33,7 +33,7 @@
             {
                 <div class="card blog-card">
                     <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })">
-                        <div class="overlay"></div>
+                        <div class="blog-card-overlay"></div>
                         <h5 class="card-title show-hover">@Html.DisplayFor(modelItem => item.Title)</h5>
 
                         <img class="card-img-top" id="preview" src="/BlogPhotos/GetPhoto/@item.BlogPhotoId" alt="@item.Title" />
