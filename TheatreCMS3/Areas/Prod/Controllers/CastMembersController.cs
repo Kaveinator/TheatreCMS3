@@ -47,7 +47,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
             CastMember castMember = new CastMember();
             castMember.ProductionsListItems = GetProductionList();
-            ViewBag.Productions = GetProductionList();
+          
             
             return View(castMember);
         }
@@ -64,7 +64,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 if(selectedProductions == null)             //Null Protection, needs improvement.
                 {
-                     Content("<script language='javascript' type='text/javascript'>alert('Please Go Back and Select a Production!');</script>");    
+                     Content("<script language='javascript' type='text/javascript'>alert('Please Go Back and Select a Production!');</script>");
+                    return RedirectToAction("Create");
                 }
                 castMember.SelectedProductions = selectedProductions;        //Save Production selection to model.
                 foreach(string selection in castMember.SelectedProductions)  //Then populate CastMember.Productions
@@ -89,16 +90,18 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers/Edit/5                                                           Needs:  Pre-Select Existing Producitons
         public ActionResult Edit(int? id)
         { 
-            ViewBag.ProductionList = db.Productions;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             CastMember castMember = db.CastMembers.Find(id);
             if (castMember == null)
             {
                 return HttpNotFound();
             }
+            
+            castMember.ProductionsListItems = GetProductionList();
             return View(castMember);
         }
 
@@ -109,15 +112,30 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( CastMember castMember)
-        {
-            // Convert uploaded file to byte[] if new photo is uploaded
-            if (castMember.File != null)
-                castMember.Photo = FileToBytes(castMember.File);
-            
-               
+        public ActionResult Edit( CastMember castMember, IEnumerable<string> selectedProductions)
+        {  
             if (ModelState.IsValid)
             {
+                if (selectedProductions == null)             //Production ListBox Null Protection; needs improvement.
+                {
+                    Content("<script language='javascript' type='text/javascript'>alert('Please Go Back and Select a Production!');</script>");
+                    return RedirectToAction("Edit");
+                }
+                castMember.Productions.Clear();
+                castMember.SelectedProductions = selectedProductions;        //Save Production ListBox selection to model.
+                foreach (string selection in castMember.SelectedProductions)  //Then populate CastMember.Productions
+                {
+                    int selectionInt = Int32.Parse(selection);
+
+                    db.Productions.Where(p => p.ProductionId == selectionInt).SingleOrDefault();
+                    castMember.Productions.Add(db.Productions.Where(p => p.ProductionId == selectionInt).SingleOrDefault());
+                }
+
+                // Convert uploaded file to byte[] if new photo is uploaded
+                if (castMember.File != null)
+                    castMember.Photo = FileToBytes(castMember.File);
+
+
                 db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
