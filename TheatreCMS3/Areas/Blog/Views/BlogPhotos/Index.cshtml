@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPhoto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-responsive cms-text-light">
+    <tr>
+        <th scope="col" class="w-25">
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th scope="col" class="w-50">
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th scope="col" class="w-25"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="align-top">
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td class="align-top">
+            <img id="preview" src="/BlogPhotos/GetPhoto/@item.BlogPhotoId" alt="@item.Title" class="img-thumbnail" />
+        </td>
+        <td class="align-top pl-4">
+            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPhotoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BlogPhotoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPhotoId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -13,8 +13,8 @@
       </button>
       <label class="likes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Likes) </label>
 
-      <Button class="btn fas fa-thumbs-down fa-mdb dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
-      </Button>
+      <button class="btn fas fa-thumbs-down fa-mdb dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
+      </button>
       <label class="dislikes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes) </label>
 
       <button class="btn fas fa-reply">Reply</button>
