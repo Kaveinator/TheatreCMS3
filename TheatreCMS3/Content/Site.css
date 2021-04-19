@@ -491,14 +491,14 @@ footer {
 }
 
     .btn-primary {
-        color: black;
+        color: white;
         text-align: center;
     }
 
     .btn-secondary {
         background-color: var(--main-color--light);
         color: white;
-        align-self: end;
+        
         
     }
 
