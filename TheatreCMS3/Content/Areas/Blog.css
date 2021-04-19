@@ -24,6 +24,13 @@
     color: var(--light-color);
 }
 
+.progress {
+    height: 1vh;
+    width: 20%;
+    color: green;
+    background-color: red;
+}
+
 .successBadge {
     height: 6vh;
     width: 100%;

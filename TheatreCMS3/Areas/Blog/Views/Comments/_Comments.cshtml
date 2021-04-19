@@ -12,12 +12,12 @@
       <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
 
       @*Like button*@
-      <button class="btn fas fa-thumbs-up fa-mdb likeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddLike", "Comments", new { id = item.CommentId })">
+      <button class="btn fas fa-thumbs-up fa-sm likeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddLike", "Comments", new { id = item.CommentId })">
       </button>
       <label class="likes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Likes) </label>
 
       @*Dislike button*@
-      <Button class="btn fas fa-thumbs-down fa-mdb dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
+      <Button class="btn fas fa-thumbs-down fa-sm dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
       </Button>
       <label class="dislikes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes) </label>
 
@@ -27,8 +27,8 @@
 
       <br />
       @*Progress bar*@
-      <div class="progress" style="width: 20%">
-        <div class="progress-bar" data-CommentId="@item.CommentId" role="progressbar" style="width: @item.LikeRatio()%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress">
+        <div class="progress-bar bg-success" data-CommentId="@item.CommentId" role="progressbar" style="width: @item.LikeRatio()%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
       <label class="like-ratio" data-CommentId="@item.CommentId">@item.LikeRatio()% likes</label>
 
