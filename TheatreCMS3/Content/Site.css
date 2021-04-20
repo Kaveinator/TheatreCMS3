@@ -465,26 +465,6 @@ footer {
     margin-right: auto;
 }
 
-/*Adding CSS for Theatre Vertigo Blog Author page*/
-.blogAuthor-Card {
-    display: inline-flex;
-    flex-wrap: wrap;
-    width: auto;
-    height: auto;
-    text-align: center;
-    background-color: white;
-    color: black;
-}
-
-.blogAuthor-Card-Img {
-    display: flex;
-    width: 150px;
-    height: 150px;
-    background-color: black;
-    object-fit: cover;
-    
-}
-
 
 
     

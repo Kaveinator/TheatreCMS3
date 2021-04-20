@@ -23,6 +23,27 @@
     color: var(--light-color);
 }
 
+
+/*Adding CSS for Theatre Vertigo Blog Author page*/
+.blogAuthor-Card {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+.blogAuthor-Card-Img {
+    display: flex;
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    object-fit: cover;
+}
+
+
 .blogAuthor-btn {
     background-color: #D6972A;
     border: 1.5px solid black;
@@ -41,11 +62,11 @@
 
 
 .btn-secondary {
-    background-color: var(--main-color--light);
+    background-color: red;
     color: white;
     text-align: left;
     width: 120px;
-    height: 30px;
+    height: 50px;
     line-height: 1.1em;
     font-size: 1.1em;
 }
