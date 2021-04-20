@@ -486,14 +486,15 @@ footer {
 }
 
 .blogAuthor-btn {
-    background-color: var(--light-color);
-    border: 1.5px solid black; 
+    background-color: #D6972A;
+    border: 1.5px solid black;
 }
 
-    .btn-primary {
-        color: white;
-        text-align: center;
-    }
+.btn-primary {
+    color: white;
+    background-color: #D6972A;
+    text-align: center;
+}
 
     .btn-secondary {
         background-color: var(--main-color--light);
