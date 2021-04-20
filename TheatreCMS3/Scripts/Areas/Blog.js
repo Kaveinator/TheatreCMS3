@@ -54,10 +54,6 @@ $(document).ready(function () {
                 $(".commentCard[data-commentId=" + id + "]").animate({ height: "0px" }, 1000, function () { $(this).remove(); });
                 $(".successBadge").fadeIn(100).delay(3000).fadeOut(500);
                
-                
-                
-                
-                 
             }
         });
     });
