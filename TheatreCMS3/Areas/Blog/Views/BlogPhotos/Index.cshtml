@@ -25,41 +25,27 @@
     <h2 class="text-center mt-4 text-uppercase">@ViewBag.Title</h2>
     <hr class="contact-title-underline" />
     <div class="container">
-        <div class="row">
-            <p>
-                @Html.ActionLink("Create New", "Create")
-            </p>
-            <table class="table-responsive table-striped cms-text-light">
-                <thead class="table-dark">
-                    <tr class="p-3">
-                        <th scope="col" class="w-25 p-3">
-                            @Html.DisplayNameFor(model => model.Title)
-                        </th>
-                        <th scope="col" class="w-50 p-3">
-                            @Html.DisplayNameFor(model => model.Photo)
-                        </th>
-                        <th scope="col" class="w-25 p-3"></th>
-                    </tr>
-                </thead>
-                <tbody class="table-light">
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td class="align-top p-3 cms-text-dark">
-                                @Html.DisplayFor(modelItem => item.Title)
-                            </td>
-                            <td class="align-top p-3">
-                                <img id="preview" src="/BlogPhotos/GetPhoto/@item.BlogPhotoId" alt="@item.Title" class="img-thumbnail" />
-                            </td>
-                            <td class="align-top p-3 cms-text-main">
-                                @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <div class="card-columns text-center">
+            @foreach (var item in Model)
+            {
+                <div class="card blog-card">
+                    <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })">
+                        <div class="blog-card-overlay"></div>
+                        <h5 class="card-title show-hover">@Html.DisplayFor(modelItem => item.Title)</h5>
+
+                        <img class="card-img-top" id="preview" src="/BlogPhotos/GetPhoto/@item.BlogPhotoId" alt="@item.Title" />
+                    </a>
+
+                    <div class="card-body blog-photo-buttons show-hover">
+                        <a class="blog-photo-button btn btn-sm" href="@Url.Action("Edit", "BlogPhotos", new { id = item.BlogPhotoId })">Edit</a>
+                        <a class="blog-photo-button btn btn-sm" href="@Url.Action("Delete", "BlogPhotos", new { id = item.BlogPhotoId })">Delete</a>
+                    </div>
+                </div>
+            }
+
         </div>
     </div>
 </div>
