@@ -26,6 +26,8 @@
 /*Create and Edit Pages*/
 form.blog-photo-form {
     width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
 }
 .blog-button {
     background-color: var(--secondary-color);
@@ -81,12 +83,11 @@ form.blog-photo-form .form-control {
 }
 
 .blog-form-photo-holder img {
-    width: 300px;
+    width: 100%;
     height: auto;
-    max-width: 300px;
 }
 .blog-photo-preview {
-    max-width:500px;
+    width: 100%;
 }
 
 .blog-photo-form input[type="file"] {

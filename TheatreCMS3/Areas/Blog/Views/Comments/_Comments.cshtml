@@ -9,22 +9,24 @@
       <h6 class="card-subtitle mb-2 text-muted">@item.TimeSince()</h6>
       <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
 
-      <button class="btn likeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddLike", "Comments", new { id = item.CommentId })">
-        <i class="fas fa-thumbs-up fa-mdb"></i>
+      <button class="btn fas fa-thumbs-up fa-mdb likeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddLike", "Comments", new { id = item.CommentId })">
       </button>
       <label class="likes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Likes) </label>
 
-      <button class="btn dislikeBtn" id="dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
-        <i class="fas fa-thumbs-down fa-mdb"></i>
+      <button class="btn fas fa-thumbs-down fa-mdb dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
       </button>
       <label class="dislikes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes) </label>
 
-      <button class="btn">
-        <i class="fas fa-reply cms-text-secondary"></i>
-        Reply
-      </button>
+      <button class="btn fas fa-reply">Reply</button>
 
       @Html.ActionLink(" ", "Delete", new { id = item.CommentId }, new { @class = "btn fas fa-trash fa-mdb float-right cms-text-main" })
+      <br />
+      <div class="progress" style="width: 20%">
+        <div class="progress-bar" data-CommentId="@item.CommentId" role="progressbar" style="width: @item.LikeRatio()%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <label class="like-ratio" data-CommentId="@item.CommentId">@item.LikeRatio()% likes</label>
+
+
 
     </div>
   </div>
