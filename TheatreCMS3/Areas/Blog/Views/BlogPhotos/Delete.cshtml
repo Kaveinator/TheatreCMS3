@@ -1,7 +1,7 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogPhoto
 
 @{
-    ViewBag.Title = "Delete Blog Photo";
+    ViewBag.Title = "Delete this Blog Photo?";
 }
 
 
@@ -27,34 +27,20 @@
     <hr class="contact-title-underline" />
     <div class="container">
         <div class="row">
-            <h3>Are you sure you want to delete this?</h3>
-            <div>
-                <dl class="dl-horizontal">
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Title)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Title)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Photo)
-                    </dt>
-
-                    <dd>
-                        <img id="preview" src="/BlogPhotos/GetPhoto/@Model.BlogPhotoId" alt="@Model.Title" class="img-thumbnail" />
-                    </dd>
-
-                </dl>
+            <div class="position-relative m-auto">
+                <h3 class="text-center">@Html.DisplayFor(model => model.Title)</h3>
+                <img id="preview" src="/BlogPhotos/GetPhoto/@Model.BlogPhotoId" alt="@Model.Title" class="blog-photo-preview" />
 
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
 
-                    <div class="form-actions no-color">
-                        <input type="submit" value="Delete" class="btn blog-button btn-block" /> |
-                        @Html.ActionLink("Back to List", "Index")
+                    <div class="blog-delete-photo-buttons">
+                        <a class="blog-photo-button btn btn-sm" href="@Url.Action("Index", "BlogPhotos")"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to List</a>
+                        <a class="blog-photo-button btn btn-sm" href="@Url.Action("Edit", "BlogPhotos", new { id = Model.BlogPhotoId })">&#xf044; Edit</a>
+                    </div>
+                    <div class="form-actions blog-delete-button">
+                        <input type="submit" value="&#xf2ed; Delete" class="btn btn-sm cms-bg-main cms-text-light" /> 
                     </div>
                 }
             </div>
