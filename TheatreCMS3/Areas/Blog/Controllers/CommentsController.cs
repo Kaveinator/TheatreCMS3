@@ -130,14 +130,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // POST: Blog/Comments/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+  
+        public string DeleteConfirmed(int id)
         {
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return "The comment was deleted successfully";
         }
 
         protected override void Dispose(bool disposing)

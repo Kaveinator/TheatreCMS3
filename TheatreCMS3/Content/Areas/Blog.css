@@ -16,6 +16,7 @@
 .comment-btn {
     background-color: var(--secondary-color);
     color: var(--light-color);
+ 
 }
 
 .comment-del-btn {
@@ -153,4 +154,25 @@ form.blog-photo-form .form-control {
     bottom: 5px;
     right: 5px;
     font-family: 'Font Awesome 5 Free';
+}
+.progress {
+    height: 1vh;
+    width: 20%;
+    color: green;
+    background-color: red;
+}
+
+.successBadge {
+    overflow-x:hidden;
+    white-space: normal;
+    font-size: 1.1rem;
+    text-align:center;
+    background-color: #91f273;
+    color: #268d06;
+    border-radius: 20px;
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }
