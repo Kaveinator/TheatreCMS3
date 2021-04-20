@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
-<div>
-  <div class="badge badge-success successBadge">The comment was deleted successfully  <i class="fas fa-check"></i></div>
-</div>
+
+
 @foreach (var item in Model)
 {
   <div class="card cms-text-dark commentCard" data-CommentId="@item.CommentId">
@@ -21,9 +20,8 @@
       </Button>
       <label class="dislikes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes) </label>
 
+      @*Reply button*@
       <button class="btn fas fa-reply">Reply</button>
-
-
 
       <br />
       @*Progress bar*@

@@ -51,9 +51,10 @@ $(document).ready(function () {
             success: function (result) {               
                 console.log(result);
                 $("#deleteModal").modal('hide');
-                $(".commentCard[data-commentId=" + id + "]").remove();
-                $(".successBadge").fadeIn(100);
-                $(".successBadge").fadeOut(3000);
+                $(".commentCard[data-commentId=" + id + "]").animate({ height: "0px" }, 1000, function () { $(this).remove(); });
+                $(".successBadge").fadeIn(100).delay(3000).fadeOut(500);
+               
+                
                 
                 
                  

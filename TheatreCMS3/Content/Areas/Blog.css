@@ -32,11 +32,13 @@
 }
 
 .successBadge {
-    height: 6vh;
-    width: 100%;
-    font-size: large;
+    width: 40%;
+    font-size: 1.2em;
     background-color: #91f273;
     color: #268d06;
     border-radius: 20px;
     display: none;
+    position: fixed;
+    margin-left: 15%;
+    z-index: 3;
 }
