@@ -40,7 +40,7 @@ $(document).ready(function () {
     });
 
     //Confirm delete
-  
+
     $(".deleteConfirmed").click(function () {
         var id = $(this).attr("data-CommentId");
         var path = $(this).attr("data-CommentPath");
@@ -48,17 +48,13 @@ $(document).ready(function () {
             type: "POST",
             url: path,
             data: JSON.stringify({ "id": id }),
-            success: function (result) {               
+            success: function (result) {
                 console.log(result);
                 $("#deleteModal").modal('hide');
                 $(".commentCard[data-commentId=" + id + "]").animate({ height: "0px" }, 1000, function () { $(this).remove(); });
                 $(".successBadge").fadeIn(100).delay(3000).fadeOut(500);
-               
-                
-                
-                
-                 
+
             }
         });
-    });
-
+    })
+});
