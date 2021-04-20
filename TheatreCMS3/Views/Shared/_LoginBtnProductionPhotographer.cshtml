@@ -1,0 +1,18 @@
+﻿@using TheatreCMS3.Models
+@model LoginViewModel
+
+<link rel="stylesheet" href="~/Content/Areas/Prod.css" type="text/css" />
+
+@if (!Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Login", "Account", new { area = "", ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="photographer-login">
+            @Html.HiddenFor(m => m.EmailOrUsername, new { @Value = "ProductionPhotographer" })
+            @Html.HiddenFor(m => m.Password, new { @Value = "photos" })
+            @Html.HiddenFor(m => m.RememberMe, new { @Value = false })
+            <input type="submit" value="Login as Production Photographer" class="btn prod-btn" />
+        </div>
+    }
+}

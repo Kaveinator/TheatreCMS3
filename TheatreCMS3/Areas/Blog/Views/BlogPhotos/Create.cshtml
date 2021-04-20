@@ -1,0 +1,90 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogPhoto
+
+@{
+    ViewBag.Title = "Create Blog Photo";
+}
+
+<style>
+    body {
+        background-color: var(--main-color--light);
+        padding: 0;
+        margin: 0;
+    }
+
+    .container.body-content {
+        max-width: none;
+        padding: 0;
+    }
+</style>
+
+<div class="contact-header text-center cms-bg-dark w-100 pb-5 pt-5">
+    <h1 class="text-uppercase mt-5 mb-5 contact-h1">Blog</h1>
+</div>
+
+<div class="w-100 mb-5">
+    <h2 class="text-center mt-4 text-uppercase">@ViewBag.Title</h2>
+    <hr class="contact-title-underline" />
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="row">
+                @using (Html.BeginForm("Create", "BlogPhotos", FormMethod.Post, new { enctype = "multipart/form-data", @class = "blog-photo-form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group w-100">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-12" })
+                        <div class="col-12">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { placeholder = "Enter title for photo", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group w-100">
+                        @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-12" })
+                        <input class="col-12" type="file" id="file" name="File" accept="image/*" required />
+                        <div class="blog-form-photo-holder col-12 mt-2">
+                            <img id="imgPreview" src="#" alt="pic" />
+                        </div>
+                    </div>
+
+                    <script>
+                        $(document).ready(() => {
+                            $("#file").change(function () {
+                                const file = this.files[0];
+                                if (file) {
+                                    let reader = new FileReader();
+                                    reader.onload = function (event) {
+                                        $("#imgPreview").css("display", "block");
+                                        $("#imgPreview")
+                                            .attr("src", event.target.result);
+                                    };
+                                    reader.readAsDataURL(file);
+                                }
+                            });
+                        });
+                    </script>
+
+                    <div class="form-group w-100">
+                        <div class="col-md-offset-2 col-12">
+                            <input type="submit" value="Create" class="btn btn-block blog-button" />
+                        </div>
+                    </div>
+                    <div class="form-group w-100">
+                        <div class="col-md-offset-2 col-12">
+                            <a href="/Blog/BlogPhotos" class="blog-button-secondary btn btn-block">Back to List</a>
+                        </div>
+                    </div>
+                </div>
+                }
+
+                
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }
+            </div>
+        </div>
+    </div>
+</div>
