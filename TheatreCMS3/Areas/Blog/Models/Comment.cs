@@ -24,6 +24,7 @@ namespace TheatreCMS3.Areas.Blog.Models
 
         public string LikeRatio()
         {
+ 
             double likePercentage = (Convert.ToDouble(Likes) / (Convert.ToDouble(Likes) + Convert.ToDouble(Dislikes))) * 100;
             string likeRatio = likePercentage.ToString("0");
 

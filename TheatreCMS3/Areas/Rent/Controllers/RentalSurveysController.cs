@@ -4,139 +4,116 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    public class CommentsController : Controller
+    public class RentalSurveysController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/Comments
+        // GET: Rent/RentalSurveys
         public ActionResult Index()
         {
-        
-            return View(db.Comments.ToList());
+            return View(db.RentalSurveys.ToList());
         }
 
-        //POST: Blog/Comments/Addlike
-        [HttpPost]
-        public JsonResult AddLike(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            comment.Likes++;
-            db.SaveChanges();
-
-            return  Json(new {like = comment.Likes, ratio = comment.LikeRatio() });
-        }
-
-        //POST: Blog/Comments/AddDislike
-        [HttpPost]
-        public JsonResult AddDislike(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            comment.Dislikes++;
-            db.SaveChanges();
-
-            return (Json(new {dislike = comment.Dislikes, ratio= comment.LikeRatio() }));
-        }
-
-        // GET: Blog/Comments/Details/5
+        // GET: Rent/RentalSurveys/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
+            if (rentalSurveys == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalSurveys);
         }
 
-        // GET: Blog/Comments/Create
+        // GET: Rent/RentalSurveys/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/Comments/Create
+        // POST: Rent/RentalSurveys/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Author,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "SurveyID,RecommendRentalRating,RentalCost,ExperienceRating,Feedback")] RentalSurveys rentalSurveys)
         {
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                db.RentalSurveys.Add(rentalSurveys);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(comment);
+            return View(rentalSurveys);
         }
 
-        // GET: Blog/Comments/Edit/5
+        // GET: Rent/RentalSurveys/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
+            if (rentalSurveys == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalSurveys);
         }
 
-        // POST: Blog/Comments/Edit/5
+        // POST: Rent/RentalSurveys/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Edit([Bind(Include = "SurveyID,RecommendRentalRating,RentalCost,ExperienceRating,Feedback")] RentalSurveys rentalSurveys)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                db.Entry(rentalSurveys).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comment);
+            return View(rentalSurveys);
         }
 
-        // GET: Blog/Comments/Delete/5
+        // GET: Rent/RentalSurveys/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
+            if (rentalSurveys == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalSurveys);
         }
 
-        // POST: Blog/Comments/Delete/5
-  
-        public string DeleteConfirmed(int id)
+        // POST: Rent/RentalSurveys/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
+            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
+            db.RentalSurveys.Remove(rentalSurveys);
             db.SaveChanges();
-            return "The comment was deleted successfully";
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
