@@ -581,3 +581,25 @@ footer {
     width: 150px;
     border-top: 3px solid var(--main-color);
 }
+
+/*Donate Page*/
+.donate-form {
+    padding: 10px 0;
+}
+.donate-input {
+    border-radius: 10px;
+    width: 200px
+}
+.donate-name {
+    border-radius: 10px;
+    width: 100px;
+}
+
+.donate-label {
+   
+    width: 200px
+}
+
+.donate-submit {
+    color: #DB1A11;
+}
