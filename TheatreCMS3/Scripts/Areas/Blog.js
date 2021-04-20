@@ -1,7 +1,6 @@
 ﻿
 //Add like 
 $(document).ready(function () {
-    console.log("loaded");
     $(".likeBtn").click(function () {
         console.log("clicked");
         var id = $(this).attr("data-CommentId");
@@ -42,6 +41,7 @@ $(document).ready(function () {
     //Confirm delete
 
     $(".deleteConfirmed").click(function () {
+        console.log('clicked');
         var id = $(this).attr("data-CommentId");
         var path = $(this).attr("data-CommentPath");
         $.ajax({
@@ -57,4 +57,26 @@ $(document).ready(function () {
             }
         });
     })
+
+    //New Comment Button
+    $(".newCommentBtn").click(function () {
+        var message = $("#commentMessage").val();
+        var path = $(this).attr("data-CommentPath");
+        $.ajax({
+            type: "POST",
+            url: path,
+            data: {message: message},
+            success: function (result) {
+                console.log(result);
+                $("#commentMessage").val(null);
+            },
+            error: function (request, status, error) {
+                serviceError();
+            }
+        });
+    });
+
+    $(".cancelCommentBtn").click(function () {
+        $("#commentMessage").val(null);
+    });
 });

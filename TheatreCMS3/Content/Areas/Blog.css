@@ -48,3 +48,11 @@
 .cancelCommentBtn:hover {
     color: red;
 }
+
+.newCommentBtn {
+    border-color: gray;
+}
+.newCommentBtn:hover {
+    background-color: var(--secondary-color--dark);
+    color: white;
+}
