@@ -1,34 +1,55 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogPhoto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Blog Photo Details";
 }
 
-<h2>Details</h2>
+<style>
+    body {
+        background-color: var(--main-color--light);
+        padding: 0;
+        margin: 0;
+    }
 
-<div>
-    <h4>BlogPhoto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+    .container.body-content {
+        max-width: none;
+        padding: 0;
+    }
+</style>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
-        <dd>
-            <img id="preview" src="/BlogPhotos/GetPhoto/@Model.BlogPhotoId" alt="@Model.Title" class="img-thumbnail bg-dark" />
-        </dd>
-
-    </dl>
+<div class="contact-header text-center cms-bg-dark w-100 pb-5 pt-5">
+    <h1 class="text-uppercase mt-5 mb-5 contact-h1">Blog</h1>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPhotoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="w-100 mb-5">
+    <h2 class="text-center mt-4 text-uppercase">@ViewBag.Title</h2>
+    <hr class="contact-title-underline" />
+    <div class="container">
+        <div class="row">
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Photo)
+                    </dt>
+
+                    <dd>
+                        <img id="preview" src="/BlogPhotos/GetPhoto/@Model.BlogPhotoId" alt="@Model.Title" class="col-12" />
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPhotoId }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+</div>
