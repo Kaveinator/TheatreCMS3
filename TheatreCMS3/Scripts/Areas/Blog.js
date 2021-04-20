@@ -62,4 +62,14 @@ $(document).ready(function () {
         });
     });
 
+    //Create new comment
+    $(".newCommentBtn").click(function () {
+        $.ajax({
+            type: "POST",
+            url:
+
+        });
+    });
+
+
 });

@@ -14,6 +14,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
 {
     public class CommentsController : Controller
     {
+
+        protected internal PartialViewResult _CommentForm(Comment comment)
+        {
+            return PartialView(comment);
+        }
+
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Blog/Comments
