@@ -33,6 +33,7 @@
 
 .successBadge {
     overflow-x:hidden;
+    white-space: normal;
     font-size: 1.1rem;
     text-align:center;
     background-color: #91f273;
