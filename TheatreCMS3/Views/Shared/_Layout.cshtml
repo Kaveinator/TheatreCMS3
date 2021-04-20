@@ -23,13 +23,13 @@
     </div>
     @Html.Partial("_Footer")
     
-    @*@if (Request.Url.OriginalString.Contains("/Prod/"))*@
-    @*Checks to see if the first element of the URL after the domain is Prod*@
+    
+    @*If first url element after domain is Prod:*@
     @if (Request.Url.Segments.Length > 1)
     {
         if (Request.Url.Segments[1] == "Prod/")
         {
-            Html.Partial("_LoginBtnProductionPhotographer", new TheatreCMS3.Models.LoginViewModel());
+            @Html.Partial("_LoginBtnProductionPhotographer", new TheatreCMS3.Models.LoginViewModel());
         }
     }
 
