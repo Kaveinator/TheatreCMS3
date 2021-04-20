@@ -21,8 +21,16 @@
         @RenderBody()
     </div>
     @Html.Partial("_Footer")
-
-    @Html.Partial("_LoginBtnProductionPhotographer", new TheatreCMS3.Models.LoginViewModel())
+    
+    
+    @*If first url element after domain is Prod:*@
+    @if (Request.Url.Segments.Length > 1)
+    {
+        if (Request.Url.Segments[1] == "Prod/")
+        {
+            @Html.Partial("_LoginBtnProductionPhotographer", new TheatreCMS3.Models.LoginViewModel());
+        }
+    }
 
     @if (ViewContext.RouteData.DataTokens["area"] != null)
     {
