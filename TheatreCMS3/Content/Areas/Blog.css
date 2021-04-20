@@ -23,3 +23,29 @@
     color: var(--light-color);
 }
 
+.blogAuthor-btn {
+    background-color: #D6972A;
+    border: 1.5px solid black;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #D6972A;
+    text-align: center;
+    width: 120px;
+    height: 50px;
+    line-height: 1.1em;
+    font-size: 1.1em;
+}
+
+
+
+.btn-secondary {
+    background-color: var(--main-color--light);
+    color: white;
+    text-align: left;
+    width: 120px;
+    height: 30px;
+    line-height: 1.1em;
+    font-size: 1.1em;
+}

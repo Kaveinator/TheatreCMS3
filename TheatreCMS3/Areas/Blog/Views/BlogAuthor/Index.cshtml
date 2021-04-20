@@ -23,10 +23,22 @@
                 </p>
             </div>
             <div>
-                <button class="btn btn-primary"><a href="#edit" i class="fas fa-theater-masks"></i>Edit/Details</a></button>
-                <button class="btn btn-secondary" style="float:right"><a href="#delete"  i class="fas fa-theater-masks">Delete</a></button>
+                <a href="#Edit" class="btn btn-primary float-left">
+                    <i class="fas fa-theater-masks"></i>Edit</>
+                </a>
             </div>
-            
+            <div>
+                <a href="#Details" class="btn btn-primary float-left">
+                    <i class="fas fa-theater-masks"></i>Details</>
+                </a>
+            </div>
+            <div>
+                <a href="#Delete" class="btn btn-secondary float-right">
+                    <i class="fas fa-theater-masks"></i>Delete
+                </a>
+            </div>
+
+
         </div>
     </div>
     <div class="card-footer w-100 text-muted">
@@ -34,27 +46,27 @@
     </div>
 </div>
 
-@foreach (var item in Model)
+@foreach (var blogAuthor in Model)
 {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => blogAuthor.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Bio)
+            @Html.DisplayFor(modelItem => blogAuthor.Bio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Joined)
+            @Html.DisplayFor(modelItem => blogAuthor.Joined)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Left)
+            @Html.DisplayFor(modelItem => blogAuthor.Left)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.BlogAuthorid }) |
-            @Html.ActionLink("Details", "Details", new { id = item.BlogAuthorid }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.BlogAuthorid })
+            @Html.ActionLink("Edit", "Edit", new { id = blogAuthor.BlogAuthorid }) |
+            @Html.ActionLink("Details", "Details", new { id = blogAuthor.BlogAuthorid }) |
+            @Html.ActionLink("Delete", "Delete", new { id = blogAuthor.BlogAuthorid })
         </td>
     </tr>
 }
 
-</table>
+
