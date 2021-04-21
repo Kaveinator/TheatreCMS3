@@ -18,7 +18,7 @@
     <label class="dislikes" data-CommentId="@Model.CommentId">@Html.DisplayFor(modelItem => Model.Dislikes) </label>
 
     @*Reply button*@
-    <button class="btn fas fa-reply replyBtn">Reply</button>
+    <button class="btn fas fa-reply replyBtn" data-CommentId="@Model.CommentId">Reply</button>
 
     <br />
     @*Progress bar*@
@@ -35,11 +35,22 @@
 
 @*Hidden reply form*@
 <div class="hiddenComment" data-CommentId="@Model.CommentId">
-  @{
-    Html.RenderPartial("_CommentForm");
+  @using (Html.BeginForm())
+  {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+      <div class="form-group">
+        <input type="text" class="form-control" id="commentMessage" placeholder="Add a public comment...">
+      </div>
+
+      <div class="form-group">
+        <button type="button" class="btn cms-bg-secondary cms-text-light float-right newCommentBtn" data-CommentPath="@Url.Action("Create", "Comments")">Comment</button>
+        <button type="button" class="btn cms-bg-dark cms-bg-dark cms-text-light float-right cancelReplyBtn">Cancel</button>
+      </div>
+    </div>
   }
   <br />
 </div>
 
-  }
-</div>
+  
