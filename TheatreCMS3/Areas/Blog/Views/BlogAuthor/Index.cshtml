@@ -19,22 +19,8 @@
 @foreach (var blogAuthor in Model)
 {
 
-            @Html.DisplayFor(modelItem => blogAuthor.Name)
-        
-            @Html.DisplayFor(modelItem => blogAuthor.Bio)
-        
-            @Html.DisplayFor(modelItem => blogAuthor.Joined)
-        
-            @Html.DisplayFor(modelItem => blogAuthor.Left)
-        
-            @Html.ActionLink("Edit", "Edit", new { id = blogAuthor.BlogAuthorid }) 
-            @Html.ActionLink("Details", "Details", new { id = blogAuthor.BlogAuthorid }) 
-            @Html.ActionLink("Delete", "Delete", new { id = blogAuthor.BlogAuthorid })
-       
 
-    
-
-    <div class="card">
+    <div class="card mb-4">
         <div class="row no-gutters">
             <div class="col-auto">
                 <a href="https://placeholder.com"><img src="https://via.placeholder.com/150" class="img-fluid" alt="Blog Author"></a>
@@ -72,7 +58,11 @@
         <div class="card-footer w-100 text-muted">
 
         </div>
+        
+        
     </div>
 }
+    
+
 
 
