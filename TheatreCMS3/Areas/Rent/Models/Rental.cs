@@ -11,6 +11,7 @@ namespace TheatreCMS3.Areas.Rent.Models
     {
         [Key]
         public int RentalId { get; set; }
+        [Required]
         public string RentalName { get; set; }
         [DataType(DataType.Currency)]
         public decimal RentalCost { get; set; }
