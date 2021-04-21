@@ -486,6 +486,7 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_LoginBtnProductionPhotographer.cshtml" />
     <Content Include="Views\Shared\Restricted.cshtml" />
+    <Content Include="Views\Shared\_DevNavbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
