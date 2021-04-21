@@ -5,7 +5,7 @@
 
 }
 
-@Styles.Render("~/Content/Areas/Blog.css");
+@Styles.Render("~/Content/Areas/Blog.css")
 
 
 
@@ -14,44 +14,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<div class="card">
-    <div class="row no-gutters">
-        <div class="col-auto">
-            <a href="https://placeholder.com"><img src="https://via.placeholder.com/150" class="img-fluid" alt="Blog Author"></a>
-        </div>
-        <div class="col">
-            <div class="blogAuthor-Card text-left">
-                <p class="card-text">
-                    Author for Theater Vertigo<br />
-                    <b>John Smith</b><br />John is an experienced blog author with past creations in the<br />entertainment industry such as movies, television, and stage<br /><br />
-                </p>
-            </div>
-            <div>
-                <a href="#Edit" class="btn btn-primary float-left">
-                    <i class="fas fa-theater-masks"></i>Edit</>
-                </a>
-            </div>
-            <div>
-                <a href="#Details" class="btn btn-primary float-left">
-                    <i class="fas fa-theater-masks"></i>Details</>
-                </a>
-            </div>
-            <div>
-                <a href="#Delete" class="btn btn-secondary float-right">
-                    <i class="fas fa-theater-masks"></i>Delete
-                </a>
-            </div>
 
-
-        </div>
-    </div>
-    <div class="card-footer w-100 text-muted">
-        
-    </div>
-</div>
 
 @foreach (var blogAuthor in Model)
 {
+
+
     <tr>
         <td>
             @Html.DisplayFor(modelItem => blogAuthor.Name)
@@ -71,6 +39,46 @@
             @Html.ActionLink("Delete", "Delete", new { id = blogAuthor.BlogAuthorid })
         </td>
     </tr>
+
+    <div class="card">
+        <div class="row no-gutters">
+            <div class="col-auto">
+                <a href="https://placeholder.com"><img src="https://via.placeholder.com/150" class="img-fluid" alt="Blog Author"></a>
+            </div>
+            <div class="col">
+                <div class="blogAuthor-Card text-left">
+                    <p class="card-text">
+                        Author for Theater Vertigo<br />
+                        <b>John Smith</b><br />John is an experienced blog author with past creations in the<br />entertainment industry such as movies, television, and stage<br /><br />
+                    </p>
+                </div>
+                <div>
+                    <a href="#Edit" class="btn btn-edit float-left">
+                        <i class="fas fa-theater-masks"></i>Edit
+                    </a>
+
+                </div>
+                <div>
+                    <a href="#Details" class="btn btn-details float-left">
+                        <i class="fas fa-theater-masks"></i>Details
+                    </a>
+
+                </div>
+                <div>
+                    <a href="#Delete" class="btn btn-delete float-right">
+                        <i class="fas fa-theater-masks"></i>Delete
+                    </a>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="card-footer w-100 text-muted">
+
+        </div>
+    </div>
 }
 
 

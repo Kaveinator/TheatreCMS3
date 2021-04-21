@@ -49,7 +49,17 @@
     border: 1.5px solid black;
 }
 
-.btn-primary {
+.btn-edit {
+    color: white;
+    background-color: #D6972A;
+    text-align: center;
+    width: 120px;
+    height: 50px;
+    line-height: 1.1em;
+    font-size: 1.1em;
+}
+
+.btn-details {
     color: white;
     background-color: #D6972A;
     text-align: center;
@@ -61,10 +71,12 @@
 
 
 
-.btn-secondary {
+
+.btn-delete {
     background-color: red;
     color: white;
-    text-align: left;
+    padding-top: 10px;
+    text-align: center;
     width: 120px;
     height: 50px;
     line-height: 1.1em;
