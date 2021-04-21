@@ -30,6 +30,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         
         
         public IEnumerable<SelectListItem> ProductionsListItems { get; set; }   //List Box List-Items
+        
         public IEnumerable<string> SelectedProductions { get; set; }            //Underlying Value (ProdId) as string.
         
 

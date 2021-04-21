@@ -38,7 +38,7 @@
       @Html.LabelFor(model => model.Productions, htmlAttributes: new { @class = "prod-form-label" })<br />
 
 
-      @*@Html.ListBoxFor(model => model.SelectedProductions, (IEnumerable<SelectListItem>)ViewBag.Productions);*@
+      
       @Html.ListBoxFor(model => model.SelectedProductions, Model.ProductionsListItems);
 
 

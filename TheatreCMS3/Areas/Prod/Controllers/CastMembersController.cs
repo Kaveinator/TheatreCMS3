@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -34,6 +36,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CastMember castMember = db.CastMembers.Find(id);
+           
+            ViewBag.ProductionTitles = GetProductionTitles(castMember);
             if (castMember == null)
             {
                 return HttpNotFound();
@@ -57,7 +61,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IEnumerable<string> selectedProductions , [Bind(Include = "CastMemberID,Name,YearJoined,ProductionTitles,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, File")] CastMember castMember)
+        public ActionResult Create(IEnumerable<string> selectedProductions, [Bind(Include = "CastMemberID,Name,YearJoined,ProductionTitles,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, File")] CastMember castMember)
         {
            
             if (ModelState.IsValid)
@@ -112,33 +116,31 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( CastMember castMember, IEnumerable<string> selectedProductions)
-        {  
+        public ActionResult Edit(IEnumerable<string> selectedProductions, CastMember castMember)
+        {
             if (ModelState.IsValid)
             {
+                // Photo Upload
+                if (castMember.File != null)
+                    castMember.Photo = FileToBytes(castMember.File);
+
+                db.Entry(castMember).State = EntityState.Modified;    //Save non-Nav properties to db before altering Nav properties. 
+                db.SaveChanges();
+                
                 if (selectedProductions == null)             //Production ListBox Null Protection; needs improvement.
                 {
                     Content("<script language='javascript' type='text/javascript'>alert('Please Go Back and Select a Production!');</script>");
                     return RedirectToAction("Edit");
                 }
-                castMember.Productions.Clear();
-                castMember.SelectedProductions = selectedProductions;        //Save Production ListBox selection to model.
-                foreach (string selection in castMember.SelectedProductions)  //Then populate CastMember.Productions
+                var productions = db.Productions.ToHashSet<Production>();                                                                   //Create Productions List   
+                castMember = db.CastMembers.Include(x => x.Productions).FirstOrDefault(x => x.CastMemberId == castMember.CastMemberId);     //repopulate castMember from db. Needed for EF change-tracking
+                castMember.Productions.Clear();                                                                                             //Clear old Producitons
+                foreach (string selection in castMember.SelectedProductions)  //Then populate CastMem.Productions                           //Add new Production for each selection
                 {
                     int selectionInt = Int32.Parse(selection);
-
-                    db.Productions.Where(p => p.ProductionId == selectionInt).SingleOrDefault();
-                    castMember.Productions.Add(db.Productions.Where(p => p.ProductionId == selectionInt).SingleOrDefault());
+                    castMember.Productions.Add(productions.Where(p => p.ProductionId == selectionInt).SingleOrDefault());
                 }
-
-                // Convert uploaded file to byte[] if new photo is uploaded
-                if (castMember.File != null)
-                    castMember.Photo = FileToBytes(castMember.File);
-
-
-                db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
             return View(castMember);
         }
@@ -146,12 +148,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers/Delete/5
         public ActionResult Delete(int? id)
         {
-            ViewBag.ProductionList = db.Productions;
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CastMember castMember = db.CastMembers.Find(id);
+            ViewBag.ProductionTitles = GetProductionTitles(castMember);
             if (castMember == null)
             {
                 return HttpNotFound();
@@ -226,6 +229,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             var productionTitles = new List<string>();
 
             foreach (Production production in db.Productions)
+            {
+                productionTitles.Add(production.Title);
+            }
+            return productionTitles;
+        }
+        public List<string> GetProductionTitles(CastMember castMember)
+        {
+            var productionTitles = new List<string>();
+
+            foreach (Production production in castMember.Productions)
             {
                 productionTitles.Add(production.Title);
             }

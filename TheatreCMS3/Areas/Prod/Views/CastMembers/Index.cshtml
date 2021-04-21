@@ -21,7 +21,6 @@
           <hr class="cms-bg-main-light mt-2 pb-2"/>   <!--Divider Line-->
       </div>
 
-
       <div class="row mb-2">
         
         @foreach (var castMember in Model)   //For Each CastMember in that Production, Display Card
@@ -39,8 +38,24 @@
                 </div>
               </div>            
               <div class="card-body bg-dark text-light">
-                 @Html.DisplayFor(modelItem => castMember.Name)
-                 @Html.DisplayFor(modelItem => castMember.MainRole)
+                <p class="prod-form-label">
+                  @Html.DisplayFor(modelItem => castMember.Name)
+                </p>
+                <hr class="cms-bg-secondary mt-1 pb-1" />
+
+                @Html.DisplayFor(modelItem => castMember.MainRole)<br />
+
+                <!--Display Number of Productions each CastMember is a part of.-->
+                @if (castMember.Productions.Count > 1)
+                {
+                  <p>Member of:<br /> @castMember.Productions.Count Productions</p> <!--Singular-->
+                }
+                else
+                {
+                  <p>Member of:<br /> @castMember.Productions.Count Production</p> <!--Plural-->
+                }
+                
+
               </div>
           </div>
           }
