@@ -45,6 +45,12 @@
     z-index: 3;
 }
 
+.hiddenComment {
+    display: none;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
 .cancelCommentBtn:hover {
     color: red;
 }

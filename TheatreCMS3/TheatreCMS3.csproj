@@ -308,6 +308,7 @@
     <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\_Comments.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\_CommentForm.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\_Comment.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

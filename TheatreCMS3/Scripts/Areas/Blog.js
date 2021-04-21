@@ -1,5 +1,4 @@
-﻿
-//Add like 
+﻿//Add like 
 $(document).ready(function () {
     $(".likeBtn").click(function () {
         console.log("clicked");
@@ -62,21 +61,47 @@ $(document).ready(function () {
     $(".newCommentBtn").click(function () {
         var message = $("#commentMessage").val();
         var path = $(this).attr("data-CommentPath");
+        var thisPage = $(".commentList").attr("data-CommentPath");
+        //Sends input text to Create method in controller which creates a new comment in the Db with
+        //text input as comment Message
         $.ajax({
             type: "POST",
             url: path,
             data: {message: message},
             success: function (result) {
-                console.log(result);
-                $("#commentMessage").val(null);
+                //Replace input text with placeholder text
+                $("#commentMessage").val(null);                        
             },
             error: function (request, status, error) {
                 serviceError();
             }
         });
+        //Trying to make another ajax function that updates the list of comments without re-loading the page
+        $.ajax({
+            type: "GET",
+            url: thisPage,
+            success: function (data) {
+                console.log(data);
+                console.log('success');
+            }
+        });
     });
+
+    // Cancel comment Button
 
     $(".cancelCommentBtn").click(function () {
         $("#commentMessage").val(null);
     });
+
+    // Reply button 
+    //Trying to make it display the comment form below the comment who's reply button the user clicked
+    //So far can only get it to display the hidden form under every comment, or only under the comment 
+    //at the bottom
+
+    $(".replyBtn").click(function () {
+        var id = $(this).attr("data-CommentId")
+        console.log('clicked');
+        $(".hiddenComment[data-commentId=" + id + "]").toggle();
+    });
+
 });

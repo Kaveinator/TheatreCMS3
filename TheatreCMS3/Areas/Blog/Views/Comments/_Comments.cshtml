@@ -1,41 +1,55 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
+<div class="commentList" data-CommentPath="@Url.Action("Index", "Comments")">
 
+  @foreach (var item in Model)
+  {
+    @*Comment Card*@
+    <div class="card cms-text-dark commentCard" data-CommentId="@item.CommentId">
+      <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Author)</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@item.TimeSince()</h6>
+        <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
 
-@foreach (var item in Model)
-{
-  <div class="card cms-text-dark commentCard" data-CommentId="@item.CommentId">
-    <div class="card-body">
-      <h5 class="card-title">@Html.DisplayFor(modelItem => item.Author)</h5>
-      <h6 class="card-subtitle mb-2 text-muted">@item.TimeSince()</h6>
-      <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
+        @*Like button*@
+        <button class="btn fas fa-thumbs-up fa-sm likeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddLike", "Comments", new { id = item.CommentId })">
+        </button>
+        <label class="likes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Likes) </label>
 
-      @*Like button*@
-      <button class="btn fas fa-thumbs-up fa-sm likeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddLike", "Comments", new { id = item.CommentId })">
-      </button>
-      <label class="likes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Likes) </label>
+        @*Dislike button*@
+        <Button class="btn fas fa-thumbs-down fa-sm dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
+        </Button>
+        <label class="dislikes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes) </label>
 
-      @*Dislike button*@
-      <Button class="btn fas fa-thumbs-down fa-sm dislikeBtn" data-CommentId="@item.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = item.CommentId })">
-      </Button>
-      <label class="dislikes" data-CommentId="@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes) </label>
+        @*Reply button*@
+        <button class="btn fas fa-reply replyBtn">Reply</button>
 
-      @*Reply button*@
-      <button class="btn fas fa-reply replyBtn">Reply</button>
+        <br />
+        @*Progress bar*@
+        <div class="progress">
+          <div class="progress-bar bg-success" data-CommentId="@item.CommentId" role="progressbar" style="width: @item.LikeRatio()%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <label class="like-ratio" data-CommentId="@item.CommentId">@item.LikeRatio()% likes</label>
 
-      <br />
-      @*Progress bar*@
-      <div class="progress">
-        <div class="progress-bar bg-success" data-CommentId="@item.CommentId" role="progressbar" style="width: @item.LikeRatio()%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+        @*Trashcan icon delete button*@
+        <button type="button" class="btn fas fa-trash fa-mdb float-right cms-text-main trashcan" data-toggle="modal" data-target="#deleteModal" data-CommentPath="@Url.Action("DeleteConfirmed", "Comments", new { id = item.CommentId })" data-CommentId="@item.CommentId"></button>
+
       </div>
-      <label class="like-ratio" data-CommentId="@item.CommentId">@item.LikeRatio()% likes</label>
-
-      @*Trashcan icon delete button*@
-      <button type="button" class="btn fas fa-trash fa-mdb float-right cms-text-main trashcan" data-toggle="modal" data-target="#deleteModal" data-CommentPath="@Url.Action("DeleteConfirmed", "Comments", new { id = item.CommentId })" data-CommentId="@item.CommentId"></button>
-
     </div>
-  </div>
-}
+
+    @*Hidden reply form*@
+    <div class="hiddenComment" data-CommentId="@item.CommentId">
+      @{
+        Html.RenderPartial("_CommentForm");
+      }
+      <br />
+    </div>
+
+  }
+</div>
+
+
+
 
 @*Confirm delete modal*@
 <div class="modal cms-text-dark" id="deleteModal" tabindex="-1" role="dialog">
@@ -46,7 +60,7 @@
       </div>
       <div class="modal-footer">
 
-        @*deleteConfirmed button, should trigger second modal with confirmation and checkmark, and delete comment and hide it from page*@
+        @*deleteConfirmed button, triggers successBadge and removes comment*@
         <button type="button" class="btn btn-danger deleteConfirmed" data-CommentPath=" " data-CommentId=" ">Delete</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
