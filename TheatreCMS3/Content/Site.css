@@ -1,5 +1,4 @@
-﻿/* CSS color variables */
-:root { /* Color palette for css */
+﻿/* CSS color variables */:root { /* Color palette for css */
     --main-color: #DB1A11; /* Red */
     --main-color--light: #F04D44; /* Red, a shade lighter */
     --secondary-color: #D6972A; /* Yellow gold */
@@ -605,7 +604,4 @@ footer {
     width: 200px
 }
 
-.donate-submit {
-    color: #DB1A11;
-}
 
