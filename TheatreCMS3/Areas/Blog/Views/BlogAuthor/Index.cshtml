@@ -19,26 +19,20 @@
 @foreach (var blogAuthor in Model)
 {
 
-
-    <tr>
-        <td>
             @Html.DisplayFor(modelItem => blogAuthor.Name)
-        </td>
-        <td>
+        
             @Html.DisplayFor(modelItem => blogAuthor.Bio)
-        </td>
-        <td>
+        
             @Html.DisplayFor(modelItem => blogAuthor.Joined)
-        </td>
-        <td>
+        
             @Html.DisplayFor(modelItem => blogAuthor.Left)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = blogAuthor.BlogAuthorid }) |
-            @Html.ActionLink("Details", "Details", new { id = blogAuthor.BlogAuthorid }) |
+        
+            @Html.ActionLink("Edit", "Edit", new { id = blogAuthor.BlogAuthorid }) 
+            @Html.ActionLink("Details", "Details", new { id = blogAuthor.BlogAuthorid }) 
             @Html.ActionLink("Delete", "Delete", new { id = blogAuthor.BlogAuthorid })
-        </td>
-    </tr>
+       
+
+    
 
     <div class="card">
         <div class="row no-gutters">
@@ -49,7 +43,7 @@
                 <div class="blogAuthor-Card text-left">
                     <p class="card-text">
                         Author for Theater Vertigo<br />
-                        <b>@blogAuthor.Name</b><br />This professional is an experienced blog author with past creations in the<br />entertainment industry such as movies, television, and stage<br /><br />
+                        <b>@blogAuthor.Name</b><br />@blogAuthor.Name @blogAuthor.Bio
                     </p>
                 </div>
                 <div>
