@@ -16,7 +16,7 @@
 /*Rental Survey*/
 #survey-header {
     color: var(--secondary-color--dark);
-    padding-left: 370px;
+    text-align: center;
 }
 .survey-container {
     border-radius: 5px;
@@ -24,7 +24,6 @@
     padding: 10px;
     margin: 0 auto;
     max-width: 800px;
-    padding-left: 55px;
     width: 100%;
     
     
@@ -107,7 +106,7 @@
     text-decoration: none;
     text-align: center;
     }
-a:link {
+.survey-back-btn:active{
     color: white;
 }
 
