@@ -1,23 +1,22 @@
 ﻿<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" style="float:right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dev menu
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <a>Production Area</a>
+      Production Area
     @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Production Photos", "Index", "ProductionPhotos", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Productions", "Index", "Productions", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Calendar Events", "Index", "CalendarEvents", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
-    <a>Blog Area</a>
+      Blog Area
     @Html.ActionLink("Blog Post", "Index", "BlogPost", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Comments", "Index", "Comments", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Blog Author", "Index", "BlogAuthor", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Blog Photo", "Index", "BlogPhoto", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
-    <a>Rental area</a>
+      Rental area
     @Html.ActionLink("Rental Requests", "Index", "RentalRequests", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Rental", "Index", "Rentals", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Rental History", "Index", "RentalHistory", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
     @Html.ActionLink("Rental Survey", "Index", "RentalSurvey", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt navbar-hamburger--dropdownitem" })
   </div>
 </div>
-
