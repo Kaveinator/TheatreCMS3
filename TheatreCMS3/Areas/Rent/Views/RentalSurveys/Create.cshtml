@@ -6,6 +6,7 @@
 
 <h2 id="survey-header">Create Rental Survey</h2>
 
+
 <div class="survey-container">
     @using (Html.BeginForm())
     {
@@ -18,7 +19,7 @@
             @Html.LabelFor(model => model.RecommendRentalRating, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" id="survey-form">
                 @Html.EditorFor(model => model.RecommendRentalRating, new { htmlAttributes = new { @class = "form-control", @placeholder = "Would you recommend us to a friend that needed to rent theatre equipment?",} })
-                @Html.ValidationMessageFor(model => model.RecommendRentalRating, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.RecommendRentalRating, "", new { @class = "survey-text-danger" })
             </div>
         </div>
 
@@ -26,7 +27,7 @@
             @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please enter rental cost..." } })
-                @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "survey-text-danger" })
             </div>
         </div>
 
@@ -34,7 +35,7 @@
             @Html.LabelFor(model => model.ExperienceRating, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ExperienceRating, new { htmlAttributes = new { @class = "form-control", @placeholder = "How was your experience renting with us?" } })
-                @Html.ValidationMessageFor(model => model.ExperienceRating, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ExperienceRating, "", new { @class = "survey-text-danger" })
             </div>
         </div>
 
@@ -42,7 +43,7 @@
             @Html.LabelFor(model => model.Feedback, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Feedback, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please enter feedback..." } })
-                @Html.ValidationMessageFor(model => model.Feedback, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Feedback, "", new { @class = "survey-text-danger" })
             </div>
         </div>
 

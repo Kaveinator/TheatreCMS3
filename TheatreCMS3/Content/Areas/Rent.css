@@ -15,79 +15,94 @@
 
 /*Rental Survey*/
 #survey-header {
-    color: #D6972A;
+    color: var(--secondary-color--dark);
+    padding-left: 370px;
 }
 .survey-container {
     border-radius: 5px;
-    background-color: #DB1A11;
-    padding: 20px;
+    background-color: var(--main-color);
+    padding: 10px;
     margin: 0 auto;
+    max-width: 800px;
+    padding-left: 55px;
+    width: 100%;
+    
+    
+}
+.survey-form-group{
+    margin-top: 20px;
+    align-content: center;
+    
+}
+
+.survey-text-danger{
+    color: var(--dark-color);
 }
 .control-label {
-    color: #000000;
     font-size: 15px;
-    font-weight: bold;
 }
 .form-control:focus {
-    border-color: black;
-    box-shadow: inset 0 1px 1px #DB1A11;
+    border-color: var(--dark-color);
+    box-shadow: inset 0 1px 1px var(--main-color);
+    align-content: center;
 }
 #survey-btn {
-    color: #FFFBFB;
-    background-color: black;
+    color: var(--light-color);
+    background-color: var(--dark-color);
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
-    width: 500px;
-    height: 50px;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
     display: inline-block;
     padding: 0.46em 1.6em;
-    border: 0.1em solid #000000;
-    margin: 0 0.2em 0.2em 0;
+    border: 0.1em solid var(--dark-color);
     border-radius: 15px 15px;
-    box-sizing: border-box;
     text-decoration: none;
     font-family: 'Roboto',sans-serif;
     font-weight: 300;
-    text-shadow: 0 0.04em 0.04em #F04D44;
+    text-shadow: 0 0.04em 0.04em var(--main-color--light);
     transition: 0.15s;
     border: hidden;
+    
+    margin-top: 20px;
+    align-content: center;
 }
 #survey-btn:hover {
-    color:black;
-    background-color: #D6972A;
+    color:var(--dark-color);
+    background-color: var(--secondary-color);
     }
 .survey-back-btn {
-    color: black;
-    background-color: #D6972A;
-    text-decoration-color: #F04D44;
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    text-decoration-color: var(--main-color--light);
     text-decoration: none;
     text-align: center;
-    font-size: 20px;
-    width: 500px;
-    height: 50px;
+    font-size: 15px;
+    width: 100%;
+    height: 40px;
     display: inline-block;
     padding: 0.46em 1.6em;
-    border: 0.1em solid #000000;
-    margin: 0 0.2em 0.2em 0;
+    border: 0.1em solid var(--dark-color);
     border-radius: 15px 15px;
-    box-sizing: border-box;
     text-decoration: none;
     font-family: 'Roboto',sans-serif;
     font-weight: 300;
-    text-shadow: 0 0.04em 0.04em #F04D44;
-    ;
+    text-shadow: 0 0.04em 0.04em var(--main-color--light);
     transition: 0.15s;
     border: hidden;
     text-decoration-line: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    align-content: center;
 }
 
 
 
 .survey-back-btn:hover {
-    color: white;
-    background-color: black;
-    text-decoration-color: #F04D44;
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    text-decoration-color: var(--main-color--light);
     border-color: #FFFFFF;
     text-decoration: none;
     text-align: center;
