@@ -52,41 +52,68 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             "ChokingHazard,SuffocationHazard,PurchasePrice," +
             "RoomNumber,SquareFootage,MaxOccupancy")] AllRentals allrentals, string name)
         {
-            bool success = false;
+            //bool success = false;
+
             if (name == "rental")
             {
-                success = CreateRental(allrentals.Rental);
-                //if (ModelState.IsValid)
-                //{
-                //    db.Rentals.Add(allrentals.Rental);
-                //    db.SaveChanges();
-                //    return RedirectToAction("Index");
-                //}
+                Rental rental = new Rental()
+                {
+                    RentalName = allrentals.RentalName,
+                    RentalCost = allrentals.RentalCost,
+                    FlawsAndDamages = allrentals.FlawsAndDamages
+                };
+                //success = CreateRental(rental);
+
+                if (ModelState.IsValid)
+                {
+                    db.Rentals.Add(rental);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             else if (name == "equipment")
             {
-                success = CreateRental(allrentals.RentalEquipment);
-                //if (ModelState.IsValid)
-                //{
-                //    db.Rentals.Add(allrentals.RentalEquipment);
-                //    db.SaveChanges();
-                //    return RedirectToAction("Index");
-                //}
+                RentalEquipment equipment = new RentalEquipment()
+                {
+                    RentalName = allrentals.RentalName,
+                    RentalCost = allrentals.RentalCost,
+                    FlawsAndDamages = allrentals.FlawsAndDamages,
+                    ChokingHazard = allrentals.ChokingHazard,
+                    SuffocationHazard = allrentals.SuffocationHazard,
+                    PurchasePrice = allrentals.PurchasePrice
+                };
+                //success = CreateRental(equipment);
+                if (ModelState.IsValid)
+                {
+                    db.Rentals.Add(equipment);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             else if (name == "room")
             {
-                success = CreateRental(allrentals.RentalRoom);
-                //if (ModelState.IsValid)
-                //{
-                //    db.Rentals.Add(allrentals.RentalRoom);
-                //    db.SaveChanges();
-                //    return RedirectToAction("Index");
-                //}
+                RentalRoom room = new RentalRoom()
+                {
+                    RentalName = allrentals.RentalName,
+                    RentalCost = allrentals.RentalCost,
+                    FlawsAndDamages = allrentals.FlawsAndDamages,
+                    RoomNumber = allrentals.RoomNumber,
+                    SquareFootage = allrentals.SquareFootage,
+                    MaxOccupancy = allrentals.MaxOccupancy
+                };
+                //success = CreateRental(room);
+
+                if (ModelState.IsValid)
+                {
+                    db.Rentals.Add(room);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            if (success)
-            {
-                return RedirectToAction("Index");
-            }
+            //if (success)
+            //{
+            //    return RedirectToAction("Index");
+            //}
             return View(allrentals);
         }
 
