@@ -22,7 +22,7 @@ const newCommentEvent = (e) => {
             // Click Reply - show form
             jQueryResult.find('.replyBtn').click(replyEvent);
             // Add New Reply Comment - submit new reply comment
-            jQueryResult.find('.replyCommentBtn').click(newCommentEvent);
+            jQueryResult.find('.replySubmitBtn').click(newReplySubmitEvent);
             // Cancel Reply - hide form
             jQueryResult.find('.cancelReplyBtn').click(cancelReplyEvent);
             // Add new comment to top of the list
@@ -90,11 +90,47 @@ const cancelReplyEvent = (e) => {
     $(".hiddenComment[data-commentId=" + id + "]").fadeOut(100);
 }
 
-// Add New Reply Comment Event
-//const addNewReplyEvent = (e) => {
-//    var message = $("#commentMessage").val();
+// Add New Reply Submit Comment Event
+const newReplySubmitEvent = (e) => {
+    console.log('new reply submit clicked');
+    // Get text from box
+    var message = $('#replyMessage').val();
+    var id = e.target.getAttribute("data-CommentId");
+    var path = e.target.getAttribute("data-CommentPath");
+    // Create new comment and add to list
+    $.ajax({
+        type: "POST",
+        url: path,
+        data: { message: message },
+        success: function (result) {
+            //Replace input text with placeholder text
+            $("#commentMessage").val(null);
+            var jQueryResult = $(result);
+            // Add like
+            jQueryResult.find('.likeBtn').click(addLikeEvent);
+            // Add Dislike
+            jQueryResult.find('.dislikeBtn').click(addDislikeEvent);
+            // Click Trashcan
+            jQueryResult.find('.trashcan').click(trashcanEvent);
+            // Click Reply - show form
+            jQueryResult.find('.replyBtn').click(replyEvent);
+            // Add New Reply Comment - submit new reply comment
+            jQueryResult.find('.replySubmitBtn').click(newReplySubmitEvent);
+            // Cancel Reply - hide form
+            jQueryResult.find('.cancelReplyBtn').click(cancelReplyEvent);
+            // Add new comment to top of the list
+            $(".newComment").prepend(jQueryResult);
+        },
+        error: function (request, status, error) {
+            serviceError();
+        }
+    });
 
-//}
+    // Hide Form
+    $(".hiddenComment[data-commentId=" + id + "]").fadeOut(100);
+}
+
+//
 
 $(document).ready(function () {
 
@@ -142,7 +178,7 @@ $(document).ready(function () {
     $('.cancelReplyBtn').click(cancelReplyEvent); 
 
     // Add New Reply Comment
-    $('.replyCommentBtn').click(newCommentEvent)
+    $('.replySubmitBtn').click(newReplySubmitEvent);
 
 });
 
