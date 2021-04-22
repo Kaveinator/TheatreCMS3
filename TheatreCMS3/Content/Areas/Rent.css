@@ -11,3 +11,26 @@
     /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+/* ----Rental History----*/
+
+.rentalHistory-container {
+    display:flex;
+    justify-content:center;
+}
+
+.rentalHistory-Form{
+    max-width: 600px;
+    color: var(--light-color);
+    text-align: left;
+    background-color: var(--main-color);
+    border-radius: 20px;
+    padding-top: 10px;
+    font-weight: bolder;
+}
+
+.rentalHistory-Btn {
+    display:flex;
+    justify-content:center
+}
+
