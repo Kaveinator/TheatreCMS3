@@ -1,39 +1,51 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPhoto>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Blog Photos";
 }
 
-<h2>Index</h2>
+<style>
+    body {
+        background-color: var(--main-color--light);
+        padding: 0;
+        margin: 0;
+    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table-responsive cms-text-light">
-    <tr>
-        <th scope="col" class="w-25">
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th scope="col" class="w-50">
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th scope="col" class="w-25"></th>
-    </tr>
+    .container.body-content {
+        max-width: none;
+        padding: 0;
+    }
+</style>
 
-@foreach (var item in Model) {
-    <tr>
-        <td class="align-top">
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td class="align-top">
-            <img id="preview" src="/BlogPhotos/GetPhoto/@item.BlogPhotoId" alt="@item.Title" class="img-thumbnail" />
-        </td>
-        <td class="align-top pl-4">
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPhotoId })
-        </td>
-    </tr>
-}
+<div class="contact-header text-center cms-bg-dark w-100 pb-5 pt-5">
+    <h1 class="text-uppercase mt-5 mb-5 contact-h1">Blog</h1>
+</div>
 
-</table>
+<div class="w-100 mb-5">
+    <h2 class="text-center mt-4 text-uppercase">@ViewBag.Title</h2>
+    <hr class="contact-title-underline" />
+    <div class="container">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <div class="card-columns text-center">
+            @foreach (var item in Model)
+            {
+                <div class="card blog-card">
+                    <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })">
+                        <div class="blog-card-overlay"></div>
+                        <h5 class="card-title show-hover">@Html.DisplayFor(modelItem => item.Title)</h5>
+
+                        <img class="card-img-top" id="preview" src="/BlogPhotos/GetPhoto/@item.BlogPhotoId" alt="@item.Title" />
+                    </a>
+
+                    <div class="card-body blog-photo-buttons show-hover">
+                        <a class="blog-photo-button btn btn-sm" href="@Url.Action("Edit", "BlogPhotos", new { id = item.BlogPhotoId })">Edit</a>
+                        <a class="blog-photo-button btn btn-sm" href="@Url.Action("Delete", "BlogPhotos", new { id = item.BlogPhotoId })">Delete</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

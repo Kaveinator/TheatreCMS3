@@ -2,19 +2,13 @@
 
 @{
     ViewBag.Title = "Index";
-
 }
-
-@Styles.Render("~/Content/Areas/Blog.css")
-
-
 
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
 
 @foreach (var blogAuthor in Model)
 {

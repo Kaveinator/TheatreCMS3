@@ -22,9 +22,16 @@ namespace TheatreCMS3.Areas.Blog.Models
             CommentDate = DateTime.Now.ToUniversalTime();         
         }
 
-        public double LikeRatio()
+        public string LikeRatio()
         {
-            double likeRatio = Likes / (Likes + Dislikes);
+ 
+            double likePercentage = (Convert.ToDouble(Likes) / (Convert.ToDouble(Likes) + Convert.ToDouble(Dislikes))) * 100;
+            string likeRatio = likePercentage.ToString("0");
+
+            if (Likes == 0 & Dislikes == 0)
+            {
+                likeRatio = "50";
+            }
             return likeRatio;
         }
         

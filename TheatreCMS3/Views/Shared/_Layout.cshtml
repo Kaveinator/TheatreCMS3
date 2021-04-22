@@ -17,20 +17,28 @@
 </head>
 <body>
     @Html.Partial("_Navbar")
+    @Html.Partial("_DevNavbar")
     <div class="container body-content">
         @RenderBody()
-        <hr />
     </div>
     @Html.Partial("_Footer")
-
-    @Html.Partial("_LoginBtnProductionPhotographer", new TheatreCMS3.Models.LoginViewModel())
-
-    @if (ViewContext.RouteData.DataTokens["area"] != null)
+    
+    
+    @*If first url element after domain is Prod:*@
+    @if (Request.Url.Segments.Length > 1)
     {
-        <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
+        if (Request.Url.Segments[1] == "Prod/")
+        {
+            @Html.Partial("_LoginBtnProductionPhotographer", new TheatreCMS3.Models.LoginViewModel());
+        }
     }
-    @RenderSection("scripts", required: false)
 
-    @Scripts.Render("~/bundles/bootstrap")
+  @if (ViewContext.RouteData.DataTokens["area"] != null)
+  {
+    <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
+  }
+  @RenderSection("scripts", required: false)
+
+  @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
