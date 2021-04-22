@@ -311,23 +311,25 @@ footer {
     flex-wrap: wrap;
     width: auto;
     height: auto;
-    background-color:black;
+    text-align: center;
+    background-color: black;
 }
 
 .aboutPage-Card-Img {
     display: flex;
     width: 200px;
     height: 200px;
-    object-fit: cover;
     border-radius: 50%;
     background-color: black;
+    object-fit: cover;
+
 }
 
-    .aboutPage-Card-Img:hover {
-        background-color: var(--dark-color);
-        opacity: .8;
-        transition: .15s;
-    }
+.aboutPage-Card-Img:hover {
+    background-color: var(--dark-color);
+    opacity: .8;
+    transition: .15s;
+}
 
 .aboutPage-Card:hover {
     /*border-color: var(--secondary-color);
@@ -398,6 +400,7 @@ footer {
 
 .aboutPage-History {
     text-align: center;
+    background-color: var(--main-color-light);
     color: var(--light-color);
     padding: 40px;
 }
@@ -409,13 +412,18 @@ footer {
     background-color: black;
 }
 
-
-
-.aboutPage-footer {
-    background-color: black;
+.aboutPage-About Us {
+    text-align: center;
+    color: var(--light-color);
+    padding: 40px;
+    
 }
 
 .aboutPage-h3 {
+    color: white;
+    text-align:center;
+    padding: 15px;
+    font-weight: bold;
     font-family: Broadway;
     font-size: 4vw;
     position: center;
@@ -605,7 +613,15 @@ footer {
     width: 200px
 }
 
-.donate-submit {
-    color: #DB1A11;
+.donate-submit
+{
+    color: var(--main-color);
 }
 
+
+
+#dropdownMenu2 {
+    position: fixed;
+    right: 0;
+    z-index: 1;
+}
