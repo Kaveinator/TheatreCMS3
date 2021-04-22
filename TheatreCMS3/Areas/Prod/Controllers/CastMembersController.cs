@@ -141,8 +141,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                     castMember.Productions.Add(productions.Where(p => p.ProductionId == selectionInt).SingleOrDefault());
                 }
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
             return View(castMember);
+            
         }
 
         // GET: Prod/CastMembers/Delete/5

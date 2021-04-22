@@ -26,37 +26,39 @@
         @foreach (var castMember in Model)   //For Each CastMember in that Production, Display Card
         {
            List<string> titlesList = castMember.Productions.Select(x => x.Title).ToList();
-           if (titlesList.Contains(title)) { 
+           if (titlesList.Contains(title)) 
+           { 
+             <div class="card bg-dark m-sm-auto w-25">            
+                <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
 
-           <div class="card bg-dark m-sm-auto w-25">            
-              <img src="data:image;base64,@System.Convert.ToBase64String(castMember.Photo)" class=" card-img-top">
-              <div class="prod-overlay text-center">
-                @Html.ActionLink("Details", "Details",null, new {id = castMember.CastMemberId }, new {@class = "detailsLink fas fa-edit" }) <!--Overlay link to Details-->
-                <div class=" prod-overlay-icon-container text-center ">
-                  <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberId } ) title="Edit"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
-                  <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberId } ) title="Delete"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
-                </div>
-              </div>            
-              <div class="card-body bg-dark text-light">
-                <p class="prod-form-label">
-                  @Html.DisplayFor(modelItem => castMember.Name)
-                </p>
-                <hr class="cms-bg-secondary mt-1 pb-1" />
+                <div class="prod-overlay text-center">
+                  @Html.ActionLink("Details", "Details",null, new {id = castMember.CastMemberId }, new {@class = "detailsLink fas fa-edit" }) <!--Overlay link to Details-->
+                  <div class=" prod-overlay-icon-container text-center ">
+                    <a href=@Url.Action("Edit", "CastMembers", new { id = castMember.CastMemberId } ) title="Edit"><i class="far fa-edit fa-2x prod-icon mr-2"></i></a>
+                    <a href=@Url.Action("Delete", "CastMembers", new { id = castMember.CastMemberId } ) title="Delete"><i class="fas fa-user-times fa-2x prod-icon ml-2"></i></a> 
+                  </div>
+                </div> 
+               
+                <div class="card-body bg-dark text-light">
+                   <p class="prod-form-label">
+                     @Html.DisplayFor(modelItem => castMember.Name)
+                   </p>
+                   <hr class="cms-bg-secondary mt-1 pb-1" />
 
-                @Html.DisplayFor(modelItem => castMember.MainRole)<br />
+                   @Html.DisplayFor(modelItem => castMember.MainRole)<br />
 
-                <!--Display Number of Productions each CastMember is a part of.-->
-                @if (castMember.Productions.Count > 1)
-                {
-                  <p>Member of:<br /> @castMember.Productions.Count Productions</p> <!--Singular-->
-                }
-                else
-                {
-                  <p>Member of:<br /> @castMember.Productions.Count Production</p> <!--Plural-->
-                }
+                     <!--Display Number of Productions each CastMember is a part of.-->
+                   @if (castMember.Productions.Count > 1)
+                   {
+                     <p>Member of:<br /> @castMember.Productions.Count Productions</p> <!--Singular-->
+                   }
+                   else
+                   {
+                     <p>Member of:<br /> @castMember.Productions.Count Production</p> <!--Plural-->
+                   }
                 
 
-              </div>
+                  </div>
           </div>
           }
         }
