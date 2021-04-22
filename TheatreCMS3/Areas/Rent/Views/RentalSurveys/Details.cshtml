@@ -4,47 +4,50 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center" id="survey-header">Details for Rental Survey</h2>
 
-<div>
-    <h4>RentalSurveys</h4>
+<div class="survey-container" id="delete-container">
+
     <hr />
+
     <dl class="dl-horizontal">
-        <dt>
+        <dt class="delete-form-name">
             @Html.DisplayNameFor(model => model.RecommendRentalRating)
         </dt>
 
-        <dd>
+        <dd class="delete-display">
             @Html.DisplayFor(model => model.RecommendRentalRating)
         </dd>
 
-        <dt>
+        <dt class="delete-form-name">
             @Html.DisplayNameFor(model => model.RentalCost)
         </dt>
 
-        <dd>
+        <dd class="delete-display">
             @Html.DisplayFor(model => model.RentalCost)
         </dd>
 
-        <dt>
+        <dt class="delete-form-name">
             @Html.DisplayNameFor(model => model.ExperienceRating)
         </dt>
 
-        <dd>
+        <dd class="delete-display">
             @Html.DisplayFor(model => model.ExperienceRating)
         </dd>
 
-        <dt>
+        <dt class="delete-form-name">
             @Html.DisplayNameFor(model => model.Feedback)
         </dt>
 
-        <dd>
+        <dd class="delete-display">
             @Html.DisplayFor(model => model.Feedback)
         </dd>
 
     </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SurveyID }) |
-    @Html.ActionLink("Back to List", "Index")
+
+    <p>
+       
+        @Html.ActionLink("Edit", "Edit", new { id = Model.SurveyID }, new { @class = "details-survey-btn"})
+@Html.ActionLink("Back to List", "Index", null, new { @class = "delete-survey-back-btn " })
 </p>
+</div>
