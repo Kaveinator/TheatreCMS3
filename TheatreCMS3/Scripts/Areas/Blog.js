@@ -62,7 +62,7 @@
 
             }
         });
-    })
+    });
 
     //New Comment Button
     $(".newCommentBtn").click(function () {
@@ -78,12 +78,23 @@
                 //Replace input text with placeholder text
                 $("#commentMessage").val(null);
                 var jQueryResult = $(result);
-                console.log(result)
+                console.log(jQueryResult);
+                //add function to trashcan
                 jQueryResult.find('.trashcan').click(function () {
-                    console.log('test');
+                    console.log('new trashcan clicked');
                     $(".deleteConfirmed").attr('data-CommentPath', $(this).attr("data-CommentPath"));
                     $(".deleteConfirmed").attr('data-CommentId', $(this).attr("data-CommentId"));
                 });
+                //add function to like button
+                jQueryResult.find('.likeBtn').click(function () {
+                    var id = $(this).attr("data-CommentId");
+                    console.log('new like button clicked');
+                    $(".likes").html();
+                    $(".progress-bar[data-CommentId=" + id + "]").css('width', result.ratio + '%');
+                    $(".like-ratio[data-CommentId=" + id + "]").html(result.ratio + '% likes');
+
+                });
+
                 $(".newComment").prepend(jQueryResult);
             },
             error: function (request, status, error) {
@@ -110,10 +121,18 @@
 
     //Cancel Reply Button
     $('.cancelReplyBtn').click(function () {
-        console.log('cancel reply button clicked');
         var id = $(this).attr("data-CommentId");
-        $(".hiddenComment[data-commentId=" + id + "]").fadeOut(100);
+        console.log('cancel reply button clicked');
+        //var id = $(this).attr("data-CommentId");
+        $(".hiddenComment").fadeOut(100);
     });
 
     
 });
+
+
+    //$(".newCommentBtn").click(function () {
+    //    var message = $("#commentMessage").val();
+    //    $(".newComment").load("/Blog/Comments/Create", { message: message });
+
+    //});
