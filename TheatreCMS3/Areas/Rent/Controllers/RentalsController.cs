@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Rent.ViewModels;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
@@ -47,16 +48,59 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages," +
+            "ChokingHazard,SuffocationHazard,PurchasePrice," +
+            "RoomNumber,SquareFootage,MaxOccupancy")] AllRentals allrentals, string name)
+        {
+            bool success = false;
+            if (name == "rental")
+            {
+                success = CreateRental(allrentals.Rental);
+                //if (ModelState.IsValid)
+                //{
+                //    db.Rentals.Add(allrentals.Rental);
+                //    db.SaveChanges();
+                //    return RedirectToAction("Index");
+                //}
+            }
+            else if (name == "equipment")
+            {
+                success = CreateRental(allrentals.RentalEquipment);
+                //if (ModelState.IsValid)
+                //{
+                //    db.Rentals.Add(allrentals.RentalEquipment);
+                //    db.SaveChanges();
+                //    return RedirectToAction("Index");
+                //}
+            }
+            else if (name == "room")
+            {
+                success = CreateRental(allrentals.RentalRoom);
+                //if (ModelState.IsValid)
+                //{
+                //    db.Rentals.Add(allrentals.RentalRoom);
+                //    db.SaveChanges();
+                //    return RedirectToAction("Index");
+                //}
+            }
+            if (success)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(allrentals);
+        }
+
+        //Maybe try renaming the below methods, and then in the above, say "if name == xyz then add to database"
+        //Also, you will need to pass everything in above.
+        public bool CreateRental(Rental rental)
         {
             if (ModelState.IsValid)
             {
                 db.Rentals.Add(rental);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return true;
             }
-
-            return View(rental);
+            return false;
         }
 
         // GET: Rent/Rentals/Edit/5
