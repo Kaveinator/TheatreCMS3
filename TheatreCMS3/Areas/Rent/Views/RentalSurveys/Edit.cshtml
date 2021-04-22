@@ -17,38 +17,38 @@
             @Html.HiddenFor(model => model.SurveyID)
 
             <div class="survey-form-group">
-                @Html.LabelFor(model => model.RecommendRentalRating, htmlAttributes: new { @class = "control-label col" })
+                @Html.LabelFor(model => model.RecommendRentalRating, htmlAttributes: new { @class = "survey-label control-label col" })
                 <div class="col" id="survey-form">
-                    @Html.EditorFor(model => model.RecommendRentalRating, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.RecommendRentalRating, new { htmlAttributes = new { @class = "survey-form form-control" } })
                     @Html.ValidationMessageFor(model => model.RecommendRentalRating, "", new { @class = "survey-text-danger" })
                 </div>
             </div>
 
             <div class="survey-form-group">
-                @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col" })
+                @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "survey-label control-label col" })
                 <div class="col" id="survey-form">
-                    @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "survey-form form-control" } })
                     @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "survey-text-danger" })
                 </div>
             </div>
 
             <div class="survey-form-group">
-                @Html.LabelFor(model => model.ExperienceRating, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => model.ExperienceRating, htmlAttributes: new { @class = "survey-label control-label" })
                 <div class="col">
-                    @Html.EditorFor(model => model.ExperienceRating, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.ExperienceRating, new { htmlAttributes = new { @class = "survey-form form-control" } })
                     @Html.ValidationMessageFor(model => model.ExperienceRating, "", new { @class = "survey-text-danger" })
                 </div>
             </div>
 
             <div class="survey-form-group">
-                @Html.LabelFor(model => model.Feedback, htmlAttributes: new { @class = "control-label col" })
+                @Html.LabelFor(model => model.Feedback, htmlAttributes: new { @class = "survey-label control-label col" })
                 <div class="col">
-                    @Html.EditorFor(model => model.Feedback, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Feedback, new { htmlAttributes = new { @class = " survey-form form-control" } })
                     @Html.ValidationMessageFor(model => model.Feedback, "", new { @class = "survey-text-danger" })
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="survey-form form-group">
                 <div class="col text-center">
                     <input type="submit" value="Save" id="survey-btn" />
                 </div>
