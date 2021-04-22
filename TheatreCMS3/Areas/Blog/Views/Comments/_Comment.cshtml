@@ -1,0 +1,56 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.Comment
+
+@*Comment Card*@
+<div class="card cms-text-dark commentCard" data-CommentId="@Model.CommentId">
+  <div class="card-body">
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Author)</h5>
+    <h6 class="card-subtitle mb-2 text-muted">@Model.TimeSince()</h6>
+    <p class="card-text">@Html.DisplayFor(modelItem => Model.Message)</p>
+
+    @*Like button*@
+    <button class="btn fas fa-thumbs-up fa-sm likeBtn" data-CommentId="@Model.CommentId" data-CommentPath="@Url.Action("AddLike", "Comments", new { id = Model.CommentId })">
+    </button>
+    <label class="likes" data-CommentId="@Model.CommentId">@Html.DisplayFor(modelItem => Model.Likes) </label>
+
+    @*Dislike button*@
+    <Button class="btn fas fa-thumbs-down fa-sm dislikeBtn" data-CommentId="@Model.CommentId" data-CommentPath="@Url.Action("AddDislike", "Comments", new { id = Model.CommentId })">
+    </Button>
+    <label class="dislikes" data-CommentId="@Model.CommentId">@Html.DisplayFor(modelItem => Model.Dislikes) </label>
+
+    @*Reply button*@
+    <button class="btn fas fa-reply replyBtn" data-CommentId="@Model.CommentId">Reply</button>
+
+    <br />
+    @*Progress bar*@
+    <div class="progress">
+      <div class="progress-bar bg-success" data-CommentId="@Model.CommentId" role="progressbar" style="width: @Model.LikeRatio()%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <label class="like-ratio" data-CommentId="@Model.CommentId">@Model.LikeRatio()% likes</label>
+
+    @*Trashcan icon delete button*@
+    <button type="button" class="btn fas fa-trash fa-mdb float-right cms-text-main trashcan" data-toggle="modal" data-target="#deleteModal" data-CommentPath="@Url.Action("DeleteConfirmed", "Comments", new { id = Model.CommentId })" data-CommentId="@Model.CommentId"></button>
+
+  </div>
+</div>
+
+@*Hidden reply form*@
+<div class="hiddenComment" data-CommentId="@Model.CommentId">
+  @using (Html.BeginForm())
+  {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+      <div class="form-group">
+        <input type="text" class="form-control commentMessage" id="replyMessage" data-CommentId="@Model.CommentId" placeholder="Add a reply...">
+      </div>
+
+      <div class="form-group">
+        <button type="button" class="btn cms-bg-secondary cms-text-light float-right replySubmitBtn" data-CommentId="@Model.CommentId" data-CommentPath="@Url.Action("Create", "Comments")">Reply</button>
+        <button type="button" class="btn cms-bg-dark cms-bg-dark cms-text-light float-right cancelReplyBtn" data-CommentId="@Model.CommentId">Cancel</button>
+      </div>
+    </div>
+  }
+  <br />
+</div>
+
+  
