@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using TheatreCMS3.Areas.Rent.Models;
 
 namespace TheatreCMS3.Models
 {
@@ -38,7 +39,9 @@ namespace TheatreCMS3.Models
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.Rental> Rentals { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalEquipment> RentalEquipment { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalRoom> RentalRooms { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalRequest> RentalRequest { get; set; }
 
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
