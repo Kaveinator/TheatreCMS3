@@ -64,7 +64,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 };
                 //success = CreateRental(rental);
 
-                if (ModelState.IsValid)
+                if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                    ModelState.IsValidField("FlawsAndDamages"))
                 {
                     db.Rentals.Add(rental);
                     db.SaveChanges();
@@ -83,7 +84,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     PurchasePrice = allrentals.PurchasePrice
                 };
                 //success = CreateRental(equipment);
-                if (ModelState.IsValid)
+                if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                    ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("ChokingHazard") &&
+                    ModelState.IsValidField("SuffocationHazard") && ModelState.IsValidField("PurchasePrice"))
                 {
                     db.Rentals.Add(equipment);
                     db.SaveChanges();
@@ -103,7 +106,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 };
                 //success = CreateRental(room);
 
-                if (ModelState.IsValid)
+                if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                    ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("RoomNumber") &&
+                    ModelState.IsValidField("SquareFootage") && ModelState.IsValidField("MaxOccupancy"))
                 {
                     db.Rentals.Add(room);
                     db.SaveChanges();
@@ -115,19 +120,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             //    return RedirectToAction("Index");
             //}
             return View(allrentals);
-        }
-
-        //Maybe try renaming the below methods, and then in the above, say "if name == xyz then add to database"
-        //Also, you will need to pass everything in above.
-        public bool CreateRental(Rental rental)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Rentals.Add(rental);
-                db.SaveChanges();
-                return true;
-            }
-            return false;
         }
 
         // GET: Rent/Rentals/Edit/5

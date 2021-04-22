@@ -15,3 +15,9 @@
     }
     document.getElementById("rentalType").value = value
 }
+
+//(function ($) {
+//    $.fn.rentalChange1 = function () {
+
+//    }
+//}
