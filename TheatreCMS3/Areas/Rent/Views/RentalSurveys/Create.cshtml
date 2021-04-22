@@ -1,50 +1,65 @@
-﻿@model TheatreCMS3.Areas.Rent.Models.RentalSurvey
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalSurveys
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2 style="text-align: center"><br />Create Rental Survey</h2><br />
+<h2 class="text-center" id="survey-header">Create Rental Survey</h2>
 
-<div class="rental-survey-container">
+
+<div class="survey-container">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
     <div class="form-horizontal">
-        <div class="form-group">
-            @Html.LabelFor(model => model.RecommendRentalRating, "Would you recommend us to a friend who needs to rent theatre equipment?", htmlAttributes: new { @class = "control-label rental-survey-control-label col-md" })
-            @Html.EditorFor(model => model.RecommendRentalRating, new { htmlAttributes = new { @class = "form-control input rental-survey-input", placeholder = "Please answer yes or no" } })
-            @Html.ValidationMessageFor(model => model.RecommendRentalRating, "", new { @class = "text-danger" })
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="survey-form form-group">
+            @Html.LabelFor(model => model.RecommendRentalRating, htmlAttributes: new { @class = "survey-label control-label col" })
+            <div class="col" id="survey-form">
+                @Html.EditorFor(model => model.RecommendRentalRating, new { htmlAttributes = new { @class = "survey-form form-control", @placeholder = "Would you recommend us to a friend that needed to rent theatre equipment?",} })
+                @Html.ValidationMessageFor(model => model.RecommendRentalRating, "", new { @class = "survey-text-danger" })
+            </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalCost, "What was the overall cost for your rental?", htmlAttributes: new { @class = "control-label rental-survey-control-label col-md" })
-            @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control input rental-survey-input", placeholder = "00.00" } })
-            @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+        <div class="survey-form form-group">
+            @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "survey-label control-label col" })
+            <div class="col">
+                @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "survey-form form-control", @placeholder = "Please enter rental cost..." } })
+                @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "survey-text-danger" })
+            </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ExperienceRating, "From a scale of 1-5 (1=Poor, 5= Excellent), how would you rate your overall experience with us?", htmlAttributes: new { @class = "control-label rental-survey-control-label col-md" })
-            @Html.EditorFor(model => model.ExperienceRating, new { htmlAttributes = new { @class = "form-control input rental-survey-input", placeholder = "Please state a number from 1-5" } })
-            @Html.ValidationMessageFor(model => model.ExperienceRating, "", new { @class = "text-danger" })
+        <div class="survey-form form-group">
+            @Html.LabelFor(model => model.ExperienceRating, htmlAttributes: new { @class = "survey-label control-label col" })
+            <div class="col">
+                @Html.EditorFor(model => model.ExperienceRating, new { htmlAttributes = new { @class = "survey-form form-control", @placeholder = "How was your experience renting with us?" } })
+                @Html.ValidationMessageFor(model => model.ExperienceRating, "", new { @class = "survey-text-danger" })
+            </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Feedback, htmlAttributes: new { @class = "control-label rental-survey-control-label col-md" })
-            @Html.EditorFor(model => model.Feedback, new { htmlAttributes = new { @class = "form-control input rental-survey-input", placeholder = "Comments/suggestions?" } })
-            @Html.ValidationMessageFor(model => model.Feedback, "", new { @class = "text-danger" })
+        <div class="survey-form form-group">
+            @Html.LabelFor(model => model.Feedback, htmlAttributes: new { @class = "survey-label control-label col" })
+            <div class="col">
+                @Html.EditorFor(model => model.Feedback, new { htmlAttributes = new { @class = "survey-form form-control", @placeholder = "Please enter feedback..." } })
+                @Html.ValidationMessageFor(model => model.Feedback, "", new { @class = "survey-text-danger" })
+            </div>
         </div>
 
-        <div class="form-group text-center">
-            <input type="submit" value="Create" class="btn rental-survey-create-btn" />
+        <div class="survey-form form-group">
+            <div class="col text-center">
+                <input type="submit" value="Create" id="survey-btn" />
+            </div>
         </div>
 
-        <div class="form-group text-center">
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn rental-survey-back-btn" })
+        <div class="col text-center">
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "survey-back-btn " })
         </div>
     </div>
-    }
-</div>
+        }
+    </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -8,15 +8,16 @@ using System.Data.Entity;
 using TheatreCMS3.Areas.Prod.Models;
 using System.Net;
 using System.IO;
-using System.Drawing;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
+    [CustomAuthorize(Roles = "Production Photographer")]
     public class ProductionPhotosController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/ProductionPhotos
+        [AllowAnonymous]
         public ActionResult Index()
         {
             ViewBag.ProductionList = db.Productions;
@@ -96,6 +97,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/ProductionPhotos/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -135,6 +137,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // Takes an HttpPostedFileBase and converts it to a byte array
+        [AllowAnonymous]
         public static byte[] FileToBytes(HttpPostedFileBase file)
         {
             byte[] bytes;
@@ -147,6 +150,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
         // Takes an ID of a ProductionPhoto and returns an image from its Photo byte[]
         // <img src="/ProductionPhotos/GetImage/5" />
+        [AllowAnonymous]
         public ActionResult GetImage(int id)
         {
             byte[] bytes = db.ProductionPhotos.Find(id).Image;
@@ -158,6 +162,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // Return a list of productions to populate dropdownlist form inputs
+        [AllowAnonymous]
         public List<SelectListItem> GetProductionList()
         {
             var productions = new List<SelectListItem>();

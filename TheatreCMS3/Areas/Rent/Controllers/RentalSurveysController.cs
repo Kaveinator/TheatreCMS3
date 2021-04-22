@@ -28,12 +28,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalSurvey rentalSurvey = db.RentalSurveys.Find(id);
-            if (rentalSurvey == null)
+            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
+            if (rentalSurveys == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalSurvey);
+            return View(rentalSurveys);
         }
 
         // GET: Rent/RentalSurveys/Create
@@ -47,16 +47,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SurveyID,RecommendRentalRating,RentalCost,ExperienceRating,Feedback")] RentalSurvey rentalSurvey)
+        public ActionResult Create([Bind(Include = "SurveyID,RecommendRentalRating,RentalCost,ExperienceRating,Feedback")] RentalSurveys rentalSurveys)
         {
             if (ModelState.IsValid)
             {
-                db.RentalSurveys.Add(rentalSurvey);
+                db.RentalSurveys.Add(rentalSurveys);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rentalSurvey);
+            return View(rentalSurveys);
         }
 
         // GET: Rent/RentalSurveys/Edit/5
@@ -66,12 +66,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalSurvey rentalSurvey = db.RentalSurveys.Find(id);
-            if (rentalSurvey == null)
+            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
+            if (rentalSurveys == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalSurvey);
+            return View(rentalSurveys);
         }
 
         // POST: Rent/RentalSurveys/Edit/5
@@ -79,15 +79,15 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SurveyID,RecommendRentalRating,RentalCost,ExperienceRating,Feedback")] RentalSurvey rentalSurvey)
+        public ActionResult Edit([Bind(Include = "SurveyID,RecommendRentalRating,RentalCost,ExperienceRating,Feedback")] RentalSurveys rentalSurveys)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rentalSurvey).State = EntityState.Modified;
+                db.Entry(rentalSurveys).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rentalSurvey);
+            return View(rentalSurveys);
         }
 
         // GET: Rent/RentalSurveys/Delete/5
@@ -97,12 +97,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalSurvey rentalSurvey = db.RentalSurveys.Find(id);
-            if (rentalSurvey == null)
+            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
+            if (rentalSurveys == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalSurvey);
+            return View(rentalSurveys);
         }
 
         // POST: Rent/RentalSurveys/Delete/5
@@ -110,8 +110,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RentalSurvey rentalSurvey = db.RentalSurveys.Find(id);
-            db.RentalSurveys.Remove(rentalSurvey);
+            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
+            db.RentalSurveys.Remove(rentalSurveys);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

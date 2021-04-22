@@ -311,24 +311,29 @@ footer {
     flex-wrap: wrap;
     width: auto;
     height: auto;
+    text-align: center;
+    background-color: black;
 }
 
 .aboutPage-Card-Img {
     display: flex;
-    width: auto;
-    height: 75%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: black;
     object-fit: cover;
+
 }
 
-    .aboutPage-Card-Img:hover {
-        background-color: var(--dark-color);
-        opacity: .8;
-        transition: .15s;
-    }
+.aboutPage-Card-Img:hover {
+    background-color: var(--dark-color);
+    opacity: .8;
+    transition: .15s;
+}
 
 .aboutPage-Card:hover {
-    border-color: var(--secondary-color);
-    border-style: double;
+    /*border-color: var(--secondary-color);
+    border-style: double;*/
 }
 
 .aboutPage-Card-Bdy {
@@ -347,8 +352,8 @@ footer {
 @media screen and (max-width: 992px) {
     .aboutPage-Card-Img {
         display: flex;
-        width: auto;
-        height: 60%;
+        /*width: auto;
+        height: 60%;*/
     }
 
     .aboutPage-Card-Text {
@@ -356,6 +361,7 @@ footer {
         text-align: center;
         word-break: break-word;
         color: var(--light-color);
+        
     }
 }
 
@@ -364,8 +370,8 @@ footer {
 @media screen and (max-width: 767px) {
     .aboutPage-Card-Img {
         display: flex;
-        width: auto;
-        height: 40%;
+        /*width: auto;
+        height: 40%;*/
     }
 
     .aboutPage-Card-Text {
@@ -380,8 +386,8 @@ footer {
 @media screen and (max-width: 577px) {
     .aboutPage-Card-Img {
         display: flex;
-        width: 100%;
-        height: 60%;
+        /*width: 100%;
+        height: 60%;*/
     }
 
     .aboutPage-Card-Text {
@@ -393,7 +399,8 @@ footer {
 }
 
 .aboutPage-History {
-    text-align: left;
+    text-align: center;
+    background-color: var(--main-color-light);
     color: var(--light-color);
     padding: 40px;
 }
@@ -402,22 +409,68 @@ footer {
     text-align: center;
     color: var(--light-color);
     padding: 40px;
+    background-color: black;
 }
 
-.aboutPage-Mission {
+.aboutPage-About Us {
     text-align: center;
     color: var(--light-color);
     padding: 40px;
+    
 }
 
-.aboutPage-h1 {
-    color: var(--main-color);
+.aboutPage-h3 {
+    color: white;
+    text-align:center;
+    padding: 15px;
+    font-weight: bold;
+    font-family: Broadway;
+    font-size: 4vw;
+    position: center;
+}
+
+.aboutPage-h4 {
+    color: white;
     text-align: center;
     padding: 15px;
     text-decoration: underline;
     font-weight: bold;
-    text-decoration-color: var(--secondary-color);
+    text-decoration-color: var(--main-color);
 }
+
+.aboutPage-header {
+    border-radius: 0 100px 0 0;
+    position: relative;
+    text-align: center;
+    color: white;
+
+    
+}
+
+.centered {
+    font-family: Broadway;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.aboutPage-hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid white;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+   
+/*Used to fix centering of text*/
+ .aboutPageContainer {
+     position: relative;
+ }   
 
 /* LOGIN PAGE */
 
@@ -540,4 +593,35 @@ footer {
 .contact-title-underline {
     width: 150px;
     border-top: 3px solid var(--main-color);
+}
+
+/*Donate Page*/
+.donate-form {
+    padding: 10px 0;
+}
+.donate-input {
+    border-radius: 10px;
+    width: 200px
+}
+.donate-name {
+    border-radius: 10px;
+    width: 100px;
+}
+
+.donate-label {
+   
+    width: 200px
+}
+
+.donate-submit
+{
+    color: var(--main-color);
+}
+
+
+
+#dropdownMenu2 {
+    position: fixed;
+    right: 0;
+    z-index: 1;
 }

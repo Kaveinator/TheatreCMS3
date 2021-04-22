@@ -30,13 +30,14 @@ namespace TheatreCMS3.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalSurvey> RentalSurveys { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.ProductionPhoto> ProductionPhotos { get; set; }
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.Rental> Rentals { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.Production> Productions { get; set; }
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalRequest> RentalRequests { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.CastMember> CastMembers { get; set; }
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.Comment> Comments { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogAuthor> BlogAuthors { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.Rental> Rentals { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalEquipment> RentalEquipment { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalRoom> RentalRooms { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -49,6 +50,12 @@ namespace TheatreCMS3.Models
                 .WithRequired(p => p.Production) // ProductionPhotos require a Production
                 .HasForeignKey<int>(p => p.ProductionId); // Sets the foreign key for the Production in ProductionPhoto
         }
+
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogPhoto> BlogPhotoes { get; set; }
+
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalSurveys> RentalSurveys { get; set; }
+
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalHistory> RentalHistories { get; set; }
     }
 
 }

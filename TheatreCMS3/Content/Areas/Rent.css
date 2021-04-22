@@ -1,4 +1,7 @@
-﻿/* CSS color variables */
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+/* Do not uncomment these color variables */
+
+/* CSS color variables */
 /*:root {*/ /* Color palette for css */
     /*--main-color: #DB1A11;*/ /* Red */
     /*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
@@ -7,81 +10,212 @@
     /*--dark-color: #000000;*/ /* Black */
     /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
-  
 /*}*/
 
 
-/*rental survey CREATE styling*/
-.rental-survey-container {
-    background-color: #333131;
+/*Rental Survey Create*/
+#survey-header {
+    color: var(--light-color);
+    text-shadow: 0 0.04em 0.04em var(--main-color--light);
+    text-align: center;
+    font-family: 'Millenia';
+    font-size: 50px;
+    
+}
+.survey-label{
+    font-size: 15px !important;
+}
+.survey-container {
+    border-radius: 50px;
+    background-color: var(--main-color);
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 800px;
     width: 100%;
-    border: 3px #d6972a;
-    border-radius: 25px;
-    border-style: solid;
-    padding: 50px;
-    padding-bottom: 25px;
+    border-color: var(--light-color);
+    border-inline-color: var(--light-color);
+    box-shadow: 0 0 15px;
+    
+}
+.survey-form-group {
+    margin-top: 20px;
+    align-content: center;
+    outline: var(--dark-color);
+}
+.survey-form{
+    color: var(--dark-color) !important; 
+}
+.survey-text-danger{
+    color: var(--dark-color);
 }
 
-.rental-survey-control-label {
-    padding-left: 0px;
+.form-control:focus {
+    border-color: var(--light-blue);
+    box-shadow: inset 0 1px 1px var(--main-color);
+    align-content: center;
 }
-
-.rental-survey-input [type=text] {
-    outline: none;
-}
-
-.rental-survey-input[type=text]:focus {
-    border-color: #bd1a11;
-    background-color: #e9cd9e;
-}
-
-.rental-survey-input:hover {
-    border-color: #bd1a11;
-}
-
-.rental-survey-create-btn {
-    background-color: #d6972a;
-    color: black;
-    transition-duration: 0.4s;
-}
-
-.rental-survey-create-btn:hover {
-    background-color: #f8bc54;
-}
-
-.rental-survey-back-btn {
-    background-color: rgb(229 75 66 / 0.93);
-    color: black;
-    transition-duration: 0.4s;
-}
-
-.rental-survey-back-btn:hover {
-    background-color: #fa5047;
-}
-/*end of rental survey CREATE styling*/
-
-
-/*rental survey DETAILS styling*/
-.rental-survey-details-container {
-    background-color: #333131;
+#survey-btn {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    text-align: center;
+    font-size: 17px;
     width: 100%;
-    border: 3px #d6972a;
-    border-radius: 25px;
-    border-style: solid;
-    padding: 50px;
-    padding-bottom: 25px;
+    height: 40px;
+    display: inline-block;
+    padding: 0.46em 1.6em;
+    border: 0.1em solid var(--light-color);
+    border-radius: 15px 15px;
+    text-decoration: none;
+    font-weight: 300;
+    text-shadow: 0 0.04em 0.04em var(--main-color--light);
+    transition: 0.15s;
+    margin-top: 20px;
+    align-content: center;
+    font-family: 'Millenia';
 }
-/*end of rental survey DETAILS styling*/
-
-
-/*rental survey DELETE Styling*/
-.rental-survey-delete-container {
-    background-color: #333131;
+#survey-btn:hover {
+    color:var(--dark-color);
+    background-color: var(--secondary-color);
+    border-color: var(--dark-color);
+    }
+.survey-back-btn {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    text-decoration-color: var(--main-color--light);
+    text-decoration: none;
+    text-align: center;
+    font-size: 17px;
     width: 100%;
-    border: 3px #d6972a;
-    border-radius: 25px;
-    border-style: solid;
-    padding: 50px;
-    padding-bottom: 25px;
+    height: 40px;
+    display: inline-block;
+    padding: 0.46em 1.6em;
+    border: 0.1em solid var(--dark-color);
+    border-radius: 15px 15px;
+    text-decoration: none;
+    font-weight: 300;
+    text-shadow: 0 0.04em 0.04em var(--main-color--light);
+    transition: 0.15s;
+    text-decoration-line: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    align-content: center;
+    font-family: 'Millenia';
 }
-/*end of rental survey DELETE Styling*/
+
+.survey-back-btn:hover {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    text-decoration-color: var(--main-color--light);
+    border-color: var(--light-color);
+    text-decoration: none;
+    text-align: center;
+    }
+.survey-back-btn:active{
+    color: white;
+}
+
+/*Rental Survey Delete*/
+.delete-form-name {
+    text-decoration-color: var(--dark-color);
+    font-size: 20px;
+    margin: 10px;
+    font-family: 'Millenia';
+}
+
+#delete-survey-btn {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    text-decoration-color: var(--main-color--light);
+    text-decoration: none;
+    text-align: center;
+    font-size: 17px;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    padding: 0.46em 1.6em;
+    border: 0.1em solid var(--dark-color);
+    border-radius: 15px 15px;
+    text-decoration: none;
+    font-weight: 300;
+    text-shadow: 0 0.04em 0.04em var(--main-color--light);
+    transition: 0.15s;
+    text-decoration-line: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    align-content: center;
+    font-family: 'Millenia';
+}
+    #delete-survey-btn:hover {
+        color: var(--light-color);
+        background-color: var(--dark-color);
+        border-color: var(--light-color);
+        text-decoration-color: var(--main-color--light);
+        text-decoration: none;
+        text-align: center;
+    }
+.delete-survey-back-btn {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    text-align: center;
+    font-size: 17px;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    padding: 0.46em 1.6em;
+    border: 0.1em solid var(--light-color);
+    border-radius: 15px 15px;
+    text-decoration: none;
+    font-weight: 300;
+    text-shadow: 0 0.04em 0.04em var(--main-color--light);
+    transition: 0.15s;
+    margin-top: 20px;
+    align-content: center;
+    font-family: 'Millenia';
+}
+.delete-survey-back-btn:hover {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    border-color: var(--dark-color);
+    text-decoration: none;
+}
+.delete-display {
+    border: groove;
+    border-radius: 10px 10px;
+    border-color: var(--secondary-color);
+    text-align: center;
+    font-family: 'Millenia';
+}
+
+/*survey details*/
+.details-survey-btn {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    text-decoration-color: var(--main-color--light);
+    text-decoration: none;
+    text-align: center;
+    font-size: 17px;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    padding: 0.46em 1.6em;
+    border: 0.1em solid var(--dark-color);
+    border-radius: 15px 15px;
+    text-decoration: none;
+    font-weight: 300;
+    text-shadow: 0 0.04em 0.04em var(--main-color--light);
+    transition: 0.15s;
+    text-decoration-line: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    align-content: center;
+    font-family: 'Millenia';
+}
+
+.details-survey-btn:hover {
+   color: var(--light-color);
+   background-color: var(--dark-color);
+   text-decoration-color: var(--main-color--light);
+   border-color: var(--light-color);
+   text-decoration: none;
+   text-align: center;
+}

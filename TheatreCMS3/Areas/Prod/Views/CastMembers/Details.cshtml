@@ -18,7 +18,7 @@
 
   <!--CastMember Photo-->
   <div class="prod-img-display ">
-    <img id="display" src="/CastMembers/GetImage/@Model.CastMemberID" alt="@Model.Name's Cast Member Photo" class="prod-img-lg" />
+    <img id="display" src="/CastMembers/GetImage/@Model.CastMemberId" alt="@Model.Name's Cast Member Photo" class="prod-img-lg" />
   </div>
 
   <!--Bio-->
@@ -41,14 +41,14 @@
       </div>
 
       <div class="col-md-4">
-        @Html.LabelFor(model => model.ProductionTitle, htmlAttributes: new { @class = "prod-form-label col-md-2" })
+        @Html.LabelFor(model => model.ProductionTitles, htmlAttributes: new { @class = "prod-form-label col-md-2" })
         <div class="col">
-          @Html.DisplayFor(model => model.ProductionTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.Display("ProductionTitles")
         </div>
       </div>
 
       <div class="col-md-4">
-        @Html.LabelFor(model => model.MainRole, htmlAttributes: new { @class = "prod-form-label col-md-2" })
+        @Html.LabelFor(model => model.MainRole, htmlAttributes: new { @class = "prod-form-label ml-1 col-md-2" })
         <div class="col">
           @Html.DisplayFor(model => model.MainRole, new { htmlAttributes = new { @class = "form-control prod-input" } })
         </div>
@@ -101,7 +101,7 @@
     </div>
     <!--Edit-->
     <div class="col-md-2 m-1 ">
-      <a href=@Url.Action("Edit", "CastMembers", new { id = Model.CastMemberID } ) title="Edit">
+      <a href=@Url.Action("Edit", "CastMembers", new { id = Model.CastMemberId} ) title="Edit">
         <i class=" text-nowrap far fa-edit fa-1x prod-btn mr-2 mb-1 btn ">&nbsp;Edit</i>
       </a>
     </div>
