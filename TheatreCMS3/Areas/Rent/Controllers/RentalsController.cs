@@ -52,76 +52,90 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             "ChokingHazard,SuffocationHazard,PurchasePrice," +
             "RoomNumber,SquareFootage,MaxOccupancy")] AllRentals allrentals, string name)
         {
-            //bool success = false;
+            bool success = false;
 
             if (name == "rental")
             {
-                Rental rental = new Rental()
-                {
-                    RentalName = allrentals.RentalName,
-                    RentalCost = allrentals.RentalCost,
-                    FlawsAndDamages = allrentals.FlawsAndDamages
-                };
-                //success = CreateRental(rental);
-
-                if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
-                    ModelState.IsValidField("FlawsAndDamages"))
-                {
-                    db.Rentals.Add(rental);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                success = CreateRental(allrentals);
             }
             else if (name == "equipment")
             {
-                RentalEquipment equipment = new RentalEquipment()
-                {
-                    RentalName = allrentals.RentalName,
-                    RentalCost = allrentals.RentalCost,
-                    FlawsAndDamages = allrentals.FlawsAndDamages,
-                    ChokingHazard = allrentals.ChokingHazard,
-                    SuffocationHazard = allrentals.SuffocationHazard,
-                    PurchasePrice = allrentals.PurchasePrice
-                };
-                //success = CreateRental(equipment);
-                if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
-                    ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("ChokingHazard") &&
-                    ModelState.IsValidField("SuffocationHazard") && ModelState.IsValidField("PurchasePrice"))
-                {
-                    db.Rentals.Add(equipment);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                success = CreateEquipmentRental(allrentals);
             }
             else if (name == "room")
             {
-                RentalRoom room = new RentalRoom()
-                {
-                    RentalName = allrentals.RentalName,
-                    RentalCost = allrentals.RentalCost,
-                    FlawsAndDamages = allrentals.FlawsAndDamages,
-                    RoomNumber = allrentals.RoomNumber,
-                    SquareFootage = allrentals.SquareFootage,
-                    MaxOccupancy = allrentals.MaxOccupancy
-                };
-                //success = CreateRental(room);
-
-                if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
-                    ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("RoomNumber") &&
-                    ModelState.IsValidField("SquareFootage") && ModelState.IsValidField("MaxOccupancy"))
-                {
-                    db.Rentals.Add(room);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                success = CreateRoomRental(allrentals);
             }
-            //if (success)
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            if (success)
+            {
+                return RedirectToAction("Index");
+            }
             return View(allrentals);
         }
 
+        private bool CreateRental(AllRentals allrentals)
+        {
+            Rental rental = new Rental()
+            {
+                RentalName = allrentals.RentalName,
+                RentalCost = allrentals.RentalCost,
+                FlawsAndDamages = allrentals.FlawsAndDamages
+            };
+
+            if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                ModelState.IsValidField("FlawsAndDamages"))
+            {
+                db.Rentals.Add(rental);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        private bool CreateEquipmentRental(AllRentals allrentals)
+        {
+            RentalEquipment equipment = new RentalEquipment()
+            {
+                RentalName = allrentals.RentalName,
+                RentalCost = allrentals.RentalCost,
+                FlawsAndDamages = allrentals.FlawsAndDamages,
+                ChokingHazard = allrentals.ChokingHazard,
+                SuffocationHazard = allrentals.SuffocationHazard,
+                PurchasePrice = allrentals.PurchasePrice
+            };
+            if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("ChokingHazard") &&
+                ModelState.IsValidField("SuffocationHazard") && ModelState.IsValidField("PurchasePrice"))
+            {
+                db.Rentals.Add(equipment);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        private bool CreateRoomRental(AllRentals allrentals)
+        {
+            RentalRoom room = new RentalRoom()
+            {
+                RentalName = allrentals.RentalName,
+                RentalCost = allrentals.RentalCost,
+                FlawsAndDamages = allrentals.FlawsAndDamages,
+                RoomNumber = allrentals.RoomNumber,
+                SquareFootage = allrentals.SquareFootage,
+                MaxOccupancy = allrentals.MaxOccupancy
+            };
+
+            if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("RoomNumber") &&
+                ModelState.IsValidField("SquareFootage") && ModelState.IsValidField("MaxOccupancy"))
+            {
+                db.Rentals.Add(room);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
         // GET: Rent/Rentals/Edit/5
         public ActionResult Edit(int? id)
         {
