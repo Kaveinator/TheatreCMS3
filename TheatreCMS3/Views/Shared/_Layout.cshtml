@@ -17,6 +17,7 @@
 </head>
 <body>
     @Html.Partial("_Navbar")
+    @Html.Partial("_DevNavbar")
     <div class="container body-content">
         @RenderBody()
     </div>
@@ -32,12 +33,12 @@
         }
     }
 
-    @if (ViewContext.RouteData.DataTokens["area"] != null)
-    {
-        <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
-    }
-    @RenderSection("scripts", required: false)
+  @if (ViewContext.RouteData.DataTokens["area"] != null)
+  {
+    <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
+  }
+  @RenderSection("scripts", required: false)
 
-    @Scripts.Render("~/bundles/bootstrap")
+  @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>

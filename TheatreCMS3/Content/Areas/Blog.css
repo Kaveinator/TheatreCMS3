@@ -176,3 +176,83 @@ form.blog-photo-form .form-control {
     transform: translate(-50%, -50%);
     z-index: 3;
 }
+
+/*Adding CSS for Theatre Vertigo Blog Author page*/
+.blogAuthor-Card {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+    text-align: center;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    margin: ;    
+}
+
+.blogAuthor-Card-Img {
+    display: flex;
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    object-fit: cover;
+}
+
+
+.blogAuthor-btn {
+    background-color: #D6972A;
+    border: 1.5px solid black;
+}
+
+.btn-edit {
+    color: white;
+    background-color: #D6972A;
+    text-align: center;
+    width: 120px;
+    height: 50px;
+    line-height: 1.1em;
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+.btn-details {
+    color: white;
+    background-color: #D6972A;
+    text-align: center;
+    width: 120px;
+    height: 50px;
+    line-height: 1.1em;
+    font-size: 1.1em;
+    padding: 10px;
+    margin-left: 50px;
+}
+
+
+.btn-delete {
+    background-color: red;
+    color: white;
+    padding-top: 10px;
+    text-align: center;
+    width: 120px;
+    height: 50px;
+    line-height: 1.1em;
+    font-size: 1.1em;
+}
+
+.hiddenComment {
+    display: none;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.cancelCommentBtn:hover {
+    color: red;
+}
+
+.newCommentBtn {
+    border-color: gray;
+}
+.newCommentBtn:hover {
+    background-color: var(--secondary-color--dark);
+    color: white;
+}

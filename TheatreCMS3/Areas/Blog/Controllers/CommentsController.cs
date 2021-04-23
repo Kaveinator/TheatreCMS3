@@ -14,13 +14,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
 {
     public class CommentsController : Controller
     {
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Blog/Comments
         public ActionResult Index()
         {
-        
-            return View(db.Comments.ToList());
+            return View(db.Comments.ToList().OrderByDescending(c => c.CommentDate));
         }
 
         //POST: Blog/Comments/Addlike
@@ -60,28 +60,17 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(comment);
         }
 
-        // GET: Blog/Comments/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         // POST: Blog/Comments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Author,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public PartialViewResult Create(string message)
         {
-            if (ModelState.IsValid)
-            {
+                Comment comment = new Comment() { Message = message };
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(comment);
+                return PartialView("_Comment", comment);
         }
+
 
         // GET: Blog/Comments/Edit/5
         public ActionResult Edit(int? id)
