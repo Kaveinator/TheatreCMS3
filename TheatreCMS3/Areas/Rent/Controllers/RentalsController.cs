@@ -143,12 +143,15 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
+            var rental = db.Rentals.Find(id);
             if (rental == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+
+            AllRentals allRentals = new AllRentals(rental);
+            ViewBag.rentalType = rental.GetType().ToString();
+            return View(allRentals);
         }
 
         // POST: Rent/Rentals/Edit/5

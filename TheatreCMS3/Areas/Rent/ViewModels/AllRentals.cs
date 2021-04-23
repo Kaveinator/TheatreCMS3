@@ -9,9 +9,25 @@ namespace TheatreCMS3.Areas.Rent.ViewModels
 {
     public class AllRentals
     {
-        //public Rental Rental { get; set; }
-        //public RentalEquipment RentalEquipment { get; set; }
-        //public RentalRoom RentalRoom { get; set; }
+        public AllRentals(Rental rental)
+        {
+            RentalId = rental.RentalId;
+            RentalName = rental.RentalName;
+            RentalCost = rental.RentalCost;
+            FlawsAndDamages = rental.FlawsAndDamages;
+            if (rental is RentalEquipment equipment)
+            {
+                ChokingHazard = equipment.ChokingHazard;
+                SuffocationHazard = equipment.SuffocationHazard;
+                PurchasePrice = equipment.PurchasePrice;
+            }
+            else if (rental is RentalRoom room)
+            {
+                RoomNumber = room.RoomNumber;
+                SquareFootage = room.SquareFootage;
+                MaxOccupancy = room.MaxOccupancy;
+            }
+        }
 
         [Key]
         public int RentalId { get; set; }
