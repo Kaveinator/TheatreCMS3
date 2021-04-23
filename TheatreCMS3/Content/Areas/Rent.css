@@ -219,3 +219,26 @@
    text-decoration: none;
    text-align: center;
 }
+
+/* ----Rental History----*/
+
+.rentalHistory-container {
+    display:flex;
+    justify-content:center;
+}
+
+.rentalHistory-Form{
+    max-width: 600px;
+    color: var(--light-color);
+    text-align: left;
+    background-color: var(--main-color);
+    border-radius: 20px;
+    padding-top: 10px;
+    font-weight: bolder;
+}
+
+.rentalHistory-Btn {
+    display:flex;
+    justify-content:center
+}
+
