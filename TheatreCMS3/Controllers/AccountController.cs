@@ -131,8 +131,8 @@ namespace TheatreCMS3.Controllers
                         return match.Groups[1].Value + domainName;
                     }
                 }
-                catch (RegexMatchTimeoutException e) { return false; }
-                catch (ArgumentException e) { return false; }
+                catch (RegexMatchTimeoutException) { return false; }
+                catch (ArgumentException) { return false; }
                 try
                 {
                     return Regex.IsMatch(input,
