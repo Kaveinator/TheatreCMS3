@@ -1,5 +1,7 @@
-﻿function rentalChange(value) {
+﻿
+function rentalChange(value) {
     var hideElements = document.getElementsByClassName("to-hide");
+
     for (i = 0; i < hideElements.length; i++) {
         var listOfClasses = hideElements[i].classList;
         if (listOfClasses.contains("d-none")) {
@@ -15,6 +17,14 @@
     }
     document.getElementById("rentalType").value = value
 }
+
+if (document.URL.includes("/Rent/Rentals/Edit/")) {
+    const dataElement = document.querySelector(".form-horizontal");
+    window.onload = rentalChange(dataElement.dataset.type);
+}
+
+
+// research querySelector to do it right then write an if statement to search for that value to see if it has it
 
 //(function ($) {
 //    $.fn.rentalChange1 = function () {

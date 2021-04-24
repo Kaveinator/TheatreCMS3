@@ -150,7 +150,19 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
 
             AllRentals allRentals = new AllRentals(rental);
-            ViewBag.rentalType = rental.GetType().ToString();
+            if (rental.GetType().ToString().Contains("Equipment"))
+            {
+                ViewBag.rentalType = "equipment";
+            }
+            else if (rental.GetType().ToString().Contains("Room"))
+            {
+                ViewBag.rentalType = "room";
+            }
+            else
+            {
+                ViewBag.rentalType = "rental";
+            }
+            
             return View(allRentals);
         }
 
