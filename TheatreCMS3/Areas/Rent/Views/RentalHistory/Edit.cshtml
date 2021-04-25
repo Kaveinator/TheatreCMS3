@@ -1,56 +1,63 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.RentalHistory
 
 @{
-    ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Edit";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>RentalHistory</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.RentalHistoryId)
+  @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RentalDamaged)
-                    @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+  
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
-            </div>
-        </div>
+  <h3 align="center">Edit Rental History</h3>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
-            </div>
-        </div>
+  <div class="rentalHistory-container">
+    <div class="rentalHistory-Form">
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-12">
+            @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
+          </div>
         </div>
+        <div class="form-group">
+          @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @id = "rightPage", @class = "control-label col-md-2" } )
+          <div class="col-md-6">
+            <div class="form-check" onclick="isDamaged()">
+              @Html.EditorFor(model => model.RentalDamaged)
+              @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+          @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-6 rentalHistory-notes-label"})
+        <div class="col-md-12">
+          @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+          @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-row rentalHistory-Btn">
+        <div class="form-group">
+          <div class="col-md-10">
+            <input type="submit" value="Save" class="btn btn-success" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-10">
+            <input type="button" class="btn btn-secondary" value="Back to List" onclick="location.href='@Url.Action("Index", "RentalHistory")'" />
+          </div>
+        </div>
+      </div>
+
     </div>
-}
+  </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+}
