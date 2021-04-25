@@ -18,9 +18,12 @@ function rentalChange(value) {
     document.getElementById("rentalType").value = value
 }
 
-if (document.URL.includes("/Rent/Rentals/Edit/")) {
+if (document.URL.includes("/Rent/Rentals/Edit/") || document.URL.includes("/Rent/Rentals/Create") ) {
     const dataElement = document.querySelector(".form-horizontal");
-    window.onload = rentalChange(dataElement.dataset.type);
+    if (dataElement.dataset.type != null) {
+        window.onload = rentalChange(dataElement.dataset.type);
+    }
+    
 }
 
 

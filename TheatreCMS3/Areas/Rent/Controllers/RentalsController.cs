@@ -70,6 +70,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return RedirectToAction("Index");
             }
+            ViewBag.rentalType = name;
             return View(allrentals);
         }
 
@@ -143,6 +144,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
             var rental = db.Rentals.Find(id);
             if (rental == null)
             {
@@ -171,15 +173,97 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages," +
+            "ChokingHazard,SuffocationHazard,PurchasePrice," +
+            "RoomNumber,SquareFootage,MaxOccupancy")] AllRentals allrentals, string name)
         {
-            if (ModelState.IsValid)
+            bool success = false;
+
+            if (name == "rental")
+            {
+                success = EditRental(allrentals);
+            }
+            else if (name == "equipment")
+            {
+                success = EditEquipmentRental(allrentals);
+            }
+            else if (name == "room")
+            {
+                success = EditRoomRental(allrentals);
+            }
+            if (success)
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.RentalType = name;
+            return View(allrentals);
+        }
+
+        private bool EditRental(AllRentals allrentals)
+        {
+            Rental rental = new Rental()
+            {
+                RentalId = allrentals.RentalId,
+                RentalName = allrentals.RentalName,
+                RentalCost = allrentals.RentalCost,
+                FlawsAndDamages = allrentals.FlawsAndDamages
+            };
+
+            if (ModelState.IsValidField("RentalId") && ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                ModelState.IsValidField("FlawsAndDamages"))
             {
                 db.Entry(rental).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return true;
             }
-            return View(rental);
+            return false;
+        }
+
+        private bool EditEquipmentRental(AllRentals allrentals)
+        {
+            RentalEquipment equipment = new RentalEquipment()
+            {
+                RentalId = allrentals.RentalId,
+                RentalName = allrentals.RentalName,
+                RentalCost = allrentals.RentalCost,
+                FlawsAndDamages = allrentals.FlawsAndDamages,
+                ChokingHazard = allrentals.ChokingHazard,
+                SuffocationHazard = allrentals.SuffocationHazard,
+                PurchasePrice = allrentals.PurchasePrice
+            };
+            if (ModelState.IsValidField("RentalId") && ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("ChokingHazard") &&
+                ModelState.IsValidField("SuffocationHazard") && ModelState.IsValidField("PurchasePrice"))
+            {
+                db.Entry(equipment).State = EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        private bool EditRoomRental(AllRentals allrentals)
+        {
+            RentalRoom room = new RentalRoom()
+            {
+                RentalId = allrentals.RentalId,
+                RentalName = allrentals.RentalName,
+                RentalCost = allrentals.RentalCost,
+                FlawsAndDamages = allrentals.FlawsAndDamages,
+                RoomNumber = allrentals.RoomNumber,
+                SquareFootage = allrentals.SquareFootage,
+                MaxOccupancy = allrentals.MaxOccupancy
+            };
+
+            if (ModelState.IsValidField("RentalId") && ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
+                ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("RoomNumber") &&
+                ModelState.IsValidField("SquareFootage") && ModelState.IsValidField("MaxOccupancy"))
+            {
+                db.Entry(room).State = EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         // GET: Rent/Rentals/Delete/5

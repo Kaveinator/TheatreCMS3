@@ -28,6 +28,8 @@ namespace TheatreCMS3.Areas.Rent.ViewModels
                 MaxOccupancy = room.MaxOccupancy;
             }
         }
+         //empty overloaded constructor to edit and create
+        public AllRentals() { }
 
         [Key]
         public int RentalId { get; set; }
