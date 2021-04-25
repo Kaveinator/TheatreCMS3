@@ -5,10 +5,7 @@ function rentalChange(value) {
 
     for (i = 0; i < hideElements.length; i++) {
         var listOfClasses = hideElements[i].classList;
-        if (listOfClasses.contains("d-none")) {
-            continue;
-        }
-        else {
+        if (!listOfClasses.contains("d-none")) {
             listOfClasses.add("d-none");
         }
     }
