@@ -1,4 +1,5 @@
 ﻿
+//---------Rentals------------//
 function rentalChange(value) {
     var hideElements = document.getElementsByClassName("to-hide");
 
@@ -25,15 +26,6 @@ if (document.URL.includes("/Rent/Rentals/Edit/") || document.URL.includes("/Rent
     }
     
 }
-
-
-// research querySelector to do it right then write an if statement to search for that value to see if it has it
-
-//(function ($) {
-//    $.fn.rentalChange1 = function () {
-
-//    }
-//}
 
 
 //-----Rental History-----//
