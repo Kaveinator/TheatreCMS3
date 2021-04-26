@@ -8,6 +8,7 @@
     --dark-color: #000000; /* Black */
 }
 
+/*Use these classes to easily assign one of the variable colors to an element*/
 /*Text color classes*/
 .cms-text-main {
     color: var(--main-color);
@@ -98,15 +99,15 @@ textarea {
     justify-content: center;
 }
 
-.nav > li:hover {
-    background-color: #DEB887;
-    border-radius: .25rem;
-}
+    .nav > li:hover {
+        background-color: #DEB887;
+        border-radius: .25rem;
+    }
 
-.nav > li > a {
-    color: #000000;
-    font-weight: bold;
-}
+    .nav > li > a {
+        color: #000000;
+        font-weight: bold;
+    }
 
 .navbar-icon-red {
     height: 42px;
@@ -322,14 +323,13 @@ footer {
     border-radius: 50%;
     background-color: black;
     object-fit: cover;
-
 }
 
-.aboutPage-Card-Img:hover {
-    background-color: var(--dark-color);
-    opacity: .8;
-    transition: .15s;
-}
+    .aboutPage-Card-Img:hover {
+        background-color: var(--dark-color);
+        opacity: .8;
+        transition: .15s;
+    }
 
 .aboutPage-Card:hover {
     /*border-color: var(--secondary-color);
@@ -361,7 +361,6 @@ footer {
         text-align: center;
         word-break: break-word;
         color: var(--light-color);
-        
     }
 }
 
@@ -416,12 +415,11 @@ footer {
     text-align: center;
     color: var(--light-color);
     padding: 40px;
-    
 }
 
 .aboutPage-h3 {
     color: white;
-    text-align:center;
+    text-align: center;
     padding: 15px;
     font-weight: bold;
     font-family: Broadway;
@@ -443,8 +441,6 @@ footer {
     position: relative;
     text-align: center;
     color: white;
-
-    
 }
 
 .centered {
@@ -466,11 +462,11 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
-   
+
 /*Used to fix centering of text*/
- .aboutPageContainer {
-     position: relative;
- }   
+.aboutPageContainer {
+    position: relative;
+}
 
 /* LOGIN PAGE */
 
@@ -520,7 +516,7 @@ footer {
     width: 50%;
     margin: 0 auto;
     padding-top: 10px;
-    background-color: rgb(50 50 50);
+    background-color: rgb(50, 50, 50);
     border-radius: 10px;
     box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
 }
@@ -599,26 +595,24 @@ footer {
 .donate-form {
     padding: 10px 0;
 }
+
 .donate-input {
     border-radius: 10px;
     width: 200px
 }
+
 .donate-name {
     border-radius: 10px;
     width: 100px;
 }
 
 .donate-label {
-   
     width: 200px
 }
 
-.donate-submit
-{
+.donate-submit {
     color: var(--main-color);
 }
-
-
 
 #dropdownMenu2 {
     position: fixed;

@@ -238,3 +238,21 @@ form.blog-photo-form .form-control {
     line-height: 1.1em;
     font-size: 1.1em;
 }
+
+.hiddenComment {
+    display: none;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.cancelCommentBtn:hover {
+    color: red;
+}
+
+.newCommentBtn {
+    border-color: gray;
+}
+.newCommentBtn:hover {
+    background-color: var(--secondary-color--dark);
+    color: white;
+}
