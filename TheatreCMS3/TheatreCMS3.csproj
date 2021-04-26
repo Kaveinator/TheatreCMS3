@@ -207,6 +207,7 @@
     <Compile Include="Areas\Rent\Models\Rental.cs" />
     <Compile Include="Areas\Rent\Models\RentalEquipment.cs" />
     <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
+    <Compile Include="Areas\Rent\Models\RentalManager.cs" />
     <Compile Include="Areas\Rent\Models\RentalRoom.cs" />
     <Compile Include="Areas\Rent\Models\RentalSurveys.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoryController.cs" />
