@@ -297,8 +297,9 @@
     margin-right: 10px;
     border-radius: 10px;
 }
-.rentals-btn:hover{
-    opacity: .9;
+
+.rental-submit{
+    font-weight: bold;
 }
 
 .back-list-btn {
@@ -306,11 +307,14 @@
     background-color: var(--secondary-color--dark);
     border-radius: 10px;
 }
-.back-list-btn:hover{
-    opacity: .8;
+.back-list-btn:hover,
+.rentals-btn:hover {
+    background-color: #DEB887;
+    opacity: 1;
 }
 .back-list-color {
     color: var(--dark-color);
+    font-weight: bold;
 }
 .back-list-color:hover{
     color: var(--dark-color);
