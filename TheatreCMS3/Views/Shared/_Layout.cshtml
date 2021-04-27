@@ -22,23 +22,13 @@
         @RenderBody()
     </div>
     @Html.Partial("_Footer")
-    
-    
-    @*If first url element after domain is Prod:*@
-    @if (Request.Url.Segments.Length > 1)
+
+    @if (ViewContext.RouteData.DataTokens["area"] != null)
     {
-        if (Request.Url.Segments[1] == "Prod/")
-        {
-            @Html.Partial("_LoginBtnProductionPhotographer", new TheatreCMS3.Models.LoginViewModel());
-        }
+        <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
     }
+    @RenderSection("scripts", required: false)
 
-  @if (ViewContext.RouteData.DataTokens["area"] != null)
-  {
-    <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
-  }
-  @RenderSection("scripts", required: false)
-
-  @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
