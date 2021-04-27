@@ -20,6 +20,8 @@
         protected override void Seed(TheatreCMS3.Models.ApplicationDbContext context)
         {
             RentalManager.Seed(context);
+
+            SurveyAnalyst.SurveyAnalystSeed(context);
         }
     }
 }
