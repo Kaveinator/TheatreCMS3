@@ -296,19 +296,31 @@
     padding: 0px 0px;
     margin-right: 10px;
     border-radius: 10px;
+    height: 2.5em;
 }
 
 .rental-submit{
     font-weight: bold;
+    color: var(--dark-color);
 }
 
 .back-list-btn {
-    padding: 0px 0px;
+    padding: .5em 0 0 0;
     background-color: var(--secondary-color--dark);
     border-radius: 10px;
+    height: 2.5em;
 }
-.back-list-btn:hover,
-.rentals-btn:hover {
+@media only screen and (max-width: 770px){
+    .back-list-btn,
+    .rental-submit,
+    .rental-dropdown{
+        width: 80%;
+        margin: 5px auto;
+    }
+
+}
+
+.back-list-btn:hover, .rentals-btn:hover {
     background-color: #DEB887;
     opacity: 1;
 }
