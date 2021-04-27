@@ -19,8 +19,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals
         public ActionResult Index()
         {
-            //return View(db.Rentals.ToList());
-
             //Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
             var rentals = db.Rentals.ToList();
             IList<AllRentals> allRentals = new List<AllRentals>();
@@ -30,20 +28,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 AllRentals allRental = new AllRentals(rentItem);               
                 allRentals.Add(allRental);
             }
-            //AllRentals allRentals = new AllRentals(rental);
-            //if (rental.GetType().ToString().Contains("Equipment"))
-            //{
-            //    ViewBag.rentalType = "equipment";
-            //}
-            //else if (rental.GetType().ToString().Contains("Room"))
-            //{
-            //    ViewBag.rentalType = "room";
-            //}
-            //else
-            //{
-            //    ViewBag.rentalType = "rental";
-            //}
-
             return View(allRentals);
         }
 
