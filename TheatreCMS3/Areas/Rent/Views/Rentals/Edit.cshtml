@@ -110,15 +110,9 @@
 
             <div class="form-group row">
                 <div class="col-md-3">&nbsp;</div>
-                <div class="col-md-3 btn rentals-btn">
-                  <strong>
-                      <input type="submit" value="Save" class="btn btn-default rental-submit" />
-                  </strong>
-                </div>
 
-                <button class="col-md-3 btn back-list-btn">
-                    @Html.ActionLink("Back to List", "Index", null, new { @class = "back-list-color" })
-                </button>
+                <input type="submit" value="Save" class="col-md-3 btn rentals-btn btn-default rental-submit" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "back-list-color col-sm-3 btn back-list-btn" })
             </div>
         </div>
     }
