@@ -267,6 +267,7 @@
     <Content Include="Content\images\Tempest.png" />
     <Content Include="Content\images\theater.jpg" />
     <Content Include="Content\images\TheatreLogo.png" />
+    <Content Include="Content\images\TrashCanDelete.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\images\restricted.png" />
     <Content Include="favicon.ico" />

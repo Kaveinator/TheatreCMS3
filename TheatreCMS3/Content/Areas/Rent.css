@@ -320,3 +320,57 @@
     color: var(--dark-color);
     text-decoration: none;
 }
+
+/* Rental Index */
+
+.rental-text{
+    color: var(--dark-color);
+}
+
+.index-card-img{
+    width: 250px;
+    padding: 0px;
+}
+
+.rental-cards{
+    background-color: var(--secondary-color);
+}
+
+.rental-edit-btn {
+    background-color: var(--dark-color);
+    border-radius: 10px;
+}
+
+.rental-edit-text,
+.rental-edit-text:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.rental-details-btn {
+    background-color: var(--secondary-color--dark);
+    border: 1px solid var(--dark-color);
+    border-radius: 10px;
+}
+
+.rental-edit-btn:hover,
+.rental-details-btn:hover{
+    opacity: .7;
+}
+
+.delete-img{
+    width: 40px;
+    float: right;
+    border-radius: 10px;
+}
+
+.pill-badge-custom{
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+
+.pill-badge-room {
+    background-color: var(--main-color);
+    font-size: medium;
+    margin-top: 1em;
+}
