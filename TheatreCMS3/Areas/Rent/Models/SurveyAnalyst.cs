@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,41 +8,59 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Models
 {
-    public class SurveyAnalyst: ApplicationUser
+    public class SurveyAnalyst : ApplicationUser
     {
         public int CallBackSurveys { get; set; }
 
         public int SurveyTimeWindow { get; set; }
 
-    
+
         //creates method to seed data
-        public static void SurveyAnalystSeed(TheatreCMS3.Models.ApplicationDbContext context)
+
+        public static void SurveyAnalystSeed(ApplicationDbContext context)
         {
-            //instantiates database object
+
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            //if info added isn't in the database
-            if (userManager.FindByNameAsync("surveyAnalyst").Result == null)
+            //check if role exists
+            if (!roleManager.RoleExists("SurveyAnalyst"))
             {
-                //add this data
+
+                var role = new IdentityRole();
+                //creates identity role name
+                role.Name = "SurveyAnalyst";
+                //creates role manager
+                roleManager.Create(role);
+
+
+                //creates new survey analyst user
                 var surveyAnalyst = new SurveyAnalyst
                 {
-                    
-                    UserName = "SurveyAnalyst25",
-                    Email = "SurveyAnalyst25@gmail.com",
+
+                    UserName = "surveyAnalyst",
+                    Email = "surveyAnalyst25@rentalsurveys.com",
                     CallBackSurveys = 10,
                     SurveyTimeWindow = 25
 
                 };
 
 
-                IdentityResult result = userManager.CreateAsync(surveyAnalyst, "Surveys").Result;
-                //creates user role and assigns it to the SurveyAnalyst being seeded.
-                userManager.Create(surveyAnalyst);
-                if (result.Succeeded)
+
+                //creates passwored
+                string SurveyUserPassword = "surveyAnalyst55";
+
+                //creates user role
+                var checkanalyst = userManager.Create(surveyAnalyst, SurveyUserPassword);
+
+                //checks if creating the user role succeeded
+                if (!checkanalyst.Succeeded)
                 {
-                    userManager.AddToRoleAsync(surveyAnalyst.Id, "surveyAnalyst").Wait();
-                };
+                    //if it does add user to role.
+                    userManager.AddToRole(surveyAnalyst.Id, "SurveyAnalyst");
+                }
+
             }
 
         }
