@@ -34,19 +34,51 @@ namespace TheatreCMS3.Areas.Rent.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         public DateTime StartTime { get; set; }
 
-        //public static void GetRentalDuration()
-        //{
-            
-        //}
+        public static string GetRentalDuration()
+        {
+            TimeSpan ts = DateTime.Now.ToUniversalTime().Subtract(DateTime.UtcNow);
+            int days = ts.Days;
+            int hours = ts.Hours;
+            int minutes = ts.Minutes;
+            int seconds = ts.Seconds;
+
+            if (days == 1)
+                return "Time Started";
+            if (days > 1)
+                return string.Format("{0} days ago", days);
+            if (hours > 0)
+                return string.Format("{0} hours ago", hours);
+            if (minutes > 0)
+                return string.Format("{0} minutes ago", minutes);
+            if (seconds > 0)
+                return string.Format("{0} seconds", seconds);
+            return "Time Ending";
+        }
 
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         public DateTime EndTime { get; set; }
 
-        //public static void GetTimeRemaining()
-        //{
+        public static string GetTimeRemaining()
+        {
+            TimeSpan ts = DateTime.Now.ToUniversalTime().Subtract(DateTime.UtcNow);
+            int days = ts.Days;
+            int hours = ts.Hours;
+            int minutes = ts.Minutes;
+            int seconds = ts.Seconds;
 
-        //}
+            if (days == 1)
+                return "Time Started";
+            if (days < 1)
+                return string.Format("{0} days ago", days);
+            if (hours > 0)
+                return string.Format("{0} hours ago", hours);
+            if (minutes > 0)
+                return string.Format("{0} minutes ago", minutes);
+            if (seconds > 0)
+                return string.Format("{0} seconds", seconds);
+            return "Time Left";
+        }
         
         public string ProjectInfo { get; set; }
         public int RentalCode { get; set; }
