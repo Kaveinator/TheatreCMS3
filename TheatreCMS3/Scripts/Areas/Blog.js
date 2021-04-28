@@ -9,6 +9,7 @@ const newCommentEvent = (e) => {
     }
     else {
         var path = e.target.getAttribute("data-CommentPath");
+        $("#commentMessage").attr("placeholder", "Add a public comment");
         //Sends input text to Create method in controller which creates a new comment in the Db with text input as comment Message
         $.ajax({
             type: "POST",
