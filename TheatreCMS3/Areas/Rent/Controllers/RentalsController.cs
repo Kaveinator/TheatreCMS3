@@ -285,12 +285,15 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
+            // Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            var rental = db.Rentals.Find(id);
             if (rental == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+
+            AllRentals allRentals = new AllRentals(rental);
+            return View(allRentals);
         }
 
         // POST: Rent/Rentals/Delete/5

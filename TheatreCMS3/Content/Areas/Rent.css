@@ -337,7 +337,10 @@
     font-size: large;
 }
 
-
+.rental-delete-confirm{
+    margin-bottom: 1em;
+    background-color: var(--secondary-color);
+}
 /* Rental Index */
 .rental-text {
     color: var(--dark-color);
@@ -405,10 +408,12 @@
     color: white;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 767px) {
     .back-list-btn,
     .rental-submit,
-    .rental-dropdown {
+    .rental-dropdown,
+    .rentals-edit,
+    .rentals-btn{
         width: 80%;
         margin: 5px auto;
     }
