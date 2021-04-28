@@ -1,2 +1,16 @@
-﻿
-<a class="btn rental-manager" href="">Log in as Rental Manager</a>
+﻿@using TheatreCMS3.Models
+@model LoginViewModel
+
+<link rel="stylesheet" href="~/Content/Areas/Rent.css" type="text/css" />
+
+@if (!Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Login", "Account", new { area = "", ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.EmailOrUsername, new { @Value = "RentalManager" })
+        @Html.HiddenFor(m => m.Password, new { @Value = "R3nt@lM@n@g3r" })
+        @Html.HiddenFor(m => m.RememberMe, new { @Value = false })
+        <input type="submit" value="Login as Rental Manager" class="btn rental-manager" />
+    }
+}
