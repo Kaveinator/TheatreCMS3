@@ -1,46 +1,95 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.Rental>
+﻿@model IList<TheatreCMS3.Areas.Rent.ViewModels.AllRentals>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FlawsAndDamages)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalId })
-        </td>
-    </tr>
-}
+<h3>Rentals</h3>
+<hr class="rental-hr"/>
+<div class="row rental-text">
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        if (Model[i].RentalType == "rental")
+        { 
+            <div class="card col-auto mb-3  mr-4 rental-cards">
+                <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem[i].RentalName)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => modelItem[i].RentalCost) / day</p>
+                </div>
+                <div class="card-footer">
+                      <button type="button" class="btn rental-edit-btn">@Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
+                      <button type="button" class="btn rental-details-btn">@Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
+                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId } ) "><i class = "fa fa-trash delete-img"></i></a>
+                </div>
+            </div>
+        }
+    }
+</div>
+ 
+<h3>Equipment</h3>
+<hr class="rental-hr" />
+<div class="row rental-text">
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        if (Model[i].RentalType == "equipment")
+        { 
+            <div class="card col-auto mb-3 mr-4 rental-cards">
+                <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem[i].RentalName)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => modelItem[i].RentalCost) / day</p>
+                    @if (Model[i].ChokingHazard)
+                    {
+                        <span class="badge badge-pill badge-primary pill-badge-custom">Choking Hazard</span>
+                    }
+                    @if (Model[i].SuffocationHazard)
+                    {
+                        <span class="badge badge-pill badge-primary pill-badge-custom">Sufocation Hazard</span>
+                    }
+                </div>
+                <div class="card-footer">
+                      <button type="button" class="btn rental-edit-btn">@Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
+                      <button type="button" class="btn rental-details-btn">@Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
+                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><i class="fa fa-trash delete-img"></i></a>
+                </div>
+            </div>
+        }
+    }
+</div>
 
-</table>
+<h3>Rooms</h3>
+<hr class="rental-hr" />
+<div class="row rental-text">
+    @for (var i = 0; i < Model.Count; i++)
+    {
+          
+        if (Model[i].RentalType == "room")
+        { 
+            <div class="card col-auto mb-3 mr-4 rental-cards">
+                <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
+                <div class="card-body row">
+                    <div class="col-sm-8">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem[i].RentalName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => modelItem[i].RentalCost) / day</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="badge badge-pill badge-primary pill-badge-room">@Html.DisplayFor(modelItem => modelItem[i].SquareFootage) ft<sup>2</sup></span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                      <button type="button" class="btn rental-edit-btn">@Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
+                      <button type="button" class="btn rental-details-btn">@Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
+                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><i class="fa fa-trash delete-img"></i></a>
+                </div>
+            </div>
+        }
+    }
+</div>
