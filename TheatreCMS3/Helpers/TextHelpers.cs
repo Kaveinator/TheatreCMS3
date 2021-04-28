@@ -11,7 +11,14 @@ namespace TheatreCMS3.Helpers
         {
             if (str.Length > limit)
             {
-                str = str.Substring(0, limit) + "...";
+                if (str[limit].Equals(' '))
+                {
+                    str = str.Substring(0, limit) + "...";
+                }
+                else
+                {
+                    str = str.Substring(0, limit + 1) + "...";
+                }
             }
 
             return str;
