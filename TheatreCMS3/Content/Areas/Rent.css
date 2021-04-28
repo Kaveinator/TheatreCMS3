@@ -297,9 +297,16 @@
     margin-right: 10px;
     border-radius: 10px;
     height: 2.5em;
+    font-weight: bold;
+    color: var(--dark-color);
 }
 
-.rental-submit{
+.rentals-edit {
+    padding: .5em 0 0 0;
+    background-color: var(--secondary-color);
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 2.5em;
     font-weight: bold;
     color: var(--dark-color);
 }
@@ -311,9 +318,11 @@
     height: 2.5em;
 }
 
-.back-list-btn:hover, .rentals-btn:hover {
+.back-list-btn:hover, 
+.rentals-btn:hover,
+.rentals-edit:hover {
     background-color: #DEB887;
-    opacity: 1;
+    opacity: .8;
 }
 .back-list-color {
     color: var(--dark-color);
@@ -324,9 +333,13 @@
     text-decoration: none;
 }
 
-/* Rental Index */
+.rental-details-titles{
+    font-size: large;
+}
 
-.rental-text{
+
+/* Rental Index */
+.rental-text {
     color: var(--dark-color);
 }
 
