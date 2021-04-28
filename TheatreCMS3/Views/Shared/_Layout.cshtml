@@ -25,7 +25,7 @@
     
     @if (Request.Url.ToString().Contains("/Rent/"))
     {
-        @Html.Partial("_LoginBtnRentalManager")
+        @Html.Partial("_LoginBtnRentalManager", new TheatreCMS3.Models.LoginViewModel())
     }
     
     
