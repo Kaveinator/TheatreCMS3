@@ -22,6 +22,8 @@
             RentalManager.Seed(context);
 
             SurveyAnalyst.SurveyAnalystSeed(context);
+
+            HistoryManager.HistoryManagerSeed(context);
         }
     }
 }
