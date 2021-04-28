@@ -23,7 +23,7 @@
     </div>
     @Html.Partial("_Footer")
     
-    @if (Request.Url.ToString().Contains("/Rent/"))
+    @if (Request.Url.ToString().Contains("/Rent/Rentals"))
     {
         @Html.Partial("_LoginBtnRentalManager", new TheatreCMS3.Models.LoginViewModel())
     }
