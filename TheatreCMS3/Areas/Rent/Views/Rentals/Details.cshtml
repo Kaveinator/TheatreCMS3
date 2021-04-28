@@ -9,78 +9,96 @@
 
 <div class="rental-container">
     <dl class="dl-horizontal" data-type="@Html.DisplayFor(model => model.RentalType)">
-        <dt>
-            Name of Rental
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RentalName)
-        </dd>
-
-        <dt>
-            Rental Cost
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RentalCost)
-        </dd>
-
-        <dt>
-            Flaws and Damages
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FlawsAndDamages)
-        </dd>
         
-        <dt>
-            Purchase Price
-        </dt>
+        <div>
+            <dt>
+                Name of Rental
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PurchasePrice)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.RentalName)
+            </dd>
+        </div>
 
-        <dt>
-            Choking Hazard
-        </dt>
+        <div>
+            <dt>
+                Daily Rental Cost
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ChokingHazard)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.RentalCost)
+            </dd>
+        </div>
 
-        <dt>
-            Suffocation Hazard
-        </dt>
+        <div>
+            <dt>
+                Flaws and Damages
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SuffocationHazard)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FlawsAndDamages)
+            </dd>
+        </div>
 
-        <dt>
-            Room Number
-        </dt>
+        <div class="to-hide equipment d-none">
+            <dt>
+                Purchase Price
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.RoomNumber)
-        </dd>
-        
-        <dt>
-            Square Footage
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PurchasePrice)
+            </dd>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SquareFootage)
-        </dd>
+        <div class="to-hide equipment d-none">
+            <dt>
+                Choking Hazard
+            </dt>
 
-        <dt>
-            Max Occupancy
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ChokingHazard)
+            </dd>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaxOccupancy)
-        </dd>
+        <div class="to-hide equipment d-none">
+            <dt>
+                Suffocation Hazard
+            </dt>
 
+            <dd>
+                @Html.DisplayFor(model => model.SuffocationHazard)
+            </dd>
+        </div>
+
+        <div class="to-hide room d-none">
+            <dt>
+                Room Number
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomNumber)
+            </dd>
+        </div>
+
+        <div class="to-hide room d-none">
+            <dt>
+                Square Footage
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SquareFootage)
+            </dd>
+        </div>
+
+        <div class="to-hide room d-none">
+            <dt>
+                Max Occupancy
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaxOccupancy)
+            </dd>
+        </div>
     </dl>
 </div>
 <p>

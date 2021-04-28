@@ -16,8 +16,17 @@ function rentalChange(value) {
     document.getElementById("rentalType").value = value
 }
 
-if (document.URL.includes("/Rent/Rentals/Edit/") || document.URL.includes("/Rent/Rentals/Create") ) {
+if (document.URL.includes("/Rent/Rentals/Edit/")
+    || document.URL.includes("/Rent/Rentals/Create")) {
     const dataElement = document.querySelector(".form-horizontal");
+    if (dataElement.dataset.type != "") {
+        window.onload = rentalChange(dataElement.dataset.type);
+    }
+}
+
+if (document.URL.includes("/Rent/Rentals/Details/") ||
+    document.URL.includes("/Rent/Rentals/Delete/")){
+    const dataElement = document.querySelector(".dl-horizontal");
     if (dataElement.dataset.type != "") {
         window.onload = rentalChange(dataElement.dataset.type);
     }
