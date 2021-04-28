@@ -27,7 +27,7 @@
                 <div class="card-footer">
                       <button type="button" class="btn rental-edit-btn">@Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
                       <button type="button" class="btn rental-details-btn">@Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
-                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><img src="~/Content/images/TrashCanDelete.png" class="delete-img" /></a>
+                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId } ) "><i class = "fa fa-trash delete-img"></i></a>
                 </div>
             </div>
         }
@@ -58,7 +58,7 @@
                 <div class="card-footer">
                       <button type="button" class="btn rental-edit-btn">@Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
                       <button type="button" class="btn rental-details-btn">@Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
-                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><img src="~/Content/images/TrashCanDelete.png" class="delete-img" /></a>
+                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><i class="fa fa-trash delete-img"></i></a>
                 </div>
             </div>
         }
@@ -87,7 +87,7 @@
                 <div class="card-footer">
                       <button type="button" class="btn rental-edit-btn">@Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
                       <button type="button" class="btn rental-details-btn">@Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text" })</button>
-                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><img src="~/Content/images/TrashCanDelete.png" class="delete-img" /></a>
+                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><i class="fa fa-trash delete-img"></i></a>
                 </div>
             </div>
         }
