@@ -22,7 +22,13 @@
         @RenderBody()
     </div>
     @Html.Partial("_Footer")
-
+    
+    @if (Request.Url.ToString().Contains("/Rent/"))
+    {
+        @Html.Partial("_LoginBtnRentalManager")
+    }
+    
+    
     @if (ViewContext.RouteData.DataTokens["area"] != null)
     {
         <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>

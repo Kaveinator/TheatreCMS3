@@ -421,3 +421,12 @@
         margin: 0px 40px;
     }
 }
+
+/* Rental Manager Button */
+.rental-manager{
+    background-color: var(--main-color);
+    color: var(--light-color);
+    position: fixed;
+    bottom: 7px;
+    right: 7px;
+}
