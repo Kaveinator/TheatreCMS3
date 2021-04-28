@@ -1,18 +1,16 @@
-﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+﻿@model TheatreCMS3.Areas.Rent.ViewModels.AllRentals
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="centered-rental">Rental Details</h2>
 
-<div>
-    <h4>Rental</h4>
-    <hr />
-    <dl class="dl-horizontal">
+<div class="rental-container">
+    <dl class="dl-horizontal" data-type="@Html.DisplayFor(model => model.RentalType)">
         <dt>
-            @Html.DisplayNameFor(model => model.RentalName)
+            Name of Rental
         </dt>
 
         <dd>
@@ -20,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RentalCost)
+            Rental Cost
         </dt>
 
         <dd>
@@ -28,11 +26,59 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FlawsAndDamages)
+            Flaws and Damages
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FlawsAndDamages)
+        </dd>
+        
+        <dt>
+            Purchase Price
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchasePrice)
+        </dd>
+
+        <dt>
+            Choking Hazard
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChokingHazard)
+        </dd>
+
+        <dt>
+            Suffocation Hazard
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuffocationHazard)
+        </dd>
+
+        <dt>
+            Room Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+        
+        <dt>
+            Square Footage
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SquareFootage)
+        </dd>
+
+        <dt>
+            Max Occupancy
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxOccupancy)
         </dd>
 
     </dl>
