@@ -7,9 +7,12 @@
 
 <h2>Index</h2>
 
-<p>
-  @Html.ActionLink("Create New", "Create")
-</p>
+@if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 
 @using (Html.BeginForm())
 {
@@ -33,9 +36,15 @@
                     <p class="card-text">@Html.DisplayFor(modelItem => rentItem.RentalCost) / day</p>
                 </div>
                 <div class="card-footer">
-                      @Html.ActionLink("Edit", "Edit", new { id = rentItem.RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
-                      @Html.ActionLink("Details", "Details", new { id = rentItem.RentalId }, new { @class = "rental-edit-text btn rental-details-btn" })
-                      <a href="@Url.Action("Delete", "Rentals", new { id = rentItem.RentalId } ) "><i class = "fa fa-trash delete-img"></i></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
+                    }
+                        @Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text btn rental-details-btn" })
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId }) "><i class="fa fa-trash delete-img"></i></a>
+                    }
                 </div>
             </div>
         }
@@ -64,9 +73,15 @@
                     }
                 </div>
                 <div class="card-footer">
-                      @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
-                      @Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn rental-details-btn rental-edit-text" })
-                      <a href="@Url.Action("Delete", "Rentals", new { id = item.RentalId })"><i class="fa fa-trash delete-img"></i></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
+                    }
+                        @Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text btn rental-details-btn" })
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId }) "><i class="fa fa-trash delete-img"></i></a>
+                    }
                 </div>
             </div>
         }
@@ -93,9 +108,15 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                      @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
-                      @Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn rental-details-btn rental-edit-text" })
-                      <a href="@Url.Action("Delete", "Rentals", new { id = item.RentalId })"><i class="fa fa-trash delete-img"></i></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
+                    }
+                        @Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text btn rental-details-btn" })
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId }) "><i class="fa fa-trash delete-img"></i></a>
+                    }
                 </div>
             </div>
         }
