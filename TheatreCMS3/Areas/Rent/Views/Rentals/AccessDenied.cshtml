@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "AccessDenied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AccessDenied</h1>
+<img src="~/Content/images/restricted.png" />
+
+@Html.ActionLink("Login", "Login", "Account", new {area = ""}, new { @class = "btn" })

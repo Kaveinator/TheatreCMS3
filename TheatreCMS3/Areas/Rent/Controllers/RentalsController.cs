@@ -50,6 +50,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/Rentals/Create
+        [RentalManagerAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -150,6 +151,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return false;
         }
         // GET: Rent/Rentals/Edit/5
+        [RentalManagerAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -279,6 +281,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/Rentals/Delete/5
+        [RentalManagerAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -305,6 +308,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             db.Rentals.Remove(rental);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)
