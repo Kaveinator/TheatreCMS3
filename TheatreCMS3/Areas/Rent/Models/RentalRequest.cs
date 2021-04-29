@@ -34,16 +34,16 @@ namespace TheatreCMS3.Areas.Rent.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         public DateTime StartTime { get; set; }
 
-        public static string GetRentalDuration()
+        public string GetRentalDuration()
         {
-            TimeSpan ts = DateTime.Now.ToUniversalTime().Subtract(DateTime.UtcNow);
-            int days = ts.Days;
-            int hours = ts.Hours;
-            int minutes = ts.Minutes;
-            int seconds = ts.Seconds;
+            TimeSpan diff = EndTime.Subtract(StartTime);
+            int days = diff.Days;
+            int hours = diff.Hours;
+            int minutes = diff.Minutes;
+            int seconds = diff.Seconds;
 
             if (days == 1)
-                return "Time Started";
+                return "Yesterday";
             if (days > 1)
                 return string.Format("{0} days ago", days);
             if (hours > 0)
@@ -52,24 +52,23 @@ namespace TheatreCMS3.Areas.Rent.Models
                 return string.Format("{0} minutes ago", minutes);
             if (seconds > 0)
                 return string.Format("{0} seconds", seconds);
-            return "Time Ending";
+            return "Just now";
         }
-
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         public DateTime EndTime { get; set; }
 
-        public static string GetTimeRemaining()
+        public string GetTimeRemaining()
         {
-            TimeSpan ts = DateTime.Now.ToUniversalTime().Subtract(DateTime.UtcNow);
-            int days = ts.Days;
-            int hours = ts.Hours;
-            int minutes = ts.Minutes;
-            int seconds = ts.Seconds;
+            TimeSpan diff = (DateTime.Now - EndTime).Duration();
+            int days = diff.Days;
+            int hours = diff.Hours;
+            int minutes = diff.Minutes;
+            int seconds = diff.Seconds;
 
             if (days == 1)
-                return "Time Started";
-            if (days < 1)
+                return "Yesterday";
+            if (days > 1)
                 return string.Format("{0} days ago", days);
             if (hours > 0)
                 return string.Format("{0} hours ago", hours);
@@ -77,9 +76,10 @@ namespace TheatreCMS3.Areas.Rent.Models
                 return string.Format("{0} minutes ago", minutes);
             if (seconds > 0)
                 return string.Format("{0} seconds", seconds);
-            return "Time Left";
+            return "Just now";
         }
         
+
         public string ProjectInfo { get; set; }
         public int RentalCode { get; set; }
         public bool Accepted { get; set; }
