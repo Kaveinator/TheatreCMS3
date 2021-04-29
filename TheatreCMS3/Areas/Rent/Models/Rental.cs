@@ -35,15 +35,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         }
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
-            {
-                base.HandleUnauthorizedRequest(filterContext);
-            }
-            else
-            {
-                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Rentals/AccessDenied" }));
-            }
-            
+            filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Rentals/AccessDenied" }));
         }
     }
 }
