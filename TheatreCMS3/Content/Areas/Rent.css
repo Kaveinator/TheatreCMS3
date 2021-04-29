@@ -408,6 +408,23 @@
     color: white;
 }
 
+.rental-access-denied-login {
+    padding: .5em 0 0 0;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    height: 2.5em;
+    font-weight: bold;
+    color: var(--dark-color);
+    text-decoration: none;
+    width: 200px;
+    margin-top: 1em;
+}
+
+.rental-access-denied-login:hover{
+    text-decoration: none;
+    opacity: .8;
+}
+
 @media only screen and (max-width: 767px) {
     .back-list-btn,
     .rental-submit,
@@ -419,6 +436,9 @@
     }
     .rental-cards{
         margin: 0px 40px;
+    }
+    .rental-access-denied-login{
+        width: 100%;
     }
 }
 
