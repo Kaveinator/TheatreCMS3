@@ -1,8 +1,6 @@
 ﻿@using TheatreCMS3.Models
 @model LoginViewModel
 
-<link rel="stylesheet" href="~/Content/Areas/Rent.css" type="text/css" />
-
 @if (!Request.IsAuthenticated)
 {
     using (Html.BeginForm("Login", "Account", new { area = "" }))
