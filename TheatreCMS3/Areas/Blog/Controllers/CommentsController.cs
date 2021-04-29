@@ -64,6 +64,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // POST: Blog/Comments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //This Create method gets the input string from AJAX in Scripts/Areas/Blog.js
         public PartialViewResult Create(string message)
         {
                 Comment comment = new Comment() { Message = message };         
