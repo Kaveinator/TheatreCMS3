@@ -17,7 +17,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/Rentals
-        public ActionResult Index()
+        public ViewResult Index(string greaterLessThan, string searchCost)
         {
             //Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
             var rentals = db.Rentals.ToList();
@@ -28,7 +28,25 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 AllRentals allRental = new AllRentals(rentItem);               
                 allRentals.Add(allRental);
             }
-            return View(allRentals);
+
+            IEnumerable<AllRentals> iAllRentals = allRentals;
+
+            ViewBag.LessThanGreaterThan = "<";
+            if (!String.IsNullOrEmpty(searchCost))
+            {
+                decimal cost = Convert.ToDecimal(searchCost);
+                if (greaterLessThan == "<")
+                {
+                    iAllRentals = allRentals.Where(s => s.RentalCost < cost);
+                }
+                else
+                {
+                    iAllRentals = allRentals.Where(s => s.RentalCost > cost);
+                    ViewBag.LessThanGreaterThan = ">";
+                }
+                
+            }
+            return View(iAllRentals);
         }
 
         // GET: Rent/Rentals/Details/5

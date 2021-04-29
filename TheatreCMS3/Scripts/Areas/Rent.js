@@ -32,6 +32,17 @@ if (document.URL.includes("/Rent/Rentals/Details/") ||
     }
 }
 
+function greaterThanLessThan() {
+    if (document.getElementById("GreaterThan_LessThan").innerHTML == "&lt;") {
+        document.getElementById("GreaterThan_LessThan").innerHTML = "&gt;";
+        document.getElementById("greater_less_input").value = ">"
+    }
+    else {
+        document.getElementById("GreaterThan_LessThan").innerHTML = "&lt;";
+        document.getElementById("greater_less_input").value = "<"
+    }
+}
+
 
 //-----Rental History-----//
 var rentHistoryCheckBox = document.querySelector('.check-box');
