@@ -25,34 +25,30 @@ namespace TheatreCMS3.Areas.Rent.Models
 
         public RentalRequest()
         {
-            
+
             RequestedTime = DateTime.UtcNow.ToUniversalTime();
         }
-        
+
 
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         public DateTime StartTime { get; set; }
 
+        
         public string GetRentalDuration()
         {
-            TimeSpan diff = EndTime.Subtract(StartTime);
-            int days = diff.Days;
-            int hours = diff.Hours;
-            int minutes = diff.Minutes;
-            int seconds = diff.Seconds;
-
+            TimeSpan x = EndTime.Subtract(StartTime);
+            TimeSpan y = EndTime.Subtract(StartTime);
+            int days = x.Days;
+            int hours = y.Hours;
+     
             if (days == 1)
-                return "Yesterday";
+                return "time started";
             if (days > 1)
-                return string.Format("{0} days ago", days);
+                return string.Format("{0} days", days);
             if (hours > 0)
-                return string.Format("{0} hours ago", hours);
-            if (minutes > 0)
-                return string.Format("{0} minutes ago", minutes);
-            if (seconds > 0)
-                return string.Format("{0} seconds", seconds);
-            return "Just now";
+                return string.Format("{0} hours", hours);
+            return "time left" + x + y;
         }
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
@@ -60,23 +56,18 @@ namespace TheatreCMS3.Areas.Rent.Models
 
         public string GetTimeRemaining()
         {
-            TimeSpan diff = (DateTime.Now - EndTime).Duration();
-            int days = diff.Days;
-            int hours = diff.Hours;
-            int minutes = diff.Minutes;
-            int seconds = diff.Seconds;
-
+            TimeSpan x = (DateTime.Now - EndTime).Duration();
+            TimeSpan y = (DateTime.Now - EndTime).Duration();
+            int days = x.Days;
+            int hours = y.Hours;
+            
             if (days == 1)
-                return "Yesterday";
+                return "";
             if (days > 1)
-                return string.Format("{0} days ago", days);
+                return string.Format("{0} days", days);
             if (hours > 0)
-                return string.Format("{0} hours ago", hours);
-            if (minutes > 0)
-                return string.Format("{0} minutes ago", minutes);
-            if (seconds > 0)
-                return string.Format("{0} seconds", seconds);
-            return "Just now";
+                return string.Format("{0} hours", hours);
+            return "time left" + x + y;
         }
         
 
