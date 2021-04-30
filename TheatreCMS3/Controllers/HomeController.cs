@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Controllers
 {
@@ -35,6 +37,11 @@ namespace TheatreCMS3.Controllers
         public ActionResult Donate()
         {
             return View();
+        }
+        
+        public void ReadSiteSettings()
+        {
+            SiteSettings siteSettings = JsonConvert.DeserializeObject<SiteSettings> (System.IO.File.ReadAllText(Server.MapPath("~/SiteSettings.json")));
         }
     }
 }
