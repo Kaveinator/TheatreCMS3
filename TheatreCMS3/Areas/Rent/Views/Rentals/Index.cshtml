@@ -14,20 +14,29 @@
     </p>
 }
 
-@using (Html.BeginForm())
-{
-    <p>Filter by less than or greater than cost: </p>
-    //Fa-Chevron class is added by javascript for loading consistency after submit
-    <p><i class="btn gtlt-btn fa" id="GreaterThan_LessThan" onclick="greaterThanLessThanClick()"></i>
-       <input type="hidden" id="greater_less_input" name="greaterLessThan" value="@ViewBag.LessThanGreaterThan">
-        @Html.TextBox("searchCost")
-       <input type="submit" class ="rental-filter-button" value="Filter" />
-    </p>
-    <p style="color: var(--main-color--light)">@ViewBag.searchCostException</p>
-}
+<div>
+    <div class="rental-name-search">
+        <p>Filter by Name:</p>
+        <button id="name_search_clear" class ="rental-filter-button">Show All</button>
+        <input type="text" id="rental_name_search" onkeyup="searchCards()"/>
+    </div>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>Filter by less than or greater than cost: </p>
+            //Fa-Chevron class is added by javascript for loading consistency after submit
+            <p><i class="btn gtlt-btn fa" id="GreaterThan_LessThan" onclick="greaterThanLessThanClick()"></i>
+                <input type="hidden" id="greater_less_input" name="greaterLessThan" value="@ViewBag.LessThanGreaterThan">
+                @Html.TextBox("searchCost")
+                <input type="submit" class ="rental-filter-button" value="Filter" />
+            </p>
+            <p style="color: var(--main-color--light)">@ViewBag.searchCostException</p>
+        }
+    </div>
+</div>
 
-<input type="text" id="rental_name_search" onkeyup="searchCards()"/>
-<button id="name_search_clear">Show All</button>
+
+
 
 <h3>Rentals</h3>
 <hr class="rental-hr"/>

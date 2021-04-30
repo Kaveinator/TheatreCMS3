@@ -441,7 +441,12 @@
     font-size: large;
     border-radius: 5px;
     color: black;
-    margin-left: 4px;
+    margin: 0 4px;
+}
+
+.rental-name-search{
+    float: right;
+    text-align: right;
 }
 
 @media only screen and (max-width: 767px) {
