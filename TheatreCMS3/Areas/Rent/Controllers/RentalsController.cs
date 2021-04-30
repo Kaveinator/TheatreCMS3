@@ -51,6 +51,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 {
                     ViewBag.searchCostException = "Please enter numbers only";
                 }
+                catch (Exception)
+                {
+                    ViewBag.searchCostException = "Something went wrong. Please try again or contact site administrator.";
+                }
 
 
             }
