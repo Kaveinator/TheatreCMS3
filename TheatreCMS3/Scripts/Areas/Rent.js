@@ -58,6 +58,21 @@ if (document.URL.includes("/Rent/Rentals")) {
     window.onload = gTLTLoad(document.getElementById("greater_less_input").value);
 }
 
+//-----Rental Name Search-----//
+
+$("#rental_name_search").on("keyup", function () {
+    var input = $(this).val().toLowerCase();
+    $(".card").each(function () {
+        var title = $(this).find(".card-title").text();
+        if (title.toLowerCase().includes(input)) {
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
+    });
+});
+
 
 //-----Rental History-----//
 var rentHistoryCheckBox = document.querySelector('.check-box');
