@@ -61,17 +61,15 @@ if (document.URL.includes("/Rent/Rentals")) {
 //-----Rental Name Search-----//
 
 function searchCards() {
-    $("#rental_name_search").each(function () {
-        var input = $(this).val().toLowerCase();
-        $(".card").each(function () {
-            var title = $(this).find(".card-title").text();
-            if (title.toLowerCase().includes(input)) {
-                $(this).show();
-            }
-            else {
-                $(this).hide();
-            }
-        });
+    var input = $("#rental_name_search").val().toLowerCase();
+    $(".card").each(function () {
+        var title = $(this).find(".card-title").text();
+        if (title.toLowerCase().includes(input)) {
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
     });
 }
 
