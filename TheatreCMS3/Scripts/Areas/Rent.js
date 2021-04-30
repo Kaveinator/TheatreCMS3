@@ -1,21 +1,30 @@
 ﻿
 //---------Rentals------------//
-function rentalChange(value) {
-    var hideElements = document.getElementsByClassName("to-hide");
 
+// Handles changing form to different types on create, edit, and details pages
+function rentalChange(value) {
+    //all potential elements to hide
+    var hideElements = document.getElementsByClassName("to-hide"); 
+
+    //reset all to 'hidden'
     for (i = 0; i < hideElements.length; i++) {
         var listOfClasses = hideElements[i].classList;
         if (!listOfClasses.contains("d-none")) {
             listOfClasses.add("d-none");
         }
     }
+
+    //show only elements that are needed for the model
     var hiddenElements = document.getElementsByClassName(value);
     for (i = 0; i < hiddenElements.length; i++) {
         hiddenElements[i].classList.remove("d-none");
     }
+
+    //changes value on last element (hidden)
     document.getElementById("rentalType").value = value
 }
 
+// call above function for edit and create pages onload, if needed.
 if (document.URL.includes("/Rent/Rentals/Edit/")
     || document.URL.includes("/Rent/Rentals/Create")) {
     const dataElement = document.querySelector(".form-horizontal");
@@ -24,6 +33,7 @@ if (document.URL.includes("/Rent/Rentals/Edit/")
     }
 }
 
+// call above function for details and delete pages onload.
 if (document.URL.includes("/Rent/Rentals/Details/") ||
     document.URL.includes("/Rent/Rentals/Delete/")){
     const dataElement = document.querySelector(".dl-horizontal");
@@ -32,6 +42,7 @@ if (document.URL.includes("/Rent/Rentals/Details/") ||
     }
 }
 
+// Switch greater-than and less-than sign on index page.
 function greaterThanLessThanClick() {
     if (document.getElementById("greater_less_input").value == "less") {
         document.getElementById("GreaterThan_LessThan").classList.remove('fa-chevron-left');
@@ -45,6 +56,7 @@ function greaterThanLessThanClick() {
     }
 }
 
+//add greater than or less than sign to page. Default is less-than on view.
 function gTLTLoad(value) {
     if (value == "less") {
         document.getElementById("GreaterThan_LessThan").classList.add('fa-chevron-left');
@@ -54,6 +66,7 @@ function gTLTLoad(value) {
     }
 }
 
+//call above function onload
 if (document.URL.includes("/Rent/Rentals")) {
     window.onload = gTLTLoad(document.getElementById("greater_less_input").value);
 }
