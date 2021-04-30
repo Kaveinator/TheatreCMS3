@@ -60,17 +60,25 @@ if (document.URL.includes("/Rent/Rentals")) {
 
 //-----Rental Name Search-----//
 
-$("#rental_name_search").on("keyup", function () {
-    var input = $(this).val().toLowerCase();
-    $(".card").each(function () {
-        var title = $(this).find(".card-title").text();
-        if (title.toLowerCase().includes(input)) {
-            $(this).show();
-        }
-        else {
-            $(this).hide();
-        }
+function searchCards() {
+    $("#rental_name_search").each(function () {
+        var input = $(this).val().toLowerCase();
+        $(".card").each(function () {
+            var title = $(this).find(".card-title").text();
+            if (title.toLowerCase().includes(input)) {
+                $(this).show();
+            }
+            else {
+                $(this).hide();
+            }
+        });
     });
+}
+
+
+$("#name_search_clear").click(function () {
+    $("#rental_name_search").val("");
+    searchCards();
 });
 
 

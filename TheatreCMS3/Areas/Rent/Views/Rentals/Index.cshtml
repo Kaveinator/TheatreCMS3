@@ -26,7 +26,8 @@
     <p style="color: var(--main-color--light)">@ViewBag.searchCostException</p>
 }
 
-<input type="text" id="rental_name_search" />
+<input type="text" id="rental_name_search" onkeyup="searchCards()"/>
+<button id="name_search_clear">Show All</button>
 
 <h3>Rentals</h3>
 <hr class="rental-hr"/>
