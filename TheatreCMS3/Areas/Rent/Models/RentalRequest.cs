@@ -69,8 +69,6 @@ namespace TheatreCMS3.Areas.Rent.Models
                 return string.Format("{0} hours", hours);
             return "time left" + x + y;
         }
-        
-
         public string ProjectInfo { get; set; }
         public int RentalCode { get; set; }
         public bool Accepted { get; set; }

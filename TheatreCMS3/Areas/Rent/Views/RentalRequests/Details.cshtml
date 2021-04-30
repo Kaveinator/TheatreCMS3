@@ -41,13 +41,7 @@
       <dd>
         @Html.DisplayFor(model => model.StartTime)
       </dd>
-      @foreach (var x in Model.GetRentalDuration())
-      {
-
-      <dt>
-        @Html.DisplayFor(modelItem => x)
-       </dt>
-      }
+   
       <dt>
         @Html.DisplayNameFor(model => model.EndTime)
       </dt>
@@ -55,12 +49,7 @@
       <dd>
         @Html.DisplayFor(model => model.EndTime)
       </dd>
-      @foreach (var y in Model.GetTimeRemaining())
-      {
-         <dt>
-           @Html.DisplayFor(modelItem => y)
-         </dt>
-      }
+      
       <dt>
         @Html.DisplayNameFor(model => model.ProjectInfo)
       </dt>
