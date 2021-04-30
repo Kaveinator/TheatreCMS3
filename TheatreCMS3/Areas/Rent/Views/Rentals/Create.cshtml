@@ -25,12 +25,12 @@
         @Html.AntiForgeryToken()
     
         <div class="form-horizontal" data-type="@ViewBag.rentalType">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.ValidationSummary(true, "", new { @class = "text-white" })
             <div class="form-group col-sm-12">
                 <h5 class="control-label col-md-12">Name of Rental</h5>
                 <div class="col-sm-12">
                     @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { placeholder = "Choir Room...", @class = "form-control rental-forms" } })
-                    @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-white" })
                 </div>
             </div>
 
@@ -38,7 +38,7 @@
                 <h5 class="control-label col-md-12">Daily Rental Cost</h5>
                 <div class="col-sm-12">
                     @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { placeholder = "30.54", @class = "form-control rental-forms" } })
-                    @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-white" })
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                 <h5 class="control-label col-md-12">Flaws and Damages</h5>
                 <div class="col-sm-12">
                     @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { placeholder = "Scratched on left side...", @class = "form-control rental-forms" } })
-                    @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-white" })
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                 <h5 class="control-label col-md-12">Purchase Price</h5>
                 <div class="col-sm-12">
                     @Html.EditorFor(model => model.PurchasePrice, new { htmlAttributes = new { placeholder = "50.89", @class = "form-control rental-forms" } })
-                    @Html.ValidationMessageFor(model => model.PurchasePrice, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.PurchasePrice, "", new { @class = "text-white" })
                 </div>
             </div>
             
@@ -63,7 +63,7 @@
                     <p class = "control-label col-md-8 checkboxes-label centered-rental">Choking Hazard</p>
                     <div class="col-md-2 checkboxes">
                         @Html.EditorFor(model => model.ChokingHazard, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ChokingHazard, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.ChokingHazard, "", new { @class = "text-white" })
                     </div>
                 </div>
 
@@ -71,15 +71,15 @@
                     <p class = "control-label col-md-8 checkboxes-label centered-rental">Suffocation Hazard</p>
                     <div class="col-md-2 checkboxes">
                         @Html.EditorFor(model => model.SuffocationHazard, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.SuffocationHazard, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.SuffocationHazard, "", new { @class = "text-white" })
                     </div>
                 </div>
             </div>
             <div class="form-group to-hide room d-none col-sm-12">
                 <h5 class="control-label col-md-12">Room Number</h5>
                 <div class="col-sm-12">
-                    @Html.EditorFor(model => model.RoomNumber, new { htmlAttributes = new { placeholder = "E-250", @class = "form-control rental-forms" } })
-                    @Html.ValidationMessageFor(model => model.RoomNumber, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.RoomNumber, new { htmlAttributes = new { placeholder = "250", @class = "form-control rental-forms" } })
+                    @Html.ValidationMessageFor(model => model.RoomNumber, "", new { @class = "text-white" })
                 </div>
             </div>
 
@@ -87,7 +87,7 @@
                 <h5 class="control-label col-md-12">Square Footage</h5>
                 <div class="col-sm-12">
                     @Html.EditorFor(model => model.SquareFootage, new { htmlAttributes = new { placeholder = "150", @class = "form-control rental-forms" } })
-                    @Html.ValidationMessageFor(model => model.SquareFootage, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.SquareFootage, "", new { @class = "text-white" })
                 </div>
             </div>
 
@@ -95,7 +95,7 @@
                 <h5 class="control-label col-md-12">Max Occupancy</h5>
                 <div class="col-sm-12">
                     @Html.EditorFor(model => model.MaxOccupancy, new { htmlAttributes = new { placeholder = "30", @class = "form-control rental-forms" } })
-                    @Html.ValidationMessageFor(model => model.MaxOccupancy, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.MaxOccupancy, "", new { @class = "text-white" })
                 </div>
             </div>
             
