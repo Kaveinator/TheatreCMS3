@@ -9,6 +9,7 @@ namespace TheatreCMS3.Areas.Rent.ViewModels
 {
     public class AllRentals
     {
+        //Constructor needed to map each rental type to the view model.
         public AllRentals(Rental rental)
         {
             RentalId = rental.RentalId;
@@ -16,7 +17,7 @@ namespace TheatreCMS3.Areas.Rent.ViewModels
             RentalCost = rental.RentalCost;
             FlawsAndDamages = rental.FlawsAndDamages;
             RentalType = "rental";
-            if (rental is RentalEquipment equipment)
+            if (rental is RentalEquipment equipment) //"is" statement makes sure it's the right type
             {
                 ChokingHazard = equipment.ChokingHazard;
                 SuffocationHazard = equipment.SuffocationHazard;
@@ -31,7 +32,7 @@ namespace TheatreCMS3.Areas.Rent.ViewModels
                 RentalType = "room";
             }
         }
-         //empty overloaded constructor to edit and create
+        //empty overloaded constructor to edit and create
         public AllRentals() { }
 
         [Key]

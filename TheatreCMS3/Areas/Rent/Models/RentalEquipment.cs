@@ -7,7 +7,7 @@ using System.Web;
 
 namespace TheatreCMS3.Areas.Rent.Models
 {
-    public class RentalEquipment : Rental
+    public class RentalEquipment : Rental //inherit parent rental properties
     {
         public bool ChokingHazard { get; set; }
         public bool SuffocationHazard { get; set; }

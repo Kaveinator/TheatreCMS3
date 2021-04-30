@@ -20,20 +20,21 @@ namespace TheatreCMS3.Areas.Rent.Models
         public string FlawsAndDamages { get; set; }
     }
 
+    // authorization class for RentalManager role. 
     public class RentalManagerAuthorize : AuthorizeAttribute
     {
-        protected override bool AuthorizeCore(HttpContextBase httpContext)
+        protected override bool AuthorizeCore(HttpContextBase httpContext)//checks for rental manager role
         {
             if (httpContext.User.Identity.IsAuthenticated)
             {
-                if (httpContext.User.IsInRole("RentalManager"))
+                if (httpContext.User.IsInRole("RentalManager")) 
                 {
                     return true;
                 }
             }
             return false;
         }
-        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext) //handles redirect to access denied page
         {
             filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Rentals/AccessDenied" }));
         }
