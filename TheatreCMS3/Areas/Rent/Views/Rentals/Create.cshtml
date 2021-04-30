@@ -98,7 +98,8 @@
                     @Html.ValidationMessageFor(model => model.MaxOccupancy, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+            
+            @*Passes into name parameter of controller method*@
             <div class="form-group">
                 <input type="hidden" id="rentalType" name="name" value="rental">
             </div>
