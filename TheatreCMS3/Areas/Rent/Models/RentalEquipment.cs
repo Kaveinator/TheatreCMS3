@@ -18,12 +18,12 @@ namespace TheatreCMS3.Areas.Rent.Models
 
         public static void Seed(ApplicationDbContext db)
         {
-            db.Rentals.AddOrUpdate(x => x.RentalId,
-                new RentalEquipment() { RentalId = 5, RentalName = "Sword", RentalCost = 7, FlawsAndDamages = "Handle comes off easily", ChokingHazard = true, SuffocationHazard = false, PurchasePrice = 30 },
-                new RentalEquipment() { RentalId = 6, RentalName = "Camera", RentalCost = 100, FlawsAndDamages = "Missing strap", ChokingHazard = false, SuffocationHazard = false, PurchasePrice = 1000 },
-                new RentalEquipment() { RentalId = 7, RentalName = "Beads", RentalCost = 10, FlawsAndDamages = "None", ChokingHazard = true, SuffocationHazard = false, PurchasePrice = 30 },
-                new RentalEquipment() { RentalId = 8, RentalName = "Bags", RentalCost = 1, FlawsAndDamages = "None", ChokingHazard = false, SuffocationHazard = true, PurchasePrice = 10 },
-                new RentalEquipment() { RentalId = 9, RentalName = "Water Bottles", RentalCost = 50, FlawsAndDamages = "Cracked and don't hold water", ChokingHazard = true, SuffocationHazard = true, PurchasePrice = 5 }
+            db.Rentals.AddOrUpdate(x => x.RentalName,
+                new RentalEquipment() { RentalName = "Sword", RentalCost = 7, FlawsAndDamages = "Handle comes off easily", ChokingHazard = true, SuffocationHazard = false, PurchasePrice = 30 },
+                new RentalEquipment() { RentalName = "Camera", RentalCost = 100, FlawsAndDamages = "Missing strap", ChokingHazard = false, SuffocationHazard = false, PurchasePrice = 1000 },
+                new RentalEquipment() { RentalName = "Beads", RentalCost = 10, FlawsAndDamages = "None", ChokingHazard = true, SuffocationHazard = false, PurchasePrice = 30 },
+                new RentalEquipment() { RentalName = "Bags", RentalCost = 1, FlawsAndDamages = "None", ChokingHazard = false, SuffocationHazard = true, PurchasePrice = 10 },
+                new RentalEquipment() { RentalName = "Water Bottles", RentalCost = 50, FlawsAndDamages = "Cracked and don't hold water", ChokingHazard = true, SuffocationHazard = true, PurchasePrice = 5 }
                 );
         }
     }

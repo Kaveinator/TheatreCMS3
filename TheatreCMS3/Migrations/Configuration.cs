@@ -27,7 +27,7 @@
 
             Rental.Seed(context);
             RentalEquipment.Seed(context);
-
+            RentalRoom.Seed(context);
         }
     }
 }

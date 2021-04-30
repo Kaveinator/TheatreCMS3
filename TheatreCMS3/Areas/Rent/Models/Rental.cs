@@ -23,12 +23,11 @@ namespace TheatreCMS3.Areas.Rent.Models
 
         public static void Seed(ApplicationDbContext db)
         {
-
-            db.Rentals.AddOrUpdate(x => x.RentalId,
-                new Rental() { RentalId = 1, RentalName = "Truck", RentalCost = 50, FlawsAndDamages = "Dented bumper" },
-                new Rental() { RentalId = 2, RentalName = "Van", RentalCost = 50, FlawsAndDamages = "Scratch on side" },
-                new Rental() { RentalId = 3, RentalName = "Wigs", RentalCost = 5, FlawsAndDamages = "None" },
-                new Rental() { RentalId = 4, RentalName = "Risers", RentalCost = 30, FlawsAndDamages = "Missing back bumpers" }
+            db.Rentals.AddOrUpdate(x => x.RentalName,
+                new Rental() { RentalName = "Truck", RentalCost = 50, FlawsAndDamages = "Dented bumper" },
+                new Rental() { RentalName = "Van", RentalCost = 50, FlawsAndDamages = "Scratch on side" },
+                new Rental() { RentalName = "Wigs", RentalCost = 5, FlawsAndDamages = "None" },
+                new Rental() { RentalName = "Risers", RentalCost = 30, FlawsAndDamages = "Missing back bumpers" }
                 );
         }
     }
