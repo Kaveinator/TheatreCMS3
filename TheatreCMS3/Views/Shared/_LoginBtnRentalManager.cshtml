@@ -1,6 +1,7 @@
 ﻿@using TheatreCMS3.Models
 @model LoginViewModel
 
+@*No .css file is loaded because this partial view will only be loaded in rentals area.*@ 
 @if (!Request.IsAuthenticated)
 {
     using (Html.BeginForm("Login", "Account", new { area = "" }))
