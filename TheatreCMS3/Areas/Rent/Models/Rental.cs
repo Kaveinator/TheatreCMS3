@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Models
 {
@@ -18,6 +20,17 @@ namespace TheatreCMS3.Areas.Rent.Models
         [DataType(DataType.Currency)]
         public decimal RentalCost { get; set; }
         public string FlawsAndDamages { get; set; }
+
+        public static void Seed(ApplicationDbContext db)
+        {
+
+            db.Rentals.AddOrUpdate(x => x.RentalId,
+                new Rental() { RentalId = 1, RentalName = "Truck", RentalCost = 50, FlawsAndDamages = "Dented bumper" },
+                new Rental() { RentalId = 2, RentalName = "Van", RentalCost = 50, FlawsAndDamages = "Scratch on side" },
+                new Rental() { RentalId = 3, RentalName = "Wigs", RentalCost = 5, FlawsAndDamages = "None" },
+                new Rental() { RentalId = 4, RentalName = "Risers", RentalCost = 30, FlawsAndDamages = "Missing back bumpers" }
+                );
+        }
     }
 
     // authorization class for RentalManager role. 
