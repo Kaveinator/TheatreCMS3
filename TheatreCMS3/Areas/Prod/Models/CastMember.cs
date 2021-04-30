@@ -9,20 +9,11 @@ using System.Threading.Tasks;
 
 namespace TheatreCMS3.Areas.Prod.Models
 {
-        public class Program
-        {
-            static void Main(string[] args)
-            {
-                using (var db = new CastMemberContext())
-                {
-                 
-                }
-            }
-        }
 
-        public class CastMember
+    public enum Position { Actor, Director, Technician, StageManager, Other }; //enum for Positions
+
+    public class CastMember
         {
-        public enum Position { Actor, Director, Technician, StageManager, Other }; //enum for Positions
 
         [Key]
         public int CastMemberId { get; set; } //entity model for CastMember
@@ -37,9 +28,5 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int? DebutYear { get; set; }
 
         public virtual List<CastMember> CastMembers { get; set; }
-        }
-        public class CastMemberContext : DbContext
-        {
-            public DbSet<CastMember> CastMembers { get; set; }
         }
 }
