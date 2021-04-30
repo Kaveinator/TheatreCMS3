@@ -26,7 +26,5 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
         public int? DebutYear { get; set; }
-
-        public virtual List<CastMember> CastMembers { get; set; }
         }
 }
