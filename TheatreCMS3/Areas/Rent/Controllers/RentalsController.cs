@@ -19,16 +19,19 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals
         public ViewResult Index(string greaterLessThan, string searchCost)
         {
-            //Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            //Use keyword "var" to signal ambiguity of rental type
+            //Technically it's List<Rental>. 
             var rentals = db.Rentals.ToList();
-            IList<AllRentals> allRentals = new List<AllRentals>();
+            IList<AllRentals> allRentals = new List<AllRentals>(); //list of type view model
 
+            //add all items in rentals to view model list
             foreach (var rentItem in rentals)
             {
                 AllRentals allRental = new AllRentals(rentItem);               
                 allRentals.Add(allRental);
             }
 
+            //Change to ienumerable so the structure is less mutable
             IEnumerable<AllRentals> iAllRentals = allRentals;
 
             ViewBag.LessThanGreaterThan = "less";
