@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace TheatreCMS3.Areas.Rent.Models
 {
@@ -16,5 +18,24 @@ namespace TheatreCMS3.Areas.Rent.Models
         [DataType(DataType.Currency)]
         public decimal RentalCost { get; set; }
         public string FlawsAndDamages { get; set; }
+    }
+
+    public class RentalManagerAuthorize : AuthorizeAttribute
+    {
+        protected override bool AuthorizeCore(HttpContextBase httpContext)
+        {
+            if (httpContext.User.Identity.IsAuthenticated)
+            {
+                if (httpContext.User.IsInRole("RentalManager"))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        {
+            filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Rentals/AccessDenied" }));
+        }
     }
 }

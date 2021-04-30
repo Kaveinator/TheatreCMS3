@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Helpers;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class CommentsController : Controller
+    public class CommentsController : Controller 
     {
 
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -56,21 +57,21 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             if (comment == null)
             {
                 return HttpNotFound();
-            }
+            }          
             return View(comment);
         }
 
         // POST: Blog/Comments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //This Create method gets the input string from AJAX in Scripts/Areas/Blog.js
         public PartialViewResult Create(string message)
         {
-                Comment comment = new Comment() { Message = message };
+                Comment comment = new Comment() { Message = message };         
                 db.Comments.Add(comment);
-                db.SaveChanges();
+                db.SaveChanges();                                             
                 return PartialView("_Comment", comment);
         }
-
 
         // GET: Blog/Comments/Edit/5
         public ActionResult Edit(int? id)

@@ -3,35 +3,42 @@
 // New Comment Event
 const newCommentEvent = (e) => {
     var message = $("#commentMessage").val();
-    var path = e.target.getAttribute("data-CommentPath");
-    //Sends input text to Create method in controller which creates a new comment in the Db with text input as comment Message
-    $.ajax({
-        type: "POST",
-        url: path,
-        data: { message: message },
-        success: function (result) {
-            //Replace input text with placeholder text
-            $("#commentMessage").val(null);
-            var jQueryResult = $(result);
-            // Add like
-            jQueryResult.find('.likeBtn').click(addLikeEvent);
-            // Add Dislike
-            jQueryResult.find('.dislikeBtn').click(addDislikeEvent);
-            // Click Trashcan
-            jQueryResult.find('.trashcan').click(trashcanEvent);
-            // Click Reply - show form
-            jQueryResult.find('.replyBtn').click(replyEvent);
-            // Add New Reply Comment - submit new reply comment
-            jQueryResult.find('.replySubmitBtn').click(newReplySubmitEvent);
-            // Cancel Reply - hide form
-            jQueryResult.find('.cancelReplyBtn').click(cancelReplyEvent);
-            // Add new comment to top of the list
-            $(".newComment").prepend(jQueryResult);
-        },
-        error: function (request, status, error) {
-            serviceError();
-        }
-    });
+    // check if the message is empty or white spaces
+    if (message.trim().length < 1) {
+        $("#commentMessage").attr("placeholder", "Please type something");
+    }
+    else {
+        var path = e.target.getAttribute("data-CommentPath");
+        $("#commentMessage").attr("placeholder", "Add a public comment");
+        //Sends input text to Create method in controller which creates a new comment in the Db with text input as comment Message
+        $.ajax({
+            type: "POST",
+            url: path,
+            data: { message: message },
+            success: function (result) {
+                //Replace input text with placeholder text
+                $("#commentMessage").val(null);
+                var jQueryResult = $(result);
+                // Add like
+                jQueryResult.find('.likeBtn').click(addLikeEvent);
+                // Add Dislike
+                jQueryResult.find('.dislikeBtn').click(addDislikeEvent);
+                // Click Trashcan
+                jQueryResult.find('.trashcan').click(trashcanEvent);
+                // Click Reply - show form
+                jQueryResult.find('.replyBtn').click(replyEvent);
+                // Add New Reply Comment - submit new reply comment
+                jQueryResult.find('.replySubmitBtn').click(newReplySubmitEvent);
+                // Cancel Reply - hide form
+                jQueryResult.find('.cancelReplyBtn').click(cancelReplyEvent);
+                // Add new comment to top of the list
+                $(".newComment").prepend(jQueryResult);
+            },
+            error: function (request, status, error) {
+                serviceError();
+            }
+        });
+    }
 }
 
 

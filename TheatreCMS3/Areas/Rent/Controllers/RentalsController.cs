@@ -19,7 +19,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals
         public ActionResult Index()
         {
-            return View(db.Rentals.ToList());
+            //Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            var rentals = db.Rentals.ToList();
+            IList<AllRentals> allRentals = new List<AllRentals>();
+
+            foreach (var rentItem in rentals)
+            {
+                AllRentals allRental = new AllRentals(rentItem);               
+                allRentals.Add(allRental);
+            }
+            return View(allRentals);
         }
 
         // GET: Rent/Rentals/Details/5
@@ -29,15 +38,19 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
+            // Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            var rental = db.Rentals.Find(id);
             if (rental == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+
+            AllRentals allRentals = new AllRentals(rental);
+            return View(allRentals);
         }
 
         // GET: Rent/Rentals/Create
+        [RentalManagerAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -138,6 +151,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return false;
         }
         // GET: Rent/Rentals/Edit/5
+        [RentalManagerAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -267,18 +281,22 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/Rentals/Delete/5
+        [RentalManagerAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
+            // Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            var rental = db.Rentals.Find(id);
             if (rental == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+
+            AllRentals allRentals = new AllRentals(rental);
+            return View(allRentals);
         }
 
         // POST: Rent/Rentals/Delete/5
@@ -290,6 +308,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             db.Rentals.Remove(rental);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

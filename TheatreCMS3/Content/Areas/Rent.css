@@ -297,9 +297,16 @@
     margin-right: 10px;
     border-radius: 10px;
     height: 2.5em;
+    font-weight: bold;
+    color: var(--dark-color);
 }
 
-.rental-submit{
+.rentals-edit {
+    padding: .5em 0 0 0;
+    background-color: var(--secondary-color);
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 2.5em;
     font-weight: bold;
     color: var(--dark-color);
 }
@@ -310,19 +317,12 @@
     border-radius: 10px;
     height: 2.5em;
 }
-@media only screen and (max-width: 770px){
-    .back-list-btn,
-    .rental-submit,
-    .rental-dropdown{
-        width: 80%;
-        margin: 5px auto;
-    }
 
-}
-
-.back-list-btn:hover, .rentals-btn:hover {
+.back-list-btn:hover, 
+.rentals-btn:hover,
+.rentals-edit:hover {
     background-color: #DEB887;
-    opacity: 1;
+    opacity: .8;
 }
 .back-list-color {
     color: var(--dark-color);
@@ -331,4 +331,122 @@
 .back-list-color:hover{
     color: var(--dark-color);
     text-decoration: none;
+}
+
+.rental-details-titles{
+    font-size: large;
+}
+
+.rental-delete-confirm{
+    margin-bottom: 1em;
+    background-color: var(--secondary-color);
+}
+/* Rental Index */
+.rental-text {
+    color: var(--dark-color);
+}
+
+.index-card-img{
+    width: 250px;
+    padding: 0px;
+}
+
+.rental-cards{
+    background-color: var(--secondary-color);
+}
+
+.rental-edit-btn {
+    background-color: var(--dark-color);
+    border-radius: 10px;
+}
+
+.rental-edit-text,
+.rental-edit-text:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.rental-details-btn {
+    background-color: var(--secondary-color--dark);
+    border: 1px solid var(--dark-color);
+    border-radius: 10px;
+}
+
+.rental-edit-btn:hover,
+.rental-details-btn:hover{
+    opacity: .7;
+}
+
+.delete-img {
+    float: right;
+    padding: .5em;
+    font-size: 1.1em;
+    text-align: center;
+    text-decoration: none;
+    background: var(--main-color);
+    color: var(--light-color);
+    border-radius: 30%
+}
+
+.delete-img:hover{
+    opacity: .7;
+}
+
+.pill-badge-custom{
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+
+.pill-badge-room {
+    background-color: var(--main-color);
+    font-size: medium;
+    margin-top: 1em;
+}
+
+.rental-hr{
+    background-color: white;
+    color: white;
+}
+
+.rental-access-denied-login {
+    padding: .5em 0 0 0;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    height: 2.5em;
+    font-weight: bold;
+    color: var(--dark-color);
+    text-decoration: none;
+    width: 200px;
+    margin-top: 1em;
+}
+
+.rental-access-denied-login:hover{
+    text-decoration: none;
+    opacity: .8;
+}
+
+@media only screen and (max-width: 767px) {
+    .back-list-btn,
+    .rental-submit,
+    .rental-dropdown,
+    .rentals-edit,
+    .rentals-btn{
+        width: 80%;
+        margin: 5px auto;
+    }
+    .rental-cards{
+        margin: 0px 40px;
+    }
+    .rental-access-denied-login{
+        width: 100%;
+    }
+}
+
+/* Rental Manager Button */
+.rental-manager{
+    background-color: var(--main-color);
+    color: var(--light-color);
+    position: fixed;
+    bottom: 7px;
+    right: 7px;
 }
