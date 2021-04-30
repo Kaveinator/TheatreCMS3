@@ -31,18 +31,18 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
             IEnumerable<AllRentals> iAllRentals = allRentals;
 
-            ViewBag.LessThanGreaterThan = "<";
+            ViewBag.LessThanGreaterThan = "less";
             if (!String.IsNullOrEmpty(searchCost))
             {
                 decimal cost = Convert.ToDecimal(searchCost);
-                if (greaterLessThan == "<")
+                if (greaterLessThan == "less")
                 {
                     iAllRentals = allRentals.Where(s => s.RentalCost < cost);
                 }
                 else
                 {
                     iAllRentals = allRentals.Where(s => s.RentalCost > cost);
-                    ViewBag.LessThanGreaterThan = ">";
+                    ViewBag.LessThanGreaterThan = "greater";
                 }
                 
             }
