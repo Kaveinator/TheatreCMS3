@@ -460,6 +460,11 @@
     .rental-access-denied-login{
         width: 100%;
     }
+    .rental-name-search{
+        float: none;
+        text-align: left;
+        margin-bottom: 2em;
+    }
 }
 
 /* Rental Manager Button */
