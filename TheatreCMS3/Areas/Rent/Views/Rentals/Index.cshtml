@@ -1,4 +1,4 @@
-﻿@model IList<TheatreCMS3.Areas.Rent.ViewModels.AllRentals>
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.ViewModels.AllRentals>
 
 @{
   ViewBag.Title = "Index";
@@ -7,58 +7,98 @@
 
 <h2>Index</h2>
 
-<p>
-  @Html.ActionLink("Create New", "Create")
-</p>
+@if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+<div>
+    <div class="rental-name-search">
+        <p>Filter by Name:</p>
+        
+        <input type="text" id="rental_name_search" onkeyup="searchCards()"/>
+        <button id="name_search_clear" class ="rental-filter-button">Show All</button>
+    </div>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>Filter by less than or greater than cost: </p>
+            //Fa-Chevron class is added by javascript for loading consistency after submit
+            <p><i class="btn gtlt-btn fa" id="GreaterThan_LessThan" onclick="greaterThanLessThanClick()"></i>
+                <input type="hidden" id="greater_less_input" name="greaterLessThan" value="@ViewBag.LessThanGreaterThan">
+                @Html.TextBox("searchCost")
+                <input type="submit" class ="rental-filter-button" value="Filter" />
+            </p>
+            <p style="color: var(--main-color--light)">@ViewBag.searchCostException</p>
+        }
+    </div>
+</div>
+
+
+
 
 <h3>Rentals</h3>
 <hr class="rental-hr"/>
 <div class="row rental-text">
-    @for (var i = 0; i < Model.Count; i++)
+    @foreach (var rentItem in Model)
     {
-        if (Model[i].RentalType == "rental")
+        if (rentItem.RentalType == "rental")
         { 
             <div class="card col-auto mb-3  mr-4 rental-cards">
                 <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem[i].RentalName)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => modelItem[i].RentalCost) / day</p>
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => rentItem.RentalName)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => rentItem.RentalCost) / day</p>
                 </div>
                 <div class="card-footer">
-                      @Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
-                      @Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "rental-edit-text btn rental-details-btn" })
-                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId } ) "><i class = "fa fa-trash delete-img"></i></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = rentItem.RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
+                    }
+                        @Html.ActionLink("Details", "Details", new { id = rentItem.RentalId }, new { @class = "rental-edit-text btn rental-details-btn" })
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        <a href="@Url.Action("Delete", "Rentals", new { id = rentItem.RentalId }) "><i class="fa fa-trash delete-img"></i></a>
+                    }
                 </div>
             </div>
         }
     }
 </div>
- 
+
 <h3>Equipment</h3>
 <hr class="rental-hr" />
 <div class="row rental-text">
-    @for (var i = 0; i < Model.Count; i++)
+    @foreach (var item in Model)
     {
-        if (Model[i].RentalType == "equipment")
+        if (item.RentalType == "equipment")
         { 
             <div class="card col-auto mb-3 mr-4 rental-cards">
                 <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem[i].RentalName)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => modelItem[i].RentalCost) / day</p>
-                    @if (Model[i].ChokingHazard)
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.RentalCost) / day</p>
+                    @if (item.ChokingHazard)
                     {
                         <span class="badge badge-pill badge-primary pill-badge-custom">Choking Hazard</span>
                     }
-                    @if (Model[i].SuffocationHazard)
+                    @if (item.SuffocationHazard)
                     {
                         <span class="badge badge-pill badge-primary pill-badge-custom">Sufocation Hazard</span>
                     }
                 </div>
                 <div class="card-footer">
-                      @Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
-                      @Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "btn rental-details-btn rental-edit-text" })
-                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><i class="fa fa-trash delete-img"></i></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
+                    }
+                        @Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "rental-edit-text btn rental-details-btn" })
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        <a href="@Url.Action("Delete", "Rentals", new { id = item.RentalId }) "><i class="fa fa-trash delete-img"></i></a>
+                    }
                 </div>
             </div>
         }
@@ -68,26 +108,32 @@
 <h3>Rooms</h3>
 <hr class="rental-hr" />
 <div class="row rental-text">
-    @for (var i = 0; i < Model.Count; i++)
+    @foreach (var item in Model)
     {
           
-        if (Model[i].RentalType == "room")
+        if (item.RentalType == "room")
         { 
             <div class="card col-auto mb-3 mr-4 rental-cards">
                 <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
                 <div class="card-body row">
                     <div class="col-sm-8">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem[i].RentalName)</h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => modelItem[i].RentalCost) / day</p>
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.RentalCost) / day</p>
                     </div>
                     <div class="col-sm-4">
-                        <span class="badge badge-pill badge-primary pill-badge-room">@Html.DisplayFor(modelItem => modelItem[i].SquareFootage) ft<sup>2</sup></span>
+                        <span class="badge badge-pill badge-primary pill-badge-room">@Html.DisplayFor(modelItem => item.SquareFootage) ft<sup>2</sup></span>
                     </div>
                 </div>
                 <div class="card-footer">
-                      @Html.ActionLink("Edit", "Edit", new { id = Model[i].RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
-                      @Html.ActionLink("Details", "Details", new { id = Model[i].RentalId }, new { @class = "btn rental-details-btn rental-edit-text" })
-                      <a href="@Url.Action("Delete", "Rentals", new { id = Model[i].RentalId })"><i class="fa fa-trash delete-img"></i></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn rental-edit-btn rental-edit-text" })
+                    }
+                        @Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "rental-edit-text btn rental-details-btn" })
+                    @if (Request.IsAuthenticated && User.IsInRole("RentalManager"))
+                    {
+                        <a href="@Url.Action("Delete", "Rentals", new { id = item.RentalId }) "><i class="fa fa-trash delete-img"></i></a>
+                    }
                 </div>
             </div>
         }

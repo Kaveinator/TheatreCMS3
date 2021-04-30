@@ -17,18 +17,51 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/Rentals
-        public ActionResult Index()
+        public ViewResult Index(string greaterLessThan, string searchCost)
         {
-            //Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            //Use keyword "var" to signal ambiguity of rental type
+            //Technically it's List<Rental>. 
             var rentals = db.Rentals.ToList();
-            IList<AllRentals> allRentals = new List<AllRentals>();
+            IList<AllRentals> allRentals = new List<AllRentals>(); //list of type view model
 
+            //add all items in rentals to view model list
             foreach (var rentItem in rentals)
             {
                 AllRentals allRental = new AllRentals(rentItem);               
                 allRentals.Add(allRental);
             }
-            return View(allRentals);
+
+            //Change to ienumerable so the structure is less mutable
+            IEnumerable<AllRentals> iAllRentals = allRentals;
+
+            ViewBag.LessThanGreaterThan = "less";
+            if (!String.IsNullOrEmpty(searchCost))
+            {
+                try
+                {
+                    decimal cost = Convert.ToDecimal(searchCost);
+                    if (greaterLessThan == "less")
+                    {
+                        iAllRentals = allRentals.Where(s => s.RentalCost < cost);
+                    }
+                    else
+                    {
+                        iAllRentals = allRentals.Where(s => s.RentalCost > cost);
+                        ViewBag.LessThanGreaterThan = "greater";
+                    }
+                }
+                catch (FormatException)
+                {
+                    ViewBag.searchCostException = "Please enter numbers only";
+                }
+                catch (Exception)
+                {
+                    ViewBag.searchCostException = "Something went wrong. Please try again or contact site administrator.";
+                }
+
+
+            }
+            return View(iAllRentals);
         }
 
         // GET: Rent/Rentals/Details/5
@@ -50,6 +83,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/Rentals/Create
+        [RentalManagerAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -150,6 +184,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return false;
         }
         // GET: Rent/Rentals/Edit/5
+        [RentalManagerAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -279,6 +314,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/Rentals/Delete/5
+        [RentalManagerAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -305,6 +341,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             db.Rentals.Remove(rental);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

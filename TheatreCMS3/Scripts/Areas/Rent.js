@@ -32,6 +32,53 @@ if (document.URL.includes("/Rent/Rentals/Details/") ||
     }
 }
 
+function greaterThanLessThanClick() {
+    if (document.getElementById("greater_less_input").value == "less") {
+        document.getElementById("GreaterThan_LessThan").classList.remove('fa-chevron-left');
+        document.getElementById("GreaterThan_LessThan").classList.add('fa-chevron-right');
+        document.getElementById("greater_less_input").value = "greater"
+    }
+    else {
+        document.getElementById("GreaterThan_LessThan").classList.remove('fa-chevron-right');
+        document.getElementById("GreaterThan_LessThan").classList.add('fa-chevron-left');
+        document.getElementById("greater_less_input").value = "less"
+    }
+}
+
+function gTLTLoad(value) {
+    if (value == "less") {
+        document.getElementById("GreaterThan_LessThan").classList.add('fa-chevron-left');
+    }
+    else if (value == "greater") {
+        document.getElementById("GreaterThan_LessThan").classList.add('fa-chevron-right');
+    }
+}
+
+if (document.URL.includes("/Rent/Rentals")) {
+    window.onload = gTLTLoad(document.getElementById("greater_less_input").value);
+}
+
+//-----Rental Name Search-----//
+
+function searchCards() {
+    var input = $("#rental_name_search").val().toLowerCase();
+    $(".card").each(function () {
+        var title = $(this).find(".card-title").text();
+        if (title.toLowerCase().includes(input)) {
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
+    });
+}
+
+
+$("#name_search_clear").click(function () {
+    $("#rental_name_search").val("");
+    searchCards();
+});
+
 
 //-----Rental History-----//
 var rentHistoryCheckBox = document.querySelector('.check-box');
