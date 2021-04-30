@@ -34,17 +34,25 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             ViewBag.LessThanGreaterThan = "less";
             if (!String.IsNullOrEmpty(searchCost))
             {
-                decimal cost = Convert.ToDecimal(searchCost);
-                if (greaterLessThan == "less")
+                try
                 {
-                    iAllRentals = allRentals.Where(s => s.RentalCost < cost);
+                    decimal cost = Convert.ToDecimal(searchCost);
+                    if (greaterLessThan == "less")
+                    {
+                        iAllRentals = allRentals.Where(s => s.RentalCost < cost);
+                    }
+                    else
+                    {
+                        iAllRentals = allRentals.Where(s => s.RentalCost > cost);
+                        ViewBag.LessThanGreaterThan = "greater";
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    iAllRentals = allRentals.Where(s => s.RentalCost > cost);
-                    ViewBag.LessThanGreaterThan = "greater";
+                    ViewBag.searchCostException = "Please enter numbers only";
                 }
-                
+
+
             }
             return View(iAllRentals);
         }

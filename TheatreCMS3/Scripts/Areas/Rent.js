@@ -54,7 +54,7 @@ function gTLTLoad(value) {
     }
 }
 
-if (document.URL.includes("/Rent/Rentals/Index")) {
+if (document.URL.includes("/Rent/Rentals")) {
     window.onload = gTLTLoad(document.getElementById("greater_less_input").value);
 }
 
