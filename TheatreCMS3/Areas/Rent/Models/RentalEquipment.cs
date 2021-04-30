@@ -16,9 +16,9 @@ namespace TheatreCMS3.Areas.Rent.Models
         [DataType(DataType.Currency)]
         public decimal PurchasePrice { get; set; }
 
-        public static void Seed(ApplicationDbContext db)
+        public static new void Seed(ApplicationDbContext db)
         {
-            db.Rentals.AddOrUpdate(x => x.RentalName,
+            db.Rentals.AddOrUpdate(x => x.RentalName, //match on rentalname because id will be created newly each time
                 new RentalEquipment() { RentalName = "Sword", RentalCost = 7, FlawsAndDamages = "Handle comes off easily", ChokingHazard = true, SuffocationHazard = false, PurchasePrice = 30 },
                 new RentalEquipment() { RentalName = "Camera", RentalCost = 100, FlawsAndDamages = "Missing strap", ChokingHazard = false, SuffocationHazard = false, PurchasePrice = 1000 },
                 new RentalEquipment() { RentalName = "Beads", RentalCost = 10, FlawsAndDamages = "None", ChokingHazard = true, SuffocationHazard = false, PurchasePrice = 30 },

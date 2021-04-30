@@ -23,7 +23,7 @@ namespace TheatreCMS3.Areas.Rent.Models
 
         public static void Seed(ApplicationDbContext db)
         {
-            db.Rentals.AddOrUpdate(x => x.RentalName,
+            db.Rentals.AddOrUpdate(x => x.RentalName, //match on rentalname because id will be created newly each time
                 new Rental() { RentalName = "Truck", RentalCost = 50, FlawsAndDamages = "Dented bumper" },
                 new Rental() { RentalName = "Van", RentalCost = 50, FlawsAndDamages = "Scratch on side" },
                 new Rental() { RentalName = "Wigs", RentalCost = 5, FlawsAndDamages = "None" },
