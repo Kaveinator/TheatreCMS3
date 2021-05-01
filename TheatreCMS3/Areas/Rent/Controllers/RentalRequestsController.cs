@@ -33,13 +33,14 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+            PopulateAssociatedRentalsList((int)id);
             return View(rentalRequest);
         }
 
         // GET: Rent/RentalRequests/Create
         public ActionResult Create()
         {
-            PopulateRentalsList();
+            PopulateNullRentalsList();
             return View();
         }
 
@@ -89,10 +90,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+            PopulateNullRentalsList();
             return View(rentalRequest);
         }
 
-        private void PopulateRentalsList()
+        private void PopulateNullRentalsList()
         {
             var rentals = db.Rentals.ToList();
             List<Rental> nullRentals = new List<Rental>();
@@ -103,7 +105,21 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     nullRentals.Add(rental);
                 }
             }
-            ViewBag.Rentals = nullRentals;
+            ViewBag.nullRentals = nullRentals;
+        }
+
+        private void PopulateAssociatedRentalsList(int key)
+        {
+            var rentals = db.Rentals.ToList();
+            List<Rental> associatedRentals = new List<Rental>();
+            foreach (Rental rental in rentals)
+            {
+                if (rental.RentalRequestID == key)
+                {
+                    associatedRentals.Add(rental);
+                }
+            }
+            ViewBag.associatedRentals = associatedRentals;
         }
 
         // POST: Rent/RentalRequests/Edit/5
@@ -134,6 +150,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+            PopulateAssociatedRentalsList((int)id);
             return View(rentalRequest);
         }
 
@@ -144,6 +161,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             RentalRequest rentalRequest = db.RentalRequest.Find(id);
             db.RentalRequest.Remove(rentalRequest);
+            foreach (Rental rental in db.Rentals)
+            {
+                if (rental.RentalRequestID == rentalRequest.RentalRequestID)
+                {
+                    rental.RentalRequestID = null;
+                }
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

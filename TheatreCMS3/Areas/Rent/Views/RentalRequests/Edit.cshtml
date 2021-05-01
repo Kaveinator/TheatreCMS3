@@ -93,10 +93,20 @@
         </div>
 
         <div class="form-group">
-            <h3>Rentals</h3>
+            <h2>Add Rentals</h2>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Rentals)
-                @Html.ValidationMessageFor(model => model.Rentals, "", new { @class = "text-danger" })
+
+                @{ 
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> rentals = ViewBag.nullRentals;
+                    <select multiple name="selectedRentals">
+                        @foreach (var rental in rentals)
+                        {
+                            <option value="@rental.RentalId">@rental.RentalName</option>
+                        }
+                    </select>
+
+                }
+
             </div>
         </div>
 

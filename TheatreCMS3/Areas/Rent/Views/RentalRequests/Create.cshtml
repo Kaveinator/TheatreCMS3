@@ -95,13 +95,11 @@
             <div class="col-md-10">
 
                 @{ 
-                    int cnt = 0;
-                    List<TheatreCMS3.Areas.Rent.Models.Rental> rentals = ViewBag.Rentals;
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> rentals = ViewBag.nullRentals;
                     <select multiple name="selectedRentals">
                         @foreach (var rental in rentals)
                         {
                             <option value="@rental.RentalId">@rental.RentalName</option>
-                            cnt++;
                         }
                     </select>
 

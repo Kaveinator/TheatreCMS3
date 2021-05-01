@@ -103,6 +103,29 @@
                 </div>
             </div>
         </div>
+
+        
+        @{  if (ViewBag.associatedRentalRequest != null)
+            {
+                TheatreCMS3.Areas.Rent.Models.RentalRequest rentalRequest = ViewBag.associatedRentalRequest;
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4><a class="rental-request-link" href="~/Rent/RentalRequests/Details/@rentalRequest.RentalRequestID">Rental Request Information:</a></h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <p><strong>Company:</strong><br />@rentalRequest.Company</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p><strong>Contact Person:</strong><br />@rentalRequest.ContactPerson</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p><strong>Rental Code:</strong><br />@rentalRequest.RentalCode</p>
+                    </div>
+                </div>
+            }
+
+        }
+
     </dl>
     <div class="row">
         <div class="col-md-3">&nbsp;</div>
