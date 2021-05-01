@@ -90,7 +90,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+
+            //gets null rentals
             PopulateNullRentalsList();
+
+            //gets all associated rentals
+            PopulateAssociatedRentalsList((int)id);
+
+            //get a list of all rentals
+            List<Rental> allRentals = db.Rentals.ToList();
+            ViewBag.allRentals = allRentals;
             return View(rentalRequest);
         }
 
@@ -119,6 +128,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     associatedRentals.Add(rental);
                 }
             }
+            
             ViewBag.associatedRentals = associatedRentals;
         }
 
@@ -127,14 +137,50 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
+        public ActionResult Edit([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime," +
+            "ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest, string[] selectedRentals)
         {
+            List<Rental> deleteRelationship = new List<Rental>();
+            if (selectedRentals != null)
+            {
+                rentalRequest.Rentals = new List<Rental>();
+                foreach (var rental in selectedRentals)
+                {
+                    var rentalToAdd = db.Rentals.Find(int.Parse(rental));
+                    rentalRequest.Rentals.Add(rentalToAdd);
+                    rentalToAdd.RentalRequestID = rentalRequest.RentalRequestID;
+                }
+                foreach (var rental in db.Rentals.ToList())
+                {
+                    if (rental.RentalRequestID == rentalRequest.RentalRequestID && !rentalRequest.Rentals.Contains(rental))
+                    {
+                        rental.RentalRequestID = null;
+                        deleteRelationship.Add(rental);
+                    }
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(rentalRequest).State = EntityState.Modified;
+                foreach (var rental in rentalRequest.Rentals)
+                {
+                    db.Entry(rental).State = EntityState.Modified;
+                }
+                foreach (var rental in deleteRelationship)
+                {
+                    db.Entry(rental).State = EntityState.Modified;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(rentalRequest).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
             return View(rentalRequest);
         }
 

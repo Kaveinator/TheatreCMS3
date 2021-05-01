@@ -93,13 +93,21 @@
         </div>
 
         <div class="form-group">
-            <h2>Add Rentals</h2>
+            <h2>Edit Rentals</h2>
+            <p>(hold down ctl before clicking)</p>
             <div class="col-md-10">
 
                 @{ 
-                    List<TheatreCMS3.Areas.Rent.Models.Rental> rentals = ViewBag.nullRentals;
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> rentals = ViewBag.allRentals;
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> associatedRentals = ViewBag.associatedRentals;
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> nullRentals = ViewBag.nullRentals;
                     <select multiple name="selectedRentals">
                         @foreach (var rental in rentals)
+                        {
+                            if (associatedRentals.Contains(rental)) { <text><option selected value="@rental.RentalId">@rental.RentalName</option></text> }
+                        }
+
+                        @foreach (var rental in nullRentals)
                         {
                             <option value="@rental.RentalId">@rental.RentalName</option>
                         }
