@@ -39,6 +39,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalRequests/Create
         public ActionResult Create()
         {
+            PopulateRentalsList();
             return View();
         }
 
@@ -47,11 +48,28 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
+        public ActionResult Create([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo," +
+            "RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest, string[] selectedRentals)
         {
+            if (selectedRentals != null)
+            {
+                rentalRequest.Rentals = new List<Rental>();
+                foreach (var rental in selectedRentals)
+                {
+                    var rentalToAdd = db.Rentals.Find(int.Parse(rental));
+                    rentalRequest.Rentals.Add(rentalToAdd);
+                    rentalToAdd.RentalRequestID = rentalRequest.RentalRequestID;
+                    
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 db.RentalRequest.Add(rentalRequest);
+                foreach (var rental in rentalRequest.Rentals)
+                {
+                    db.Entry(rental).State = EntityState.Modified;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -72,6 +90,20 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 return HttpNotFound();
             }
             return View(rentalRequest);
+        }
+
+        private void PopulateRentalsList()
+        {
+            var rentals = db.Rentals.ToList();
+            List<Rental> nullRentals = new List<Rental>();
+            foreach (Rental rental in rentals)
+            {
+                if (rental.RentalRequestID == null)
+                {
+                    nullRentals.Add(rental);
+                }
+            }
+            ViewBag.Rentals = nullRentals;
         }
 
         // POST: Rent/RentalRequests/Edit/5

@@ -25,7 +25,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         //Relationship to Requests
         [ForeignKey("RentalRequest")]
         public int? RentalRequestID { get; set; }
-        public virtual RentalRequest RentalRequest { get; set; }
+        public RentalRequest RentalRequest { get; set; }
 
         //Seeds Database
         public static void Seed(ApplicationDbContext db)
