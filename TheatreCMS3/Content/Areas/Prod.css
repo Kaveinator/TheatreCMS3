@@ -10,3 +10,20 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+:root {
+    --main-color: #DB1A11;
+    --main-color--light: #F04D44;
+}
+.container {
+    background-color: var(--main-color--light);
+    
+}
+
+.btn{
+
+}
+.hovering:hover {
+    -webkit-transform: scale(1.1);
+    background: #9D7C39;               /* #DEB887;*/
+}

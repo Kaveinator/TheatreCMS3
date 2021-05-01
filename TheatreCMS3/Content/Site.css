@@ -620,7 +620,3 @@ footer {
     z-index: 1;
 }
 
-.hovering:hover {
-    -webkit-transform: scale(1.1);
-    background: #DEB887;
-}
