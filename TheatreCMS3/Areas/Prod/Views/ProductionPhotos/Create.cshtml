@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<div class="container">
+<div class="container relative">
     <h2>Create a Production Photo</h2>
 
     <div class="row">
@@ -30,12 +30,9 @@
 
             </div>
 
-            <div class="form-group">
-
-                <input style="border-radius:8px" type="submit" value="Create" class="btn btn-success hovering" />
-
-                <button class="btn hovering" style="border-radius:8px; background-color:black;">@Html.ActionLink("Back to List", "Index")</button>
-
+            <div class="form-group absolute">
+                <input class="btn btn-success hovering" type="submit" value="Create"  />
+                <button class="btn hovering" style= "background-color:black;">@Html.ActionLink("Back to List", "Index")</button>
             </div>
 
         } @*Ends Html.BeginForm*@

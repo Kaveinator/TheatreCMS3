@@ -20,8 +20,22 @@
     
 }
 
-.btn{
+.relative{
+    position: relative;
+ }
 
+.absolute {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.btn {
+    border-radius: 8px;
+}
+
+.bg {
+    background-color: white;
 }
 .hovering:hover {
     -webkit-transform: scale(1.1);
