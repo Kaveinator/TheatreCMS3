@@ -74,5 +74,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         public bool Accepted { get; set; }
         public bool ContractSigned { get; set; }
 
+        //One to Many relationship with Rentals. This is the list of rentals assigned to each request. 
+        public List<Rental> Rentals { get; set; }
     }
 }

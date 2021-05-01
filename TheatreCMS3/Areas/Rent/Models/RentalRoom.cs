@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         public int SquareFootage { get; set; }
         public int MaxOccupancy { get; set; }
 
+        //Seed Method
         public static new void Seed(ApplicationDbContext db)
         {
             db.Rentals.AddOrUpdate(x => x.RentalName, //match on rentalname because id will be created newly each time

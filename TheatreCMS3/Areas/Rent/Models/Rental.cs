@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -21,6 +22,12 @@ namespace TheatreCMS3.Areas.Rent.Models
         public decimal RentalCost { get; set; }
         public string FlawsAndDamages { get; set; }
 
+        //Relationship to Requests
+        [ForeignKey("RentalRequest")]
+        public int? RentalRequestID { get; set; }
+        public virtual RentalRequest RentalRequest { get; set; }
+
+        //Seeds Database
         public static void Seed(ApplicationDbContext db)
         {
             db.Rentals.AddOrUpdate(x => x.RentalName, //match on rentalname because id will be created newly each time
