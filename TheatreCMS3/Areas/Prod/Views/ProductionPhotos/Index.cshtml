@@ -4,10 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+<h2>Production Photos Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="hovering">@Html.ActionLink("Create New", "Create")</button>
 </p>
 <table class="table">
     <tr>
@@ -20,20 +21,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProPhotoId })
-        </td>
-    </tr>
-}
+
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body border">
+                <h5 class="card-title">@Html.DisplayForModel(item.Title)</h5>
+                @Html.DisplayFor(model => item.Title)
+               
+                @Html.DisplayFor(model => item.Description)
+                @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                <div>
+                    <span class="badge badge-primary">Edit</span>
+                    <span class="badge badge-danger">Delete</span>
+                 </div>
+            </div>
+        </div>
+    }
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
+            </td>
+        </tr>
+    }
 
 </table>
