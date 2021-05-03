@@ -149,9 +149,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             List<Rental> deleteRelationship = new List<Rental>(); // list of rentals that will no longer be associated with rental request
             rentalRequest.Rentals = new List<Rental>();
+
+            // populate rentals list property of RentalRequest
             if (selectedRentals != null)
             {
-                // populate rentalRequest list property of RentalRequest
                 foreach (var rental in selectedRentals)
                 {
                     var rentalToAdd = db.Rentals.Find(int.Parse(rental));
@@ -160,6 +161,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 }
             }
 
+            // populate deleteRelationship list, and modify Rentals db entry
             foreach (var rental in db.Rentals.ToList())
             {
                 // if a rental is found that has foreign key of request, but is not in current list of associated rentals, delete the foreign key
@@ -172,13 +174,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
             if (ModelState.IsValid)
             {
+                // save all modifications
                 db.Entry(rentalRequest).State = EntityState.Modified;
-                if (rentalRequest.Rentals != null)
+                foreach (var rental in rentalRequest.Rentals)
                 {
-                    foreach (var rental in rentalRequest.Rentals)
-                    {
-                        db.Entry(rental).State = EntityState.Modified;
-                    }
+                    db.Entry(rental).State = EntityState.Modified;
                 }
                 foreach (var rental in deleteRelationship)
                 {
