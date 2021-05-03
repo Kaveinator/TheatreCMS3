@@ -17,6 +17,7 @@ namespace TheatreCMS3.Areas.Rent.ViewModels
             RentalCost = rental.RentalCost;
             FlawsAndDamages = rental.FlawsAndDamages;
             RentalType = "rental";
+            RentalRequestID = rental.RentalRequestID;
             if (rental is RentalEquipment equipment) //"is" statement makes sure it's the right type
             {
                 ChokingHazard = equipment.ChokingHazard;
@@ -50,5 +51,6 @@ namespace TheatreCMS3.Areas.Rent.ViewModels
         public int SquareFootage { get; set; }
         public int MaxOccupancy { get; set; }
         public string RentalType { get; set; }
+        public int? RentalRequestID { get; set; }
     }
 }
