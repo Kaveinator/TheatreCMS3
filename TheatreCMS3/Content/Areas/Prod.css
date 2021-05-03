@@ -11,33 +11,18 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-:root {
-    --main-color: #DB1A11;
-    --main-color--light: #F04D44;
-}
+
 .container {
     background-color: var(--main-color--light);
-    
-}
-
-.relative{
-    position: relative;
- }
-
-.absolute {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  
 }
 
 .btn {
     border-radius: 8px;
 }
 
-.bg {
-    background-color: white;
-}
-.hovering:hover {
+
+.btn:hover {
     -webkit-transform: scale(1.1);
     background: #9D7C39;               /* #DEB887;*/
 }
