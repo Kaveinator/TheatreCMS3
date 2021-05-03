@@ -44,9 +44,9 @@
 <div class="row rental-text">
     @foreach (var rentItem in Model)
     {
-        if (rentItem.RentalType == "rental")
-        { 
-            <div class="card col-auto mb-3  mr-4 rental-cards">
+      if (rentItem.RentalType == "rental")
+      {
+            <div class="card col-auto mb-3 mr-4 rental-cards @if (rentItem.RentalRequestID != null) { <text>grey-out</text> } ">
                 <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => rentItem.RentalName)</h5>
@@ -75,7 +75,7 @@
     {
         if (item.RentalType == "equipment")
         { 
-            <div class="card col-auto mb-3 mr-4 rental-cards">
+            <div class="card col-auto mb-3 mr-4 rental-cards @if (item.RentalRequestID != null) { <text>grey-out</text> }">
                 <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
@@ -113,7 +113,7 @@
           
         if (item.RentalType == "room")
         { 
-            <div class="card col-auto mb-3 mr-4 rental-cards">
+            <div class="card col-auto mb-3 mr-4 rental-cards @if (item.RentalRequestID != null) { <text>grey-out</text> }">
                 <img class="card-img-top mt-3 index-card-img" src="~/Content/images/theater.jpg" alt="Card image cap">
                 <div class="card-body row">
                     <div class="col-sm-8">
