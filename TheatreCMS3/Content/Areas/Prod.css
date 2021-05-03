@@ -10,3 +10,68 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+
+/* ----Cast Members----*/
+
+.castMember-container {
+    display: compact;
+    justify-content: normal;
+    background-color: #DB1A11;
+}
+
+.castMember-form {
+    max-width:fit-content();
+    color: #000000;
+    text-align: left;
+    background-color: #FFFBFB;
+    border-radius: 1px;
+    border-color: black;
+    padding-top: 1px;
+    font-weight:bolder;
+}
+
+.castMember-button {
+    background-color: #D6972A;
+    border: solid;
+    border-color: #000000;
+    border-radius: 4px;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.castMember-returnbutton {
+    background-color: #9D7C39;
+    border: solid;
+    border-color: #000000;
+    border-radius: 4px;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+.castMember-button:hover {
+    background-color: #9D7C39;
+    }
+.castMember-returnbutton:hover,
+.castMember-form:hover {
+    background-color: #D6972A;
+}
+
+
+.castMember-header {
+    padding: 20px;
+    text-align: center;
+    background: #F04D44;
+    color: #FFFBFB;
+    text-shadow: 2px 2px 5px #000000, 2px 2px 5px #000000;
+    font-size: 30px;
+}
