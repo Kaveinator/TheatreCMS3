@@ -148,9 +148,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             "ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest, string[] selectedRentals /*List containing associated rentals selected by user*/)
         {
             List<Rental> deleteRelationship = new List<Rental>(); // list of rentals that will no longer be associated with rental request
+            rentalRequest.Rentals = new List<Rental>();
             if (selectedRentals != null)
             {
-                rentalRequest.Rentals = new List<Rental>();
                 // populate rentalRequest list property of RentalRequest
                 foreach (var rental in selectedRentals)
                 {
@@ -162,10 +162,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
             foreach (var rental in db.Rentals.ToList())
             {
-                if (selectedRentals == null)
-                {
-                    rentalRequest.Rentals = new List<Rental>();
-                }
                 // if a rental is found that has foreign key of request, but is not in current list of associated rentals, delete the foreign key
                 if ((rental.RentalRequestID == rentalRequest.RentalRequestID && !rentalRequest.Rentals.Contains(rental)))
                 {
