@@ -26,7 +26,7 @@
 }
 
 
-.btn:hover {
+.prodphoto-btn:hover {
     -webkit-transform: scale(1.1);
-    background: #9D7C39;               /* #DEB887;*/
+    background: #9D7C39; /* #DEB887;*/
 }
