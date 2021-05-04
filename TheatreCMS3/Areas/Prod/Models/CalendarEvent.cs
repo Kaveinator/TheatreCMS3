@@ -12,9 +12,17 @@ namespace TheatreCMS3.Areas.Prod.Models
         [Key]
         public int EventId { get; set; }
         public string Title { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:THH:mm}", ApplyFormatInEditMode = true)]
         public DateTime? StartTime { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:THH:mm}", ApplyFormatInEditMode = true)]
         public DateTime? EndTime { get; set; }
         public bool AllDay { get; set; }
         public int TicketsAvailable { get; set; }
