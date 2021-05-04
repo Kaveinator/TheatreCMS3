@@ -22,7 +22,7 @@
 .prophotocard-container{
     float: left;
     margin-top: 5px;
-    height: 300px;
+   
 }
 
 
@@ -43,4 +43,14 @@
 .prodphoto-btn:hover {
     -webkit-transform: scale(1.1);
     background: #9D7C39; /* #DEB887;*/
+}
+
+.prodphoto-cardheight {
+    max-height: 350px;
+    min-height: 350px;
+    margin: 5px;
+}
+.prodphoto-links {
+    margin: 5px;
+    
 }
