@@ -8,39 +8,32 @@
 <h2>Production Photos Index</h2>
 
 <p>
-    <button class="hovering">@Html.ActionLink("Create New", "Create")</button>
+    <button class="btn btn-success">@Html.ActionLink("Create New", "Create")</button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
 
 
-    @foreach (var item in Model)
-    {
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body border">
-                <h5 class="card-title">@Html.DisplayForModel(item.Title)</h5>
-                @Html.DisplayFor(model => item.Title)
-               
-                @Html.DisplayFor(model => item.Description)
-                @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
-                <div>
-                    <span class="badge badge-primary">Edit</span>
-                    <span class="badge badge-danger">Delete</span>
-                 </div>
+@*for each photo in the list, print it's title and descripiton.*@
+@foreach (var item in Model)
+{
+    @*<div class="prophotocard-container">*@
+        <div class="col-lg-3 col-md-4 col-sm-6 prophotocard-container">
+
+            <div class="card">
+                <img class="card-img-top" src="/../../Content/images/ProductionPhotos/Wicked/03.jpg" alt="Production Photos">
+                <div class="card-body border">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                    <div>
+                        <span class="badge badge-warning">@Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId })</span>
+                        <span class="badge badge-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })</span>
+                    </div>
+                </div>
             </div>
         </div>
-    }
+    @*</div>*@
+}
 
-    @foreach (var item in Model)
+@*@foreach (var item in Model)
     {
         <tr>
             <td>
@@ -55,6 +48,6 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
             </td>
         </tr>
-    }
+    }*@
 
-</table>
+

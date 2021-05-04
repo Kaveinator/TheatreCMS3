@@ -10,3 +10,17 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+.card-title{
+   color: red; 
+}
+
+.card-text{
+    color: black;
+}
+
+.prophotocard-container{
+    float: left;
+    margin-top: 5px;
+    height: 300px;
+}
