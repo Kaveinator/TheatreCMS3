@@ -81,9 +81,19 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
             //pass rental through viewmodel constructor
             AllRentals allRentals = new AllRentals(rental);
+
+            //get associated rentalRequest
+
+            populateAssociatedRentalRequest(allRentals);
             return View(allRentals);
         }
 
+        //gets associated rental request and puts it in viewbag
+        private void populateAssociatedRentalRequest(AllRentals rental)
+        {
+            RentalRequest rentalRequest = db.RentalRequest.Find(rental.RentalRequestID);
+            ViewBag.associatedRentalRequest = rentalRequest;
+        }
         // GET: Rent/Rentals/Create
         [RentalManagerAuthorize] //Checks that user has Rental Manager Role
         public ActionResult Create()
@@ -349,6 +359,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
             //pass through view model constructor
             AllRentals allRentals = new AllRentals(rental);
+
+            //get associated rental request
+            populateAssociatedRentalRequest(allRentals);
             return View(allRentals);
         }
 

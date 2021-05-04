@@ -24,3 +24,23 @@
     margin-top: 5px;
     height: 300px;
 }
+
+
+.prodphoto-container {
+   background-color: var(--main-color--light);
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+  
+}
+
+.backtolist-btn{
+    background-color: black;
+    margin: 2px;
+}
+
+
+.prodphoto-btn:hover {
+    -webkit-transform: scale(1.1);
+    background: #9D7C39; /* #DEB887;*/
+}
