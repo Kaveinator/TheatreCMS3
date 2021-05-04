@@ -14,21 +14,34 @@
 
 /* ----Cast Members----*/
 
+.castMember-header {
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    background: #F04D44;
+    color: #FFFBFB;
+    text-shadow: 2px 2px 5px #000000, 2px 2px 5px #000000;
+    font-size: 30px;
+    margin-left: 250px;
+    left: 50%;
+}
+
 .castMember-container {
-    display: compact;
-    justify-content: normal;
+    max-width: 600px;
+    margin-left: 250px;
+    left: 50%;
     background-color: #DB1A11;
 }
 
 .castMember-form {
-    max-width:fit-content();
+    max-width: 600px;
     color: #000000;
     text-align: left;
     background-color: #FFFBFB;
-    border-radius: 1px;
+    border-radius: 20px;
     border-color: black;
-    padding-top: 1px;
-    font-weight:bolder;
+    padding-top: 10px;
+    font-weight: bolder;
 }
 
 .castMember-button {
@@ -57,21 +70,10 @@
     cursor: pointer;
 }
 
-
 .castMember-button:hover {
     background-color: #9D7C39;
     }
 .castMember-returnbutton:hover,
 .castMember-form:hover {
     background-color: #D6972A;
-}
-
-
-.castMember-header {
-    padding: 20px;
-    text-align: center;
-    background: #F04D44;
-    color: #FFFBFB;
-    text-shadow: 2px 2px 5px #000000, 2px 2px 5px #000000;
-    font-size: 30px;
 }

@@ -13,8 +13,9 @@
     @Html.AntiForgeryToken()
 
    <div class="castMember-container">
+     
    
-   @*Cast Member Name:*@
+     @*Name:*@
      <div class="form-group">
        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
        <div class="form-horizontal">
@@ -25,6 +26,7 @@
          </div>
        </div>
 
+       @*Year Joined:*@
        <div class="form-group">
          @Html.LabelFor(model => model.YearJoined, htmlAttributes: new { @class = "control-label col-md-2" })
          <div class="col-md-12">
@@ -33,6 +35,7 @@
          </div>
        </div>
 
+       @*Main Role:*@
        <div class="form-group">
          @Html.LabelFor(model => model.MainRole, htmlAttributes: new { @class = "control-label col-md-2" })
          <div class="col-md-12">
@@ -41,6 +44,7 @@
          </div>
        </div>
 
+       @*Bio:*@
        <div class="form-group">
          @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
          <div class="col-md-12">
@@ -49,6 +53,7 @@
          </div>
        </div>
 
+       @*Checkbox:*@
        <div class="form-group">
          @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "control-label col-md-2" })
          <div class="col-md-12">
@@ -59,6 +64,7 @@
          </div>
        </div>
 
+       @*Character:*@
        <div class="form-group">
          @Html.LabelFor(model => model.Character, htmlAttributes: new { @class = "control-label col-md-2" })
          <div class="col-md-12">
@@ -67,6 +73,7 @@
          </div>
        </div>
 
+       @*Year Left:*@
        <div class="form-group">
          @Html.LabelFor(model => model.CastYearLeft, htmlAttributes: new { @class = "control-label col-md-2" })
          <div class="col-md-12">
@@ -75,6 +82,7 @@
          </div>
        </div>
 
+       @*Debut Year:*@
        <div class="form-group">
          @Html.LabelFor(model => model.DebutYear, htmlAttributes: new { @class = "control-label col-md-2" })
          <div class="col-md-12">
@@ -91,7 +99,6 @@
        </center>
      </div>
     </div>
-
   }
 
 
