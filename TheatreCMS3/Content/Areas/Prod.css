@@ -12,13 +12,17 @@
 /*}*/
 
 
-.container {
-    background-color: var(--main-color--light);
+.prodphoto-container {
+   background-color: var(--main-color--light);
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
   
 }
 
-.btn {
-    border-radius: 8px;
+.backtolist-btn{
+    background-color: black;
+    margin: 2px;
 }
 
 

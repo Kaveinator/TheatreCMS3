@@ -7,7 +7,7 @@
 <h2>Edit Production Photo</h2>
 
 
-@using (Html.BeginForm("Edit", "ProductionPhotos", FormMethod.Post, new { @class = "row" }))
+@using (Html.BeginForm("Edit", "ProductionPhotos", FormMethod.Post, new { @class = "row prodphoto-container" }))
 {
     @Html.AntiForgeryToken()
     
@@ -40,9 +40,8 @@
     </div>
 
     <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-success hovering" />
-            <button class="btn btn-dark hovering">@Html.ActionLink("Back to List", "Index")</button>
-       
+            <input type="submit" value="Save" class="btn btn-success" />
+            <button class="btn backtolist-btn">@Html.ActionLink("Back to List", "Index")</button>
     </div>
  }
 
