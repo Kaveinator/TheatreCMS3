@@ -14,7 +14,6 @@
 
    <div class="castMember-container">
      
-   
      @*Name:*@
      <div class="form-group">
        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -94,13 +93,14 @@
        <center>
          <div class="form-group">
            <div class="col-md-10">
-             <input type="submit" class="col-sm-3 castMember-button" value="Create" />
-             @Html.ActionLink("Back to List", "Index", null, new { @class = "castMember-returnbutton" })
+             <input type="submit" class="btn btn-default castMember-button" value="Create" />
+             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default castMember-returnbutton" })
+             </div>
+           </div>
        </center>
      </div>
     </div>
   }
-
 
   @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

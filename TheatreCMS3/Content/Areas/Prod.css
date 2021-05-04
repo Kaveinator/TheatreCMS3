@@ -22,14 +22,12 @@
     color: #FFFBFB;
     text-shadow: 2px 2px 5px #000000, 2px 2px 5px #000000;
     font-size: 30px;
-    margin-left: 250px;
-    left: 50%;
+    margin:auto;
 }
 
 .castMember-container {
     max-width: 600px;
-    margin-left: 250px;
-    left: 50%;
+    margin:auto;
     background-color: #DB1A11;
 }
 
@@ -52,8 +50,7 @@
     color: black;
     text-align: center;
     font-size: 16px;
-    padding: 20px;
-    margin: 4px 2px;
+    padding: 15px 32px;
     cursor: pointer;
 }
 
@@ -65,8 +62,7 @@
     color: black;
     text-align: center;
     font-size: 16px;
-    padding: 20px;
-    margin: 4px 2px;
+    padding: 15px 32px;
     cursor: pointer;
 }
 
