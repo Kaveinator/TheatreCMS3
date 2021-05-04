@@ -12,6 +12,25 @@
 /*}*/
 
 
+.prodphoto-container {
+    background-color: var(--main-color--light);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.backtolist-btn {
+    background-color: black;
+    margin: 2px;
+}
+
+
+.prodphoto-btn:hover {
+    -webkit-transform: scale(1.1);
+    background: #9D7C39; /* #DEB887;*/
+}
+
+
 /* ----Cast Members----*/
 
 .castMember-header {
@@ -69,6 +88,7 @@
 .castMember-button:hover {
     background-color: var(--secondary-color--dark);
 }
+
 .castMember-returnbutton:hover,
 .castMember-form:hover {
     background-color: var(--secondary-color);

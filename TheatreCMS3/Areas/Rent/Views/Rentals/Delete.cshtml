@@ -8,7 +8,7 @@
 <h2 class="centered-rental">Delete</h2>
 <div class="rental-container">
     <h4 class="centered-rental alert rental-delete-confirm">Are you sure you want to delete this?</h4>
-    <dl class="dl-horizontal" data-type="@Html.DisplayFor(model => model.RentalType)">
+    <dl class="dl-horizontal" data-type="@Html.DisplayFor(model => model.RentalType)"> @*Used to display correct form*@ 
         <div class="row">
             <div class="col-md-6">
                 <div>
@@ -103,6 +103,28 @@
                 </div>
             </div>
         </div>
+
+        @{  if (ViewBag.associatedRentalRequest != null)
+            {
+                TheatreCMS3.Areas.Rent.Models.RentalRequest rentalRequest = ViewBag.associatedRentalRequest;
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4><a class="rental-request-link" href="~/Rent/RentalRequests/Details/@rentalRequest.RentalRequestID">Rental Request Information:</a></h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <p><strong>Company:</strong><br />@rentalRequest.Company</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p><strong>Contact Person:</strong><br />@rentalRequest.ContactPerson</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p><strong>Rental Code:</strong><br />@rentalRequest.RentalCode</p>
+                    </div>
+                </div>
+            }
+
+        }
+    
     </dl>
         
     @using (Html.BeginForm()) {

@@ -32,15 +32,15 @@
             </div>
         </div>
 
-        <div class="form-group" >
-            @Html.LabelFor(model => model.RequestedTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RequestedTime, new { htmlAttributes = new { @type = "DateTime-local", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RequestedTime, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @*<div class="form-group" >
+            @Html.LabelFor(model => model., htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+               @Html.EditorFor(model => model., new { htmlAttributes = new { @type = "DateTime-local", @class = "form-control" } })
+               @Html.ValidationMessageFor(model => model., "", new { @class = "text-danger" })
+          </div>
+        </div>*@
 
-        <div class="form-group">
+        <div class="form-group"> 
             @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @type = "DateTime-local", @class = "form-control" } })
@@ -89,6 +89,32 @@
                     @Html.EditorFor(model => model.ContractSigned)
                     @Html.ValidationMessageFor(model => model.ContractSigned, "", new { @class = "text-danger" })
                 </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h2>Edit Rentals</h2>
+            <p>(hold down ctl before clicking)</p>
+            <div class="col-md-10">
+
+                @{ 
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> rentals = ViewBag.allRentals;
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> associatedRentals = ViewBag.associatedRentals;
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> nullRentals = ViewBag.nullRentals;
+                    <select multiple name="selectedRentals">
+                        @foreach (var rental in rentals)
+                        {
+                            if (associatedRentals.Contains(rental)) { <text><option selected value="@rental.RentalId">@rental.RentalName</option></text> }
+                        }
+
+                        @foreach (var rental in nullRentals)
+                        {
+                            <option value="@rental.RentalId">@rental.RentalName</option>
+                        }
+                    </select>
+
+                }
+
             </div>
         </div>
 

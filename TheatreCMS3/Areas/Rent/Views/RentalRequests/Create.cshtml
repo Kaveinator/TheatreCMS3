@@ -30,13 +30,13 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RequestedTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RequestedTime, new { htmlAttributes = new { @type = "datetime-local", @class = "form-control"  } })
-                @Html.ValidationMessageFor(model => model.RequestedTime, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @*<div class="form-group">
+          @Html.LabelFor(model => model., htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model., new { htmlAttributes = new { @type = "datetime-local", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model., "", new { @class = "text-danger" })
+          </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -87,6 +87,24 @@
                     @Html.EditorFor(model => model.ContractSigned)
                     @Html.ValidationMessageFor(model => model.ContractSigned, "", new { @class = "text-danger" })
                 </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h2>Rentals</h2>
+            <div class="col-md-10">
+
+                @{ 
+                    List<TheatreCMS3.Areas.Rent.Models.Rental> rentals = ViewBag.nullRentals;
+                    <select multiple name="selectedRentals">
+                        @foreach (var rental in rentals)
+                        {
+                            <option value="@rental.RentalId">@rental.RentalName</option>
+                        }
+                    </select>
+
+                }
+
             </div>
         </div>
 

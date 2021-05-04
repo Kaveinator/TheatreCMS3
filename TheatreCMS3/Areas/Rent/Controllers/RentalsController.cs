@@ -17,18 +17,51 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/Rentals
-        public ActionResult Index()
+        public ViewResult Index(string greaterLessThan, string searchCost)
         {
-            //Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            //Use keyword "var" to signal ambiguity of rental type
+            //Technically it's List<Rental>. 
             var rentals = db.Rentals.ToList();
-            IList<AllRentals> allRentals = new List<AllRentals>();
+            IList<AllRentals> allRentals = new List<AllRentals>(); //list of type view model
 
+            //add all items in rentals to view model list
             foreach (var rentItem in rentals)
             {
                 AllRentals allRental = new AllRentals(rentItem);               
                 allRentals.Add(allRental);
             }
-            return View(allRentals);
+
+            //Change to ienumerable so the structure is less mutable
+            IEnumerable<AllRentals> iAllRentals = allRentals;
+
+            ViewBag.LessThanGreaterThan = "less"; //default value
+            if (!String.IsNullOrEmpty(searchCost))
+            {
+                try
+                {
+                    decimal cost = Convert.ToDecimal(searchCost);
+                    if (greaterLessThan == "less")
+                    {
+                        iAllRentals = allRentals.Where(s => s.RentalCost < cost);
+                    }
+                    else
+                    {
+                        iAllRentals = allRentals.Where(s => s.RentalCost > cost);
+                        ViewBag.LessThanGreaterThan = "greater";
+                    }
+                }
+                catch (FormatException) //if letters are inputted
+                {
+                    ViewBag.searchCostException = "Please enter numbers only";
+                }
+                catch (Exception) //catches any other exception
+                {
+                    ViewBag.searchCostException = "Something went wrong. Please try again or contact site administrator.";
+                }
+
+
+            }
+            return View(iAllRentals);
         }
 
         // GET: Rent/Rentals/Details/5
@@ -38,18 +71,31 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            // Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            // Use keyword "var" because it's ambiguous which rental type will come out.
+            // Type is technically parent type "Rental" but will polymorph to child types.
             var rental = db.Rentals.Find(id);
             if (rental == null)
             {
                 return HttpNotFound();
             }
 
+            //pass rental through viewmodel constructor
             AllRentals allRentals = new AllRentals(rental);
+
+            //get associated rentalRequest
+
+            populateAssociatedRentalRequest(allRentals);
             return View(allRentals);
         }
 
+        //gets associated rental request and puts it in viewbag
+        private void populateAssociatedRentalRequest(AllRentals rental)
+        {
+            RentalRequest rentalRequest = db.RentalRequest.Find(rental.RentalRequestID);
+            ViewBag.associatedRentalRequest = rentalRequest;
+        }
         // GET: Rent/Rentals/Create
+        [RentalManagerAuthorize] //Checks that user has Rental Manager Role
         public ActionResult Create()
         {
             return View();
@@ -62,7 +108,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages," +
             "ChokingHazard,SuffocationHazard,PurchasePrice," +
-            "RoomNumber,SquareFootage,MaxOccupancy")] AllRentals allrentals, string name)
+            "RoomNumber,SquareFootage,MaxOccupancy")] AllRentals allrentals, string name /*comes from last input on view*/)
         {
             bool success = false;
 
@@ -82,12 +128,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.rentalType = name;
+            ViewBag.rentalType = name; //return this name in case an error occurs, it shows the right form.
             return View(allrentals);
         }
 
         private bool CreateRental(AllRentals allrentals)
         {
+            //map the view model to model
             Rental rental = new Rental()
             {
                 RentalName = allrentals.RentalName,
@@ -95,6 +142,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 FlawsAndDamages = allrentals.FlawsAndDamages
             };
 
+            //validate only model fields
             if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
                 ModelState.IsValidField("FlawsAndDamages"))
             {
@@ -107,6 +155,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         private bool CreateEquipmentRental(AllRentals allrentals)
         {
+            //map the view model to model
             RentalEquipment equipment = new RentalEquipment()
             {
                 RentalName = allrentals.RentalName,
@@ -116,6 +165,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 SuffocationHazard = allrentals.SuffocationHazard,
                 PurchasePrice = allrentals.PurchasePrice
             };
+            //validate only model fields
             if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
                 ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("ChokingHazard") &&
                 ModelState.IsValidField("SuffocationHazard") && ModelState.IsValidField("PurchasePrice"))
@@ -129,6 +179,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         private bool CreateRoomRental(AllRentals allrentals)
         {
+            //map the view model to model
             RentalRoom room = new RentalRoom()
             {
                 RentalName = allrentals.RentalName,
@@ -139,6 +190,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 MaxOccupancy = allrentals.MaxOccupancy
             };
 
+            //validate only model fields
             if (ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
                 ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("RoomNumber") &&
                 ModelState.IsValidField("SquareFootage") && ModelState.IsValidField("MaxOccupancy"))
@@ -150,20 +202,25 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return false;
         }
         // GET: Rent/Rentals/Edit/5
+        [RentalManagerAuthorize] //checks user for rental manager role
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            //Use keyword "var" because it's ambiguous which rental type will come out.
+            //Technically type is of parent "Rental" but will polymorph based on what comes out of db
             var rental = db.Rentals.Find(id);
             if (rental == null)
             {
                 return HttpNotFound();
             }
 
+            //pass rental through view model constructor
             AllRentals allRentals = new AllRentals(rental);
+
+            //setting form on the view
             if (rental.GetType().ToString().Contains("Equipment"))
             {
                 ViewBag.rentalType = "equipment";
@@ -207,12 +264,15 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return RedirectToAction("Index");
             }
+
+            //Return form type in case error occurs
             ViewBag.RentalType = name;
             return View(allrentals);
         }
 
         private bool EditRental(AllRentals allrentals)
         {
+            //map the view model to model
             Rental rental = new Rental()
             {
                 RentalId = allrentals.RentalId,
@@ -220,7 +280,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 RentalCost = allrentals.RentalCost,
                 FlawsAndDamages = allrentals.FlawsAndDamages
             };
-
+            //Validate model fields only
             if (ModelState.IsValidField("RentalId") && ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
                 ModelState.IsValidField("FlawsAndDamages"))
             {
@@ -233,6 +293,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         private bool EditEquipmentRental(AllRentals allrentals)
         {
+            //map the view model to model
             RentalEquipment equipment = new RentalEquipment()
             {
                 RentalId = allrentals.RentalId,
@@ -243,6 +304,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 SuffocationHazard = allrentals.SuffocationHazard,
                 PurchasePrice = allrentals.PurchasePrice
             };
+            //validate model fields only
             if (ModelState.IsValidField("RentalId") && ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
                 ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("ChokingHazard") &&
                 ModelState.IsValidField("SuffocationHazard") && ModelState.IsValidField("PurchasePrice"))
@@ -256,6 +318,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         private bool EditRoomRental(AllRentals allrentals)
         {
+            //map the view model to model
             RentalRoom room = new RentalRoom()
             {
                 RentalId = allrentals.RentalId,
@@ -266,7 +329,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 SquareFootage = allrentals.SquareFootage,
                 MaxOccupancy = allrentals.MaxOccupancy
             };
-
+            //validate model fields only
             if (ModelState.IsValidField("RentalId") && ModelState.IsValidField("RentalName") && ModelState.IsValidField("RentalCost") &&
                 ModelState.IsValidField("FlawsAndDamages") && ModelState.IsValidField("RoomNumber") &&
                 ModelState.IsValidField("SquareFootage") && ModelState.IsValidField("MaxOccupancy"))
@@ -279,20 +342,26 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/Rentals/Delete/5
+        [RentalManagerAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            // Use keyword "var" because it's ambiguous which rental type will come out. you can specify "Rental" type and it still polymorphs
+            // Use keyword "var" because it's ambiguous which rental type will come out.
+            // Technically type is of parent "Rental" but will polymorph to child types based on type from db
             var rental = db.Rentals.Find(id);
             if (rental == null)
             {
                 return HttpNotFound();
             }
 
+            //pass through view model constructor
             AllRentals allRentals = new AllRentals(rental);
+
+            //get associated rental request
+            populateAssociatedRentalRequest(allRentals);
             return View(allRentals);
         }
 
@@ -305,6 +374,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             db.Rentals.Remove(rental);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // method for rendering the access denied page
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

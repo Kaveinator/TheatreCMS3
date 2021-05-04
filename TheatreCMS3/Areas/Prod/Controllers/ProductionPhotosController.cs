@@ -6,112 +6,113 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class BlogAuthorController : Controller
+    public class ProductionPhotosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/BlogAuthor
+        // GET: Prod/ProductionPhotoes
         public ActionResult Index()
         {
-            return View(db.BlogAuthors.ToList());
+            return View(db.ProductionPhoto.ToList());
         }
 
-        // GET: Blog/BlogAuthor/Details/5
+        // GET: Prod/ProductionPhotoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            ProductionPhoto productionPhoto = db.ProductionPhoto.Find(id);
+            if (productionPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(productionPhoto);
+
         }
 
-        // GET: Blog/BlogAuthor/Create
+        // GET: Prod/ProductionPhotoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/BlogAuthor/Create
+        // POST: Prod/ProductionPhotoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogAuthorid,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.BlogAuthors.Add(blogAuthor);
+                db.ProductionPhoto.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(blogAuthor);
+            return View(productionPhoto);
         }
 
-        // GET: Blog/BlogAuthor/Edit/5
+        // GET: Prod/ProductionPhotoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            ProductionPhoto productionPhoto = db.ProductionPhoto.Find(id);
+            if (productionPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(productionPhoto);
         }
 
-        // POST: Blog/BlogAuthor/Edit/5
+        // POST: Prod/ProductionPhotoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogAuthorid,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogAuthor).State = EntityState.Modified;
+                db.Entry(productionPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blogAuthor);
+            return View(productionPhoto);
         }
 
-        // GET: Blog/BlogAuthor/Delete/5
+        // GET: Prod/ProductionPhotoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            ProductionPhoto productionPhoto = db.ProductionPhoto.Find(id);
+            if (productionPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(productionPhoto);
         }
 
-        // POST: Blog/BlogAuthor/Delete/5
+        // POST: Prod/ProductionPhotoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            db.BlogAuthors.Remove(blogAuthor);
+            ProductionPhoto productionPhoto = db.ProductionPhoto.Find(id);
+            db.ProductionPhoto.Remove(productionPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
