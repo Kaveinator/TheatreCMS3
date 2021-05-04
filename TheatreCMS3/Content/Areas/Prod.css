@@ -18,24 +18,24 @@
     max-width: 600px;
     padding: 20px;
     text-align: center;
-    background: #F04D44;
-    color: #FFFBFB;
-    text-shadow: 2px 2px 5px #000000, 2px 2px 5px #000000;
+    background: var(--main-color--light);
+    color: var(--light-color);
+    text-shadow: 2px 2px 5px var(--dark-color), 2px 2px 5px var(--dark-color);
     font-size: 30px;
-    margin:auto;
+    margin: auto;
 }
 
 .castMember-container {
     max-width: 600px;
-    margin:auto;
-    background-color: #DB1A11;
+    margin: auto;
+    background-color: var(--main-color);
 }
 
 .castMember-form {
     max-width: 600px;
-    color: #000000;
+    color: var(--dark-color);
     text-align: left;
-    background-color: #FFFBFB;
+    background-color: var(--light-color);
     border-radius: 20px;
     border-color: black;
     padding-top: 10px;
@@ -43,11 +43,11 @@
 }
 
 .castMember-button {
-    background-color: #D6972A;
+    background-color: var(--secondary-color);
     border: solid;
-    border-color: #000000;
+    border-color: var(--dark-color);
     border-radius: 4px;
-    color: black;
+    color: var(--dark-color);
     text-align: center;
     font-size: 16px;
     padding: 15px 32px;
@@ -55,11 +55,11 @@
 }
 
 .castMember-returnbutton {
-    background-color: #9D7C39;
+    background-color: var(--secondary-color--dark);
     border: solid;
-    border-color: #000000;
+    border-color: var(--dark-color);
     border-radius: 4px;
-    color: black;
+    color: var(--dark-color);
     text-align: center;
     font-size: 16px;
     padding: 15px 32px;
@@ -67,9 +67,9 @@
 }
 
 .castMember-button:hover {
-    background-color: #9D7C39;
-    }
+    background-color: var(--secondary-color--dark);
+}
 .castMember-returnbutton:hover,
 .castMember-form:hover {
-    background-color: #D6972A;
+    background-color: var(--secondary-color);
 }
