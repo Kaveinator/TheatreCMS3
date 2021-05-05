@@ -12,11 +12,15 @@
 /*}*/
 
 
+.prod-photocard-container{
+    margin-top: 5px;
+}
+
+
 .prodphoto-container {
-    background-color: var(--main-color--light);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
+   background-color: var(--main-color--light);
+   padding: 5px;
+  
 }
 
 .backtolist-btn {
@@ -25,7 +29,7 @@
 }
 
 
-.prodphoto-btn:hover {
+.prod-photo-btn:hover {
     -webkit-transform: scale(1.1);
     background: #9D7C39; /* #DEB887;*/
 }
@@ -92,4 +96,21 @@
 .castMember-returnbutton:hover,
 .castMember-form:hover {
     background-color: var(--secondary-color);
+}
+
+.prod-photo-cardheight {
+    max-height: 350px;
+    min-height: 350px;
+    margin: 5px;
+}
+
+.photo-card-footer{
+    margin: 5px;
+}
+
+@media only screen and (max-width: 600px){
+    .prod-photo-cardheight{
+        min-height: unset;
+        max-height: unset;
+    }
 }
