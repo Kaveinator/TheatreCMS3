@@ -194,7 +194,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotosController.cs" />
+    <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
@@ -338,6 +340,11 @@
     <Content Include="Areas\Prod\Views\CastMembers\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CastMembers\Index.cshtml" />
     <Content Include="Areas\Blog\Views\web.config" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
