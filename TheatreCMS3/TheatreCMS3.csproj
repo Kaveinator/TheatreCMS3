@@ -195,6 +195,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotosController.cs" />
+    <Compile Include="Areas\Prod\Models\CastDirector.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
