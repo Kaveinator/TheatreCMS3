@@ -8,7 +8,6 @@
 <h2>Production Photos Index</h2>
 
 <p>
-    
    @Html.ActionLink("Create New", "Create",null, new { @class = "btn btn-success" })
 </p>
 
@@ -16,21 +15,20 @@
     @*for each photo in the list, print it's title and descripiton.*@
     @foreach (var item in Model)
     {
-        @*<div class="prophotocard-container">*@
-        <div class="col-lg-3 col-md-4 col-sm-6 prophotocard-container">
+      <div class="col-lg-3 col-md-4 col-sm-6 prod-photocard-container">
+          <div class="card prod-photo-cardheight">
+              <img class="card-img-top" src="/../../Content/images/ProductionPhotos/Wicked/03.jpg" alt="Production Photos">
 
-            <div class="card prodphoto-cardheight">
-                <img class="card-img-top" src="/../../Content/images/ProductionPhotos/Wicked/03.jpg" alt="Production Photos">
-                <div class="card-body border">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-                    <div class="row">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }, new { @class = "badge badge-warning prodphoto-links " }) 
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId }, new { @class = "badge badge-danger prodphoto-links" })
-                    </div>
-                </div>
-            </div>
-        </div>
+              <div class="card-body border">
+                  <h5 class="cms-text-main">@Html.DisplayFor(modelItem => item.Title) </h5>
+                  <p class="cms-text-dark">@Html.DisplayFor(modelItem => item.Description)</p>
+              </div>
+              <div class="photo-card-footer">
+                  @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }, new { @class = "badge badge-warning" })
+                  @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId }, new { @class = "badge badge-danger" })
+              </div>
+          </div>
+      </div>
 
     }
 </div>

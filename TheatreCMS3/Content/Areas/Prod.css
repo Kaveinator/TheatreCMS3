@@ -11,26 +11,15 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-.card-title{
-   color: red; 
-}
 
-.card-text{
-    color: black;
-}
-
-.prophotocard-container{
-    float: left;
+.prod-photocard-container{
     margin-top: 5px;
-   
 }
 
 
 .prodphoto-container {
    background-color: var(--main-color--light);
-   padding-left: 10px;
-   padding-right: 10px;
-   padding-top: 10px;
+   padding: 5px;
   
 }
 
@@ -40,17 +29,24 @@
 }
 
 
-.prodphoto-btn:hover {
+.prod-photo-btn:hover {
     -webkit-transform: scale(1.1);
     background: #9D7C39; /* #DEB887;*/
 }
 
-.prodphoto-cardheight {
+.prod-photo-cardheight {
     max-height: 350px;
     min-height: 350px;
     margin: 5px;
 }
-.prodphoto-links {
+
+.photo-card-footer{
     margin: 5px;
-    
+}
+
+@media only screen and (max-width: 600px){
+    * {
+        min-height: unset;
+        max-height: unset;
+    }
 }
