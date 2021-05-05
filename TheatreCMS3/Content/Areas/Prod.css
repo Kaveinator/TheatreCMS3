@@ -23,7 +23,7 @@
   
 }
 
-.backtolist-btn{
+.backtolist-btn {
     background-color: black;
     margin: 2px;
 }
@@ -32,6 +32,70 @@
 .prod-photo-btn:hover {
     -webkit-transform: scale(1.1);
     background: #9D7C39; /* #DEB887;*/
+}
+
+
+/* ----Cast Members----*/
+
+.castMember-header {
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    background: var(--main-color--light);
+    color: var(--light-color);
+    text-shadow: 2px 2px 5px var(--dark-color), 2px 2px 5px var(--dark-color);
+    font-size: 30px;
+    margin: auto;
+}
+
+.castMember-container {
+    max-width: 600px;
+    margin: auto;
+    background-color: var(--main-color);
+}
+
+.castMember-form {
+    max-width: 600px;
+    color: var(--dark-color);
+    text-align: left;
+    background-color: var(--light-color);
+    border-radius: 20px;
+    border-color: black;
+    padding-top: 10px;
+    font-weight: bolder;
+}
+
+.castMember-button {
+    background-color: var(--secondary-color);
+    border: solid;
+    border-color: var(--dark-color);
+    border-radius: 4px;
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 16px;
+    padding: 15px 32px;
+    cursor: pointer;
+}
+
+.castMember-returnbutton {
+    background-color: var(--secondary-color--dark);
+    border: solid;
+    border-color: var(--dark-color);
+    border-radius: 4px;
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 16px;
+    padding: 15px 32px;
+    cursor: pointer;
+}
+
+.castMember-button:hover {
+    background-color: var(--secondary-color--dark);
+}
+
+.castMember-returnbutton:hover,
+.castMember-form:hover {
+    background-color: var(--secondary-color);
 }
 
 .prod-photo-cardheight {
