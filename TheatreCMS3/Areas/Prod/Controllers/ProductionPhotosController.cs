@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -124,6 +125,30 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public void uploadPhoto()
+        {
+
+        }
+
+        [HttpPost]
+        //This method changes a photo to a byte array and saves to database.
+        public byte[] photoToByteArray(HttpPostedFileBase photoFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photoFile.InputStream))
+            {
+                bytes = br.ReadBytes(photoFile.ContentLength);
+
+            }
+            return bytes;
+        }
+
+        //This method changes the byte array to a photo
+        public void btyeArrayToPhoto(Byte[] byteArr)
+        {
+
         }
     }
 }
