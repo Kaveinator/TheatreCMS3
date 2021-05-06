@@ -17,6 +17,10 @@
     {
       <div class="col-lg-3 col-md-4 col-sm-6 prod-photocard-container">
           <div class="card prod-photo-cardheight">
+
+              @* 
+                  
+              *@
               <img class="card-img-top" src="/../../Content/images/ProductionPhotos/Wicked/03.jpg" alt="Production Photos">
 
               <div class="card-body border">
@@ -33,7 +37,7 @@
     }
 </div>
 
-@*@foreach (var item in Model)
+@foreach (var item in Model)
     {
         <tr>
             <td>
@@ -48,6 +52,6 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
             </td>
         </tr>
-    }*@
+    }
 
 

@@ -49,10 +49,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        //bind takes input fields from cshtml and matches to model properties
+        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photoFile)
         {
             if (ModelState.IsValid)
             {
+                productionPhoto.PhotoFile = photoToByteArray(photoFile);
+                
                 db.ProductionPhoto.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -127,13 +130,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             base.Dispose(disposing);
         }
 
-        public void uploadPhoto()
-        {
 
-        }
-
-        [HttpPost]
-        //This method changes a photo to a byte array and saves to database.
+        //[HttpPost]
+        //This method changes a photo to a byte array.
         public byte[] photoToByteArray(HttpPostedFileBase photoFile)
         {
             byte[] bytes;
@@ -145,10 +144,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return bytes;
         }
 
-        //This method changes the byte array to a photo
-        public void btyeArrayToPhoto(Byte[] byteArr)
-        {
 
+        //This method returns the byte[] property of the image with given photoId.
+        public HttpPostedFileBase byteArrId(int photoId)
+        {
+            //get to the byte [] of the photo with given id.
+            ProductionPhoto prodPhoto = db.ProductionPhoto.Find(photoId);
+            byte[] bytes =  prodPhoto.PhotoFile;
+
+            HttpPostedFileBase objFile = new MemoryPostedFile(bytes);
+            return objFile;
         }
     }
 }

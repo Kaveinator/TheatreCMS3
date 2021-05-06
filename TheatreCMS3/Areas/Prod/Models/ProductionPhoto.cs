@@ -13,7 +13,7 @@ namespace TheatreCMS3.Areas.Prod.Models
     {
         [Key]       //Database needs a key column
         public int ProPhotoId { get; set; }
-        //public Byte[] PhotoFile { get; set; }
+        public Byte[] PhotoFile { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }
