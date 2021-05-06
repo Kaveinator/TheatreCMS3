@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -58,7 +59,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 
                 db.ProductionPhoto.Add(productionPhoto);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
 
             return View(productionPhoto);
@@ -145,15 +146,22 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
 
-        //This method returns the byte[] property of the image with given photoId.
-        public HttpPostedFileBase byteArrId(int photoId)
-        {
-            //get to the byte [] of the photo with given id.
-            ProductionPhoto prodPhoto = db.ProductionPhoto.Find(photoId);
-            byte[] bytes =  prodPhoto.PhotoFile;
+        ////This method returns the byte[] property of the image with given photoId.
+        //public HttpPostedFileBase byteArrId(int photoId)
+        //{
+        //    //get to the byte [] of the photo with given id.
+        //    ProductionPhoto prodPhoto = db.ProductionPhoto.Find(photoId);
+        //    byte[] bytes =  prodPhoto.PhotoFile;
 
-            HttpPostedFileBase objFile = new MemoryPostedFile(bytes);
-            return objFile;
+        //    HttpPostedFileBase objFile = new MemoryPostedFile(bytes);
+        //    return objFile;
+        //}
+        //This method takes a photoId, finds the photo, gets its byte[] and returns a file.
+        public ActionResult RenderImage(int photoId)
+        {
+            ProductionPhoto prodPhoto = db.ProductionPhoto.Find(photoId);
+            byte[] bytes = prodPhoto.PhotoFile;
+            return File(bytes, "image/jpg");
         }
     }
 }

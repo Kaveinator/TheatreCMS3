@@ -17,11 +17,8 @@
     {
       <div class="col-lg-3 col-md-4 col-sm-6 prod-photocard-container">
           <div class="card prod-photo-cardheight">
-
-              @* 
-                  
-              *@
-              <img class="card-img-top" src="/../../Content/images/ProductionPhotos/Wicked/03.jpg" alt="Production Photos">
+              <img src="@Url.Action("RenderImage", new { id = item.ProPhotoId })" />
+              @*<img class="card-img-top" src="/../../Content/images/ProductionPhotos/Wicked/03.jpg" alt="Production Photos">*@
 
               <div class="card-body border">
                   <h5 class="cms-text-main">@Html.DisplayFor(modelItem => item.Title) </h5>
