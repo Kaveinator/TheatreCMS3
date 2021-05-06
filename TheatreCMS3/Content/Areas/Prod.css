@@ -114,3 +114,26 @@
         max-height: unset;
     }
 }
+
+.calendarEvent-Container {
+    margin: auto;
+}
+
+.calendarEvent-form {
+    max-width: 750px;
+    color: var(--dark-color);
+    text-align: left;
+    background-color: var(--light-color);
+    border-radius: 20px;
+    border-color: var(--secondary-color);
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.calendarEvent-header {
+    padding-left: 10px;
+}
+
+.form-control:focus {
+    border-color: var(--dark-color);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.5);
+}
