@@ -237,6 +237,7 @@
   <ItemGroup>
     <Content Include="Content\all.css" />
     <Content Include="Content\Areas\Blog.css" />
+    <Content Include="Content\Areas\Home.css" />
     <Content Include="Content\Areas\Prod.css" />
     <Content Include="Content\Areas\Rent.css" />
     <Content Include="Content\bootstrap-grid.css" />
