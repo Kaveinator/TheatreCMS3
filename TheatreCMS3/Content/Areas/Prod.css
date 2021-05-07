@@ -39,8 +39,10 @@
     min-height: 350px;
     margin: 5px;
 }
-
-.photo-card-footer{
+.prod-cardbody-height{
+    height: 200px;
+}
+.photo-card-footer {
     margin: 5px;
 }
 

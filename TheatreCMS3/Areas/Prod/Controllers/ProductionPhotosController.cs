@@ -58,6 +58,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(productionPhoto.Title == null || productionPhoto.Description == null|| photoFile == null) {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 productionPhoto.PhotoFile = photoToByteArray(photoFile);
                 
                 db.ProductionPhoto.Add(productionPhoto);
@@ -93,7 +96,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(productionPhoto).State = EntityState.Modified;
-                productionPhoto.PhotoFile = photoToByteArray(photoFile);
+                //in case user has only changed title & description, not the file - photoFile will come as null. So, make it equal to the the original in db.
+                              
+                if (photoFile != null)
+                {
+                    productionPhoto.PhotoFile = photoToByteArray(photoFile);
+                }
+                else
+                {
+                    productionPhoto.PhotoFile = productionPhoto.PhotoFile;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
