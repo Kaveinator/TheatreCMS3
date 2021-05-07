@@ -20,7 +20,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionPhotoes
         public ActionResult Index()
         {
-            return View(db.ProductionPhoto.ToList());
+            
+            List<ProductionPhoto> ls = db.ProductionPhoto.ToList();
+            int count = ls.Count;
+            return View(ls);
         }
 
         // GET: Prod/ProductionPhotoes/Details/5
@@ -59,7 +62,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 
                 db.ProductionPhoto.Add(productionPhoto);
                 db.SaveChanges();
-                //return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             return View(productionPhoto);
@@ -85,11 +88,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photoFile)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(productionPhoto).State = EntityState.Modified;
+                productionPhoto.PhotoFile = photoToByteArray(photoFile);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -157,10 +161,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         //    return objFile;
         //}
         //This method takes a photoId, finds the photo, gets its byte[] and returns a file.
-        public ActionResult RenderImage(int photoId)
+        public ActionResult RenderImage(int id)
         {
-            ProductionPhoto prodPhoto = db.ProductionPhoto.Find(photoId);
+            ProductionPhoto prodPhoto = db.ProductionPhoto.Find(id);
             byte[] bytes = prodPhoto.PhotoFile;
+            if (bytes == null) return View("Index");
             return File(bytes, "image/jpg");
         }
     }

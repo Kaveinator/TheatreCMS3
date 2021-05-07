@@ -12,6 +12,7 @@
 </p>
 
 <div class="row">
+    
     @*for each photo in the list, print it's title and descripiton.*@
     @foreach (var item in Model)
     {
@@ -34,7 +35,7 @@
     }
 </div>
 
-@foreach (var item in Model)
+@*@foreach (var item in Model)
     {
         <tr>
             <td>
@@ -49,6 +50,6 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
             </td>
         </tr>
-    }
+    }*@
 
 

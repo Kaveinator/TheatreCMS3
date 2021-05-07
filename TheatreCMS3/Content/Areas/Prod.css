@@ -50,3 +50,9 @@
         max-height: unset;
     }
 }
+
+.prod-img-box{
+    height: 200px;
+    width: 200px;
+    margin: 3px;
+}
