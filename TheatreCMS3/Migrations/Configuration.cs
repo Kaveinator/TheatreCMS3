@@ -7,7 +7,7 @@
     using System.IO;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using TheatreCMS3.Areas.Rent.Models;
+    using TheatreCMS3.Areas.Prod.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TheatreCMS3.Models.ApplicationDbContext>
     {
@@ -19,15 +19,8 @@
 
         protected override void Seed(TheatreCMS3.Models.ApplicationDbContext context)
         {
-            RentalManager.Seed(context);
-
-            SurveyAnalyst.SurveyAnalystSeed(context);
-
-            HistoryManager.HistoryManagerSeed(context);
-
-            Rental.Seed(context);
-            RentalEquipment.Seed(context);
-            RentalRoom.Seed(context);
+            CastDirector.CastDirectorSeed(context);
+            EventPlanner.Seed(context);
         }
     }
 }

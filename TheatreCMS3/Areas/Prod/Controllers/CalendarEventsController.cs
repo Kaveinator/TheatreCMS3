@@ -6,112 +6,109 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Rent.Controllers
+namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class RentalSurveysController : Controller
+    public class CalendarEventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Rent/RentalSurveys
-        public ActionResult Index()
-        {
-            return View(db.RentalSurveys.ToList());
-        }
+        // GET: Prod/CalendarEvents
+        public ActionResult Index() => View(db.CalendarEvents.ToList());
 
-        // GET: Rent/RentalSurveys/Details/5
+        // GET: Prod/CalendarEvents/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
-            if (rentalSurveys == null)
+            CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalSurveys);
+            return View(calendarEvent);
         }
 
-        // GET: Rent/RentalSurveys/Create
+        // GET: Prod/CalendarEvents/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Rent/RentalSurveys/Create
+        // POST: Prod/CalendarEvents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SurveyID,RecommendRentalRating,RentalCost,ExperienceRating,Feedback")] RentalSurveys rentalSurveys)
+        public ActionResult Create([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
             {
-                db.RentalSurveys.Add(rentalSurveys);
+                db.CalendarEvents.Add(calendarEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rentalSurveys);
+            return View(calendarEvent);
         }
 
-        // GET: Rent/RentalSurveys/Edit/5
+        // GET: Prod/CalendarEvents/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
-            if (rentalSurveys == null)
+            CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalSurveys);
+            return View(calendarEvent);
         }
 
-        // POST: Rent/RentalSurveys/Edit/5
+        // POST: Prod/CalendarEvents/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SurveyID,RecommendRentalRating,RentalCost,ExperienceRating,Feedback")] RentalSurveys rentalSurveys)
+        public ActionResult Edit([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rentalSurveys).State = EntityState.Modified;
+                db.Entry(calendarEvent).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rentalSurveys);
+            return View(calendarEvent);
         }
 
-        // GET: Rent/RentalSurveys/Delete/5
+        // GET: Prod/CalendarEvents/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
-            if (rentalSurveys == null)
+            CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalSurveys);
+            return View(calendarEvent);
         }
 
-        // POST: Rent/RentalSurveys/Delete/5
+        // POST: Prod/CalendarEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RentalSurveys rentalSurveys = db.RentalSurveys.Find(id);
-            db.RentalSurveys.Remove(rentalSurveys);
+            CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            db.CalendarEvents.Remove(calendarEvent);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
