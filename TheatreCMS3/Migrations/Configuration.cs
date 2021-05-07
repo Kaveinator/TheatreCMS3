@@ -26,10 +26,10 @@
 
             HistoryManager.HistoryManagerSeed(context);
 
+            CastDirector.CastDirectorSeed(context);
             Rental.Seed(context);
             RentalEquipment.Seed(context);
             RentalRoom.Seed(context);
-
             EventPlanner.Seed(context);
         }
     }
