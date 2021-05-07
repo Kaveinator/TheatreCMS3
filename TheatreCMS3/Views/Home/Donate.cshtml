@@ -1,33 +1,36 @@
 ﻿<!DOCTYPE html>
 <body>
-  @*@using (Html.BeginForm("Donate", "Home", FormMethod.Post))*@
-
-    <div class="container-fluid">
-      <h1 class="text-center">Consider Making a Donation</h1>
-      <div class="donate-container-input">
-        <!-- START First Row -->
-        <div class="row">
-          <div class="col">
-            <div class="donate-form">
-              <label class="donate-label cms-text-light">Name&#8727;</label>
-            </div>
+  @using (Html.BeginForm("Donate", "Home", FormMethod.Post))
+            {
+  <div class="container-fluid">
+    <h1 class="text-center">Consider Making a Donation</h1>
+    <div class="container cms-bg-main-light">
+      <!-- START First Row -->
+      <div class="row">
+        <div class="col">
+          <div class="donate-form">
+            <label class="donate-label cms-text-light">Name&#8727;</label>
           </div>
-
-          <div class="col">
-            <div class="donate-form">
-              <input class="donate-name" type="text" placeholder="First Name" />
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="donate-form">
-              <input class="donate-name" type="text" placeholder="Last Name" />
-            </div>
-          </div>
-          <!-- END First Row -->
         </div>
+
+        <div class="col">
+          <div class="donate-form">
+            <input class="donate-name" type="text" placeholder="First Name" />
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="donate-form">
+            <input class="donate-name" type="text" placeholder="Last Name" />
+          </div>
+        </div>
+        <!-- END First Row -->
       </div>
     </div>
+  </div>
+            }
+
+    
 </body>
 
 

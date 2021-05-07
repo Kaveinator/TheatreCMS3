@@ -592,6 +592,10 @@ footer {
 }
 
 /*Donate Page*/
+.donate-container-input {
+    color: var(--main-color--light);
+    border-radius: .40rem;
+}
 .donate-form {
     padding: 10px 0;
 }
