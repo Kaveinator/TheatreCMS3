@@ -21,7 +21,7 @@ namespace TheatreCMS3.Areas.Prod.Models
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            //create userrole
+            //create user role
             if (!roleManager.RoleExists("DirectorManager"))
             {
                 var role = new IdentityRole();
@@ -37,6 +37,17 @@ namespace TheatreCMS3.Areas.Prod.Models
                     HiredCastMembers = 30,
                     FiredCastMembers = 8
                 };
+
+                //creates user w/ password
+                string castDirectorPwd = "castDirector01";
+
+                var checkDirector = userManager.Create(directorManager, castDirectorPwd);
+
+                if (checkDirector.Succeeded)
+                {
+                    userManager.AddToRole(directorManager.Id, "DirectorManager");
+                }
+
 
             }
 
