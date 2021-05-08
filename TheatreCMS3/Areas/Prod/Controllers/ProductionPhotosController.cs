@@ -20,10 +20,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionPhotoes
         public ActionResult Index()
         {
-            
-            List<ProductionPhoto> ls = db.ProductionPhoto.ToList();
-            int count = ls.Count;
-            return View(ls);
+            return View(db.ProductionPhoto.ToList());
         }
 
         // GET: Prod/ProductionPhotoes/Details/5
@@ -104,7 +101,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 }
                 else
                 {
-                    productionPhoto.PhotoFile = productionPhoto.PhotoFile;
+                    productionPhoto.PhotoFile = (db.ProductionPhoto.Find(productionPhoto.ProPhotoId)).PhotoFile;
                 }
                 db.SaveChanges();
                 return RedirectToAction("Index");

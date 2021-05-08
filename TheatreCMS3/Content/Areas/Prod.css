@@ -163,7 +163,7 @@
 
 
 .prod-img-box{
-    height: 200px;
-    width: 200px;
-    margin: 3px;
+    height: 300px;
+    width: auto
+    margin: 5px;
 }

@@ -35,10 +35,13 @@
     </div>
 
     <div class="photo-container col-md-6">
+        <div style="margin: 3px">
         <input type="file" , id="myfile" name="photoFile" />
+        </div>
         <!-- populate with the image user chose to edit -->
-        
-        <img class="prod-img-box" src="@Url.Action("RenderImage", new { id = Model.ProPhotoId})" />
+        <div>        
+            <img class="prod-img-box" src="@Url.Action("RenderImage", new { id = Model.ProPhotoId})" />
+            </div>
 
         @*<img src="~/Content/images/ProductionPhotos/Hamilton/02.jpg" width="100%" height="80%" alt="Production Photo" />*@
     </div>
