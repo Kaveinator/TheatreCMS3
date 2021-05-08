@@ -591,29 +591,38 @@ footer {
     border-top: 3px solid var(--main-color);
 }
 
-/*Donate Page*/
+/*----------------------Donate Page-----------------------*/
+/*--Format Input Container--*/
 .donate-container-input {
-    color: var(--main-color--light);
-    border-radius: .40rem;
-}
-.donate-form {
-    padding: 10px 0;
+    background-color: var(--main-color--light);
+    border-radius: .50rem;
+    padding: 25px 25px 20px 25px;
 }
 
+/*--Column Padding--*/
+.donate-col-sm {
+    padding: 0px 4px 0px 4px;
+}
+
+/*--Row Padding--*/
+.donate-row{
+    padding: 4px 0px 4px 0px;
+}
+
+/*--Data Label Text---*/
+.donate-label > cms-text-light {
+}
+
+/*--Format Input Text Boxes--*/
 .donate-input {
-    border-radius: 10px;
-    width: 200px
+    border-color: var(--dark-color);
+    border-style: inset;
+    border-width: 2px 1px 1px 2px;
+    padding: 2px 0px 2px 8px;
+    width:100%;
 }
 
-.donate-name {
-    border-radius: 10px;
-    width: 100px;
-}
-
-.donate-label {
-    width: 200px
-}
-
+/*--Format Submit Button*/
 .donate-submit {
     color: var(--main-color);
 }
