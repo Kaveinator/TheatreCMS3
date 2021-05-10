@@ -16,12 +16,5 @@ namespace TheatreCMS3.Areas.Blog.Models
         public string Title { get; set; }
         public Byte Photo { get => photo; set => photo = value; }
     }
-    public class BlogPhotoDataContext : DbContext
-    {
-        public BlogPhotoDataContext()
-            : base("name=DefaultConnection") 
-        { }
-
-        public DbSet<BlogPhoto> BlogPhotos { get; set; }
-    }
+    
 }
