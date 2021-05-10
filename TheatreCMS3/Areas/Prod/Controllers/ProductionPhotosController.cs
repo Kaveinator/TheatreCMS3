@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -48,10 +50,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        //bind takes input fields from cshtml and matches to model properties
+        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photoFile)
         {
             if (ModelState.IsValid)
             {
+                if(productionPhoto.Title == null || productionPhoto.Description == null|| photoFile == null) {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                productionPhoto.PhotoFile = photoToByteArray(photoFile);
+                
                 db.ProductionPhoto.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,11 +88,21 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photoFile)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(productionPhoto).State = EntityState.Modified;
+                //in case user has only changed title & description, not the file - photoFile will come as null. So, make it equal to the the original in db.
+                              
+                if (photoFile != null)
+                {
+                    productionPhoto.PhotoFile = photoToByteArray(photoFile);
+                }
+                else
+                {
+                    productionPhoto.PhotoFile = (db.ProductionPhoto.Find(productionPhoto.ProPhotoId)).PhotoFile;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -124,6 +142,40 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        //[HttpPost]
+        //This method changes a photo to a byte array.
+        public byte[] photoToByteArray(HttpPostedFileBase photoFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photoFile.InputStream))
+            {
+                bytes = br.ReadBytes(photoFile.ContentLength);
+
+            }
+            return bytes;
+        }
+
+
+        ////This method returns the byte[] property of the image with given photoId.
+        //public HttpPostedFileBase byteArrId(int photoId)
+        //{
+        //    //get to the byte [] of the photo with given id.
+        //    ProductionPhoto prodPhoto = db.ProductionPhoto.Find(photoId);
+        //    byte[] bytes =  prodPhoto.PhotoFile;
+
+        //    HttpPostedFileBase objFile = new MemoryPostedFile(bytes);
+        //    return objFile;
+        //}
+        //This method takes a photoId, finds the photo, gets its byte[] and returns a file.
+        public ActionResult RenderImage(int id)
+        {
+            ProductionPhoto prodPhoto = db.ProductionPhoto.Find(id);
+            byte[] bytes = prodPhoto.PhotoFile;
+            if (bytes == null) return View("Index");
+            return File(bytes, "image/jpg");
         }
     }
 }

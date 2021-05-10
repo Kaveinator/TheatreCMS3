@@ -12,13 +12,13 @@
 </p>
 
 <div class="row">
+    
     @*for each photo in the list, print it's title and descripiton.*@
     @foreach (var item in Model)
     {
       <div class="col-lg-3 col-md-4 col-sm-6 prod-photocard-container">
           <div class="card prod-photo-cardheight">
-              <img class="card-img-top" src="/../../Content/images/ProductionPhotos/Wicked/03.jpg" alt="Production Photos">
-
+              <img class="prod-cardbody-height" src="@Url.Action("RenderImage", new { id = item.ProPhotoId })" />
               <div class="card-body border">
                   <h5 class="cms-text-main">@Html.DisplayFor(modelItem => item.Title) </h5>
                   <p class="cms-text-dark">@Html.DisplayFor(modelItem => item.Description)</p>
