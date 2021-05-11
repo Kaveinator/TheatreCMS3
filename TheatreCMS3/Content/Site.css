@@ -586,10 +586,10 @@ footer {
 }
 
 .contact-header {
-    border-radius: 0 0 0 100px;
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+    padding: 10px;
 }
 
 .contact-btn {
