@@ -1,5 +1,7 @@
 ﻿@using TheatreCMS3.Models
-
+@{ 
+    var siteSettings = SiteSettings.ReadSiteSettings();
+}
 
 <footer>
     <div class="float-left footer-content">
@@ -17,14 +19,16 @@
             @*<a class="float-right" href="3">Contact</a> added action link below *@
             @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "float-right" })
         </div>
-        <p class="footer-address">           
-            @SiteSettings.ReadSiteSettings().Address
+        <p class="footer-address">
+          <!-- .SPLIT MAKES ARRAYS. USING BRACKETS TO CALL THE TWO PARTS OF THE ADDRESS, THEN USING < BR /> TO MAKE NEW LINE -->
+          @siteSettings.SplitAddress[0]<br />
+          @siteSettings.SplitAddress[1]
         </p>
         <p class="footer-address">
-            @SiteSettings.ReadSiteSettings().PhoneNumber
+            @siteSettings.PhoneNumber
         </p>
         <p class="footer-lcopyright">
-            @SiteSettings.ReadSiteSettings().Copyright
+            @siteSettings.Copyright
         </p>
     </div>
     
@@ -35,7 +39,7 @@
             <i class="fab fa-twitter fa-2x"></i>
         </span>
         <p class="footer-copyright">
-            @SiteSettings.ReadSiteSettings().Copyright
+            @siteSettings.Copyright
         </p>
     </div>
     
