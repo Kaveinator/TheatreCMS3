@@ -1,4 +1,7 @@
-﻿<footer>
+﻿@using TheatreCMS3.Models
+
+
+<footer>
     <div class="float-left footer-content">
 
         <div class="float-left footer-icons">
@@ -14,14 +17,14 @@
             @*<a class="float-right" href="3">Contact</a> added action link below *@
             @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "float-right" })
         </div>
+        <p class="footer-address">           
+            @SiteSettings.ReadSiteSettings().Address
+        </p>
         <p class="footer-address">
-            2110 SE 10TH AVE<br />
-            Portland OR 97214<br />
-            (503) 482-8655
+            @SiteSettings.ReadSiteSettings().PhoneNumber
         </p>
         <p class="footer-lcopyright">
-                <i class="far fa-copyright"></i>
-                @DateTime.Now.Year
+            @SiteSettings.ReadSiteSettings().Copyright
         </p>
     </div>
     
@@ -32,8 +35,7 @@
             <i class="fab fa-twitter fa-2x"></i>
         </span>
         <p class="footer-copyright">
-            <i class="far fa-copyright"></i>
-            @DateTime.Now.Year
+            @SiteSettings.ReadSiteSettings().Copyright
         </p>
     </div>
     
