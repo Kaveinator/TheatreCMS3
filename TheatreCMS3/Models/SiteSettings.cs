@@ -15,13 +15,6 @@ namespace TheatreCMS3.Models
         // ADDED PHONE NUMBER AND ADDRESS AS STRINGS
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        // SPLIT ADDRESS BY COMMA, SAVED TO NEW PROPERTY TO BE CALLED IN CSHTML
-        public string[] SplitAddress { 
-            get 
-            {
-                return Address.Split(',');
-            }
-        }
 
         // MOVED METHOD FROM HOMECONTROLLER TO HERE
         public static SiteSettings ReadSiteSettings()

@@ -21,8 +21,11 @@
         </div>
         <p class="footer-address">
           <!-- .SPLIT MAKES ARRAYS. USING BRACKETS TO CALL THE TWO PARTS OF THE ADDRESS, THEN USING < BR /> TO MAKE NEW LINE -->
-            @siteSettings.SplitAddress[0]<br />
-            @siteSettings.SplitAddress[1]<br />
+            @{
+                var splitArray = siteSettings.Address.Split(new char[] { ',' }, 2);
+            }
+            @splitArray[0]<br />
+            @splitArray[1]<br />
             @siteSettings.PhoneNumber
         </p>
         <p class="footer-lcopyright">
