@@ -566,22 +566,23 @@ footer {
         box-shadow: 0px 0px 5px var(--light-color);
     }
 
-/* Contact Us Page */
-
+/*------------ Contact Us Page ------------*/
 
 .contact-heading {
+    position: absolute;
+    top: 0;
+    left: 0;
     background-color: black;
+    border-bottom-left-radius: 200px;
+    padding: 70px 0px 70px 0px;
     width: 100%;
-    border-bottom-left-radius: 70px;
-    margin-top: 0px;
-    padding: 0px 0px 10px 0px;
 }
 
 .contact-h1 {
     font-family: 'Limelight', cursive;
     text-align: center;
-    margin: 50px;
-    font-size: 50px;
+    font-size: 60px;
+    padding: 60px 0px 30px 0;
 }
 
 .contact-header {
@@ -589,9 +590,7 @@ footer {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    margin-top: 20px;  
 }
-
 
 .contact-btn {
     background-color: var(--main-color);
@@ -602,9 +601,9 @@ footer {
     cursor: pointer;
 }
 
-    .contact-btn:hover {
-        background-color: var(--secondary-color);
-    }
+.contact-btn:hover {
+        background-color: #DEB887;
+}
 
 .contact-title-underline {
     width: 150px;
@@ -613,11 +612,10 @@ footer {
     margin-right: auto;
 }
 
-
 .contact-main-body {
-    background-color: var(--main-color--light);
-    padding: 0px 0px 0px 0px;
-    height: 800px;
+   margin-top: 300px;
+   background-color: var(--main-color--light);
+   height: 800px;
 }
 
 .contact-form, .donvol-container {
@@ -625,7 +623,6 @@ footer {
     width: 50%;
     padding: 40px;
 }
-
 
 
 
