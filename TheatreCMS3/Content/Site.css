@@ -567,20 +567,31 @@ footer {
     }
 
 /* Contact Us Page */
-.contact-header {
-    border-radius: 0 0 0 100px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 20px;
-    
+
+
+.contact-heading {
+    background-color: black;
+    width: 100%;
+    border-bottom-left-radius: 70px;
+    margin-top: 0px;
+    padding: 0px 0px 10px 0px;
 }
 
 .contact-h1 {
     font-family: 'Limelight', cursive;
     text-align: center;
     margin: 50px;
+    font-size: 50px;
 }
+
+.contact-header {
+    border-radius: 0 0 0 100px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;  
+}
+
 
 .contact-btn {
     background-color: var(--main-color);
@@ -602,11 +613,11 @@ footer {
     margin-right: auto;
 }
 
-.contact-main {
+
+.contact-main-body {
     background-color: var(--main-color--light);
-    border-radius: 8px;
-    border: 5px solid white;
-    height: 100vh;
+    padding: 0px 0px 0px 0px;
+    height: 800px;
 }
 
 .contact-form, .donvol-container {
@@ -614,6 +625,8 @@ footer {
     width: 50%;
     padding: 40px;
 }
+
+
 
 
 /*----------------------Donate Page-----------------------*/

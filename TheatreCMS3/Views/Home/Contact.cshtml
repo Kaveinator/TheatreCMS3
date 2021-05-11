@@ -2,19 +2,18 @@
   ViewBag.Title = "Get in Touch";
 }
 
-<div class="contact-body">
-  <div class="header-container">
-    <h1 class="contact-h1">Contact Us</h1>
+
+<div class="contact-main-body">
+  <div class="contact-heading">
+    <div class="contact-h1">Contact Us</div>
   </div>
 
-  <div class="contact-main">
     <div class="contact-header">
       GET IN TOUCH
       <div class="contact-title-underline"></div>
     </div>
-    
 
-    <div class="container-fluid">
+
       <row>
         <!-- BEGIN FORM -->
         <div class="contact-form">
@@ -27,14 +26,14 @@
             <input type="text" id="inputEmail" class="form-control">
           </div>
           <div class="form-group">
-            <label for="Email">Subject</label>
+            <label for="Email">Subject*</label>
             <input type="text" class="form-control" id="inputSubject">
           </div>
           <div class="form-group">
-            <label for="msg">Message</label>
-            <input type="text" id="inputMessage" class="form-control">
+            <label for="msg">Message*</label>
+            <textarea id="inputMessage" class="form-control" rows="3"></textarea>
           </div>
-          <button type="submit" class="contact-btn">Submit</button>
+          <button type="submit" class="contact-btn col-sm-12">Submit</button>
         </div>
         <!-- END FORM -->
         <!-- CONTAINER FOR DONATE & VOLUNTEER OPTIONS TO SIT NEXT TO FORM -->
@@ -49,8 +48,5 @@
         <!-- END CONTAINER FOR DONATE & VOLUNTEER OPTIONS -->
       </row>
     </div>
-  </div>
-</div>
 
 
-  
