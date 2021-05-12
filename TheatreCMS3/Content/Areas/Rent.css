@@ -16,7 +16,7 @@
 
 .rentalhistory-container {
     max-width: 600px;
-    margin: auto
+    margin: auto;
 }
 
 .rentalhistory-formcontainer {
@@ -26,8 +26,3 @@
     border-radius: 8px;
 }
 
-.rentalhistory-form-control {
-    width: 100%;
-    font-size: 1em;
-    font-weight: bold;
-}
