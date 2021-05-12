@@ -1,4 +1,53 @@
 ﻿@{
-    ViewBag.Title = "Get in Touch";
+  ViewBag.Title = "Get in Touch";
 }
+
+<body style="background-color: var(--main-color--light);">
+    <div class="contact-heading">
+      <div class="contact-h1">Contact Us</div>
+    </div>
+
+  <div class="contact-main-body">
+    <div class="contact-header">
+      GET IN TOUCH
+      <div class="contact-title-underline"></div>
+    </div>
+
+
+    <row>
+      <!-- BEGIN FORM -->
+      <div class="contact-form">
+        <div class="form-group">
+          <label for="Name">First & Last Name*</label>
+          <input type="text" id="inputName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="Email">Email*</label>
+          <input type="text" id="inputEmail" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="Email">Subject*</label>
+          <input type="text" class="form-control" id="inputSubject">
+        </div>
+        <div class="form-group">
+          <label for="msg">Message*</label>
+          <textarea id="inputMessage" class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="contact-btn col-sm-12">Submit</button>
+      </div>
+      <!-- END FORM -->
+      <!-- CONTAINER FOR DONATE & VOLUNTEER OPTIONS TO SIT NEXT TO FORM -->
+      <div class="donvol-container">
+        <div class="contact-header">DONATE</div>
+        <p>We've got a Patreon account! Help support live theater in Portland, OR, by becoming a Patron today.</p>
+        <button type="submit" class="contact-btn col-sm-4">Donate</button>
+        <div class="contact-header">VOLUNTEER</div>
+        <p>Come volunteer with us! Click below to get in touch. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+        <button type="submit" class="contact-btn col-sm-4">Volunteer</button>
+      </div>
+      <!-- END CONTAINER FOR DONATE & VOLUNTEER OPTIONS -->
+    </row>
+  </div>
+</body>
+
 

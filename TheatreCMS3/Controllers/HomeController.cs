@@ -38,10 +38,5 @@ namespace TheatreCMS3.Controllers
         {
             return View();
         }
-        
-        public void ReadSiteSettings()
-        {
-            SiteSettings siteSettings = JsonConvert.DeserializeObject<SiteSettings> (System.IO.File.ReadAllText(Server.MapPath("~/SiteSettings.json")));
-        }
     }
 }
