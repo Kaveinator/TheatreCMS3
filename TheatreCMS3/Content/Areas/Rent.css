@@ -12,3 +12,22 @@
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/*---------Rental History----------*/
+
+.rentalhistory-container {
+    max-width: 600px;
+    margin: auto
+}
+
+.rentalhistory-formcontainer {
+    max-width: 600px;
+    margin: auto;
+    background-color: var(--main-color--light);
+    border-radius: 8px;
+}
+
+.rentalhistory-form-control {
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+}
