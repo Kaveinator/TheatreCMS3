@@ -2,17 +2,25 @@
     ViewBag.Title = "About Us";
 }
 
+<!-- Overriding site-wide styling for width -->
+<style>
+    .container{
+        max-width: unset;
+        padding: 0;
+    }
+</style>
+
 <body class="cms-bg-main-light">
     <div id="home-about--aboutUsBackground">
         <div id="home-about--aboutUs">
-            <h2>About Us</h2>
+            <h1>About Us</h1>
         </div>
     </div>
 
     <div id="home-about--whoWeAre">
         <div class="home-about--headings">
             <h4>
-                WHO WE ARE
+                <span class="home-about--titles">WHO WE ARE</span>
             </h4>
 
         </div>
@@ -24,7 +32,7 @@
     <div id="home-about--companyHistory">
         <div class="home-about--headings">
             <h4>
-                COMPANY HISTORY
+                <span class="home-about--titles">COMPANY HISTORY</span>
             </h4>
         </div>
 
@@ -39,7 +47,7 @@
     <div id="home-about--ensembleContainer">
         <div class="home-about--headings">
             <h4>
-                ENSEMBLE
+                <span class="home-about--titles">ENSEMBLE</span>
             </h4>
 
         </div>
@@ -57,7 +65,7 @@
     <div id="home-about--board">
         <div class="home-about--headings ">
             <h4>
-                BOARD
+                <span class="home-about--titles">BOARD</span>
             </h4>
             @*<hr class="about-home--headinghr" />*@
 
