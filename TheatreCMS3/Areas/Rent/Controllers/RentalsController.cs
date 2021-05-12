@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -14,13 +15,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/Rentals
+        // GET: Rent/Rentals
         public ActionResult Index()
         {
             return View(db.Rentals.ToList());
         }
 
-        // GET: Prod/Rentals/Details/5
+        // GET: Rent/Rentals/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,18 +36,18 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
-        // GET: Prod/Rentals/Create
+        // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/Rentals/Create
+        // POST: Rent/Rentals/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] Rental rental)
+        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +59,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
-        // GET: Prod/Rentals/Edit/5
+        // GET: Rent/Rentals/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,12 +74,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
-        // POST: Prod/Rentals/Edit/5
+        // POST: Rent/Rentals/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] Rental rental)
+        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +90,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
-        // GET: Prod/Rentals/Delete/5
+        // GET: Rent/Rentals/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +105,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
-        // POST: Prod/Rentals/Delete/5
+        // POST: Rent/Rentals/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
