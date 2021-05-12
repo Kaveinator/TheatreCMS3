@@ -11,12 +11,11 @@ namespace TheatreCMS3.Areas.Blog.Models
     [Table("BlogPhotos")]
     public class BlogPhoto
     {
-        private byte photo;
 
         [Key]
         public int BlogPhotoId { get; set; }
         public string Title { get; set; }
-        public Byte Photo { get => photo; set => photo = value; }
+        public byte[] Photo { get; set; }
     }
     
 }

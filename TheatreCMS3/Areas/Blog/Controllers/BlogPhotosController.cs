@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -49,6 +51,23 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
+            //Use Namespace called :  System.IO  
+            string FileName = Path.GetFileNameWithoutExtension(blogPhoto.Photo);
+
+            //To Get File Extension  
+            string FileExtension = Path.GetExtension(blogPhoto.Photo.FileName);
+
+            //Add Current Date To Attached File Name  
+            FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+
+            //Get Upload path from Web.Config file AppSettings.  
+            string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
+
+            //Its Create complete path to store in server.  
+            blogPhoto.ImagePath = UploadPath + FileName;
+
+
+
             if (ModelState.IsValid)
             {
                 db.BlogPhotos.Add(blogPhoto);
@@ -57,6 +76,19 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
 
             return View(blogPhoto);
+        }
+
+        private static void Form1_Load(object sender, EventArgs e)
+        {
+            // create an Image object from File
+            Image image = Image.FromFile(//ADD String Variable here once completed;
+                                         // create a MemoryStream 
+            var ms = new MemoryStream();  // this is where we are going to deposit the bytes
+                                          // save bytes to ms
+            image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            // to get the bytes we type
+            var bytes = ms.ToArray();
+            // we can now save the byte array to a db, file, or transport (stream) it.
         }
 
         // GET: Blog/BlogPhotos/Edit/5
