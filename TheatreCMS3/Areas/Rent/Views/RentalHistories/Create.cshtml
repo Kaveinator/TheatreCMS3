@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Create Rental History</h2>
 
 
 @using (Html.BeginForm()) 
@@ -28,7 +28,7 @@
 
 
       <div class="form-group">
-        @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-10" })
+        @Html.LabelFor(model => model.RentalDamaged,"Damaged?",htmlAttributes: new { @class = "control-label col-md-10" })
         <div class="col-md-auto">
           <div class="checkbox">
             @Html.EditorFor(model => model.RentalDamaged)
@@ -39,7 +39,7 @@
     </div>
     <div class="row mx-auto">
       <div class="form-group">
-        @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.DamagesIncurred,"Damages Incurred", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-auto">
           @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
           @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
