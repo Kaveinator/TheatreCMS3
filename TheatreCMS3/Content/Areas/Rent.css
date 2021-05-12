@@ -12,7 +12,7 @@
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
-/*---------Rental History----------*/
+/*---------Rental History CRUD Styling----------*/
 
 
 .rentalhistory-header {
@@ -55,8 +55,9 @@
 }
 
 
-    .rentalhistory-backtolist-btn a {
-        background-color: gray;
-        color: white;
-        text-decoration: none;
-    }
+.rentalhistory-backtolist-btn a {
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+}
+/*--------- End Rental History CRUD Styling----------*/
