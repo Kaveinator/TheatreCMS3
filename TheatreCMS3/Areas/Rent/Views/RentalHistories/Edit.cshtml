@@ -1,61 +1,67 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.RentalHistory
 
 @{
-    ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Edit";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<div class="rentalhistory-header">Edit Rental History</div>
 
 
-@using (Html.BeginForm())
-{
+  @using (Html.BeginForm())
+  {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>RentalHistory</h4>
-        <hr />
+
+    <div class="rentalhistory-container">
+      <div class="rentalhistory-formcontainer">
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.RentalHistoryID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="row mx-auto">
+          <div class="form-group">
+            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2 rentalhistory-label" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RentalDamaged)
-                    @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
-                </div>
+              @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
             </div>
+          </div>
+
+          <div class="form-group">
+            @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2 rentalhistory-label" })
+            <div class="col-md-10">
+              <div class="checkbox">
+                @Html.EditorFor(model => model.RentalDamaged)
+                @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="form-group">
+            @Html.LabelFor(model => model.DamagesIncurred, "Damages Incurred", htmlAttributes: new { @class = "control-label col-md-4 rentalhistory-label" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+              @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
             </div>
-        </div>
+          </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
+          <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+              <button class="btn rentalhistory-backtolist-btn">@Html.ActionLink("Back to List", "Index")</button>
+              <input type="submit" value="Save" class="btn btn-default rentalhistory-create-btn" />
             </div>
+          </div>
         </div>
-    </div>
-}
+      </div>
 
-<div>
+  }
+
+  <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+  </div>
 
-@section Scripts {
+  @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+  }
