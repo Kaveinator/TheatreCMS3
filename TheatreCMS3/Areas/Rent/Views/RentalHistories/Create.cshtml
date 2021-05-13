@@ -28,32 +28,40 @@
 
 
         <div class="form-group">
-          @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-10 rentalhistory-label"})
+          @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-10 rentalhistory-label" })
           <div class="col-md-auto">
             <div class="checkbox">
               @Html.EditorFor(model => model.RentalDamaged)
+              @Html.CheckBoxFor(model => model.RentalDamaged, new { id = "chkDamagesIncurred" })
               @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
             </div>
           </div>
         </div>
       </div>
+
       <div class="form-group">
-        @Html.LabelFor(model => model.DamagesIncurred, "Notes", htmlAttributes: new { @class = "control-label col-md-4 rentalhistory-label DI"})
-        <div class="col-md-auto">
-          @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
-          @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+          @Html.LabelFor(model => model.DamagesIncurred, "Notes", new { id = "id1" })
+         
+          <div class="col-md-auto">
+            @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+          </div>
         </div>
-      </div>
 
-      <div class="form-group text-center">
-        <div class="col-md-offset-2 col-md-10">
-          <button class="btn rentalhistory-backtolist-btn">@Html.ActionLink("Back to List", "Index")</button>
-          <input type="submit" value="Create" class="btn rentalhistory-create-btn" />
+        <div class="form-group text-center">
+          <div class="col-md-offset-2 col-md-10">
+            <button class="btn rentalhistory-backtolist-btn">@Html.ActionLink("Back to List", "Index")</button>
+            <input type="submit" value="Create" class="btn rentalhistory-create-btn" />
+          </div>
         </div>
-      </div>
 
-    </div>
+      </div>
   </div>
+
+
+
+
+
 
 
 }
