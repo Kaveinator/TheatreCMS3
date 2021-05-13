@@ -307,169 +307,106 @@ footer {
 }
 
 /*Adding CSS for Theatre Vertigo About page*/
-.aboutPage-Card {
-    display: inline-flex;
-    flex-wrap: wrap;
+#home-about--aboutUsBackground {
+    background-image: url('images/theater.jpg');
+    background-size: cover;
+    background-position: bottom;
+    height: 280px;
+    text-align: center;
+    max-width: 100vw;
+}
+
+.home-about--headings {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    max-width: 100vw;
     width: auto;
-    height: auto;
+}
+
+.home-about--titles{
+    border-bottom: 5px solid var(--main-color);
+}
+
+.home-about--text {
+    padding-bottom: 30px;
+    text-align: center;
+    max-width: 100vw;
+    width: auto;
+}
+
+#home-about--aboutUs {
+    padding-top: 40px;
+    width: auto;
+    text-align: center;
+    max-width: 100vw;
+}
+#home-about--whoWeAre {
+    width: auto;
+    height: 160px;
     text-align: center;
     background-color: black;
+    border-radius: 0px 0px 0px 70px;
+    max-width: 100vw;
 }
 
-.aboutPage-Card-Img {
-    display: flex;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: black;
-    object-fit: cover;
-}
-
-    .aboutPage-Card-Img:hover {
-        background-color: var(--dark-color);
-        opacity: .8;
-        transition: .15s;
-    }
-
-.aboutPage-Card:hover {
-    /*border-color: var(--secondary-color);
-    border-style: double;*/
-}
-
-.aboutPage-Card-Bdy {
-    background-color: var(--dark-color);
-}
-
-.aboutPage-Card-Text {
-    height: 25%;
+#home-about--companyHistory {
+    margin: auto;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    max-width: 100vw;
     text-align: center;
-    word-break: break-word;
-    color: var(--light-color);
-}
-
-/*Created @media at 3 different screen sizes to check work and customize at each layer*/
-/*This @media will apply when the screen is sized below 992px*/
-@media screen and (max-width: 992px) {
-    .aboutPage-Card-Img {
-        display: flex;
-        /*width: auto;
-        height: 60%;*/
-    }
-
-    .aboutPage-Card-Text {
-        height: 40%;
-        text-align: center;
-        word-break: break-word;
-        color: var(--light-color);
-    }
-}
-
-
-/*This @media will apply when the screen is sized below 767px*/
-@media screen and (max-width: 767px) {
-    .aboutPage-Card-Img {
-        display: flex;
-        /*width: auto;
-        height: 40%;*/
-    }
-
-    .aboutPage-Card-Text {
-        height: 60%;
-        text-align: center;
-        word-break: break-word;
-        color: var(--light-color);
-    }
-}
-
-/*This @media will apply when the screen is sized below 576px*/
-@media screen and (max-width: 577px) {
-    .aboutPage-Card-Img {
-        display: flex;
-        /*width: 100%;
-        height: 60%;*/
-    }
-
-    .aboutPage-Card-Text {
-        height: 40%;
-        text-align: center;
-        word-break: break-word;
-        color: var(--light-color);
-    }
-}
-
-.aboutPage-History {
-    text-align: center;
-    background-color: var(--main-color-light);
-    color: var(--light-color);
-    padding: 40px;
-}
-
-.aboutPage-Board {
-    text-align: center;
-    color: var(--light-color);
-    padding: 40px;
-    background-color: black;
-}
-
-.aboutPage-About Us {
-    text-align: center;
-    color: var(--light-color);
-    padding: 40px;
-}
-
-.aboutPage-h3 {
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-weight: bold;
-    font-family: Broadway;
-    font-size: 4vw;
-    position: center;
-}
-
-.aboutPage-h4 {
-    color: white;
-    text-align: center;
-    padding: 15px;
-    text-decoration: underline;
-    font-weight: bold;
-    text-decoration-color: var(--main-color);
-}
-
-.aboutPage-header {
-    border-radius: 0 100px 0 0;
-    position: relative;
-    text-align: center;
-    color: white;
-}
-
-.centered {
-    font-family: Broadway;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-
-.aboutPage-hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid white;
     width: 75%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/*Used to fix centering of text*/
-.aboutPageContainer {
-    position: relative;
+#home-about--ensembleContainer {
+    background-color: black;
+    border-radius: 0px 70px 0px 0px;
+    max-width: 100vw;
+    position: center;
+    text-align: center;
 }
+
+.home-about--castImg {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    max-width: 100vw;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#home-about--hr {
+    height: 2px;
+    border-width: 0;
+    color: #FFFBFB;
+    background-color: #FFFBFB;
+    width: 85%;
+    max-width: 100vw;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+#home-about--companyHistory {
+    text-align: center;
+    max-width: 100vw;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 75%;
+}
+
+#home-about--board {
+    background-color: black;
+    text-align: center;
+    max-width: 100vw;
+    padding-bottom: 30px;
+}
+/* End of About Page Styling */
+
 
 /* LOGIN PAGE */
-
 .formContainer {
     margin: 10% auto;
     width: 750px;
