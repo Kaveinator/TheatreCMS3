@@ -17,7 +17,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         public TimeSpan GetRentalDuration()
         {
             TimeSpan rentalDuration = EndTime - StartTime;
-             return rentalDuration;
+            return rentalDuration;
         }
 
 
