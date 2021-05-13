@@ -33,6 +33,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+
+
             return View(rentalRequest);
         }
 
@@ -49,6 +51,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RentalRequestId,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
         {
+
             if (ModelState.IsValid)
             {
                 db.RentalRequests.Add(rentalRequest);
@@ -124,5 +127,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

@@ -8,6 +8,26 @@ namespace TheatreCMS3.Areas.Rent.Models
 {
     public class RentalRequest
     {
+        public RentalRequest()
+        {
+            RequestedTime = DateTime.Now;
+        }
+
+
+        public TimeSpan GetRentalDuration()
+        {
+            TimeSpan rentalDuration = EndTime - StartTime;
+            return rentalDuration;
+        }
+
+
+        public TimeSpan GetTimeRemaining()
+        {
+            TimeSpan timeRemaining = EndTime - DateTime.Now;
+            return timeRemaining;
+        }
+
+
         public int RentalRequestId { get; set; }
         public string ContactPerson { get; set; }
         public string Company { get; set; }
