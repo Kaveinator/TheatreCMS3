@@ -8,60 +8,60 @@
 <div class="rentalhistory-header">Edit Rental History</div>
 
 
-  @using (Html.BeginForm())
-  {
-    @Html.AntiForgeryToken()
+@using (Html.BeginForm())
+{
+  @Html.AntiForgeryToken()
 
-    <div class="rentalhistory-container">
-      <div class="rentalhistory-formcontainer">
+  <div class="rentalhistory-container">
+    <div class="rentalhistory-formcontainer">
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.RentalHistoryID)
+      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      @Html.HiddenFor(model => model.RentalHistoryID)
 
-        <div class="row mx-auto">
-          <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2 rentalhistory-label" })
-            <div class="col-md-10">
-              @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
-              @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
-            </div>
-          </div>
-
-          <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2 rentalhistory-label" })
-            <div class="col-md-10">
-              <div class="checkbox">
-                @Html.EditorFor(model => model.RentalDamaged)
-                @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
-              </div>
-            </div>
+      <div class="row mx-auto">
+        <div class="form-group">
+          @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2 rentalhistory-label" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
           </div>
         </div>
 
-          <div class="form-group">
-            @Html.LabelFor(model => model.DamagesIncurred, "Damages Incurred", htmlAttributes: new { @class = "control-label col-md-4 rentalhistory-label" })
-            <div class="col-md-10">
-              @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
-              @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
-            </div>
-          </div>
-
-
-          <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-              <button class="btn rentalhistory-backtolist-btn">@Html.ActionLink("Back to List", "Index")</button>
-              <input type="submit" value="Save" class="btn btn-default rentalhistory-create-btn" />
-            </div>
+        <div class="form-group">
+          @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2 rentalhistory-label" })
+          <div class="col-md-auto">
+            @Html.CheckBoxFor(model => model.RentalDamaged, new { id = "chkDamagesIncurred" })
+            @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
           </div>
         </div>
       </div>
 
-  }
+      <div class="form-group">
+        <div class="col-md-auto rentalhistory-label" display="none">
+          @Html.LabelFor(model => model.DamagesIncurred, "Notes", new { id = "rentaldamaged-chkbox" })
+        </div>
+        <div class="col-md-10">
+          @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+          @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+        </div>
+      </div>
 
-  <div>
-    @Html.ActionLink("Back to List", "Index")
+
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <button class="btn rentalhistory-backtolist-btn">@Html.ActionLink("Back to List", "Index")</button>
+          <input type="submit" value="Save" class="btn btn-default rentalhistory-create-btn" />
+        </div>
+      </div>
+    </div>
   </div>
 
-  @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-  }
+}
+
+<div>
+  @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+}

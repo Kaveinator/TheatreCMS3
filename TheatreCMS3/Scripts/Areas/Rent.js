@@ -1,13 +1,24 @@
 ﻿
-/*---Rental History Checkbox/Label ---*/
+
+/*---Rental History Checkbox/Label (CREATE & EDIT PAGES)---*/
 
 
+$(document).ready(function () {
+    if ($('#chkDamagesIncurred').is(':checked')) {
+        $('#rentaldamaged-chkbox').show().html("Damages Incurred");
+    } else {
+        $('#rentaldamaged-chkbox').show().html("Notes");
+    }
+
+}).change();
 
 $("#chkDamagesIncurred").change(function () {
     if (this.checked) {
-        $('#id1').show().html("Damages Incurred");
+        $('#rentaldamaged-chkbox').show().html("Damages Incurred");
     } else {
-        $('#id1').show().html("Notes");
+        $('#rentaldamaged-chkbox').show().html("Notes");
     }
 });
+
+
 
