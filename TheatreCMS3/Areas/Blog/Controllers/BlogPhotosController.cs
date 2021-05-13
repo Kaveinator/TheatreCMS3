@@ -44,6 +44,23 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View();
         }
 
+        // This action handles the form POST and the upload
+        [HttpPost]
+        public ActionResult Create(HttpPostedFileBase file)
+        {
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the filename
+                var fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                file.SaveAs(path);
+            }
+            // redirect back to the index action to show the form once again
+            return RedirectToAction("Index");
+        }
+
         // POST: Blog/BlogPhotos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -51,22 +68,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
-            //Use Namespace called :  System.IO  
-            string FileName = Path.GetFileNameWithoutExtension(blogPhoto.Photo);
-
-            //To Get File Extension  
-            string FileExtension = Path.GetExtension(blogPhoto.Photo.FileName);
-
-            //Add Current Date To Attached File Name  
-            FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
-
-            //Get Upload path from Web.Config file AppSettings.  
-            string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
-
-            //Its Create complete path to store in server.  
-            blogPhoto.ImagePath = UploadPath + FileName;
-
-
 
             if (ModelState.IsValid)
             {
@@ -78,18 +79,18 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPhoto);
         }
 
-        private static void Form1_Load(object sender, EventArgs e)
-        {
-            // create an Image object from File
-            Image image = Image.FromFile(//ADD String Variable here once completed;
-                                         // create a MemoryStream 
-            var ms = new MemoryStream();  // this is where we are going to deposit the bytes
-                                          // save bytes to ms
-            image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            // to get the bytes we type
-            var bytes = ms.ToArray();
-            // we can now save the byte array to a db, file, or transport (stream) it.
-        }
+        //private static void Form1_Load(object sender, EventArgs e)
+        //{
+        //    // create an Image object from File
+        //    Image image = Image.FromFile(//ADD String Variable here once completed;
+        //                                 // create a MemoryStream 
+        //    var ms = new MemoryStream();  // this is where we are going to deposit the bytes
+        //                                  // save bytes to ms
+        //    image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+        //    // to get the bytes we type
+        //    var bytes = ms.ToArray();
+        //    // we can now save the byte array to a db, file, or transport (stream) it.
+        //}
 
         // GET: Blog/BlogPhotos/Edit/5
         public ActionResult Edit(int? id)
