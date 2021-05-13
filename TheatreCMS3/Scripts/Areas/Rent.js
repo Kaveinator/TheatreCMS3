@@ -2,7 +2,6 @@
 
 /*---Rental History Checkbox/Label (CREATE & EDIT PAGES)---*/
 
-
 $(document).ready(function () {
     if ($('#chkDamagesIncurred').is(':checked')) {
         $('#rentaldamaged-chkbox').show().html("Damages Incurred");
