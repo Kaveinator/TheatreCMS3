@@ -49,6 +49,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RentalRequestId,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
         {
+            // Best place for requested alteration of RequestedTime
+            rentalRequest.RequestedTime = DateTime.Now;
+            
+            
             if (ModelState.IsValid)
             {
                 db.RentalRequests.Add(rentalRequest);
@@ -124,5 +128,28 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public RentalRequest(int id)
+        {
+            //     constructor - Sets the RequestedTime when a rental request is created. Set the RequestedTime to the current time.
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            rentalRequest.RequestedTime = DateTime.Now;
+
+            return rentalRequest;
+        }
+
+        //public GetRentalDuration()
+        //{
+        //    -Method that returns the total duration of the RentalRequest: the total time between the StartTime and EndTime.
+
+        //}
+
+        //public GetTimeRemaining()
+        //{
+        //    GetTimeRemaining - Method that calculates and returns the time left on the rental from the current datetime: finds the time between now and the RentalRequest's EndTime. 
+
+        //}
+
+
     }
 }
