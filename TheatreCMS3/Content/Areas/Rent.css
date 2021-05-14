@@ -12,6 +12,70 @@
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/* -- Rentals --*/
+.rentals-header {
+    text-align:center;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--light-color);
+    padding-top: 10px;
+    margin: auto;
+}
+
+.rentals-container {
+    max-width: 600px;
+    margin: auto;
+    background-color: var(--main-color);
+    margin-top: 1em;
+    border-radius: 20px;
+    padding-bottom: 10px;
+}
+
+.rentals-button {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 4px;
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.rentals-form {
+    max-width: 600px;
+    color: var(--dark-color);
+    text-align: left;
+    background-color: rgb(210 210 210);
+    border-radius: 10px;
+    padding-top: 10px;
+    font-weight: bolder;
+    border-color: var(--main-color);
+}
+
+.rentals-returnbutton {
+    background-color: var(--dark-color);
+    border: none;
+    border-radius: 4px;
+    color: var(--light-color);
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.rentals-button:hover {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+}
+
+.rentals-returnbutton:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.rentals-form:focus {
+    border-color: var(--dark-color);
+    background-color: var(--light-color);
+}
 /*---------Rental History CRUD Styling----------*/
 
 
