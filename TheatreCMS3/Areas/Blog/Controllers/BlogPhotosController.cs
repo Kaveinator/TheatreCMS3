@@ -44,33 +44,39 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View();
         }
 
-        // This action handles the form POST and the upload
-        [HttpPost]
-        public ActionResult Create(HttpPostedFileBase file)
-        {
-            // Verify that the user selected a file
-            if (file != null && file.ContentLength > 0)
-            {
-                // extract only the filename
-                var fileName = Path.GetFileName(file.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                file.SaveAs(path);
-            }
-            // redirect back to the index action to show the form once again
-            return RedirectToAction("Index");
-        }
+        //// This action handles the form POST and the upload
+        //[HttpPost]
+        //public ActionResult Create(HttpPostedFileBase file)
+        //{
+        //    // Verify that the user selected a file
+        //    if (file != null && file.ContentLength > 0)
+        //    {
+        //        // extract only the filename
+        //        var fileName = Path.GetFileName(file.FileName);
+        //        // store the file inside ~/App_Data/uploads folder
+        //        var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+        //        file.SaveAs(path);
+        //    }
+        //    // redirect back to the index action to show the form once again
+        //    return RedirectToAction("Index");
+        //}
 
         // POST: Blog/BlogPhotos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase photo)
         {
 
             if (ModelState.IsValid)
             {
+                if (blogPhoto.Title == null || photo == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                blogPhoto.Photo = PhotoToByteArray(photo);
+
                 db.BlogPhotos.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,18 +85,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPhoto);
         }
 
-        //private static void Form1_Load(object sender, EventArgs e)
-        //{
-        //    // create an Image object from File
-        //    Image image = Image.FromFile(//ADD String Variable here once completed;
-        //                                 // create a MemoryStream 
-        //    var ms = new MemoryStream();  // this is where we are going to deposit the bytes
-        //                                  // save bytes to ms
-        //    image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-        //    // to get the bytes we type
-        //    var bytes = ms.ToArray();
-        //    // we can now save the byte array to a db, file, or transport (stream) it.
-        //}
+
 
         // GET: Blog/BlogPhotos/Edit/5
         public ActionResult Edit(int? id)
@@ -156,6 +151,27 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //[HttpPost]
+        //Method to change Image to byte array
+        public byte[] PhotoToByteArray(HttpPostedFileBase imageFile)
+        {
+            byte[] bytes;
+            using (BinaryReader binaryReader = new BinaryReader(imageFile.InputStream))
+            {
+                bytes = binaryReader.ReadBytes(imageFile.ContentLength);
+            }
+            return bytes;
+        }
+
+        //Method takes a BlogPhotoId, finds image and returns file to Image
+        public ActionResult RenderImage(int id)
+        {
+            BlogPhoto blogPhoto = db.BlogPhotos.Find(id);
+            byte[] bytes = blogPhoto.Photo;
+            if (bytes == null) return View("Index");
+            return File(bytes, "image/jpg");
         }
     }
 }
