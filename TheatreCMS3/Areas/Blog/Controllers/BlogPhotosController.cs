@@ -50,16 +50,16 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase photo)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase image)
         {
 
             if (ModelState.IsValid)
             {
-                if (blogPhoto.Title == null || photo == null)
+                if (blogPhoto.Title == null || image == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                blogPhoto.Photo = PhotoToByteArray(photo);
+                blogPhoto.Photo = PhotoToByteArray(image);
 
                 db.BlogPhotos.Add(blogPhoto);
                 db.SaveChanges();
@@ -91,13 +91,19 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogPhoto).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (blogPhoto.Title == null || image == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                    blogPhoto.Photo = PhotoToByteArray(image);
+                    db.Entry(blogPhoto).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+               
             }
             return View(blogPhoto);
         }
