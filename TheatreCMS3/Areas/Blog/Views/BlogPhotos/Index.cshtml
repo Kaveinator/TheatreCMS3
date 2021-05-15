@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-success" })
 </p>
 
 <div class="row">
@@ -25,6 +25,7 @@
         <div class="photo-card-footer">
           @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId}, new { @class = "badge badge-warning" })
           @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId}, new { @class = "badge badge-danger" })
+          @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId}, new { @class = "badge badge-special"})
         </div>
       </div>
     </div>

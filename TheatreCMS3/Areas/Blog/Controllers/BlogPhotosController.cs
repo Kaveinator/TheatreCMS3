@@ -95,15 +95,20 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (blogPhoto.Title == null || image == null)
+                db.Entry(blogPhoto).State = EntityState.Modified;
+                // If Title Only is Changed
+
+                if (image != null)
                 {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
                     blogPhoto.Photo = PhotoToByteArray(image);
-                    db.Entry(blogPhoto).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-               
+                    
+                }
+                else
+                {
+                    blogPhoto.Photo = (db.BlogPhotos.Find(blogPhoto.BlogPhotoId)).Photo;
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
             return View(blogPhoto);
         }
