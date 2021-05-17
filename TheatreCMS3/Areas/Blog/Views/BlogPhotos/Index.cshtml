@@ -7,33 +7,35 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-success" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPhotoId })
-        </td>
-    </tr>
-}
+<div class="row">
 
-</table>
+  @*for each photo in the list, print it's Id and Title.*@
+  @*@foreach (var item in Model)*@
+  @if (Model != null)
+  {
+    foreach (var item in Model.Where(item => item != null))
+
+    {
+      <div class="col-lg-3 col-md-4 col-sm-6 blog-photocard-container">
+        <div class="card blog-photo-cardheight">
+          <img class="blog-cardbody-height" src="@Url.Action("RenderImage", new { id = item.BlogPhotoId })" />
+          <div class="card-body border">
+            <h5 class="cms-text-main">@Html.DisplayFor(modelItem => item.BlogPhotoId) </h5>
+            <p class="cms-text-dark">@Html.DisplayFor(modelItem => item.Title)</p>
+          </div>
+          <div class="photo-card-footer">
+            @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }, new { @class = "badge badge-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId }, new { @class = "badge badge-danger" })
+            @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }, new { @class = "badge badge-special" })
+          </div>
+        </div>
+      </div>
+
+    }
+  }
+
+</div>
+
