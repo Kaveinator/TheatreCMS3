@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
@@ -105,7 +106,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 }
                 else
                 {
-                    blogPhoto.Photo = (db.BlogPhotos.Find(blogPhoto.BlogPhotoId)).Photo;
+                    blogPhoto.Photo = db.BlogPhotos.Find(blogPhoto.BlogPhotoId).Photo;
                 }
                 db.SaveChanges();
                 return RedirectToAction("Index");
