@@ -15,7 +15,6 @@
             <center>
                 <div class="rentals-dropdown">
                     <select>
-                        <option>Choose Rental/Rental Equipment/Rental Room</option>
                         <option value="rental" data-rental="@Url.Action("CreateRental")">Rental</option>
                         <option value="rentalEquipment" data-rental="@Url.Action("CreateRentalEquipment")">Rental Equipment</option>
                         <option value="rentalRoom" data-rental="@Url.Action("CreateRentalRoom")">Rental Room</option>
@@ -23,7 +22,7 @@
                 </div>
             </center>
             <hr />
-            <div class="rental box">
+            <div class="rental">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
