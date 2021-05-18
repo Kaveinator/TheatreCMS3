@@ -47,7 +47,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult CreateRental([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +57,36 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
 
             return View(rental);
+        }
+
+        // rental equipment method create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateRentalEquipment([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SuffocationHazard,PurchasePrice")] RentalEquipment rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Rentals.Add(rental);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View("Create");
+        }
+
+        // rental room method create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateRentalRoom([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,RoomNumber,SquareFootage,MaxOccupancy")] RentalRoom rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Rentals.Add(rental);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View("Create");
         }
 
         // GET: Rent/Rentals/Edit/5
@@ -71,7 +101,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View("Edit");
         }
 
         // POST: Rent/Rentals/Edit/5
@@ -79,7 +109,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult EditRental([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +117,35 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rental);
+            return View("Edit");
+        }
+
+        // edit rental equipment
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditRentalEquipment([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SuffocationHazard,PurchasePrice")] RentalEquipment rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(rental).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View("Edit");
+        }
+
+        // edit rental room
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditRentalRoom([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,RoomNumber,SquareFootage,MaxOccupancy")] RentalRoom rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(rental).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View("Edit");
         }
 
         // GET: Rent/Rentals/Delete/5
