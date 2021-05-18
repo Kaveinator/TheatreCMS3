@@ -11,20 +11,8 @@ namespace TheatreCMS3.Areas.Rent.Models
         public RentalRequest()
         {
             RequestedTime = DateTime.Now;
-        }
 
-
-        public TimeSpan GetRentalDuration()
-        {
-            TimeSpan rentalDuration = EndTime - StartTime;
-            return rentalDuration;
-        }
-
-
-        public TimeSpan GetTimeRemaining()
-        {
-            TimeSpan timeRemaining = EndTime - DateTime.Now;
-            return timeRemaining;
+            // Rentals = new List<Rental>();   // Adding empty list of rentals upon initialization.
         }
 
 
@@ -47,5 +35,30 @@ namespace TheatreCMS3.Areas.Rent.Models
         public int RentalCode { get; set; }
         public bool Accepted { get; set; }
         public bool ContractSigned { get; set; }
+
+        public int MyProperty { get; set; }
+
+       // public List<Rental> Rentals { get; set; }
+
+        public TimeSpan GetRentalDuration()
+        {
+            TimeSpan rentalDuration = EndTime - StartTime;
+            return rentalDuration;
+        }
+
+
+        public TimeSpan GetTimeRemaining()
+        {
+            TimeSpan timeRemaining = EndTime - DateTime.Now;
+            return timeRemaining;
+        }
+
+        public TimeSpan GetTimeTillStart()
+        {
+            TimeSpan startsIn = StartTime - DateTime.Now;
+            return startsIn;
+        }
+
+
     }
 }

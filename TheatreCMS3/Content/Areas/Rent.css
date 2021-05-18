@@ -125,3 +125,62 @@
     text-decoration: none;
 }
 /*--------- End Rental History CRUD Styling----------*/
+
+
+
+
+/*--------- Rental Requests Index Styling----------*/
+.rentalrequests-index--card {
+    background-color: var(--dark-color);
+    width: 100%;
+    color: var(--light-color);
+}
+
+.rentalrequests-index--cardheader {
+    padding-bottom: 0;
+}
+
+.rentalrequests-index--buttoncompany {
+    text-align: left;
+    color: var(--light-color);
+}
+
+.rentalrequests-index--buttonperson {
+    float: left;
+    text-align: left;
+    color: var(--light-color);
+}
+
+
+.rentalrequests-index--buttontime {
+    float: right;
+    text-align: right;
+    color: var(--light-color);
+}
+
+.rentalrequests-index--button {
+    width: 100%;
+    border: 2px solid var(--light-color);
+    background-color: var(--main-color--light);
+    font-weight: bold; 
+}
+
+.rentalrequests-index--buttonbodycollapse{
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+.rentalrequests-index--buttonbody {
+    border: 2px solid var(--light-color);
+    margin: auto;
+    padding-left: 50px;
+}
+
+.rentalrequests-index--buttonbodyrow1 {
+    text-align: center;
+    padding-bottom: 30px;
+}
+/*--------- End Rental Requests Index Styling----------*/
+
+
+
