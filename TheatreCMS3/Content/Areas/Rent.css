@@ -12,3 +12,46 @@
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+.rentalrequests-index--card {
+    background-color: var(--dark-color);
+    width: 100%;
+    color: var(--light-color);
+}
+
+.rentalrequests-index--buttoncompany {
+    text-align: left;
+    color: var(--light-color);
+}
+
+.rentalrequests-index--buttonperson {
+    float: left;
+    text-align: left;
+    color: var(--light-color);
+}
+
+
+.rentalrequests-index--buttontime {
+    float: right;
+    text-align: right;
+    color: var(--light-color);
+}
+
+.rentalrequests-index--button {
+    width: 100%;
+    border: 5px solid var(--light-color);
+}
+
+.rentalrequests-index--buttonbody {
+    width: 96%;
+    border: 5px solid var(--light-color);
+    margin: auto;
+    padding-left: 50px;
+}
+
+.rentalrequests-index--buttonbodyrow1{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+
+
