@@ -11,6 +11,8 @@ namespace TheatreCMS3.Areas.Rent.Models
         public RentalRequest()
         {
             RequestedTime = DateTime.Now;
+
+            // Rentals = new List<Rental>();   // Adding empty list of rentals upon initialization.
         }
 
 
@@ -34,7 +36,9 @@ namespace TheatreCMS3.Areas.Rent.Models
         public bool Accepted { get; set; }
         public bool ContractSigned { get; set; }
 
+        public int MyProperty { get; set; }
 
+       // public List<Rental> Rentals { get; set; }
 
         public TimeSpan GetRentalDuration()
         {

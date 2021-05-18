@@ -17,7 +17,7 @@
             @foreach (var item in Model)
             {
                 <div class="card rentalrequests-index--card">
-                    <div class="card-header" id="heading_@i">
+                    <div class="card-header rentalrequests-index--cardheader" id="heading_@i">
                         <h5 class="mb-0">
                             <button class="btn btn-link rentalrequests-index--button" data-toggle="collapse" 
                                     data-target="#collapse_@i" aria-expanded="false" aria-controls="collapse_@i">
@@ -57,7 +57,7 @@
                             <div class="row">
                                 @Html.DisplayNameFor(model => model.RentalCode)
                                 : 
-                                @Html.DisplayNameFor(model => model.RentalCode)
+                                @Html.DisplayFor(model => item.RentalCode)
                             </div>
                             <div class="row">
                                 @Html.DisplayNameFor(model => model.ProjectInfo)
@@ -65,7 +65,7 @@
                                 @Html.DisplayFor(modelItem => item.ProjectInfo)
                             </div>
                             <div class="row">
-                                Rentals: <br />
+                                Rentals: @*@item.Rentals<br />*@
                             </div>
                             <div class="row">
                                 Accepted: @item.Accepted
@@ -74,7 +74,7 @@
                                 Contract Signed: @item.ContractSigned
                             </div>
                             <div class="row">
-                                Survey:  <br />
+                                Survey: Rental Survey
                             </div>
                             <div class="row">
                                 @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestId })
@@ -91,74 +91,3 @@
 
         </div>
 
-
-        @*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactPerson)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Company)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequestedTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectInfo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RentalCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Accepted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContractSigned)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactPerson)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Company)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestedTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectInfo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RentalCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Accepted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContractSigned)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RentalRequestId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.RentalRequestId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.RentalRequestId })
-            </td>
-        </tr>
-    }
-
-    </table>*@

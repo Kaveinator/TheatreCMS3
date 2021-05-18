@@ -18,6 +18,10 @@
     color: var(--light-color);
 }
 
+.rentalrequests-index--cardheader{
+    padding-bottom: 0;
+}
+
 .rentalrequests-index--buttoncompany {
     text-align: left;
     color: var(--light-color);
