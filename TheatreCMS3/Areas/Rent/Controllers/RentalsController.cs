@@ -104,6 +104,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 return HttpNotFound();
             }
             ViewBag.Value = rental.GetType().ToString();
+            if (ViewBag.Value == "TheatreCMS3.Areas.Rent.Models.Rental")
+            {
+                ViewBag.EditValue = "EditRental";
+            } else if (ViewBag.Value == "TheatreCMS3.Areas.Rent.Models.RentalRoom")
+            {
+                ViewBag.EditValue = "EditRentalRoom";
+            } else if (ViewBag.Value == "TheatreCMS3.Areas.Rent.Models.RentalEquipment")
+            {
+                ViewBag.EditValue = "EditRentalEquipment";
+            }
             return View(rentals);
         }
 
