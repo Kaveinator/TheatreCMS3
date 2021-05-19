@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Rent.ViewModels;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
@@ -71,7 +72,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View("Create");
+            return View(rental);
         }
 
         // rental room method create
@@ -86,7 +87,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View("Create");
+            return View(rental);
         }
 
         // GET: Rent/Rentals/Edit/5
@@ -96,12 +97,14 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
+            var rental = db.Rentals.Find(id);
+            AllRentalsVM rentals = new AllRentalsVM(rental);
             if (rental == null)
             {
                 return HttpNotFound();
             }
-            return View("Edit");
+            ViewBag.Value = rental.GetType().ToString();
+            return View(rentals);
         }
 
         // POST: Rent/Rentals/Edit/5
@@ -117,7 +120,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View("Edit");
+            return View(rental);
         }
 
         // edit rental equipment
@@ -131,7 +134,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View("Edit");
+            return View(rental);
         }
 
         // edit rental room
@@ -145,7 +148,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View("Edit");
+            return View(rental);
         }
 
         // GET: Rent/Rentals/Delete/5
