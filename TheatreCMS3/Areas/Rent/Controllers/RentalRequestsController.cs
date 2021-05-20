@@ -18,8 +18,39 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalRequests
         public ActionResult Index()
         {
-            return View(db.RentalRequests.ToList());
+            // Ordering list by StartTime
+            List<RentalRequest> requestsByStartTime = db.RentalRequests.OrderBy(k => k.StartTime).ToList();
+
+            //List<RentalRequest> notExpiredRequests = new List<RentalRequest>();
+
+            //foreach (RentalRequest request in requestsByStartTime)
+            //{
+            //    //if (request.EndTime.AddDays(7) >= DateTime.Now)
+            //    //{
+            //    //    notExpiredRequests.Add(request);
+            //    //}
+            //}
+
+            return View(requestsByStartTime);
         }
+
+        //public ActionResult ExpiredIndex()
+        //{
+
+        //    List<RentalRequest> requestsByStartTime = db.RentalRequests.OrderBy(k => k.StartTime).ToList();
+
+        //    List<RentalRequest> expiredRequests = new List<RentalRequest>();
+
+        //    foreach (RentalRequest request in requestsByStartTime)
+        //    {
+        //        if (request.EndTime.AddDays(7) < DateTime.Now)
+        //        {
+        //            expiredRequests.Add(request);
+        //        }
+        //    }
+
+        //    return View(expiredRequests);
+        //}
 
         // GET: Rent/RentalRequests/Details/5
         public ActionResult Details(int? id)

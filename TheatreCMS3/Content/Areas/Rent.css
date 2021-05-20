@@ -131,10 +131,20 @@
 
 
 /*--------- Rental Requests Index Styling----------*/
+
+.rentalrequests-index--expiredbutton{
+    float: right;
+}
+
 .rentalrequests-index--card {
     background-color: var(--dark-color);
     width: 100%;
     color: var(--light-color);
+}
+
+/* Hides expired rental requests when index first loads. */
+.rentalrequests-index--expiredrequests {
+    display: none;
 }
 
 .rentalrequests-index--cardheader {
@@ -181,6 +191,8 @@
     text-align: center;
     padding-bottom: 30px;
 }
+
+
 /*--------- End Rental Requests Index Styling----------*/
 
 
