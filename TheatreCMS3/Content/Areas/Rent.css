@@ -76,6 +76,7 @@
     border-color: var(--dark-color);
     background-color: var(--light-color);
 }
+
 /*---------Rental History CRUD Styling----------*/
 
 
@@ -170,12 +171,18 @@
 
 .rentalrequests-index--button {
     width: 100%;
-    border: 5px solid var(--light-color);
+    border: 2px solid var(--light-color);
+    background-color: var(--main-color--light);
+    font-weight: bold; 
+}
+
+.rentalrequests-index--buttonbodycollapse{
+    padding-left: 22px;
+    padding-right: 22px;
 }
 
 .rentalrequests-index--buttonbody {
-    width: 96%;
-    border: 5px solid var(--light-color);
+    border: 2px solid var(--light-color);
     margin: auto;
     padding-left: 50px;
 }

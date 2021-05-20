@@ -203,9 +203,11 @@
     <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
     <Compile Include="Areas\Rent\Models\Rental.cs" />
     <Compile Include="Areas\Rent\Models\RentalEquipment.cs" />
+    <Compile Include="Areas\Rent\Models\RentalManager.cs" />
     <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
     <Compile Include="Areas\Rent\Models\RentalRoom.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
+    <Compile Include="Areas\Rent\ViewModels\AllRentalsVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />

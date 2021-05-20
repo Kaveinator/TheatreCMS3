@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Rent.ViewModels;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
@@ -47,7 +48,37 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult CreateRental([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Rentals.Add(rental);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(rental);
+        }
+
+        // rental equipment method create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateRentalEquipment([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SuffocationHazard,PurchasePrice")] RentalEquipment rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Rentals.Add(rental);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(rental);
+        }
+
+        // rental room method create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateRentalRoom([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,RoomNumber,SquareFootage,MaxOccupancy")] RentalRoom rental)
         {
             if (ModelState.IsValid)
             {
@@ -66,12 +97,24 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
+            var rental = db.Rentals.Find(id);
+            AllRentalsVM rentals = new AllRentalsVM(rental);
             if (rental == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            ViewBag.Value = rental.GetType().ToString();
+            if (ViewBag.Value == "TheatreCMS3.Areas.Rent.Models.Rental")
+            {
+                ViewBag.EditValue = "EditRental";
+            } else if (ViewBag.Value == "TheatreCMS3.Areas.Rent.Models.RentalRoom")
+            {
+                ViewBag.EditValue = "EditRentalRoom";
+            } else if (ViewBag.Value == "TheatreCMS3.Areas.Rent.Models.RentalEquipment")
+            {
+                ViewBag.EditValue = "EditRentalEquipment";
+            }
+            return View(rentals);
         }
 
         // POST: Rent/Rentals/Edit/5
@@ -79,7 +122,35 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult EditRental([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(rental).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(rental);
+        }
+
+        // edit rental equipment
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditRentalEquipment([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SuffocationHazard,PurchasePrice")] RentalEquipment rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(rental).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(rental);
+        }
+
+        // edit rental room
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditRentalRoom([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,RoomNumber,SquareFootage,MaxOccupancy")] RentalRoom rental)
         {
             if (ModelState.IsValid)
             {
