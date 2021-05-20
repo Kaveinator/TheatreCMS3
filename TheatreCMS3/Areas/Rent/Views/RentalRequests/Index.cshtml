@@ -12,19 +12,26 @@
 </p>
 
 
+<button class="btn btn-success rentalrequests-index--expiredbutton" id="rentalrequests-index--expiredtoggle">
+    <div id="rentalrequests-index--expiredText">Expired Rentals</div>
+</button>
+
+
 <div id="accordion">
     @{int i = 0; }
     @foreach (var item in Model)
     {
-        <div class="card rentalrequests-index--card">
+        <div class="card rentalrequests-index--card @(item.EndTime.AddDays(7) >= DateTime.Now?"rentalrequests-index--currentrequests":"rentalrequests-index--expiredrequests")">
             <div class="card-header rentalrequests-index--cardheader" id="heading_@i">
                 <h5 class="mb-0">
-                    <button class="btn btn-link rentalrequests-index--button" data-toggle="collapse" 
+                    <button class="btn btn-link rentalrequests-index--button" data-toggle="collapse"
                             data-target="#collapse_@i" aria-expanded="false" aria-controls="collapse_@i">
                         <div class="rentalrequests-index--buttoncompany">Company: @Html.DisplayFor(modelItem => item.Company)</div>
-                        <div class="rentalrequests-index--buttonperson">@Html.DisplayNameFor(model => model.ContactPerson)
-                        :
-                        @Html.DisplayFor(modelItem => item.ContactPerson)</div>
+                        <div class="rentalrequests-index--buttonperson">
+                            @Html.DisplayNameFor(model => model.ContactPerson)
+                            :
+                            @Html.DisplayFor(modelItem => item.ContactPerson)
+                        </div>
                         @if (item.StartTime > DateTime.Now)
                         {
                             <div class="rentalrequests-index--buttontime">Time Until Start: @item.GetTimeTillStart().Days days</div>
@@ -56,12 +63,12 @@
 
                     <div class="row">
                         @Html.DisplayNameFor(model => model.RentalCode)
-                        : 
+                        :
                         @Html.DisplayFor(model => item.RentalCode)
                     </div>
                     <div class="row">
                         @Html.DisplayNameFor(model => model.ProjectInfo)
-                        :  
+                        :
                         @Html.DisplayFor(modelItem => item.ProjectInfo)
                     </div>
                     <div class="row">
@@ -86,8 +93,48 @@
                 </div>
             </div>
         </div>
-    i++;
+
+        i++;
     }
 
 </div>
+
+
+
+<script>
+    // Toggles back and forth between expired and current Rental Requests.
+    document.getElementById("rentalrequests-index--expiredtoggle").addEventListener("click", function () {
+        var expiredStatus = document.getElementById("rentalrequests-index--expiredText");
+        if (expiredStatus.textContent == "Expired Rentals") {
+            console.log("Expiredstatus == expired rentals.")
+            currentRequests = document.getElementsByClassName("rentalrequests-index--currentrequests");
+            var i;
+            for (i = 0; i < currentRequests.length; i++) {
+                currentRequests[i].style.display = "none";
+            }
+            expiredRequests = document.getElementsByClassName("rentalrequests-index--expiredrequests");
+            var i;
+            for (i = 0; i < expiredRequests.length; i++) {
+                expiredRequests[i].style.display = "inline-block";
+            }
+
+            document.getElementById("rentalrequests-index--expiredText").innerHTML = "Current Rentals";
+        }
+        else if (expiredStatus.textContent == "Current Rentals") {
+            console.log("Expiredstatus == Current rentals.")
+            currentRequests = document.getElementsByClassName("rentalrequests-index--currentrequests");
+            var i;
+            for (i = 0; i < currentRequests.length; i++) {
+                currentRequests[i].style.display = "inline-block";
+            }
+            expiredRequests = document.getElementsByClassName("rentalrequests-index--expiredrequests");
+            var i;
+            for (i = 0; i < expiredRequests.length; i++) {
+                expiredRequests[i].style.display = "none";
+            }
+            document.getElementById("rentalrequests-index--expiredText").innerHTML = "Expired Rentals";
+        }
+    });
+
+</script>
 
