@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,8 +19,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers
         public ActionResult Index()
         {
+            
             return View(db.CastMembers.ToList());
         }
+
 
         // GET: Prod/CastMembers/Details/5
         public ActionResult Details(int? id)
@@ -47,8 +50,15 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase photoFile)
         {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photoFile.InputStream))
+            {
+                bytes = br.ReadBytes(photoFile.ContentLength);
+            }
+            castMember.Photo = bytes;
+          
             if (ModelState.IsValid)
             {
                 db.CastMembers.Add(castMember);
@@ -124,5 +134,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
+
+ 
     }
 }
