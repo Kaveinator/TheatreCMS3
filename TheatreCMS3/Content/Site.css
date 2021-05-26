@@ -413,29 +413,34 @@ footer {
 .about-h2 {
     text-align: center;
     padding-bottom: 5px;
+    padding-top: 10px;
     border-bottom-style: solid;
     border-bottom-width: 3.1px;
     border-bottom-color: var(--main-color);
     width: max-content;
     margin: auto;
+    font-size: 3em;
     text-transform: uppercase;
 }
 
 .about-p {
-    margin: 10px 0;
+    margin: 20px 0;
+    font-size: 2em;
+    font-weight: 300;
 }
 
 .about-banner {
     position: relative;
     text-align: center;
-}
-
-.about-banner {
+    height: 10%;
 }
 
 .about-banner img {
     z-index: 0;
     margin-bottom: 60px;
+    width: 100%;
+    object-fit: fill;
+    max-height: 300px;
 }
 
 .about-banner-text {
@@ -448,44 +453,63 @@ footer {
 
 .about-header {
     background-color: var(--dark-color);
-    border-bottom-left-radius: 25%;
+    border-bottom-left-radius: 10em;
 }
 
-/*.about-body {
-    flex-direction: column;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}*/
-
 .about-history {
-    margin: 40px 0;
-    padding 40px;
+    padding: 40px 0;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .about-ensemble-container {
     background-color: var(--dark-color);
-    width: 100%;
-    border-top-right-radius: 25%;
-    padding-right: 100px;
-    margin-right: auto;
+    border-top-right-radius: 10em;
 }
 
 
 .about-hr {
-    border-top: 1.5px solid var(--light-color);
+    border-top: 4px solid var(--light-color);
     margin-left: auto;
     margin-right: auto;
+}
+
+.about-deck {
+    border-bottom: 1.5px solid var(--light-color);
+    margin-top: 50px;
 }
 
 .about-card {
     background-color: var(--dark-color);
 }
 
+.about-card-title {
+    font-size: 1.25em;
+    font-weight: 300;
+    text-transform: uppercase;
+    white-space: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.about-card-body {
+    padding-bottom: 0;
+    height: auto;
+}
+
 .card-img-top { 
-    border-radius: 100%;
+    border-radius: 50%;
     width: auto;
-    height: 70%;
+    height: 60%;
+    max-width: auto;
+}
+
+.about-board {
+    margin: 40px 0 0 0;
+}
+
+.about-name-p {
+    margin-bottom: 0;
+    font-size: 1.5em;
+    font-weight: 200;
 }

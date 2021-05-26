@@ -3,23 +3,35 @@
 }
 
 <style>
-  /*.body-content { 
+  .body-content { 
     margin: unset;
     padding: unset;
+    max-width: 100%;
   }
-  .container { 
+
+  .container {
     margin: unset;
     padding: unset;
-  }*/
+    max-width: 100%;
+  }
+
   body {
     background-color: unset;
     background-color: var(--main-color--light);
   }
-</style>
+
+  .about-deck {
+    max-width: 80%;
+  }
+
+  footer {
+    background-color: var(--dark-color);
+  }
+</style>s
 
 <div class="about-header jumbotron-fluid">
   <div class="about-banner">
-    <img src="@Url.Content("~/content/images/theater.jpg")" alt="Theater Curtains" class="about-banner-img img-fluid" />
+    <img src="@Url.Content("~/content/images/theater.jpg")" alt="Theater Curtains" class="about-banner-img" />
     <div class="about-banner-text">
       <h1 class="about-banner-h1">About Us</h1>
     </div>
@@ -27,6 +39,7 @@
   <div class="about-mission text-center">
     <h2 class="about-h2">Who We Are</h2>
     <p class="about-p">We seek to engage audiences through compelling, <br />ensemble-driven productions<br /> with a focus on developing new works</p>
+    <br />
   </div>
 </div>
 
@@ -34,6 +47,7 @@
   <div class="about-history-container container">
     <div class="about-history text-center">
       <h2 class="about-h2 text-center">Company History</h2>
+      <br />
       <p class="about-p">
         In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, The Electric Company, Theater!Theatre!, and The Shoebox Theater.
       </p>
@@ -52,19 +66,20 @@
 
   <div class="about-ensemble-container container">
     <div class="about-ensemble text-center">
+      <br />
       <h2 class="about-h2">Ensemble</h2>
       <br /><br />
-      <div class="card-deck">
-        <div class="about-card card">
+      <div class="about-deck card-deck mx-auto">
+        <div class="about-card card text-center">
           <img class="card-img-top" src="@Url.Content("~/content/images/Cast_Img_6.jpg")" alt="Victoria Alvarez-Chacon">
           <div class="about-card-body card-body">
-            <h5 class="about-card-title card-title"><span class="about-span">Victoria Alvarez-Chacon</span></h5>
+            <h5 class="about-card-title card-title mx-auto"><span class="about-span">Victoria Alvarez-Chacon</span></h5>
           </div>
         </div>
         <div class="about-card card">
           <img class="card-img-top" src="@Url.Content("~/content/images/Cast_Img_1.jpg")" alt="Kaia Maarja Hillier">
           <div class="about-card-body card-body">
-            <h5 class="about-card-title card-title"><span class="about-span">Kaia Maarja Hillier</span></h5>
+            <h5 class="about-card-title card-title"><span class="about-span">Kaia Maarja</span><span class="about-span">Hillier</span></h5>
           </div>
         </div>
         <div class="about-card card">
@@ -82,18 +97,18 @@
         <div class="about-card card">
           <img class="card-img-top" src="@Url.Content("~/content/images/Cast_Img_3.jpg")" alt="Heath Hyun Houghton">
           <div class="about-card-body card-body">
-            <h5 class="about-card-title card-title"><span class="about-span">Heath Hyun Houghton</span></h5>
+            <h5 class="about-card-title card-title"><span class="about-span">Heath Hyun </span><span class="about-span">Houghton</span></h5>
           </div>
         </div>
       </div>
     </div>
-    <hr class="about-hr">
     <div class="about-board text-center">
       <h2 class="about-h2">Board</h2>
-      <p class="about-p">Jamie Floyd (President)</p>
-      <p class="about-p">Tom Mounsey</p>
-      <p class="about-p">Marcia Reyes</p>
-      <p class="about-p">Lena-Liis Kiesel</p>
+      <br />
+      <p class="about-name-p">Jamie Floyd (President)</p>
+      <p class="about-name-p">Tom Mounsey</p>
+      <p class="about-name-p">Marcia Reyes</p>
+      <p class="about-name-p">Lena-Liis Kiesel</p>
     </div>
   </div>
 </div>
