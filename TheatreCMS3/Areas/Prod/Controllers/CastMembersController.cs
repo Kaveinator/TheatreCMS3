@@ -89,7 +89,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase photoFile)
         {
             if (ModelState.IsValid)
             {
@@ -133,6 +133,14 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public FileContentResult getImg(int id) // Controller for display of image on each CRUD page
+        {
+            byte[] byteArray = db.CastMembers.Find(id).Photo;
+            return byteArray != null
+                ? new FileContentResult(byteArray, "image/jpeg")
+                : null;
         }
 
  
