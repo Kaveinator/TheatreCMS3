@@ -410,37 +410,25 @@ footer {
 }
 
 /*SignIn Style*/
-.names-container {
-    color: var(--main-color);
-    text-shadow: 10px 10px 10px var(--light-color);
-    text-overflow: ellipsis;
-    font-weight: 100;
+
+.names-container > p {
+    color: var(--light-color);
+    text-overflow: ellipsis;    
+    font-size: large;
     font-family: cursive;
     font-style: italic;
-    animation: color-change 5s infinite;
-    width: 100%;
+    width: 100%; 
+    padding: 20px;
+    text-wrap: none;
+    border-radius: 30px;
+    background-color: var(--main-color);
+    display: inline-block;
 }
 
-@keyframes color-change {
-    20% {
-        color: var(--light-color);
-    }
-
-    50% {
-        color: var(--secondary-color--dark);
-    }
-
-    100% {
-        color: var(--main-color);
-    }
+.card-columns {
+    column-count: 4;
 }
 
-.card-body {
-    box-shadow: 0px 0px 20px var(--light-color);
-}
 
-.card-body:hover {
-    box-shadow: 10px 10px 50px var(--main-color);
-}
 
 
