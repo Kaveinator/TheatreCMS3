@@ -7,7 +7,7 @@ namespace TheatreCMS3.Areas.Blog.Models
 	{
 		// Props
 		public int CommentId { get; set; }
-		public ApplicationUser MyProperty { get; set; }
+		public ApplicationUser Author { get; set; }
 		public string Message { get; set; }
 		public DateTime CommentDate { get; set; }
 		public int Likes { get; set; }
