@@ -2,6 +2,7 @@
     ViewBag.Title = "About Us";
 }
 
+@* Unset a few styles that cascade from _Layout to allow for proper styling on about page.*@
 <style>
   .body-content { 
     margin: unset;
@@ -27,8 +28,9 @@
   footer {
     background-color: var(--dark-color);
   }
-</style>s
+</style>
 
+@* Jumbotron banner with mission statement and header img. *@
 <div class="about-header jumbotron-fluid">
   <div class="about-banner">
     <img src="@Url.Content("~/content/images/theater.jpg")" alt="Theater Curtains" class="about-banner-img" />
@@ -43,7 +45,9 @@
   </div>
 </div>
 
+@* Body Content *@
 <div class="about-body container">
+  @* Theatre history section *@
   <div class="about-history-container container">
     <div class="about-history text-center">
       <h2 class="about-h2 text-center">Company History</h2>
@@ -63,7 +67,7 @@
       <br />
     </div>
   </div>
-
+  @* Ensemble container and card deck *@
   <div class="about-ensemble-container container">
     <div class="about-ensemble text-center">
       <br />
@@ -102,6 +106,7 @@
         </div>
       </div>
     </div>
+    @* Theatre board section *@
     <div class="about-board text-center">
       <h2 class="about-h2">Board</h2>
       <br />

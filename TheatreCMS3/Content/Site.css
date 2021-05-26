@@ -409,7 +409,8 @@ footer {
     z-index: 1;
 }
 
-/*  About Page  */
+/*      About Page    */
+/* Text Element Styling */
 .about-h2 {
     text-align: center;
     padding-bottom: 5px;
@@ -429,6 +430,7 @@ footer {
     font-weight: 300;
 }
 
+/* Jumbotron-Banner */
 .about-banner {
     position: relative;
     text-align: center;
@@ -456,12 +458,12 @@ footer {
     letter-spacing: .5rem;
 }
 
-
 .about-header {
     background-color: var(--dark-color);
     border-bottom-left-radius: 10rem;
 }
 
+/* History Section */
 .about-history {
     padding: 40px 0;
     margin-left: 15%;
@@ -480,6 +482,7 @@ footer {
     margin-right: auto;
 }
 
+/* Card Deck Ensemble */
 .about-deck {
     border-bottom: 1.5px solid var(--light-color);
     margin-top: 50px;
@@ -510,6 +513,7 @@ footer {
     max-width: auto;
 }
 
+/* Board Members Section*/
 .about-board {
     margin: 40px 0 0 0;
 }
