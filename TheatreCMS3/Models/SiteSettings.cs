@@ -13,20 +13,11 @@ namespace TheatreCMS3.Models
 
         public static void ReadSiteSettings()
         {
-            var filePath = @"C:\Users\asand\source\repos\TheatreCMS3\TheatreCMS3\SiteSettings.json";
-            var invalidPath = new string(Path.GetInvalidPathChars());
-            foreach(var c in invalidPath)
-            {
-                filePath = filePath.Replace(c.ToString(), "");
-            }
             //Read the file into a string format and deserialize JSON to a type.
-            SiteSettings m = JsonConvert.DeserializeObject<SiteSettings>(File.ReadAllText(filePath));
+            StreamReader r = new StreamReader(@"C:\Users\asand\source\repos\TheatreCMS3\TheatreCMS3\SiteSettings.json");
+            string jsonString = r.ReadToEnd();
             //Deserializes the JSON directly from the file.
-            using (StreamReader file = File.OpenText(File.ReadAllText(filePath)))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                SiteSettings m2 = (SiteSettings)serializer.Deserialize(file, typeof(SiteSettings));
-            }
+            SiteSettings ss = JsonConvert.DeserializeObject<SiteSettings>(jsonString);
         }
     }  
 }
