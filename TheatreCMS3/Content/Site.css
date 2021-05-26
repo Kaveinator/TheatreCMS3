@@ -412,22 +412,19 @@ footer {
 /*SignIn Style*/
 
 .names-container > p {
-    color: var(--light-color);
+    color: var(--light-color);    
     text-overflow: ellipsis;    
+    white-space: nowrap;
+    overflow: hidden;
     font-size: large;
-    font-family: cursive;
-    font-style: italic;
-    width: 100%; 
-    padding: 20px;
-    text-wrap: none;
+    font-family: sans-serif;    
+    width: 200px;    
+    padding: 10px; 
+    margin: 10px;
     border-radius: 30px;
-    background-color: var(--main-color);
-    display: inline-block;
+    background-color: var(--main-color);    
 }
 
-.card-columns {
-    column-count: 4;
-}
 
 
 
