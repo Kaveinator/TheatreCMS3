@@ -41,5 +41,7 @@ namespace TheatreCMS3.Models
             base.OnModelCreating(modelBuilder);
 
         }
+
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogAuthor> BlogAuthors { get; set; }
     }
 }
