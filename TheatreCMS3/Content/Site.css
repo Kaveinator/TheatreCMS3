@@ -488,8 +488,9 @@ footer {
     margin-top: 50px;
 }
 
-.about-card {
+.about-deck .about-card {
     background-color: var(--dark-color);
+    min-width: auto;
 }
 
 .about-card-title {
@@ -503,15 +504,14 @@ footer {
 }
 
 .about-card-body {
-    padding-bottom: 0;
+    padding: 1.25rem 0 0 0;
     height: auto;
 }
 
-.card-img-top { 
+.about-card > .card-img-top { 
     border-radius: 50%;
-    width: auto;
-    height: 60%;
-    max-width: auto;
+    width: 150px;
+    height: 180px; 
 }
 
 /* Board Members Section*/
