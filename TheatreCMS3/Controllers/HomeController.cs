@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Models;
+
 
 namespace TheatreCMS3.Controllers
 {
@@ -12,6 +12,7 @@ namespace TheatreCMS3.Controllers
     {
         public ActionResult Index()
         {
+            SiteSettings.ReadSiteSettings();
             return View();
         }
         [HttpGet]
@@ -38,5 +39,6 @@ namespace TheatreCMS3.Controllers
         {
             return View();
         }
+
     }
 }
