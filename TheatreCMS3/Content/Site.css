@@ -497,6 +497,7 @@ footer {
     font-weight: 300;
     text-transform: uppercase;
     white-space: normal;
+    word-wrap: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -522,4 +523,26 @@ footer {
     margin-bottom: 0;
     font-size: 1.5rem;
     font-weight: 200;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1150px) {
+    .about-card-title {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .about-h2 {
+        width: auto;
+    }
+    .about-p {
+        font-size: 1rem;
+    }
+    .about-ensemble-container {
+        border-top-right-radius: 5rem;
+    }
+    .about-mission {
+        border-top-left-radius: 5rem;
+    }
 }
