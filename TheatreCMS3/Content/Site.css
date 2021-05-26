@@ -419,13 +419,13 @@ footer {
     border-bottom-color: var(--main-color);
     width: max-content;
     margin: auto;
-    font-size: 3em;
+    font-size: 3rem;
     text-transform: uppercase;
 }
 
 .about-p {
     margin: 20px 0;
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: 300;
 }
 
@@ -444,16 +444,22 @@ footer {
 }
 
 .about-banner-text {
-    font-family: Broadway;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+.about-banner-h1 { 
+    font-family: Broadway;
+    font-size: 5rem;
+    letter-spacing: .5rem;
+}
+
+
 .about-header {
     background-color: var(--dark-color);
-    border-bottom-left-radius: 10em;
+    border-bottom-left-radius: 10rem;
 }
 
 .about-history {
@@ -464,7 +470,7 @@ footer {
 
 .about-ensemble-container {
     background-color: var(--dark-color);
-    border-top-right-radius: 10em;
+    border-top-right-radius: 10rem;
 }
 
 
@@ -484,7 +490,7 @@ footer {
 }
 
 .about-card-title {
-    font-size: 1.25em;
+    font-size: 1.25rem;
     font-weight: 300;
     text-transform: uppercase;
     white-space: normal;
@@ -510,6 +516,6 @@ footer {
 
 .about-name-p {
     margin-bottom: 0;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 200;
 }
