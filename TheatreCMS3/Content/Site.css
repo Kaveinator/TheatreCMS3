@@ -546,3 +546,24 @@ footer {
         border-top-left-radius: 5rem;
     }
 }
+
+/*SignIn Style*/
+
+.names-container > p {
+    color: var(--light-color);    
+    text-overflow: ellipsis;    
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: large;
+    font-family: sans-serif;    
+    width: 200px;    
+    padding: 10px; 
+    margin: 10px;
+    border-radius: 30px;
+    background-color: var(--main-color);    
+}
+
+
+
+
+
