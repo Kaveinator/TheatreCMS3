@@ -2,4 +2,117 @@
     ViewBag.Title = "About Us";
 }
 
-<h1>About Us</h1>
+@* Unset a few styles that cascade from _Layout to allow for proper styling on about page.*@
+<style>
+  .body-content { 
+    margin: unset;
+    padding: unset;
+    max-width: 100%;
+  }
+
+  .container {
+    margin: unset;
+    padding: unset;
+    max-width: 100%;
+  }
+
+  body {
+    background-color: var(--main-color--light);
+  }
+
+  .about-deck {
+    max-width: 80%;
+  }
+
+  footer {
+    background-color: var(--dark-color);
+  }
+</style>
+
+@* Jumbotron banner with mission statement and header img. *@
+<div class="about-header jumbotron-fluid">
+  <div class="about-banner">
+    <img src="@Url.Content("~/content/images/theater.jpg")" alt="Theater Curtains" class="about-banner-img" />
+    <div class="about-banner-text">
+      <h1 class="about-banner-h1">About Us</h1>
+    </div>
+  </div>
+  <div class="about-mission text-center">
+    <h2 class="about-h2">Who We Are</h2>
+    <p class="about-p">We seek to engage audiences through compelling, <br />ensemble-driven productions<br /> with a focus on developing new works</p>
+    <br />
+  </div>
+</div>
+
+@* Body Content *@
+<div class="about-body container">
+  @* Theatre history section *@
+  <div class="about-history-container container">
+    <div class="about-history text-center">
+      <h2 class="about-h2 text-center">Company History</h2>
+      <br />
+      <p class="about-p">
+        In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, The Electric Company, Theater!Theatre!, and The Shoebox Theater.
+      </p>
+      <p class="about-p">
+        From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser in collaboration with The Anonymous Theatre Company.  Other past collaborations include defunkt theatre, Stark Raving Theater, and Tears of Joy Theatre.
+      </p>
+      <p class="about-p">
+        Theatre Vertigo has worked on world premieres including <i>Faust.Us</i> by Joseph Fisher, <i>99 Ways to Fuck a Swan</i> by Kim Rosenstock, and <i>The End of Sex</i> by Craig Jessen.
+      </p>
+      <p class="about-p">
+        In 2016, Theatre Vertigo produced its first officially commissioned work from a playwright, <i>I Want To Destroy You</i>, by Rob Handel.
+      </p>
+      <br />
+    </div>
+  </div>
+  @* Ensemble container and card deck *@
+  <div class="about-ensemble-container container">
+    <div class="about-ensemble text-center align-content-center">
+      <br />
+      <h2 class="about-h2">Ensemble</h2>
+      <br /><br />
+      <div class="about-deck card-deck mx-auto">
+        <div class="about-card card text-center">
+          <img class="card-img-top mx-auto" src="@Url.Content("~/content/images/Cast_Img_6.jpg")" alt="Victoria Alvarez-Chacon">
+          <div class="about-card-body card-body">
+            <h5 class="about-card-title card-title align-middle mx-auto"><span class="about-span">Victoria Alvarez-Chacon</span></h5>
+          </div>
+        </div>
+        <div class="about-card card">
+          <img class="card-img-top mx-auto" src="@Url.Content("~/content/images/Cast_Img_1.jpg")" alt="Kaia Maarja Hillier">
+          <div class="about-card-body card-body">
+            <h5 class="about-card-title card-title align-middle mx-auto"><span class="about-span">Kaia Maarja </span><span class="about-span">Hillier</span></h5>
+          </div>
+        </div>
+        <div class="about-card card">
+          <img class="card-img-top mx-auto" src="@Url.Content("~/content/images/Cast_Img_4.jpg")" alt="Jacquelle Davis">
+          <div class="about-card-body card-body">
+            <h5 class="about-card-title card-title align-middle"><span class="about-span">Jacquelle Davis</span></h5>
+          </div>
+        </div>
+        <div class="about-card card">
+          <img class="card-img-top mx-auto" src="@Url.Content("~/content/images/Cast_Img_7.jpg")" alt="Tom Mounsey">
+          <div class="about-card-body card-body">
+            <h5 class="about-card-title card-title align-middle mx-auto"><span class="about-span">Tom Mounsey</span></h5>
+          </div>
+        </div>
+        <div class="about-card card">
+          <img class="card-img-top mx-auto" src="@Url.Content("~/content/images/Cast_Img_3.jpg")" alt="Heath Hyun Houghton">
+          <div class="about-card-body card-body">
+            <h5 class="about-card-title card-title align-middle mx-auto"><span class="about-span">Heath Hyun </span><span class="about-span">Houghton</span></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    @* Theatre board section *@
+    <div class="about-board text-center">
+      <h2 class="about-h2">Board</h2>
+      <br />
+      <p class="about-name-p">Jamie Floyd (President)</p>
+      <p class="about-name-p">Tom Mounsey</p>
+      <p class="about-name-p">Marcia Reyes</p>
+      <p class="about-name-p">Lena-Liis Kiesel</p>
+    </div>
+  </div>
+</div>
