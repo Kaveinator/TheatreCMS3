@@ -94,6 +94,21 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(castMember).State = EntityState.Modified;
+
+                if (photoFile != null) { 
+                    byte[] bytes;
+                    using (BinaryReader br = new BinaryReader(photoFile.InputStream))
+                    {
+                        bytes = br.ReadBytes(photoFile.ContentLength);
+                    }
+                    castMember.Photo = bytes;
+                }
+                else
+                {
+                    byte[] byteArray = db.CastMembers.Find(castMember).Photo;
+                    castMember.Photo = byteArray;
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
