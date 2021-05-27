@@ -5,22 +5,43 @@
 </p>
 
 <div class="comment-list">
-  <ol class="list-group">
-    @foreach (var item in Model)
-    {
-    <li class="list-group-item">
-      <div class="blog-comment container">
-        <span class="comment-author">
-          @Html.DisplayNameFor(model => model.Author)
-        </span>
-        <span class="time-since">
-          @{ 
-          } 
-        </span>
-      </div>
-    </li>
-              }
-  </ol>
+    <ol class="list-group">
+        @foreach (var item in Model)
+        {
+        <li class="list-group-item">
+            <div class="blog-comment container">
+                <span class="comment-author">
+                    @Html.DisplayFor(modelItem => item.Author)
+                </span>
+            </div>
+            <div class="col-sm">
+                <span class="time-since">@item.TimeAgo()
+                </span>
+                <div class="col-sm"><i class="fas fa-trash">@*ADD IMPLEMENTATION!!!*@</i></div>
+            </div>
+            <div class="row">
+                <div class="commment-body">
+                    <div class="col">@item.Message</div>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col-">
+					Likes: @item.Likes
+				</div>
+				<div class="col-">
+					Dislikes: @item.Dislikes
+				</div>
+				<div class="col-">
+					Ratio: @item.LikeRatio()
+				</div>
+				<div class="col">
+					<button class="button btn btn-primary btn-sm">
+                        Reply @* @Html.Actio()    ADD IMPLEMENTATION!!! *@
+                    </button>
+				</div>
+			</div>
+        </li>}
+    </ol>
 </div>
 
 @*<table class="table">
