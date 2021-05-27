@@ -75,6 +75,14 @@
             @Html.DisplayFor(model => model.DebutYear)
         </dd>
 
+         <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+          <img src="@Url.Action("getImg", "CastMembers", new { id = Model.CastMemberId })" width="250" height="300" />
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
