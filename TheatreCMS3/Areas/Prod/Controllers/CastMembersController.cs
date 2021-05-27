@@ -53,7 +53,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase photoFile)
         {
             byte[] bytes;
-            using (BinaryReader br = new BinaryReader(photoFile.InputStream))
+            using (BinaryReader br = new BinaryReader(photoFile.InputStream)) // Convert the chosen photo to byte array to be stored in database
             {
                 bytes = br.ReadBytes(photoFile.ContentLength);
             }
@@ -95,7 +95,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 db.Entry(castMember).State = EntityState.Modified;
 
-                if (photoFile != null) { 
+                if (photoFile != null) { // Replace photo on edit page with new photo
                     byte[] bytes;
                     using (BinaryReader br = new BinaryReader(photoFile.InputStream))
                     {
@@ -103,9 +103,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                     }
                     castMember.Photo = bytes;
                 }
-                else
+                else // keep the same photo
                 {
-                    byte[] byteArray = db.CastMembers.Find(castMember).Photo;
+                    byte[] byteArray = db.CastMembers.AsNoTracking().First(model => model.CastMemberId == castMember.CastMemberId).Photo;
                     castMember.Photo = byteArray;
                 }
 
