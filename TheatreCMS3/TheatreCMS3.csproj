@@ -227,6 +227,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SiteSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -492,6 +493,7 @@
     <Content Include="Views\Shared\Restricted.cshtml" />
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Shared\_DevNavbar.cshtml" />
+    <Content Include="SiteSettings.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
