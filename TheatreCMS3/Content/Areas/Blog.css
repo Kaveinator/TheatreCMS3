@@ -11,3 +11,9 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.FormBackground {
+    background-color: #F04D44;
+    border-radius: 25px;
+    padding: 20px;
+    
+}
