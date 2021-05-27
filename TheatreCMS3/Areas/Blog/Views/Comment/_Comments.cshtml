@@ -3,7 +3,27 @@
 <p>
   @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+
+<div class="comment-list">
+  <ol class="list-group">
+    @foreach (var item in Model)
+    {
+    <li class="list-group-item">
+      <div class="blog-comment container">
+        <span class="comment-author">
+          @Html.DisplayNameFor(model => model.Author)
+        </span>
+        <span class="time-since">
+          @{ 
+          } 
+        </span>
+      </div>
+    </li>
+              }
+  </ol>
+</div>
+
+@*<table class="table">
   <tr>
     <th>
       @Html.DisplayNameFor(model => model.Message)
@@ -43,4 +63,4 @@
     </tr>
   }
 
-</table>
+</table>*@
