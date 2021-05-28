@@ -15,5 +15,16 @@
     background-color: #F04D44;
     border-radius: 25px;
     padding: 20px;
-    
+}
+
+.BlogAuthorTitle {
+    width: 60vw;
+    max-width: 700px;
+    margin: auto;
+}
+
+.BlogAuthorForm{
+    width: 60vw;
+    max-width: 700px;
+    margin: auto;
 }
