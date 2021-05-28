@@ -11,3 +11,30 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+
+.form-line-active input:focus, .form-line-active textarea:focus {
+    border: 1px solid #D6972A !important;
+    box-shadow: 0 0 3px #D6972A !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+}
+
+.submit {
+    background: #d6972a;
+    color: black;
+    font-weight: bold
+}
+
+.cancel {
+    background: #bd1a11;
+    font-weight: bold
+}
+
+input[type="text"]:focus {
+    background-color: #FFFBFB;
+}
+
