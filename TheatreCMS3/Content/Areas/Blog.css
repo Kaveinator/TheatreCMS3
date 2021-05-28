@@ -11,3 +11,30 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+
+/*  Comments Styling    */
+/* General Stylings */
+.comment-list {
+	margin: 0 10%;
+	color: var(--dark-color);
+	min-width: 300px;
+}
+
+.comment-list p { 
+	font-weight: 500;
+}
+
+.blog-comment > span {
+	display: block;
+	word-wrap: normal;
+}
+
+.comment-list i {
+		color: var(--main-color);
+	}
+
+
+.blog-comment > .comment-replay, .comment-edit, comment-trash {
+	margin: 0 10px;
+}
