@@ -12,7 +12,7 @@
 			<div class="blog-comment container">
 				<div class="row">
 					<div class="col-4">
-						<span class="comment-author">@Html.DisplayFor(modelItem => item.Author)</span>
+						<span class="comment-author">@item.Author</span>
 						<span class="time-since">@item.TimeAgo()</span>
 					</div>
 					<div class="col-sm-1 ml-auto">
@@ -29,9 +29,9 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="row">
-							<div class="col-sm-2 ml-auto">
+							<div class="col-sm-2 ml-auto mr-5 mt-5">
 								<button class="btn btn-primary btn-sm">
-									Reply @* @Html.Actio()    ADD IMPLEMENTATION!!! *@
+									Reply @* @Html.Action()    ADD IMPLEMENTATION!!! *@
 								</button>
 							</div>
 						</div>
