@@ -11,6 +11,23 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.FormBackground {
+    background-color: #F04D44;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.BlogAuthorTitle {
+    width: 60vw;
+    max-width: 700px;
+    margin: auto;
+}
+
+.BlogAuthorForm{
+    width: 60vw;
+    max-width: 700px;
+    margin: auto;
+}
 
 
 /*  Comments Styling    */
