@@ -60,3 +60,34 @@
 .blog-comment > .comment-replay, .comment-edit, comment-trash {
 	margin: 0 10px;
 }
+
+.create-form-color {
+    background: #DB1A11;
+}
+.create-form-line-active input:focus, .create-form-line-active textarea:focus {
+    border: 1px solid #000000 !important;
+    box-shadow: 0 0 3px #000000 !important;
+}
+
+create-input:focus, textarea:focus, select:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+}
+
+.create-submit {
+    background: #D6972A;
+    color: black;
+    font-weight: bold
+}
+
+.create-cancel {
+    background: #000000;
+    font-weight: bold; 
+    text-decoration: none;
+    color: white;
+}
+
+
+create-input[type="text"]:focus {
+    background-color: #FFFBFB;
+}
