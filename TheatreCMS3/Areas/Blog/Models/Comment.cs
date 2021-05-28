@@ -20,9 +20,9 @@ namespace TheatreCMS3.Areas.Blog.Models
 		}
 
 		// Return percentage of likes to total votes
-		public int LikeRatio()
+		public double LikeRatio()
 		{
-			int ratio = Likes - Dislikes;
+			double ratio = Likes / (Likes + Dislikes);
 			return ratio;
 		}
 
