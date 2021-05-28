@@ -47,9 +47,14 @@
 	word-wrap: normal;
 }
 
+.comment-list .fa-trash {
+    color: var(--main-color);
+}
+
 .comment-list .fa-trash:hover {
-		background-color: var(--main-color);
-	}
+    background-color: var(--main-color);
+    color: var(--light-color)
+}
 
 
 .blog-comment > .comment-replay, .comment-edit, comment-trash {
