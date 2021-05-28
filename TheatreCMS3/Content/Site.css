@@ -547,6 +547,18 @@ footer {
     }
 }
 
+/*  Comments Styling    */
+/* General Stylings */
+.comment-list {
+    margin: 0 10%;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.comment-list i {
+    color: red;
+}
+
 /*SignIn Style*/
 
 .names-container > p {
