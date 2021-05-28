@@ -45,7 +45,7 @@
 						   })
 						</div>
 						<div class="comment-trash col- mx-1">
-							<a href="#"><i class="fas fa-trash"></i></a>
+							@Html.ActionLink(" ", "Delete", new { id = item.CommentId }, new { @class = "btn btn-outline-primary btn-def fa fa-trash" })
 						</div>
 					</div>
 				</div>

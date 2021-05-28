@@ -47,8 +47,8 @@
 	word-wrap: normal;
 }
 
-.comment-list i {
-		color: var(--main-color);
+.comment-list .fa-trash:hover {
+		background-color: var(--main-color);
 	}
 
 
