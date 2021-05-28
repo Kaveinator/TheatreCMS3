@@ -14,6 +14,6 @@ namespace TheatreCMS3.Areas.Blog.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-ddThh:mm}")]
         public DateTime Joined { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-ddThh:mm}")]
-        public DateTime Left { get; set; }
+        public DateTime? Left { get; set; }
     }
 }
