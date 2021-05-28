@@ -12,29 +12,33 @@
 /*}*/
 
 
-
-.form-line-active input:focus, .form-line-active textarea:focus {
-    border: 1px solid #D6972A !important;
-    box-shadow: 0 0 3px #D6972A !important;
+.create-form-color {
+    background: #DB1A11;
+}
+.create-form-line-active input:focus, .create-form-line-active textarea:focus {
+    border: 1px solid #000000 !important;
+    box-shadow: 0 0 3px #000000 !important;
 }
 
-input:focus, textarea:focus, select:focus {
+create-input:focus, textarea:focus, select:focus {
     outline-offset: 0px !important;
     outline: none !important;
 }
 
-.submit {
-    background: #d6972a;
+.create-submit {
+    background: #D6972A;
     color: black;
     font-weight: bold
 }
 
-.cancel {
-    background: #bd1a11;
-    font-weight: bold
+.create-cancel {
+    background: #000000;
+    font-weight: bold; 
+    text-decoration: none;
+    color: white;
 }
 
-input[type="text"]:focus {
+
+create-input[type="text"]:focus {
     background-color: #FFFBFB;
 }
-
