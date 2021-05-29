@@ -12,23 +12,20 @@
 
 @foreach (var item in Model)
 {
-    <div class="container-fluid">
+    <div class="container-fluid cms-bg-light">
         <div class="row">
             <div class="col-md-6">
                 <!--Placeholder for image-->
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmountaintopmedium.com%2Fwp-content%2Fuploads%2Fwoocommerce-placeholder-500x500.png&f=1&nofb=1" />
             </div>
             <div class="col-md-6">
-                Posted: @Html.DisplayFor(modelItem => item.Posted)
-                <br />
-                Title: @Html.DisplayFor(modelItem => item.Title)
-                <br />
-                Author: @Html.DisplayFor(modelItem => item.Author)
+                <p class="blog-author"><strong>Posted By: <i>@Html.DisplayFor(modelItem => item.Author)</i></strong></p>
+                <p class="blog-content">Posted: @Html.DisplayFor(modelItem => item.Posted)</p>
+                <p class="blog-title"><strong>@Html.DisplayFor(modelItem => item.Title)</strong></p>
                 <hr />
-                @Html.DisplayFor(modelItem => item.Content)
+                <p class="blog-content">@Html.DisplayFor(modelItem => item.Content)</p>
             </div>
-            <div class="form-group">
-                <br />
+            <div class="col-md-12 form-group text-right">
                 <a class="btn btn-primary" href=@Url.Action("Edit", new { id=item.BlogPostID })>
                     <i class="fas fa-edit"> Edit</i>
                 </a>
