@@ -116,6 +116,26 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return RedirectToAction("Index");
         }
 
+        // POST: Blog/Comment/Upvote/
+        [HttpPost]
+        public JsonResult Upvote(int id)
+        {
+            Comment comment = db.Comments.Find(id);
+            comment.Likes++;
+            db.SaveChanges();
+            return Json(comment.Likes);
+        }
+            
+        // POST: Blog/Comment/Downvote/
+        [HttpPost]
+        public JsonResult Downvote(int id)
+		{
+            Comment comment = db.Comments.Find(id);
+            comment.Likes++;
+            db.SaveChanges();
+            return Json(comment.Dislikes);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

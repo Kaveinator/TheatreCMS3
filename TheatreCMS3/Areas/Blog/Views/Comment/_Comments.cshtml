@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
+<script type="text/javascript">
+    siteRoot = '@Request.ApplicationPath';
+</script>
+
 <p>
   @Html.ActionLink("Create New", "Create")
 </p>
@@ -25,10 +29,17 @@
 				</div>
 				<div class="row">
 					<div class="col- mx-1">
-						Likes: @item.Likes
+						<button class="btn btn-sm comment-upvote">
+							<i class="fa fa-thumbs-up fa-lg text-primary"></i>
+						</button>
+						<label class="comment-likes">@item.Likes</label>
 					</div>
 					<div class="col- mx-1">
-						Dislikes: @item.Dislikes
+						<button class="btn btn-sm comment-downvote" id="comment-downvote" onclick="location.href='@Url.Action("Downvote", "Comment", new { id = item.CommentId })'">
+						<button class="btn btn-sm comment-downvote"  id="comment-upvote" onclick="location.href='@Url.Action("Downvote", "Comment", new { id = item.CommentId })'">
+							<i class="fa fa-thumbs-down fa-lg text-primary"></i>
+						</button>
+						<label class="comment-dislikes">@item.Dislikes</label>
 					</div>
 					<div class="row ml-auto mt-2 justify-content-end">
 						<div class="comment-reply col- mx-1">

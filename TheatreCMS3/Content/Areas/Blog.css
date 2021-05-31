@@ -56,7 +56,14 @@
     color: var(--light-color)
 }
 
-
 .blog-comment > .comment-replay, .comment-edit, comment-trash {
 	margin: 0 10px;
+}
+
+.fa-thumbs-up:hover {
+    color: green !important;
+}
+
+.fa-thumbs-down:hover {
+    color: var(--main-color) !important;
 }
