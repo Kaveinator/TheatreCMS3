@@ -34,14 +34,14 @@
 						<button class="btn btn-sm comment-upvote" id="comment-upvote" onclick=upvote(@item.CommentId)>
 							<i class="fa fa-thumbs-up fa-lg text-primary"></i>
 						</button>
-						<label class="comment-likes">@item.Likes</label>
+						<label class="comment-likes" data-commentId="@item.CommentId">@item.Likes</label>
 					</div>
 
 					<div class="col- mx-1">
-						<button class="btn btn-sm comment-downvote"  id="comment-downvote" onclick="location.href='@Url.Action("Downvote", "Comment", new { id = item.CommentId })'">
+						<button class="btn btn-sm comment-downvote"  id="comment-downvote" onclick=downvote(@item.CommentId)>
 							<i class="fa fa-thumbs-down fa-lg text-primary"></i>
 						</button>
-						<label class="comment-dislikes">@item.Dislikes</label>
+						<label class="comment-dislikes" data-commentId="@item.CommentId">@item.Dislikes</label>
 					</div>
 
 					<div class="row ml-auto mt-2 justify-content-end">

@@ -1,38 +1,27 @@
 ﻿//const { data } = require("jquery");
 //const { default: index } = require("../esm/popper-utils");
 
-// Comment Like/Dislike script
-//$(document).ready(function () {
-//	 Call function when icon is clicked
-//	$("#comment-upvote").click(function () {
-//		$.ajax({
-//			type: "POST",
-//			url: location.href,
-//			data: JSON.stringify({ "id": id }),
-//			dataType: "json",
-//			success: function (data) {
-//			alert("Hello");
-//			}
-//		}); 
-//	});
-//}
-
-//$.ajax({
-//	url: ,
-//	type: "POST",
-//	data: JSON.stringify({ "id": parseInt(id) }),
-//	success: function (result) {
-//		alert("Hello World?");
-//	}
-//});
 
 function upvote(id) {
 	$.ajax({
-		url: @Url.Action("Upvote", "Comment"),
+		url: "/Comment/Upvote/" + id,
 		type: "POST",
-		data: JSON.stringify(id),
+		data: JSON.stringify({ "id" : id }),
 		success: function (message) {
-			alert(message);
+			console.log(message)
+			$(".comment-likes[data-CommentId=" + id + "]").html(message.message)
+	}
+	})
+}
+
+function downvote(id) {
+	$.ajax({
+		url: "/Comment/Downvote/" + id,
+		type: "POST",
+		data: JSON.stringify({ "id" : id }),
+		success: function (message) {
+			console.log(message)
+			$(".comment-dislikes[data-CommentId=" + id + "]").html(message.message)
 	}
 	})
 }

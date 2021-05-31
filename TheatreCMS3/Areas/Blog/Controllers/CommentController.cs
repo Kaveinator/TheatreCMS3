@@ -123,7 +123,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             Comment comment = db.Comments.Find(id);
             comment.Likes++;
             db.SaveChanges();
-            return Json(new { success = true, message = "Hello?" });
+            return Json(new { success = true, message = comment.Likes, id = comment.CommentId });
         }
             
         // POST: Blog/Comment/Downvote/
@@ -131,9 +131,9 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         public JsonResult Downvote(int id)
 		{
             Comment comment = db.Comments.Find(id);
-            comment.Likes++;
+            comment.Dislikes++;
             db.SaveChanges();
-            return Json(comment.Dislikes);
+            return Json(new { success = true, message = comment.Dislikes, id = comment.CommentId });
         }
 
         protected override void Dispose(bool disposing)
