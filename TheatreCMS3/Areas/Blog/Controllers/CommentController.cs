@@ -123,7 +123,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             Comment comment = db.Comments.Find(id);
             comment.Likes++;
             db.SaveChanges();
-            return Json(comment.Likes);
+            return Json(new { success = true, message = "Hello?" });
         }
             
         // POST: Blog/Comment/Downvote/
