@@ -1,76 +1,82 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 @{
-    ViewBag.Title = "Details";
+  ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <!---------------------------------------------------------------------->
-    <div class="card text-center">
-        <div class="Author">
-            <button onclick="btnAuthorDetails()" class="button BtnAuthor" id="BtnAuthorDetails">Author Details</button>
-            <button  onclick="btnAuthorPost()" class="BtnAuthor" id="BtnAuthorPost">Blog Post</button>
-            <button class="BtnAuthor" id="BtnAuthorContact">Contact</button>
-            <button class="BtnAuthor" id="BtnAuthorTwitter">Twitter</button>
-        </div>
-
-        <div class="row m-3">
-            <div class="col-4">
-                <img src="http://via.placeholder.com/250x300.jpeg?text=Author+Portrait" alt="Author Portrait">
-            </div>
-            <div class="col-8">
-                <div style="display:none" class="card-body AuthorDetails" id="ContentAuthorDetails">
-                    <h5 class="card-title">@Html.DisplayFor(model => model.Name)</h5>
-                    <p class="card-text">@Html.DisplayFor(model => model.Bio)</p>
-                </div>
-                <div style="display:none" class="card-body AuthorDetails" id="ContentAuthorPost">
-                    <h5 class="card-title">Post</h5>
-                    <p class="card-text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                </div>
-            </div>
-        </div>
-    </div>
+  <h4>BlogAuthor</h4>
+  <hr />
   <!---------------------------------------------------------------------->
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+  <div class="card text-center">
+    <div class="Author">
+      <button onclick="btnAuthorDetails()" class="button BtnAuthor" id="BtnAuthorDetails">Author Details</button>
+      <button onclick="btnAuthorPost()" class="BtnAuthor" id="BtnAuthorPost">Blog Post</button>
+      <button class="BtnAuthor" id="BtnAuthorContact">Contact</button>
+      <button class="BtnAuthor" id="BtnAuthorTwitter">Twitter</button>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <div class="row m-3">
+      <div class="col-4">
+        <img src="http://via.placeholder.com/250x300.jpeg?text=Author+Portrait" alt="Author Portrait">
+      </div>
+      <div class="col-8">
+        <div style="display:none" class="card-body AuthorDetails" id="ContentAuthorDetails">
+          <h5 class="card-title">@Html.DisplayFor(model => model.Name)
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+          <!---------------------------social media icons------------------------------->
+          <span style="float:right"><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>&nbsp;
+          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></span></h5>
+          <!--------------------------end social media icons------------------------------>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+          <p class="card-text">@Html.DisplayFor(model => model.Bio)</p>
+        </div>
+        <div style="display:none" class="card-body AuthorDetails" id="ContentAuthorPost">
+          <h5 class="card-title">Post</h5>
+          <p class="card-text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---------------------------------------------------------------------->
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayNameFor(model => model.Name)
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Name)
+    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.Bio)
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Bio)
+    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.Joined)
+    </dt>
 
-    </dl>
+    <dd>
+      @Html.DisplayFor(model => model.Joined)
+    </dd>
+
+    <dt>
+      @Html.DisplayNameFor(model => model.Left)
+    </dt>
+
+    <dd>
+      @Html.DisplayFor(model => model.Left)
+    </dd>
+
+  </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
+  @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
+  @Html.ActionLink("Back to List", "Index")
 </p>
