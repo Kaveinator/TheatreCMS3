@@ -11,16 +11,17 @@
 <div class="comment-list">
     <ol class="list-group">
         @foreach (var item in Model)
-        {
+		{
         <li class="list-group-item">
 			<div class="blog-comment container">
+				@* Comment header *@
 				<div class="row">
 					<div class="col">
 						<span class="comment-author">@item.Author</span>
 						<span class="time-since">@item.TimeAgo()</span>
 					</div>
 				</div>
-
+				@* Comment message body *@
 				<div class="row">
 					<div class="col-lg-10 mx-auto mt-2">
 						<div class="commment-body">
@@ -29,6 +30,7 @@
 					</div>
 				</div>
 
+				@* Comment like *@
 				<div class="row">
 					<div class="col- mx-1">
 						<button class="btn btn-sm comment-upvote" id="comment-upvote" onclick=upvote(@item.CommentId)>
@@ -36,14 +38,14 @@
 						</button>
 						<label class="comment-likes" data-commentId="@item.CommentId">@item.Likes</label>
 					</div>
-
+					@* Comment Dislike *@
 					<div class="col- mx-1">
 						<button class="btn btn-sm comment-downvote"  id="comment-downvote" onclick=downvote(@item.CommentId)>
 							<i class="fa fa-thumbs-down fa-lg text-primary"></i>
 						</button>
 						<label class="comment-dislikes" data-commentId="@item.CommentId">@item.Dislikes</label>
 					</div>
-
+					@* Comment Reply and Delete *@
 					<div class="row ml-auto mt-2 justify-content-end">
 						<div class="comment-reply col- mx-1">
 							<button class="btn btn-primary btn-sm">
