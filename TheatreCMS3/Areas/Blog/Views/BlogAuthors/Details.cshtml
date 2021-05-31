@@ -9,6 +9,32 @@
 <div>
     <h4>BlogAuthor</h4>
     <hr />
+    <!---------------------------------------------------------------------->
+    <div class="card text-center">
+        <div class="Author">
+            <button onclick="btnAuthorDetails()" class="button BtnAuthor" id="BtnAuthorDetails">Author Details</button>
+            <button  onclick="btnAuthorPost()" class="BtnAuthor" id="BtnAuthorPost">Blog Post</button>
+            <button class="BtnAuthor" id="BtnAuthorContact">Contact</button>
+            <button class="BtnAuthor" id="BtnAuthorTwitter">Twitter</button>
+        </div>
+
+        <div class="row m-3">
+            <div class="col-4">
+                <img src="http://via.placeholder.com/250x300.jpeg?text=Author+Portrait" alt="Author Portrait">
+            </div>
+            <div class="col-8">
+                <div style="display:none" class="card-body AuthorDetails" id="ContentAuthorDetails">
+                    <h5 class="card-title">@Html.DisplayFor(model => model.Name)</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.Bio)</p>
+                </div>
+                <div style="display:none" class="card-body AuthorDetails" id="ContentAuthorPost">
+                    <h5 class="card-title">Post</h5>
+                    <p class="card-text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!---------------------------------------------------------------------->
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)

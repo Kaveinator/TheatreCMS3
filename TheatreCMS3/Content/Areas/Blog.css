@@ -11,6 +11,7 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/* Blog Author Section Start*/
 .FormBackground {
     background-color: #F04D44;
     border-radius: 25px;
@@ -23,8 +24,27 @@
     margin: auto;
 }
 
-.BlogAuthorForm{
+.BlogAuthorForm {
     width: 60vw;
     max-width: 700px;
     margin: auto;
 }
+
+.BtnAuthor {
+    background-color: #4a4a4a;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.AuthorDetails {
+    color: black;
+    text-align: left;
+}
+/* Blog Author Section End*/
