@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
@@ -118,19 +119,19 @@ namespace TheatreCMS3.Areas.Blog.Controllers
 
         // POST: Blog/Comment/Upvote/
         [HttpPost]
-        public JsonResult Upvote(int id)
+        public async Task<JsonResult> Upvote(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            comment.Likes++;
+            Comment comment = await db.Comments.FindAsync(id);
+			comment.Likes++;
             db.SaveChanges();
             return Json(new { success = true, message = comment.Likes, id = comment.CommentId });
         }
             
         // POST: Blog/Comment/Downvote/
         [HttpPost]
-        public JsonResult Downvote(int id)
+        public async Task<JsonResult> Downvote(int id)
 		{
-            Comment comment = db.Comments.Find(id);
+            Comment comment = await db.Comments.FindAsync(id);
             comment.Dislikes++;
             db.SaveChanges();
             return Json(new { success = true, message = comment.Dislikes, id = comment.CommentId });
