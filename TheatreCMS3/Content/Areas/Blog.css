@@ -43,6 +43,25 @@
     border-radius: 5px;
 }
 
+.BtnAuthorEdit {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float:right;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.BtnAuthorEdit:hover{
+    color: white;
+    text-decoration:none;
+}
+
 .AuthorDetails {
     color: black;
     text-align: left;
