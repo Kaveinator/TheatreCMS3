@@ -9,7 +9,8 @@ function upvote(id) {
 		data: JSON.stringify({ "id" : id }),
 		success: function (message) {
 			console.log(message)
-			$(".comment-likes[data-CommentId=" + id + "]").html(message.message)
+			$(".comment-likes[data-commentId=" + id + "]").html(message.message)
+			$(".progress-bar[data-commentId=" + id + "]").css('width', message.ratio)
 	}
 	})
 }
@@ -21,7 +22,8 @@ function downvote(id) {
 		data: JSON.stringify({ "id" : id }),
 		success: function (message) {
 			console.log(message)
-			$(".comment-dislikes[data-CommentId=" + id + "]").html(message.message)
+			$(".comment-dislikes[data-commentId=" + id + "]").html(message.message)
+			$(".progress-bar[data-commentId=" + id + "]").css('width', message.ratio)
 	}
 	})
 }
