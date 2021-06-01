@@ -196,24 +196,20 @@
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
     <Compile Include="Areas\Blog\Controllers\CommentController.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogPostsController.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Blog\Models\Comment.cs" />
-    <Compile Include="Areas\Blog\Views\BlogPhotosController.cs" />
+    <Compile Include="Areas\Blog\Models\BlogPost.cs" />
+    <Compile Include="Areas\Blog\Models\CommentModerator.cs" />
+    <Compile Include="Areas\Blog\Models\PostMaster.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogPhotosController.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
+    <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
+    <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
-    <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
-    <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
-    <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
-    <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
-    <Compile Include="Areas\Rent\Models\Rental.cs" />
-    <Compile Include="Areas\Rent\Models\RentalEquipment.cs" />
-    <Compile Include="Areas\Rent\Models\RentalManager.cs" />
-    <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
-    <Compile Include="Areas\Rent\Models\RentalRoom.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
-    <Compile Include="Areas\Rent\ViewModels\AllRentalsVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -224,10 +220,6 @@
     <Compile Include="Migrations\202102162045367_InitialCreate.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.designer.cs">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105310354292_updated BlogModel.cs" />
-    <Compile Include="Migrations\202105310354292_updated BlogModel.designer.cs">
-      <DependentUpon>202105310354292_updated BlogModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -304,24 +296,6 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Views\Shared\_LoginBtnRentalManager.cshtml" />
-    <Content Include="Areas\Rent\Views\web.config" />
-    <Content Include="Areas\Rent\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Rent\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
-    <Content Include="Areas\Rent\Views\Rentals\Create.cshtml" />
-    <Content Include="Areas\Rent\Views\Rentals\Delete.cshtml" />
-    <Content Include="Areas\Rent\Views\Rentals\Details.cshtml" />
-    <Content Include="Areas\Rent\Views\Rentals\Edit.cshtml" />
-    <Content Include="Areas\Rent\Views\Rentals\Index.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalRequests\Create.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalRequests\Delete.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalRequests\Details.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalRequests\Edit.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalRequests\Index.cshtml" />
     <Content Include="Areas\Prod\Views\web.config" />
     <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Prod\Views\_ViewStart.cshtml" />
@@ -337,6 +311,16 @@
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Index.cshtml" />
     <Content Include="Areas\Blog\Views\Comment\Create.cshtml" />
     <Content Include="Areas\Blog\Views\Comment\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\Comment\Details.cshtml" />
@@ -512,7 +496,10 @@
     <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
+    <Folder Include="Areas\Rent\Controllers\" />
     <Folder Include="Areas\Rent\Data\" />
+    <Folder Include="Areas\Rent\Models\" />
+    <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
     <Folder Include="UIUX\Prototypes\" />
@@ -530,9 +517,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202102162045367_InitialCreate.resx">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105310354292_updated BlogModel.resx">
-      <DependentUpon>202105310354292_updated BlogModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

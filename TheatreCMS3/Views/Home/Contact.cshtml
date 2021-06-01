@@ -6,15 +6,7 @@
     <style>
       h1 {
         font-family: broadway;
-        border-bottom-left-radius: 40%;
-        max-width: unset;
       }
-
-      body {
-        max-width: unset;
-        padding-block-start: 0;
-      }
-
       .container {
         max-width: unset;
         padding: 0;
@@ -27,9 +19,10 @@
       .jumbotron {
         border-bottom-left-radius: 100px;
       }
+      .row  {
+        max-width:1000px
+      }
     </style>
-  </head>
-
   <body class="cms-bg-main-light">
 
     <!-- Jumbotron -->
@@ -42,10 +35,9 @@
       <h2 class="main">Get In Touch</h2>
     </div>
 
-    <div class="row m-0">
-      <div class="col flex-grow">
-
-        <form>
+    <div class="row m-auto">
+      <div class="col">
+         <form>
 
           <div class="form-group">
             <label for="First and Last Name">First and Last Name</label>
@@ -64,13 +56,10 @@
             <textarea class="form-control" id="example" rows="3"></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block" button style="background-color: var(--main-color);
-           border-color: var(--dark-light)">
-            Submit
-          </button>
-
-        </form>
+           border-color: var(--dark-light)">Submit</button>
+         </form>
       </div>
-      <div class="col 1">
+      <div class="col-4">
         <div class="contact-right">
           <h3>Donate</h3>
           <p>
@@ -108,7 +97,7 @@
       </div>
     </div>
 
-    </div>
+
 
 
   </body>
