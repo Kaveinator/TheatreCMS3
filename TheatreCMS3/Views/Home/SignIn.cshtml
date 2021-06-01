@@ -4,15 +4,15 @@
 }
 
 <div class="py-5 text-center">
-    @*Centered text and padded bottom*@
-    <h1>Developers Of TheatreCMS</h1>
-    <h2>SignIn</h2>
+  @*Centered text and padded bottom*@
+  <h1>Developers Of TheatreCMS<span class="ml-1 badge-secondary" id="Display">New</span></h1>
+  <h2>SignIn</h2>
 </div>
 
 @* Add your name to the bottom of the list like so: *@
 @* <p>YOUR NAME</p> *@
 
-<div class="text-center names-container row">  
+<div class="text-center names-container row" >  
     @*Centered text*@  
     <p>Raquel Rulli</p>
     <p>Drew Slone</p>
@@ -61,3 +61,10 @@
    
 
 </div>
+<script type="text/javascript">
+  function countName() {
+    var count = document.getElementsByTagName("p").length; 
+    document.getElementById("Display").innerHTML = count;
+  }
+  countName();
+</script>
