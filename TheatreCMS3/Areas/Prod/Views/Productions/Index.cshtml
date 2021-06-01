@@ -27,7 +27,7 @@
               <div class="card bg-dark h-100">
                 <div onmouseover="document.getElementById(@production.ProductionId).style.display = 'block';"
                      onmouseout="document.getElementById(@production.ProductionId).style.display = 'none';">
-                  <img class="card-img-top img-fluid" src="" alt="" /> @*no current production photosto link yet by ID *@
+                  <img class="card-img-top img-fluid" src="https://loremflickr.com/640/360/dog" alt="assortment of photos" /> @*added placeholder webpage of images until can link *@
                   <div class="pro-img-overlay" id="@production.ProductionId">
                     <a href="@Url.Action("Edit", new { id = production.ProductionId })" class="btn btn-sm pro-btn"><i class="fas fa-edit"></i> Edit</a>
                     <a href="@Url.Action("Delete", new { id = production.ProductionId })" class="btn btn-sm pro-btn"><i class="fa fa-trash"></i> Delete</a>
