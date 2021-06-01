@@ -198,6 +198,7 @@
     <Compile Include="Areas\Blog\Controllers\CommentController.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
+    <Compile Include="Areas\Blog\Models\BlogPhotographer.cs" />
     <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Blog\Views\BlogPhotosController.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
