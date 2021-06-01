@@ -124,7 +124,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             Comment comment = await db.Comments.FindAsync(id);
 			comment.Likes++;
             db.SaveChanges();
-            return Json(new { success = true, message = comment.Likes, id = comment.CommentId });
+            return Json(new { success = true, message = comment.Likes, id = comment.CommentId, ratio = comment.LikeRatio() });
         }
             
         // POST: Blog/Comment/Downvote/
@@ -134,7 +134,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             Comment comment = await db.Comments.FindAsync(id);
             comment.Dislikes++;
             db.SaveChanges();
-            return Json(new { success = true, message = comment.Dislikes, id = comment.CommentId });
+            return Json(new { success = true, message = comment.Dislikes, id = comment.CommentId, ratio = comment.LikeRatio() });
         }
 
         protected override void Dispose(bool disposing)
