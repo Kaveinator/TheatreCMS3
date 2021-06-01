@@ -60,11 +60,11 @@
 	margin: 0 10px;
 }
 
-.fa-thumbs-up:hover {
+.comment-upvote > .fa-thumbs-up:hover {
     color: green !important;
 }
 
-.fa-thumbs-down:hover {
+.comment-downvote > .fa-thumbs-down:hover {
     color: var(--main-color) !important;
 }
 
