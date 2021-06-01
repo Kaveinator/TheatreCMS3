@@ -1,24 +1,26 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
 <p>
-  @Html.ActionLink("Create New", "Create")
+	@Html.ActionLink("Create New", "Create")
 </p>
 
+@* Deletion messages *@
+<div class="comment-deleted d-none text-success">
+	<span class="badge badge-pill badge-success px-4">Comment Successfully Deleted <i class="fa fa-check" aria-hidden="true"></i></span>
+</div>
+<div class="comment-not-deleted d-none text-danger">
+	<span class="badge badge-pill badge-danger px-4">Could Not Delete Comment <i class="fa fa-times" aria-hidden="true"></i></span>
+</div>
+
+
 <div class="comment-list">
-	@* Deletion messages *@
-	<div class="comment-deleted d-none text-success">
-		<span class="badge badge-pill badge-success px-4 mb-2">Comment Successfully Deleted <i class="fa fa-check" aria-hidden="true"></i></span>
-	</div>
-	<div class="comment-not-deleted d-none text-danger">
-		<span class="badge badge-pill badge-danger px-4 mb-2">Could Not Delete Comment <i class="fa fa-times" aria-hidden="true"></i></span>
-	</div>
 
 	@* Comment list *@
 	<ol class="list-group">
 		@foreach (var item in Model)
 		{
 			@* Comment item*@
-			<li class="list-group-item comment-item"  Id="@item.CommentId">
+			<li class="list-group-item comment-item" Id="@item.CommentId">
 				<div class="blog-comment container">
 					@* Comment header *@
 					<div class="row">
@@ -95,7 +97,7 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											<button class="btn btn-default fa fa-trash"  data-dismiss="modal" data-commentId="@item.CommentId" onclick=remove(@item.CommentId)></button>
+											<button class="btn btn-default fa fa-trash" data-dismiss="modal" data-commentId="@item.CommentId" onclick=remove(@item.CommentId)></button>
 										</div>
 									</div>
 
