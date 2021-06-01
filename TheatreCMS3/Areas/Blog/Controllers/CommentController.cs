@@ -91,30 +91,40 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(comment);
         }
 
-        // GET: Blog/Comment/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(comment);
-        }
+        //// GET: Blog/Comment/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Comment comment = db.Comments.Find(id);
+        //    if (comment == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(comment);
+        //}
 
-        // POST: Blog/Comment/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Comment comment = db.Comments.Find(id);
+        //// POST: Blog/Comment/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Comment comment = db.Comments.Find(id);
+        //    db.Comments.Remove(comment);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
+        // POST: Blog/Comment/Delete/
+        [HttpPost]
+        public async Task<JsonResult> Delete(int id)
+		{
+            Comment comment = await db.Comments.FindAsync(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new { success = true, id = comment.CommentId });
         }
 
         // POST: Blog/Comment/Upvote/

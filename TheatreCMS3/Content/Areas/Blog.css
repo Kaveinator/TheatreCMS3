@@ -74,6 +74,12 @@
     background-color: var(--main-color);
 }
 
+.comment-deleted, .comment-not-deleted {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /*Form background color*/
 .create-form-color {
