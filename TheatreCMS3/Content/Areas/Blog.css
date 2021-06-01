@@ -56,10 +56,19 @@
     color: var(--light-color)
 }
 
-
 .blog-comment > .comment-replay, .comment-edit, comment-trash {
 	margin: 0 10px;
 }
+
+.comment-upvote > .fa-thumbs-up:hover {
+    color: green !important;
+}
+
+.comment-downvote > .fa-thumbs-down:hover {
+    color: var(--main-color) !important;
+}
+
+
 /*Form background color*/
 .create-form-color {
     background: #DB1A11;
