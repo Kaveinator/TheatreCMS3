@@ -109,10 +109,7 @@ create-input[type="text"]:focus {
     font-size: 20px;
 }
 
-.blog-div-outline {
-    border: 1px solid black;
-    outline: 1px solid black;
-}
+
 
 
 
