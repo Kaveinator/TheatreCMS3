@@ -67,3 +67,56 @@
 .fa-thumbs-down:hover {
     color: var(--main-color) !important;
 }
+
+
+/*Form background color*/
+.create-form-color {
+    background: #DB1A11;
+}
+/*Field highlight color*/
+.create-form-line-active input:focus, .create-form-line-active textarea:focus {
+    border: 1px solid #000000 !important;
+    box-shadow: 0 0 3px #000000 !important;
+}
+
+create-input:focus, textarea:focus, select:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+}
+
+/*Submit button style*/
+.create-submit {
+    background: #D6972A;
+    color: black;
+    font-weight: bold
+}
+/*Cancel button style*/
+.create-cancel {
+    background: #000000;
+    font-weight: bold; 
+    text-decoration: none;
+    color: white;
+}
+
+create-input[type="text"]:focus {
+    background-color: #FFFBFB;
+}
+
+/*Blog content text format*/
+.blog-content {
+    font-size: 15px;
+    color: black;
+}
+
+.blog-title {
+    font-size: 30px;
+    color: black;
+}
+
+.blog-author {
+    color: black;
+    font-size: 20px;
+}
+
+
+

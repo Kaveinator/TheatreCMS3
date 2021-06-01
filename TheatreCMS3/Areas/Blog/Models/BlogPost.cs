@@ -9,6 +9,7 @@ namespace TheatreCMS3.Areas.Blog.Models
     public class BlogPost
     {
         public int BlogPostID { get; set; }
+        [Display(Prompt = "Enter you title here.")]
         public string Title { get; set; }
         public string Content { get; set; }
         [DataType(DataType.Date)]
