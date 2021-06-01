@@ -200,6 +200,7 @@
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
+    <Compile Include="Areas\Blog\Models\CommentModerator.cs" />
     <Compile Include="Areas\Blog\Models\PostMaster.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
