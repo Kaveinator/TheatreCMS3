@@ -37,14 +37,15 @@ function deletePost(id) {
 			if (true) {
 				$(document).ready(function () {
 					console.log("Success");
+					console.log(id);
 					$(".modal").each(function () {
 						$(this).modal('hide');
 					})
 					$('.alert').show(3000);
 					$('.alert').fadeOut();
+					$("#content").load(location.href + " #content");
 				});
 			}
-			$("#content").load(location.href + " #content");
 		}
 	});
 }
