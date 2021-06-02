@@ -35,14 +35,14 @@ function remove (id) {
 		success: function (message) {
 			console.log(message.id, message.success)
 			if (message.success === true) {
-				$(".comment-deleted.d-none:first").removeClass("d-none")
 				$(".comment-item[data-commentId=" + id + "]").hide()
+				$(".comment-deleted").show()
 				setTimeout(function () {
 					$(".comment-deleted").fadeOut('slow')
 				}, 3000)
 			}
 			else {
-				$(".comment-not-deleted.d-none:first").removeClass("d-none")
+				$(".comment-not-deleted").show()
 				setTimeout(function () {
 					$(".comment-not-deleted").fadeOut('slow')
 				}, 3000)
