@@ -118,5 +118,9 @@ create-input[type="text"]:focus {
     font-size: 20px;
 }
 
+.alert {
+    display: none;
+}
+
 
 

@@ -25,3 +25,26 @@ function downvote(id) {
 	}
 	})
 }
+
+//Delete function for BlogPosts
+function deletePost(id) {
+	$.ajax({
+		url: "/BlogPosts/DeleteRecord/" + id,
+		type: "POST",
+		data: "json",
+		success: function (message) {
+			console.log(message);
+			if (true) {
+				$(document).ready(function () {
+					console.log("Success");
+					$(".modal").each(function () {
+						$(this).modal('hide');
+					})
+					$('.alert').show(3000);
+					$('.alert').fadeOut();
+				});
+			}
+			$("#content").load(location.href + " #content");
+		}
+	});
+}
