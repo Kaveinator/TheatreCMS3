@@ -36,29 +36,38 @@
 					</div>
 					@* Comment Dislike *@
 					<div class="col- mx-1">
-						<button class="btn btn-sm comment-downvote"  id="comment-downvote" onclick=downvote(@item.CommentId)>
+						<button class="btn btn-sm comment-downvote" id="comment-downvote" onclick=downvote(@item.CommentId)>
 							<i class="fa fa-thumbs-down fa-lg text-primary"></i>
 						</button>
 						<label class="comment-dislikes" data-commentId="@item.CommentId">@item.Dislikes</label>
 					</div>
-					@* Comment Reply and Delete *@
-					<div class="row ml-auto mt-2 justify-content-end">
-						<div class="comment-reply col- mx-1">
-							<button class="btn btn-primary btn-sm">
-								Reply @* @Html.Action()    ADD IMPLEMENTATION!!! *@
-							</button>
+				</div>
+
+				<div class="row">
+					<div class="col mr-auto pt-1">
+						<div class="progress comments-progress">
+							<div class="progress-bar bg-success" data-commentId="@item.CommentId" role="progressbar" style="width: @item.LikeRatio();" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
-						<div class="comment-edit col- mx-1">
-							@Html.ActionLink(
-						   "Edit", "Edit", "Comment", routeValues: new { id = item.CommentId }, htmlAttributes: new
-								{
-									@class = "btn btn-primary btn-sm",
-									@role = "button"
-						   })
-						</div>
-						<div class="comment-trash col- mx-1">
-							@Html.ActionLink(" ", "Delete", new { id = item.CommentId }, new { @class = "btn btn-def fa fa-trash" })
-						</div>
+					</div>
+				</div>
+				
+				@* Comment Reply and Delete *@
+				<div class="row ml-auto mt-2 justify-content-end">
+					<div class="comment-reply col- mx-1">
+						<button class="btn btn-primary btn-sm">
+							Reply @* @Html.Action()    ADD IMPLEMENTATION!!! *@
+						</button>
+					</div>
+					<div class="comment-edit col- mx-1">
+						@Html.ActionLink(
+						"Edit", "Edit", "Comment", routeValues: new { id = item.CommentId }, htmlAttributes: new
+							{
+								@class = "btn btn-primary btn-sm",
+								@role = "button"
+						})
+					</div>
+					<div class="comment-trash col- mx-1">
+						@Html.ActionLink(" ", "Delete", new { id = item.CommentId }, new { @class = "btn btn-def fa fa-trash" })
 					</div>
 				</div>
 			</div>

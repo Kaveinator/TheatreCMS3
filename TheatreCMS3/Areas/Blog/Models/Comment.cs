@@ -20,9 +20,11 @@ namespace TheatreCMS3.Areas.Blog.Models
 		}
 
 		// Return percentage of likes to total votes
-		public double LikeRatio()
+		public string LikeRatio()
 		{
-			double ratio = Likes / (Likes + Dislikes);
+			double maximum = Likes + Dislikes;
+			string ratio = (Likes / maximum).ToString("0.00%");
+
 			return ratio;
 		}
 

@@ -11,3 +11,21 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.pro-btn {
+    color: var(--light-color);
+    background-color: var(--main-color--light);
+    border-radius: 30px;
+}
+
+.pro-btn:hover {
+    color: var(--light-color);
+    background-color: var(--main-color);}
+
+
+
+.pro-img-overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: none;
+}
