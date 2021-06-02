@@ -50,3 +50,9 @@ function remove (id) {
 		}
 	})
 }
+
+function passCommentId(id) {
+	var commentId = id
+	console.log(commentId)
+	$(".btn-trash").attr("onclick", "remove(" + commentId + ")")
+}
