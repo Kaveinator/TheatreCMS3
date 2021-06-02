@@ -4,137 +4,116 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Blog.Views
 {
-    public class CommentController : Controller
+    public class BlogPhotosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/Comment
+        // GET: Blog/BlogPhotoes
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            return View(db.BlogPhoto.ToList());
         }
 
-        // GET: Blog/Comment/Details/5
+        // GET: Blog/BlogPhotoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPhoto blogPhoto = db.BlogPhoto.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // GET: Blog/Comment/Create
+        // GET: Blog/BlogPhotoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/Comment/Create
+        // POST: Blog/BlogPhotoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                db.BlogPhoto.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // GET: Blog/Comment/Edit/5
+        // GET: Blog/BlogPhotoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPhoto blogPhoto = db.BlogPhoto.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // POST: Blog/Comment/Edit/5
+        // POST: Blog/BlogPhotoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                db.Entry(blogPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // GET: Blog/Comment/Delete/5
+        // GET: Blog/BlogPhotoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPhoto blogPhoto = db.BlogPhoto.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPhoto);
         }
 
-        // POST: Blog/Comment/Delete/5
+        // POST: Blog/BlogPhotoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
+            BlogPhoto blogPhoto = db.BlogPhoto.Find(id);
+            db.BlogPhoto.Remove(blogPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        // POST: Blog/Comment/Upvote/
-        [HttpPost]
-        public async Task<JsonResult> Upvote(int id)
-        {
-            Comment comment = await db.Comments.FindAsync(id);
-			comment.Likes++;
-            db.SaveChanges();
-            return Json(new { success = true, message = comment.Likes, id = comment.CommentId, ratio = comment.LikeRatio() });
-        }
-            
-        // POST: Blog/Comment/Downvote/
-        [HttpPost]
-        public async Task<JsonResult> Downvote(int id)
-		{
-            Comment comment = await db.Comments.FindAsync(id);
-            comment.Dislikes++;
-            db.SaveChanges();
-            return Json(new { success = true, message = comment.Dislikes, id = comment.CommentId, ratio = comment.LikeRatio() });
         }
 
         protected override void Dispose(bool disposing)
