@@ -20,7 +20,7 @@
 		@foreach (var item in Model)
 		{
 			@* Comment item*@
-			<li class="list-group-item comment-item" Id="@item.CommentId">
+			<li class="list-group-item comment-item" data-commentId="@item.CommentId">
 				<div class="blog-comment container">
 					@* Comment header *@
 					<div class="row">
@@ -81,9 +81,9 @@
 							})
 						</div>
 						<div class="comment-trash col- mx-1">
-							<button type="button" class="btn btn-def fa fa-trash" data-toggle="modal" data-target="#myModal" data-commentId="@item.CommentId"></button>
+							<button type="button" class="btn btn-def fa fa-trash" data-toggle="modal" data-target="#myModal-@item.CommentId" data-commentId="@item.CommentId"></button>
 							@* Delete modal *@
-							<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal fade" id="myModal-@item.CommentId" role="dialog">
 								<div class="modal-dialog">
 
 									@*Modal content*@
@@ -93,7 +93,7 @@
 											<h4 class="modal-title mx-auto">Delete Comment</h4>
 										</div>
 										<div class="modal-body">
-											<p>Are you sure you want to delete "@item.Author's" post?</p>
+											<p>Are you sure you want to delete this post?</p>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
