@@ -157,6 +157,7 @@ create-input[type="text"]:focus {
     text-decoration: none;
     display: inline-block;
     margin: 4px 2px;
+    margin-bottom: 0px;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -183,5 +184,18 @@ create-input[type="text"]:focus {
 .AuthorDetails {
     color: black;
     text-align: left;
+}
+
+.AuthorBtnContainer {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 51%;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.AuthorBtnPlacement {
+    text-align: center;
+    bottom: 0px;
 }
 /* Blog Author Section End*/
