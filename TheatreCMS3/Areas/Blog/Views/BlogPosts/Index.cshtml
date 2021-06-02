@@ -9,43 +9,34 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Posted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPostID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPostID })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    <div class="container-fluid cms-bg-light">
+        <div class="row">
+            <div class="col-md-6">
+                <!--Placeholder for image-->
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmountaintopmedium.com%2Fwp-content%2Fuploads%2Fwoocommerce-placeholder-500x500.png&f=1&nofb=1" />
+            </div>
+            <div class="col-md-6">
+                <p class="blog-author"><strong>Posted By: <i>@Html.DisplayFor(modelItem => item.Author)</i></strong></p>
+                <p class="blog-content">Posted: @Html.DisplayFor(modelItem => item.Posted)</p>
+                <p class="blog-title"><strong>@Html.DisplayFor(modelItem => item.Title)</strong></p>
+                <hr />
+                <p class="blog-content">@Html.DisplayFor(modelItem => item.Content)</p>
+            </div>
+            <div class="col-md-12 form-group text-right">
+                <a class="btn btn-primary" href=@Url.Action("Edit", new { id=item.BlogPostID })>
+                    <i class="fas fa-edit"> Edit</i>
+                </a>
+                <a class="btn btn-info" href=@Url.Action("Details", new { id=item.BlogPostID })>
+                    <i class="fas fa-info"> Details</i>
+                </a>
+                <a class="btn btn-danger" value="delete" href=@Url.Action("Delete", new { id=item.BlogPostID })>
+                    <i class="fas fa-trash"> Delete</i>
+                </a>
+            </div>
+        </div>
+    </div>
 }
 
-</table>

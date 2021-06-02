@@ -4,137 +4,116 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    public class CommentController : Controller
+    public class RentalHistoryController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/Comment
+        // GET: Rent/RentalHistory
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            return View(db.RentalHistories.ToList());
         }
 
-        // GET: Blog/Comment/Details/5
+        // GET: Rent/RentalHistory/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalHistory rentalHistory = db.RentalHistories.Find(id);
+            if (rentalHistory == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalHistory);
         }
 
-        // GET: Blog/Comment/Create
+        // GET: Rent/RentalHistory/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/Comment/Create
+        // POST: Rent/RentalHistory/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "Id,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                db.RentalHistories.Add(rentalHistory);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(comment);
+            return View(rentalHistory);
         }
 
-        // GET: Blog/Comment/Edit/5
+        // GET: Rent/RentalHistory/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalHistory rentalHistory = db.RentalHistories.Find(id);
+            if (rentalHistory == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalHistory);
         }
 
-        // POST: Blog/Comment/Edit/5
+        // POST: Rent/RentalHistory/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Edit([Bind(Include = "Id,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                db.Entry(rentalHistory).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comment);
+            return View(rentalHistory);
         }
 
-        // GET: Blog/Comment/Delete/5
+        // GET: Rent/RentalHistory/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalHistory rentalHistory = db.RentalHistories.Find(id);
+            if (rentalHistory == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalHistory);
         }
 
-        // POST: Blog/Comment/Delete/5
+        // POST: Rent/RentalHistory/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
+            RentalHistory rentalHistory = db.RentalHistories.Find(id);
+            db.RentalHistories.Remove(rentalHistory);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        // POST: Blog/Comment/Upvote/
-        [HttpPost]
-        public async Task<JsonResult> Upvote(int id)
-        {
-            Comment comment = await db.Comments.FindAsync(id);
-			comment.Likes++;
-            db.SaveChanges();
-            return Json(new { success = true, message = comment.Likes, id = comment.CommentId, ratio = comment.LikeRatio() });
-        }
-            
-        // POST: Blog/Comment/Downvote/
-        [HttpPost]
-        public async Task<JsonResult> Downvote(int id)
-		{
-            Comment comment = await db.Comments.FindAsync(id);
-            comment.Dislikes++;
-            db.SaveChanges();
-            return Json(new { success = true, message = comment.Dislikes, id = comment.CommentId, ratio = comment.LikeRatio() });
         }
 
         protected override void Dispose(bool disposing)
