@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using PagedList;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
