@@ -116,6 +116,14 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteRecord(int id)
+        {
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            db.BlogPosts.Remove(blogPost);
+            db.SaveChanges();
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -106,3 +106,29 @@ function passCommentId(id) {
     console.log(commentId)
     $(".btn-trash").attr("onclick", "remove(" + commentId + ")")
 }
+
+//Delete function for BlogPosts
+function deletePost(id) {
+    $.ajax({
+        url: "/BlogPosts/DeleteRecord/" + id,
+        type: "POST",
+        data: JSON.stringify({ "id": id }),
+        success: function (message) {
+            console.log(message);
+            if (true) {
+                $(document).ready(function () {
+                    console.log("Success");
+                    console.log(id);
+                    $(".modal").each(function () {
+                        $(this).modal('hide');
+                    })
+                    $('.alert').show(3000);
+                    $('.alert').fadeOut();
+                    document.getElementById("hiddenContent-" + id).style.display = "none";
+                });
+            }
+
+        }
+    });
+
+}
