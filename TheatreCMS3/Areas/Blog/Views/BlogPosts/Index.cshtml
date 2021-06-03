@@ -40,10 +40,7 @@
 
 		<div class="row p-5">
 			<p class="mx-auto">
-                @{
-                    TempData["blogPostId"] = item.BlogPostID;
-				}
-				@Html.ActionLink("New Comment", "Create", "Comment")
+				@Html.ActionLink("New Comment", "Create", "Comment", new { id = item.BlogPostID }, null)
 			</p>
 
 			@{

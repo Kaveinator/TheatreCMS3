@@ -45,8 +45,9 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
 		// GET: Blog/Comment/Create
-		public ActionResult Create()
+		public ActionResult Create(int id)
 		{
+            ViewBag.BlogPostId = id;
 			return View();
 		}
 
@@ -55,12 +56,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes,BlogPostID")] Comment comment)
+        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
-                if (TempData.ContainsKey("blogPostId"))
-                    comment.BlogPostID = Convert.ToInt32(TempData["blogPostId"]);
+                // Add blogPostId to comment object
+                if (TempData.ContainsKey("BlogPostId"))
+                    comment.BlogPostID = Convert.ToInt32(TempData["BlogPostId"]);
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index", "BlogPosts");
@@ -89,17 +91,19 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes,BlogPostID")] Comment comment)
+        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(comment).State = EntityState.Modified;
+                db.Entry(comment).Property(c => c.BlogPostID).IsModified = false;
                 db.SaveChanges();
                 return RedirectToAction("Index", "BlogPosts");
             }
             return View(comment);
         }
 
+        // POST: Blog/Comment/Delete/5
         [HttpPost]
         public async Task<JsonResult> Delete(int id)
 		{
@@ -109,7 +113,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return Json(new { success = true, id = comment.CommentId });
         }
 
-        // POST: Blog/Comment/Upvote/
+        // POST: Blog/Comment/Upvote/5
         [HttpPost]
         public async Task<JsonResult> Upvote(int id)
         {
@@ -119,7 +123,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return Json(new { success = true, message = comment.Likes, id = comment.CommentId, ratio = comment.LikeRatio() });
         }
             
-        // POST: Blog/Comment/Downvote/
+        // POST: Blog/Comment/Downvote/5
         [HttpPost]
         public async Task<JsonResult> Downvote(int id)
 		{
