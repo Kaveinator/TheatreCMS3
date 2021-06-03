@@ -23,7 +23,7 @@
     margin: auto;
 }
 
-.BlogAuthorForm{
+.BlogAuthorForm {
     width: 60vw;
     max-width: 700px;
     margin: auto;
@@ -33,31 +33,31 @@
 /*  Comments Styling    */
 /* General Stylings */
 .comment-list {
-	margin: 0 10%;
-	color: var(--dark-color);
-	min-width: 300px;
+    margin: 0 10%;
+    color: var(--dark-color);
+    min-width: 300px;
 }
 
-.comment-list p { 
-	font-weight: 500;
-}
+    .comment-list p {
+        font-weight: 500;
+    }
 
 .blog-comment > span {
-	display: block;
-	word-wrap: normal;
+    display: block;
+    word-wrap: normal;
 }
 
 .comment-list .fa-trash {
     color: var(--main-color);
 }
 
-.comment-list .fa-trash:hover {
-    background-color: var(--main-color);
-    color: var(--light-color)
-}
+    .comment-list .fa-trash:hover {
+        background-color: var(--main-color);
+        color: var(--light-color)
+    }
 
 .blog-comment > .comment-replay, .comment-edit, comment-trash {
-	margin: 0 10px;
+    margin: 0 10px;
 }
 
 .comment-upvote > .fa-thumbs-up:hover {
@@ -69,9 +69,18 @@
 }
 
 .comments-progress {
-    max-width: 120px; 
+    max-width: 120px;
     height: 5px;
     background-color: var(--main-color);
+}
+
+.comment-deleted, .comment-not-deleted {
+    z-index: 10;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 150%;
 }
 
 
@@ -99,7 +108,7 @@ create-input:focus, textarea:focus, select:focus {
 /*Cancel button style*/
 .create-cancel {
     background: #000000;
-    font-weight: bold; 
+    font-weight: bold;
     text-decoration: none;
     color: white;
 }
@@ -132,3 +141,74 @@ create-input[type="text"]:focus {
 
 
 
+
+/* Blog Author Section Start*/
+.FormBackground {
+    background-color: #F04D44;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.BlogAuthorTitle {
+    width: 60vw;
+    max-width: 700px;
+    margin: auto;
+}
+
+.BlogAuthorForm {
+    width: 60vw;
+    max-width: 700px;
+    margin: auto;
+}
+
+.BtnAuthor {
+    background-color: #4a4a4a;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.BtnAuthorEdit {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float:right;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.BtnAuthorEdit:hover{
+    color: white;
+    text-decoration:none;
+}
+
+.AuthorDetails {
+    color: black;
+    text-align: left;
+}
+
+.AuthorBtnContainer {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 51%;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.AuthorBtnPlacement {
+    text-align: center;
+    bottom: 0px;
+}
+/* Blog Author Section End*/
