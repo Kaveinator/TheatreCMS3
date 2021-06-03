@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogAuthor>
+@using TheatreCMS3.Areas.Blog.Models;
 
 @{
     ViewBag.Title = "Index";
@@ -9,6 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@foreach (TheatreCMS3.Areas.Blog.Models.BlogAuthor item in Model) {
-    @Html.Partial("_BlogAuthor", (TheatreCMS3.Areas.Blog.Models.BlogAuthor) item);
+@foreach (BlogAuthor item in Model) {
+    @Html.Partial("_BlogAuthor", (BlogAuthor) item);
+    <br />
 }
