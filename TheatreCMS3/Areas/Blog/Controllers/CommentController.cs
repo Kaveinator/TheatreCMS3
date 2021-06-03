@@ -44,21 +44,23 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(comment);
         }
 
-        // GET: Blog/Comment/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+		// GET: Blog/Comment/Create
+		public ActionResult Create()
+		{
+			return View();
+		}
 
-        // POST: Blog/Comment/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+		// POST: Blog/Comment/Create
+		// To protect from overposting attacks, enable the specific properties you want to bind to, for 
+		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes,BlogPostID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                if (TempData.ContainsKey("blogPostId"))
+                    comment.BlogPostID = Convert.ToInt32(TempData["blogPostId"]);
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index", "BlogPosts");
