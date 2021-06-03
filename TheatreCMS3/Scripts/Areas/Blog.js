@@ -33,7 +33,7 @@ function deletePost(id) {
 	$.ajax({
 		url: "/BlogPosts/DeleteRecord/" + id,
 		type: "POST",
-		data: "json",
+		data: JSON.stringify({ "id" : id }),
 		success: function (message) {
 			console.log(message);
 			if (true) {
@@ -45,9 +45,11 @@ function deletePost(id) {
 					})
 					$('.alert').show(3000);
 					$('.alert').fadeOut();
-					$("#content").load(location.href + " #content");
+					document.getElementById("hiddenContent-" + id).style.display = "none";
 				});
 			}
+			
 		}
 	});
+	
 }

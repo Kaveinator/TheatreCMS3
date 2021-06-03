@@ -17,9 +17,8 @@
 
 @foreach (var item in Model)
 {
-    <h6>@item.BlogPostID</h6>
     <div class="container-fluid cms-bg-light" id="content">
-        <div class="row">
+        <div class="row" id="hiddenContent-@item.BlogPostID">
             <div class="col-md-6">
                 <!--Placeholder for image-->
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmountaintopmedium.com%2Fwp-content%2Fuploads%2Fwoocommerce-placeholder-500x500.png&f=1&nofb=1" />
@@ -40,13 +39,14 @@
                 <a class="btn btn-info" href=@Url.Action("Details", new { id=item.BlogPostID })>
                     <i class="fas fa-info"> Details</i>
                 </a>
-                <button type="button" class="btn btn-danger clrButton" data-toggle="modal" data-target="#deleteModal">
+                <button type="button" class="btn btn-danger" id="MyButton" data-toggle="modal" data-target="#deleteModal-@item.BlogPostID">
                     <i class="fas fa-trash"> Delete</i>
                 </button>
             </div>
             <!--End Buttons-->
+
             <!-- Modal -->
-            <div class="modal" id="deleteModal">
+            <div class="modal" id="deleteModal-@item.BlogPostID">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header blog-content">
