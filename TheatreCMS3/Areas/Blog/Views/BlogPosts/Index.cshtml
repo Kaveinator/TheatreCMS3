@@ -11,7 +11,7 @@
 </p>
 
 <!--Alert Pop-Up-->
-<div class="alert alert-success text-center">
+<div class="alert alert-success text-center fixed-top">
     The BlogPost was deleted successfully! <i class="fas fa-check"></i>
 </div>
 
@@ -19,7 +19,7 @@
 {
     <div class="container-fluid cms-bg-light" id="content">
         <div class="row" id="hiddenContent-@item.BlogPostID">
-            <div class="col-md-6">
+            <div class="col-md-6 w-100">
                 <!--Placeholder for image-->
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmountaintopmedium.com%2Fwp-content%2Fuploads%2Fwoocommerce-placeholder-500x500.png&f=1&nofb=1" />
             </div>
@@ -44,7 +44,6 @@
                 </button>
             </div>
             <!--End Buttons-->
-
             <!-- Modal -->
             <div class="modal" id="deleteModal-@item.BlogPostID">
                 <div class="modal-dialog">
