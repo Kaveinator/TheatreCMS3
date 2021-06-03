@@ -37,6 +37,11 @@
                 </a>
             </div>
         </div>
+		<div class="row p-5">
+			@{
+				@Html.Action("Comments", "Comment", new { id = item.BlogPostID })
+			}
+		</div>
     </div>
 }
 

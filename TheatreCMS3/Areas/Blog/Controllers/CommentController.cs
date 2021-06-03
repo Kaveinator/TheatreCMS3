@@ -22,6 +22,14 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(db.Comments.ToList());
         }
 
+
+        // Partial comments view
+        public ActionResult Comments(int? id)
+		{
+            var blogPostId = id;
+            return PartialView("_Comments", db.Comments.ToList());
+		}
+
         // GET: Blog/Comment/Details/5
         public ActionResult Details(int? id)
         {
@@ -48,13 +56,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes,BlogPostID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "BlogPosts");
             }
 
             return View(comment);
@@ -80,13 +88,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes,BlogPostID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "BlogPosts");
             }
             return View(comment);
         }
