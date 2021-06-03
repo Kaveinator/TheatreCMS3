@@ -20,7 +20,6 @@ namespace TheatreCMS3.Areas.Blog.Models
 		// Comment Constructor
 		public Comment()
 		{
-			BlogPostID = 1;
 			CommentDate = DateTime.Now;
 		}
 

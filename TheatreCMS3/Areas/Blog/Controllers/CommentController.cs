@@ -24,10 +24,9 @@ namespace TheatreCMS3.Areas.Blog.Controllers
 
 
         // Partial comments view
-        public ActionResult Comments(int? id)
+        public ActionResult Comments(int id)
 		{
-            var blogPostId = id;
-            return PartialView("_Comments", db.Comments.ToList());
+            return PartialView("_Comments", db.Comments.Where(c => c.BlogPostID == id).ToList());
 		}
 
         // GET: Blog/Comment/Details/5
