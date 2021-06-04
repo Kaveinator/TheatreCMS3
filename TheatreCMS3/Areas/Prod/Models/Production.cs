@@ -15,20 +15,20 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Playwright { get; set; }
         public int Runtime { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]        
         public DateTime OpeningDay { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]        
         public DateTime ClosingDay { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:HH\\:mm}", ApplyFormatInEditMode = true)]
+        
         [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]        
         public DateTime ShowTimeEve { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:HH\\:mm}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]        
         public DateTime? ShowTimeMat  { get; set; }
 
         public int Season { get; set; }
