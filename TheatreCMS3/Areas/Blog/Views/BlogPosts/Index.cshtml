@@ -68,10 +68,15 @@
         </div>
 
 		<div class="row p-5">
-			<h2 class="mx-auto cms-text-dark">Comments</h2>
-			@{
-				@Html.Action("Comments", "Comment", new { id = item.BlogPostID })
-			}
+			<div class="col-md-4">
+				<h2 class="text-center cms-text-dark">Comments</h2>
+			</div>
+			<div class="col-md-8">
+                @{
+                    @Html.Action("Comments", "Comment", new { id = item.BlogPostID })
+                    }
+			</div>
+			
 		</div>
     </div>
 }
