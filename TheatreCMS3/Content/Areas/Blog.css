@@ -157,6 +157,16 @@ create-input[type="text"]:focus {
     margin: auto;
 }
 
+.AuthorBtnPlacement .nav-pills .nav-link.active {
+    background-color: green;
+    color: white;
+}
+
+.AuthorBtnPlacement .nav-pills .nav-link {
+    background-color: #4a4a4a;
+    color: white;
+}
+
 .BtnAuthor {
     background-color: #4a4a4a;
     border: none;
@@ -204,7 +214,7 @@ create-input[type="text"]:focus {
 }
 
 .AuthorBtnPlacement {
-    text-align: center;
     bottom: 0px;
 }
+
 /* Blog Author Section End*/
