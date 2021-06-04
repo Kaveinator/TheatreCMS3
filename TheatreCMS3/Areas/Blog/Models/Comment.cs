@@ -13,6 +13,10 @@ namespace TheatreCMS3.Areas.Blog.Models
 		public int Likes { get; set; } = 0;
 		public int Dislikes { get; set; } = 0;
 
+		// Fully defined navigation property
+		public virtual int BlogPostID { get; set; }
+		public virtual BlogPost BlogPost { get; set; }
+
 		// Comment Constructor
 		public Comment()
 		{
