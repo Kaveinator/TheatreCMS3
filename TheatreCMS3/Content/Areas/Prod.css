@@ -29,3 +29,65 @@
     left: 5px;
     display: none;
 }
+
+.pro-header {
+    padding-top: 50px;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.pro-input {
+    max-width: 100%;
+}
+
+/*Outter Form*/
+.pro-container {
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    width: 60%;
+    background-color: var(--main-color);
+}
+
+/*Inner Form*/
+.pro-inner {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--light-color);
+}
+
+/*Submit Button*/
+.pro-create {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    border-radius: 30px;   
+    
+}
+
+/*Cancel button*/
+.back-btn {
+    background-color: var(--main-color--light);
+    font-weight: bold;
+    border-radius: 30px;  
+    
+}
+
+.pro-create:hover {    
+    background-color: var(--secondary-color--dark);
+}
+
+
+.back-btn:hover {
+    background-color: var(--main-color);
+}
+
+/*Production highlight*/
+.pro-high {
+    background-color: var(--secondary-color--dark); 
+}
+
+.pro-high:focus {
+    border: 3px solid var(--main-color);
+}
