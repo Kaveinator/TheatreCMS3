@@ -228,11 +228,12 @@ create-input[type="text"]:focus {
     background-color: white;
     margin-left: auto;
     margin-right: auto;
-    width: 51%;
+    width: 45%;
     border-radius: 5px 5px 0px 0px;
 }
 
 .AuthorBtnPlacement {
+    margin-top: 5px;
     bottom: 0px;
 }
 
