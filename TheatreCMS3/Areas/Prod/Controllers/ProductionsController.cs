@@ -108,7 +108,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(production).State = EntityState.Modified;
+                db.Entry(production).State = EntityState.Added;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
