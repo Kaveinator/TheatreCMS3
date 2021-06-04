@@ -90,7 +90,15 @@
     </div>
     <!-----------------Edit button------------------->
     <div>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "BtnAuthorEdit" })
+        <a href="@Url.Action("Delete", "BlogAuthors", new { id = Model.BlogAuthorId })" class="btn BtnAuthorDelete">
+            <i class="fas fa-trash"></i>
+        </a>
+        <a href="@Url.Action("Edit", "BlogAuthors", new { id = Model.BlogAuthorId })" class="btn BtnAuthorEdit">
+            <i class="fas fa-edit"></i>
+            <span>
+                <strong>Edit</strong>
+            </span>
+        </a>
     </div>
     <!-----------------End Edit button------------------->
 
