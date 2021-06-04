@@ -16,5 +16,8 @@ namespace TheatreCMS3.Areas.Blog.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Posted { get; set; }
         public string Author { get; set; }
-    }
+
+		// Navigation property
+		public virtual List<Comment> Comments { get; set; }
+	}
 }
