@@ -18,7 +18,8 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // GET: Blog/BlogAuthors
         public ActionResult Index()
         {
-            return View(db.BlogAuthors.ToList());
+            var foo = db.BlogAuthors.ToList();
+            return View(foo);
         }
 
         // GET: Blog/BlogAuthors/Details/5

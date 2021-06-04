@@ -161,6 +161,16 @@ create-input[type="text"]:focus {
     margin: auto;
 }
 
+.AuthorBtnPlacement .nav-pills .nav-link.active {
+    background-color: green;
+    color: white;
+}
+
+.AuthorBtnPlacement .nav-pills .nav-link {
+    background-color: #4a4a4a;
+    color: white;
+}
+
 .BtnAuthor {
     background-color: #4a4a4a;
     border: none;
@@ -194,6 +204,25 @@ create-input[type="text"]:focus {
     text-decoration:none;
 }
 
+.BtnAuthorDelete {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.BtnAuthorDelete:hover {
+    color: white;
+    text-decoration: none;
+}
+
 .AuthorDetails {
     color: black;
     text-align: left;
@@ -203,12 +232,13 @@ create-input[type="text"]:focus {
     background-color: white;
     margin-left: auto;
     margin-right: auto;
-    width: 51%;
+    width: 45%;
     border-radius: 5px 5px 0px 0px;
 }
 
 .AuthorBtnPlacement {
-    text-align: center;
+    margin-top: 5px;
     bottom: 0px;
 }
+
 /* Blog Author Section End*/
