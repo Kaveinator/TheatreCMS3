@@ -493,6 +493,7 @@
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Shared\_DevNavbar.cshtml" />
     <Content Include="SiteSettings.json" />
+    <Content Include="Views\Home\Donation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
