@@ -566,11 +566,8 @@ footer {
 
 /*Donation Page Styling*/
 
-footer {
-    background-color: var(--dark-color);
-}
 
-input[type=text], select {
+.donation-input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -580,7 +577,7 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
-input[type=submit] {
+.donation-input[type=submit] {
     width: 100%;
     background-color: black;
     color: white;
@@ -591,22 +588,19 @@ input[type=submit] {
     cursor: pointer;
 }
 
-    input[type=submit]:hover {
+ .donation-input[type=submit]:hover {
         background-color: lightgrey;
         color: black;
-    }
+ }
 
-div.row {
+.donation-row {
     border-radius: 5px;
     background-color: #f04d44;
     padding: 20px;
 }
 
-body {
-    background-color: black;
-}
 
-h1 {
+.donation-h1 {
     text-align: center;
 }
 
