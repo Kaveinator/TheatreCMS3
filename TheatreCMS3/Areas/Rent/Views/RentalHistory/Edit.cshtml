@@ -29,7 +29,7 @@
           <h2 class="control-label">Damaged?</h2>
             <div class="checkbox" onchange="checkLink()">
               @Html.EditorFor(model => model.RentalDamaged)
-              @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger", id = "my_custom_id" })
+              @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger"})
             </div>
           </div>
         </div>
@@ -71,5 +71,13 @@
       document.getElementById("Switch").innerHTML = "Damages"
     }
   }
+  function check() {
+    var chk = document.getElementById("RentalDamaged");
+    if (chk.checked) {
+      checkLink()
+    }                                 
+  }
+  check();
   
 </script>
+                                
