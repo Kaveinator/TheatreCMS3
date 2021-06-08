@@ -1,55 +1,75 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.RentalHistory
 
 @{
-    ViewBag.Title = "Edit";
+  ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>RentalHistory</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+  @Html.AntiForgeryToken()
+  <h2 style="text-align:center"> Edit Rental History</h2>
+  <div class=" rounded form-horizontal p-2" style="background: #f04d44; max-width: 600px; margin: auto">
 
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    <div class="row justify-content-center">
+      <div class="col-6 ">
         <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RentalDamaged)
-                    @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
-                </div>
-            </div>
+          <h2 class="control-label">Rental</h2>
+          @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
+          @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
+          </div>
         </div>
 
+      <div class="col-6">
         <div class="form-group">
-            @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+          <h2 class="control-label">Damaged?</h2>
+            <div class="checkbox" onchange="checkLink()">
+              @Html.EditorFor(model => model.RentalDamaged)
+              @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger", id = "my_custom_id" })
             </div>
+          </div>
         </div>
-
+      </div>
+    <div class="row">
+      <div class="col-12">
         <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
-            </div>
+          <h2 class="control-label" id="Switch">Notes</h2>
+            @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
         </div>
+      </div>
+    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+    <div class="row justify-content-center">
+      <div class="col-6 text-right">
+        <button onclick="~/rent/rentalhistory" class="btn btn-secondary">
+          Back to List
+        </button>
+      </div>
+        <div class="col-6">
+          <input type="submit" value="Save" class="btn btn-success" />
         </div>
     </div>
+  </div>
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<script>
+  var Counter = 0;
+  function checkLink() {
+    
+    Counter += 1;
+    console.log(Counter);
+    if (Counter % 2 == 0) {
+      document.getElementById("Switch").innerHTML = "Notes"
+    }
+    else {
+      document.getElementById("Switch").innerHTML = "Damages"
+    }
+  }
+  
+</script>
