@@ -1,4 +1,9 @@
 ﻿@using TheatreCMS3.Models
+@using System
+
+@{ 
+    var ss = SiteSettings.ReadSiteSettings();
+}
 
 <footer>
     <div class="float-left footer-content">
@@ -21,13 +26,13 @@
             <!-- 2110 SE 10TH AVE<br />
             Portland OR 97214<br />
             (503) 482-8655 -->
-            @SiteSettings.ReadSiteSettings().address
+            @ss.address
             <br />
-            @SiteSettings.ReadSiteSettings().phone
+            @ss.phone
         </p>
         <p class="footer-lcopyright">
             <i class="far fa-copyright"></i>
-            @DateTime.Now.Year
+            @ss.copyright
         </p>
     </div>
     
