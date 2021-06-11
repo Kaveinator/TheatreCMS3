@@ -11,8 +11,10 @@ namespace TheatreCMS3.Models
     public class SiteSettings
     {
         public int copyright { get; set; }
+        public string address { get; set; }
+        public string phone { get; set; }
 
-        public static void ReadSiteSettings()
+        public static SiteSettings ReadSiteSettings()
         {
             //Grab the file path.
             var filePath = HostingEnvironment.MapPath("~/SiteSettings.json");
@@ -21,6 +23,7 @@ namespace TheatreCMS3.Models
             string jsonString = r.ReadToEnd();
             //Deserializes the JSON directly from the file.
             SiteSettings ss = JsonConvert.DeserializeObject<SiteSettings>(jsonString);
+            return ss;
         }
     }  
 }

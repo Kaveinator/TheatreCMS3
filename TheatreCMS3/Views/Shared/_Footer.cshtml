@@ -1,4 +1,11 @@
-﻿<footer>
+﻿@using TheatreCMS3.Models
+@using System
+
+@{ 
+    var ss = SiteSettings.ReadSiteSettings();
+}
+
+<footer>
     <div class="float-left footer-content">
 
         <div class="float-left footer-icons">
@@ -16,13 +23,16 @@
         </div>
         <p class="footer-address">
             <!-- .SPLIT MAKES ARRAYS. USING BRACKETS TO CALL THE TWO PARTS OF THE ADDRESS, THEN USING < BR /> TO MAKE NEW LINE -->
-            2110 SE 10TH AVE<br />
+            <!-- 2110 SE 10TH AVE<br />
             Portland OR 97214<br />
-            (503) 482-8655
+            (503) 482-8655 -->
+            @ss.address
+            <br />
+            @ss.phone
         </p>
         <p class="footer-lcopyright">
             <i class="far fa-copyright"></i>
-            @DateTime.Now.Year
+            @ss.copyright
         </p>
     </div>
     
