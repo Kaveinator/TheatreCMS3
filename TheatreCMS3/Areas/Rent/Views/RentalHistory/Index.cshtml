@@ -1,45 +1,66 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
-
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+<h2 style="text-align:center;">Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
+<table id="Rental_History-Index--main-table" class="table table-light">
+  <tr>
+    <th id="Rental_History-Index--TopLeft"> <span id="Rental_History-Index--AbsTextPos">
+      Most recent Rental Histories
+      </span></th>
+    <th class="Rental_History-Index--NoTop"></th>
+    <th id="Rental_History-Index--NoTopAlign">Sorted by:</th>
+    <th class="Rental_History-Index--NoTop" style="border-top: none;">
+      <div class="dropdown">
+        <button class="btn btn-light btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sorting
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </th>
+  </tr>
+  @foreach (var item in Model)
+  {
+    <tr id="Rental_History-Index--hover-row">
+      <td id="Rental_History-Index--BoolIcon">
+        @if (item.RentalDamaged == true)
+        {
+          <i id="Rental_History-Index--crossmarkclass" class="fas fa-times-circle"></i>
+        }
+        else
+        {
+          <i id="Rental_History-Index--checkmarkclass" class="fa fa-check-circle" aria-hidden="true"></i>
+        }
+      </td>
+      <td style="border-top: solid black 2px; width: 200px;">
+        <button type="button" class="btn btn-dark">@Html.DisplayFor(modelItem => item.Rental)</button>
+      </td>
+      <td id="Rental_History-Index--TextOverFlow">
+        @Html.DisplayFor(modelItem => item.DamagesIncurred)
+      </td>
+      <td id="Rental_Style-Index--bordertopWidth">
+        <div class="dropdown mydropdowncss">
+          <button class="btn btn-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.Id })"><i style="padding-right: 5px;" class="fa fa-edit" aria-hidden="true"></i>Edit </a></li>
+            <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.Id })"> <i style="padding-right: 5px;" class="fa fa-info" aria-hidden="true"></i>Details </a></li>
+            <li><div class="dropdown-divider"></div></li>
+            <li> <a class="dropdown-item" href="@Url.Action("Delete", new { id = item.Id })"><span style="color: red;"><i style="padding-right: 5px;" class="fa fa-trash" aria-hidden="true"></i>Delete</span> </a></li>
+          </ul>
+        </div>
+      </td>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
+  }
 </table>
