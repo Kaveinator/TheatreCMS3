@@ -199,6 +199,7 @@
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoryController.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalRequestController.cs" />
+    <Compile Include="Areas\Rent\Models\HistoryManager.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
