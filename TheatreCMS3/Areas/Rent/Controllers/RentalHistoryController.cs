@@ -16,9 +16,38 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/RentalHistory
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
+            
+            
             return View(db.RentalHistories.ToList());
+        }
+        [HttpPost]
+        public PartialViewResult PartialTable(string sortOrder)
+        {
+            var rentalHistories = from s in db.RentalHistories
+                                  select s;
+            if (sortOrder == "default")
+            {
+
+            }
+            else if (sortOrder == "damage_rentals")
+            {
+                rentalHistories = rentalHistories.OrderByDescending(s => s.RentalDamaged);
+            }
+            else if (sortOrder == "damage_rentals_desc")
+            {
+                rentalHistories = rentalHistories.OrderBy(s => s.RentalDamaged);
+            }
+            else if (sortOrder == "alpha_rentals")
+            {
+                rentalHistories = rentalHistories.OrderBy(s => s.Rental);
+            }
+            else if (sortOrder == "alpha_rentals_desc")
+            {
+                rentalHistories = rentalHistories.OrderByDescending(s => s.Rental);
+            }
+            return PartialView("_IndexTable", rentalHistories);
         }
 
         // GET: Rent/RentalHistory/Details/5

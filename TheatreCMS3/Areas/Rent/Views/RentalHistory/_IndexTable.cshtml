@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
+
+@foreach (var item in Model)
+{
+  <tr id="Rental_History-Index--hover-row">
+    <td id="Rental_History-Index--BoolIcon">
+      @if (item.RentalDamaged == true)
+      {
+        <i id="Rental_History-Index--crossmarkclass" class="fas fa-times-circle"></i>
+      }
+      else
+      {
+        <i id="Rental_History-Index--checkmarkclass" class="fa fa-check-circle" aria-hidden="true"></i>
+      }
+    </td>
+    <td style="border-top: solid black 2px; width: 200px;">
+      <button type="button" class="btn btn-dark">@Html.DisplayFor(modelItem => item.Rental)</button>
+    </td>
+    <td id="Rental_History-Index--TextOverFlow">
+      @Html.DisplayFor(modelItem => item.DamagesIncurred)
+    </td>
+    <td id="Rental_Style-Index--bordertopWidth">
+      <div class="dropdown mydropdowncss">
+        <button class="btn btn-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.Id })"><i style="padding-right: 5px;" class="fa fa-edit" aria-hidden="true"></i>Edit </a></li>
+          <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.Id })"> <i style="padding-right: 5px;" class="fa fa-info" aria-hidden="true"></i>Details </a></li>
+          <li><div class="dropdown-divider"></div></li>
+          <li> <a class="dropdown-item" href="@Url.Action("Delete", new { id = item.Id })"><span style="color: red;"><i style="padding-right: 5px;" class="fa fa-trash" aria-hidden="true"></i>Delete</span> </a></li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+}
