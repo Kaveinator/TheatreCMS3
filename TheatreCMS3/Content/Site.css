@@ -448,6 +448,13 @@ footer {
 .donation-h1 {
     text-align: center;
 }
+/*Styling Signin Page*/
+ p {
+    background-color: yellow;
+    width: 20px;
+    padding: 40px;
+}
+
 
 /*Donation Page Styling End*/
    
