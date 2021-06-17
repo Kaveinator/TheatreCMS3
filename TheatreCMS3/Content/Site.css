@@ -383,7 +383,8 @@ footer {
 
 /* Change background color of input fields */
 .Register-input {
-    background-color: var(--light-color);
+    background-color: white ;
+    border: 2px solid black;
 }
 
     /* Hover effects for input fields */
@@ -408,6 +409,24 @@ footer {
     right: 0;
     z-index: 1;
 }
+
+/* Inputs: focus versus non-focus effects */
+
+.Register-form input[type=text],
+.Register-form input[type=date],
+.Register-form input[type=time],
+.Register-form input[type=number] {
+    border: 2px solid var(--dark-color) ;
+    background-color: lightgray !important ; /* Overriding bootstrap styles for these form items */
+}
+
+    .Register-form input[type=text]:focus,
+    .Register-form input[type=date]:focus,
+    .Register-form input[type=time]:focus,
+    .Register-form input[type=number]:focus {
+        border: 2px solid var(--secondary-color) ;
+        background: var(--light-color) !important ;
+    }
 
 /*Donation Page Styling*/
 
