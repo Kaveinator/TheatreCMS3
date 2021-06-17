@@ -449,7 +449,7 @@ footer {
     text-align: center;
 }
 /*Styling Signin Page*/
- p {
+ .signin-name {
     background-color: yellow;
     width: 20px;
     padding: 40px;
