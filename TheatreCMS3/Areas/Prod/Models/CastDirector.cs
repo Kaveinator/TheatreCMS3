@@ -10,24 +10,28 @@ namespace TheatreCMS3.Areas.Prod.Models
 {
     public class CastDirector : ApplicationUser
     {
+        public static IdentityRole CastingDirector { get; set; }
         public int HiredCastMembers { get; set; }
         public int FiredCastMembers { get; set; }
 
         public static void CastDirectorSeed(ApplicationDbContext context)
         {
            
-            var CastDirectorManager = new UserManager<CastDirector>(new UserStore<CastDirector>(context));
+            var CastDirectorManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
+            
             var castDirectors = new CastDirector
             {
-                HiredCastMembers = 4, FiredCastMembers = 2
+                HiredCastMembers = 4, FiredCastMembers = 2,
+                Email = "castingDirectors@gmail.com",
+                UserName = "CDirector",
+                
             };
-            CastDirectorManager.CreateAsync(user: castDirectors);
+            RoleManager.CreateAsync(CastingDirector);
+            CastDirectorManager.CreateAsync(user: castDirectors, password: "123-ABC");
             context.SaveChanges();
         }
 
-    }
-
-    
+    }  
 }
