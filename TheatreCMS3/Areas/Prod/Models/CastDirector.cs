@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,5 +12,22 @@ namespace TheatreCMS3.Areas.Prod.Models
     {
         public int HiredCastMembers { get; set; }
         public int FiredCastMembers { get; set; }
+
+        public static void CastDirectorSeed(ApplicationDbContext context)
+        {
+           
+            var CastDirectorManager = new UserManager<CastDirector>(new UserStore<CastDirector>(context));
+            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            var castDirectors = new CastDirector
+            {
+                HiredCastMembers = 4, FiredCastMembers = 2
+            };
+            CastDirectorManager.CreateAsync(user: castDirectors);
+            context.SaveChanges();
+        }
+
     }
+
+    
 }
