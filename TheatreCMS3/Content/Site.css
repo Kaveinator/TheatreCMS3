@@ -14,6 +14,7 @@
     color: var(--main-color);
 }
 
+
 .cms-text-main-light {
     color: var(--main-color--light);
 }
@@ -452,7 +453,8 @@ footer {
  .signin-name {
     background-color: yellow;
     width: 20px;
-    padding: 40px;
+    border-radius: 30px;
+    color: aqua;
 }
 
 
