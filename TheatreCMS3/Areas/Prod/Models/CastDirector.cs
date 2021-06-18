@@ -24,12 +24,11 @@ namespace TheatreCMS3.Areas.Prod.Models
             {
                 HiredCastMembers = 4, FiredCastMembers = 2,
                 Email = "castingDirectors@gmail.com",
-                UserName = "CDirector",
-                
+                UserName = "CDirector", 
             };
 
             IdentityRole identityRole = new IdentityRole("CastDirector");
-            
+            var RoleConnection = CastDirectorManager.AddToRole(userId: "210-0ac477b8dfe0", role: "CastDirector");
 
             RoleManager.Create(role: identityRole);
             CastDirectorManager.Create(user: castDirectors, password: "123-ABC");
