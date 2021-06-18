@@ -383,7 +383,8 @@ footer {
 
 /* Change background color of input fields */
 .Register-input {
-    background-color: var(--light-color);
+    background-color: white ;
+    border: 2px solid black;
 }
 
     /* Hover effects for input fields */
@@ -407,6 +408,50 @@ footer {
     position: fixed;
     right: 0;
     z-index: 1;
+}
+
+/* Inputs: focus versus non-focus effects */
+
+.Register-input input[type=text],
+.Register-input input[type=date],
+.Register-input input[type=time],
+.Register-input input[type=number] {
+    border: 2px solid var(--dark-color);
+    background-color: lightgray !important; /* Overriding bootstrap styles for these form items */
+}
+
+    .Register-input input[type=text]:focus,
+    .Register-input input[type=date]:focus,
+    .Register-input input[type=time]:focus,
+    .Register-input input[type=number]:focus {
+        border: 2px solid var(--secondary-color);
+        background: var(--light-color) !important;
+    }
+
+/* Events CRUD page form */
+
+.Events-crud-form {
+    width: auto;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+
+.Events-Index {
+    width: auto;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--light-color) ;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+
+/* Removes link underline/blue style */
+.nolinkstyle {
+    text-decoration: none;
+    color: black;
 }
 
 /*Donation Page Styling*/
