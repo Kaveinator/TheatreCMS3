@@ -12,9 +12,8 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="Register-form">
+    <div class="col-md-10, col-lg-10, col-sm-10 Events-crud-form">
 
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.EventId)
 
@@ -95,9 +94,7 @@
 }
 
 <div class="Register-div">
-    <button class="Register-button btn rounded text-black-50" value="null">
-        @Html.ActionLink("Back to List", "Index")
-    </button>
+    <a href="~/Prod/CalendarEvents" class="btn btn-primary Register-button nolinkstyle">Back to List</a>
 </div>
 
 @section Scripts {

@@ -13,8 +13,7 @@
     @Html.AntiForgeryToken()
 
     <!-- <div class="form-horizontal"> -->
-    <div class="Register-form">
-        <hr />
+    <div class="col-md-10, col-lg-10, col-sm-10 Events-crud-form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="Register-div">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
@@ -95,13 +94,14 @@
     </div>
 
     <div class="Register-div">
-        <button class="Register-button btn rounded text-black-50" value="null">
-            @Html.ActionLink("Back to List", "Index")
-        </button>
+        <!-- <button type="button" class="btn Register-button rounded nolinkstyle"> -->
+        <!-- (at)Html.ActionLink("Back to List", "Index") -->
+        <a href="~/Prod/CalendarEvents" class="btn btn-primary Register-button nolinkstyle">Back to List</a>
+        <!-- </button>-->
     </div>
 
-}
+    }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
