@@ -450,12 +450,15 @@ footer {
     text-align: center;
 }
 /*Styling Signin Page*/
- .signin-name p {
-    background-color: white;
+.signin-name p {
+    background-color: var(--main-color;
     width: 200px;
     border-radius: 30px;
     color: red;
     padding: 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 
