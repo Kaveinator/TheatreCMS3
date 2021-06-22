@@ -451,10 +451,10 @@ footer {
 }
 /*Styling Signin Page*/
 .signin-name p {
-    background-color: var(--main-color;
+    background-color: var(--main-color);
     width: 200px;
     border-radius: 30px;
-    color: red;
+    color: white;
     padding: 25px;
     text-overflow: ellipsis;
     white-space: nowrap;
