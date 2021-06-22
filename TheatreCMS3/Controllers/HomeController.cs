@@ -39,11 +39,5 @@ namespace TheatreCMS3.Controllers
         {
             return View();
         }
-
-        public ActionResult Donation()
-        {
-            return View();
-        }
-
     }
 }
