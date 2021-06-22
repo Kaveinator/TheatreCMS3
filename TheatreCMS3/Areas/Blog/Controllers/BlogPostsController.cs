@@ -6,9 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog.Models
+namespace TheatreCMS3.Areas.Blog.Controllers
 {
     public class BlogPostsController : Controller
     {
