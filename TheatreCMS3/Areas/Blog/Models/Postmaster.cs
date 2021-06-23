@@ -8,9 +8,9 @@ namespace TheatreCMS3.Areas.Blog.Models
 {
     public class Postmaster : ApplicationUser
     {
-        public static int PublishedBlogPosts;
-        public static int RejectedBlogPosts;
-        public static int PendingPosts;
+        public  int PublishedBlogPosts { get; set; }
+        public  int RejectedBlogPosts { get; set; }
+        public  int PendingPosts { get; set; }
 
 
     }

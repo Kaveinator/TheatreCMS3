@@ -456,6 +456,15 @@ footer {
     border-radius: 30px;
     color: aqua;
 }
+ /*Submit Bitton*/
+ .Submit-btn {
+     background-color: darkblue;
+     border-radius: 5px;
+     color: red;
+     padding: 30px;
+     text-align: center;
+}
+ 
 
 
 /*Donation Page Styling End*/
