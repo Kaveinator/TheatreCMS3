@@ -196,7 +196,6 @@
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
     <Compile Include="Areas\Blog\Models\BlogPostsController.cs" />
     <Compile Include="Areas\Blog\Models\Postmaster.cs" />
-    <Compile Include="Areas\Blog\Models\PublishedBlogPosts.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
