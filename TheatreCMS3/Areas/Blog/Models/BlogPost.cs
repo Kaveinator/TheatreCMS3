@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TheatreCMS3.Areas.Blog.Models
 {
-     public class BlogPost
+    public class BlogPost
     {
         public int ID { get; set; }
         public string Title { get; set; }
