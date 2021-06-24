@@ -18,7 +18,7 @@
 
         protected override void Seed(TheatreCMS3.Models.ApplicationDbContext context)
         {
-            
+
         }
     }
 }

@@ -12,7 +12,6 @@ namespace TheatreCMS3.Controllers
     {
         public ActionResult Index()
         {
-            SiteSettings.ReadSiteSettings();
             return View();
         }
         [HttpGet]
@@ -39,11 +38,5 @@ namespace TheatreCMS3.Controllers
         {
             return View();
         }
-
-        public ActionResult Donation()
-        {
-            return View();
-        }
-
     }
 }
