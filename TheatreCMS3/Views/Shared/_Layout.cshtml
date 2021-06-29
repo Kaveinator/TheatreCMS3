@@ -13,7 +13,6 @@
   <!--add google font for header section-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
-  <link href="~/Content/Site.css" rel="stylesheet">
   @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
@@ -24,19 +23,11 @@
     </div>
     @Html.Partial("_Footer")
     
-    @*Call partial view only in rentals area*@
-    @if (Request.Url.ToString().Contains("/Rent/Rentals"))
-    {
-        @Html.Partial("_LoginBtnRentalManager", new TheatreCMS3.Models.LoginViewModel())
-    }
-    
-    
     @if (ViewContext.RouteData.DataTokens["area"] != null)
     {
         <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
     }
     @RenderSection("scripts", required: false)
-
     @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
