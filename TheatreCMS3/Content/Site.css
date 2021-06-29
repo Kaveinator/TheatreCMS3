@@ -455,14 +455,14 @@ footer {
 }
 
 /*Donation Form*/
-#container {
+#Donation-container {
     border-radius: 5px;
     padding: 20px;
     display:compact;
     background-color: var(--main-color);
 }
 
-input[type=submit] {
+input[type=submit].Donation {
     width: 25%;
     background-color: var(--secondary-color--dark);
     padding: 14px 20px;
@@ -472,11 +472,11 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type=submit].Donation:hover {
     background-color: var(--secondary-color);
 }
 
-input[type=text], textarea {
+input[type=text].Donation, textarea.Donation {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -484,6 +484,3 @@ input[type=text], textarea {
     box-sizing: border-box;
 }
 
-h1{
-    text-align:center;
-}
