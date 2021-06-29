@@ -12,7 +12,6 @@ namespace TheatreCMS3.Controllers
     {
         public ActionResult Index()
         {
-            SiteSettings.ReadSiteSettings();
             return View();
         }
         [HttpGet]
