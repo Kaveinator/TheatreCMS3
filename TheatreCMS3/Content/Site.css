@@ -454,21 +454,6 @@ footer {
     text-decoration: none;
     color: black;
 }
-/*Styling Signin Page*/
-.signin-name p {
-    background-color: var(--main-color);
-    width: 200px;
-    border-radius: 30px;
-    color: white;
-    padding: 25px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-block;
-}
- 
-
- 
-
 
 /*Donation Form*/
 #Donation-container {
