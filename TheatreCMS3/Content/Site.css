@@ -487,6 +487,7 @@ input[type=text].Donation, textarea.Donation {
 
 .sign-in-names {
     position: relative;
+    left: 80px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: auto;
@@ -494,13 +495,13 @@ input[type=text].Donation, textarea.Donation {
     text-align: center;
 }
 
-    .sign-in-names > p {
-        background-color: blue;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        overflow: hidden;
-        width: 90px;
-        height: 25px;
-        border-radius: 30%;
-    }
+.sign-in-names > p {
+    background-color: red;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    overflow: hidden;
+    width: 125px;
+    height: 25px;
+    border-radius: 50%;
+}
