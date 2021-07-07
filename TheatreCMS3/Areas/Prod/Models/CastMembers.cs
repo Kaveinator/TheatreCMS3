@@ -28,13 +28,5 @@ namespace TheatreCMS3.Models
         StageManager,
         Other
     }
-    public class MyContext : DbContext 
-    {
-        public MyContext() : base()
-        {
-
-        }
-
-        public DbSet<CastMembers> CastMembers { get; set; }
-    }
+  
 }

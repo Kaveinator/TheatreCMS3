@@ -208,7 +208,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CastMembers.cs" />
+    <Compile Include="Areas\Prod\Models\CastMembers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -450,7 +450,6 @@
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Data\" />
-    <Folder Include="Areas\Prod\Models\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Controllers\" />
     <Folder Include="Areas\Rent\Data\" />
