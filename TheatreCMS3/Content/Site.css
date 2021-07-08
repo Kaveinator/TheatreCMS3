@@ -485,3 +485,23 @@ input[type=text].Donation, textarea.Donation {
     box-sizing: border-box;
 }
 
+.sign-in-names {
+    position: relative;
+    left: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.sign-in-names > p {
+    background-color: red;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    overflow: hidden;
+    width: 125px;
+    height: 25px;
+    border-radius: 50%;
+}
