@@ -28,7 +28,7 @@ namespace TheatreCMS3.Areas.Prod.Models
 
 		[Display(Name = "Start Time")]
 		[DataType(DataType.Time)]
-		[DisplayFormat(ApplyFormatInEditMode=true, DataFormatString= "{0:h:mm:ss tt}")]
+		[DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="{0:h:mm:ss tt}")]
 		public DateTime? StartTime { get; set; }
 
 		[Display(Name = "End Time")]
