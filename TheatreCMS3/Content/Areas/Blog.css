@@ -11,3 +11,62 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+/*Start of BlogPost index styling*/
+#BlogPost-index--bodyContainer {
+    text-align: center
+}
+
+#BlogPost-index--authorRow,
+#BlogPost-index--titleRow,
+#BlogPost-index--blogRow {
+    text-align: left;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+#BlogPost-index--rightColumn {
+    margin-left: 1vw;
+}
+
+.BlogPost-index--blogImages {
+    max-width: 100.5%;
+    height: auto;
+    width: auto;
+    height: auto;
+    vertical-align: auto;
+    border-style: none;
+    border-radius: 0;
+}
+
+#BlogPost-index--authorRow {
+    font-size: 12px;
+    margin-top: 1.5vw;
+}
+
+#BlogPost-index--blogContent {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    max-width: 450px;
+}
+
+#BlogPost-index--buttonRow {
+    margin-top: 1.5vw;
+    margin-bottom: 1vw;
+}
+
+#BlogPost-index--postContainer {
+    border-radius: 10px;
+    border: 2px solid #bd1a11;
+    box-shadow: 1px 1px #bd1a11;
+    max-height: 390px;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 1vw;
+    overflow-x: hidden;
+}
+/*End of BlogPost index styling*/
