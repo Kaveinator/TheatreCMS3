@@ -97,13 +97,15 @@ namespace TheatreCMS3.Controllers
             {
                 if (IsValidEmail(input))                                                    //If input is Email...
                 {
-                   using (var db = new ApplicationDbContext())
-                    {
-                        var query = db.Users
-                                      .Where(u => u.Email == input).FirstOrDefault();
-                        return query.UserName;                                              //Return associated Username.
+                    var user = UserManager.FindByEmail(input);                              //Create UserManager Object where Email = Input
+                    return user.UserName;                                                   //Returns String UserName from Object created above
 
-                    }
+                    //using (var db = new ApplicationDbContext())
+                    //{
+                    //    var query = db.Users
+                    //                  .Where(u => u.Email == input).FirstOrDefault();
+                    //    return query.UserName;                                              //Return associated Username.
+                    //}
                 }
                 return input;                                                               //If not email, return input string assuming it is a Username
             }
