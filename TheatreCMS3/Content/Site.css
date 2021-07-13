@@ -505,3 +505,101 @@ input[type=text].Donation, textarea.Donation {
     height: 25px;
     border-radius: 50%;
 }
+
+/* About Page */
+
+.all-page {
+    background-color: #F04D44;
+}
+
+#about-header {
+    background-image: url('images/theater.jpg');
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.about-text {
+    text-align: center;
+    font-family: Broadway;
+    padding-top: 50px;
+    padding-bottom: 200px;
+}
+
+.section-head {
+    text-align: center;
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    border-bottom-left-radius: 50px;
+}
+
+.main-body {
+    background-color: #F04D44;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bottom-container {
+    text-align: center;
+    padding-top: 20px;
+    background-color: black;
+    border-top-right-radius: 50px;
+}
+
+h5 {
+    text-decoration: underline;
+    text-decoration-color: #bd1a11;
+}
+
+
+div.item {
+    /* To correctly align image, regardless of content height: */
+    vertical-align: top;
+    display: inline-block;
+    /* To horizontally center images and caption */
+    text-align: center;
+    margin: 10px;
+    font-size: 1em;
+}
+
+img {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+}
+
+.caption {
+    /* Make the caption a block so it occupies its own line. */
+    display: block;
+}
+
+.ensemble-margin {
+    margin-bottom: 75px;
+}
+
+.company-margin {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.paragraph-margin {
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+/* End About Page*/
+
