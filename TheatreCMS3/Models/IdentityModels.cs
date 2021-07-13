@@ -42,7 +42,7 @@ namespace TheatreCMS3.Models
 
         /* ▼ Put DbSet's for your models below ▼ */
 
-        public DbSet<BlogPost> BlogPost { get; set; }
+        public DbSet<BlogAuthor> BlogAuthors { get; set; }
         public DbSet<CastMembers> CastMembers { get; set; }
         public DbSet<ProductionPhotos> ProductionPhoto { get; set; }
     }
