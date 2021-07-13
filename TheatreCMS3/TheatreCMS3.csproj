@@ -195,6 +195,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEventsModels.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhotos.cs" />
