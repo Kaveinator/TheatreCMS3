@@ -1,64 +1,78 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogPost
 
 @{
-    ViewBag.Title = "Create";
+  ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<!--Create Page Header-->
+<h1 id="BlogPost-Create-Edit--PageHeader">Create Blog Post</h1>
 
+<!--Start of Page Container-->
+<div class="container-fluid" id="BlogPost-Create-Edit--formContainer">
 
-@using (Html.BeginForm()) 
-{
+  @using (Html.BeginForm())
+  {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>BlogPost</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <!--Container for the entire form. Centered-->
+    <div class="form-horizontal" id="BlogPost-Create-Edit--innerContainer">
+      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Posted, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Posted, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Posted, "", new { @class = "text-danger" })
-            </div>
+      <!--Start of the Title Text and Input Form Div-->
+      <div class="form-group" id="BlogPost-Create-Edit--titleGroup">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-4" })
+        <div class="col">
+          @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control BlogPost-Create-Edit--textbox", placeholder = "Enter your title" } })
+          @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
         </div>
+      </div>
+      <!--End of the Title Text and Input Form Div-->
+      <!--Start of the Content Text and Input Form Div-->
+      <div class="form-group" id="BlogPost-Create-Edit--contentGroup">
+        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col">
+          <!--TextAreaFor Object to allow for a much better input experience-->
+          @Html.TextAreaFor(model => model.Content, 8, 20, new { @class = "form-control BlogPost-Create-Edit--textbox", placeholder = "Enter your post", id = "BlogPost-Create-Edit--contentBox" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
-            </div>
-        </div>
+          <!--This is a normal text input box that is the same as the rest in this View. If you'd prefer this instead of TextAreaFor, just remove the comments from this below and it will work perfectly-->
+          @*@Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control BlogPost-Create-Edit--textbox", placeholder = "Enter your post" } })*@
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+          @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
         </div>
+      </div>
+      <!--End of the Content Text and Input Form Div-->
+      <!--Start of the Posted Text and Input Form Div-->
+      <div class="form-group" id="BlogPost-Create-Edit--postedGroup">
+        @Html.LabelFor(model => model.Posted, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col">
+          @Html.EditorFor(model => model.Posted, new { htmlAttributes = new { @class = "form-control BlogPost-Create-Edit--textbox", placeholder = "Date posted" } })
+          @Html.ValidationMessageFor(model => model.Posted, "", new { @class = "text-danger" })
+        </div>
+      </div>
+      <!--End of the Posted Text and Input Form Div-->
+      <!--Start of the Author Text and Input Form Div-->
+      <div class="form-group" id="BlogPost-Create-Edit--authorGroup">
+        @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col">
+          @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control BlogPost-Create-Edit--textbox", placeholder = "Enter your name" } })
+          @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+        </div>
+      </div>
+      <!--End of the Author Text and Input Form Div-->
+      <!--Start of the Button Group Div-->
+      <div class="form-group">
+        <div class="col mx-auto">
+          <input type="submit" value="Create" class="btn btn-block btn-warning BlogPost-Create-Edit--submitButton" />
+          @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-block btn-danger BlogPost-Create-Edit-backButton" })
+        </div>
+      </div>
+      <!--End of the Button Group Div-->
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <!--End of the Form Container-->
+  }
 </div>
+<!--End of the Page Container-->
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+  @Scripts.Render("~/bundles/jqueryval")
 }
