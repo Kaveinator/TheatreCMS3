@@ -194,6 +194,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPhotosController.cs" />
     <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Blog\Data\img\test2.jpg" />
     <Content Include="Areas\Blog\Models\dummy.txt" />
     <Content Include="Areas\Prod\Models\dummy.txt" />
     <Content Include="Content\all.css" />
@@ -496,6 +498,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
