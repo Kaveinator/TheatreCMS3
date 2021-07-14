@@ -11,3 +11,226 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+/*Start of BlogPost index styling*/
+#BlogPost-index--bodyContainer {
+    text-align: center
+}
+
+#BlogPost-index--authorRow,
+#BlogPost-index--titleRow,
+#BlogPost-index--blogRow {
+    text-align: left;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+#BlogPost-index--rightColumn {
+    margin-left: 1vw;
+}
+
+.BlogPost-index--blogImages {
+    max-width: 100.5%;
+    height: auto;
+    width: auto;
+    height: auto;
+    vertical-align: auto;
+    border-style: none;
+    border-radius: 0;
+}
+
+#BlogPost-index--authorRow {
+    font-size: 12px;
+    margin-top: 1.5vw;
+}
+
+#BlogPost-index--blogContent {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    max-width: 450px;
+}
+
+#BlogPost-index--buttonRow {
+    margin-top: 1.5vw;
+    margin-bottom: 1vw;
+}
+
+#BlogPost-index--postContainer {
+    border-radius: 10px;
+    border: 2px solid #bd1a11;
+    box-shadow: 1px 1px #bd1a11;
+    max-height: 390px;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 1vw;
+    overflow-x: hidden;
+}
+/*End of BlogPost index styling*/
+
+/*Start of BlogPost index styling*/
+#BlogPost-index--bodyContainer {
+    text-align: center;
+}
+
+#BlogPost-index--authorRow,
+#BlogPost-index--titleRow,
+#BlogPost-index--blogRow {
+    text-align: left;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+#BlogPost-index--rightColumn {
+    margin-left: 1vw;
+}
+
+.BlogPost-index--blogImages {
+    max-width: 100.5%;
+    height: auto;
+    width: auto;
+    height: auto;
+    vertical-align: auto;
+    border-style: none;
+    border-radius: 0;
+}
+
+#BlogPost-index--authorRow {
+    font-size: 12px;
+    margin-top: 1.5vw;
+}
+
+#BlogPost-index--blogContent {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    max-width: 450px;
+}
+
+#BlogPost-index--buttonRow {
+    margin-top: 1.5vw;
+    margin-bottom: 1vw;
+}
+
+#BlogPost-index--postContainer {
+    border-radius: 10px;
+    border: 2px solid #bd1a11;
+    box-shadow: 1px 1px #bd1a11;
+    max-height: 390px;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 1vw;
+    overflow-x: hidden;
+    min-width: 740px;
+}
+/*End of BlogPost index Styling*/
+
+/*Start of BlogPost Create and Edit Styling*/
+/*Stylings for the Header, giving it a shadow and centering it*/
+#BlogPost-Create-Edit--PageHeader {
+    font-size: 3.5em;
+    text-align: center;
+    text-shadow: 1px 1px 3px #bd1a11, 2px 2px 1px #bd1a11, 3px 3px 1px #bd1a11;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    margin-bottom: 2vw;
+    margin-top: 1vw;
+}
+
+/*Setting the border and color for the container that is holding the form*/
+#BlogPost-Create-Edit--formContainer {
+    background-color: #fffbfb;
+    border: 2px solid #bd1a11;
+    box-shadow: 1px 2px 2px #bd1a11;
+    border-radius: 8px;
+}
+
+/*Adding a margin above the title to give extra room between it and the border*/
+#BlogPost-Create-Edit--titleGroup {
+    margin-top: 1vw;
+}
+
+/*Changing the font color, weight, and size for each of the input forms*/
+#BlogPost-Create-Edit--authorGroup,
+#BlogPost-Create-Edit--contentGroup,
+#BlogPost-Create-Edit--postedGroup,
+#BlogPost-Create-Edit--titleGroup {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/*Adding padding around the form inside of the container so the text is spaced properly*/
+#BlogPost-Create-Edit--innerContainer {
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+/*Adding padding to the bottom of the form between the buttons and Author Group*/
+#BlogPost-Create-Edit--authorGroup {
+    padding-bottom: 1em;
+}
+
+/*Adjusting the font size and font color for both buttons*/
+.BlogPost-Create-Edit--submitButton.btn-warning,
+.BlogPost-Create-Edit--submitButton.btn-warning:visited,
+.BlogPost-Create-Edit--backButton.btn-danger,
+.BlogPost-Create-Edit--backButton.btn-danger:visited {
+    color: #fffbfb;
+    font-size: 18px;
+}
+
+/*Changing the default background color and border color for the Submit button*/
+.BlogPost-Create-Edit--submitButton.btn-warning {
+    background-color: #d6972a;
+    border-color: #d6972a;
+}
+
+    /*On Hover, changing the background color and border color for the Submit button */
+    .BlogPost-Create-Edit--submitButton.btn-warning:hover {
+        background-color: #9d7c39;
+        border-color: #9d7c39;
+    }
+
+/*If visited, changing the background color and border color for the Back to List button*/
+.BlogPost-Create-Edit--backButton.btn-danger
+.BlogPost-Create-Edit--backButton.btn-danger:visited {
+    background-color: #f04d44;
+    border-color: #f04d44;
+}
+
+/*On hover, changing the background color and border color for the Back to List button*/
+.BlogPost-Create-Edit--backButton.btn-danger:hover {
+    background-color: #bd1a11;
+    border-color: #bd1a11;
+}
+
+/*Adjusting the text color for the pladeholder, and the input boxes.*/
+.BlogPost-Create-Edit--textbox.form-control,
+.BlogPost-Create-Edit--textbox.form-control::placeholder {
+    color: #bd1a11;
+}
+
+/*Creating the normal background color for the input boxes*/
+.BlogPost-Create-Edit--textbox.form-control {
+    background-color: #E1e1e1;
+}
+
+    /*Setting the Glow Border on focus for Text Boxes*/
+    .BlogPost-Create-Edit--textbox.form-control:focus {
+        background-color: #fffbfb;
+        box-shadow: 0px 1px 1px #bd1a11 inset, 0px 0px 8px #bd1a11;
+        border-color: #bd1a11;
+    }
+
+/*Turning off the Resize Option of the Content Box*/
+#BlogPost-Create-Edit--contentBox {
+    resize: none;
+}
+/*End of BlogPost Create Styling*/
