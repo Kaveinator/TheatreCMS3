@@ -295,6 +295,11 @@
     <Content Include="Areas\Rent\Views\web.config" />
     <Content Include="Areas\Prod\Views\web.config" />
     <Content Include="Areas\Blog\Views\web.config" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
