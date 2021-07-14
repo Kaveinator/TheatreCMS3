@@ -193,6 +193,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogPhotoesController.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPhotosController.cs" />
     <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
@@ -403,8 +404,6 @@
     <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
@@ -412,11 +411,6 @@
     <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
     <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Details.cshtml" />
@@ -592,8 +586,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Blog\Controllers\" />
-    <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Controllers\" />
