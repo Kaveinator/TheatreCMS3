@@ -9,11 +9,16 @@ namespace TheatreCMS3.Areas.Blog.Models
 {
     public class Comment
     {
+        public Comment()
+        {
+            CommentDate = DateTime.Now;
+        }
+
         [Key]
         public int CommentId { get; set; }
         public ApplicationUser Author { get; set; }
         public string Message { get; set; }
-        public DateTime CommentDate { get { return DateTime.UtcNow; } }
+        public DateTime CommentDate { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
 
@@ -21,6 +26,21 @@ namespace TheatreCMS3.Areas.Blog.Models
         {
             double likeRatio = Likes / (Likes + Dislikes);
             return likeRatio;
+        }
+
+        public string TimeSincePost()
+        {
+            TimeSpan timeSincePost = DateTime.Now - CommentDate;
+            if (timeSincePost.TotalMinutes < 60)
+            {
+                string str = Math.Round(timeSincePost.TotalMinutes).ToString() + " minutes ago";
+                return str;
+            }
+            else
+            {
+                string str = Math.Round(timeSincePost.TotalHours).ToString() + " hours ago";
+                return str;
+            }
         }
 
     }
