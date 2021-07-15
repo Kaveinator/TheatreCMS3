@@ -21,7 +21,7 @@ namespace TheatreCMS3.Areas.Blog.Models
 
         [Key]
         public int CommentId { get; set; }
-        public ApplicationUser Author { get; set; }
+        public virtual ApplicationUser Author { get; set; }
         public string Message { get; set; }
         public DateTime CommentDate { get; set; }
         public int Likes { get; set; }

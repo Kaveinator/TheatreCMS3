@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -47,11 +48,12 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "Author,CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
-                
+                string userId = HttpContext.User.Identity.GetUserId();
+                comment.Author = db.Users.FirstOrDefault(x => x.Id == userId);
                 db.Comment.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
