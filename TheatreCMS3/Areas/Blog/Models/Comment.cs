@@ -15,11 +15,7 @@ namespace TheatreCMS3.Areas.Blog.Models
     {
         public Comment()
         {
-            CommentDate = DateTime.Now;
-            string userId = HttpContext.Current.User.Identity.GetUserId();
-
-            Author = 
-            
+            CommentDate = DateTime.Now;          
         }
 
         [Key]
