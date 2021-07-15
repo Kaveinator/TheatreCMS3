@@ -1,8 +1,12 @@
-﻿using System;
+﻿
+using Microsoft.AspNet.Identity;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Blog.Models
@@ -12,6 +16,10 @@ namespace TheatreCMS3.Areas.Blog.Models
         public Comment()
         {
             CommentDate = DateTime.Now;
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            ////var user = Microsoft.AspNet.Identity.FindById(userId)
+            //ApplicationDbContext db = new ApplicationDbContext();
+            //Author = db.Users.FirstOrDefault(x => x.Id == userId);
         }
 
         [Key]
@@ -38,8 +46,17 @@ namespace TheatreCMS3.Areas.Blog.Models
             }
             else
             {
-                string str = Math.Round(timeSincePost.TotalHours).ToString() + " hours ago";
-                return str;
+                if (Math.Round(timeSincePost.TotalHours) < 2)
+                {
+                    string str = Math.Round(timeSincePost.TotalHours).ToString() + " hour ago";
+                    return str;
+                }
+                else
+                {
+                    string str = Math.Round(timeSincePost.TotalHours).ToString() + " hours ago";
+                    return str;
+                }
+
             }
         }
 
