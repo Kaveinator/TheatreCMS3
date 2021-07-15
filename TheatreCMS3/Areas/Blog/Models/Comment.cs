@@ -1,6 +1,6 @@
 ﻿
 using Microsoft.AspNet.Identity;
-using Microsoft.VisualBasic.ApplicationServices;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,9 +17,9 @@ namespace TheatreCMS3.Areas.Blog.Models
         {
             CommentDate = DateTime.Now;
             string userId = HttpContext.Current.User.Identity.GetUserId();
-            ////var user = Microsoft.AspNet.Identity.FindById(userId)
-            //ApplicationDbContext db = new ApplicationDbContext();
-            //Author = db.Users.FirstOrDefault(x => x.Id == userId);
+
+            Author = 
+            
         }
 
         [Key]
