@@ -15,7 +15,8 @@ namespace TheatreCMS3.Areas.Blog.Models
     {
         public Comment()
         {
-            CommentDate = DateTime.Now;          
+            CommentDate = DateTime.Now;
+            // supposed to set author to current application user here, right? 
         }
 
         [Key]
