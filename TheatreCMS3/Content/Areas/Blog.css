@@ -67,69 +67,10 @@
     max-width: 100%;
     overflow: hidden;
     margin: 1vw;
+    min-width: 800px;
     overflow-x: hidden;
 }
 /*End of BlogPost index styling*/
-
-/*Start of BlogPost index styling*/
-#BlogPost-index--bodyContainer {
-    text-align: center;
-}
-
-#BlogPost-index--authorRow,
-#BlogPost-index--titleRow,
-#BlogPost-index--blogRow {
-    text-align: left;
-    padding-left: 1vw;
-    padding-right: 1vw;
-}
-
-#BlogPost-index--rightColumn {
-    margin-left: 1vw;
-}
-
-.BlogPost-index--blogImages {
-    max-width: 100.5%;
-    height: auto;
-    width: auto;
-    height: auto;
-    vertical-align: auto;
-    border-style: none;
-    border-radius: 0;
-}
-
-#BlogPost-index--authorRow {
-    font-size: 12px;
-    margin-top: 1.5vw;
-}
-
-#BlogPost-index--blogContent {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    max-width: 450px;
-}
-
-#BlogPost-index--buttonRow {
-    margin-top: 1.5vw;
-    margin-bottom: 1vw;
-}
-
-#BlogPost-index--postContainer {
-    border-radius: 10px;
-    border: 2px solid #bd1a11;
-    box-shadow: 1px 1px #bd1a11;
-    max-height: 390px;
-    max-width: 100%;
-    overflow: hidden;
-    margin: 1vw;
-    overflow-x: hidden;
-    min-width: 740px;
-}
-/*End of BlogPost index Styling*/
 
 /*Start of BlogPost Create and Edit Styling*/
 /*Stylings for the Header, giving it a shadow and centering it*/
@@ -161,7 +102,7 @@
 #BlogPost-Create-Edit--contentGroup,
 #BlogPost-Create-Edit--postedGroup,
 #BlogPost-Create-Edit--titleGroup {
-    color: black;
+    color: #000000;
     font-weight: bold;
     font-size: 18px;
 }
@@ -192,11 +133,11 @@
     border-color: #d6972a;
 }
 
-    /*On Hover, changing the background color and border color for the Submit button */
-    .BlogPost-Create-Edit--submitButton.btn-warning:hover {
-        background-color: #9d7c39;
-        border-color: #9d7c39;
-    }
+/*On Hover, changing the background color and border color for the Submit button */
+.BlogPost-Create-Edit--submitButton.btn-warning:hover {
+    background-color: #9d7c39;
+    border-color: #9d7c39;
+}
 
 /*If visited, changing the background color and border color for the Back to List button*/
 .BlogPost-Create-Edit--backButton.btn-danger
@@ -222,15 +163,88 @@
     background-color: #E1e1e1;
 }
 
-    /*Setting the Glow Border on focus for Text Boxes*/
-    .BlogPost-Create-Edit--textbox.form-control:focus {
-        background-color: #fffbfb;
-        box-shadow: 0px 1px 1px #bd1a11 inset, 0px 0px 8px #bd1a11;
-        border-color: #bd1a11;
-    }
+/*Setting the Glow Border on focus for Text Boxes*/
+.BlogPost-Create-Edit--textbox.form-control:focus {
+    background-color: #fffbfb;
+    box-shadow: 0px 1px 1px #bd1a11 inset, 0px 0px 8px #bd1a11;
+    border-color: #bd1a11;
+}
 
 /*Turning off the Resize Option of the Content Box*/
 #BlogPost-Create-Edit--contentBox {
     resize: none;
 }
 /*End of BlogPost Create Styling*/
+
+/*Start of Stylings for the Details and Delete Views*/
+/*Delete and Details View Page Header Styling*/
+#BlogPost-DelDetails--pageHeader {
+    font-size: 1.5em;
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+}
+
+/*Delete and Details view Blog Title Styling*/
+#BlogPost-DelDetails--blogTitle {
+    font-size: 3em;
+    text-shadow: 1px 1px 3px #bd1a11, 2px 2px 1px #bd1a11, 3px 3px 1px #bd1a11;
+    margin-bottom: 1.5vw;
+    padding-bottom: 1.5vw;
+    max-width: 700px;
+    text-align: left;
+    margin: auto;
+    display: block;
+}
+
+/*Aligns all text to the left for readability in Details and Delete*/
+.BlogPost-DelDetails--textCol,
+.BlogPost-DelDetails--authorCol,
+.BlogPost-DelDetails--postedCol {
+    max-width: 725px;
+    text-align: left;
+    margin: auto;
+    display: block;
+}
+
+/*Sets and Positions the Blog Image for these views*/
+.BlogPost-DelDetails--blogImages {
+    height: auto;
+    width: 700px;
+    border-radius: 8px;
+    margin: auto;
+    display: block;
+}
+
+/*Setting extra padding for image and posted time columns*/
+.BlogPost-DelDetails--imgCol,
+.BlogPost-DelDetails--postedCol {
+    padding-bottom: 0.5vw;
+}
+
+/*Changing the font for the Author and Posted underneath the image*/
+.BlogPost-DelDetails--authorCol,
+.BlogPost-DelDetails--postedCol {
+    font-size: small;
+}
+
+/*Setting the position for the button row*/
+.BlogPost-DelDetails--buttonRow {
+    margin-top: 2.5vw;
+    max-width: 725px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Setting stylings for the divider line*/
+.BlogPost-DelDetails--dividerLine {
+    background-color: #FFFBFB;
+    width: 725px;
+    border: 0;
+    height: 3px;
+    background-image: linear-gradient(to right, #000000, #FFFBFB, #000000);
+    margin-bottom: 2vw;
+}
+/*End of Stylings for the Details and Delete Views*/
