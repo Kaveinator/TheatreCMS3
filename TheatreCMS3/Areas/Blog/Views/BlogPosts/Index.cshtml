@@ -1,0 +1,102 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPost>
+<script src="https://kit.fontawesome.com/e00ea4a5e2.js" crossorigin="anonymous"></script>
+
+@{
+  ViewBag.Title = "Index";
+}
+
+<!--This is a function that will allow you to send a DateTime, then calculate and return in a "nice-to-read manner" the time since it has happened.-->
+@functions
+  {
+  public string timeSincePosted(DateTime blogPostedTime)
+  {
+    var timeDifference = (DateTime.Now - blogPostedTime).TotalSeconds;
+    var returnString = "";
+
+    returnString = timeDifference >= 63113852 ? returnString = Math.Floor((timeDifference / 31556926)) + " years ago" :
+                   timeDifference > 31556926 ? returnString = "1 year ago" :
+                   timeDifference > 5259486 ? returnString = Math.Floor((timeDifference / 2629743)) + " months ago" :
+                   timeDifference > 2629743 ? returnString = "1 month ago" :
+                   timeDifference > 1209600 ? returnString = Math.Floor((timeDifference / 604800)) + " weeks ago" :
+                   timeDifference > 604800 ? returnString = "1 week ago" :
+                   timeDifference > 172800 ? returnString = Math.Floor((timeDifference / 86400)) + " days ago" :
+                   timeDifference > 86400 ? returnString = "1 day ago" :
+                   timeDifference > 7200 ? returnString = Math.Floor((timeDifference / 3600)) + " hours ago" :
+                   timeDifference > 3600 ? returnString = "1 hour ago" :
+                   timeDifference > 60 ? returnString = Math.Floor((timeDifference / 60)) + " minutes ago" :
+                   returnString = timeDifference + " seconds ago";
+    return returnString;
+  }
+}
+
+<p>
+  @Html.ActionLink("Create New", "Create")
+</p>
+
+<!--Container to hold the table that will fill with posts-->
+<div class="container-lg" id="BlogPost-index--bodyContainer">
+  <table class="table">
+
+    <!--Goes through each blog post saved in reverse order to post the most recent at the top-->
+    @foreach (var item in Model.Reverse())
+    {
+      <!--Start of the Blog Post. Creates a Row for each new one and displays them in a table-->
+      <div class="row no-gutters" id="BlogPost-index--postContainer">
+
+        <!--Start of Left Column, holds an image-->
+        <div class="col" id="BlogPost-index--leftColumn">
+          <img src="~/Areas/Blog/Data/img/test2.jpg" class="BlogPost-index--blogImages" alt="Test Image" />
+        </div>
+        <!--End Left Column-->
+        <!--Start of Right Column, holds text relating to blog post-->
+        <div class="col" id="BlogPost-index--rightColumn">
+
+          <!--Contains the Author Name, Date Posted, and calculated time since it was posted.-->
+          <div class="row" id="BlogPost-index--authorRow">
+            <div class="col">
+              <p id="postInfo">
+                @Html.DisplayFor(model => item.Author)<br />
+                @Html.Raw(item.Posted.ToString("MMM d")) &#8226
+                @timeSincePosted(item.Posted)                   <!--Calls the function at the top of the document to calculate and display time since post-->
+              </p>
+            </div>
+          </div>
+          <!--End Author Name Row-->
+          <!--Start of the BlogPost Title Row-->
+          <div class="row" id="BlogPost-index--titleRow">
+            <div class="col">
+              <h2>@Html.DisplayFor(model => item.Title)</h2>
+            </div>
+          </div>
+          <!--End of the BlogPost Title Row-->
+          <!--Start of the BlogPost Content Row-->
+          <div class="row" id="BlogPost-index--blogRow">
+            <div class="col">
+              <p id="BlogPost-index--blogContent">
+                @Html.DisplayFor(model => item.Content)
+              </p>
+            </div>
+          </div>
+          <!--End of the BlogPost Content Row-->
+          <!--Start of the BlogPost Button Row-->
+          <div class="row" id="BlogPost-index--buttonRow">
+            <div class="col">
+              @Html.ActionLink(" Edit", "Edit", new { id = item.BlogPostId }, new { @class = "btn btn-secondary fas fa-edit" })
+              @Html.ActionLink(" Details", "Details", new { id = item.BlogPostId }, new { @class = "btn btn-secondary fas fa-info" })
+            </div>
+
+            <div class="col">
+              @Html.ActionLink(" Delete", "Delete", new { id = item.BlogPostId }, new { @class = "btn fas fa-trash btn-danger " })
+            </div>
+          </div>
+          <!--End of the BlogPost Button Row-->
+
+        </div>
+        <!--End of the Right Column-->
+
+      </div>
+      <!--End of the BlogPost Row-->
+    }
+  </table>
+</div>
+

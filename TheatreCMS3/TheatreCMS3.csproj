@@ -417,7 +417,6 @@
     <Content Include="Areas\Blog\Views\BlogPhotoes\Index.cshtml" />
     <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\_Comments.cshtml" />
-    <Content Include="Areas\Blog\Views\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPosts\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPosts\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPosts\Details.cshtml" />
