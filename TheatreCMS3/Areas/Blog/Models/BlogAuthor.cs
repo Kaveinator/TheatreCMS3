@@ -12,7 +12,11 @@ namespace TheatreCMS3.Areas.Blog.Models
         public int BlogAuthorId { get; set; }
         public string Name { get; set; }
         public string Bio { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Joined { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Left { get; set; }
     }
 }
