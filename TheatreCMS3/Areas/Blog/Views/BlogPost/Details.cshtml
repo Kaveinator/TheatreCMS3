@@ -1,0 +1,55 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogPost
+
+@{
+  ViewBag.Title = "Delete";
+}
+
+
+
+<h2 id="BlogPost-DelDetails--pageHeader">Blog Post Details</h2>
+
+
+<div class="container" id="BlogPost-DelDetails--postContainer">
+  <div class="row">
+    <div class="col">
+      <h3 id="BlogPost-DelDetails--blogTitle">
+        @Html.DisplayFor(model => model.Title)
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col BlogPost-DelDetails--imgCol">
+      <img src="~/Areas/Blog/Data/img/test2.jpg" class="BlogPost-DelDetails--blogImages" alt="Test Image" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col BlogPost-DelDetails--authorCol">
+      @Html.DisplayFor(model => model.Author)
+    </div>
+  </div>
+  <div class="row">
+    <div class="col BlogPost-DelDetails--postedCol">
+      @Html.Raw(Model.Posted.ToString("MMMM d, yyyy"))
+    </div>
+  </div>
+  <hr class="BlogPost-DelDetails--dividerLine" />
+
+  <div class="row">
+    <div class="col BlogPost-DelDetails--textCol">
+      @Html.DisplayFor(model => model.Content)
+    </div>
+  </div>
+
+  @using (Html.BeginForm())
+  {
+    @Html.AntiForgeryToken()
+    <div class="container">
+      <div class="row BlogPost-DelDetails--buttonRow">
+        <div class="col-10 BlogPost-DelDetails--submitButtonCol">
+          @Html.ActionLink(" Back to List", "Index", null, new { @class = "btn btn-sm btn-warning fas fa-arrow-left BlogPost-index--submitButton" })
+          @Html.ActionLink(" Edit", "Edit", new { id = Model.BlogPostId }, new { @class = "btn btn-sm btn-warning fas fa-edit BlogPost-index--submitButton" })
+        </div>
+      </div>
+    </div>
+  }
+</div>
