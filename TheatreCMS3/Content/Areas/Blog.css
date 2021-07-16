@@ -11,6 +11,47 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/* Start of styling for Blog Authors Edit/Delete pages */
+.btn.btn-dark:focus {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    box-shadow: 0 0 0 .2rem rgba(40,167,69,.5);
+}
+
+.blogAuthorImg {
+    width: 380px;
+    height: 380px;
+    border-radius: 0;
+}
+
+@media (max-width: 768px) {
+    .btn-responsive {
+        padding: 2px 4px;
+        font-size: 80%;
+        line-height: 1;
+    }
+
+    .blogAuthorImg {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .btn-responsive {
+        padding: 4px 9px;
+        font-size: 90%;
+        line-height: 1.2;
+    }
+
+    .blogAuthorImg {
+        width: 190px;
+        height: 190px;
+        border-radius: 0;
+    }
+}
+/* End of styling for Blog Authors Edit/Delete pages */
 
 /*Start of BlogPost index styling*/
 #BlogPost-index--bodyContainer {
