@@ -1,7 +1,6 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 <div>
-  <h4>BlogAuthor</h4>
   <div class="d-flex justify-content-center mx-auto" style="margin-bottom: -4px;">
     <div class="p-1 pl-2 py-2 bg-light rounded-left">
       <input type="button" onclick="@("window.location.href='" + @Url.Action("Details", "BlogAuthors", new { id = Model.BlogAuthorId }) + "'");" value="Author Details" class="btn-responsive btn btn-dark" />
