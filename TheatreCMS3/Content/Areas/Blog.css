@@ -13,10 +13,10 @@
 
 /* Start of styling for Blog Authors Edit/Delete pages */
 .btn.btn-dark:focus {
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
-    box-shadow: 0 0 0 .2rem rgba(40,167,69,.5);
+    color: var(--light-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 .2rem var(--secondary-color--dark);
 }
 
 .blogAuthorImg {
