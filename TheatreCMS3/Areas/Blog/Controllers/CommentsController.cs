@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 using Microsoft.AspNet.Identity;
+using System.Web.Services;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -16,13 +17,15 @@ namespace TheatreCMS3.Areas.Blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public JsonResult OnLikeClick(Comment comment)
+        [WebMethod]
+        public JsonResult OnLikeClick(int Id)
         {
             var result = new JsonResult();
+            Comment comment = db.Comment.Find(Id);
             comment.Likes++;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
-            result.Data = comment.Likes.ToString();
+            result.Data = comment;
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

@@ -1,35 +1,65 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
-<script type="text/javascript">
-  $("").click(function () {
+<script src="~/Scripts/jquery-3.5.1.js"></script>
 
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#btnLikes').click(function () {
+      likeClick();
+    });
+
+  function likeClick() {
+      $.ajax({
+        url: '~/Comments/OnLikeClick',
+        dataType: "json",
+        method: 'POST',
+        
+        success: function (data) {
+          var like = $("#btnLike");
+          like.append(data)
+        }
+        
   })
 
+
+
+
 </script>
+
 <p>
   @Html.ActionLink("Create New", "Create")
 </p>
 
 
-
 @foreach (var item in Model.OrderByDescending(i => i.CommentDate))
 {
-    <div class="col-lg-12 p-2 cms-bg-main-light border border-dark">
-      <div class="row ">
-        <a class="col-2" href="">@Html.DisplayFor(modelItem => item.Author.UserName)</a>
-        <p class="col-8 border border-light cms-text-dark">@Html.DisplayFor(modelItem => item.Message)</p>
-        <button class="col-1 p-1 cms-text-dark btn">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="row">
-        <p class="col-2">@item.TimeSincePost()</p>
+  string likes = item.CommentId + "likes";
+  string dislikes = item.CommentId + "dislikes";
 
-        <input class="btn btn-outline-light cms-bg-main" onkeypress="">
-        <p id=""class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
-        <button class="btn btn-outline-light cms-bg-main">Dislike</button>
-        <p class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
-        <button class="btn btn-outline-light cms-bg-main">Reply</button>
-
-      </div>
+  <div class="col-lg-12 p-2 cms-bg-main-light border border-dark">
+    <div class="row ">
+      <a class="col-2" href="">@Html.DisplayFor(modelItem => item.Author.UserName)</a>
+      <p class="col-8 border border-light cms-text-dark">@Html.DisplayFor(modelItem => item.Message)</p>
+      <button class="col-1 p-1 cms-text-dark btn">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </button>
     </div>
+    <div class="row">
+      <p class="col-2">@item.TimeSincePost()</p>
+
+      <input id="btnLike" onclick="likeClick()" class="btn btn-outline-light cms-bg-main" type="button" value="Like">
+
+      <p id="@likes" class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
+
+      <input id="btnDislike" class="required btn btn-outline-light cms-bg-main" type="button" value="DisLike">
+      <p id="@dislikes" class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
+
+
+      <button class="btn btn-outline-light cms-bg-main">Reply</button>
+
+    </div>
+  </div>
 }
+
+
+@*<button class="btn btn-outline-light cms-bg-main">Dislike</button>*@
