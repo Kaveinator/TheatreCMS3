@@ -17,11 +17,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [WebMethod]
-        public JsonResult OnLikeClick(int Id)
+        [HttpPost]
+        
+        public JsonResult OnLikeClick(Comment comment)
         {
             var result = new JsonResult();
-            Comment comment = db.Comment.Find(Id);
             comment.Likes++;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();

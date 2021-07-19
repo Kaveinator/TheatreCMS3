@@ -1,30 +1,20 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
-<script src="~/Scripts/jquery-3.5.1.js"></script>
+@Html.Hidden("OnLikeClick", Url.Action("OnLikeClick"))
+
+@*<head>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script>
+      $("#Like").click(function () {
+          $.ajax({
+            url: '@Url.Action("OnLikeClick", "Comments")',
+            type: 'POST',
+            success: function (result) {
+              $('#likes').hide()
+            }
+    </script>
+  </head>*@
 
 
-<script type="text/javascript">
-  $(document).ready(function () {
-    $('#btnLikes').click(function () {
-      likeClick();
-    });
-
-  function likeClick() {
-      $.ajax({
-        url: '~/Comments/OnLikeClick',
-        dataType: "json",
-        method: 'POST',
-        
-        success: function (data) {
-          var like = $("#btnLike");
-          like.append(data)
-        }
-        
-  })
-
-
-
-
-</script>
 
 <p>
   @Html.ActionLink("Create New", "Create")
@@ -33,8 +23,6 @@
 
 @foreach (var item in Model.OrderByDescending(i => i.CommentDate))
 {
-  string likes = item.CommentId + "likes";
-  string dislikes = item.CommentId + "dislikes";
 
   <div class="col-lg-12 p-2 cms-bg-main-light border border-dark">
     <div class="row ">
@@ -47,12 +35,12 @@
     <div class="row">
       <p class="col-2">@item.TimeSincePost()</p>
 
-      <input id="btnLike" onclick="likeClick()" class="btn btn-outline-light cms-bg-main" type="button" value="Like">
+      <input id="btnLike" class="btn btn-outline-light cms-bg-main" type="button" value="Like">
 
-      <p id="@likes" class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
+      <p id="likes" class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
 
       <input id="btnDislike" class="required btn btn-outline-light cms-bg-main" type="button" value="DisLike">
-      <p id="@dislikes" class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
+      <p id="dislikes" class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
 
 
       <button class="btn btn-outline-light cms-bg-main">Reply</button>
