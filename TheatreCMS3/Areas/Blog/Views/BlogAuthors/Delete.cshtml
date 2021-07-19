@@ -6,15 +6,15 @@
   ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Delete</h2>
 
 <div>
   <div class="d-flex justify-content-center mx-auto" style="margin-bottom: -4px;">
     <div class="p-1 pl-2 py-2 bg-light rounded-left">
-      <input type="button" onclick="@("window.location.href='" + @Url.Action("Details", "BlogAuthors", new { id = Model.BlogAuthorId }) + "'")" value="Author Details" class="btn-responsive btn btn-dark" />
+      <input type="button" id="blogBio" onclick="" value="Author Details" class="btn-responsive btn btn-dark" />
     </div>
-    <div class="p-1 py-2 bg-light ">
-      <input type="button" onclick="@("window.location.href='" + @Url.Action("Index", "BlogPost", new { id = Model.BlogAuthorId }) + "'")" value="Blog Posts" class="btn-responsive btn btn-dark" />
+    <div class="p-1 py-2 bg-light rounded-right">
+      <input type="button" id="blogPost" onclick="" value="Blog Posts" class="btn-responsive btn btn-dark" />
     </div>
   </div>
   <div class="row dl-horizontal bg-light rounded text-dark">
@@ -27,11 +27,11 @@
           <h1>@Html.DisplayFor(model => model.Name)</h1>
         </div>
         <div class="col-md-auto">
-          <a href="https://www.facebook.com/" <i class="fab fa-facebook fa-2x"></i></a> <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x cms-text-dark"></i></a>
+          <a href="https://www.facebook.com/"> <i class="fab fa-facebook fa-2x"></i></a> <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x cms-text-dark"></i></a>
         </div>
       </div>
       <div class="row-cols-md-auto" style="overflow: hidden; height: 280px">
-        <p>@Html.DisplayFor(model => model.Bio)</p>
+        <p[ id="displayText">@Html.DisplayFor(model => model.Bio)</p[>
       </div>
       <div class="row">
         <div class="col-md-auto">
@@ -40,7 +40,7 @@
         </div>
         <div class="col-md-auto">
           <h6><strong>Left Date</strong></h6>
-          <p class="">@Html.DisplayFor(model => model.Left)</p>
+          @Html.DisplayFor(model => model.Left)
         </div>
       </div>
     </div>
@@ -59,3 +59,18 @@
     </button>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(function () {
+      $('#blogBio').click(function (event) {
+        event.preventDefault();
+        document.getElementById("displayText").innerHTML = '@(Model.Bio)';
+      });
+      $('#blogPost').click(function (event) {
+        event.preventDefault();
+        document.getElementById("displayText").innerHTML = "Implement in future stories";
+      });
+    });
+  });
+</script>
