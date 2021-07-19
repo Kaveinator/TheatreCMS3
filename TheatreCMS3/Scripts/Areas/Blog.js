@@ -1,13 +1,14 @@
 ﻿//Ajax function to Post to BlogPostController with the value taken from the Button creating the modal
 $("#BlogPost-index--deleteModal").on('show.bs.modal', function (event) {
+    let myUrl = $("#myUrl").val();
     let btn = $(event.relatedTarget);
-    let relatedTrgtBtnVal = btn.val();
+    let id = btn.val();
     let modal = $(this);
     modal.find("#deleteButton").on("click", function (e) {
         $.ajax({
             type: "POST",
-            url: '@Url.Action("Delete")',
-            data: { Id: relatedTrgtBtnVal },
+            url: myUrl,
+            data: { Id: id },
             success: function () {
                 $(btn).closest("tr").hide();
                 $("#BlogPost-index--deleteModal").modal("hide");

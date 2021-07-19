@@ -91,7 +91,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // POST: Blog/BlogPost/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete"), AllowAnonymous]
         public ActionResult Delete(int? id)
         {
             if (id == null)
