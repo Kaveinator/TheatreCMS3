@@ -1,14 +1,15 @@
 ﻿function getBlogBio(id) {
-    var url = 
-}
-$(document).ready(function () {
-    $('#blogBio@(Model.BlogAuthorId)').click(function () {
-        var url = '@Url.Action("BlogBio", "BlogAuthors", new { id = Model.BlogAuthorId })';
+    alert("Halp");
+    $(document).ready(function () {
+        var url = '/Blog/BlogAuthors/BlogBio/' + id;
         $.get(url, null, function (data) {
-            $("#displayText@(Model.BlogAuthorId)").html(data);
+            $("#displayText" + id).html(data);
         });
     })
-    $('#blogPost@(Model.BlogAuthorId)').click(function () {
-        $("#displayText@(Model.BlogAuthorId)").html("Implmented in future stories");
-    });
-});
+}
+
+function getBlogPost(id) {
+    $(document).ready(function () {
+        $("#displayText" + id).html("Implmented in future stories");
+    })
+}
