@@ -61,15 +61,14 @@
 
 <script type="text/javascript">
   $(document).ready(function () {
-    $(function () {
-      $('#blogBio').click(function (event) {
-        event.preventDefault();
-        document.getElementById("displayText").innerHTML = '@(Model.Bio)';
-      });
-      $('#blogPost').click(function (event) {
-        event.preventDefault();
-        document.getElementById("displayText").innerHTML = "Implement in future stories";
-      });
+    $('#blogBio').click(function () {
+        var url =  '@Url.Action("BlogBio", "BlogAuthors", new { id = Model.BlogAuthorId })';
+        $.get(url, null, function (data) {
+            $("#displayText").html(data);
+        });
+    })
+    $('#blogPost').click(function () {
+        $("#displayText").html("Implmented in future stories");
     });
   });
 </script>
