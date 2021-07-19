@@ -1,51 +1,35 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+<script type="text/javascript">
+  $("").click(function () {
 
+  })
+
+</script>
 <p>
   @Html.ActionLink("Create New", "Create")
 </p>
-<p class="text-white">@DateTime.Now</p>
+
 
 
 @foreach (var item in Model.OrderByDescending(i => i.CommentDate))
 {
-  <div class="col-lg-12 p-2 cms-bg-main-light border border-dark">
-    <div class="row ">
-      <a class="col-2" href="">@Html.DisplayFor(modelItem => item.Author.UserName)</a>
-      <p class="col-8 border border-light cms-text-dark">@Html.DisplayFor(modelItem => item.Message)</p>
-      <button class="col-1 p-1 cms-text-dark btn">
-        <i class="fa fa-trash" aria-hidden="true"></i>
-      </button>
+    <div class="col-lg-12 p-2 cms-bg-main-light border border-dark">
+      <div class="row ">
+        <a class="col-2" href="">@Html.DisplayFor(modelItem => item.Author.UserName)</a>
+        <p class="col-8 border border-light cms-text-dark">@Html.DisplayFor(modelItem => item.Message)</p>
+        <button class="col-1 p-1 cms-text-dark btn">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="row">
+        <p class="col-2">@item.TimeSincePost()</p>
+
+        <input class="btn btn-outline-light cms-bg-main" onkeypress="">
+        <p id=""class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
+        <button class="btn btn-outline-light cms-bg-main">Dislike</button>
+        <p class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
+        <button class="btn btn-outline-light cms-bg-main">Reply</button>
+
+      </div>
     </div>
-
-    <div class="row">
-      @*shows the amount of time since the comment was created.*@
-      <p class="col-2">@item.TimeSincePost()</p>
-      @*Like Button*@
-
-      @using (Ajax.BeginForm("OnLikeClick", item, new AjaxOptions()
-      {
-        HttpMethod = "Post",
-        InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = item.CommentId.ToString()
-      }))
-      {
-        <button type="submit" class="btn btn-outline-light cms-bg-main">Like</button>
-      }
-      <p id="@item.CommentId" class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
-
-      @using (Ajax.BeginForm("OnDislikeClick", item, new AjaxOptions()
-      {
-        HttpMethod = "Post",
-        InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = item.CommentId.ToString()
-      }))
-      {
-        <button type="submit" id="dislikeBtn" class="btn btn-outline-light cms-bg-main">Dislike</button>
-      }
-      <p id="dislikes" class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
-      <button class="btn btn-outline-light cms-bg-main">Reply</button>
-      <p>@DateTime.Now</p>
-
-    </div>
-  </div>
 }

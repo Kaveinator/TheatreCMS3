@@ -23,7 +23,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
             result.Data = comment.Likes.ToString();
-            return result;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Blog/Comments
