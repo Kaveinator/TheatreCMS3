@@ -16,6 +16,16 @@ namespace TheatreCMS3.Areas.Blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public JsonResult OnLikeClick(Comment comment)
+        {
+            var result = new JsonResult();
+            comment.Likes++;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+            result.Data = comment.Likes.ToString();
+            return result;
+        }
+
         // GET: Blog/Comments
         public ActionResult Index()
         {
