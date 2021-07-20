@@ -8,36 +8,57 @@
 
 
 @foreach (var item in Model.OrderByDescending(i => i.CommentDate))
-{
-  // makes unique ids for like and display element for each comment for reference in javascript
-  string likes = item.CommentId + "likes";
-  string dislikes = item.CommentId + "dislikes";
+  {
+    // makes unique ids for like and display element for each comment for reference in javascript
+    string likes = item.CommentId + "likes";
+    string dislikes = item.CommentId + "dislikes";
+    double dislikeRatio = 100 - item.LikeRatio();
 
-  <div class="col-lg-12 p-2 cms-bg-main-light border border-dark">
 
-      @*top row display user name, comment messsage.*@
-      <div class="row">
-          <a class="col-2" href="">@Html.DisplayFor(modelItem => item.Author.UserName)</a>
-          <p class="col-8 border border-light cms-text-dark">@Html.DisplayFor(modelItem => item.Message)</p>
-          <button class="col-1 p-1 cms-text-dark btn">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-      </div>
 
-      @*bottom row display*@
-      <div class="row">
-          <p class="col-2">@item.TimeSincePost()</p>
+<div class="container-fluid col-xs-12 p-2 cms-bg-main-light border border-dark">
 
-          @*Like button/ Likes*@
-          <input type="button" onclick="addLike(@item.CommentId)" class="btn btn-outline-light cms-bg-main" value="Like">
-          <p id="@likes" class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
-
-          @*Dislike button/ Dislikes*@
-          <input type="button" onclick="addDislike(@item.CommentId)" class="btn btn-outline-light cms-bg-main" value="DisLike">
-          <p id="@dislikes" class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
-
-          <button class="btn btn-outline-light cms-bg-main">Reply</button>
-
-    </div>
+  @*top row display user name, comment messsage.*@
+  <div class="row ">
+    <a class="col-2" href="">@Html.DisplayFor(modelItem => item.Author.UserName)</a>
+    <p class="col-9 border border-light cms-text-dark">@Html.DisplayFor(modelItem => item.Message)</p>
+    <button class="col-1 p-1 cms-text-dark btn">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
   </div>
+
+  @*Second row display*@
+  <div class="row d-flex align-items-center">
+    <p class="col-2">@item.TimeSincePost()</p>
+
+    @*Like button/ Likes*@
+    <input type="button" onclick="addLike(@item.CommentId)" class="col-lg-1 col-2 btn btn-outline-light cms-bg-main" value="Like">
+    <p id="@likes" class="col">@Html.DisplayFor(modelItem => item.Likes)</p>
+
+    @*Dislike button/ Dislikes*@
+    <input type="button" onclick="addDislike(@item.CommentId)" class="col-lg-1 col-2 btn btn-outline-light cms-bg-main" value="Dislike">
+    <p id="@dislikes" class="col">@Html.DisplayFor(modelItem => item.Dislikes)</p>
+
+    <button class="btn btn-outline-light cms-bg-main">Reply</button>
+    <div class="col"></div>
+  </div>
+
+  <div class="mt-2 row d-flex align-items-center">
+    <div class="col-2"></div>
+
+    <div class="blog-comments-pbcontainer col w-100 cms-bg-dark">
+      <div class="blog-comments-progressbar progress bg-danger">
+        <div id="" class="progress-bar bg-success" role="progressbar" style="width: @item.LikeRatio()%;"></div>
+      </div>
+    </div>
+      <p class="col p-0 m-0 cms-bg-dark">@item.LikeRatio()% Likes | @dislikeRatio% Dislikes </p>
+    <div class="col"></div>
+
+
+
+
+
+  </div>
+
+</div>
 }
