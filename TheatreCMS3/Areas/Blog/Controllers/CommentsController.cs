@@ -9,12 +9,37 @@ using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 using Microsoft.AspNet.Identity;
+using System.Web.Services;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
     public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        [HttpPost]
+        public JsonResult OnLikeClick(int Id)
+        {
+            Comment comment = db.Comment.Find(Id);
+            var result = new JsonResult();
+            comment.Likes++;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+            result.Data = comment.Likes;
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult OnDislikeClick(int Id)
+        {
+            Comment comment = db.Comment.Find(Id);
+            var result = new JsonResult();
+            comment.Dislikes++;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+            result.Data = comment.Dislikes;
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Blog/Comments
         public ActionResult Index()
