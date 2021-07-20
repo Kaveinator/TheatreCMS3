@@ -124,5 +124,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public string BlogBio(int id)
+        {
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            return blogAuthor.Bio;
+        }
     }
 }
