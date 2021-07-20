@@ -268,7 +268,7 @@
 /*Delete Notification Pop-up Styling*/
 .BlogPost-index--deleteNotif.alert-success {
     left: 50%;
-    width: 300px;
+    width: 350px;
     border-radius: 30px;
     height: 25px;
     background-color: #cfee91;
