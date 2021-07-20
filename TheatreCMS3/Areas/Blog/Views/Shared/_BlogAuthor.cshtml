@@ -51,34 +51,3 @@
     </div>
   </div>
 </div>
-
-<!--<script type="text/javascript">
-  $(document).ready(function () {
-    $('#blogBio@(Model.BlogAuthorId)').click(function () {
-        var url =  '/Blog/BlogAuthors/BlogBio/' + 2;
-        $.get(url, null, function (data) {
-            $("#displayText@(Model.BlogAuthorId)").html(data);
-        });
-    })
-    $('#blogPost@(Model.BlogAuthorId)').click(function () {
-        $("#displayText@(Model.BlogAuthorId)").html("Implmented in future stories");
-    });
-  });
-</script> -->
-
-<script>
-  function getBlogBio(id) {
-    $(document).ready(function () {
-      var url = '/Blog/BlogAuthors/BlogBio/' + id;
-      $.get(url, null, function (data) {
-        $("#displayText" + id).html(data);
-      });
-    })
-  }
-
-  function getBlogPost(id) {
-    $(document).ready(function () {
-      $("#displayText" + id).html("Implmented in future stories");
-    })
-  }
-</script>
