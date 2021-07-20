@@ -1,12 +1,15 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+@Styles.Render("~/Content/Areas/Blog.css")
+@Scripts.Render("~/Scripts/Areas/Blog.js")
+
 
 <div class="mb-5">
   <div class="d-flex justify-content-center mx-auto" style="margin-bottom: -4px;">
     <div class="p-1 pl-2 py-2 bg-light rounded-left">
-      <input type="button" id="blogBio" onclick="" value="Author Details" class="btn-responsive btn btn-dark" />
+      <input type="button" id="blogBio@(Model.BlogAuthorId)" onclick="getBlogBio(@Model.BlogAuthorId)" value="Author Details" class="btn-responsive btn btn-dark" />
     </div>
     <div class="p-1 py-2 bg-light rounded-right">
-      <input type="button" id="blogPost" onclick="" value="Blog Posts" class="btn-responsive btn btn-dark" />
+      <input type="button" id="blogPost@(Model.BlogAuthorId)" onclick="getBlogPost(@Model.BlogAuthorId)" value="Blog Posts" class="btn-responsive btn btn-dark" />
     </div>
   </div>
   <div class="row dl-horizontal bg-light rounded text-dark">
@@ -23,7 +26,7 @@
         </div>
       </div>
       <div class="row-cols-md-auto" style="overflow: hidden; height: 280px">
-        <p id="displayText">@Html.DisplayFor(model => model.Bio)</p>
+        <p id="displayText@(Model.BlogAuthorId)">@Html.DisplayFor(model => model.Bio)</p>
       </div>
       <div class="row">
         <div class="col-md-auto">
@@ -48,17 +51,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $('#blogBio').click(function () {
-        var url =  '@Url.Action("BlogBio", "BlogAuthors", new { id = Model.BlogAuthorId })';
-        $.get(url, null, function (data) {
-            $("#displayText").html(data);
-        });
-    })
-    $('#blogPost').click(function () {
-        $("#displayText").html("Implmented in future stories");
-    });
-  });
-</script>

@@ -13,7 +13,7 @@
       <input type="button" id="blogBio" onclick="getBlogBio(@Model.BlogAuthorId)" value="Author Details" class="btn-responsive btn btn-dark" />
     </div>
     <div class="p-1 py-2 bg-light rounded-right">
-      <input type="button" id="blogPost" onclick="getBlogPost(@Model.BlogAuthorId)" value="Blog Posts" class="btn-responsive btn btn-dark" />
+      <input type="button" id="blogPost" onclick="" value="Blog Posts" class="btn-responsive btn btn-dark" />
     </div>
   </div>
   <div class="row dl-horizontal bg-light rounded text-dark">
@@ -31,6 +31,10 @@
       </div>
       <div class="row-cols-md-auto" style="overflow: hidden; height: 280px">
         <p id="displayText@(Model.BlogAuthorId)">@Html.DisplayFor(model => model.Bio)</p>
+        <p id="displayText">@Html.DisplayFor(model => model.Bio)</p>
+=========
+        <p id="displayText@(Model.BlogAuthorId)">@Html.DisplayFor(model => model.Bio)</p>
+>>>>>>>>> Temporary merge branch 2
       </div>
       <div class="row">
         <div class="col-md-auto">
