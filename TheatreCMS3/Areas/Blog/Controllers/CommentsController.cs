@@ -19,13 +19,14 @@ namespace TheatreCMS3.Areas.Blog.Controllers
 
         [HttpPost]
         
-        public JsonResult OnLikeClick(Comment comment)
+        public JsonResult OnLikeClick(int Id)
         {
+            Comment comment = db.Comment.Find(Id);
             var result = new JsonResult();
             comment.Likes++;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
-            result.Data = comment;
+            result.Data = comment.Likes;
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

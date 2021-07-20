@@ -1,20 +1,6 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
-@Html.Hidden("OnLikeClick", Url.Action("OnLikeClick"))
-
-@*<head>
-    <script src="~/Scripts/jquery-3.5.1.js"></script>
-    <script>
-      $("#Like").click(function () {
-          $.ajax({
-            url: '@Url.Action("OnLikeClick", "Comments")',
-            type: 'POST',
-            success: function (result) {
-              $('#likes').hide()
-            }
-    </script>
-  </head>*@
-
-
+@Html.Hidden("OnLikeClick", Url.Action("OnLikeClick", "Comments"))
+<script src="~/Scripts/jquery-3.5.1.js"></script>
 
 <p>
   @Html.ActionLink("Create New", "Create")
@@ -24,8 +10,10 @@
 @foreach (var item in Model.OrderByDescending(i => i.CommentDate))
 {
 
+  string likes = item.CommentId + "likes";
+  string dislikes = item.CommentId + "dislikes";
   <div class="col-lg-12 p-2 cms-bg-main-light border border-dark">
-    <div class="row ">
+    <div class="row">
       <a class="col-2" href="">@Html.DisplayFor(modelItem => item.Author.UserName)</a>
       <p class="col-8 border border-light cms-text-dark">@Html.DisplayFor(modelItem => item.Message)</p>
       <button class="col-1 p-1 cms-text-dark btn">
@@ -35,12 +23,12 @@
     <div class="row">
       <p class="col-2">@item.TimeSincePost()</p>
 
-      <input id="btnLike" class="btn btn-outline-light cms-bg-main" type="button" value="Like">
+      <input type="button" onclick="addLike(@item.CommentId)" data-id="@item.CommentId" class="btn btn-outline-light cms-bg-main" value="Like">
 
-      <p id="likes" class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
+      <p id="@likes" class="col-1">@Html.DisplayFor(modelItem => item.Likes)</p>
 
-      <input id="btnDislike" class="required btn btn-outline-light cms-bg-main" type="button" value="DisLike">
-      <p id="dislikes" class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
+      <input type="button" id="btnDislike" class="btn btn-outline-light cms-bg-main" value="DisLike">
+      <p id="@dislikes" class="col-1">@Html.DisplayFor(modelItem => item.Dislikes)</p>
 
 
       <button class="btn btn-outline-light cms-bg-main">Reply</button>
