@@ -25,3 +25,17 @@ $("#BlogPost-index--deleteModal").on('hide.bs.modal', function () {
     let modal = $(this);
     modal.find("#deleteButton").off();
 })
+function getBlogBio(id) {
+    $(document).ready(function () {
+        var url = '/Blog/BlogAuthors/BlogBio/' + id;
+        $.get(url, null, function (data) {
+            $("#displayText" + id).html(data);
+        });
+    })
+}
+
+function getBlogPost(id) {
+    $(document).ready(function () {
+        $("#displayText" + id).html("Implmented in future stories");
+    })
+}
