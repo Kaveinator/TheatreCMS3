@@ -4,13 +4,13 @@
 function addLike(commentId) {
     {
         try {
-            
+            var htmlID = commentId + "likes";
             $.ajax({
                 url: onLikeClickUrl,
                 type: "POST",
                 data: { id: commentId },
                 success: function (result) {
-
+                    document.getElementById(htmlID).innerHTML = result.Data;
                 },
                 error: function (error) {
                     alert(error);
@@ -24,4 +24,3 @@ function addLike(commentId) {
 }
 
 var htmlID = commentId + "likes";
-$("htmlId").value = result;
