@@ -289,3 +289,37 @@
     margin-bottom: 2vw;
 }
 /*End of Stylings for the Details and Delete Views*/
+
+/*Index Delete Modal and Notification Styling*/
+#BlogPost-index--deleteModal,
+.BlogPost_index--modalTitle {
+    color: #000000;
+    text-align: center;
+    width: 100%;
+    border: 1px 1px 2px red;
+}
+
+/*Styling for Index Table*/
+#BlogPost-index--postTable,
+#BlogPost-index--postTableCell {
+    color: #FFFBFB;
+    border: hidden;
+}
+
+/*Delete Notification Pop-up Styling*/
+.BlogPost-index--deleteNotif.alert-success {
+    left: 50%;
+    width: 350px;
+    border-radius: 30px;
+    height: 25px;
+    background-color: #cfee91;
+    color: forestgreen;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10;
+    position: fixed;
+    transform: translate(-50%,10px);
+    border: 2px 2px 3px #cfee91;
+    padding: 0;
+    display: none;
+}
