@@ -25,9 +25,9 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             comment.Likes++;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
-            // make data a list to send comment.LikeRatio
-            result.Data = comment.Likes;
+            result.Data = new { likes = comment.Likes, likeRatio = (Int32)comment.LikeRatio() + "%" };
             return Json(result, JsonRequestBehavior.AllowGet);
+            
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             comment.Dislikes++;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
-            result.Data = comment.Dislikes;
+            result.Data = new { dislikes = comment.Dislikes, likeRatio = (Int32)comment.LikeRatio() + "%" };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
