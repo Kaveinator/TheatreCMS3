@@ -609,7 +609,17 @@ hr.rounded {
     font-weight: 900;
     border-bottom-left-radius: 50px;
 }
-
-
-
 /* End Home/Contact Page*/
+
+/* Blog/_Comments Styling */
+.blog-comments-pbcontainer {
+    height: 24px;
+}
+
+.blog-comments-progressbar {
+    margin-top: 9px;
+    height: 6px;
+}
+
+
+

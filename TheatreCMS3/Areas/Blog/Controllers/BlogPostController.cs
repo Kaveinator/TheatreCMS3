@@ -90,7 +90,8 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogPost);
         }
 
-        // GET: Blog/BlogPost/Delete/5
+        // POST: Blog/BlogPost/Delete/5
+        [HttpPost, ActionName("Delete"), AllowAnonymous]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -98,19 +99,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             BlogPost blogPost = db.BlogPost.Find(id);
+
             if (blogPost == null)
             {
                 return HttpNotFound();
             }
-            return View(blogPost);
-        }
-
-        // POST: Blog/BlogPost/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            BlogPost blogPost = db.BlogPost.Find(id);
             db.BlogPost.Remove(blogPost);
             db.SaveChanges();
             return RedirectToAction("Index");
