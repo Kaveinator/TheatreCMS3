@@ -5,12 +5,17 @@ function addLike(commentId) {
     {
         try {
             var htmlID = commentId + "likes";
+            var progressBarId = "#" + commentId + "bar";
+            var progressBarContainerId = "#" + commentId + "bar";
+            var ratioId = "#" + commentId + "ratio";
             $.ajax({
                 url: onLikeClickUrl,
                 type: "POST",
                 data: { id: commentId },
                 success: function (likeResult) {
                     document.getElementById(htmlID).innerHTML = likeResult.Data;
+                    $(ratioId).load(location.href + " " + ratioId);
+                    $(progressBarId).load(location.href + " " + progressBarId);
                 },
                 error: function (error) {
                     alert(error);
@@ -44,3 +49,5 @@ function addDislike(commentId) {
         }
     }
 }
+
+/**/

@@ -8,11 +8,15 @@
 
 
 @foreach (var item in Model.OrderByDescending(i => i.CommentDate))
-  {
-    // makes unique ids for like and display element for each comment for reference in javascript
-    string likes = item.CommentId + "likes";
-    string dislikes = item.CommentId + "dislikes";
-    double dislikeRatio = 100 - item.LikeRatio();
+{
+  // makes unique ids for like and display element for each comment for reference in javascript
+  string likes = item.CommentId + "likes";
+  string dislikes = item.CommentId + "dislikes";
+  string progressBar = item.CommentId + "bar";
+  string progressBarContainer = item.CommentId + "pbContainer";
+  string ratioId = item.CommentId + "ratio";
+  double dislikeRatio = 100 - item.LikeRatio();
+  string likeRatioPercent = item.LikeRatio() + "%";
 
 
 
@@ -45,13 +49,17 @@
 
   <div class="mt-2 row d-flex align-items-center">
     <div class="col-2"></div>
-
-    <div class="blog-comments-pbcontainer col w-100 cms-bg-dark">
-      <div class="blog-comments-progressbar progress bg-danger">
-        <div id="" class="progress-bar bg-success" role="progressbar" style="width: @item.LikeRatio()%;"></div>
+    
+      <div id="@progressBarContainer" class="blog-comments-pbcontainer col w-100 cms-bg-dark">
+        <div  class="blog-comments-progressbar progress bg-danger">
+          <div id="@progressBar" class="progress-bar bg-success" role="progressbar" aria-valuenow="@item.LikeRatio()" aria-valuemin="0" aria-valuemax="100" style="width: @item.LikeRatio()%; "></div>
+        </div>
       </div>
-    </div>
-      <p class="col p-0 m-0 cms-bg-dark">@item.LikeRatio()% Likes | @dislikeRatio% Dislikes </p>
+    
+
+    
+
+    <p id="@ratioId" class="col p-0 m-0 cms-bg-dark">@item.LikeRatio()% Likes | @dislikeRatio% Dislikes</p>
     <div class="col"></div>
 
 

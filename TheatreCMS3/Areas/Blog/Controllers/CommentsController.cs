@@ -25,6 +25,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             comment.Likes++;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
+            // make data a list to send comment.LikeRatio
             result.Data = comment.Likes;
             return Json(result, JsonRequestBehavior.AllowGet);
         }
