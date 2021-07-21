@@ -45,13 +45,17 @@ let onDisikeClickUrl = $("#OnDislikeClick").val();
 function addLike(commentId) {
     {
         try {
-            var htmlID = commentId + "likes";
+            var likesId = commentId + "likes";
+            var progressBarId = commentId + "bar";
+            var ratioId = "#" + commentId + "ratio";
             $.ajax({
                 url: onLikeClickUrl,
                 type: "POST",
                 data: { id: commentId },
-                success: function (likeResult) {
-                    document.getElementById(htmlID).innerHTML = likeResult.Data;
+                success: function (result) {
+                    document.getElementById(likesId).innerHTML = result.Data["likes"];
+                    $(ratioId).load(location.href + " " + ratioId);
+                    document.getElementById(progressBarId).style.width = result.Data["likeRatio"];
                 },
                 error: function (error) {
                     alert(error);
@@ -67,13 +71,17 @@ function addLike(commentId) {
 function addDislike(commentId) {
     {
         try {
-            var htmlDislikeID = commentId + "dislikes";
+            var dislikeId = commentId + "dislikes";
+            var progressBarId = commentId + "bar";
+            var ratioId = "#" + commentId + "ratio";
             $.ajax({
                 url: onDisikeClickUrl,
                 type: "POST",
                 data: { id: commentId },
                 success: function (result) {
-                    document.getElementById(htmlDislikeID).innerHTML = result.Data;
+                    document.getElementById(dislikeId).innerHTML = result.Data["dislikes"];
+                    $(ratioId).load(location.href + " " + ratioId);
+                    document.getElementById(progressBarId).style.width = result.Data["likeRatio"];
                 },
                 error: function (error) {
                     alert(error);
@@ -85,3 +93,4 @@ function addDislike(commentId) {
         }
     }
 }
+
