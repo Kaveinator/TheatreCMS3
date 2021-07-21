@@ -12,6 +12,6 @@ namespace TheatreCMS3.Areas.Blog.Models
         [Key]
         public int BlogPhotoID { get; set; }
         public string Title { get; set; }
-        //public byte[] Photo { get; set; }
+        public byte[] Photo { get; set; }
     }
 }
