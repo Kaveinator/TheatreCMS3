@@ -136,8 +136,8 @@ namespace TheatreCMS3.Areas.Blog.Controllers
 
         // POST: Blog/Comments/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public JsonResult Delete(int id)
+        
+        public JsonResult Delete(int? id)
         {
             var result = new JsonResult();
             Comment comment = db.Comment.Find(id);

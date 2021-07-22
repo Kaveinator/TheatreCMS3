@@ -39,33 +39,44 @@ function getBlogPost(id) {
         $("#displayText" + id).html("Implmented in future stories");
     })
 }
+
+
 //Comment Section JS
-
-
-
 $((function() {
-        var url;
-        var redirectUrl;
-        var target;
-
-        $('body').append(`
-                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Warning</h4>
-                            </div>
-                            <div class="modal-body delete-modal-body">
-                            
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel-delete">Cancel</button>
-                                <button type="button" class="btn btn-danger" id="confirm-delete">Delete</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>`);
+    var url;
+    var redirectUrl;
+    var target;
+    var commentContainerId;
+    $('#blog-comments-container').prepend(`
+        <div class="blog-comments-deleteSuccessBarContainer w-50 cmg-bg-dark">
+            <div class="blog-comments-deleteSuccessBar progress ">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                    <p class="my-auto">The comment was deleted successfully<i class="fa fa-check" aria-hidden="true"></i></p></div>
+            </div>
+        </div>
+            `);
+    $('.blog-comments-deleteSuccessBarContainer').hide();
+    $('body').append(`
+        <div id="deleteModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title cms-text-main">Delete Comment?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="delete-modal-body cms-text-secondary-dark">Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" id="confirm-delete">Confirm Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+`);
 
 
 
@@ -74,13 +85,15 @@ $((function() {
             e.preventDefault();
 
             target = e.target;
+            
             var Id = $(target).data('id');
             var controller = $(target).data('controller');
             var action = $(target).data('action');
             var bodyMessage = $(target).data('body-message');
+            commentContainerId = "#" + Id + "comment";
             redirectUrl = $(target).data('redirect-url');
 
-            url = "/" + controller + "/" + action + "?Id=" + Id;
+            url = "/Blog/" + controller + "/" + action + "/" + Id;
             $(".delete-modal-body").text(bodyMessage);
             $("#deleteModal").modal("show");
         });
@@ -92,8 +105,9 @@ $((function() {
             $.ajax({
                 url: url,
                 type: "POST",
-                data: { id: commentId },
                 success: function (result) {
+                    $(".blog-comments-deleteSuccessBarContainer").show().delay(3000).fadeOut(1500);
+                    $(commentContainerId).hide();
                     
                 },
                 error: function (error) {
@@ -104,19 +118,7 @@ $((function() {
         catch (e) {
             alert(e.message);
         }
-            //$.get(url)
-            //    .done((result) => {
-            //        if (!redirectUrl) {
-            //            return $(target).parent().parent().hide("slow");
-            //        }
-            //        window.location.href = redirectUrl;
-            //    })
-            //    .fail((error) => {
-            //        if (redirectUrl)
-            //            window.location.href = redirectUrl;
-            //    }).always(() => {
-            //        $("#deleteModal").modal("hide");
-            //    });
+
         });
     }()));
 
@@ -174,3 +176,18 @@ function addDislike(commentId) {
     }
 }
 
+            //$.get(url)
+            //    .done((result) => {
+            //        if (!redirectUrl) {
+            //            return $(target).parent().parent().hide("slow");
+            //        }
+            //        window.location.href = redirectUrl;
+            //    })
+            //    .fail((error) => {
+            //        if (redirectUrl)
+            //            window.location.href = redirectUrl;
+            //    }).always(() => {
+            //        $("#deleteModal").modal("hide");
+            //    });
+
+//End Comment Section JS

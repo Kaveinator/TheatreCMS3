@@ -620,6 +620,17 @@ hr.rounded {
     margin-top: 9px;
     height: 6px;
 }
+.blog-comments-deleteSuccessBarContainer {
+    height: 30px;
+    border-radius: 50px;
+}
+
+.blog-comments-deleteSuccessBar {
+    border-radius: 50px;
+    margin: 6px;
+    height: 18px;
+}
+/* End Blog/_Comments Styling */
 
 
 
