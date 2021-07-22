@@ -94,3 +94,22 @@ function addDislike(commentId) {
     }
 }
 
+// Deletes Blog Author and hide's Modal, initiating shrinking animation.
+function DeleteAuthors(id) {
+    console.log("Hello");
+    let myUrl = $("#deleteUrl").val();
+    $.ajax({
+        type: "POST",
+        url: myUrl,
+        data: { Id: id },
+        success: function () {
+            $("#BlogAuthorDeleteModal").modal("hide");
+            $("#blogAuthorContainer" + id).addClass("animate__zoomOut");
+            $("#blogAuthorContainer" + id).hide(1500);
+        },
+        error: function () {
+            console.log("Failure to delete Author")
+        }
+    });
+}
+

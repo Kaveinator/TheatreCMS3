@@ -90,27 +90,31 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(blogAuthor);
         }
 
-        // GET: Blog/BlogAuthors/Delete/5
-        public ActionResult Delete(int? id)
+        //// GET: Blog/BlogAuthors/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+        //    if (blogAuthor == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(blogAuthor);
+        //}
+
+        // POST: Blog/BlogAuthors/Delete/5
+        [HttpPost, ActionName("Delete"), AllowAnonymous]
+        public ActionResult DeleteConfirmed(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(blogAuthor);
-        }
-
-        // POST: Blog/BlogAuthors/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            blogAuthor.Left = DateTime.Now;
             db.BlogAuthors.Remove(blogAuthor);
             db.SaveChanges();
             return RedirectToAction("Index");
