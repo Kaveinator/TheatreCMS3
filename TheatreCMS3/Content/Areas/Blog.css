@@ -238,111 +238,113 @@
 
 /* Blog Photo Styling*/
 
-#BlogPhoto-Header-Center {
+#BlogPhoto-Create--Header {
     text-align: center;
 }
 
 /* container */
-.BlogPhoto-Create-Form {
-    background-color: #d6972a;
+.BlogPhoto-Create--Form {
+    background-color: var(--secondary-color);
     margin: auto;
     width: 50%;
     padding: 10px;
     border-radius: 10px;
 }
 
-.BlogPhoto-Create-Form-Input.form-control:focus {
-    border-color: #f04d44;
+.BlogPhoto-Create--Form_Input.form-control:focus {
+    border-color: var(--main-color--light);
     box-shadow: none;
     -webkit-box-shadow: none;
     border-width: 3px;
-    background-color: #fffbfb;
+    background-color: var(--light-color);
 }
 
 
-.BlogPhoto-Create-Button-1.btn-whatever {
+.BlogPhoto-Create--Button_1.btn-whatever {
     color: white;
-    background-color: #bd1a11;
+    background-color: var(--main-color);
     transition-duration: 0.4s;
 }
 
-.BlogPhoto-Create-Button-2.btn-whatever {
+.BlogPhoto-Create--Button_2.btn-whatever {
     color: white;
-    background-color: #9d7c39;
+    background-color: var(--secondary-color--dark);
     transition-duration: 0.4s;
 }
 
-    .BlogPhoto-Create-Button-2.btn-whatever:hover {
-        border: 2px solid #9d7c39;
+    .BlogPhoto-Create--Button_2.btn-whatever:hover {
+        border: 2px solid var(--secondary-color--dark);
         background-color: white;
-        color: #9d7c39;
+        color: var(--secondary-color--dark);
     }
 
-.BlogPhoto-Create-Button-1.btn-whatever:hover {
-    border: 2px solid #bd1a11;
+.BlogPhoto-Create--Button_1.btn-whatever:hover {
+    border: 2px solid var(--main-color);
     background-color: white;
-    color: #bd1a11;
+    color: var(--main-color);
 }
 
-#BlogPhoto-File-Selector, #BlogPhoto-Create-Label {
+#BlogPhoto-File--Selector, #BlogPhoto-Create--Label {
     margin-left: 15px;
     margin-bottom: 10px;
 }
 
 /* BlogPhoto Edit*/
 
-.BlogPhoto-Edit-Header {
+.BlogPhoto-Edit--Header {
     text-align: center;
 }
 
-.BlogPhoto-Edit-Form {
-    background-color: #d6972a;
+.BlogPhoto-Edit--Form {
+    background-color: var(--secondary-color);
     margin: auto;
     width: 50%;
     padding: 10px;
     border-radius: 10px;
 }
 
-.BlogPhoto-Edit-Button-1.btn-whatever {
+.BlogPhoto-Edit--Button_1.btn-whatever {
     color: white;
-    background-color: #bd1a11;
+    background-color: var(--main-color);
     transition-duration: 0.4s;
 }
 
-.BlogPhoto-Edit-Button-2.btn-whatever {
+.BlogPhoto-Edit--Button_2.btn-whatever {
     color: white;
-    background-color: #9d7c39;
+    background-color: var(--secondary-color--dark);
     transition-duration: 0.4s;
 }
 
-    .BlogPhoto-Edit-Button-2.btn-whatever:hover {
-        border: 2px solid #9d7c39;
+    .BlogPhoto-Edit--Button_2.btn-whatever:hover {
+        border: 2px solid var(--secondary-color--dark);
         background-color: white;
-        color: #9d7c39;
+        color: var(--secondary-color--dark);
     }
 
-.BlogPhoto-Edit-Button-1.btn-whatever:hover {
-    border: 2px solid #bd1a11;
+.BlogPhoto-Edit--Button_1.btn-whatever:hover {
+    border: 2px solid var(--main-color);
     background-color: white;
-    color: #bd1a11;
+    color: var(--main-color);
 }
 
-.BlogPhoto-Edit-Form-Input.form-control:focus {
-    border-color: #f04d44;
+.BlogPhoto-Edit--Form_Input.form-control:focus {
+    border-color: var(--main-color--light);
     box-shadow: none;
     -webkit-box-shadow: none;
     border-width: 3px;
-    background-color: #fffbfb;
+    background-color: var(--light-color);
 }
 
-#image_upload_preview {
+#BlogPhoto-Create--Input_Img {
     height: 100px;
     width: 100px;
     margin-top: 10px;
+    border-radius: 0px;
 }
 
-.BlogPhoto-Edit-Img {
+.BlogPhoto-Edit--Input_Img {
     height: 100px;
     width: 100px;
     margin-top: 10px;
+    border-radius: 0%;
 }

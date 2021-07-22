@@ -554,7 +554,7 @@ input[type=text].Donation, textarea.Donation {
     border-top-right-radius: 50px;
 }
 
-.About-Header {
+h5 {
     text-decoration: underline;
     text-decoration-color: #bd1a11;
 }
@@ -570,7 +570,7 @@ div.item {
     font-size: 1em;
 }
 
-.profile-photo {
+img {
     width: 175px;
     height: 175px;
     border-radius: 50%;
@@ -613,3 +613,8 @@ hr.rounded {
 
 
 /* End Home/Contact Page*/
+
+
+
+
+
