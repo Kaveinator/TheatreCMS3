@@ -32,7 +32,7 @@ namespace TheatreCMS3.Areas.Blog.Models
                 PostMaster PostMasterSeed = new PostMaster
                 {
                     UserName = "PostMaster",
-                    Email = "PostMaster1337@thtrvrt.com",
+                    Email = "PostMaster@theatre.com",
                     PublishedBlogPosts = 0,
                     RejectedBlogPosts = 0,
                     PendingBlogPosts = 0
@@ -46,7 +46,6 @@ namespace TheatreCMS3.Areas.Blog.Models
                 }
                 
                 db.Users.Add(PostMasterSeed);
-                db.SaveChanges();
             }
         }
 
