@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+ @*creates a hidden html element for urls, to be used in Blog.js.*@ 
 @Html.Hidden("OnLikeClick", Url.Action("OnLikeClick", "Comments"))
 @Html.Hidden("OnDislikeClick", Url.Action("OnDislikeClick", "Comments"))
-@{string url = @Url.Action("OnLikeClick", "Comments");  }
 
 <p>
   @Html.ActionLink("Create New", "Create")
@@ -17,11 +17,9 @@
     string progressBarId = item.CommentId + "bar";
     string ratioId = item.CommentId + "ratio";
     double dislikeRatio = 100 - item.LikeRatio();
-    string likeRatioPercent = item.LikeRatio() + "%";
-
+  
 
     //Comment Container
-
     <div id="@commentContainerId" class="container-fluid col-xs-12 p-2 cms-bg-main-light border border-dark">
 
       @*top row display user name, comment messsage.*@
