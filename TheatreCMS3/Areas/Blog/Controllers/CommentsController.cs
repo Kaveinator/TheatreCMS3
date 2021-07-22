@@ -8,12 +8,39 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
+using Microsoft.AspNet.Identity;
+using System.Web.Services;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
     public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        [HttpPost]
+        public JsonResult OnLikeClick(int Id)
+        {
+            Comment comment = db.Comment.Find(Id);
+            var result = new JsonResult();
+            comment.Likes++;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+            result.Data = new { likes = comment.Likes, likeRatio = (Int32)comment.LikeRatio() + "%" };
+            return Json(result, JsonRequestBehavior.AllowGet);
+            
+        }
+
+        [HttpPost]
+        public JsonResult OnDislikeClick(int Id)
+        {
+            Comment comment = db.Comment.Find(Id);
+            var result = new JsonResult();
+            comment.Dislikes++;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+            result.Data = new { dislikes = comment.Dislikes, likeRatio = (Int32)comment.LikeRatio() + "%" };
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Blog/Comments
         public ActionResult Index()
@@ -47,10 +74,12 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "Author,CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                string userId = HttpContext.User.Identity.GetUserId();
+                comment.Author = db.Users.FirstOrDefault(x => x.Id == userId);
                 db.Comment.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
