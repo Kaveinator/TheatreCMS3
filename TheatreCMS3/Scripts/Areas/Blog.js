@@ -103,7 +103,6 @@ function DeleteAuthors(id) {
         url: myUrl,
         data: { Id: id },
         success: function () {
-            $("#BlogAuthorDeleteModal").modal("hide");
             $("#blogAuthorContainer" + id).addClass("animate__zoomOut");
             $("#blogAuthorContainer" + id).hide(1500);
         },
