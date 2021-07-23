@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -42,22 +43,29 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View();
         }
 
-        // POST: Blog/BlogPhotoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoID,Title")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoID,Title")] BlogPhoto blogPhoto, HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+                if (photo != null && photo.ContentLength > 0)
+                {
+                    blogPhoto.Photo = new byte[photo.ContentLength];
+                    photo.InputStream.Read(blogPhoto.Photo, 0, photo.ContentLength);
+                }
+
                 db.BlogPhoto.Add(blogPhoto);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
             return View(blogPhoto);
         }
+
+
 
         // GET: Blog/BlogPhotoes/Edit/5
         public ActionResult Edit(int? id)
@@ -79,10 +87,16 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogPhotoID,Title")] BlogPhoto blogPhoto)
+        public ActionResult Edit([Bind(Include = "BlogPhotoID,Title")] BlogPhoto blogPhoto, HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+                if (photo != null && photo.ContentLength > 0)
+                {
+                    blogPhoto.Photo = new byte[photo.ContentLength];
+                    photo.InputStream.Read(blogPhoto.Photo, 0, photo.ContentLength);
+                }
+                
                 db.Entry(blogPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -124,5 +138,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+        
     }
 }
