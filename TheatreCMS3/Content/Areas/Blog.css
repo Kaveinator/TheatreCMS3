@@ -323,3 +323,120 @@
     padding: 0;
     display: none;
 }
+/*End of BlogPost Create Styling*/
+
+
+/* Blog Photo Styling*/
+
+#BlogPhoto-Create--Header {
+    text-align: center;
+}
+
+/* container */
+.BlogPhoto-Create--Form {
+    background-color: var(--secondary-color);
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.BlogPhoto-Create--Form_Input.form-control:focus {
+    border-color: var(--main-color--light);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-width: 3px;
+    background-color: var(--light-color);
+}
+
+
+.BlogPhoto-Create--Button_1.btn-whatever {
+    color: white;
+    background-color: var(--main-color);
+    transition-duration: 0.4s;
+}
+
+.BlogPhoto-Create--Button_2.btn-whatever {
+    color: white;
+    background-color: var(--secondary-color--dark);
+    transition-duration: 0.4s;
+}
+
+    .BlogPhoto-Create--Button_2.btn-whatever:hover {
+        border: 2px solid var(--secondary-color--dark);
+        background-color: white;
+        color: var(--secondary-color--dark);
+    }
+
+.BlogPhoto-Create--Button_1.btn-whatever:hover {
+    border: 2px solid var(--main-color);
+    background-color: white;
+    color: var(--main-color);
+}
+
+#BlogPhoto-File--Selector, #BlogPhoto-Create--Label {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+/* BlogPhoto Edit*/
+
+.BlogPhoto-Edit--Header {
+    text-align: center;
+}
+
+.BlogPhoto-Edit--Form {
+    background-color: var(--secondary-color);
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.BlogPhoto-Edit--Button_1.btn-whatever {
+    color: white;
+    background-color: var(--main-color);
+    transition-duration: 0.4s;
+}
+
+.BlogPhoto-Edit--Button_2.btn-whatever {
+    color: white;
+    background-color: var(--secondary-color--dark);
+    transition-duration: 0.4s;
+}
+
+    .BlogPhoto-Edit--Button_2.btn-whatever:hover {
+        border: 2px solid var(--secondary-color--dark);
+        background-color: white;
+        color: var(--secondary-color--dark);
+    }
+
+.BlogPhoto-Edit--Button_1.btn-whatever:hover {
+    border: 2px solid var(--main-color);
+    background-color: white;
+    color: var(--main-color);
+}
+
+.BlogPhoto-Edit--Form_Input.form-control:focus {
+    border-color: var(--main-color--light);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-width: 3px;
+    background-color: var(--light-color);
+}
+
+#BlogPhoto-Create--Input_Img {
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 0px;
+    display: none;
+}
+
+.BlogPhoto-Edit--Input_Img {
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 0%;
+}
+
