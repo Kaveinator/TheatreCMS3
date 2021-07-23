@@ -1,9 +1,10 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 @Styles.Render("~/Content/Areas/Blog.css")
 @Scripts.Render("~/Scripts/Areas/Blog.js")
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 
-<div class="mb-5">
+<div class="mb-5 animate__animated  animate__zoomIn" id="blogAuthorContainer@(Model.BlogAuthorId)">
   <div class="d-flex justify-content-center mx-auto" style="margin-bottom: -4px;">
     <div class="p-1 pl-2 py-2 bg-light rounded-left">
       <input type="button" id="blogBio@(Model.BlogAuthorId)" onclick="getBlogBio(@Model.BlogAuthorId)" value="Author Details" class="btn-responsive btn btn-dark" />
@@ -42,7 +43,7 @@
             <button type="button" onclick="@("window.location.href='" + @Url.Action("Edit", "BlogAuthors", new { id = Model.BlogAuthorId }) + "'");" class="btn btn-success m-1">
               <i class="fas fa-edit"></i> Edit
             </button>
-            <button type="button" onclick="@("window.location.href='" + @Url.Action("Delete", "BlogAuthors", new { id = Model.BlogAuthorId }) + "'");" class="btn btn-danger m-1">
+            <button type="button" onclick="" class="btn btn-danger m-1" data-toggle="modal" data-target="#BlogAuthorDeleteModal@(Model.BlogAuthorId)">
               <i class="fas fa-trash-alt"></i>
             </button>
           </div>
@@ -51,3 +52,27 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="BlogAuthorDeleteModal@(Model.BlogAuthorId)" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="BlogAuthorModalTitle" style="color: #000000; text-align: center; width: 100%; border: 1px 1px 2px red;">Confirm</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="color: black; text-align: center">
+        Are you sure that you would like to delete this BlogAuthor?
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger" id="DeleteAuthor" data-dismiss="modal" onclick="DeleteAuthors(@Model.BlogAuthorId)">Confirm</button>
+        <button data-dismiss="modal" type="button" class="btn btn-warning">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden URL action for JS reference -->
+@Html.Hidden("deleteUrl", Url.Action("Delete"))

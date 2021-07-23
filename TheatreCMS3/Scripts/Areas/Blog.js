@@ -1,38 +1,10 @@
-﻿//Ajax function to Post to BlogPostController with the value taken from the Button creating the modal
-$("#BlogPost-index--deleteModal").on('show.bs.modal', function (event) {
-    let myUrl = $("#myUrl").val();
-    let btn = $(event.relatedTarget);
-    let id = btn.val();
-    let modal = $(this);
-    modal.find("#deleteButton").on("click", function (e) {
-        $.ajax({
-            type: "POST",
-            url: myUrl,
-            data: { Id: id },
-            success: function () {
-                $(btn).closest("tr").hide();
-                $("#BlogPost-index--deleteModal").modal("hide");
-                $(".BlogPost-index--deleteNotif").fadeIn(500).delay(3000).fadeOut(2000);
-            },
-            error: function () {
-            }
-        });
-    });
-})
 
-//On Close Event for Modal that removes the listener from the DeleteButton that was applied above
-$("#BlogPost-index--deleteModal").on('hide.bs.modal', function () {
-    let modal = $(this);
-    modal.find("#deleteButton").off();
-})
-function getBlogBio(id) {
-    $(document).ready(function () {
-        var url = '/Blog/BlogAuthors/BlogBio/' + id;
-        $.get(url, null, function (data) {
-            $("#displayText" + id).html(data);
-        });
-    })
-}
+; (function ($) {
+    function readURL(input) {
+        var $prev = $('#BlogPhoto-Create--Input_Img');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
 function getBlogPost(id) {
     $(document).ready(function () {
@@ -176,5 +148,27 @@ function addDislike(commentId) {
     }
 }
 
+// Deletes Blog Author and hide's Modal, initiating shrinking animation.
+function DeleteAuthors(id) {
+    console.log("Hello");
+    let myUrl = $("#deleteUrl").val();
+    $.ajax({
+        type: "POST",
+        url: myUrl,
+        data: { Id: id },
+        success: function () {
+            $("#blogAuthorContainer" + id).addClass("animate__zoomOut");
+            $("#blogAuthorContainer" + id).hide(1500);
+        },
+        error: function () {
+            console.log("Failure to delete Author")
+        }
+    });
+}
+
+    $('#inputFile').on('change', function () {
+        readURL(this);
+    });
+})(jQuery);
 
 //End Comment Section JS
