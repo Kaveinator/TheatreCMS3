@@ -119,8 +119,24 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(comment);
         }
 
+        // GET: Blog/Comments/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Comment comment = db.Comment.Find(id);
+        //    if (comment == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(comment);
+        //}
+
         // POST: Blog/Comments/Delete/5
         [HttpPost, ActionName("Delete")]
+        
         public JsonResult Delete(int? id)
         {
             var result = new JsonResult();

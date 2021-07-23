@@ -47,8 +47,6 @@ $((function() {
     var redirectUrl;
     var target;
     var commentContainerId;
-
-    //Delete Success bar gets added to html at the top of #blog-comments-container, but hidden. 
     $('#blog-comments-container').prepend(`
         <div class="blog-comments-deleteSuccessBarContainer w-50 cmg-bg-dark">
             <div class="blog-comments-deleteSuccessBar progress ">
@@ -58,8 +56,6 @@ $((function() {
         </div>
             `);
     $('.blog-comments-deleteSuccessBarContainer').hide();
-
-    //deleteModal, also renders hidden.
     $('body').append(`
         <div id="deleteModal" class="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -82,36 +78,37 @@ $((function() {
         </div>
 `);
 
-    //delete comment function makes a url from data, updates the body message, 
-    //this way the body message can contain information about the comment, like the author.
-    //displays the delete confirmation modal.
+
+
     $(".delete-comment").on('click', (e) => {
+        
             e.preventDefault();
 
-            target = e.target;  
+            target = e.target;
+            
             var Id = $(target).data('id');
             var controller = $(target).data('controller');
             var action = $(target).data('action');
             var bodyMessage = $(target).data('body-message');
             commentContainerId = "#" + Id + "comment";
+            redirectUrl = $(target).data('redirect-url');
 
             url = "/Blog/" + controller + "/" + action + "/" + Id;
             $(".delete-modal-body").text(bodyMessage);
             $("#deleteModal").modal("show");
         });
 
-    //on clicking confirm delete function, hides the confirm delete modal
-    //performs the ajax call to controller, hides the deleted comment
-    //shows the success bar, then fades out. 
     $("#confirm-delete").on('click', () => {
         $("#deleteModal").modal("hide");
         try {
+            
             $.ajax({
                 url: url,
                 type: "POST",
                 success: function (result) {
                     $(".blog-comments-deleteSuccessBarContainer").show().delay(3000).fadeOut(1500);
-                    $(commentContainerId).hide();    
+                    $(commentContainerId).hide();
+                    
                 },
                 error: function (error) {
                     alert(error);
@@ -120,6 +117,8 @@ $((function() {
         }
         catch (e) {
             alert(e.message);
+        }
+
         });
     }()));
 
@@ -176,5 +175,6 @@ function addDislike(commentId) {
         }
     }
 }
+
 
 //End Comment Section JS
