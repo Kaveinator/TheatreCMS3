@@ -430,6 +430,7 @@
     width: 100px;
     margin-top: 10px;
     border-radius: 0px;
+    display: none;
 }
 
 .BlogPhoto-Edit--Input_Img {
@@ -438,3 +439,4 @@
     margin-top: 10px;
     border-radius: 0%;
 }
+
