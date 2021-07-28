@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using TheatreCMS3.Areas.Blog.Models;
-
+using TheatreCMS3.Areas.Rent.Models;
 
 namespace TheatreCMS3.Models
 {
@@ -27,6 +27,10 @@ namespace TheatreCMS3.Models
         {
         }
 
+        public ApplicationDbContext(string nameOrConnectionString) : base(nameOrConnectionString)
+        {
+        }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -43,6 +47,9 @@ namespace TheatreCMS3.Models
         public DbSet<BlogPost> BlogPost { get; set; }
         public DbSet<BlogAuthor> BlogAuthors { get; set; }
         public DbSet<BlogPhoto> BlogPhoto { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
+        public DbSet<RentalEquipment> RentalEquipments { get; set; }
+        public DbSet<RentalRoom> RentalRooms { get; set; }
 
     }
 }
