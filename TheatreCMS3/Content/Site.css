@@ -102,12 +102,12 @@ textarea {
 }
 
     .nav > li:hover {
-        background-color: #DEB887;
+        background-color: var(--light-color);
         border-radius: .25rem;
     }
 
     .nav > li > a {
-        color: #DB1A11;
+        color: var(--main-color);
         font-weight: bold;
         font-style: inherit;
         font-size: 22px;
@@ -117,7 +117,7 @@ nav form {
     display: flex;
     height: 42px;
     padding: 2px;
-    background: #D6972A;
+    background: var(--secondary-color);
     min-width: 18%!important;
     border-radius: 2px;
     border: 1px solid rgba(155,155,155,0.2);
@@ -127,10 +127,10 @@ nav form .search-data {
     height: 100%;
     width: 100%;
     padding: 0 10px;
-    color: #fff;
+    color: var(--light-color);
     font-size: 17px;
     font-weight: 500;
-    background: #D6972A;
+    background: var(--secondary-color);
     border: none;
 }
 
@@ -138,7 +138,7 @@ nav form button {
     padding: 0 15px;
     color: none;
     font-size: 17px;
-    background: #D6972A;
+    background: var(--secondary-color);
     border: none;
     border-radius: 10px;
     cursor: pointer;
