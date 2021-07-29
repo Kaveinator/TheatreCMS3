@@ -63,11 +63,12 @@
 
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="~/Home/Index">TheaterCMS</a>
+                <a class="nav-link" href="~/Home/Index">Home<i class="fas fa-home fa-sm" style="color:#000000;"></i></a>
             </li>
             <li class="nav nav-item dropdown ">
                 <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Production
+                    Ensemble
+                  <i class="fas fa-user-friends fa-sm" style="color:#000000;"></i>
                 </a>
                 <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
                     @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
@@ -78,7 +79,8 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Rental
+                    Contact
+                  <i class="fas fa-phone-alt fa-sm" style="color:#000000;"></i>
                 </a>
                 <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
                     @Html.ActionLink("Rental Requests", "Index", "RentalRequests", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
@@ -90,6 +92,7 @@
             <li class="nav-item dropdown">
                 <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Blog
+                  <i class="fas fa-laptop fa-sm" style="color:#000000;"></i>
                 </a>
                 <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
                     @Html.ActionLink("Blog Post", "Index", "BlogPost", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
@@ -98,6 +101,10 @@
                     @Html.ActionLink("Blog Photoes", "Index", "BlogPhotoes", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
                 </div>
             </li>
+                <form action="#">
+                  <input type="search" class="search-data" required />
+                  <button type="submit" class="fas fa-search"></button>
+                </form>
         </ul>
         @Html.Partial("_LoginPartial")
     </div>

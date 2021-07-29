@@ -93,30 +93,65 @@ textarea {
 /* Styling and positioning for the Navbar */
 
 .nav > li {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 2px;
+    margin-right: 2px;
     background-color: var(--secondary-color);
     border-radius: 5px;
     justify-content: center;
+    font-family: Rockwell;
 }
 
     .nav > li:hover {
-        background-color: #DEB887;
+        background-color: var(--light-color);
         border-radius: .25rem;
     }
 
     .nav > li > a {
-        color: #000000;
+        color: var(--main-color);
         font-weight: bold;
+        font-style: inherit;
+        font-size: 22px;
     }
 
-.navbar-icon-red {
+nav form {
+    display: flex;
     height: 42px;
+    padding: 2px;
+    background: var(--secondary-color);
+    min-width: 18%!important;
+    border-radius: 2px;
+    border: 1px solid rgba(155,155,155,0.2);
+}
+
+nav form .search-data {
+    height: 100%;
+    width: 100%;
+    padding: 0 10px;
+    color: var(--light-color);
+    font-size: 17px;
+    font-weight: 500;
+    background: var(--secondary-color);
+    border: none;
+}
+
+nav form button {
+    padding: 0 15px;
+    color: none;
+    font-size: 17px;
+    background: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.navbar-icon-red {
+    height: 70px;
     width: auto;
+    border-radius: .25rem;
 }
 
 .navbar {
-    background-color: var(--main-color);
+    background-color: var(--secondary-color);
 }
 
 .navbar-light .navbar-nav .nav-link { /* make text indside black */
