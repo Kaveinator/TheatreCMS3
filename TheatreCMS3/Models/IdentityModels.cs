@@ -51,6 +51,7 @@ namespace TheatreCMS3.Models
         public DbSet<RentalEquipment> RentalEquipments { get; set; }
         public DbSet<RentalRoom> RentalRooms { get; set; }
         public DbSet<RentalHistory> RentalHistories { get; set; }
+        public DbSet<RentalRequest> RentalRequests { get; set; }
 
     }
 }
