@@ -5,8 +5,9 @@ using System.Web;
 
 namespace TheatreCMS3.Models
 {
-    public  class SiteSettings : ApplicationDbContext
+    public class SiteSettings : ApplicationDbContext
     {
-        public int ReadSiteSettings { get; set; }
+        // Create an integer property for this class
+        public int ReadSiteSettings { get; set; } 
     }
 }
