@@ -20,7 +20,7 @@
     color: var(--dark-color);
     width: 50%;
     margin: auto;
-    border: 20px solid #D6972A;
+    border: 20px solid var(--secondary-color);
     padding: 50px;
 }
 
@@ -31,7 +31,7 @@
     font-size: 5em;
     padding: 30px;
     letter-spacing: 2px;
-    text-shadow: 4px 4px 0px #F04D44, 8px 8px 0px #DB1A11;
+    text-shadow: 4px 4px 0px var(--main-color), 8px 8px 0px var(--main-color);
 }
 
 /*Style for the label on the inputs*/
@@ -41,9 +41,9 @@
     white-space: nowrap;
     margin: 15px auto;
     font-weight: 600;
-    color: #D6972A;
+    color: var(--secondary-color);
     font-size: 2em;
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 1px 1px 1px var(--dark-color);
 }
 
 /*Styles the form inputs*/
@@ -55,29 +55,29 @@
 }
 
     #rental-create-input:focus {
-        background-color: white;
-        -moz-box-shadow: 0px 0px 8px #DB1A11;
-        -webkit-box-shadow: 0px 0px 8px #DB1A11;
-        box-shadow: 0px 0px 8px #DB1A11;
+        background-color: var(--light-color);
+        -moz-box-shadow: 0px 0px 8px var(--main-color);
+        -webkit-box-shadow: 0px 0px 8px var(--main-color);
+        box-shadow: 0px 0px 8px var(--main-color);
     }
 
 /*Styles the create button*/
 #rental-create-createButton {
-    color: white;
+    color: var(--light-color);
     font-size: 30px;
     font-weight: 800;
     text-align: center;
     margin: 30px auto;
-    text-shadow: 5px 5px 5px black;
-    background-color: #D6972A;
-    border:1px solid black;
+    text-shadow: 5px 5px 5px var(--dark-color);
+    background-color: var(--secondary-color);
+    border:1px solid var(--dark-color);
     width:100%
 }
 
     #rental-create-createButton:hover {
-        -moz-box-shadow: 0px 0px 12px #DB1A11;
-        -webkit-box-shadow: 0px 0px 12px #DB1A11;
-        box-shadow: 0px 0px 12px #DB1A11;
+        -moz-box-shadow: 0px 0px 12px var(--main-color);
+        -webkit-box-shadow: 0px 0px 12px var(--main-color);
+        box-shadow: 0px 0px 12px var(--main-color);
     }
 
 /*Style for the return to list button*/
@@ -88,22 +88,22 @@
     padding: 10px;
     margin: 50px auto;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid var(--light-color);
 }
 
     .rental-create--form-return a {
-        color: white;
+        color: var(--light-color);
         text-decoration: none;
         font-weight: 600;
-        text-shadow: 2px 2px 2px black;
+        text-shadow: 2px 2px 2px var(--dark-color);
         font-size: 20px;
         
     }
 
         .rental-create--form-return a:hover {
-            -moz-box-shadow: 0px 0px 8px white;
-            -webkit-box-shadow: 0px 0px 8px white;
-            box-shadow: 0px 0px 8px white;
+            -moz-box-shadow: 0px 0px 8px var(--light-color);
+            -webkit-box-shadow: 0px 0px 8px var(--light-color);
+            box-shadow: 0px 0px 8px var(--light-color);
         }
 
 /*Styling for smaller devices*/
