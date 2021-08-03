@@ -8,7 +8,113 @@
     /*--secondary-color: #D6972A;*/ /* Yellow gold */
     /*--light-color: #FFFBFB;*/ /* White */
     /*--dark-color: #000000;*/ /* Black */
-    /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+/*Styling for Create Page*/
+
+/*Style for the container surrounding the form*/
+.rental-create--form-container {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    width: 50%;
+    margin: auto;
+    border: 20px solid var(--secondary-color);
+    padding: 50px;
+}
+
+/*Style for the h1 at the top of the form*/
+.rental-create--form-label {
+    text-align: center;
+    margin: auto;
+    font-size: 5em;
+    padding: 30px;
+    letter-spacing: 2px;
+    text-shadow: 4px 4px 0px var(--main-color), 8px 8px 0px var(--main-color);
+}
+
+/*Style for the label on the inputs*/
+#rental-create-label {
+    clear: both;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 15px auto;
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 2em;
+    text-shadow: 1px 1px 1px var(--dark-color);
+}
+
+/*Styles the form inputs*/
+#rental-create-input {
+    width: 100%;
+    margin: auto;
+    display: inline-block;
+    background-color: lightgrey;
+}
+
+    #rental-create-input:focus {
+        background-color: var(--light-color);
+        -moz-box-shadow: 0px 0px 8px var(--main-color);
+        -webkit-box-shadow: 0px 0px 8px var(--main-color);
+        box-shadow: 0px 0px 8px var(--main-color);
+    }
+
+/*Styles the create button*/
+#rental-create-createButton {
+    color: var(--light-color);
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    margin: 30px auto;
+    text-shadow: 5px 5px 5px var(--dark-color);
+    background-color: var(--secondary-color);
+    border:1px solid var(--dark-color);
+    width:100%
+}
+
+    #rental-create-createButton:hover {
+        -moz-box-shadow: 0px 0px 12px var(--main-color);
+        -webkit-box-shadow: 0px 0px 12px var(--main-color);
+        box-shadow: 0px 0px 12px var(--main-color);
+    }
+
+/*Style for the return to list button*/
+.rental-create--form-return {
+    text-align: center;
+    background-color: var(--main-color);
+    width: 50%;
+    padding: 10px;
+    margin: 50px auto;
+    border-radius: 10px;
+    border: 1px solid var(--light-color);
+}
+
+    .rental-create--form-return a {
+        color: var(--light-color);
+        text-decoration: none;
+        font-weight: 600;
+        text-shadow: 2px 2px 2px var(--dark-color);
+        font-size: 20px;
+        
+    }
+
+        .rental-create--form-return a:hover {
+            -moz-box-shadow: 0px 0px 8px var(--light-color);
+            -webkit-box-shadow: 0px 0px 8px var(--light-color);
+            box-shadow: 0px 0px 8px var(--light-color);
+        }
+
+/*Styling for smaller devices*/
+@media (max-width: 1000px){
+    .rental-create--form-container {
+        width:100%;
+        padding: 0;
+    }
+    #rental-create-label{
+        font-size:1em;
+    }
+    }
+
 
