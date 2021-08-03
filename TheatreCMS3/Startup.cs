@@ -1,6 +1,5 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Areas.Rent.Models;
 
 [assembly: OwinStartupAttribute(typeof(TheatreCMS3.Startup))]
