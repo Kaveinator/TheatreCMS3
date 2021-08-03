@@ -1,13 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.IO;
+using System;
+using Newtonsoft.Json;
 
 namespace TheatreCMS3.Models
 {
     public class SiteSettings : ApplicationDbContext
     {
-        // Create an integer property for this class
-        public int ReadSiteSettings { get; set; } 
+        public int Copyright { get; set; }
     }
+
+        public class ReadSiteSettings
+    {
+            public static void Main()
+            {
+                string fileName = "SiteSettings.json";
+                string jsonString = File.ReadAllText(fileName);
+                SiteSettings siteSettings = JsonConvert.DeserializeObject<SiteSettings>(jsonString);
+            }
+        }
 }
