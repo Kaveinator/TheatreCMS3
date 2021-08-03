@@ -11,7 +11,6 @@ namespace TheatreCMS3
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            PostMaster.Seed();
             HistoryManager.Seed();
         }
     }
