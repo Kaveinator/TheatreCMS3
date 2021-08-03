@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Rent.Models;
 
 [assembly: OwinStartupAttribute(typeof(TheatreCMS3.Startup))]
 namespace TheatreCMS3
@@ -11,6 +12,7 @@ namespace TheatreCMS3
         {
             ConfigureAuth(app);
             PostMaster.Seed();
+            HistoryManager.Seed();
         }
     }
 }
