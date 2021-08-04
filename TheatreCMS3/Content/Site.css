@@ -527,3 +527,44 @@ input[type=text].Donation, textarea.Donation {
     border-bottom-left-radius: 50px;
 }
 /* End Home/Contact Page*/
+
+/*About Page Styling*/
+.about-container1 {
+    border-bottom-left-radius: 50px;
+}
+
+.about-container2 {
+    border-top-right-radius: 50px;
+}
+
+.about-row {
+    display: flex;
+}
+
+.about-column {
+    flex: 33.33%;
+    padding: 5px;
+}
+
+.donate-button {
+    border: 1px solid white;
+    background-color: #F04D44;
+    border: none;
+    color: #FFFBFB;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: underline #DB1A11;
+    display: inline-block;
+    font-size: 26px;
+    font-weight: normal;
+    border-radius: 5px;
+    opacity: 95%;
+}
+
+.donate-button:hover {
+    border: 1px solid white;
+    color: #FFFBFB;
+    text-decoration: underline #DB1A11;
+    opacity: 100%;
+}
+/*End About Page Styling*/
