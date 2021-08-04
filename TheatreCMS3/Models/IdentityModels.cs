@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Areas.Models;
 using TheatreCMS3.Areas.Rent.Models;
 
@@ -49,5 +50,7 @@ namespace TheatreCMS3.Models
         public DbSet<RentalHistory> RentalHistories { get; set; }
         public DbSet<RentalRequest> RentalRequests { get; set; }
         public DbSet<CastMember> CastMembers { get; set; }
+        public DbSet<Production> Productions { get; set; }
+
     }
 }
