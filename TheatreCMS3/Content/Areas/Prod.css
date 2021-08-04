@@ -10,3 +10,29 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+/* Productions Styling */
+
+.productions--bg-main {
+    background-color: #DB1A11;
+}
+
+.productions--bg-main-light {
+    background-color: #F04D44;
+}
+
+.productions--bg-secondary {
+    background-color: #D6972A;
+}
+
+.productions--bg-light {
+    background-color: #FFFBFB;
+}
+
+.productions--bg-dark {
+    background-color: #000000;
+}
+
+.productions--bg-secondary-dark {
+    background-color: #9D7C39;
+}
