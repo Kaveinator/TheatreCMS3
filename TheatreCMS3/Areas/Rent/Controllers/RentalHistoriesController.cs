@@ -6,16 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
+    [HistoryManagerAuthorize(Roles = "HistoryManager")]
     public class RentalHistoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/RentalHistories
+        
         public ActionResult Index()
         {
             return View(db.RentalHistories.ToList());
@@ -124,5 +127,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+        [AllowAnonymous]
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
     }
+
 }
