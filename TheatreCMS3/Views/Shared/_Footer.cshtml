@@ -1,4 +1,10 @@
-﻿<footer>
+﻿@using TheatreCMS3.Models
+
+@{ 
+    SiteSettings settings = SiteSettings.ReadSiteSettings();
+}
+
+<footer>
     <div class="float-left footer-content">
 
         <div class="float-left footer-icons">
@@ -15,9 +21,9 @@
             @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "float-right" })
         </div>
         <p class="footer-address">
-            2110 SE 10TH AVE<br />
-            Portland OR 97214<br />
-            (503) 482-8655<br />
+            @settings.Address.Street<br/>
+            @settings.Address.CityStateZip<br/>
+            @settings.PhoneNumber<br />
         </p>
         <p class="footer-lcopyright">
             <i class="far fa-copyright"></i>
