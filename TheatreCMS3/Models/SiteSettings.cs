@@ -2,32 +2,19 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Web;
 
 namespace TheatreCMS3.Models
 {
     public class SiteSettings : ApplicationDbContext
     {
-        public int ReadSiteSettings { get; set; }
+        public int Copyright { get; set; }
 
-        public void Deserializer()
+        public static void ReadSiteSettings()
         {
-            SiteSettings siteSettings1 = JsonConvert.DeserializeObject<SiteSettings>(File.ReadAllText(@"C:\Users\8 7\Desktop\LiveProject\TheatreCMS3\SiteSettings.json"));
-
-            using (StreamReader file = File.OpenText(@"C:\Users\8 7\Desktop\LiveProject\TheatreCMS3\SiteSettings.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                SiteSettings siteSettings = (SiteSettings)serializer.Deserialize(file, typeof(SiteSettings));
-            }
-            return;
+            string filename = HttpContext.Current.Server.MapPath("SiteSettings.json");
+            SiteSettings siteSettings1 = JsonConvert.DeserializeObject<SiteSettings>(File.ReadAllText(filename));
         }
         
     }
-
-   
-
-
-
-
-
 }
-
