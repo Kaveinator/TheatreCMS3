@@ -214,7 +214,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\TextHelpers.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.designer.cs">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
@@ -229,6 +228,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Dummy.txt" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -568,15 +568,15 @@
     <Content Include="SiteSettings.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Blog\Controllers\" />
-    <Folder Include="Areas\Blog\Data\" />
+    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Models\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Data\" />
+    <Folder Include="Helpers\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
     <Folder Include="UIUX\Prototypes\" />
