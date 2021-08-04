@@ -11,17 +11,17 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class CastMemberController : Controller
+    public class CastMembersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/CastMember
+        // GET: Prod/CastMembers
         public ActionResult Index()
         {
             return View(db.CastMembers.ToList());
         }
 
-        // GET: Prod/CastMember/Details/5
+        // GET: Prod/CastMembers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
-        // GET: Prod/CastMember/Create
+        // GET: Prod/CastMembers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/CastMember/Create
+        // POST: Prod/CastMembers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +59,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
-        // GET: Prod/CastMember/Edit/5
+        // GET: Prod/CastMembers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
-        // POST: Prod/CastMember/Edit/5
+        // POST: Prod/CastMembers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +90,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
-        // GET: Prod/CastMember/Delete/5
+        // GET: Prod/CastMembers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +105,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
-        // POST: Prod/CastMember/Delete/5
+        // POST: Prod/CastMembers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
