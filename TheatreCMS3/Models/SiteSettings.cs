@@ -20,7 +20,8 @@ namespace TheatreCMS3.Models
 
         public static SiteSettings ReadSiteSettings()
         {
-            string filename = HttpContext.Current.Server.MapPath("SiteSettings.json");
+            string filename = HttpContext.Current.Server.MapPath("~/SiteSettings.json");
+            //string filename = Path.Combine(HttpRuntime.AppDomainAppPath, "SiteSettings.json");
             SiteSettings siteSettings1 = JsonConvert.DeserializeObject<SiteSettings>(File.ReadAllText(filename));
             return siteSettings1;
         }
