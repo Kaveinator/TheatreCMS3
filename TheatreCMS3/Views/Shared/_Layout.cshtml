@@ -23,6 +23,12 @@
   </div>
   @Html.Partial("_Footer")
 
+  @*Call partial view only in rental histories area*@
+  @if (Request.Url.ToString().Contains("/Rent/RentalHistories"))
+   {
+      @Html.Partial("_LoginBtnHistoryManager", new TheatreCMS3.Models.LoginViewModel())
+   }
+
   @if (ViewContext.RouteData.DataTokens["area"] != null)
   {
     <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>

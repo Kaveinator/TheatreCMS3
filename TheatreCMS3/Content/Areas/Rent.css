@@ -117,4 +117,11 @@
     }
     }
 
-
+/* History Manager Button*/
+.history-manager{
+    background-color: var(--main-color);
+    color: var(--light-color);
+    position: fixed;
+    bottom: 7px;
+    right: 7px;
+}
