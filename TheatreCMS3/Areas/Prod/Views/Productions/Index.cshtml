@@ -14,20 +14,8 @@
 <div class="container row row-cols-5 justify-content-center">
     @foreach (var item in Model)
     {
-        <div class="card productions--bg-secondary-dark m-3">
-            <img class="card-img-top" src="~/Content/images/ProductionPhotos/Hamilton/01.jpg" alt="" width="300" height="200">
-            <div class="card-body text-center">
-                <h5 class="card-title">@item.Title</h5>
-            </div>
-        </div>
-        <div class="card productions--bg-secondary-dark m-3">
-            <img class="card-img-top" src="~/Content/images/ProductionPhotos/Filler/01.jpg" alt="" width="300" height="200">
-            <div class="card-body text-center">
-                <h5 class="card-title">@item.Title</h5>
-            </div>
-        </div>
-        <div class="card productions--bg-secondary-dark m-3">
-            <img class="card-img-top" src="~/Content/images/ProductionPhotos/Wicked/02.jpg" alt="" width="300" height="200">
+        <div class="card productions--bg-secondary-dark productions--card m-3">
+            <img class="card-img-top" src="~/Content/images/ProductionPhotos/@item.Title/01.jpg" alt="" height="200" onerror="this.src='../../Content/images/ProductionPhotos/Filler/01.jpg'">
             <div class="card-body text-center">
                 <h5 class="card-title">@item.Title</h5>
             </div>

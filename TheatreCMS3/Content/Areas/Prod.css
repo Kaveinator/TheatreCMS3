@@ -46,11 +46,11 @@
     justify-content: center;
 }
 
-/*.productions--card {
-    background-color: #1a1a1a;
-    height: 300px;
-    width: 100px;
-}*/
-
-.card {
+.productions--card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    height: 100px;
+    width: 200px;
 }
