@@ -1,108 +1,64 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+﻿@using System.IO
+@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string projectBaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+    string productionPhotosDirectory = "Content/images/ProductionPhotos";
 }
 
 <h2 class="text-center mt-5">Productions</h2>
 
-@Html.ActionLink("Create New", "Create", "Productions", new { @class = "btn productions--bg-secondary" })
+@Html.ActionLink("Create New", "Create", "Productions", new { @class = "btn productions--bg-secondary text-light" })
 
 <hr class="productions--bg-light"/>
 
 <div class="container row row-cols-5 justify-content-center">
     @foreach (var item in Model)
     {
-        <div class="card productions--bg-secondary-dark productions--card m-3">
-            <img class="card-img-top" src="~/Content/images/ProductionPhotos/@item.Title/01.jpg" alt="" height="200" onerror="this.src='../../Content/images/ProductionPhotos/Filler/01.jpg'">
-            <div class="card-body text-center">
-                <h5 class="card-title">@item.Title</h5>
+        string imageDirectory = $"{projectBaseDirectory}{productionPhotosDirectory}/{item.Title}";
+        if (Directory.Exists(imageDirectory))
+        {
+            string[] filesInImageDirectory = Directory.GetFiles(imageDirectory);
+            int filesInImageDirectoryLength = filesInImageDirectory.Length;
+            Random random = new Random();
+            int randomNum = random.Next(filesInImageDirectoryLength);
+            string imageFileSelected = Path.GetFileName(filesInImageDirectory[randomNum]);
+
+            <div class="card productions--bg-secondary productions--card m-3">
+                <div class="card-img-overlay productions--card-overlay productions--bg-dark text-center productions--card">
+                    <div>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-danger" })
+                    </div>
+                    <div class="m-3">
+                        @Html.ActionLink("View details", "Details", new { id = item.ProductionId }, new { @class = "btn productions--bg-secondary" })
+                    </div>
+                </div>
+                <img class="card-img-top" src="~/@productionPhotosDirectory/@item.Title/@imageFileSelected" alt="" height="200">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@item.Title</h5>
+                </div>
             </div>
-        </div>
+        }
+        else
+        {
+            <div class="card productions--bg-secondary productions--card m-3">
+                <div class="card-img-overlay productions--card-overlay productions--bg-dark text-center productions--card">
+                    <div>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-danger" })
+                    </div>
+                    <div class="m-3">
+                        @Html.ActionLink("View details", "Details", new { id = item.ProductionId }, new { @class = "btn productions--bg-secondary" })
+                    </div>
+                </div>
+                <img class="card-img-top" src="~/@productionPhotosDirectory/Filler/01.jpg" alt="" height="200">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@item.Title</h5>
+                </div>
+            </div>
+        }
     }
 </div>
-
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Playwright)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Runtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpeningDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClosingDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeEve)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeMat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsWorldPremiere)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketLink)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Playwright)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Runtime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClosingDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShowTimeEve)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShowTimeMat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Season)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsWorldPremiere)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TicketLink)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProductionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId })
-            </td>
-        </tr>
-    }
-
-</table>*@
