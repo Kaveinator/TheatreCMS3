@@ -20,23 +20,16 @@
         string imageDirectory = $"{projectBaseDirectory}{productionPhotosDirectory}/{item.Title}";
         if (Directory.Exists(imageDirectory))
         {
-            string[] filesInImageDirectory = Directory.GetFiles(imageDirectory);
-            int filesInImageDirectoryLength = filesInImageDirectory.Length;
-            Random random = new Random();
-            int randomNum = random.Next(filesInImageDirectoryLength);
-            string imageFileSelected = Path.GetFileName(filesInImageDirectory[randomNum]);
-
             <div class="card productions--bg-secondary productions--card m-3">
-                <div class="card-img-overlay productions--card-overlay productions--bg-dark text-center productions--card">
-                    <div>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-primary" })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-danger" })
+                <a class="card-img-overlay" href="@Url.Action("Details", new { id = item.ProductionId })">
+                    <div class="card-img-overlay productions--card-overlay text-center productions--card">
+                        <div>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill productions--bg-secondary text-light" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill productions--bg-main   text-light" })
+                        </div>
                     </div>
-                    <div class="m-3">
-                        @Html.ActionLink("View details", "Details", new { id = item.ProductionId }, new { @class = "btn productions--bg-secondary" })
-                    </div>
-                </div>
-                <img class="card-img-top" src="~/@productionPhotosDirectory/@item.Title/@imageFileSelected" alt="" height="200">
+                </a>
+                <img class="card-img-top" src="~/@productionPhotosDirectory/@item.Title/01.jpg" alt="" height="200">
                 <div class="card-body text-center">
                     <h5 class="card-title">@item.Title</h5>
                 </div>
@@ -45,15 +38,14 @@
         else
         {
             <div class="card productions--bg-secondary productions--card m-3">
-                <div class="card-img-overlay productions--card-overlay productions--bg-dark text-center productions--card">
-                    <div>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-primary" })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-danger" })
+                <a class="card-img-overlay" href="@Url.Action("Details", new { id = item.ProductionId })">
+                    <div class="card-img-overlay productions--card-overlay text-center productions--card">
+                        <div>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill productions--bg-secondary text-light" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill productions--bg-main   text-light" })
+                        </div>
                     </div>
-                    <div class="m-3">
-                        @Html.ActionLink("View details", "Details", new { id = item.ProductionId }, new { @class = "btn productions--bg-secondary" })
-                    </div>
-                </div>
+                </a>
                 <img class="card-img-top" src="~/@productionPhotosDirectory/Filler/01.jpg" alt="" height="200">
                 <div class="card-body text-center">
                     <h5 class="card-title">@item.Title</h5>

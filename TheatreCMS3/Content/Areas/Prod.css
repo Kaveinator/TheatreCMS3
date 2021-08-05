@@ -16,27 +16,27 @@
 /*---------------------*/
 
 .productions--bg-main {
-    background-color: #DB1A11;
+    background-color: var(--main-color);
 }
 
 .productions--bg-main-light {
-    background-color: #F04D44;
+    background-color: var(--main-color--light);
 }
 
 .productions--bg-secondary {
-    background-color: #D6972A;
+    background-color: var(--secondary-color);
 }
 
 .productions--bg-light {
-    background-color: #FFFBFB;
+    background-color: var(--light-color);
 }
 
 .productions--bg-dark {
-    background-color: #000000;
+    background-color: var(--dark-color);
 }
 
 .productions--bg-secondary-dark {
-    background-color: #9D7C39;
+    background-color: var(--secondary-color--dark);
 }
 
 /* Index Page */
@@ -57,11 +57,11 @@
     display:flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content:flex-start;
     opacity: 0;
 }
 
     .productions--card-overlay:hover {
-    background-color: black;
-    opacity: 0.85;
+    opacity: 0.95;
+    /*cursor: pointer;*/
     }
