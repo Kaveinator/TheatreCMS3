@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 
@@ -16,6 +17,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/RentalHistories
+        
         public ActionResult Index()
         {
             return View(db.RentalHistories.ToList());
@@ -37,6 +39,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Create
+        [HistoryManagerAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +63,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Edit/5
+        [HistoryManagerAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +95,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Delete/5
+        [HistoryManagerAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -116,6 +121,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,4 +135,5 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             base.Dispose(disposing);
         }
     }
+
 }
