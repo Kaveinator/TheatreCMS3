@@ -12,7 +12,6 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    [HistoryManagerAuthorize(Roles = "HistoryManager")]
     public class RentalHistoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -40,6 +39,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Create
+        [HistoryManagerAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -63,6 +63,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Edit/5
+        [HistoryManagerAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -94,6 +95,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Delete/5
+        [HistoryManagerAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -119,6 +121,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -126,11 +133,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-        [AllowAnonymous]
-        public ActionResult AccessDenied()
-        {
-            return View();
         }
     }
 
