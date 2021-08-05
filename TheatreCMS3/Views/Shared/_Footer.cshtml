@@ -1,6 +1,6 @@
 ﻿@using TheatreCMS3.Models
 
-@{ 
+@{
     SiteSettings settings = SiteSettings.ReadSiteSettings();
 }
 
@@ -30,7 +30,7 @@
             @DateTime.Now.Year
         </p>
     </div>
-    
+
     <div class="float-right footer-rcontent">
         <span>
             <i class="fab fa-facebook-f fa-2x"></i> &nbsp;
@@ -39,8 +39,8 @@
         </span>
         <p class="footer-copyright">
             <i class="far fa-copyright"></i>
-            @DateTime.Now.Year
+            @settings.Copyright
         </p>
     </div>
-    
+
 </footer>
