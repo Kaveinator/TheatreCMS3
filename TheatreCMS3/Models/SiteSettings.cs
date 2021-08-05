@@ -9,11 +9,21 @@ namespace TheatreCMS3.Models
     public class SiteSettings : ApplicationDbContext
     {
         public int Copyright { get; set; }
+        public string PhoneNumber { get; set; }
+        public AddressDetails Address { get; set; }
 
-        public static void ReadSiteSettings()
+        public class AddressDetails
         {
-            string filename = HttpContext.Current.Server.MapPath("SiteSettings.json");
+            public string Street { get; set; }
+            public string CityStateZip { get; set; }
+        }
+
+        public static SiteSettings ReadSiteSettings()
+        {
+            string filename = HttpContext.Current.Server.MapPath("~/SiteSettings.json");
+            //string filename = Path.Combine(HttpRuntime.AppDomainAppPath, "SiteSettings.json");
             SiteSettings siteSettings1 = JsonConvert.DeserializeObject<SiteSettings>(File.ReadAllText(filename));
+            return siteSettings1;
         }
         
     }

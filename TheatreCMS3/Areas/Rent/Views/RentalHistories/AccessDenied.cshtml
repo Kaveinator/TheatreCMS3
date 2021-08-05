@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "AccessDenied";
+}
+
+<div class="text-center">
+  <h1>Access Denied</h1>
+  You Are Not Authorized To Visit That Page.
+  <div>
+    <img src="~/Content/images/restricted.png" />
+  </div>
+
+  <div>
+  <a href="@Url.Action("Login", "Account", new { area = ""})">Login</a>
+  </div>
+</div>
