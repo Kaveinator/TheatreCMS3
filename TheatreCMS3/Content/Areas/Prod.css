@@ -11,7 +11,9 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*---------------------*/
 /* Productions Styling */
+/*---------------------*/
 
 .productions--bg-main {
     background-color: #DB1A11;
@@ -35,4 +37,20 @@
 
 .productions--bg-secondary-dark {
     background-color: #9D7C39;
+}
+
+/* Index Page */
+
+.productions--index-container {
+    display: flex;
+    justify-content: center;
+}
+
+/*.productions--card {
+    background-color: #1a1a1a;
+    height: 300px;
+    width: 100px;
+}*/
+
+.card {
 }

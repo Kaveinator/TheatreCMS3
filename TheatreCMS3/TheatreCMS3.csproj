@@ -330,6 +330,7 @@
     <Content Include="Content\images\dummy.txt" />
     <Content Include="Content\images\macbeth.png" />
     <Content Include="Content\images\MidsummerNightDream.png" />
+    <Content Include="Content\images\ProductionPhotos\Filler\01.jpg" />
     <Content Include="Content\images\ProductionPhotos\Hamilton\02.jpg" />
     <Content Include="Content\images\ProductionPhotos\Hamilton\01.jpg" />
     <Content Include="Content\images\ProductionPhotos\Hamilton\03.jpg" />
@@ -588,7 +589,6 @@
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
-    <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Helpers\" />
     <Folder Include="UIUX\Images\" />
