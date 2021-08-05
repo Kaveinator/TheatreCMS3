@@ -537,6 +537,11 @@ input[type=text].Donation, textarea.Donation {
     border-top-right-radius: 50px;
 }
 
+.about-container3 {
+    position: relative;
+    text-align: center;
+}
+
 .about-row {
     display: flex;
 }
