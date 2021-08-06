@@ -61,7 +61,12 @@
     opacity: 0;
 }
 
-    .productions--card-overlay:hover {
+.productions--card-overlay:hover {
     opacity: 0.95;
-    /*cursor: pointer;*/
-    }
+    z-index: 0;
+}
+
+.productions--badge-pill {
+    position: relative;
+    z-index: 1;
+}
