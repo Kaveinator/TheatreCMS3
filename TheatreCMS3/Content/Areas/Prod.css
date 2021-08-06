@@ -10,3 +10,63 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+/*---------------------*/
+/* Productions Styling */
+/*---------------------*/
+
+.productions--bg-main {
+    background-color: var(--main-color);
+}
+
+.productions--bg-main-light {
+    background-color: var(--main-color--light);
+}
+
+.productions--bg-secondary {
+    background-color: var(--secondary-color);
+}
+
+.productions--bg-light {
+    background-color: var(--light-color);
+}
+
+.productions--bg-dark {
+    background-color: var(--dark-color);
+}
+
+.productions--bg-secondary-dark {
+    background-color: var(--secondary-color--dark);
+}
+
+/* Index Page */
+
+.productions--index-container {
+    display: flex;
+    justify-content: center;
+}
+
+.productions--card {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-radius: 0;
+}
+
+.productions--card-overlay {
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content:flex-start;
+    opacity: 0;
+}
+
+.productions--card-overlay:hover {
+    opacity: 0.95;
+    z-index: 0;
+}
+
+.productions--badge-pill {
+    position: relative;
+    z-index: 1;
+}
