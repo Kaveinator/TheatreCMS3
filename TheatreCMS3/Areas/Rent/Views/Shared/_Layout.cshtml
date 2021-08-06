@@ -13,9 +13,12 @@
   </div>
 
   @*Call partial view only in rental histories area*@
-  @if (Request.Url.ToString().Contains("/Rent/RentalHistories"))
+  @if (Request.Url.Segments.Length > 1)
   {
-    @Html.Partial("_LoginBtnHistoryManager", new TheatreCMS3.Models.LoginViewModel())
+    if (Request.Url.Segments[1] == "Rent/")
+    {
+          @Html.Partial("_LoginBtnHistoryManager", new TheatreCMS3.Models.LoginViewModel());
+    }
   }
 
   <div class="container body-content">
