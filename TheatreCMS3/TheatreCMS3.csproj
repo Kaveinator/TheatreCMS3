@@ -584,6 +584,7 @@
     <Content Include="Views\Shared\_DevNavbar.cshtml" />
     <Content Include="UIUX\Wireframes\TheatreHomePageWireframe.psd" />
     <Content Include="SiteSettings.json" />
+    <Content Include="Views\Shared\_LoginBtnHistoryManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Blog\Controllers\" />
