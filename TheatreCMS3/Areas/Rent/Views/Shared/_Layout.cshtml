@@ -8,20 +8,29 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        @Html.Partial("_Navbar")
-    </div>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    @Html.Partial("_Navbar")
+  </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+  @*Call partial view only in rental histories area*@
+  @if (Request.Url.Segments.Length > 1)
+  {
+    if (Request.Url.Segments[1] == "Rent/")
+    {
+          @Html.Partial("_LoginBtnHistoryManager", new TheatreCMS3.Models.LoginViewModel());
+    }
+  }
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+  <div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+      <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+  </div>
+
+  @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/bootstrap")
+  @RenderSection("scripts", required: false)
 </body>
 </html>
