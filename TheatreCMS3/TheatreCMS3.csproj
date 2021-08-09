@@ -197,7 +197,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
+    <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Models\ProductionManager.cs" />
@@ -233,7 +235,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Dummy.txt" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -425,6 +426,11 @@
     <Content Include="Areas\Prod\Views\Productions\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Index.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\AccessDenied.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -587,6 +593,7 @@
     <Content Include="Views\Shared\_LoginBtnHistoryManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
