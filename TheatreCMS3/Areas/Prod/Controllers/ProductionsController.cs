@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -16,9 +18,31 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/Productions
-        public ActionResult Index()
+        public ViewResult Index(string filter, string searchString, int? page)
         {
-            return View(db.Productions.ToList());
+            if (searchString != null)
+                page = 1;
+            else
+                searchString = filter;
+
+            ViewBag.Filter = searchString;
+
+            var productions = from p in db.Productions select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+                productions = productions.Where(p => p.Title.Contains(searchString));
+
+            productions = productions.OrderBy(p => p.Title);
+
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+
+            Trace.WriteLine($"Page Size: {pageSize}");
+            Trace.WriteLine($"Page Number: {pageNum}");
+            Trace.WriteLine($"Search String: {searchString}");
+            Trace.WriteLine($"Filter: {filter}");
+
+            return View(productions.ToPagedList(pageNum, pageSize));
         }
 
         // GET: Prod/Productions/Details/5
