@@ -154,7 +154,7 @@ nav form button {
     background-color: var(--secondary-color);
 }
 
-.navbar-light .navbar-nav .nav-link { /* make text indside black */
+.navbar-light .navbar-nav .nav-link { /* make text inside black */
     color: black !important;
 }
 
@@ -491,11 +491,32 @@ footer {
 }
 
 /*Donation Form*/
+
+/*changing font of donation page title and adding spacing*/
+.text-center {
+    font-family: Broadway;
+    font-weight: bold;
+    letter-spacing: 3px;
+    padding: 3vh;
+}
+
+#Donation-page {
+    background-image: url(/Content/images/donation-img.jpg);
+    box-shadow: 0px 3px 8px 10px var(--secondary-color--dark);
+}
+
 #Donation-container {
     border-radius: 5px;
     padding: 20px;
-    display:compact;
+    display: compact;
     background-color: var(--main-color);
+    box-shadow: 0px 3px 8px 10px var(--secondary-color--dark);
+    font-family: Rockwell;
+    font-weight: bold;
+}
+
+#submit-button {
+    text-align: center;
 }
 
 input[type=submit].Donation {
@@ -518,6 +539,10 @@ input[type=text].Donation, textarea.Donation {
     margin: 8px 0;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+input[type=text].Donation:hover, textarea.Donation:hover {
+    background-color: var(--secondary-color);
 }
 
 /* Home/Contact Page Styling*/
