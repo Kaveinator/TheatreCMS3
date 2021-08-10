@@ -20,7 +20,7 @@
 
         protected override void Seed(ApplicationDbContext context)
         {
-            ProductionManager.Seed(context);
+
         }
     }
 }
