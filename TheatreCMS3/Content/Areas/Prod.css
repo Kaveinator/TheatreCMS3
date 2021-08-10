@@ -70,3 +70,17 @@
     position: relative;
     z-index: 1;
 }
+
+.productions--index-bar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.productions--index-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+/*    align-content: center;*/
+}

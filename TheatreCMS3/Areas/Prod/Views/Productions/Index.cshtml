@@ -1,5 +1,6 @@
 ﻿@using System.IO
-@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+@using PagedList.Mvc
+@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Production>
 
 @{
     ViewBag.Title = "Index";
@@ -10,9 +11,19 @@
 
 <h2 class="text-center mt-5">Productions</h2>
 
-@Html.ActionLink("Create New", "Create", "Productions", new { @class = "btn productions--bg-secondary text-light" })
+<div class="container">
+    <div class="row justify-content-between">
+        @Html.ActionLink("Create New", "Create", "Productions", new { @class = "btn productions--bg-secondary text-light" })
+        <form class="form-inline" method="GET">
+            @Html.TextBox("SearchString", null, new { @class = "form-control text-center mr-1" })
+            <input class="form-control btn productions--bg-main text-light border-dark" type="submit" value="Search" />
+        </form>
+    </div>
+</div>
 
-<hr class="productions--bg-light"/>
+
+
+<hr class="productions--bg-light" />
 
 <div class="container row row-cols-5 justify-content-center">
     @foreach (var item in Model)
@@ -54,3 +65,22 @@
         }
     }
 </div>
+
+<p class="ml-2 my-1 text-center">
+    <div class="productions--index-container">
+        @Html.PagedListPager(Model,
+                page => Url.Action("Index",
+                    new
+                    {
+                        page,
+                        sortOrder = ViewBag.CurrentSort,
+                        currentFilter = ViewBag.CurrentFilter
+                    }
+                )
+            )
+    </div>
+    <div class="productions--index-container">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    </div>
+
+</p>
