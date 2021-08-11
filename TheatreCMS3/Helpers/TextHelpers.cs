@@ -8,7 +8,7 @@ namespace TheatreCMS3.Helpers
     public static class TextHelpers
     {
         //creating a helper method that takes in a string value and an integer. The int value is set to a default of 8 unless overidden
-        public static string Truncate(this string value, int maxLength)
+        public static string Truncate(this string value, int maxLength = 8)
         {
             //creating an ellipses variable to add onto the truncated string before it is returned
             string ellipses = "...";

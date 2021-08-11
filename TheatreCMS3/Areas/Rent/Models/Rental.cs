@@ -16,6 +16,5 @@ namespace TheatreCMS3.Areas.Rent.Models
         public int RentalCost { get; set; }
         [DisplayName("Flaws and Damages:")]
         public string FlawsAndDamages { get; set; }
-
     }
 }

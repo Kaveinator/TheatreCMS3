@@ -32,7 +32,9 @@
             @Html.DisplayFor(modelItem => item.RentalCost)
         </td>
         <td>
-            @Html.DisplayFor(TextHelpers.Truncate(modelItem => item.FlawsAndDamages)
+          <!--calling on a static method from the Helper folder that truncates a string down to a specified length and adds an ellipses
+              The integer parameter is set to 8 as a default but it can be changed to whatever integer you would like for display purposes-->
+            @TextHelpers.Truncate(item.FlawsAndDamages, 6)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
