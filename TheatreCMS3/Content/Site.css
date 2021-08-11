@@ -599,3 +599,20 @@ input[type=text].Donation:hover, textarea.Donation:hover {
 }
 
 /*End About Page Styling*/
+
+
+/*Start Sign In Page Styling*/
+
+.text-center p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 25px;
+    background: #F04D44; /* Red, a shade lighter */
+    padding: 20px;
+    width: 200px;
+    height: 10px;
+    text-align: center;
+    color: white;
+    position: relative
+}
