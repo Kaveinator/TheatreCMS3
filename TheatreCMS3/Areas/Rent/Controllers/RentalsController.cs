@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
+using TheatreCMS3.Helpers;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {

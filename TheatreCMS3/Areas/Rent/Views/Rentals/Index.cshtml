@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.Rental>
-
+@using TheatreCMS3.Helpers
 @{
     ViewBag.Title = "Index";
 }
@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.RentalCost)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
+            @Html.DisplayFor(TextHelpers.Truncate(modelItem => item.FlawsAndDamages)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
