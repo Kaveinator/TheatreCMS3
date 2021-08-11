@@ -614,5 +614,9 @@ input[type=text].Donation:hover, textarea.Donation:hover {
     height: 10px;
     text-align: center;
     color: white;
-    position: relative
+    position: relative;
+}
+.text-rows {
+    column-count: 3;
+    column-gap: 40px;
 }
