@@ -26,12 +26,13 @@ namespace TheatreCMS3.Areas.Prod.Models
 
             var productionManger = new ProductionManager
             {
+                UserName = "ProdMaster",
                 Email = "admin@prodmanagers.com",
                 Title = "Head of Logistics",
                 ManagerStartDate = new DateTime(2020, 01, 01)
             };
 
-            var check = userManager.Create(productionManger, "Passw0rd!");
+            var check = userManager.Create(productionManger, "password");
 
             if (check.Succeeded)
                 userManager.AddToRole(productionManger.Id, "ProductionManager");
