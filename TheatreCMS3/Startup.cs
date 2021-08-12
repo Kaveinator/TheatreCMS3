@@ -1,7 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
 using TheatreCMS3.Areas.Prod.Models;
-using TheatreCMS3.Areas.Rent.Models;
 
 [assembly: OwinStartupAttribute(typeof(TheatreCMS3.Startup))]
 namespace TheatreCMS3
@@ -11,7 +10,6 @@ namespace TheatreCMS3
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            HistoryManager.Seed();
             ProductionManager.Seed();
         }
     }
