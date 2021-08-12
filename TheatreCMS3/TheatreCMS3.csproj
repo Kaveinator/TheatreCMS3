@@ -197,6 +197,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
+    <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
@@ -406,6 +408,13 @@
     <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
     <Content Include="Areas\Rent\Views\web.config" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -573,6 +582,7 @@
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
+    <Folder Include="Areas\Rent\Data\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
     <Folder Include="UIUX\Prototypes\" />
