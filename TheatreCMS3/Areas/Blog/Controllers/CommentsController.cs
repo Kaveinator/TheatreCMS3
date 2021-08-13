@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 
+//Controller and associated views created by the Entity Framework MVC CRUD option in Visual Studio
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
     public class CommentsController : Controller
