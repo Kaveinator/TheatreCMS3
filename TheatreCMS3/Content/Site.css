@@ -93,65 +93,31 @@ textarea {
 /* Styling and positioning for the Navbar */
 
 .nav > li {
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-left: 8px;
+    margin-right: 8px;
     background-color: var(--secondary-color);
     border-radius: 5px;
     justify-content: center;
-    font-family: Rockwell;
 }
 
-    .nav > li:hover {
-        background-color: var(--light-color);
-        border-radius: .25rem;
-    }
-
-    .nav > li > a {
-        color: var(--main-color);
-        font-weight: bold;
-        font-style: inherit;
-        font-size: 22px;
-    }
-
-nav form {
-    display: flex;
-    height: 42px;
-    padding: 2px;
-    background: var(--secondary-color);
-    min-width: 18%!important;
-    border-radius: 2px;
-    border: 1px solid rgba(155,155,155,0.2);
+.nav > li:hover {
+    background-color: var(--light-color);
+    border-radius: .25rem;
+    color: var(--secondary-color);
 }
 
-nav form .search-data {
-    height: 100%;
-    width: 100%;
-    padding: 0 10px;
-    color: var(--light-color);
-    font-size: 17px;
-    font-weight: 500;
-    background: var(--secondary-color);
-    border: none;
-}
-
-nav form button {
-    padding: 0 15px;
-    color: none;
-    font-size: 17px;
-    background: var(--secondary-color);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+.nav > li > a {
+    color: var(---dark-color);
+    font-weight: bold;
 }
 
 .navbar-icon-red {
-    height: 70px;
+    height: 42px;
     width: auto;
-    border-radius: .25rem;
 }
 
 .navbar {
-    background-color: var(--secondary-color);
+    background-color: var(--main-color);
 }
 
 .navbar-light .navbar-nav .nav-link { /* make text inside black */
@@ -599,3 +565,24 @@ input[type=text].Donation:hover, textarea.Donation:hover {
 }
 
 /*End About Page Styling*/
+
+
+/*Start Sign In Page Styling*/
+
+.text-center p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 25px;
+    background: #F04D44; /* Red, a shade lighter */
+    padding: 20px;
+    width: 200px;
+    height: 10px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+.text-rows {
+    column-count: 3;
+    column-gap: 40px;
+}
