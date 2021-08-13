@@ -200,6 +200,8 @@
     <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPhotosController.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
+    <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
@@ -418,6 +420,13 @@
     <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
     <Content Include="Areas\Rent\Views\web.config" />
+    <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotos\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotos\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotos\Details.cshtml" />
@@ -585,7 +594,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Rent\Data\" />
+    <Folder Include="Areas\Blog\Controllers\" />
+    <Folder Include="Areas\Blog\Models\" />
+    <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
