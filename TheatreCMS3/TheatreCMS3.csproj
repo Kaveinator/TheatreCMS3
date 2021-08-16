@@ -425,6 +425,7 @@
     <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\_Comments.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -587,11 +588,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Blog\Controllers\" />
-    <Folder Include="Areas\Blog\Models\" />
-    <Folder Include="Areas\Blog\Views\Shared\" />
-    <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Areas\Rent\Data\" />
+    <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
     <Folder Include="UIUX\Prototypes\" />
