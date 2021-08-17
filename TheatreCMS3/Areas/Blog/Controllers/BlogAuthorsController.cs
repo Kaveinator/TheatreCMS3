@@ -55,7 +55,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            
             return View(blogAuthor);
         }
 

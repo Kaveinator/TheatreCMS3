@@ -19,8 +19,16 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // GET: Blog/Comments
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            return View();
         }
+        //The method above was simplified. Now the Index view page will call the method below "CommentsPartial()
+
+        public ActionResult CommentsPartial()
+        {
+            return PartialView("_Comments", db.Comments.ToList());
+        }
+        //This method links to a partial view called _Comments which takes the Comments data from the database and displays it according to the html in the partial view.
+        //Seperating it from the Index() and Index view makes it more easily accesible to other parts of the program.
 
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
