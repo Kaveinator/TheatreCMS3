@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Areas.Models;
 using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Rent.Models;
 
 namespace TheatreCMS3.Models
 {
@@ -48,6 +49,7 @@ namespace TheatreCMS3.Models
         public DbSet<Production> Productions { get; set; }
         public DbSet<CalendarEvent> CalendarEvents { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<RentalHistory> RentalHistories { get; set; }
 
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogAuthor> BlogAuthors { get; set; }
 
