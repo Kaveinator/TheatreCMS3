@@ -14,16 +14,25 @@
 
 /* Styling for Rental Create and Edit page*/
 
+/* container for form with red backgorund */
 .rental_history-create--container {
     background-color: var(--main-color--light);
     max-width: 600px;
 }
 
+/* size of the checkbox */
+#isDamaged {
+    width: 15px;
+    height: 15px;
+}
+
+/* create button color and text */
 .rental_history-create--btn {
     background-color: var(--dark-color);
     color: var(--light-color);
 }
 
+/* text color for validation message */
 rental_history-create--vldmsg {
     color: var(--light-color)
 }

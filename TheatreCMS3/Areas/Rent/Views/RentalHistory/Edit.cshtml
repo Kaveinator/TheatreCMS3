@@ -6,7 +6,7 @@
   ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2 class="text-center">Edit Rental History</h2>
 
 
 @using (Html.BeginForm())
@@ -25,10 +25,8 @@
         </div>
         <div class="col mt-n2">
           @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2 pb-1" })
-          <div class="checkbox" onclick="labelToggle()">
-            @Html.EditorFor(model => model.RentalDamaged)
+            @Html.CheckBoxFor(model => model.RentalDamaged, new { @id = "isDamaged" })
             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "rental_history-create--vldmsg" })
-          </div>
         </div>
       </div>
       <div class="col pb-2">
