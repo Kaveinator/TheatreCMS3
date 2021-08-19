@@ -1,50 +1,66 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
+<link rel="stylesheet" type="text/css" href="~/Content/Areas/Blog.css">
+
 @{
-    ViewBag.Title = "Details";
+  ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Blog Author Details</h2>
 
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
+<div class="tab-background">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#Details">Author Details</a></li>
+    <li><a data-toggle="tab" href="#blog-posts">Blog Posts</a></li>
+  </ul>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="tab-content">
+
+  <div id="Details" class="tab-pane fade-in active">
+    <div class="photo-container">
+      <img src="https://via.placeholder.com/300">
+    </div>
+
+    <div class="details-header">
+      @Html.DisplayFor(model => model.Name)
+      <a href="https://instagram.com" class="fab fa-instagram"></a>
+      <a href="https://facebook.com" class="fab fa-facebook-f"></a>
+    </div>
+
+    <textarea class="bio-details">
+            @Html.DisplayFor(model => model.Bio)
+      </textarea>
+
+    <div class="date-section">
+      <p class="form-label">Date Joined:</p>
+      <div class="date-field">
+        @Html.DisplayFor(model => model.Joined)
+      </div>
+
+      <p class="form-label">Date Left:</p>
+      <div class="date-field">
+        @Html.DisplayFor(model => model.Left)
+      </div>
+    </div>
+  </div>
+
+  <div id="blog-posts" class="tab-pane fade">
+    <div class="photo-container">
+      <img src="https://via.placeholder.com/300">
+    </div>
+    <p class="details-header">Blog Posts</p>
+    <textarea class="blog-post">Implementing Later?</textarea>
+  </div>
+</div>
+
+<div class="button-section">
+  <div class="buttons">
+    <a href="/Blog/BlogAuthors" class="fas fa-long-arrow-alt-left">Back to List</a>
+  </div>
+  <div class="buttons">
+    <a href="/Blog/BlogAuthors/Edit" id="Edit-Button" class="fas fa-edit">Edit</a>
+  </div>
+  <a href="/Blog/BlogAuthors/Delete" class="fa fa-trash"></a>
+</div>
+

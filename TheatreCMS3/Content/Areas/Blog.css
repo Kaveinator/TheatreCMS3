@@ -25,12 +25,12 @@
     font-size: 40px;
     letter-spacing: 5px;
     padding: 4vh;
-    color: var(--main-color);
 }
 
 .form-label {
     text-align: left;
     margin: 0;
+    font-weight: bold;
 }
 
 .author-text {
@@ -57,6 +57,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--light-color);
 }
 
 .date-field {
@@ -93,4 +94,143 @@
     color: var(--dark-color);
     text-decoration: none;
     transition: 1s;
+}
+
+/* Styling for details page */
+.tab-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.nav {
+    border: 5px solid var(--secondary-color);
+    border-right: 10px solid var(--secondary-color);
+    border-left: 10px solid var(--secondary-color);
+    border-radius: 5px;
+    border-bottom: none;
+    background-color: var(--secondary-color);
+}
+
+.nav > li {
+    font-family: Rockwell;
+    margin: 2px;
+    background-color: gray;
+    border: transparent;
+    border-radius: 5px;
+    padding: 5px;
+    justify-content: center;
+}
+
+.nav > li:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.nav > li > a {
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+ul {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.tab-content {
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px;
+    padding-bottom: 0;
+    background-color: var(--secondary-color);
+    font-family: Rockwell;
+}
+
+.photo-container {
+    float: left;
+    padding-right: 20px;
+}
+
+.details-header {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 8px 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.fab {
+    float: right;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.fa {
+    text-align: center;
+    color: var(--light-color);
+    background: red;
+    padding: 10px;
+    width: 40px;
+    border-radius: 5px;
+    float: right;
+    margin: 5px;
+}
+
+.fa:hover, .fas:hover {
+   color: var(--dark-color);
+   transition: 1s;
+}
+
+.fas {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+    background-color: gray;
+    color: var(--light-color);
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+#Edit-Button {
+    background-color: forestgreen;
+}
+
+.bio-details {
+    width: 50vw;
+    height: 150px;
+    margin: 8px 0;
+    border: transparent;
+    box-sizing: border-box;
+    background-color: var(--secondary-color)
+}
+
+.blog-post {
+    width: 50vw;
+    height: 250px;
+    background-color: var(--secondary-color);
+    margin-bottom: 20px;
+    border: transparent;
+    box-sizing: border-box;
+}
+
+/*styling for delete page:*/
+.delete-header {
+    text-align: center;
+    color: var(--main-color);
+    font-family: Rockwell;
+    padding-bottom: 20px;
+}
+
+#Delete-Button {
+    background-color: var(--main-color);
+    width: 100px;
+    border: none;
 }
