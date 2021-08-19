@@ -17,9 +17,9 @@
             @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "float-right" })
         </div>
         <p class="footer-address">
-            @settings.Address.Street<br/>
-            @settings.Address.CityStateZip<br/>
-            @settings.PhoneNumber<br />
+            2110 SE 10th Ave<br />
+            Portland, OR 97214<br />
+            (503) 482-8655<br />
         </p>
         <p class="footer-lcopyright">
             <i class="far fa-copyright"></i>
@@ -35,7 +35,7 @@
         </span>
         <p class="footer-copyright">
             <i class="far fa-copyright"></i>
-            @settings.Copyright
+            @DateTime.Now.Year
         </p>
     </div>
 
