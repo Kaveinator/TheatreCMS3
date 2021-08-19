@@ -12,4 +12,18 @@
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/* Styling for Rental Create and Edit page*/
 
+.rental_history-create--container {
+    background-color: var(--main-color--light);
+    max-width: 600px;
+}
+
+.rental_history-create--btn {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+rental_history-create--vldmsg {
+    color: var(--light-color)
+}
