@@ -17,10 +17,5 @@
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
         }
-
-        protected override void Seed(ApplicationDbContext context)
-        {
-
-        }
     }
 }
