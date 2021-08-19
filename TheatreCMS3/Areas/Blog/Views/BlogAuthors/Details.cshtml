@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="~/Content/Areas/Blog.css">
 
 @{
-  ViewBag.Title = "Details";
+    ViewBag.Title = "Details";
 }
 
 <h2 class="text-center">Blog Author Details</h2>
@@ -59,8 +59,9 @@
     <a href="/Blog/BlogAuthors" class="fas fa-long-arrow-alt-left">Back to List</a>
   </div>
   <div class="buttons">
-    <a href="/Blog/BlogAuthors/Edit" id="Edit-Button" class="fas fa-edit">Edit</a>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "fas fa-edit", id ="Edit-Button" })
   </div>
-  <a href="/Blog/BlogAuthors/Delete" class="fa fa-trash"></a>
+   @Html.ActionLink(" ", "Delete", new { id = Model.BlogAuthorId }, new { @class = "fa fa-trash" })
 </div>
+
 
