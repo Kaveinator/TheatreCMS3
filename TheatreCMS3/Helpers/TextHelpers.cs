@@ -34,7 +34,7 @@ namespace TheatreCMS3.Helpers
             //the following else if statement returns the correct string that informs how long it has been since the given datetime
             if (timeSince <= TimeSpan.FromSeconds(60))
             {
-                result = string.Format("{0} seconds() ago", timeSince.Seconds);
+                result = string.Format("{0} seconds ago", timeSince.Seconds);
             }
             else if (timeSince <= TimeSpan.FromMinutes(60))
             {
