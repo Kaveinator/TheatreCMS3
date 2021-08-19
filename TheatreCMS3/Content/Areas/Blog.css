@@ -42,14 +42,12 @@
     box-sizing: border-box;
 }
 
-.author-bio {
+textarea {
     width: 100%;
-    height: 200px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: transparent;
+    height: 250px;
+    border: none;
     border-radius: 5px;
-    box-sizing: border-box;
+    padding: 12px 20px;
 }
 
 .date-section {
@@ -108,7 +106,8 @@
     border: 5px solid var(--secondary-color);
     border-right: 10px solid var(--secondary-color);
     border-left: 10px solid var(--secondary-color);
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     border-bottom: none;
     background-color: var(--secondary-color);
 }
@@ -124,7 +123,7 @@
 }
 
 .nav > li:hover {
-    background-color: var(--light-color);
+    background-color: forestgreen;
     color: var(--dark-color);
     transition: 0.3s;
     text-decoration: none;
@@ -204,7 +203,7 @@ ul {
 }
 
 .bio-details {
-    width: 50vw;
+    width: 65%;
     height: 150px;
     margin: 8px 0;
     border: transparent;
@@ -213,7 +212,7 @@ ul {
 }
 
 .blog-post {
-    width: 50vw;
+    width: 65%;
     height: 250px;
     background-color: var(--secondary-color);
     margin-bottom: 20px;
