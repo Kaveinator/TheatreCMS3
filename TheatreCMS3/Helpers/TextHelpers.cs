@@ -25,5 +25,48 @@ namespace TheatreCMS3.Helpers
                 return value.Length <= maxLength ? value : value.Substring(0, maxLength) + ellipses;
             }
         }
+        public static string TimeAgo(this DateTime dateTime)
+//This function takes a DateTime variable as a n argument and returns an easy to understand string that describes how long ago the given DateTime was
+        {
+            var timeSince = DateTime.Now.Subtract(dateTime);//Compares the given datetime to now
+
+            string result;
+            //the following else if statement returns the correct string that informs how long it has been since the given datetime
+            if (timeSince <= TimeSpan.FromSeconds(60))
+            {
+                result = string.Format("{0} seconds() ago", timeSince.Seconds);
+            }
+            else if (timeSince <= TimeSpan.FromMinutes(60))
+            {
+                result = timeSince.Minutes > 1 ?
+                    String.Format("about {0} minutes ago", timeSince.Minutes) :
+                    "about a minute ago";
+            }
+            else if (timeSince <= TimeSpan.FromHours(24))
+            {
+                result = timeSince.Hours > 1 ?
+                    String.Format("about {0} hours ago", timeSince.Hours) :
+                    "about an hour ago";
+            }
+            else if (timeSince <= TimeSpan.FromDays(30))
+            {
+                result = timeSince.Days > 1 ?
+                    String.Format("about {0} days ago", timeSince.Days) :
+                    "yesterday";
+            }
+            else if (timeSince <= TimeSpan.FromDays(365))
+            {
+                result = timeSince.Days > 30 ?
+                    String.Format("about {0} months ago", timeSince.Days / 30) :
+                    "about a month ago";
+            }
+            else
+            {
+                result = timeSince.Days > 365 ?
+                    String.Format("about {0} years ago", timeSince.Days / 365) :
+                    "about a year ago";
+            }
+            return result;
+        }
     }
 }
