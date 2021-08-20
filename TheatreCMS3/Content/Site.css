@@ -98,6 +98,8 @@ textarea {
     background-color: var(--secondary-color);
     border-radius: 5px;
     justify-content: center;
+    color: var(--main-color); /* changes navbar text to red */
+    font-family: Broadway; /* changes navbar font to broadway */
 }
 
 .nav > li:hover {
@@ -116,8 +118,8 @@ textarea {
     width: auto;
 }
 
-.navbar {
-    background-color: var(--main-color);
+.navbar { /* Change background color from red to yellowgold */
+    background-color: var(--secondary-color);
 }
 
 .navbar-light .navbar-nav .nav-link { /* make text inside black */
@@ -130,6 +132,21 @@ textarea {
 
 .navbar--hamburger { /* hiding in desktop mode */
     display: none;
+}
+
+.navbar-fas {/* to keep the font awesome icons black */
+    color: var(--dark-color);
+}
+
+/* Solid black border on the search bar */
+.navbar-srchbar {
+    border: solid;
+}
+
+/* removes border around the button and changes background color */
+.navbar-srchbtn {
+    border: none;
+    background-color: var(--secondary-color);
 }
 
 @media screen and (max-width: 850px) { /* fixing navbar elements only within the mobile view */
@@ -188,7 +205,7 @@ textarea {
     display: none;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) { 
     #navdropRight {
         display: block;
         position: relative;
@@ -200,7 +217,7 @@ textarea {
 
     #dropIcon {
         font-size: 2em;
-        color: var(--secondary-color);
+        color: var(--main-color);
     }
 
     #navdropRight .dropdown-menu {
@@ -209,6 +226,12 @@ textarea {
         color: black;
         font-weight: 900;
         right: 0;
+    }
+    
+    /* added hover effect to the Font Awesome arrow icon */
+    #dropIcon:hover {
+        background-color: var(--light-color);
+        color: var(--secondary-color);
     }
 
     #navdropRight .dropdown-item {
@@ -518,54 +541,6 @@ input[type=text].Donation:hover, textarea.Donation:hover {
     border-bottom-left-radius: 50px;
 }
 /* End Home/Contact Page*/
-
-/*About Page Styling*/
-.about-container1 {
-    border-bottom-left-radius: 50px;
-}
-
-.about-container2 {
-    border-top-right-radius: 50px;
-}
-
-.about-container3 {
-    position: relative;
-    text-align: center;
-}
-
-.about-row {
-    display: flex;
-}
-
-.about-column {
-    flex: 33.33%;
-    padding: 5px;
-}
-
-.donate-button {
-    border: 1px solid white;
-    background-color: var(--main-color--light);
-    border: none;
-    color: var(--light-color);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: underline var(--main-color);
-    display: inline-block;
-    font-size: 26px;
-    font-weight: normal;
-    border-radius: 5px;
-    opacity: 95%;
-}
-
-.donate-button:hover {
-    border: 1px solid var(--light-color);
-    color: var(--light-color);
-    text-decoration: underline var(--main-color);
-    opacity: 100%;
-}
-
-/*End About Page Styling*/
-
 
 /*Start Sign In Page Styling*/
 

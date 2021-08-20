@@ -13,15 +13,16 @@ namespace TheatreCMS3.Areas.Blog.Models
         public Comment()
         {//constructor that sets CommentDate equal to whatever time it is when the comment is instantiated
             CommentDate = DateTime.Now;
+            Likes = 1;
+            LikeRatio = Convert.ToDouble(Likes / (Likes + Dislikes) * 100);
         }
         [Key]
         public int CommentId { get; set; }
         public ApplicationUser Author { get; set; }
         public string Message { get; set; }
-        public DateTime CommentDate { get; set; }
+        public DateTime CommentDate { get; private set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
-        public double LikeRatio() => Convert.ToDouble(Likes / (Likes + Dislikes) * 100);
-        //lambda function that should be able to be called on to display the Percentage liked. May change in the future.
+        public double LikeRatio { get; set; }
     }
 }
