@@ -32,10 +32,10 @@ namespace TheatreCMS3.Areas.Prod.Models
                 ManagerStartDate = new DateTime(2020, 01, 01)
             };
 
-            var check = userManager.Create(productionManger, "password");
+            //var check = userManager.Create(productionManger, "password");
 
-            if (check.Succeeded)
-                userManager.AddToRole(productionManger.Id, "ProductionManager");
+            //if (check.Succeeded)
+            //    userManager.AddToRole(productionManger.Id, "ProductionManager");
         }
     }
 }
