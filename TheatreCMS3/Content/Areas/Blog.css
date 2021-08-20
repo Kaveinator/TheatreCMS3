@@ -11,10 +11,12 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*styling for create and edit pages*/
 .Author-Container {
     border-radius: 20px;
     padding: 20px;
     background-color: var(--secondary-color);
+    font-size: 15px;
     box-shadow: 0px 2px 6px 8px var(--secondary-color--dark);
     font-family: Rockwell;
 }
@@ -25,12 +27,12 @@
     font-size: 40px;
     letter-spacing: 5px;
     padding: 4vh;
-    color: var(--main-color);
 }
 
 .form-label {
     text-align: left;
     margin: 0;
+    font-weight: bold;
 }
 
 .author-text {
@@ -42,14 +44,13 @@
     box-sizing: border-box;
 }
 
-.author-bio {
+textarea {
     width: 100%;
-    height: 200px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: transparent;
+    height: 250px;
+    border: none;
     border-radius: 5px;
-    box-sizing: border-box;
+    margin: 8px 0;
+    padding: 12px 20px;
 }
 
 .date-section {
@@ -57,12 +58,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--light-color);
 }
 
 .date-field {
     width: 250px;
     display: inline-block;
     margin: 20px;
+}
+
+input {
+    margin: 8px 0;
 }
 
 .buttons {
@@ -93,4 +99,145 @@
     color: var(--dark-color);
     text-decoration: none;
     transition: 1s;
+}
+
+/* Styling for details page */
+
+/*tabs at top of container*/
+.tab-background {
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    border: 5px solid var(--secondary-color);
+    border-right: 10px solid var(--secondary-color);
+    border-left: 10px solid var(--secondary-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+    background-color: var(--secondary-color);
+}
+
+.nav > li {
+    font-family: Rockwell;
+    margin: 2px;
+    background-color: gray;
+    border: transparent;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.nav > li > a {
+    font-weight: lighter;
+}
+
+.nav > li:hover {
+    background-color: forestgreen;
+    color: var(--dark-color);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*styling that applies to both tabs' page content*/
+.tab-content {
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-family: Rockwell;
+}
+
+.details-header {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 8px 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+img {
+    float: left;
+    padding-right: 30px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+/*styling specific to author details/default page*/
+#bio-details {
+    margin: 8px 0;
+    border: transparent;
+    box-sizing: border-box;
+}
+
+.joined-date, .left-date {
+    display: inline-block;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+/*styling specific to blog posts page*/
+#blog-post {
+    margin-bottom: 20px;
+    border: transparent;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+/*back, edit, trash, and social media icons*/
+.fab {
+    float: right;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.fa {
+    text-align: center;
+    color: var(--light-color);
+    background: red;
+    padding: 10px;
+    width: 40px;
+    border-radius: 5px;
+    float: right;
+    margin: 5px;
+}
+
+.fa:hover, .fas:hover {
+   color: var(--dark-color);
+   transition: 1s;
+}
+
+.fas {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+    background-color: gray;
+    color: var(--light-color);
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+#Edit-Button {
+    background-color: forestgreen;
+}
+
+/*styling specific to delete page*/
+.delete-header {
+    text-align: center;
+    color: var(--main-color);
+    font-family: Rockwell;
+    padding-bottom: 20px;
+}
+
+#Delete-Button {
+    background-color: var(--main-color);
+    width: 100px;
+    border: none;
 }
