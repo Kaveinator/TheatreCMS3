@@ -3,24 +3,23 @@
 <link rel="stylesheet" type="text/css" href="~/Content/Areas/Blog.css">
 
 @{
-    ViewBag.Title = "Details";
+  ViewBag.Title = "Details";
 }
 
 <h2 class="text-center">Blog Author Details</h2>
 
+@*tabs at top of container*@
 <div class="tab-background">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#Details">Author Details</a></li>
-    <li><a data-toggle="tab" href="#blog-posts">Blog Posts</a></li>
+    <li><a data-toggle="tab" href="#Blogs">Blog Posts</a></li>
   </ul>
 </div>
 
 <div class="tab-content">
-
+@*author-details section*@
   <div id="Details" class="tab-pane fade-in active">
-    <div class="photo-container">
-      <img src="https://via.placeholder.com/300">
-    </div>
+    <img src="https://via.placeholder.com/300">
 
     <div class="details-header">
       @Html.DisplayFor(model => model.Name)
@@ -28,40 +27,36 @@
       <a href="https://facebook.com" class="fab fa-facebook-f"></a>
     </div>
 
-    <textarea class="bio-details">
+    <div class="tab-pane fade-in active" id="bio-details">
       @Html.DisplayFor(model => model.Bio)
-    </textarea>
+    </div>
 
-    <div class="date-section">
-      <p class="form-label">Date Joined:</p>
-      <div class="date-field">
-        @Html.DisplayFor(model => model.Joined)
-      </div>
-
-      <p class="form-label">Date Left:</p>
-      <div class="date-field">
-        @Html.DisplayFor(model => model.Left)
-      </div>
+    <div class="joined-date">
+      <p class="form-label">Joined Date:</p>
+      @Html.DisplayFor(model => model.Joined)
+    </div>
+    <div class="left-date">
+      <p class="form-label">Left Date:</p>
+      @Html.DisplayFor(model => model.Left)
     </div>
   </div>
 
-  <div id="blog-posts" class="tab-pane fade">
-    <div class="photo-container">
-      <img src="https://via.placeholder.com/300">
-    </div>
-    <p class="details-header">Blog Posts</p>
-    <textarea class="blog-post">Implementing Later?</textarea>
+@*blog posts section*@
+  <div id="Blogs" class="tab-pane fade">
+    <img src="https://via.placeholder.com/300">
+
+    <div class="details-header">Blog Posts</div>
+    <div class="tab-pane fade-in" id="blog-post">Implementing Later...</div>
   </div>
 </div>
 
+@*buttons at bottom of page*@
 <div class="button-section">
   <div class="buttons">
     <a href="/Blog/BlogAuthors" class="fas fa-long-arrow-alt-left">Back to List</a>
   </div>
   <div class="buttons">
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "fas fa-edit", id ="Edit-Button" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "fas fa-edit", id = "Edit-Button" })
   </div>
-   @Html.ActionLink(" ", "Delete", new { id = Model.BlogAuthorId }, new { @class = "fa fa-trash" })
+  @Html.ActionLink(" ", "Delete", new { id = Model.BlogAuthorId }, new { @class = "fa fa-trash" })
 </div>
-
-

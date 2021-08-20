@@ -11,10 +11,12 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*styling for create and edit pages*/
 .Author-Container {
     border-radius: 20px;
     padding: 20px;
     background-color: var(--secondary-color);
+    font-size: 15px;
     box-shadow: 0px 2px 6px 8px var(--secondary-color--dark);
     font-family: Rockwell;
 }
@@ -47,6 +49,7 @@ textarea {
     height: 250px;
     border: none;
     border-radius: 5px;
+    margin: 8px 0;
     padding: 12px 20px;
 }
 
@@ -62,6 +65,10 @@ textarea {
     width: 250px;
     display: inline-block;
     margin: 20px;
+}
+
+input {
+    margin: 8px 0;
 }
 
 .buttons {
@@ -95,11 +102,11 @@ textarea {
 }
 
 /* Styling for details page */
+
+/*tabs at top of container*/
 .tab-background {
     display: flex;
     justify-content: center;
-    align-items: center;
-    border: none;
 }
 
 .nav {
@@ -119,7 +126,10 @@ textarea {
     border: transparent;
     border-radius: 5px;
     padding: 5px;
-    justify-content: center;
+}
+
+.nav > li > a {
+    font-weight: lighter;
 }
 
 .nav > li:hover {
@@ -129,31 +139,18 @@ textarea {
     text-decoration: none;
 }
 
-.nav > li > a {
-    font-weight: lighter;
-    text-decoration: none;
-}
-
 a:hover {
     text-decoration: none;
 }
-ul {
-    margin-top: 5px;
-    text-align: center;
-}
 
+/*styling that applies to both tabs' page content*/
 .tab-content {
     overflow: hidden;
     border-radius: 10px;
     padding: 10px;
-    padding-bottom: 0;
     background-color: var(--secondary-color);
+    color: var(--dark-color);
     font-family: Rockwell;
-}
-
-.photo-container {
-    float: left;
-    padding-right: 20px;
 }
 
 .details-header {
@@ -164,6 +161,35 @@ ul {
     box-sizing: border-box;
 }
 
+img {
+    float: left;
+    padding-right: 30px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+/*styling specific to author details/default page*/
+#bio-details {
+    margin: 8px 0;
+    border: transparent;
+    box-sizing: border-box;
+}
+
+.joined-date, .left-date {
+    display: inline-block;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+/*styling specific to blog posts page*/
+#blog-post {
+    margin-bottom: 20px;
+    border: transparent;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+/*back, edit, trash, and social media icons*/
 .fab {
     float: right;
     text-decoration: none;
@@ -202,25 +228,7 @@ ul {
     background-color: forestgreen;
 }
 
-.bio-details {
-    width: 65%;
-    height: 150px;
-    margin: 8px 0;
-    border: transparent;
-    box-sizing: border-box;
-    background-color: var(--secondary-color)
-}
-
-.blog-post {
-    width: 65%;
-    height: 250px;
-    background-color: var(--secondary-color);
-    margin-bottom: 20px;
-    border: transparent;
-    box-sizing: border-box;
-}
-
-/*styling for delete page:*/
+/*styling specific to delete page*/
 .delete-header {
     text-align: center;
     color: var(--main-color);
