@@ -6,56 +6,79 @@
   ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Index</h2>
 
-<p>
-  @Html.ActionLink("Create New", "Create")
-</p>
+<div class="rental_history-index--ctn mx-auto">
+  <p class="align-text-top">
+    @Html.ActionLink("Create New", "Create")
+  </p>
 
-<div class="rental_history-index--border ">
-  <table class="rental_history-index--tblbrd cms-bg-light mx-auto">
-    <tr>
-      <td colspan="3" class="cms-text-dark ">
-        Most Recent Rental Histories
-      </td>
-    </tr>
-    @foreach (var item in Model)
-    {
-      <tr class="rental_history-index--txtalign">
-        <td class="rental_history-index--td1">
-          @Html.DisplayFor(modelItem => item.RentalDamaged)
-
-        </td>
-        
-        <td class="cms-text-dark rental_history-index--td3">
-
-          <div class="text-truncate">
-            <span class="badge badge-dark">
-              @Html.DisplayFor(modelItem => item.Rental)
-            </span>
-            <span style="width: 75%">
-              @Html.DisplayFor(modelItem => item.DamagesIncurred)
-            </span>
-          </div>
-          <button class="rental_history-index--btn btn dropdown float-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v"></i>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.RentalHistoryId })">
-              <i class="fas fa-edit"></i>  Edit
-            </a>
-            <a class="dropdown-item" href="@Url.Action("Details", new { id = item.RentalHistoryId })">
-              <i class="fas fa-info-circle"></i>  Details
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item text-danger" href="@Url.Action("Delete", new { id = item.RentalHistoryId })">
-              <i class="fas fa-trash-alt text-danger"></i>  Delete
-            </a>
-          </div>
+  <div class="rental_history-index--border mx-auto">
+    <table class="rental_history-index--tblbrd cms-bg-light mx-auto">
+      <tr>
+        <td colspan="3" class="cms-text-dark pl-2">
+          Most Recent Rental Histories
         </td>
       </tr>
-    }
-  </table>
+      @foreach (var item in Model)
+      {
+        <tr class="rental_history-index--txtalign">
+          @if (item.RentalDamaged == true)
+          {
+            <td class="rental_history-index--td1">
+              <i class="fas fa-times-circle text-danger pl-1 rental_history-index--icnsize"></i>
+            </td>
+          }
+          else
+          {
+            <td class="rental_history-index--td1">
+              <i class="fas fa-check-circle text-success pl-1 rental_history-index--icnsize"></i>
+            </td>
+          }
+
+          <td class="cms-text-dark rental_history-index--td3">
+
+            <div class="text-truncate">
+              <span class="badge badge-dark font-weight-bold rental_history-index--bdgsize">
+                @Html.DisplayFor(modelItem => item.Rental)
+              </span>
+              @if (item.RentalDamaged == false)
+              {
+                <span class="rental_history-index--w text-secondary">
+                  @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                </span>
+              }
+              else
+              {
+                <span class="rental_history-index--w">
+                  @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                </span>
+              }
+
+            </div>
+
+          </td>
+          <td class="rental_history-index--btncontainer pr-2">
+            <button class="rental_history-index--btn btn dropdown float-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.RentalHistoryId })">
+                <i class="fas fa-edit"></i>  Edit
+              </a>
+              <a class="dropdown-item" href="@Url.Action("Details", new { id = item.RentalHistoryId })">
+                <i class="fas fa-info-circle"></i>  Details
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" href="@Url.Action("Delete", new { id = item.RentalHistoryId })">
+                <i class="fas fa-trash-alt text-danger"></i>  Delete
+              </a>
+            </div>
+          </td>
+        </tr>
+      }
+    </table>
+  </div>
 </div>
 
 @*
@@ -95,6 +118,4 @@
     }
 
   </table>
-
-
 *@

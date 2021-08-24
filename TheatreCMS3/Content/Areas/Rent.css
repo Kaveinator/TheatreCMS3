@@ -13,7 +13,7 @@
 /*}*/
 
 
-/* Styling for Rental Create and Edit page */
+/*** Styling for Rental Create and Edit page ***/
 
 /* container for form with red backgorund */
 .rental_history-create--container {
@@ -39,17 +39,24 @@
 }
 
 
-/* Styling for Index page */
+
+/*** Styling for Index page ****/
+
+/* container */
+.rental_history-index--ctn {
+    width: fit-content;
+}
 
 /* table border */
 .rental_history-index--border {
-    border: 1.2px solid var(--main-color);
-    border-radius: 9px 9px 9px 9px;
-    width: 600px
+    border: 3px solid var(--main-color);
+    border-radius: 20px;
+    width: 900px;
+    background-color: var(--light-color);
 }
 
 .rental_history-index--tblbrd {
-    border-radius: 7px 7px 7px 7px;
+    border-radius: 20px;
 }
 
 table {
@@ -63,9 +70,22 @@ tr {
     height: 42px;
 }
 
-/*  */
 .rental_history-index--txtalign {
     text-align: left;
+}
+
+
+/* Icons, badges, text */
+.rental_history-index--icnsize {
+    font-size: larger;
+}
+
+.rental_history-index--bdgsize {
+    font-size: medium;
+}
+
+.rental_history-index--w {
+    width: 75%;
 }
 
 
@@ -74,9 +94,6 @@ tr {
     width: 14px;
     padding-left: 5px;
     padding-right: 7px;
-}
-
-.rental_history-index--td2 {
 }
 
 .rental_history-index--td3 {
@@ -97,4 +114,9 @@ tr {
 .rental_history-index--txtalign:hover .rental_history-index--btn {
     display: inline;
     margin-right: auto;
+    color: var(--light-color);
+}
+
+.rental_history-index--btncontainer {
+    width: 38px;
 }
