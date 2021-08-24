@@ -561,3 +561,79 @@ input[type=text].Donation:hover, textarea.Donation:hover {
     column-count: 3;
     column-gap: 40px;
 }
+
+
+/*About Page styling*/
+.about-us-banner {
+    background-image: url(../Content/images/theater.jpg);
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.about-us-banner h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5em;
+    text-shadow: 2px 2px black;
+}
+
+.about-us {
+    padding-left: 180px;
+    padding-right: 180px;
+}
+
+.about-us-center {
+    text-align: center;
+}
+
+.about-us-center img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 10em;
+    height: auto;
+    max-height: 10em;
+}
+
+.au-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.about-us hr {
+    background-color: var(--main-color);
+    height: 1px;
+}
+
+
+.about-us-dark1 {
+    border-radius: 0px 0px 0px 120px;
+    padding-bottom: 60px;
+    background-color: var(--dark-color);
+}
+
+.about-us-dark2 {
+    border-radius: 0px 120px 0px 0px;
+    padding-bottom: 60px;
+    padding-top: 80px;
+    background-color: var(--dark-color);
+}
+
+
+.about-us-light {
+    padding-bottom: 80px;
+    padding-top: 80px;
+}
+
+
+.about-us-bg {
+    background-color: var(--main-color--light);
+}
