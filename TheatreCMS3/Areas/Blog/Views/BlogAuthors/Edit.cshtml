@@ -12,45 +12,42 @@
 {
   @Html.AntiForgeryToken()
 
-  <div class="Author-Container">
-    @*<h4>BlogAuthor</h4>*@
-    @*<hr />*@
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.BlogAuthorId)
+<div class="Author-Container">
+  @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+  @Html.HiddenFor(model => model.BlogAuthorId)
 
-    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "form-label" })
-    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "author-text" } })
-    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+  @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "form-label" })
+  @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "author-text" } })
+  @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
 
 
-    @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "form-label" })
-    @*<textarea class="author-bio" id="Bio" name="Bio" value=""></textarea>*@
-    @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "author-bio" } })
-    @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
-    
-    <div class="date-section">
-      <div class="date-field">
-        @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "form-label" })
-        @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { type = "datetime-local" } })
-      </div>
-        @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
-      
+  @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "form-label" })
+  @Html.TextAreaFor(model => model.Bio)
+  @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
 
-      <div class="date-field">
-        @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "form-label" })
-       @Html.EditorFor(model => model.Left, new { htmlAttributes = new { type = "datetime-local" } })
-      </div>
-        @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
-      </div>
-
-    <div class="buttons">
-      <a href="/Blog/BlogAuthors" class="back-button">Back to List</a>
+  <div class="date-section">
+    <div class="date-field">
+      @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "form-label" })
+      @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { type = "datetime-local" } })
     </div>
+    @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
 
-    <div class="buttons">
-      <input type="submit" value="Save" class="create-button" />
+
+    <div class="date-field">
+      @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "form-label" })
+      @Html.EditorFor(model => model.Left, new { htmlAttributes = new { type = "datetime-local" } })
     </div>
+    @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
   </div>
+
+  <div class="buttons">
+    <a href="/Blog/BlogAuthors" class="back-button">Back to List</a>
+  </div>
+
+  <div class="buttons">
+    <input type="submit" value="Save" class="create-button" />
+  </div>
+</div>
 }
 
 @section Scripts {
