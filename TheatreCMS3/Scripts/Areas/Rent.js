@@ -18,6 +18,3 @@ window.addEventListener("load", function () {
         label.innerHTML = "Notes";
     }
 });
-
-
-
