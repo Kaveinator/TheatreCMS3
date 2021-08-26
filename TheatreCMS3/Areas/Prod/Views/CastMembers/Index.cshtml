@@ -5,12 +5,13 @@
     Layout = "~/Areas/Prod/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<br />
+<h2>Cast Members</h2>
+<br />
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table cm-index">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -24,9 +25,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Bio)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Photo)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.CurrentMember)
         </th>
@@ -56,9 +57,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Bio)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Photo)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.CurrentMember)
         </td>
@@ -72,8 +73,8 @@
             @Html.DisplayFor(modelItem => item.DebutYear)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CastMemberId }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberId }) <br />
+            @Html.ActionLink("Details", "Details", new { id=item.CastMemberId }) <br />
             @Html.ActionLink("Delete", "Delete", new { id=item.CastMemberId })
         </td>
     </tr>

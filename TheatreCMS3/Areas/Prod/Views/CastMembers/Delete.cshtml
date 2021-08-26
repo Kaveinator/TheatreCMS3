@@ -5,93 +5,97 @@
     Layout = "~/Areas/Prod/Views/Shared/_Layout.cshtml";
 }
 
+<br />
 <h2>Delete</h2>
+<br />
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>CastMember</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<h3>Are you sure you want to delete this Cast Member?</h3>
+<div class="cm-delete">
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayNameFor(model => model.Name)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.Name)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.YearJoined)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.YearJoined)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.YearJoined)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.MainRole)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MainRole)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.MainRole)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.Bio)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.Bio)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
+    @*<dt>
+          @Html.DisplayNameFor(model => model.Photo)
+      </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
+      <dd>
+          @Html.DisplayFor(model => model.Photo)
+      </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.CurrentMember)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CurrentMember)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.CurrentMember)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Character)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.Character)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Character)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.Character)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.CastYearLeft)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CastYearLeft)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.CastYearLeft)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.DebutYear)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DebutYear)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.DebutYear)
+    </dd>
 
-    </dl>
+  </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+  @using (Html.BeginForm())
+  {
+    @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+    <div class="form-actions d-flex justify-content-center">
+      <input type="submit" value="Delete" class="btn castBtn" />
+    </div>
+    <div class="d-flex justify-content-center">
+      @Html.ActionLink("Back to List", "Index")
+    </div>
+  }
 </div>

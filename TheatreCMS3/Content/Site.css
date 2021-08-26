@@ -613,7 +613,6 @@ input[type=text].Donation:hover, textarea.Donation:hover {
     height: 1px;
 }
 
-
 .about-us-dark1 {
     border-radius: 0px 0px 0px 120px;
     padding-bottom: 60px;
@@ -627,13 +626,126 @@ input[type=text].Donation:hover, textarea.Donation:hover {
     background-color: var(--dark-color);
 }
 
-
 .about-us-light {
     padding-bottom: 80px;
     padding-top: 80px;
 }
 
-
 .about-us-bg {
     background-color: var(--main-color--light);
+}
+
+/* ===================== CastMembers CRUD styling =====================*/
+.cm-create-form {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.6);
+}
+
+.form-group {
+}
+
+.castBtn {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    margin: 20px;
+    width: 120px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.castBtn:hover {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.btn:focus {
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+}
+
+.form-control:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+}
+
+.text-box:focus {
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+}
+
+.cm-delete {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    width: 40vw;
+}
+
+.cm-delete dt, dd {
+    padding-left: 60px;
+}
+
+.cm-create-form a {
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 120px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    text-align: center;
+    text-shadow: none;
+}
+
+.cm-create-form a:hover {
+    background-color: var(--dark-color);
+}
+
+.cm-delete a {
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 120px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    text-align: center;
+    text-shadow: none;
+}
+
+.cm-delete a:hover {
+    background-color: var(--dark-color);
+}
+
+.cm-index {
+    background-color: var(--main-color);
+    color: white;
+    padding: 20px;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.cm-index a {
+    color: var(--dark-color);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.cm-index a:hover {
+    color: var(--light-color);
+}
+
+.col-md-10 {
+    max-width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.control-label {
+    margin-left: 3vw;
 }
