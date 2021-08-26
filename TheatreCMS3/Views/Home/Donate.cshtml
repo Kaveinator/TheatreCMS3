@@ -1,64 +1,61 @@
-﻿@{ 
-    ViewBag.Title = "Donate";
+﻿@{
+  ViewBag.Title = "Donate";
 }
 
-<div id="Donation-page">
-  <h1 class="text-center">Consider Making A Donation</h1>
+<h1 class="text-center">Consider Making A Donation</h1>
 
-  <div id="Donation-container">
-    <form action="" method="post">
+<div id="Donation-container">
+  <form action="" method="post">
 
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <label for="name">Name:</label>
-        </div>
-        <div class="col-12 col-lg-4 col-md-6">
-          <input class="Donation" type="text" name="name" placeholder="First Name.." required>
-        </div>
-        <div class="col-12 col-lg-4 col-md-6">
-          <input class="Donation" type="text" name="name" placeholder="Last Name.." required>
-        </div>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="name">Name:</label>
       </div>
-
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <label for="email">Email Address:</label>
-        </div>
-        <div class="col-12 col-lg-8">
-          <input class="Donation" type="text" name="email" placeholder="Email Address.." required>
-        </div>
+      <div class="col-12 col-lg-4 col-md-6">
+        <input class="Donation" type="text" name="name" required>
       </div>
-
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <label for="address">Address:</label>
-        </div>
-        <div class="col-12 col-lg-8">
-          <input class="Donation" type="text" name="address" placeholder="Address.." required>
-        </div>
+      <div class="col-12 col-lg-4 col-md-6">
+        <input class="Donation" type="text" name="name" required>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <label for="donation">Donation amount:</label>
-        </div>
-        <div class="col-12 col-lg-8">
-          <input class="Donation" type="text" name="donation" placeholder="Donation Amount.." required>
-        </div>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="email">Email Address:</label>
       </div>
+      <div class="col-12 col-lg-8">
+        <input class="Donation" type="text" name="email" required>
+      </div>
+    </div>
 
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <label for="message">Message:</label>
-        </div>
-        <div class="col-12 col-lg-8">
-          <textarea class="Donation" name="message" placeholder="Donation Comments.."></textarea>
-        </div>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="address">Address:</label>
       </div>
+      <div class="col-12 col-lg-8">
+        <input class="Donation" type="text" name="address" required>
+      </div>
+    </div>
 
-      <div id="submit-button">
-        <input class="Donation" type="submit" value="Submit">
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="donation">Donation amount:</label>
       </div>
-    </form>
-  </div>
+      <div class="col-12 col-lg-8">
+        <input class="Donation" type="text" name="donation" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="message">Message:</label>
+      </div>
+      <div class="col-12 col-lg-8">
+        <textarea class="Donation" name="message"></textarea>
+      </div>
+    </div>
+
+
+    <input class="Donation" type="submit" value="Submit">
+  </form>
 </div>
