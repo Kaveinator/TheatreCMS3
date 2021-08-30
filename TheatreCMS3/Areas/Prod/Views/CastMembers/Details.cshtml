@@ -5,83 +5,99 @@
     Layout = "~/Areas/Prod/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<br />
+<h2>Cast Member Details</h2>
+<br />
 
 <div>
-    <h4>CastMember</h4>
-    <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal cm-delete">
+      <dt>
+        @Html.DisplayNameFor(model => model.Name)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.Name)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.YearJoined)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.YearJoined)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.MainRole)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.MainRole)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.Bio)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.Bio)
+      </dd>
+
+      @*<dt>
+        @Html.DisplayNameFor(model => model.Photo)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Photo)
+    </dd>*@
+
+      <dt>
+        @Html.DisplayNameFor(model => model.ProductionTitle)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.ProductionTitle)
+      </dd>
+
+      @if (Convert.ToString(Model.MainRole) == "Actor")
+      {
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+          @Html.DisplayNameFor(model => model.Character)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+          @Html.DisplayFor(model => model.Character)
         </dd>
+      }
 
+      @if (Model.CurrentMember == false)
+      {
         <dt>
-            @Html.DisplayNameFor(model => model.YearJoined)
+          @Html.DisplayNameFor(model => model.CastYearLeft)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.YearJoined)
+          @Html.DisplayFor(model => model.CastYearLeft)
         </dd>
-
+      }
+      else
+      {
         <dt>
-            @Html.DisplayNameFor(model => model.MainRole)
+          @Html.DisplayNameFor(model => model.CurrentMember)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MainRole)
+          @Html.DisplayFor(model => model.CurrentMember)
         </dd>
+      }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+      <dt>
+        @Html.DisplayNameFor(model => model.DebutYear)
+      </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentMember)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Character)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Character)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CastYearLeft)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DebutYear)
-        </dd>
+      <dd>
+        @Html.DisplayFor(model => model.DebutYear)
+      </dd>
 
     </dl>
 </div>
