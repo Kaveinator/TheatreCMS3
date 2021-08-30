@@ -683,6 +683,7 @@ input[type=text].Donation, textarea.Donation {
     color: white;
     padding: 20px;
     border-radius: 0px 0px 4px 4px;
+    text-align: center;
 }
 
 .cm-index a {
@@ -695,6 +696,29 @@ input[type=text].Donation, textarea.Donation {
     color: var(--light-color);
 }
 
+.cm-link-btn {
+    padding: 30px;
+}
+
+.cm-link-btn a
+{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    width: 120px;
+    background-color: var(--light-color);
+    border-radius: 4px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+}
+
+.cm-link-btn a:hover
+{
+    background-color: var(--secondary-color);
+    color: white;
+}
+
 .col-md-10 {
     max-width: 90%;
     margin-right: auto;
@@ -704,3 +728,93 @@ input[type=text].Donation, textarea.Donation {
 .control-label {
     margin-left: 3vw;
 }
+
+.cm-card-body {
+    background-color: var(--main-color);
+    padding: 60px 0px 60px 0px;
+    cursor: pointer;
+    -webkit-filter: brightness(100%);
+    text-decoration: none;
+}
+
+.cm-card-body:hover {
+    background-color: rgb(181 0 0 / 0.8);
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    text-decoration: none;
+}
+
+.cm-card-body a {
+    color: white;
+    text-decoration: none;
+}
+
+.card-hidden {
+    display: none;
+    width: auto;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 0;
+}
+
+.card-hidden p {
+    font-size: 1em;
+}
+
+.cm-fas {
+    font-size: 1em;
+    padding-right: 4px;
+    text-align:left;
+}
+
+.cm-hiddenBtn {
+    background-color: rgba(0,0,0,.8);
+    padding: 15px;
+    border-radius: 4px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+}
+
+.cm-hiddenBtn:hover {
+    background-color: var(--secondary-color);
+}
+
+.showHidden:hover .card-hidden {
+    display: block;
+    float: left;
+}
+
+.card-display {
+    display: flex;
+    margin: 20px;
+    text-align: center;
+}
+
+hr {
+    background-color: var(--secondary-color--dark);
+    height: 3px;
+}
+
+.card-display img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 13em;
+    height: auto;
+    max-height: 13em;
+    margin-top: 1em;
+}
+
+.cm-row-index {
+    margin-bottom: 2vw;
+    justify-content: center;
+}
+
+
+
+
+
