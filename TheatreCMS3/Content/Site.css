@@ -510,13 +510,6 @@ input[type=text].Donation, textarea.Donation {
     box-sizing: border-box;
 }*/
 
-/* Home/Contact Page Styling*/
-.home-contact-header {
-    font-family: broadway;
-    font-weight: 900;
-    border-bottom-left-radius: 50px;
-}
-/* End Home/Contact Page*/
 
 /*About Page styling*/
 .about-us-banner {
