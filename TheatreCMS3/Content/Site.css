@@ -704,3 +704,46 @@ input[type=text].Donation, textarea.Donation {
 .control-label {
     margin-left: 3vw;
 }
+
+/*====== PRODUCTION PHOTO STYLING ======*/
+
+.pp-create-page {
+    background-color: #D6972A;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.6);
+}
+
+.pp-create-btn {
+    background-color: #F04D44;
+    color: white;
+    margin: 20px;
+    width: 120px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.pp-create-btn:hover {
+        background-color: #DB1A11;
+        color: black;
+    }
+
+.pp-create-page a {
+    background-color: #9D7C39;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 120px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.pp-create-page a:hover {
+        background-color: #D6972A;
+        color: black;
+}
