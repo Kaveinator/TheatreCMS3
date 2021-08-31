@@ -10,27 +10,72 @@
 
 <h3 style="text-align: center;">Delete this Cast Member?</h3>
 <br />
-<div class="cm-delete">
-  <dl class="dl-horizontal">
-    <br /><br />
+
+<div>
+  <dl class="dl-horizontal cm-delete">
+    <dd>
+      <br />
+      <h2>@Html.DisplayFor(model => model.Name)</h2>
+      <br />
+    </dd>
 
     <dd>
-      <h2>@Html.DisplayFor(model => model.Name)</h2>
+      <div class="cm-details-img">
+        <img src="" alt="Image Coming Soon" />
+        @*<p>@Html.DisplayFor(model => model.Photo)</p>*@
+      </div>
+
+    </dd>
+
+    <dt class="cm-details-left">
+      <h4>Bio</h4>
+    </dt>
+
+    <dd class="cm-details-box">
+      @Html.DisplayFor(model => model.Bio)
+    </dd>
+
+    <dt class="cm-details-left">
+      <h4>Info</h4>
+    </dt>
+
+    <dd>
+      <div class="cm-details-box">
+        <p>Main Role: @Html.DisplayFor(model => model.MainRole)</p>
+        <p>Production: @Html.DisplayFor(model => model.ProductionTitle)</p>
+
+        @if (Convert.ToString(Model.MainRole) == "Actor")
+        {
+          <p>Character: @Html.DisplayFor(model => model.Character)</p>
+        }
+
+        <p>Year Joined: @Html.DisplayFor(model => model.YearJoined)</p>
+        <p>Year Debuted: @Html.DisplayFor(model => model.DebutYear)</p>
+
+        @if (Model.CurrentMember == true && Model.CastYearLeft == null)
+        {
+          <p>Status: Current Member</p>
+        }
+        else if (Model.CurrentMember == false && Model.CastYearLeft != null)
+        {
+          <p>Left Cast: @Html.DisplayFor(model => model.CastYearLeft)</p>
+        }
+
+      </div>
+
+      @using (Html.BeginForm())
+      {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions d-flex justify-content-center">
+          <button type="submit" class="btn castBtn"><i class="fas fa-user-minus cm-fas"> </i>Delete</button>
+          @*<input type="submit" value="Delete" class="btn castBtn" />*@
+        </div>
+      }
+
     </dd>
   </dl>
-
-  @using (Html.BeginForm())
-  {
-    @Html.AntiForgeryToken()
-
-    <div class="form-actions d-flex justify-content-center">
-      <button type="submit" class="btn castBtn"><i class="fas fa-user-minus cm-fas"> </i>Delete</button>
-      @*<input type="submit" value="Delete" class="btn castBtn" />*@
-    </div>
-  }
-
 </div>
-<br />
 
 <div class="cm-btn-div">
   <a href='@Url.Action("Index", "CastMembers")'>
