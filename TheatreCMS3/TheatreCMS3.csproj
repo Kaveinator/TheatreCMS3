@@ -197,6 +197,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotosController.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
@@ -410,6 +412,11 @@
     <Content Include="Areas\Prod\Views\ProductionPhotos\Details.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotos\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotos\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -571,8 +578,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Blog\Controllers\" />
-    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Helpers\" />
     <Folder Include="UIUX\Images\" />
