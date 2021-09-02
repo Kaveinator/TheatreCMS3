@@ -790,18 +790,70 @@ hr {
 
 /* ============================ Contact Styling ============================ */
 
+.contact-header-container {
+    border-radius: 0px 0px 0px 120px;
+    padding-bottom: 60px;
+    background-color: #000000;
+    padding: 140px 10px 140px 10px;
+}
+
+.contact-us-text {
+    font-family: broadway;
+    font-size: 75px;
+    text-align: center;
+}
+
+.contact-get-text {
+    text-align: center;
+    padding: 65px 0px 65px 0px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,.7);
+}
+
+    .contact-get-text hr {
+        background-color: var(--main-color);
+        height: 3px;
+        width: 195px;
+        border-radius: 50px;
+        box-shadow: 0px 1px 0px rgba(0,0,0,.6);
+        text-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    }
+
+.contact-btn-don-vol-size {
+    width: 125px;
+    border-radius: 12px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.7);
+    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
+}
+
+.contact-text-size-don-vol {
+    font-size: 20px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
+}
+
+.contact-form-label-text {
+    font-size: 18px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,.7);
+}
+
+.contact-btn-sub-rad {
+    border-radius: 12px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.7);
+}
+
+.contact-box-shadow {
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.6);
+}
+
+.contact-text-shadow {
+    text-shadow: 2px 2px 5px rgba(0,0,0,.7);
+}
+
 /* =============== BUTTON STYLING ================== */
 .cm-btn-div {
     display: block;
     width: 40vw;
     margin: auto;
     padding-top: 10px;
-}
-.contact-header-container {
-    border-radius: 0px 0px 0px 120px;
-    padding-bottom: 60px;
-    background-color: #000000;
-    padding: 140px 10px 140px 10px;
 }
 
 .cm-btn {
@@ -815,11 +867,6 @@ hr {
     width: 110px;
     font-size: 13px;
     font-weight: 700;
-}
-.contact-us-text {
-    font-family: broadway;
-    font-size: 75px;
-    text-align: center;
 }
 
 .cm-btn a {
@@ -843,41 +890,6 @@ hr {
     float: right;
     background-color: var(--light-color);
     border: 2px solid var(--main-color);
-}
-.contact-get-text {
-    text-align: center;
-    padding: 65px 0px 65px 0px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,.7);
-}
-.contact-get-text hr {
-    background-color: var(--main-color);
-    height: 3px;
-    width:195px;
-    border-radius: 50px;
-    box-shadow: 0px 1px 0px rgba(0,0,0,.6);
-    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
-}
-
-.contact-btn-don-vol-size {
-    width: 125px;
-    border-radius: 12px;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.7);
-    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
-}
-
-.contact-text-size-don-vol {
-    font-size: 20px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
-}
-
-.contact-form-label-text {
-    font-size: 18px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,.7);
-}
-
-.contact-btn-sub-rad {
-    border-radius: 12px;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.7);
 }
 
 .cm-btn-delete:hover {
@@ -939,11 +951,4 @@ hr {
     background-color: var(--secondary-color);
     color: white;
     text-shadow: 1px 1px 1px black;
-}
-.contact-box-shadow {
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.6);
-}
-
-.contact-text-shadow {
-    text-shadow: 2px 2px 5px rgba(0,0,0,.7);
 }
