@@ -1,53 +1,59 @@
-﻿@{
-    ViewBag.Title = "Get in Touch";
-}
+﻿<style>
+  .body-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+</style>
+<div class="container body body-content cms-bg-main-light">
+  @{
+    ViewBag.Title = "Contact";
+  }
 
-<div>
-    <div class="h-100 cms-bg-main-light">
-        <div class="jumbotron jumbotron-fluid h-25 cms-bg-dark home home-contact-header">
-            <div class="container text-center">
-                <h1>CONTACT US</h1>
-            </div>
+  <!-- form needs implemented methods-->
+  <div class="container-fluid m-0 contact-header-container">
+    <h1 class="contact-us-text">CONTACT US</h1>
+  </div>
+  <div class="contact-get-text">
+    <h1>GET IN TOUCH</h1>
+    <hr />
+  </div>
+  <div class="container pb-5">
+    <!-- form -->
+    <div class="row pt-1">
+      <form class="col-8">
+        <div class="form-group">
+          <label class="contact-form-label-text">First & Last Name*</label>
+          <input class="form-control contact-box-shadow">
         </div>
-        
-        <h3 class="text-center text-uppercase">@ViewBag.Title</h3>
-        <div class="d-md-flex justify-content-center col-md-12 p-2">
-            <div class="col-md-8">
-                <form action="" method="post">
-                    <div class="form-group">
-                        <label for="name">First & Last Name *</label>
-                        <input class="form-control" type="text" name="name" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input class="form-control" type="email" name="email" />
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <input class="form-control" type="text" name="subject" />
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea class="form-control" type="text" rows="5" name="message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-block cms-bg-main form-control border border-white text-white" type="submit">Submit</button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-4">
-                <div class="p-3">
-                    <h4>DONATE</h4>
-                    <p>We've got a Patreon account! Help support live theatre in Portland, OR, by becoming a Patron today!</p>
-                    <button class="btn cms-bg-main border border-white text-white" type="button" id="donate">Donate</button>
-                </div>
-                <div class="p-3">
-                    <h4>VOLUNTEER</h4>
-                    <p>If you are interested in volunteering, we would greatly appreciate it. Click below for more details.</p>
-                    <button class="btn cms-bg-main border border-white text-white" type="button" id="volunteer">Volunteer</button>
-                </div>
-            </div>
+        <div class="form-group">
+          <label class="contact-form-label-text">Email Address*</label>
+          <input type="email" class="form-control contact-box-shadow">
         </div>
+        <div class="form-group">
+          <label class="contact-form-label-text">Subject*</label>
+          <input type="email" class="form-control contact-box-shadow">
+        </div>
+        <div class="form-group">
+          <label class="contact-form-label-text">Message*</label>
+          <textarea class="form-control contact-box-shadow" rows="5"></textarea>
+        </div>
+        <button type="button" class="btn btn-danger btn-block border border-light font-weight-bold contact-btn-sub-rad contact-box-shadow contact-text-shadow">Submit</button>
+      </form>
+      <!-- Donate and Volunteer -->
+      <div class="col-4 pl-3 pt-1">
+        <h2 class="font-weight-bold contact-text-shadow">DONATE</h2>
+        <p class="contact-text-size-don-vol pb-1 pt-2">We've got a Patreon account! Help support live theatre in Portland, OR, by becoming a Patron today!</p>
+        <button type="button" class="btn btn-danger border border-light contact-btn-don-vol-size font-weight-bold contact-box-shadow contact-text-shadow">Donate</button>
+        <h2 class="font-weight-bold pt-5 pb-1 contact-text-shadow">VOLUNTEER</h2>
+        <p class="contact-text-size-don-vol pb-1 pt-2">Lorem Ipsum dolor sit amet, consectetur adipiscing elif,
+        sed do elusmod tempor incididunt ut labore et dolore magna.</p>
+        <button type="button" class="btn btn-danger border border-light contact-btn-don-vol-size font-weight-bold contact-box-shadow contact-text-shadow">VOLUNTEER</button>
+      </div>
     </div>
+  </div>
 </div>
+    
+
 
