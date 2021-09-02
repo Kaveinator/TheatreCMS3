@@ -98,8 +98,6 @@ textarea {
     background-color: var(--secondary-color);
     border-radius: 5px;
     justify-content: center;
-    color: var(--main-color); /* changes navbar text to red */
-    font-family: Broadway; /* changes navbar font to broadway */
 }
 
 .nav > li:hover {
@@ -118,8 +116,8 @@ textarea {
     width: auto;
 }
 
-.navbar { /* Change background color from red to yellowgold */
-    background-color: var(--secondary-color);
+.navbar {
+    background-color: var(--main-color);
 }
 
 .navbar-light .navbar-nav .nav-link { /* make text inside black */
@@ -132,21 +130,6 @@ textarea {
 
 .navbar--hamburger { /* hiding in desktop mode */
     display: none;
-}
-
-.navbar-fas {/* to keep the font awesome icons black */
-    color: var(--dark-color);
-}
-
-/* Solid black border on the search bar */
-.navbar-srchbar {
-    border: solid;
-}
-
-/* removes border around the button and changes background color */
-.navbar-srchbtn {
-    border: none;
-    background-color: var(--secondary-color);
 }
 
 @media screen and (max-width: 850px) { /* fixing navbar elements only within the mobile view */
@@ -217,7 +200,7 @@ textarea {
 
     #dropIcon {
         font-size: 2em;
-        color: var(--main-color);
+        color: var(--secondary-color);
     }
 
     #navdropRight .dropdown-menu {
@@ -226,12 +209,6 @@ textarea {
         color: black;
         font-weight: 900;
         right: 0;
-    }
-    
-    /* added hover effect to the Font Awesome arrow icon */
-    #dropIcon:hover {
-        background-color: var(--light-color);
-        color: var(--secondary-color);
     }
 
     #navdropRight .dropdown-item {
