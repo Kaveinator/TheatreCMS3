@@ -1,9 +1,24 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+<style>
+  .body-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+</style>
 
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-@Html.Partial("_Comments")
+<div class="container body body-content cms-bg-main-light">
+  <div class="container-fluid m-0 comment-header-container">
+    <h1 class="comment-header-text">Comments</h1>
+  </div>
+  <div class="comment-actionlink-center pt-2">
+    <button type="button" class="btn font-weight-bold comment-btn comment-actionlink">@Html.ActionLink("Create A New Comment", "Create")</button>
+  </div>
 
+  @Html.Partial("_Comments")
+</div>
