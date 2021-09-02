@@ -11,9 +11,13 @@
 @{
   ViewBag.Title = "Index";
 }
+
 <div class="container body body-content cms-bg-main-light">
   <div class="container-fluid m-0 comment-header-container">
     <h1 class="comment-header-text">Comments</h1>
+  </div>
+  <div class="comment-actionlink-center pt-2">
+    <button type="button" class="btn font-weight-bold comment-btn comment-actionlink">@Html.ActionLink("Create A New Comment", "Create")</button>
   </div>
 
   @Html.Partial("_Comments")
