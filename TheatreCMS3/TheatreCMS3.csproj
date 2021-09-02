@@ -334,6 +334,7 @@
     <Content Include="Content\images\ProductionPhotos\Wicked\04.jpg" />
     <Content Include="Content\images\ProductionPhotos\Wicked\05.jpg" />
     <Content Include="Content\images\Tempest.png" />
+    <Content Include="Content\images\tetonbarn.jpg" />
     <Content Include="Content\images\theater.jpg" />
     <Content Include="Content\images\TheatreLogo.png" />
     <Content Include="Content\PagedList.css" />
