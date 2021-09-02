@@ -63,11 +63,11 @@
 
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="~/Home/Index">Home <i class="fas navbar-fas fa-home small"></i></a>
+        <a class="nav-link" href="~/Home/Index">TheatreCMS</a>
       </li>
       <li class="nav nav-item dropdown ">
-        <a class="nav nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ensemble <i class="fas navbar-fas fa-user-friends small"></i>
+        <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Production
         </a>
         <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
           @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
@@ -77,8 +77,8 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Contact <i class="fas navbar-fas fa-phone-alt small"></i>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Rental
         </a>
         <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
           @Html.ActionLink("Rental Requests", "Index", "RentalRequests", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
@@ -88,8 +88,8 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Blog <i class="fas navbar-fas fa-laptop small"></i>
+        <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Blog
         </a>
         <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
           @Html.ActionLink("Blog Post", "Index", "BlogPost", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
@@ -99,13 +99,6 @@
         </div>
       </li>
     </ul>
-    <!-- Search Bar -->
-    <form class="nav-item form-inline cms-bg-secondary small">
-      <input class="rounded-pill nav-pills cms-bg-secondary navbar-srchbar" type="search" aria-label="Search">
-      <button class="rounded-pill navbar-srchbtn ml-n4 mb-0" type="submit">
-      <i class="fas fa-search small"></i></button>
-    </form>
     @Html.Partial("_LoginPartial")
   </div>
 </nav>
-

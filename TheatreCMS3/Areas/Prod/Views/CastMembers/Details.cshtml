@@ -5,87 +5,78 @@
     Layout = "~/Areas/Prod/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<br />
+<h2 style="text-align:center;">Cast Member Details</h2>
+<br />
 
 <div>
-    <h4>CastMember</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <dl class="dl-horizontal cm-delete">
+      <dd>
+        <br />
+        <h2>@Html.DisplayFor(model => model.Name)</h2>
+        <br />
+      </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+      <dd>
+        <div class="cm-details-img">
+          <img src="" alt="Image Coming Soon" />
+          @*<p>@Html.DisplayFor(model => model.Photo)</p>*@
+        </div>
+        
+      </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </dt>
+      <dt class="cm-details-left">
+        <h4>Bio</h4>
+      </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.YearJoined)
-        </dd>
+      <dd class="cm-details-box">
+        @Html.DisplayFor(model => model.Bio)
+      </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </dt>
+      <dt class="cm-details-left">
+        <h4>Info</h4>
+      </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MainRole)
-        </dd>
+      <dd>
+        <div class="cm-details-box">
+          <p>Main Role: @Html.DisplayFor(model => model.MainRole)</p>
+          <p>Production: @Html.DisplayFor(model => model.ProductionTitle)</p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+          @if (Convert.ToString(Model.MainRole) == "Actor")
+          {
+            <p>Character: @Html.DisplayFor(model => model.Character)</p>
+          }
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+          <p>Year Joined: @Html.DisplayFor(model => model.YearJoined)</p>
+          <p>Year Debuted: @Html.DisplayFor(model => model.DebutYear)</p>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
+          @if (Model.CurrentMember == true && Model.CastYearLeft == null)
+          {
+            <p>Status: Current Member</p>
+          }
+          else if (Model.CurrentMember == false && Model.CastYearLeft != null)
+          {
+            <p>Left Cast: @Html.DisplayFor(model => model.CastYearLeft)</p>
+          }
 
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>*@
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentMember)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Character)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Character)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CastYearLeft)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DebutYear)
-        </dd>
-
+        <br /><br />
+      </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CastMemberId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="cm-btn-div">
+  <a href='@Url.Action("Index", "CastMembers")'>
+    <button class="cm-btn cm-btn-edit"><i class="fas fa-long-arrow-alt-left cm-fas"> </i>Back to List</button>
+  </a>
+
+  <a href='@Url.Action("Edit", "CastMembers", new { id = Model.CastMemberId })'>
+    <button class="cm-btn cm-btn-edit"><i class="fas fa-user-edit cm-fas"> </i>Edit</button>
+  </a>
+
+  @*<a href='@Url.Action("Delete", "CastMembers", new { id = Model.CastMemberId })'>
+    <button class="cm-btn cm-btn-delete"><i class="fas fa-user-minus cm-fas"> </i>Delete</button>
+  </a>*@
+</div>
+

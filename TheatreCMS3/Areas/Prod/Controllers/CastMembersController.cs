@@ -18,8 +18,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers
         public ActionResult Index()
         {
-            return View(db.CastMembers.ToList());
-        }
+            return View(db.CastMembers.OrderBy(i => i.ProductionTitle).ToList());
+        }   
 
         // GET: Prod/CastMembers/Details/5
         public ActionResult Details(int? id)
@@ -47,7 +47,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,Photo,CurrentMember,ProductionTitle,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,Photo,CurrentMember,ProductionTitle,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {

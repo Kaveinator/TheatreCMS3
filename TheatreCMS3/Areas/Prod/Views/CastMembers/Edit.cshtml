@@ -14,7 +14,6 @@
     @Html.AntiForgeryToken()
     
     <div class="cm-create-form">
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.CastMemberId)
 
@@ -68,6 +67,14 @@
             </div>
         </div>
 
+      <div class="form-group">
+            @Html.LabelFor(model => model.ProductionTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductionTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductionTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Character, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -94,14 +101,20 @@
 
         <div class="form-group">
           <div class="d-flex justify-content-center ">
-            <input type="submit" value="Create" class="btn castBtn" />
-          </div>
-          <div class="d-flex justify-content-center">
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Save Changes" class="btn castBtn" />
           </div>
         </div>
     </div>
 }
+<div class="cm-btn-div">
+  <a href='@Url.Action("Index", "CastMembers")'>
+    <button class="cm-btn cm-btn-edit"><i class="fas fa-long-arrow-alt-left cm-fas"> </i>Back to List</button>
+  </a>
+
+  <a href='@Url.Action("Delete", "CastMembers", new { id = Model.CastMemberId })'>
+    <button class="cm-btn cm-btn-delete"><i class="fas fa-user-minus cm-fas"> </i>Delete</button>
+  </a>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
