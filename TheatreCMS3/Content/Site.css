@@ -708,6 +708,9 @@ input[type=text].Donation, textarea.Donation {
 /*====== PRODUCTION PHOTO STYLING ======*/
 
 .pp-create-page {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     background-color: #D6972A;
     border-radius: 10px;
     margin-right: auto;
@@ -747,3 +750,9 @@ input[type=text].Donation, textarea.Donation {
         background-color: #D6972A;
         color: black;
 }
+
+img {
+    width: 100%;
+    height: auto;
+}
+
