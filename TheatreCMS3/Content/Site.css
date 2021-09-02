@@ -593,29 +593,6 @@ input[type=text].Donation, textarea.Donation {
     text-shadow: 2px 2px 4px rgba(0,0,0,.6);
 }
 
-.form-group {
-}
-
-.castBtn {
-    background-color: var(--light-color);
-    color: var(--dark-color);
-    margin: 20px;
-    width: 120px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
-.castBtn:hover {
-    background-color: var(--dark-color);
-    color: white;
-}
-
-.btn:focus {
-    background-clip: padding-box;
-    border: 1px solid var(--secondary-color);
-    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
-}
-
 .form-control:hover {
     border-color: var(--secondary-color);
     box-shadow: 2px 2px 4px rgba(0,0,0,.5);
@@ -627,14 +604,17 @@ input[type=text].Donation, textarea.Donation {
     box-shadow: 2px 2px 4px rgba(0,0,0,.5);
 }
 
+.cm-block {
+    display: block;
+    float: left;
+}
+
 .cm-delete {
     background-color: var(--main-color);
     border-radius: 8px;
     width: 40vw;
-}
-
-.cm-delete dt, dd {
-    padding-left: 60px;
+    text-align:center;
+    margin: auto;
 }
 
 .cm-create-form a {
@@ -670,7 +650,7 @@ input[type=text].Donation, textarea.Donation {
 .cm-delete a:hover {
     background-color: var(--dark-color);
 }
-
+/*
 .cm-index {
     background-color: var(--main-color);
     color: white;
@@ -687,30 +667,8 @@ input[type=text].Donation, textarea.Donation {
 
 .cm-index a:hover {
     color: var(--light-color);
-}
+}*/
 
-.cm-link-btn {
-    padding: 30px;
-}
-
-.cm-link-btn a
-{
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-    width: 120px;
-    background-color: var(--light-color);
-    border-radius: 4px;
-    text-align: center;
-    text-shadow: 1px 1px 2px rgba(0,0,0,.5);
-    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
-}
-
-.cm-link-btn a:hover
-{
-    background-color: var(--secondary-color);
-    color: white;
-}
 
 .col-md-10 {
     max-width: 90%;
@@ -724,7 +682,7 @@ input[type=text].Donation, textarea.Donation {
 
 .cm-card-body {
     background-color: var(--main-color);
-    padding: 60px 0px 60px 0px;
+    padding: 10px 0px 0px 0px;
     cursor: pointer;
     -webkit-filter: brightness(100%);
     text-decoration: none;
@@ -750,7 +708,8 @@ input[type=text].Donation, textarea.Donation {
     width: auto;
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 10%;
+    right: 10%;
     margin: 0;
 }
 
@@ -765,16 +724,9 @@ input[type=text].Donation, textarea.Donation {
 }
 
 .cm-hiddenBtn {
-    background-color: rgba(0,0,0,.8);
-    padding: 15px;
+    background-color: rgba(0,0,0,0);
+    padding: 10px;
     border-radius: 4px;
-    display: block;
-    float: left;
-    margin-right: 10px;
-}
-
-.cm-hiddenBtn:hover {
-    background-color: var(--secondary-color);
 }
 
 .showHidden:hover .card-hidden {
@@ -794,17 +746,46 @@ hr {
 }
 
 .card-display img {
-    border-radius: 50%;
     width: 100%;
     max-width: 13em;
     height: auto;
     max-height: 13em;
-    margin-top: 1em;
 }
 
 .cm-row-index {
     margin-bottom: 2vw;
     justify-content: center;
+}
+
+/* ================ DETAILS PAGE =================*/
+.cm-details-img {
+    background-color: lightgray;
+    width: 30vw;
+    height: 20vw;
+    border-radius: 12px;
+    text-align: center;
+    margin: auto;
+    color: var(--main-color);
+}
+
+.cm-details-left {
+    text-align: left;
+    padding-top: 30px;
+    padding-left: 13%;
+}
+
+.cm-details-box {
+    border: 2px solid white;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+    font-size: .9em;
+    padding: 1vw;
+}
+
+.cm-details-box p {
+    margin: 0;
+    padding: 0;
 }
 
 /* ============================ Contact Styling ============================ */
@@ -827,14 +808,15 @@ hr {
     padding: 65px 0px 65px 0px;
     text-shadow: 2px 2px 5px rgba(0,0,0,.7);
 }
-.contact-get-text hr {
-    background-color: var(--main-color);
-    height: 3px;
-    width:195px;
-    border-radius: 50px;
-    box-shadow: 0px 1px 0px rgba(0,0,0,.6);
-    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
-}
+
+    .contact-get-text hr {
+        background-color: var(--main-color);
+        height: 3px;
+        width: 195px;
+        border-radius: 50px;
+        box-shadow: 0px 1px 0px rgba(0,0,0,.6);
+        text-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    }
 
 .contact-btn-don-vol-size {
     width: 125px;
@@ -864,4 +846,109 @@ hr {
 
 .contact-text-shadow {
     text-shadow: 2px 2px 5px rgba(0,0,0,.7);
+}
+
+/* =============== BUTTON STYLING ================== */
+.cm-btn-div {
+    display: block;
+    width: 40vw;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.cm-btn {
+    background-color: white;
+    color: black;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+    width: 110px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.cm-btn a {
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: teal;
+}
+
+.cm-btn:hover, .cm-btn a:hover {
+    background-color: var(--secondary-color);
+    text-decoration: none;
+}
+
+
+.cm-btn-back {
+    margin-right: 10px;
+}
+
+.cm-btn-delete {
+    float: right;
+    background-color: var(--light-color);
+    border: 2px solid var(--main-color);
+}
+
+.cm-btn-delete:hover {
+    background-color: var(--main-color);
+}
+
+.castBtn {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    margin: 20px;
+    width: 140px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-weight: 700;
+    border: 2px solid var(--secondary-color);
+}
+
+.castBtn:hover {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.btn:focus {
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+}
+
+.cm-btn-hid {
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid var(--secondary-color);
+    color: white;
+}
+
+
+.cm-link-btn {
+    padding: 10px;
+    float: right;
+}
+
+.cm-link-btn a
+{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 20px;
+    width: 180px;
+    background-color: var(--light-color);
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+}
+
+.cm-link-btn a:hover
+{
+    background-color: var(--secondary-color);
+    color: white;
+    text-shadow: 1px 1px 1px black;
 }

@@ -5,16 +5,26 @@
   Layout = "~/Areas/Prod/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-<h2>Cast Members</h2>
-<div class="cm-link-btn">
-  @Html.ActionLink("Create New", "Create")
-</div>
+<br /><br />
+<div>
+  <div class="cm-block">
+    <h1>Cast Members</h1>
+  </div>
 
+  <div class="cm-link-btn">
+    @Html.ActionLink("Create New", "Create")
+  </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
 
 @{
   int index = -1;
   List<string> Titles = new List<string>();
+
 
   <!-- This foreach loop adds unique Production Titles to a list -->
   foreach (var item in Model)
@@ -37,31 +47,31 @@
 <!-- Now we iterate through the list, print the title that is in the list, and if a cast member is in that production, print a card in a div -->
 @for (int i = 0; i < Titles.Count; i++)
 {
-    <h3>@Titles[i]</h3>
-    <hr />
-    <div class="d-flex row cm-row-index">
-      @foreach (var item in Model.Where(x => x.ProductionTitle == Titles[i]))
-      {
-       <div class="card cm-card-body card-display col-3 showHidden" style="width: 18rem;">
-          <a href='@Url.Action("Details", "CastMembers", new { id = item.CastMemberId })'>
-            <img src="~/Content/images/Cast_Img_3.jpg" class="card-img-top" alt="...">
-              <div class="">
-                <br />
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
-                <div class="card-hidden">
-                  <div class="cm-hiddenBtn">
-                    <i class="fas fa-user-edit cm-fas"> </i>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId })
-                  </div>
-                  <div class="cm-hiddenBtn">
-                    <i class="fas fa-user-minus cm-fas"> </i>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
-                  </div>
-                </div>
+  <h3>@Titles[i]</h3>
+  <hr />
+  <div class="d-flex row cm-row-index">
+    @foreach (var item in Model.Where(x => x.ProductionTitle == Titles[i]))
+    {
+      <div class="card cm-card-body card-display col-3 showHidden">
+        <a href='@Url.Action("Details", "CastMembers", new { id = item.CastMemberId })'>
+          <img src="~/Content/images/Cast_Img_3.jpg" class="card-img-top" alt="...">
+          <div class="">
+            <br />
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+            <div class="card-hidden">
+              <div class="cm-hiddenBtn">
+                <a href='@Url.Action("Edit", "CastMembers", new { id = item.CastMemberId })'>
+                  <button class="cm-btn cm-btn-hid"><i class="fas fa-user-edit cm-fas"> </i>Edit</button>
+                </a>
+                <a href='@Url.Action("Delete", "CastMembers", new { id = item.CastMemberId })'>
+                  <button class="cm-btn cm-btn-hid"><i class="fas fa-user-minus cm-fas"> </i>Delete</button>
+                </a>
               </div>
-          </a>
-       </div>
-       }
-    </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    }
+  </div>
 }
 
