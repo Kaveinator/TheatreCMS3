@@ -17,8 +17,7 @@ namespace SiteSettings
         {
             string fileName = "/SiteSettings.json";
             string readjson = File.ReadAllText(fileName);
-            CopyrightSetting copyrightSetting = JsonSerializer.Deserialize<CopyrightSetting>(readjson);
-            Console.ReadLine();
+            CopyrightSetting copyrightSetting = JsonConvert.DeserializeObject<CopyrightSetting>(readjson);
         }
     }
 }
