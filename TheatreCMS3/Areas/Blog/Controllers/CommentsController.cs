@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
+using TheatreCMS3.Helpers;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -18,7 +19,12 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // GET: Blog/Comments
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            var list = db.Comments.ToList();
+            foreach(var entry in list)
+            {
+                entry.Message = TextHelpers.Truncate(entry.Message, 50);
+            }
+            return View(list);
         }
 
         // GET: Blog/Comments/Details/5
