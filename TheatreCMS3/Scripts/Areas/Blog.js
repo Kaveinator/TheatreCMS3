@@ -3,7 +3,7 @@ function clickAddLike(commentId) {
         try {
             
             $.ajax({
-                url: 'GetAddLike',
+                url: '/Comments/GetAddLike',
                 type: "POST",
                 data: { id: commentId },
                 success: function (result) {
@@ -24,7 +24,7 @@ function clickAddDislike(commentId) {
         try {
 
             $.ajax({
-                url: 'GetAddDislike',
+                url: '/Comments/GetAddDislike',
                 type: "POST",
                 data: { id: commentId },
                 success: function (result) {
