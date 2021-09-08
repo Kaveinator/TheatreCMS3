@@ -11,3 +11,22 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+.body-content {
+    text-align: center;
+}
+
+.form-horizontal {
+    max-width: 600px;
+    text-align: left;
+    border-radius: 15px;
+    background-color: var(--main-color);
+}
+
+.checkbox {
+    text-align: center;
+}
+
+.control-label {
+    margin-left: 0;
+}
