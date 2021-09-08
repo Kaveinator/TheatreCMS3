@@ -6,143 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
-using TheatreCMS3.Helpers;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    public class CommentsController : Controller
+    public class RentalRequestsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/Comments
+        // GET: Rent/RentalRequests
         public ActionResult Index()
         {
-            var list = db.Comments.ToList();
-            foreach(var entry in list)
-            {
-                entry.Message = TextHelpers.Truncate(entry.Message, 50);
-            }
-            return View(list);
-            
-        }
-        [HttpPost]
-        public JsonResult GetAddLike(int? Id)
-        {
-            Comment comment = db.Comments.Find(Id);
-            var result = new JsonResult();
-            comment.Likes++;
-            db.Entry(comment).State = EntityState.Modified;
-            db.SaveChanges();
-            result.Data = comment.Likes;
-            return Json(result,
-            JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        public JsonResult GetAddDislike(int? Id)
-        {
-            Comment comment = db.Comments.Find(Id);
-            var result = new JsonResult();
-            comment.DisLikes++;
-            db.Entry(comment).State = EntityState.Modified;
-            db.SaveChanges();
-            result.Data = comment.DisLikes;
-            return Json(result,
-            JsonRequestBehavior.AllowGet);
+            return View(db.RentalRequests.ToList());
         }
 
+        // GET: Rent/RentalRequests/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            if (rentalRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalRequest);
         }
 
-        // GET: Blog/Comments/Create
+        // GET: Rent/RentalRequests/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/Comments/Create
+        // POST: Rent/RentalRequests/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentID,Author,Message,CommentDate,Likes,DisLikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
         {
             if (ModelState.IsValid)
             {
-                comment.CommentDate = DateTime.Now;
-                db.Comments.Add(comment);
+                db.RentalRequests.Add(rentalRequest);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(comment);
+            return View(rentalRequest);
         }
 
-        // GET: Blog/Comments/Edit/5
+        // GET: Rent/RentalRequests/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            if (rentalRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalRequest);
         }
 
-        // POST: Blog/Comments/Edit/5
+        // POST: Rent/RentalRequests/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentID,Author,Message,CommentDate,Likes,DisLikes")] Comment comment)
+        public ActionResult Edit([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                db.Entry(rentalRequest).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comment);
+            return View(rentalRequest);
         }
 
-        // GET: Blog/Comments/Delete/5
+        // GET: Rent/RentalRequests/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            if (rentalRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(rentalRequest);
         }
 
-        // POST: Blog/Comments/Delete/5
+        // POST: Rent/RentalRequests/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            db.RentalRequests.Remove(rentalRequest);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
