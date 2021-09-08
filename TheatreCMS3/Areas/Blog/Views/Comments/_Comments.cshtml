@@ -6,36 +6,51 @@
 
 
 @foreach (var item in Model)
-{
-  <div class="jumbotron jumbotron-fluid cms-bg-main-light comment-jumbotron-container">
-    <div class="container cms-bg-light comment-container pb-3 cms-text-dark">
-      <h1 class="display-4 pt-2 comment-author font-weight-bolder">
-        @Html.DisplayFor(modelItem => item.Author)
-        <button type="button" class="btn comment-btn float-right ml-2 comment-tooltip">
-          <i onclick="" class="fa fa-thumbs-down">
-            &nbsp;Dislike
-            <span class="comment-tooltiptext comment-btn">Current Dislikes:@Html.DisplayFor(modelItem => item.DisLikes)</span>
-          </i>
-        </button>
-        <button type="button" class="btn comment-btn float-right comment-tooltip">
-          <i onclick="" class="fa fa-thumbs-up">
-            &nbsp;Like 
-            <span class="comment-tooltiptext comment-btn">Current Likes:@Html.DisplayFor(modelItem => item.Likes)</span>
-          </i>
-        </button>
-      </h1>
-      <hr />
-      <p class="text-sm-left">@Html.DisplayFor(modelItem => item.CommentDate)</p>
-      <p class="lead comment-text font-weight-normal">&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Message)</p>
-      <hr />
-      <div class="pb-2">
-        <div class="progress comment-likeRatio-bar">
-          <div class="progress-bar comment-btn" role="progressbar" style="width:25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+  {
+    <div class="jumbotron jumbotron-fluid cms-bg-main-light comment-jumbotron-container">
+      <div class="container cms-bg-light comment-container pb-3 cms-text-dark">
+        <h1 class="display-4 pt-2 comment-author font-weight-bolder">
+          @Html.DisplayFor(modelItem => item.Author)
+          <!-- Dislike -->
+          <button onclick="clickAddDislike(@item.CommentID)" class="btn comment-btn float-right ml-2 comment-tooltip">
+            <div class="fa fa-thumbs-down">
+              &nbsp;Dislike<p id="dislikeValue" class="comment-tooltiptext comment-btn">Current Dislikes:@Html.DisplayFor(modelItem => item.DisLikes)</p>
+            </div>
+          </button>
+          <!-- LIKE -->
+          <button onclick="clickAddLike(@item.CommentID)" class="btn comment-btn float-right comment-tooltip">
+            <div class="fa fa-thumbs-up">
+              &nbsp;Like<p id="likeValue" class="comment-tooltiptext comment-btn">Current Likes:@Html.DisplayFor(modelItem => item.Likes)</p>
+            </div>            
+          </button>
+        </h1>
+        <hr />
+        <!-- Date -->
+        <p class="text-sm-left">@Html.DisplayFor(modelItem => item.CommentDate)</p>
+        <p class="lead comment-text font-weight-normal">&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Message)</p>
+        <hr />
+        <!-- LikeRatio -->
+        <div class="pb-2">
+          <div class="progress comment-likeRatio-bar">
+            <div class="progress-bar comment-btn" role="progressbar" style="width:25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+          </div>
         </div>
-      </div>
 
-      <button type="button" class="btn font-weight-bold comment-btn">Reply</button>
-      <button class="btn comment-btn float-right"><i class="fa fa-trash"></i></button>
+        <button type="button" class="btn font-weight-bold comment-btn">Reply</button>
+        <button class="btn comment-btn float-right"><i class="fa fa-trash"></i></button>
+
+
+      </div>
     </div>
-  </div>
-}
+  }
+
+
+
+@*@foreach (var comm in Model)
+{
+    <button onclick="clickAddLike(@comm.CommentID)">Click me</button>
+
+
+    <p id="likeValue">@Html.DisplayFor(modelItem => comm.Likes)</p>
+   
+}*@
