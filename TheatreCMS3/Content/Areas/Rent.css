@@ -18,7 +18,7 @@
     max-width: 600px;
     background-color: var(--light-color);
     color: var(--dark-color);
-    border-color: #DB1A11;
+    border-color: var(--main-color);
     border-radius: 15px;
     border-width: 5px;
     padding: 5px 15px 10px 15px;
