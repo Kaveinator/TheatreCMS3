@@ -199,10 +199,6 @@
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Blog\Models\Comment.cs" />
-    <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
-    <Compile Include="Areas\Prod\Controllers\ProductionPhotosController.cs" />
-    <Compile Include="Areas\Prod\Models\CastMember.cs" />
-    <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoryController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
@@ -340,7 +336,6 @@
     <Content Include="Content\images\ProductionPhotos\Wicked\04.jpg" />
     <Content Include="Content\images\ProductionPhotos\Wicked\05.jpg" />
     <Content Include="Content\images\Tempest.png" />
-    <Content Include="Content\images\tetonbarn.jpg" />
     <Content Include="Content\images\theater.jpg" />
     <Content Include="Content\images\TheatreLogo.png" />
     <Content Include="Content\PagedList.css" />
@@ -401,16 +396,6 @@
     <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Rent\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Rent\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Prod\Views\CastMembers\Create.cshtml" />
-    <Content Include="Areas\Prod\Views\CastMembers\Delete.cshtml" />
-    <Content Include="Areas\Prod\Views\CastMembers\Details.cshtml" />
-    <Content Include="Areas\Prod\Views\CastMembers\Edit.cshtml" />
-    <Content Include="Areas\Prod\Views\CastMembers\Index.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotos\Create.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotos\Delete.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotos\Details.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotos\Edit.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotos\Index.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
@@ -589,6 +574,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Prod\Controllers\" />
+    <Folder Include="Areas\Prod\Models\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
     <Folder Include="UIUX\Prototypes\" />
