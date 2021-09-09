@@ -6,7 +6,7 @@
 
 <div class="py-5 text-center">
   @*Centered text and padded bottom*@
-  <h1>Developers Of TheatreCMS &nbsp;<span id="NumPersons" class="badge badge-secondary"></span></h1>
+  <h1>Developers Of TheatreCMS &nbsp;<span id="NumPersons" class="badge badge-secondary">total</span></h1>
   <h2>SignIn</h2>
 </div>
 
@@ -16,9 +16,8 @@
 @* <p>YOUR NAME</p> *@
 
 <div class="text-rows">
-    <div class="text-center" id="devnames">
-        @*Centered text*@
-      
+    <div class="text-center">
+        @*Centered text*@     
         <p>Raquel Rulli</p>
         <p>Drew Slone</p>
         <p>Emily-Maud Morris</p>
@@ -94,15 +93,6 @@
         <p>Kris Lovett</p>
     </div>
 </div>
-
-<script>
-  function ShowDevNames() {
-    var DevNames = document.getElementById("devnames");
-    var NameCount = DevNames.children.length;
-    document.getElementById("NumPersons").innerHTML = NameCount;
-  }
-  ShowDevNames();
-</script>
     
 
 
