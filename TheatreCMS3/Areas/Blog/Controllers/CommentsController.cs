@@ -39,6 +39,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return Json(result,
             JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult GetAddDislike(int? Id)
         {
@@ -48,6 +49,16 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
             result.Data = comment.DisLikes;
+            return Json(result,
+            JsonRequestBehavior.AllowGet);
+        }
+
+        
+        public JsonResult LikeRatioJson(int? Id)
+        {
+            Comment comment = db.Comments.Find(Id);
+            var result = new JsonResult();
+            result.Data = comment;
             return Json(result,
             JsonRequestBehavior.AllowGet);
         }
