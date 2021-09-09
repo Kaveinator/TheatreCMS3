@@ -40,24 +40,3 @@ function clickAddDislike(commentId) {
         }
     }
 }
-$(document).ready(function (commentId) {
-    {
-        try {
-
-            $.ajax({
-                url: '/Comments/LikeRatioJson',
-                type: "POST",
-                data: { id: commentId },
-                success: function (result) {
-                    $("aria-valuenow").val(result.Data.LikeRatio());
-                },
-                error: function (error) {
-                    alert(error);
-                }
-            });
-        }
-        catch (e) {
-            alert(e.message);
-        }
-    }
-}
