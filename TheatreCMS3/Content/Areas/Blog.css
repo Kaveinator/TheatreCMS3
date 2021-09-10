@@ -116,3 +116,12 @@
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
 }
+.comment-black {
+    color: #FFFBFB;
+    background-color: #000000;
+    border-radius: 12px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.7);
+    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+}
