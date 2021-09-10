@@ -12,6 +12,40 @@
     /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/* Styles for Index view */
+#RentalHistoryIndex {
+    text-align: left;
+    max-width: 600px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border-color: var(--main-color);
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 5px;
+    padding: 5px 15px 10px 15px;
+}
+
+#RentalHistoryIndex .row {
+    border-bottom: 5px;
+    margin: 0 10px;
+}
+
+#RentalHistoryIndex .row > div {
+        margin: 1px 5px;
+}
+
+#RentalHistoryIndex .rental {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border-radius: 3px;
+}
+
+#RentalHistoryIndex .menu button {
+    border: 0;
+}
+/* End styles for Index view */
+
+/* Styles for Create and Edit views */
 .body-content {
     text-align: center;
 }
@@ -29,6 +63,8 @@
 
 .control-label {
     margin-left: 0;
+}
+/* End styles for Create and Edit Views */
 }
 
 /*======= Rental Request Styling ========*/
