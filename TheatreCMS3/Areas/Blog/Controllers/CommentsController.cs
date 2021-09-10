@@ -27,6 +27,28 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(list);
             
         }
+
+        [HttpPost]
+        public JsonResult GetComment(int? Id)
+        {
+            Comment comment = db.Comments.Find(Id);
+            var result = new JsonResult();
+            result.Data = comment;
+            return Json(result,
+            JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpPost]
+        public JsonResult GetLikeRatio(int? Id)
+        {
+            Comment comment = db.Comments.Find(Id);
+            var result = new JsonResult();
+            result.Data = new { LikeRatio = comment.LikeRatio(), DislikeRatio = comment.DislikeRatio()};
+            return Json(result,
+            JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult GetAddLike(int? Id)
         {
@@ -35,7 +57,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             comment.Likes++;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
-            result.Data = comment.Likes;
+            result.Data = comment;
             return Json(result,
             JsonRequestBehavior.AllowGet);
         }
@@ -48,16 +70,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             comment.DisLikes++;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
-            result.Data = comment.DisLikes;
-            return Json(result,
-            JsonRequestBehavior.AllowGet);
-        }
-
-        
-        public JsonResult LikeRatioJson(int? Id)
-        {
-            Comment comment = db.Comments.Find(Id);
-            var result = new JsonResult();
             result.Data = comment;
             return Json(result,
             JsonRequestBehavior.AllowGet);

@@ -17,9 +17,16 @@ namespace TheatreCMS3.Areas.Blog.Models
         public double LikeRatio()
         {
             double totalLikes = Convert.ToDouble(Likes + DisLikes);
-            double LikeRatio = Convert.ToDouble(Likes / totalLikes);
-            LikeRatio *= 100;
-            return LikeRatio;
+            double TotLikeRatio = Convert.ToDouble(Likes / totalLikes);
+            TotLikeRatio *= 100;
+            return TotLikeRatio;
+        }
+        public double DislikeRatio()
+        {
+            double totalLikes = Convert.ToDouble(Likes + DisLikes);
+            double TotDislikeRatio = Convert.ToDouble(DisLikes / totalLikes);
+            TotDislikeRatio *= 100;
+            return TotDislikeRatio;
         }
     }
 }
