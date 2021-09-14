@@ -89,7 +89,7 @@ $("#RentalHistoryIndex").ready(() => {
 			}
 
 			//Detach the list of items from the page
-			var items = $("#RentalHistoryIndex .rentalItem").detach()
+			var items = $("#accordion .rentalItem").detach()
 
 			//Determine the sort method
 			switch ($(this).data("sort")) {
@@ -97,14 +97,14 @@ $("#RentalHistoryIndex").ready(() => {
 				case ("undamaged"): sortFunc = undamagedSortFunc; break
 				case ("a-z"): sortFunc = azSortFunc; break
 				case ("z-a"): sortFunc = zaSortFunc; break
-				case ("index"): sortFunc = indexSortFunc; break;
+				case ("index"): sortFunc = indexSortFunc; break
 			}
 
 			//Sort the items based on the determined method
 			items.sort(sortFunc)
 
 			//Add the items back to the page
-			$("#RentalHistoryIndex").append(items)
+			$("#accordion").append(items)
 		}
 	})
 
