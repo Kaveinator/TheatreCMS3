@@ -18,7 +18,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalRequests
         public ActionResult Index()
         {
-            return View(db.RentalRequests.ToList());
+            return View(db.RentalRequests.OrderBy(i => i.StartTime).ToList());
         }
 
         // GET: Rent/RentalRequests/Details/5
