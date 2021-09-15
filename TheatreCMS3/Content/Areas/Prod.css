@@ -10,3 +10,45 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+
+#ProdCrSubmit {
+    background-color: var(--secondary-color);
+    display: block;
+    opacity: 0.9;
+    text-align: center;
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+#ProdCrSubmit:hover {
+    opacity: 1;
+}
+
+#ProdCrBack {
+    background-color: var(--secondary-color--dark);
+    text-decoration: none;
+    color: black;
+    display: block;
+    opacity: 0.9;
+    text-align: center;
+    width: 150px;
+}
+
+#ProdCrBack:hover {
+    opacity: 1;
+}
+
+#ProdCrBtn {
+    margin: auto;
+    width: 50%;
+}
+
+#ProdCrForm {
+    margin: auto;
+    width: 50%;
+    background-color: var(--main-color);
+}
+
+
+
