@@ -15,7 +15,7 @@
 #ProdCrSubmit {
     background-color: var(--secondary-color);
     display: block;
-    opacity: 0.9;
+    opacity: 0.85;
     text-align: center;
     width: 150px;
     margin-bottom: 15px;
@@ -27,12 +27,16 @@
 
 #ProdCrBack {
     background-color: var(--secondary-color--dark);
-    text-decoration: none;
-    color: black;
     display: block;
-    opacity: 0.9;
+    opacity: 0.85;
     text-align: center;
     width: 150px;
+}
+
+#ProdCrBack a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
 }
 
 #ProdCrBack:hover {
@@ -50,5 +54,12 @@
     background-color: var(--main-color);
 }
 
+input[type=text], input[type=datetime], input[type=number] {
+    opacity: 0.65;
+}
 
+    input[type=text]:focus, input[type=datetime]:focus, input[type=number]:focus {
+        opacity: 1;
+        border: 2px solid var(--secondary-color--dark);
+    }
 
