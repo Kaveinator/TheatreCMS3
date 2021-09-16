@@ -3,97 +3,146 @@
 @{
     ViewBag.Title = "Index";
 }
+<link href="~/Content/Areas/Prod.css" rel="Stylesheet" type="text/css" />
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<button type="button" class="btn btn-default" id="ProdCrSubmit">
+  <span> @Html.ActionLink("New Production", "Create")</span>
+</button>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Playwright)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Runtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpeningDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClosingDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeEve)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeMat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsWorldPremiere)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsCurrentlyShowing)
-        </th>
-        <th></th>
-    </tr>
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Title)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Description)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Playwright)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Runtime)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.OpeningDay)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.ClosingDay)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.ShowTimeEve)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.ShowTimeMat)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Season)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.IsWorldPremiere)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.TicketLink)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.IsCurrentlyShowing)
+    </th>
+    <th></th>
+  </tr>
 
-@foreach (var item in Model) {
+  @foreach (var item in Model)
+  {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Playwright)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Runtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OpeningDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClosingDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeEve)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeMat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsWorldPremiere)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsCurrentlyShowing)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductionId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductionId })
-        </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Title)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Description)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Playwright)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Runtime)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.OpeningDay)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.ClosingDay)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.ShowTimeEve)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.ShowTimeMat)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Season)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.IsWorldPremiere)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.TicketLink)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.IsCurrentlyShowing)
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ProductionId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId })
+      </td>
     </tr>
-}
+  }
 
 </table>
+
+
+<!--Card container-->
+<div class="container">
+
+  <!--  Cards  -->
+  <div class="card-columns">
+    <!-- Card 1 -->
+      <div class="card">
+        <img src="~/Content/images/ProductionPhotos/Hamilton/01.jpg" alt="hamilton" class="card-img-top img-fluid" />
+        <div class="card-img-overlay">
+          @foreach (var item in Model)
+          {
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
+          }
+        </div>
+        <div class="card-body bg-dark">
+          <h3 class="card-title">Hamilton</h3>
+          <p class="card-text">Card Text Here</p>
+          <a href="#" class="badge badge-dark">Production Link</a>
+        </div>
+      </div>
+    <!-- End Card 1 -->
+    <!-- Card 2 -->
+
+    <div class="card">
+      <a href="#"><img src="~/Content/images/ProductionPhotos/Wicked/01.jpg" alt="wicked" class="card-img-top img-fluid" /></a>
+      <div class="card-img-overlay">
+        @foreach (var item in Model)
+        {
+          @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
+          @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
+        }
+      </div>
+      <div class="card-body bg-dark">
+        <h3 class="card-title">Wicked</h3>
+        <p class="card-text">Card Text Here</p>
+        <a href="#" class="badge badge-dark">Production Link</a>
+      </div>
+    </div>
+    <!-- End Card 2 -->
+    <!--  End Cards  -->
+  </div>
+  <!-- End Card Container-->
+
+</div>
