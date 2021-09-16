@@ -10,3 +10,99 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+.checkbox-container {
+    padding-top: 40px;
+    padding-bottom: 55px;
+}
+
+.Prod-header {
+    text-align: center;
+}
+
+/*Create form button spacing*/
+#ProdCrBtn {
+    margin: auto;
+    width: 50%;
+}
+
+#ProdCrSubmit {
+    background-color: var(--secondary-color);
+    display: block;
+    opacity: 0.85;
+    text-align: center;
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+    #ProdCrSubmit:hover {
+        opacity: 1;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+/*START BACK TO LIST BUTTON STYLING*/
+#ProdCrBack {
+    background-color: var(--secondary-color--dark);
+    display: block;
+    opacity: 0.85;
+    text-align: center;
+    width: 150px;
+    transition: all 0.5s;
+}
+
+#ProdCrBack span {
+    cursor: pointer;
+    display:inline-block;
+    position:relative;
+    transition: 0.5s;
+}
+
+#ProdCrBack span:after {
+    content: '\00ab';
+    position:absolute;
+    opacity: 0;
+    top:0;
+    right:-20px;
+    transition:0.5s;
+}
+
+#ProdCrBack:hover span {
+    padding-right:25px;
+}
+
+#ProdCrBack:hover span:after {
+    opacity:1;
+    right:0;
+}
+
+#ProdCrBack a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+    #ProdCrBack:hover {
+        opacity: 1;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+/*END BACK TO LIST BUTTON STYLING*/
+
+#ProdCrForm {
+    margin: auto;
+    width: 50%;
+    height: auto;
+    background-color: var(--main-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+
+input[type=text], input[type=datetime], input[type=number] {
+    opacity: 0.65;   
+}
+
+    input[type=text]:focus, input[type=datetime]:focus, input[type=number]:focus {
+        opacity: 1;
+        border: 2px solid var(--secondary-color--dark);
+    }
+
