@@ -103,46 +103,24 @@
 
 <!--Card container-->
 <div class="container">
-
-  <!--  Cards  -->
   <div class="card-columns">
-    <!-- Card 1 -->
-      <div class="card">
-        <img src="~/Content/images/ProductionPhotos/Hamilton/01.jpg" alt="hamilton" class="card-img-top img-fluid" />
+
+    @foreach (var item in Model)
+    {
+    <div class="card">
+      
+        <img src="http://www.fillmurray.com/g/200/300" alt="placeholder" class="card-img-top img-fluid" />
+        
         <div class="card-img-overlay">
-          @foreach (var item in Model)
-          {
             @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
-          }
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-dark" })         
         </div>
         <div class="card-body bg-dark">
-          <h3 class="card-title">Hamilton</h3>
-          <p class="card-text">Card Text Here</p>
-          <a href="#" class="badge badge-dark">Production Link</a>
+          <h3 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h3>
+          <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
         </div>
-      </div>
-    <!-- End Card 1 -->
-    <!-- Card 2 -->
-
-    <div class="card">
-      <a href="#"><img src="~/Content/images/ProductionPhotos/Wicked/01.jpg" alt="wicked" class="card-img-top img-fluid" /></a>
-      <div class="card-img-overlay">
-        @foreach (var item in Model)
-        {
-          @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
-          @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
-        }
-      </div>
-      <div class="card-body bg-dark">
-        <h3 class="card-title">Wicked</h3>
-        <p class="card-text">Card Text Here</p>
-        <a href="#" class="badge badge-dark">Production Link</a>
-      </div>
     </div>
-    <!-- End Card 2 -->
-    <!--  End Cards  -->
+    }
   </div>
-  <!-- End Card Container-->
-
-</div>
+  </div>
+<!-- End Card Container-->

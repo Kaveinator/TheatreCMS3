@@ -11,6 +11,12 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+.ProdImgBtn {
+    position: relative;
+    z-index: 50;
+}
+
 .checkbox-container {
     padding-top: 40px;
     padding-bottom: 55px;
