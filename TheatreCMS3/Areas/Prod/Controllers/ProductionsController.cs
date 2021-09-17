@@ -15,9 +15,16 @@ namespace TheatreCMS3.Areas.Prod.Models
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/Productions
-        public ActionResult Index()
+        //add params to index function to search for specific record
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(db.Productions.ToList());
+            var productions = from p in db.Productions select p;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                productions = productions.Where(p => p.Title.Contains(searchString));
+            }
+
+            return View(productions.ToList());
         }
 
         // GET: Prod/Productions/Details/5
