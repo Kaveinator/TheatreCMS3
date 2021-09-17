@@ -12,15 +12,40 @@
 /*}*/
 
 
-.badge-pill {
-    opacity: 0.25;
-    transition: all 0.75s;
-    background-color: var(--dark-color)
+.card-body {
+    background-color: var(--secondary-color--dark);
 }
 
-.badge-pill:hover {
+.card-img-overlay {
+    opacity:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.card-img-overlay:hover {
     opacity:1;
 }
+
+.badge-pill {
+    transition: all 0.75s;
+    background-color: var(--main-color--light);
+    height: 4em;
+    width: 60%;
+    padding-top: 22px;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 12pt;
+    color: var(--light-color)
+}
+
+    .badge-pill:hover {
+        background-color: var(--dark-color);
+        color: var(--light-color)
+    }
+
+
 
 .checkbox-container {
     padding-top: 40px;
