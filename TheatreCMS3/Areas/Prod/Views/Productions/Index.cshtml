@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Productions>
 
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 <link href="~/Content/Areas/Prod.css" rel="Stylesheet" type="text/css" />
 
@@ -10,6 +10,7 @@
 <button type="button" class="btn btn-default" id="ProdCrSubmit">
   <span> @Html.ActionLink("New Production", "Create")</span>
 </button>
+
 <table class="table">
   <tr>
     <th>
@@ -100,27 +101,25 @@
 
 </table>
 
-
 <!--Card container-->
 <div class="container">
   <div class="card-columns">
 
     @foreach (var item in Model)
     {
-    <div class="card">
-      
+      <div class="card">
         <img src="http://www.fillmurray.com/g/200/300" alt="placeholder" class="card-img-top img-fluid" />
-        
         <div class="card-img-overlay">
-            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-dark" })         
+          @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-dark" })
+          @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-dark" })
+          @Html.ActionLink("Details", "Details", new { id = item.ProductionId }, new { @class = "badge badge-pill badge-dark" })
         </div>
         <div class="card-body bg-dark">
           <h3 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h3>
           <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
         </div>
-    </div>
+      </div>
     }
   </div>
-  </div>
+</div>
 <!-- End Card Container-->

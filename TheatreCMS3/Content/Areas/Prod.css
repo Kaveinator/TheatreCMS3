@@ -12,9 +12,14 @@
 /*}*/
 
 
-.ProdImgBtn {
-    position: relative;
-    z-index: 50;
+.badge-pill {
+    opacity: 0.25;
+    transition: all 0.75s;
+    background-color: var(--dark-color)
+}
+
+.badge-pill:hover {
+    opacity:1;
 }
 
 .checkbox-container {
