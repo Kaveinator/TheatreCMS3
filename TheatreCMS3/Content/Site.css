@@ -710,3 +710,16 @@ input[type=text].Donation, textarea.Donation {
     width: 100%;
 }
 
+/*=========== Sign In Styling ===========*/
+div#nameList.text-center > p {
+    margin: 4px 7px 2px 4px;
+    border-radius: 25px;
+    background: var(--main-color--light);
+    width: 180px;
+    padding: 5px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
