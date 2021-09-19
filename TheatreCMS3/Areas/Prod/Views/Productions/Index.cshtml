@@ -1,5 +1,5 @@
 ﻿@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Productions>
-@using PagedList.Mvc;
+@using PagedList.Mvc
 
 <link href="~/Content/Areas/Prod.css" rel="Stylesheet" type="text/css" />
 
@@ -15,7 +15,7 @@
 </button>
 
 
-  @using (Html.BeginForm("Index", "Production", FormMethod.Get))
+  @using (Html.BeginForm())
 {
   <p>Search by Title: @Html.TextBox("SearchString", "", new { @class = "ProdIndSrcBar" }) <input type="submit" value="Search" id="ProdIndSrc" /></p>
 }
@@ -46,6 +46,7 @@
 </div>
 <!-- End Card Container-->
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.Current Filter }))
+<div class="IndPagination">
+  Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+  @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

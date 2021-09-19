@@ -11,6 +11,14 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.IndPagination li {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.IndPagination {
+    margin-left: 50px;  
+}
 
 .ProdIndSrcBar {
     /* Input field displays gray despite color var being white ?*/
