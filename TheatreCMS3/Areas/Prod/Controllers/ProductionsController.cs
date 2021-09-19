@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Models;
+using PagedList;
 
 namespace TheatreCMS3.Areas.Prod.Models
 {
@@ -15,16 +16,33 @@ namespace TheatreCMS3.Areas.Prod.Models
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/Productions
-        //add params to index function to search for specific record
-        public ViewResult Index(string sortOrder, string searchString)
+
+        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
+
+            //pagination
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            //search for specific record
             var productions = from p in db.Productions select p;
             if (!String.IsNullOrEmpty(searchString))
             {
                 productions = productions.Where(p => p.Title.Contains(searchString));
             }
 
-            return View(productions.ToList());
+            productions = productions.OrderBy(p => p.OpeningDay);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(productions.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Prod/Productions/Details/5

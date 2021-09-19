@@ -13,17 +13,19 @@
 
 
 .ProdIndSrcBar {
-    background-color: var(--secondary-color);
-    border: 1px solid var(--dark-color);
+    /* Input field displays gray despite color var being white ?*/
+    background-color: var(--light-color);
+    border: 1px solid var(--light-color);
 }
 
+
 #ProdIndSrc {
-    background-color: var(--secondary-color);
+    background-color: var(--main-color);
     opacity: 0.85;
     text-align: center;
     width: 125px;
     height: 30px;
-    border: solid 1px var(--dark-color);
+    border: solid 1px var(--secondary-color--dark);
     border-radius: 4px;
 }
 
