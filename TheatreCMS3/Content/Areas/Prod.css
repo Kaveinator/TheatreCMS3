@@ -11,6 +11,36 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.IndPagination li {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.IndPagination {
+    margin-left: 50px;  
+}
+
+.ProdIndSrcBar {
+    /* Input field displays gray despite color var being white ?*/
+    background-color: var(--light-color);
+    border: 1px solid var(--light-color);
+}
+
+
+#ProdIndSrc {
+    background-color: var(--main-color);
+    opacity: 0.85;
+    text-align: center;
+    width: 125px;
+    height: 30px;
+    border: solid 1px var(--secondary-color--dark);
+    border-radius: 4px;
+}
+
+    #ProdIndSrc:hover {
+        opacity: 1;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
 
 .card-body {
     background-color: var(--secondary-color--dark);

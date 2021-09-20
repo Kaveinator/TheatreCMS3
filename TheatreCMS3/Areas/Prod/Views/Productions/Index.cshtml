@@ -1,9 +1,12 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Productions>
+﻿@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Productions>
+@using PagedList.Mvc
+
+<link href="~/Content/Areas/Prod.css" rel="Stylesheet" type="text/css" />
 
 @{
   ViewBag.Title = "Index";
 }
-<link href="~/Content/Areas/Prod.css" rel="Stylesheet" type="text/css" />
+
 
 <h2>Index</h2>
 
@@ -11,26 +14,39 @@
   <span> @Html.ActionLink("New Production", "Create")</span>
 </button>
 
+
+  @using (Html.BeginForm())
+{
+  <p>Search by Title: @Html.TextBox("SearchString", "", new { @class = "ProdIndSrcBar" }) <input type="submit" value="Search" id="ProdIndSrc" /></p>
+}
+
+
+
 <!--Card container-->
 <div class="container">
   <div class="card-columns">
 
     @foreach (var item in Model)
     {
-      <div class="card">
-        <img src="http://www.fillmurray.com/g/200/300" alt="placeholder" class="card-img-top img-fluid" />
-        <div class="card-img-overlay">
-          @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
-          @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
-          
-        </div>
-        <div class="card-body" style="transform: rotate(0);">
-          <h3 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h3>
-          <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-          @Html.ActionLink(" ", "Details", new { id = item.ProductionId }, new { @class = "stretched-link" })
-        </div>
+    <div class="card">
+      <img src="http://www.fillmurray.com/g/200/300" alt="placeholder" class="card-img-top img-fluid" />
+      <div class="card-img-overlay">
+        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
+        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
+
       </div>
+      <div class="card-body" style="transform: rotate(0);">
+        <h3 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h3>
+        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+        @Html.ActionLink(" ", "Details", new { id = item.ProductionId }, new { @class = "stretched-link" })
+      </div>
+    </div>
     }
   </div>
 </div>
 <!-- End Card Container-->
+
+<div class="IndPagination">
+  Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+  @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
