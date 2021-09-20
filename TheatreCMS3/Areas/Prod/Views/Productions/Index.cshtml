@@ -28,25 +28,59 @@
 
     @foreach (var item in Model)
     {
-    <div class="card">
-      <img src="http://www.fillmurray.com/g/200/300" alt="placeholder" class="card-img-top img-fluid" />
-      <div class="card-img-overlay">
-        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
-        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
+      <!-- Modal Trigger Button -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+        Modal Button
+      </button>
+      <!-- End Modal Trigger Button -->
 
+      <!-- Display Cards -->
+      <div class="card">
+        <img src="http://www.fillmurray.com/g/200/300" alt="placeholder" class="card-img-top img-fluid" />
+        <div class="card-img-overlay">
+          @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
+          @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
+        </div>
+        <div class="card-body" style="transform: rotate(0);">
+          <h3 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h3>
+          <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+          @Html.ActionLink(" ", "Details", new { id = item.ProductionId }, new { @class = "stretched-link" })
+        </div>
       </div>
-      <div class="card-body" style="transform: rotate(0);">
-        <h3 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h3>
-        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-        @Html.ActionLink(" ", "Details", new { id = item.ProductionId }, new { @class = "stretched-link" })
+      <!-- End Display Cards -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="DetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="DetailsModalLabel">Production Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- WANT TO DISPLAY DETAILS FOR RESPECTIVE CARDS HERE IN MODAL BODY DIV -->
+            <div class="modal-body">
+              <p>@Html.DisplayFor(modelItem => item.Description)</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <!-- End Modal -->
+
     }
   </div>
 </div>
 <!-- End Card Container-->
 
+
+
+<!-- Pagination -->
 <div class="IndPagination">
   Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
+<!-- End Pagination -->
