@@ -3,6 +3,7 @@
 
 <link href="~/Content/Areas/Prod.css" rel="Stylesheet" type="text/css" />
 
+
 @{
   ViewBag.Title = "Index";
 }
@@ -15,12 +16,10 @@
 </button>
 
 
-  @using (Html.BeginForm())
+@using (Html.BeginForm())
 {
   <p>Search by Title: @Html.TextBox("SearchString", "", new { @class = "ProdIndSrcBar" }) <input type="submit" value="Search" id="ProdIndSrc" /></p>
 }
-
-
 
 <!--Card container-->
 <div class="container">
@@ -28,8 +27,9 @@
 
     @foreach (var item in Model)
     {
+
       <!-- Modal Trigger Button -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+      <button type="button" class="btn btn-primary openBtn"  id="IndexModalButton" data-toggle="modal" data-target="#detailsModal">
         Modal Button
       </button>
       <!-- End Modal Trigger Button -->
@@ -61,7 +61,7 @@
             </div>
             <!-- WANT TO DISPLAY DETAILS FOR RESPECTIVE CARDS HERE IN MODAL BODY DIV -->
             <div class="modal-body">
-              <p>@Html.DisplayFor(modelItem => item.Description)</p>
+              <p>@Html.DisplayFor(modelItem => item.Description, new { id = item.ProductionId })</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -75,12 +75,12 @@
   </div>
 </div>
 <!-- End Card Container-->
-
-
-
 <!-- Pagination -->
 <div class="IndPagination">
   Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
 <!-- End Pagination -->
+
+<script src="~/Scripts/Areas/Prod.js"></script>
+
