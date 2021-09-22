@@ -87,11 +87,12 @@
 <script>
 
   //Modal trigger button
-  function getId(id, Description) {
+  function getId(id) {
     console.log(id)
     var x = id;
     $("#modal-body").html(x);
     $("#detailsModal").modal("show");
+    return x;
   };
 
 
