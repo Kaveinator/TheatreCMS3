@@ -2,7 +2,8 @@
 @using PagedList.Mvc
 
 <link href="~/Content/Areas/Prod.css" rel="Stylesheet" type="text/css" />
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 @{
   ViewBag.Title = "Index";
@@ -29,7 +30,8 @@
     {
 
       <!-- Modal Trigger Button -->
-      <button type="button" class="btn btn-primary openBtn"  id="IndexModalButton" data-toggle="modal" data-target="#detailsModal">
+      <button type="button" class="btn btn-primary openBtn" id="IndexModalButton" onclick="getId(@item.ProductionId)"
+              @*data-toggle="modal" data-target="#detailsModal"*@ >
         Modal Button
       </button>
       <!-- End Modal Trigger Button -->
@@ -60,8 +62,8 @@
               </button>
             </div>
             <!-- WANT TO DISPLAY DETAILS FOR RESPECTIVE CARDS HERE IN MODAL BODY DIV -->
-            <div class="modal-body">
-              <p>@Html.DisplayFor(modelItem => item.Description, new { id = item.ProductionId })</p>
+            <div class="modal-body" id="modal-body">
+              
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -82,5 +84,47 @@
 </div>
 <!-- End Pagination -->
 
-<script src="~/Scripts/Areas/Prod.js"></script>
+<script>
 
+  //Modal trigger button
+  function getId(id, Description) {
+    console.log(id)
+    var x = id;
+    $("#modal-body").html(x);
+    $("#detailsModal").modal("show");
+  };
+
+
+
+
+
+
+  //////// Previous modal trigger buttons - keeping for reference until modal button resolved ////////
+
+  ////Index page modal trigger button
+  //$(document).ready(function () {
+  //  $("#IndexModalButton").click(function () {
+  //    $('#detailsModal').modal();
+  //  })
+  //});
+
+
+
+  //$(document).on("click", "#IndexModalButton", function () {
+  //  var x = new Date();
+  //  $("#modal-body").html(x);
+  //  $("#detailsModal").modal("show");
+  //});
+
+
+
+  //$('#detailsModal').on('show.bs.modal'), function (event) {
+  //  var button = $(event.relatedTarget)
+  //  var display = button.data('whatever')
+  //  var modal = $(this)
+  //  modal.find('.modal-body').val(display)
+  //}
+
+
+
+</script>

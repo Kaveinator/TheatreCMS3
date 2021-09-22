@@ -11,6 +11,10 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+#detailsModal {
+    color: var(--dark-color);
+}
+
 .IndPagination li {
     padding-left: 5px;
     padding-right: 5px;

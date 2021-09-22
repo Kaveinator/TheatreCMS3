@@ -4,4 +4,5 @@ $(document).ready(function () {
     $("#IndexModalButton").click(function () {
         $('#detailsModal').modal('show');
     })
-});
+    });
+
