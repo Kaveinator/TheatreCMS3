@@ -30,7 +30,7 @@
     {
 
       <!-- Modal Trigger Button -->
-      <button type="button" class="btn btn-primary openBtn" id="IndexModalButton" onclick="getId(@item.ProductionId)"
+      <button type="button" class="btn btn-primary openBtn" id="IndexModalButton" onclick="getId(@item.ProductionId)" 
               @*data-toggle="modal" data-target="#detailsModal"*@ >
         Modal Button
       </button>
@@ -90,9 +90,9 @@
   function getId(id) {
     console.log(id)
     var x = id;
-    $("#modal-body").html(x);
+    $("#modal-body").html("Production ID: " + x);
     $("#detailsModal").modal("show");
-    return x;
+    return id;
   };
 
 
