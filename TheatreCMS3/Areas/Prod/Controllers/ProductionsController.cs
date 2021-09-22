@@ -47,14 +47,20 @@ namespace TheatreCMS3.Areas.Prod.Models
 
 
 
-
-        //Get data for Index display modal
-        public ActionResult IndexModalData(int? id)
+        public ActionResult IndexModal(int id)
         {
-            var modalDetails = from p in db.Productions select p;
-            modalDetails = modalDetails.Where(p => p.ProductionId == id);
-            return (ActionResult)modalDetails;
+            Productions productions = db.Productions.Find(id);
+            return PartialView("_Details", productions);
         }
+
+
+        ////Get data for Index display modal
+        //public ActionResult IndexModalData(int? id)
+        //{
+        //    var modalDetails = from p in db.Productions select p;
+        //    modalDetails = modalDetails.Where(p => p.ProductionId == id);
+        //    return (ActionResult)modalDetails;
+        //}
 
 
 

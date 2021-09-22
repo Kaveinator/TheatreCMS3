@@ -30,10 +30,7 @@
     {
 
       <!-- Modal Trigger Button -->
-      <button type="button" class="btn btn-primary openBtn" id="IndexModalButton" onclick="getId(@item.ProductionId)" 
-              @*data-toggle="modal" data-target="#detailsModal"*@ >
-        Modal Button
-      </button>
+      <a href="javascript:void(0);" class="anchorDetail" data-id="@item.ProductionId">Modal Button</a>
       <!-- End Modal Trigger Button -->
 
       <!-- Display Cards -->
@@ -52,22 +49,10 @@
       <!-- End Display Cards -->
 
       <!-- Modal -->
-      <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="DetailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+      <div id="myModal" class="modal">
+        <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="DetailsModalLabel">Production Details</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <!-- WANT TO DISPLAY DETAILS FOR RESPECTIVE CARDS HERE IN MODAL BODY DIV -->
-            <div class="modal-body" id="modal-body">
-              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+            <div id="myModalContent"></div>
           </div>
         </div>
       </div>
@@ -86,14 +71,33 @@
 
 <script>
 
-  //Modal trigger button
-  function getId(id) {
-    console.log(id)
-    var x = id;
-    $("#modal-body").html("Production ID: " + x);
-    $("#detailsModal").modal("show");
-    return id;
-  };
+
+  var ProductionDetailsURL = '/Productions/IndexModal';
+  $(function () {
+    $(".anchorDetail").click(function () {
+      var $buttonClicked = $(this);
+      var id = $buttonClicked.attr('data-id')
+      var options = { "backdrop": "static", keyboard: true };
+      $.ajax({
+        type: "GET",
+        url: ProductionDetailsURL,
+        contentType: "application/json; charset=utf-8",
+        data: { "ProductionId": id },
+        datatype: "json",
+        success: function (data) {
+          $('#myModalContent').html(data);
+          $('#myModal').modal(options);
+          $('#myModal').modal('show');
+        },
+        error: function () {
+          alert("Something went wrong. Failed to load.");
+        }
+      });
+  });
+  $("#closebtn").click(function () {
+    $('#myModal').modal('hide');
+  });
+  });
 
 
 
@@ -102,6 +106,16 @@
 
   //////// Previous modal trigger buttons - keeping for reference until modal button resolved ////////
 
+  ////Modal trigger button
+  //function getId(id) {
+  //  console.log(id)
+  //  var x = id;
+  //  $("#modal-body").html("Production Id: " + x);
+  //  $("#detailsModal").modal("show");
+  //  return id;
+  //};
+
+ 
   ////Index page modal trigger button
   //$(document).ready(function () {
   //  $("#IndexModalButton").click(function () {

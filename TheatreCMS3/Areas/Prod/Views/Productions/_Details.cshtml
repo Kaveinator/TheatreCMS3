@@ -1,0 +1,21 @@
+﻿@model TheatreCMS3.Areas.Prod.Models.Productions
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h4 class="modal-title" id="myModalLabel">Production Details</h4>
+  </div>
+
+  <hr />
+  <dl class="dl-horizontal">
+    <dd>
+      @Html.DisplayFor(model => model.Title)
+    </dd>
+    <dd>
+      @Html.DisplayFor(model => Model.Description)
+    </dd>
+  </dl>
+</div>
