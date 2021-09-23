@@ -683,33 +683,6 @@ input[type=text].Donation, textarea.Donation {
     text-shadow: 1px 1px 1px black;
 }
 
-/*============ Donation Page Styling ============*/
-.rental-donate-header {
-    width: 100%;
-    font-family: Broadway;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-image: url(../Content/images/theater.jpg);
-    background-attachment:fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter:grayscale(25%);
-}
-
-.rental-donate-conatainer {
-    background-color: var(--main-color--light);
-    max-width: 800px;
-    margin: auto;
-}
-
-.rental-donate-rounded-corners {
-    border-radius: 30px;
-}
-
-.rental-donate-input {
-    width: 100%;
-}
-
 /*=========== Sign In Styling ===========*/
 div#nameList.text-center > p {
     margin: 4px 7px 2px 4px;
