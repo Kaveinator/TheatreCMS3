@@ -45,6 +45,14 @@ namespace TheatreCMS3.Areas.Prod.Models
             return View(productions.ToPagedList(pageNumber, pageSize));
         }
 
+        //Link to partial view for Index page details modal
+        public ActionResult IndexModal(int ProductionId)
+        {
+            Productions productions = db.Productions.Find(ProductionId);
+            return PartialView(@"~\Areas\Prod\Views\Productions\_Details.cshtml", productions);
+        }
+
+
         // GET: Prod/Productions/Details/5
         public ActionResult Details(int? id)
         {
