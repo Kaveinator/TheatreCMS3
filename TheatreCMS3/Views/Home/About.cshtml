@@ -1,4 +1,178 @@
-﻿@{
-  ViewBag.Title = "About Us";
-}
-<h1>About Us</h1>
+﻿<style>
+  .body-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+  .about--headers {
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline .25vw var(--main-color);
+    font-size: max(2vw, 25px);
+  }
+
+  .about--text {
+    font-size: max(1vw, 15px);
+    text-align: center;
+    padding: 0 20px 0 20px;
+  }
+
+  .about--paragraph_text {
+    margin: 15px 0 15px 0;
+  }
+
+  /*------Title Section------*/
+  .about--title_container {
+    border-radius: 0px 0px 0px 120px;
+    background: url("/Content/images/theater.jpg") no-repeat;
+    background-size: 100vw;
+    background-color: var(--dark-color);
+    padding: 7vw 10px 40px 10px;
+  }
+
+  .about--title_text {
+    font-family: broadway;
+    font-size: max(7vw, 50px);
+    text-align: center;
+    padding: 0 5px 0 5px;
+  }
+
+  .about--mission_statement_container {
+    margin: 30vw 0 0 0;
+  }
+
+  /*------History Section------*/
+  .about--history_container {
+    padding: 7vw 10px 7vw 10px;
+  }
+
+  /*------Ensemble Section------*/
+  .about--ensemble_container {
+    text-align: center;
+    border-radius: 0px 120px 0px 0px;
+    background-color: var(--dark-color);
+    padding: 7vw 10px 40px 10px;
+  }
+
+  .about--ensemble_flex_container {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .about--ensemble_img_container {
+    display: inline-block;
+    border-radius: 100px;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    background: var(--dark-color);
+    margin: 5px;
+  }
+
+  .about--ensemble_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /*---Board Section---*/
+  .about--board_container {
+    background-size: 100vw;
+    background: var(--dark-color);
+    padding: 7vw 10px 40px 10px;
+  }
+
+  .about--board_list {
+    justify-content: center;
+    display: flex;
+  }
+</style>
+
+<div class="container body body-content cms-bg-main-light">
+  @{
+    ViewBag.Title = "About Us";
+  }
+
+  @*---TITLE SECTION---*@
+
+  <div class="container-fluid about--title_container">
+  @*Title*@
+    <h1 class="about--title_text">About Us</h1>
+
+  @*Mission Statement*@
+    <div class="about--mission_statement_container">
+      <div class="about--text">
+        <h2 class="about--headers">Mission Statement</h2>
+        <p>We seek to engage audiences through compelling, ensemble-driven productions with a focus on developing new works</p>
+      </div>
+    </div>
+
+  </div>
+
+  @*---HISTORY SECTION---*@
+  <div class="about--history_container">
+    <div class="about--text">
+  @*Title*@
+      <h2 class="about--headers">History</h2>
+  @*Seperate <p> elements to create spacing between paragraphs(<br>'s are not permitted)*@
+      <p class="about--paragraph_text">
+        In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, The Electric Company, Theater!Theatre!, and The Shoebox Theater.
+      </p>
+      <p class="about--paragraph_text">
+        From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser in collaboration with The Anonymous Theatre Company.  Other past collaborations include defunkt theatre, Stark Raving Theater, and Tears of Joy Theatre.
+      </p>
+      <p class="about--paragraph_text">
+        Theatre Vertigo has worked on world premieres including Faust.Us by Joseph Fisher, 99 Ways to Fuck a Swan by Kim Rosenstock, and The End of Sex by Craig Jessen.
+      </p>
+      <p class="about--paragraph_text">
+        In 2016, Theatre Vertigo produced its first officially commissioned work from a playwright, I Want To Destroy You, by Rob Handel.
+      </p>
+    </div>
+  </div>
+
+  @*---ENSEMBLE SECTION---*@
+    <div class="container-fluid about--ensemble_container">
+  @*Title*@
+        <h2 class="about--headers">Ensemble</h2>
+  @*Photos & Names*@
+        <div class="about--ensemble_flex_container about--text">
+            <div class="about--ensemble_img_container">
+                <img class="about--ensemble_img" src="~/Content/images/Cast_Img_6.jpg" alt="Victoria Alvarez-Chacon" />
+                <p>Victoria Alvarez-Chacon</p>
+            </div>
+            <div class="about--ensemble_img_container">
+                <img class="about--ensemble_img" src="~/Content/images/Cast_Img_4.jpg" alt="Jacquelle Davis" />
+                <p>Jacquelle Davis</p>
+            </div>
+            <div class="about--ensemble_img_container">
+                <img class="about--ensemble_img" src="~/Content/images/Cast_Img_1.jpg" alt="Kaia Maarja Hillier" />
+                <p>Kaia Maarja Hillier</p>
+            </div>
+            <div class="about--ensemble_img_container">
+                <img class="about--ensemble_img" src="~/Content/images/Cast_Img_3.jpg" alt="Heath Hyun Houghton" />
+                <p>Heath Hyun Houghton</p>
+            </div>
+            <div class="about--ensemble_img_container">
+                <img class="about--ensemble_img" src="~/Content/images/Cast_Img_7.jpg" alt="Tom Mounsey" />
+                <p>Tom Mounsey</p>
+            </div>
+        </div>
+    </div>
+
+  @*---BOARD SECTION---*@
+    <div class="about--board_container">
+  @*Title*@
+        <h2 class="about--headers">Board</h2>
+  @*List of board members*@
+        <div class="about--board_list">
+            <ul>
+                <li>Jamie Floyd (President)</li>
+                <li>Tom Mounsey</li>
+                <li>Marcia Reyes</li>
+                <li>Lena-Liis Kiesel</li>
+            </ul>
+        </div>
+    </div>
+</div>
