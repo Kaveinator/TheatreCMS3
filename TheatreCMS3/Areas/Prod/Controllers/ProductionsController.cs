@@ -47,10 +47,10 @@ namespace TheatreCMS3.Areas.Prod.Models
 
 
 
-        public ActionResult IndexModal(int id)
+        public ActionResult IndexModal(int ProductionId)
         {
-            Productions productions = db.Productions.Find(id);
-            return PartialView("_Details", productions);
+            Productions productions = db.Productions.Find(ProductionId);
+            return PartialView(@"~\Areas\Prod\Views\Productions\_Details.cshtml", productions);
         }
 
 
