@@ -4,6 +4,7 @@
 <link href="~/Content/Areas/Prod.css" rel="Stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="~/Scripts/Areas/Prod.js" type="text/javascript"></script>
 
 @{
   ViewBag.Title = "Index";
@@ -19,7 +20,7 @@
 
 @using (Html.BeginForm())
 {
-  <p>Search by Title: @Html.TextBox("SearchString", "", new { @class = "ProdIndSrcBar" }) <input type="submit" value="Search" id="ProdIndSrc" /></p>
+<p>Search by Title: @Html.TextBox("SearchString", "", new { @class = "ProdIndSrcBar" }) <input type="submit" value="Search" id="ProdIndSrc" /></p>
 }
 
 <!--Card container-->
@@ -29,35 +30,31 @@
     @foreach (var item in Model)
     {
 
-      <!-- Modal Trigger Button -->
-      <a href="javascript:void(0);" class="anchorDetail" data-id="@item.ProductionId">Modal Button</a>
-      <!-- End Modal Trigger Button -->
-
       <!-- Display Cards -->
-      <div class="card">
-        <img src="http://www.fillmurray.com/g/200/300" alt="placeholder" class="card-img-top img-fluid" />
-        <div class="card-img-overlay">
-          @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
-          @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
-        </div>
-        <div class="card-body" style="transform: rotate(0);">
-          <h3 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h3>
-          <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-          @Html.ActionLink(" ", "Details", new { id = item.ProductionId }, new { @class = "stretched-link" })
+    <div class="card">
+      <img src="http://www.fillmurray.com/g/200/300" alt="placeholder" class="card-img-top img-fluid" />
+      <div class="card-img-overlay">
+        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
+        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-pill" })
+      </div>
+      <div class="card-body" style="transform: rotate(0);">
+        <h3 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h3>
+        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+        <a href="javascript:void(0);" class="anchorDetail stretched-link" data-id="@item.ProductionId"></a>
+
+      </div>
+    </div>
+ <!-- End Display Cards -->
+
+ <!-- Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="myModalContent"></div>
         </div>
       </div>
-      <!-- End Display Cards -->
-
-      <!-- Modal -->
-      <div id="myModal" class="modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div id="myModalContent"></div>
-          </div>
-        </div>
-      </div>
-      <!-- End Modal -->
-
+    </div>
+ <!-- End Modal -->
     }
   </div>
 </div>
@@ -70,76 +67,5 @@
 <!-- End Pagination -->
 
 <script>
-
-  //Modal script 
-  var ProductionDetailsURL = '/Productions/IndexModal';
-  $(function () {
-    $(".anchorDetail").click(function () {
-      var $buttonClicked = $(this);
-      var id = $buttonClicked.attr('data-id')
-      var options = { "backdrop": "static", keyboard: true };
-      $.ajax({
-        type: "GET",
-        url: ProductionDetailsURL,
-        contentType: "application/json; charset=utf-8",
-        data: { "ProductionId": id },
-        datatype: "json",
-        success: function (data) {
-          $('#myModalContent').html(data);
-          $('#myModal').modal(options);
-          $('#myModal').modal('show');
-        },
-        error: function () {
-          alert("Something went wrong. Failed to load.");
-        }
-      });
-  });
-  $("#closebtn").click(function () {
-    $('#myModal').modal('hide');
-  });
-  });
-
-
-
-
-
-
-  //////// Previous modal trigger buttons - keeping for reference until modal button resolved ////////
-
-  ////Modal trigger button
-  //function getId(id) {
-  //  console.log(id)
-  //  var x = id;
-  //  $("#modal-body").html("Production Id: " + x);
-  //  $("#detailsModal").modal("show");
-  //  return id;
-  //};
-
- 
-  ////Index page modal trigger button
-  //$(document).ready(function () {
-  //  $("#IndexModalButton").click(function () {
-  //    $('#detailsModal').modal();
-  //  })
-  //});
-
-
-
-  //$(document).on("click", "#IndexModalButton", function () {
-  //  var x = new Date();
-  //  $("#modal-body").html(x);
-  //  $("#detailsModal").modal("show");
-  //});
-
-
-
-  //$('#detailsModal').on('show.bs.modal'), function (event) {
-  //  var button = $(event.relatedTarget)
-  //  var display = button.data('whatever')
-  //  var modal = $(this)
-  //  modal.find('.modal-body').val(display)
-  //}
-
-
 
 </script>
