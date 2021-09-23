@@ -421,6 +421,7 @@
     <Content Include="Areas\Prod\Views\CastMembers\Details.cshtml" />
     <Content Include="Areas\Prod\Views\CastMembers\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CastMembers\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\_Details.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
