@@ -698,7 +698,6 @@ div#nameList.text-center > p {
 }
 
 /*======= ABOUT STYLING =======*/
-/*------General------*/
 .about--headers {
     text-align: center;
     text-transform: uppercase;
@@ -716,7 +715,6 @@ div#nameList.text-center > p {
     margin: 15px 0 15px 0;
 }
 
-------Title Section------ 
 .about--title_container {
     border-radius: 0px 0px 0px 120px;
     background: url("/Content/images/theater.jpg") no-repeat;
@@ -729,6 +727,7 @@ div#nameList.text-center > p {
     font-family: broadway;
     font-size: max(7vw, 50px);
     text-align: center;
+    text-shadow: 2px 2px 5px rgb(0 0 0 / 0.70);
     padding: 0 5px 0 5px;
 }
 
@@ -736,12 +735,11 @@ div#nameList.text-center > p {
     margin: 30vw 0 0 0;
 }
 
-------History Section------ 
 .about--history_container {
     padding: 7vw 10px 7vw 10px;
+    background: var(--main-color--light);
 }
 
-------Ensemble Section------ 
 .about--ensemble_container {
     text-align: center;
     border-radius: 0px 120px 0px 0px;
@@ -750,28 +748,26 @@ div#nameList.text-center > p {
 }
 
 .about--ensemble_flex_container {
-    display: inline-flex;
+    display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
 .about--ensemble_img_container {
     display: inline-block;
-    border-radius: 100px;
-    overflow: hidden;
     width: 200px;
     height: 200px;
     background: var(--dark-color);
-    margin: 5px;
+    margin: 13px;
 }
 
 .about--ensemble_img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 100px;
 }
 
----Board Section--- 
 .about--board_container {
     background-size: 100vw;
     background: var(--dark-color);
@@ -779,7 +775,9 @@ div#nameList.text-center > p {
 }
 
 .about--board_list {
+    font-size: max(1.5vw, 15px);
     justify-content: center;
     display: flex;
+    flex-flow: column nowrap;
 }
 /*==========END ABOUT STYLING=========*/
