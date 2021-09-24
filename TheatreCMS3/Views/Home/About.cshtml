@@ -1,98 +1,12 @@
-﻿<style>
-  .body-content {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-  }
-  .about--headers {
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: underline .25vw var(--main-color);
-    font-size: max(2vw, 25px);
-  }
-
-  .about--text {
-    font-size: max(1vw, 15px);
-    text-align: center;
-    padding: 0 20px 0 20px;
-  }
-
-  .about--paragraph_text {
-    margin: 15px 0 15px 0;
-  }
-
-  /*------Title Section------*/
-  .about--title_container {
-    border-radius: 0px 0px 0px 120px;
-    background: url("/Content/images/theater.jpg") no-repeat;
-    background-size: 100vw;
-    background-color: var(--dark-color);
-    padding: 7vw 10px 40px 10px;
-  }
-
-  .about--title_text {
-    font-family: broadway;
-    font-size: max(7vw, 50px);
-    text-align: center;
-    padding: 0 5px 0 5px;
-  }
-
-  .about--mission_statement_container {
-    margin: 30vw 0 0 0;
-  }
-
-  /*------History Section------*/
-  .about--history_container {
-    padding: 7vw 10px 7vw 10px;
-  }
-
-  /*------Ensemble Section------*/
-  .about--ensemble_container {
-    text-align: center;
-    border-radius: 0px 120px 0px 0px;
-    background-color: var(--dark-color);
-    padding: 7vw 10px 40px 10px;
-  }
-
-  .about--ensemble_flex_container {
-    display: inline-flex;
-    flex-flow: row wrap;
-    justify-content: center;
-  }
-
-  .about--ensemble_img_container {
-    display: inline-block;
-    border-radius: 100px;
-    overflow: hidden;
-    width: 200px;
-    height: 200px;
-    background: var(--dark-color);
-    margin: 5px;
-  }
-
-  .about--ensemble_img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /*---Board Section---*/
-  .about--board_container {
-    background-size: 100vw;
-    background: var(--dark-color);
-    padding: 7vw 10px 40px 10px;
-  }
-
-  .about--board_list {
-    justify-content: center;
-    display: flex;
-  }
-</style>
-
-<div class="container body body-content cms-bg-main-light">
+﻿@{
+  ViewBag.Title = "About Us";
+}
+<h1>About Us</h1>
+=======
+﻿<div class="container body about--body_content cms-bg-main-light">
   @{
     ViewBag.Title = "About Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
   }
 
   @*---TITLE SECTION---*@
@@ -161,18 +75,16 @@
         </div>
     </div>
 
-  @*---BOARD SECTION---*@
+  @*---BOARD MEMEBER SECTION---*@
     <div class="about--board_container">
   @*Title*@
         <h2 class="about--headers">Board</h2>
   @*List of board members*@
-        <div class="about--board_list">
-            <ul>
-                <li>Jamie Floyd (President)</li>
-                <li>Tom Mounsey</li>
-                <li>Marcia Reyes</li>
-                <li>Lena-Liis Kiesel</li>
-            </ul>
+        <div class="about--board_list about--text">
+            <p>Jamie Floyd (President)</p>
+            <p>Tom Mounsey</p>
+            <p>Marcia Reyes</p>
+            <p>Lena-Liis Kiesel</p>
         </div>
     </div>
 </div>
