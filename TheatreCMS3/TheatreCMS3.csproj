@@ -197,8 +197,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\CommentController.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Models\CastMembers.cs" />
     <Compile Include="Areas\Prod\Models\Productions.cs" />
@@ -404,6 +406,11 @@
     <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
