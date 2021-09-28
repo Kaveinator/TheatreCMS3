@@ -394,6 +394,7 @@
     <Content Include="Areas\Prod\Views\CastMembers\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CastMembers\Index.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\_Details.cshtml" />
+    <Content Include="Areas\Blog\Views\web.config" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -553,7 +554,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Models\" />
+    <Folder Include="Areas\Blog\Views\Shared\" />
+    <Folder Include="Data\" />
     <Folder Include="Helpers\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
