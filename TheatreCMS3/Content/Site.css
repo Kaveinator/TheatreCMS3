@@ -488,7 +488,7 @@ input[type=text].Donation, textarea.Donation {
     box-sizing: border-box;
 }*/
 
-#Donation-container {
+#Donation-title {
     background-image: url('https://images.pexels.com/photos/6899765/pexels-photo-6899765.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -500,7 +500,8 @@ input[type=text].Donation, textarea.Donation {
 
 #Donation-form {
     background-color: var(--main-color--light);
-    border-radius: 0px 0px 25px 25px;
+    font-family: Broadway, Arial, sans-serif;
+    border-radius: 25px;
 }
 
 /* ================ DETAILS PAGE =================*/
