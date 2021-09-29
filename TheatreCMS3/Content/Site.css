@@ -493,13 +493,14 @@ input[type=text].Donation, textarea.Donation {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    font-family: Broadway;
-    border-radius: 5px;
+    font-family: Broadway, Arial, sans-serif;
+    font-size: 20px;
+    border-radius: 25px;
 }
 
 #Donation-form {
-    font-family: Broadway;
-    border-radius: 0px 0px 5px 5px;
+    background-color: var(--main-color--light);
+    border-radius: 0px 0px 25px 25px;
 }
 
 /* ================ DETAILS PAGE =================*/
