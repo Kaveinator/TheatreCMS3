@@ -14,5 +14,7 @@ namespace TheatreCMS3.Areas.Blog.Models
         public string Content { get; set; }
         public DateTime Posted { get; set; }
         public string Author { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
