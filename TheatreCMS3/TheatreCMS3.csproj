@@ -198,9 +198,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
+    <Compile Include="Areas\Blog\Controllers\CommentController.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Models\CastMembers.cs" />
     <Compile Include="Areas\Prod\Models\Productions.cs" />
@@ -406,6 +408,11 @@
     <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Comment\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
