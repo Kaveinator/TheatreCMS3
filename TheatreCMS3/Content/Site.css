@@ -626,15 +626,14 @@ input[type=text].Donation, textarea.Donation {
 
 /*=========== Sign In Styling ===========*/
 div#nameList.text-center > p {
-    margin: 4px 7px 2px 4px;
     border-radius: 25px;
-    background: var(--main-color--light);
-    width: 180px;
-    padding: 5px;
-    height: 50px;
+    background: #DB1A11;
+    padding: 20px;
+    width: 140px;
+    height: 100px;
+    text-align: center;
+    text-overflow: ellipsis;
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /*======= ABOUT STYLING =======*/
