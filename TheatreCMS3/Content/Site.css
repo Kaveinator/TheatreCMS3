@@ -488,6 +488,22 @@ input[type=text].Donation, textarea.Donation {
     box-sizing: border-box;
 }*/
 
+#Donation-title {
+    background-image: url('https://images.pexels.com/photos/6899765/pexels-photo-6899765.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Broadway, Arial, sans-serif;
+    font-size: 20px;
+    border-radius: 25px;
+}
+
+#Donation-form {
+    background-color: var(--main-color--light);
+    font-family: Broadway, Arial, sans-serif;
+    border-radius: 25px;
+}
+
 /* ================ DETAILS PAGE =================*/
 .cm-details-img {
     background-color: lightgray;
