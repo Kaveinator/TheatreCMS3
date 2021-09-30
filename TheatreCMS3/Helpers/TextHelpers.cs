@@ -8,8 +8,7 @@ namespace TheatreCMS3.Helpers
     public static class TextHelpers
     {
         public static string Truncate(this string value,
-            int maxLength,
-            bool addEllipsis = false)
+            int maxLength)
         {
             // Check for valid string before attempting to truncate
             if (string.IsNullOrEmpty(value)) return value;
@@ -19,7 +18,7 @@ namespace TheatreCMS3.Helpers
             if (value.Length > maxLength)
             {
                 result = value.Substring(0, maxLength);
-                if (addEllipsis) result += "...";
+                result += "...";
             }
             else
             {
@@ -28,6 +27,6 @@ namespace TheatreCMS3.Helpers
 
             return result;
         }
-          
+
     }
 }
