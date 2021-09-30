@@ -488,6 +488,22 @@ input[type=text].Donation, textarea.Donation {
     box-sizing: border-box;
 }*/
 
+#Donation-title {
+    background-image: url('https://images.pexels.com/photos/6899765/pexels-photo-6899765.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Broadway, Arial, sans-serif;
+    font-size: 20px;
+    border-radius: 25px;
+}
+
+#Donation-form {
+    background-color: var(--main-color--light);
+    font-family: Broadway, Arial, sans-serif;
+    border-radius: 25px;
+}
+
 /* ================ DETAILS PAGE =================*/
 .cm-details-img {
     background-color: lightgray;
@@ -626,15 +642,14 @@ input[type=text].Donation, textarea.Donation {
 
 /*=========== Sign In Styling ===========*/
 div#nameList.text-center > p {
-    margin: 4px 7px 2px 4px;
     border-radius: 25px;
-    background: var(--main-color--light);
-    width: 180px;
-    padding: 5px;
-    height: 50px;
+    background: #DB1A11;
+    padding: 20px;
+    width: 140px;
+    height: 100px;
+    text-align: center;
+    text-overflow: ellipsis;
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /*======= ABOUT STYLING =======*/
