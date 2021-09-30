@@ -17,8 +17,6 @@ namespace TheatreCMS3.Areas.Blog.Models
         public int Likes { get; set; }
         public int Dislikes { get; set; }
 
-        //setting a fully defined Relationship
-        public virtual int BlogPostId { get; set; }
         public virtual BlogPost BlogPost { get; set; }
 
         public Comment() { CommentDate = DateTime.Now; }
