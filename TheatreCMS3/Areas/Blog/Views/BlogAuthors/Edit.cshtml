@@ -36,18 +36,16 @@
         <div class="blog_author-edit--joined_left_container">
             <div>
                 <center>@Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })</center>
-                <center>@Html.DisplayFor(x => x.Joined)</center>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.Joined, new { @type = "date", @class = "blog_author-edit--joined_left datepicker" })
+                    @Html.TextBoxFor(model => model.Joined, "{0:yyyy-MM-dd}", new { @type = "date", @class = "blog_author-edit--joined_left datepicker" })
                     @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div>
                 <center>@Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })</center>
-                <center>@Html.DisplayFor(x => x.Left)</center>
                 <div>
-                    @Html.TextBoxFor(model => model.Left, new { @type="date", @class = "blog_author-edit--joined_left datepicker" } )
+                    @Html.TextBoxFor(model => model.Left, "{0:yyyy-MM-dd}", new { @type="date", @class = "blog_author-edit--joined_left datepicker" } )
                 </div>
             </div>
         </div>

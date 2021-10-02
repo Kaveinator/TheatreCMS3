@@ -19,6 +19,6 @@ namespace TheatreCMS3.Areas.Blog.Models
         public DateTime Joined { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
                ApplyFormatInEditMode = true)]
-        public Nullable<DateTime> Left { get; set; }
+        public DateTime? Left { get; set; }
     }
 }
