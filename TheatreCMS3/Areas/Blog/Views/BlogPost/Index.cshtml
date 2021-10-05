@@ -5,10 +5,11 @@
 }
 
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div>
+  <p>
+      @Html.ActionLink("Create New", "Create")
+  </p>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -44,7 +45,11 @@
             @Html.DisplayFor(modelItem => item.Author)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Comments)
+            @foreach (var i in item.Comments)
+            {
+              @Html.DisplayFor(modelItem => i.Message)
+
+            }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostId }) |
