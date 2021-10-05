@@ -6,9 +6,19 @@
 
 <h2>Index</h2>
 
-<p>
+<div>
+  <p>
     @Html.ActionLink("Create New", "Create")
-</p>
+  </p>
+  <p>
+    @using (Html.BeginForm("Index", "Comments", FormMethod.Post, new { @id = "blogPostFilter"}))
+    {
+      @Html.DropDownList("BlogPost", (IEnumerable<SelectListItem>)null, "Select Post", new { @onchange="document.getElementById('blogPostFilter').submit();"})
+
+    }
+  </p>
+</div>
+
 <table class="table">
     <tr>
         <th>

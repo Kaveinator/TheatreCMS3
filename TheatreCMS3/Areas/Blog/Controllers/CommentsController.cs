@@ -11,14 +11,49 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Blog
 {
-    public class CommentController : Controller
+    public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Blog/Comment
         public ActionResult Index()
         {
+            BlogPosts();
             return View(db.Comments.ToList());
+        }
+
+        /* This method get invoked when a user selects a Blog Post */
+        [HttpPost]
+        public ActionResult Index(int BlogPost = 0)
+        {
+            BlogPosts();
+            List<Comment> blogPostComments = db.Comments.ToList();
+            // Checks if a specific blog post was selected. 
+            if (BlogPost != 0)
+            {
+                //finds all the comments that belong to specific blog post.
+                blogPostComments = blogPostComments.Where(post => post.BlogPost.BlogPostId == BlogPost).ToList();
+            }
+
+            return View(blogPostComments);
+        }
+        
+        public void BlogPosts()
+        {
+            /* From the BlogPost Db, Group by BlogPostId and select the first BlogPostId found and add it to a list. This prevents duplicate 
+             * Blog Post Titles in the drop down list on the BlogPost Index page. */
+            List<BlogPost> blogPostsList = db.BlogPosts.GroupBy(post => new { post.BlogPostId }).Select(i => i.FirstOrDefault()).ToList();
+            /* This is what helps populate the Blog Post drop down list */
+            var BlogPosts = blogPostsList.Select(i => new SelectListItem
+            {
+                /* The Value is wat sets the 'value' attribute in the rendered HTML and the Test is the text in
+                 * between the options tag in the drop down list. */
+                Value = i.BlogPostId.ToString(),
+                Text = i.Title
+            });
+
+            /* ViewData returns a dictionary base on the Value and Text above. */
+            ViewData["BlogPost"] = new SelectList(BlogPosts, "Value", "Text");
         }
 
         // GET: Blog/Comment/Details/5
@@ -39,6 +74,7 @@ namespace TheatreCMS3.Areas.Blog
         // GET: Blog/Comment/Create
         public ActionResult Create()
         {
+            BlogPosts();
             return View();
         }
 
@@ -47,10 +83,15 @@ namespace TheatreCMS3.Areas.Blog
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment, int blogPost)
         {
+            // This takes the number given by the drop down list in on the Create page
+            // and finds the blog post with the same Id.
+            BlogPost post = db.BlogPosts.Find(blogPost);
             if (ModelState.IsValid)
             {
+                // This now adds the found BlogPost post and adds it to the comment's structure
+                comment.BlogPost = post;
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -62,6 +103,7 @@ namespace TheatreCMS3.Areas.Blog
         // GET: Blog/Comment/Edit/5
         public ActionResult Edit(int? id)
         {
+            BlogPosts();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
