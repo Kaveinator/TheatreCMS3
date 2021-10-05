@@ -13,6 +13,21 @@
 /*}*/
 
 
+
+h2, h4{
+    padding: 25px;
+    text-align:center;
+}
+
+#Rental,#Edit {
+    background-color: var(--main-color--light);
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 500px;
+}
+
 /*Rental Input Field Color Change*/
 input[type=text]:focus, input[type=number]:focus {
     opacity: 1;
