@@ -44,7 +44,11 @@
             @Html.DisplayFor(modelItem => item.Author)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Comments)
+            @foreach (var i in item.Comments)
+            {
+              @Html.DisplayFor(modelItem => i.Message)
+
+            }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostId }) |
