@@ -26,6 +26,27 @@
                         <div>
                             @Html.DisplayFor(modelItem => item.ContactPerson)
                         </div>
+                        @*<div>
+                            @if (DateTime.Today < item.EndTime && DateTime.Today > item.StartTime)
+                            {
+                                var daysLeft = DateTime.Today - item.EndTime;
+                                var message = daysLeft + " days left";
+                                return;
+                            }
+
+                            else if (DateTime.Today < item.StartTime)
+                            {
+                                var daysLeft = DateTime.Today - item.StartTime;
+                                var message = daysLeft + " days until start";
+                                return;
+                            }
+
+                            else if (DateTime.Today > item.EndTime)
+                            {
+                                var message = "Completed";
+                                return;
+                            }
+                        </div>*@
                     </button>
                 </h5>
             </div>
