@@ -18,5 +18,28 @@ namespace TheatreCMS3.Areas.Rent.Models
         //need to be replaced due to damage.
         public int RentalReplacementRequests { get; set; }
 
+        //Seeding the database
+        //creating a method:
+        public static void SeedHistoryManager()
+        {
+            //creating an instance of HistoryManager, saves to DB before page loads
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+
+            if (dbContext.Users == null)
+            {
+                //create a new object of type HistoryManager
+                HistoryManager historyManager = new HistoryManager
+                {
+                    //assign values to properties inherited from ApplicationUser/Identity
+                    UserName = "Admin",
+                    Email = "Admin@example.com"
+                };
+            }
+            else //if there is already an entry, skip...
+            {
+                return;
+            }
+
+        }
     }
 }
