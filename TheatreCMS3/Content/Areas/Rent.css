@@ -12,3 +12,29 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/*Rental Create and Edit Page Start*/
+
+h1, h2, h3, h4, h5{
+    padding: 25px;
+    text-align:center;
+}
+
+#Rental,#Edit {
+    text-align:center;
+    background-color: var(--main-color--light);
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 600px;
+    
+}
+
+/*Rental Input Field Color Change*/
+input[type=text]:focus, input[type=number]:focus {
+    opacity: 1;
+    border: 2px solid var(--main-color--light);
+    background-color: var(--secondary-color);
+}
+
+/*Rental Create and Edit Page End*/
