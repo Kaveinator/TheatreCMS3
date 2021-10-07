@@ -536,6 +536,12 @@ input[type=text].Donation, textarea.Donation {
 }
 
 /* =============== BUTTON STYLING ================== */
+
+/*For the rental request accordion*/
+#accordion-button {
+    width: 100%;
+}
+
 .cm-btn-div {
     display: block;
     width: 40vw;
