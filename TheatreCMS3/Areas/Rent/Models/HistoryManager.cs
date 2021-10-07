@@ -25,21 +25,20 @@ namespace TheatreCMS3.Areas.Rent.Models
             //creating an instance of HistoryManager, saves to DB before page loads
             ApplicationDbContext dbContext = new ApplicationDbContext();
 
-            if (dbContext.Users == null)
+            if (dbContext.HistoryManager.Count()==0)
             {
                 //create a new object of type HistoryManager
                 HistoryManager historyManager = new HistoryManager
                 {
                     //assign values to properties inherited from ApplicationUser/Identity
                     UserName = "Admin",
-                    Email = "Admin@example.com"
+                    Email = "Admin@example.com",
+                    RestrictedUsers = 1,
+                    RentalReplacementRequests = 1,
                 };
+                dbContext.HistoryManager.Add(historyManager);
+                dbContext.SaveChanges();
             }
-            else //if there is already an entry, skip...
-            {
-                return;
-            }
-
         }
     }
 }
