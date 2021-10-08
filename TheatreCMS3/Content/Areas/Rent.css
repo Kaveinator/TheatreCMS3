@@ -38,3 +38,7 @@
 }
 
 /*Rental Create and Edit Page End*/
+/*Rental Request Accordion*/
+#rental_request-index--accordion {
+    width: 100%;
+}
