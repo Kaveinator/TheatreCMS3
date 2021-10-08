@@ -14,7 +14,8 @@
 </p>
 
 <!--Accordion-->
-<div id="accordion" class="text-dark accordion cms-bg-main-light cms-text-light rounded">
+
+<div id="accordion" class="accordion cms-bg-main-light cms-text-light rounded">
 
     @foreach (var item in Model)
     {
@@ -22,7 +23,8 @@
         <div class="card cms-bg-main-light cms-text-light">
             <div class="card-header cms-text-light" id="headingOne">
                 <h5 class="mb-0 cms-text-light">
-                    <button id="accordion-button" class="btn text-left cms-text-light" type="button" data-toggle="collapse" data-target="#@item.Company" aria-expanded="true" aria-controls="collapseOne">
+                    <button id="rental_request-index--accordion" class="btn text-left cms-bg-light" type="button" data-toggle="collapse" data-target="#@item.Company" aria-expanded="false" aria-controls="collapseOne">
+
                         <div>
                             @Html.DisplayFor(modelItem => item.Company)
                         </div>
@@ -65,7 +67,7 @@
             </div>
 
             <!--Using item.Company so that each item accordion has its own unique id-->
-            <div id="@item.Company" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="@item.Company" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 
                 <!--Time Displays-->
                 <div>
