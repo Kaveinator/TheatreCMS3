@@ -208,9 +208,11 @@
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
     <Compile Include="Areas\Rent\Models\Rental.cs" />
+    <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
     <Compile Include="Areas\Rent\Models\HistoryManager.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -392,24 +394,6 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
-    <Content Include="Areas\Blog\Views\web.config" />
-    <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPost\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
     <Content Include="Areas\Rent\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Rent\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Create.cshtml" />
@@ -536,7 +520,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -591,6 +574,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Blog\Controllers\" />
+    <Folder Include="Areas\Blog\Views\Shared\" />
+    <Folder Include="Areas\Prod\Controllers\" />
+    <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Data\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
