@@ -12,6 +12,32 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/*Rental Create and Edit Page Start*/
+
+.rental-create--heading, rental-edit--heading {
+    padding: 25px;
+    text-align:center;
+}
+
+#rental-create--form, #rental-edit--form {
+    text-align:center;
+    background-color: var(--main-color--light);
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 600px;
+    
+}
+
+/*Rental Input Field Color Change*/
+.rental-create--input:focus, .rental-edit--input:focus {
+    opacity: 1;
+    border: 2px solid var(--main-color--light);
+    background-color: var(--secondary-color);
+}
+
+/*Rental Create and Edit Page End*/
 /*Rental Request Accordion*/
 #rental_request-index--accordion {
     width: 100%;

@@ -1,46 +1,39 @@
-﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalHistory
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Areas/Rent/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>BlogAuthor</h4>
+    <h4>RentalHistory</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.RentalDamaged)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.RentalDamaged)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Bio)
+            @Html.DisplayNameFor(model => model.DamagesIncurred)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Bio)
+            @Html.DisplayFor(model => model.DamagesIncurred)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Joined)
+            @Html.DisplayNameFor(model => model.Rental)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
+            @Html.DisplayFor(model => model.Rental)
         </dd>
 
     </dl>
