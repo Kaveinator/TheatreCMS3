@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Prod.Controllers
+namespace TheatreCMS3.Areas.Prod
 {
     public class CastMembersController : Controller
     {
@@ -47,7 +47,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberID,Name,YearJoined,MainRole,Bio,Photo,CurrentMemeber,Character,MyProperty,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberID,Name,YearJoined,MainRole,Bio,CurrentMemeber,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberID,Name,YearJoined,position,Bio,Photo,CurrentMemeber,Character,MyProperty,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberID,Name,YearJoined,MainRole,Bio,CurrentMemeber,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
