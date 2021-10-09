@@ -16,29 +16,44 @@ namespace TheatreCMS3
 
             //call the seed method
             HistoryManager.SeedHistoryManager();
+            RolesManager.CreateNewRole();
         }
+           
+    }
+    public class RolesManager
+    {
+        public static void CreateNewRole()
+        {
+            //connection to the dB
+            ApplicationDbContext dbContext = new ApplicationDbContext();
 
-            public class RolesManager
+            //instantiate objects - user manager and role manager
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(dbContext));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(dbContext));
+
+            //check if the role "HistoryManager" alrady exists. If not, create role
+            if (!roleManager.RoleExists("HistoryManager"))
             {
-                public static void CreateNewRole()
-            {
-                //connection to the dB
-                ApplicationDbContext dbContext = new ApplicationDbContext();
-
-                //instantiate objects - user manager and role manager
-                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(dbContext));
-                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(dbContext));
-
-                //check if the role "HistoryManager" alrady exists. If not, create role
-                if (dbContext.HistoryManager.Count() == 0)
+                //create HistoryManager Role:
+                var role = new IdentityRole()
                 {
-                    //create new role
-                    RolesManager.CreateNewRole();
+                    Name = "HistoryManager"
+                };
+                roleManager.Create(role);
 
-                    //assign role to the user.
-                    var user = userManager.FindByEmail("Admin@example.com");
-                }
+                //find admin user by email:
+                var user = userManager.FindByEmail("Admin@example.com");
+
+                //create IdentityUser Role w/the IDs of role and user:
+                var userRole = new IdentityUserRole
+                {
+                    RoleId = role.Id,
+                    UserId = user.Id
+                };
+
+                //adding the IdentityUserRole to the user
+                user.Roles.Add(userRole);
             }
-        } 
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace TheatreCMS3.Areas.Rent.Models
             //creating an instance of HistoryManager, saves to DB before page loads
             ApplicationDbContext dbContext = new ApplicationDbContext();
 
-            if (dbContext.HistoryManager.Count()==0)
+            if (dbContext.HistoryManagers.Count()==0)
             {
                 //create a new object of type HistoryManager
                 HistoryManager historyManager = new HistoryManager
@@ -36,7 +36,7 @@ namespace TheatreCMS3.Areas.Rent.Models
                     RestrictedUsers = 1,
                     RentalReplacementRequests = 1,
                 };
-                dbContext.HistoryManager.Add(historyManager);
+                dbContext.HistoryManagers.Add(historyManager);
                 dbContext.SaveChanges();
             }
         }
