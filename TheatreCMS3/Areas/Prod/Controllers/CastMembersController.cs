@@ -6,112 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog
+namespace TheatreCMS3.Areas.Prod
 {
-    public class BlogAuthorsController : Controller
+    public class CastMembersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/BlogAuthors
+        // GET: Prod/CastMembers
         public ActionResult Index()
         {
-            return View(db.BlogAuthors.ToList());
+            return View(db.CastMembers.ToList());
         }
 
-        // GET: Blog/BlogAuthors/Details/5
+        // GET: Prod/CastMembers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            CastMember castMember = db.CastMembers.Find(id);
+            if (castMember == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(castMember);
         }
 
-        // GET: Blog/BlogAuthors/Create
+        // GET: Prod/CastMembers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/BlogAuthors/Create
+        // POST: Prod/CastMembers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Create([Bind(Include = "CastMemberID,Name,YearJoined,MainRole,Bio,CurrentMemeber,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
-                db.BlogAuthors.Add(blogAuthor);
+                db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(blogAuthor);
+            return View(castMember);
         }
 
-        // GET: Blog/BlogAuthors/Edit/5
+        // GET: Prod/CastMembers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            CastMember castMember = db.CastMembers.Find(id);
+            if (castMember == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(castMember);
         }
 
-        // POST: Blog/BlogAuthors/Edit/5
+        // POST: Prod/CastMembers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Edit([Bind(Include = "CastMemberID,Name,YearJoined,MainRole,Bio,CurrentMemeber,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogAuthor).State = EntityState.Modified;
+                db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blogAuthor);
+            return View(castMember);
         }
 
-        // GET: Blog/BlogAuthors/Delete/5
+        // GET: Prod/CastMembers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            CastMember castMember = db.CastMembers.Find(id);
+            if (castMember == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(castMember);
         }
 
-        // POST: Blog/BlogAuthors/Delete/5
+        // POST: Prod/CastMembers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            db.BlogAuthors.Remove(blogAuthor);
+            CastMember castMember = db.CastMembers.Find(id);
+            db.CastMembers.Remove(castMember);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
