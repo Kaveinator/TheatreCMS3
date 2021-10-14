@@ -756,3 +756,27 @@ div#nameList.text-center > p {
 }
 
 /*======= END CONTACT STYLING =======*/
+
+/* ======= SIGN-IN PAGE STYLING START ======= */
+.home-signin--div_outer {
+    column-count: 4;
+    overflow: hidden;
+}
+
+.home-signin--div_inner {
+    display: block;
+}
+
+.text-center p {
+    background-color: #f04d44;
+    border-radius: 25px;
+    text-align: center;
+
+    /* all required attributes for text-overflow: ellipsis */
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+/* ======= SIGN-IN PAGE STYLING END ======= */
