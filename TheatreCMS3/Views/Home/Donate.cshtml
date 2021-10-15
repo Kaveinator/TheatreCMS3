@@ -2,63 +2,60 @@
   ViewBag.Title = "Donate";
 }
 
-<!--Title-->
-<div id="Donation-title" class="mt-5 p-5">
-    <h1 class="text-center">Consider Making A Donation</h1>
-</div>
-<!--Form-->
-<div id="Donation-form" class="mt-lg-2">
-    <form action="" method="POST">
+<h1 class="text-center">Consider Making A Donation</h1>
 
-        <div class="row mb-4 mx-auto">
-            <div class="col-12 col-lg-4 mt-4">
-                <label for="name">Name*</label>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6 mt-4">
-                <input class="Donation form-control" type="text" name="name" placeholder="First Name" required>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6 mt-4">
-                <input class="Donation form-control" type="text" name="name" placeholder="Last Name" required>
-            </div>
-        </div>
+<div id="Donation-container">
+  <form action="" method="post">
 
-        <div class="row mb-4 mx-auto">
-            <div class="col-12 col-lg-4">
-                <label for="email">Email Address*</label>
-            </div>
-            <div class="col-12 col-lg-8">
-                <input class="Donation form-control" type="email" name="email" placeholder="Email" required>
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="name">Name:</label>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6">
+        <input class="Donation" type="text" name="name" required>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6">
+        <input class="Donation" type="text" name="name" required>
+      </div>
+    </div>
 
-        <div class="row mb-4 mx-auto">
-            <div class="col-12 col-lg-4">
-                <label for="address">Address*</label>
-            </div>
-            <div class="col-12 col-lg-8">
-                <input class="Donation form-control" type="text" name="address" placeholder="Address" required>
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="email">Email Address:</label>
+      </div>
+      <div class="col-12 col-lg-8">
+        <input class="Donation" type="text" name="email" required>
+      </div>
+    </div>
 
-        <div class="row mb-4 mx-auto">
-            <div class="col-12 col-lg-4">
-                <label for="donation">Donation amount($)*</label>
-            </div>
-            <div class="col-12 col-lg-8">
-                <input class="Donation form-control" type="number" name="donation" placeholder="Amount" required>
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="address">Address:</label>
+      </div>
+      <div class="col-12 col-lg-8">
+        <input class="Donation" type="text" name="address" required>
+      </div>
+    </div>
 
-        <div class="row mb-4 mx-auto">
-            <div class="col-12 col-lg-4">
-                <label for="message">Message</label>
-            </div>
-            <div class="col-12 col-lg-8">
-                <textarea class="Donation form-control" name="message" placeholder="Message" rows="3"></textarea>
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="donation">Donation amount:</label>
+      </div>
+      <div class="col-12 col-lg-8">
+        <input class="Donation" type="text" name="donation" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <label for="message">Message:</label>
+      </div>
+      <div class="col-12 col-lg-8">
+        <textarea class="Donation" name="message"></textarea>
+      </div>
+    </div>
 
 
-        <input class="Donation btn ml-4 mb-4 cms-bg-light" type="submit" value="Submit">
-    </form>
+    <input class="Donation" type="submit" value="Submit">
+  </form>
 </div>
