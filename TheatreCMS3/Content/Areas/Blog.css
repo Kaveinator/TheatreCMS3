@@ -13,13 +13,13 @@
 
 .BlogAuthor-create--heading, .BlogAuthor-edit--heading {
     text-align: center;
-    margin: 20px 5px 10px 5px;
+    margin: 40px 5px 10px 5px;
 }
 .BlogAuthor-create--form, .BlogAuthor-edit--form {
     background-color: var(--main-color--light);
     border-radius: 12px;
     max-width: 600px;
-    min-width: 200px;
+    min-width: 170px;
     padding: 10px;
     box-sizing: border-box;
     height: auto;
@@ -44,7 +44,6 @@
 }
 
 .BlogAuthor-create--joined, .BlogAuthor-create--left, .BlogAuthor-edit--joined, .BlogAuthor-edit--left {
-    width: 185px;
-    font-size: small;
-    padding: 1px;
+    width: 155px;
+    padding: 2px;
 }
