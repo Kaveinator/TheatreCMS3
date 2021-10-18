@@ -31,6 +31,7 @@ namespace TheatreCMS3.Controllers
 
         public ActionResult SignIn()
         {
+
             return View();
         }
 
@@ -38,5 +39,6 @@ namespace TheatreCMS3.Controllers
         {
             return View();
         }
+        
     }
 }
