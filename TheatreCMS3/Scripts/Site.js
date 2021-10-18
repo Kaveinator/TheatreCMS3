@@ -2,7 +2,10 @@
     //grab all paragraph elements in the dev-names div
     var n = $(".dev-names p");
     //write in badge
-    $("span").text(n.length);
+    if (n.length > 0) {
+
+        $("#NumPersons").text(n.length);
+    }
     
 
    
