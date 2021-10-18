@@ -12,7 +12,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal container BlogAuthor-edit--form">
 
         <div class="flex-column">
@@ -22,12 +22,10 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-12">
-                    
                     @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
-            </div>
-
+            </div> 
             <div class="form-group">
                 @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-12">
@@ -39,14 +37,16 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
-                        @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "BlogAuthor-edit--joined", @type = "date" } })
+                        @*Leaving "type" to the default setting "datetime" allows date user joined to appear*@
+                        @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "BlogAuthor-edit--joined" } })
                         @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
+                
                 <div class="form-group">
                     @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-sm-10">
+                        @*setting type to "date" displays a calendar icon and allows the user to choose a date*@
                         @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @class = "BlogAuthor-edit--left", @type = "date" } })
                         @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
                     </div>
