@@ -6,112 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Rent.Controllers
+namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class RentalsController : Controller
+    public class BlogAuthorsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Rent/Rentals
+        // GET: Blog/BlogAuthors
         public ActionResult Index()
         {
-            return View(db.Rentals.ToList());
+            return View(db.BlogAuthors.ToList());
         }
 
-        // GET: Rent/Rentals/Details/5
+        // GET: Blog/BlogAuthors/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
-            if (rental == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View(blogAuthor);
         }
 
-        // GET: Rent/Rentals/Create
+        // GET: Blog/BlogAuthors/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Rent/Rentals/Create
+        // POST: Blog/BlogAuthors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Create([Bind(Include = "BlogAuthorID,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
         {
             if (ModelState.IsValid)
             {
-                db.Rentals.Add(rental);
+                db.BlogAuthors.Add(blogAuthor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rental);
+            return View(blogAuthor);
         }
 
-        // GET: Rent/Rentals/Edit/5
+        // GET: Blog/BlogAuthors/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
-            if (rental == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View(blogAuthor);
         }
 
-        // POST: Rent/Rentals/Edit/5
+        // POST: Blog/BlogAuthors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Edit([Bind(Include = "BlogAuthorID,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rental).State = EntityState.Modified;
+                db.Entry(blogAuthor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rental);
+            return View(blogAuthor);
         }
 
-        // GET: Rent/Rentals/Delete/5
+        // GET: Blog/BlogAuthors/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
-            if (rental == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View(blogAuthor);
         }
 
-        // POST: Rent/Rentals/Delete/5
+        // POST: Blog/BlogAuthors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Rental rental = db.Rentals.Find(id);
-            db.Rentals.Remove(rental);
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            db.BlogAuthors.Remove(blogAuthor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
