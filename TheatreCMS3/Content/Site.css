@@ -660,3 +660,65 @@ div#nameList.text-center > p {
     width: 100%;
 }
 /* ======= SIGN-IN PAGE STYLING END ======= */
+
+
+/* ======= CREATE & EDIT PAGES STYLING START ======= */
+.blogpost-createedit--form {
+    background-color: var(--light-color);
+    border-radius: 5px;
+    color: var(--main-color);
+    padding-bottom: 10px;
+}
+
+.blogpost-createedit--formgroup {
+    margin: 10px 20px;
+}
+
+.blogpost-createedit--formlabel {
+    font-weight: bold;
+}
+
+.blogpost-createedit--formeditor {
+    background-color: lightgrey;
+}
+
+.blogpost-createedit--formeditor::placeholder {
+    color: var(--secondary-color);
+}
+
+.blogpost-createedit--formeditor:focus {
+    background-color: var(--light-color);
+    border: 2px solid var(--main-color--light);
+    box-shadow: none;
+    color: var(--main-color);
+}
+
+.blogpost-createedit--button01 {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    display: block;
+    font-weight: bold;
+    text-align: center;
+}
+
+.blogpost-createedit--button02 {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    display: block;
+    font-weight: bold;
+    text-align: center;
+}
+
+.blogpost-createedit--button01:hover {
+    color: var(--main-color);
+    background-color: var(--light-color);
+    border: 2px solid var(--main-color);
+}
+
+.blogpost-createedit--button02:hover {
+    color: var(--main-color--light);
+    background-color: var(--light-color);
+    border: 2px solid var(--main-color--light);
+}
+
+/* ======= CREATE & EDIT PAGES STYLING END ======= */
