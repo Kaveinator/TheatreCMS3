@@ -12,6 +12,45 @@
 /*}*/
 
 
+.BlogAuthor-create--heading, .BlogAuthor-edit--heading {
+    text-align: center;
+    margin: 40px 5px 10px 5px;
+}
+.BlogAuthor-create--form, .BlogAuthor-edit--form {
+    background-color: var(--main-color--light);
+    border-radius: 12px;
+    max-width: 600px;
+    min-width: 170px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.BlogAuthor-create--BioName, .BlogAuthor-edit--BioName {
+    width: 100%;
+    min-width: 100px;
+}
+
+.BlogAuthor-create--btList, .BlogAuthor-edit--btList {
+    margin: 15px 5px 5px 5px;
+    background-color: #444;
+}
+
+.BlogAuthor-create--btList a, .BlogAuthor-edit--btList a {
+    color: white;
+}
+
+.BlogAuthor-create--create, .BlogAuthor-edit--edit {
+    margin: 15px 5px 5px 5px;
+}
+
+.BlogAuthor-create--joined, .BlogAuthor-create--left, .BlogAuthor-edit--joined, .BlogAuthor-edit--left {
+    width: 155px;
+    padding: 2px;
+}
+
+
+
 /* ======= CREATE & EDIT PAGES STYLING START ======= */
 .blogpost-createedit--form {
     background-color: var(--light-color);
