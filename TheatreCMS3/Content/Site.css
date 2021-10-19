@@ -488,6 +488,13 @@ input[type=text].Donation, textarea.Donation {
     box-sizing: border-box;
 }*/
 
+
+/*Contact Form*/
+
+#contact-container{
+
+}
+
 /* ================ DETAILS PAGE =================*/
 .cm-details-img {
     background-color: lightgray;
