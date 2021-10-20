@@ -576,7 +576,7 @@ input[type=text].Donation, textarea.Donation {
 #contact-submit {
     background-color: var(--main-color);
     border: 2px solid var(--light-color);
-    min-width: 350px;
+    width: 49%;
     padding-top: 5px;
 }
 
