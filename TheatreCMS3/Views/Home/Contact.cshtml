@@ -4,48 +4,57 @@
 }
 
 
-<div id="contact-header" class="text-center" style="width: 100%; height: 500%;">
-  <h1 style="font-family: Broadway">Contact Us</h1><br />
-  <h3>GET IN TOUCH</h3>
+<div id="contact-header">
+  <h1 style="font-size: 50px ">Contact Us</h1>
+  
 </div>
 
-<form id="contact-form" class="container-fluid">
-  <div class="row">
-    <div class="col-9">
-      <label for="name">First and Last Name</label>
-      <input type="text" class="form-control" id="name" placeholder="John Doe">
+
+<body id="contact-body">
+  
+  <form id="contact-form" class="container-fluid">
+    <div class="col text-center">
+      <h3 id="h3-underline">GET IN TOUCH</h3>
     </div>
-    <div id="donate" class="col-3">
-      <h5>DONATE</h5>
-      <p id="donate-text">We've got a a Patreon account!<br>Help support live theatre in<br>Portland,OR. by becoming a<br>Patron today!</p>
-      <button id ="contact-donate" type="submit" class="btn btn-primary">Donate</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-9">
-      <label for="email">Email Address</label>
-      <input type="email" class="form-control" id="email" placeholder="name@example.com">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-9">
-      <label for="subject">Subject</label>
-      <input type="text" class="form-control" id="subject" placeholder="Subject">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-9">
-      <label for="message">Message</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <div class="col-3">
-      <h5>VOLUNTEER</h5>
-      <p id="volunteer-text">We've got a a Patreon account!<br>Help support live theatre in<br>Portland,OR. by becoming a<br>Patron today!</p>
-      <button id="contact-volunteer" type="submit" class="btn btn-primary">Volunteer</button>
-    </div>
-  </div>
-  <button id="contact-submit" type="submit" class="btn btn-primary mb-9">Submit</button>
-</form>
+    <div class="row">
+      <div class="col">
+
+        <label for="name">First and Last Name</label>
+        <input type="text" class="form-control" id="name" placeholder="John Doe">
+
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" id="subject" placeholder="Subject">
+
+        <label for="message">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+
+      </div>
+
+      <div class="col">
+        <div id="donate">
+          <h5>DONATE</h5>
+          <p id="donate-text">We've got a a Patreon account!<br>Help support live theatre in<br>Portland,OR. by becoming a Patron today!</p>
+          <button id="contact-donate" type="submit" class="btn btn-primary">Donate</button>
+        </div>
+
+        <div id="volunteer">
+          <h5>VOLUNTEER</h5>
+          <p id="volunteer-text">We've got a a Patreon account!<br>Help support live theatre in<br>Portland,OR. by becoming a<br>Patron today!</p>
+          <button id="contact-volunteer" type="submit" class="btn btn-primary my-1">Volunteer</button>
+        </div>
+      </div>
+      </div>
+
+
+
+
+     <button id="contact-submit" type="submit" class="btn btn-primary mb-9">Submit</button>
+  </form>
+  
+</body>
 
 
 
