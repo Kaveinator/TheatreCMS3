@@ -76,6 +76,8 @@
     .BlogAuthor-details--dates {
         position: relative;
         width: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .BlogAuthor-details--dates p {
@@ -87,6 +89,14 @@
     background-color: var(--light-color);
     color: black;
     height: auto;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+@media (max-width: 290px) {
+    .BlogAuthor-details--card {
+        border-radius: 0px 0px 6px 6px;
+    }
 }
 
 .BlogAuthor-details--card a {
