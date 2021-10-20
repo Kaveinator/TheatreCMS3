@@ -15,6 +15,6 @@ namespace TheatreCMS3.Areas.Blog.Models
 
         // Creating (fully defined) relationship between BlogAuthor and BlogPost models
         public virtual int BlogAuthorID { get; set; }
-        public virtual BlogAuthor BlogAuthor { get; set; }
+        public virtual BlogAuthor Author { get; set; }
     }
 }
