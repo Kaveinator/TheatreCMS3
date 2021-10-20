@@ -11,6 +11,7 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/* Blog Author Create and Edit styling */
 .BlogAuthor-create--heading, .BlogAuthor-edit--heading {
     text-align: center;
     margin: 40px 5px 10px 5px;
@@ -46,4 +47,48 @@
 .BlogAuthor-create--joined, .BlogAuthor-create--left, .BlogAuthor-edit--joined, .BlogAuthor-edit--left {
     width: 155px;
     padding: 2px;
+}
+/* Blog Author Details and Delete styling */
+.BlogAuthor-details--body {
+    max-width: 900px;
+    min-width: 200px;
+    height: auto;
+    margin-top: 80px;
+}
+
+.BlogAuthor-details--body a {
+    color: white;
+}
+.BlogAuthor-details--navbar {
+    max-width: 300px;
+    background-color: var(--light-color);
+    border-radius: 4px 4px 0 0;
+}
+
+.BlogAuthor-details--dates {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 1.1;
+}
+
+@media (max-width: 576px) {
+    .BlogAuthor-details--dates {
+        position: relative;
+        width: auto;
+    }
+
+    .BlogAuthor-details--dates p {
+        margin-bottom: 1rem;
+    }
+}
+
+.BlogAuthor-details--card {
+    background-color: var(--light-color);
+    color: black;
+    height: auto;
+}
+
+.BlogAuthor-details--card a {
+    color: black;
 }
