@@ -1,0 +1,56 @@
+﻿@{
+  ViewBag.Title = "Contact";
+}
+
+
+<div class="cu-contact-header">
+  <h1 style="font-size: 50px ">Contact Us</h1>
+
+</div>
+
+
+<body class="cu-contact-body">
+
+  <form class="cu-contact-form">
+    <div class="col text-center">
+      <h3 class="cu-h3-underline">GET IN TOUCH</h3>
+    </div>
+    <div class="row">
+      <div class="col">
+
+        <label for="name">First and Last Name</label>
+        <input type="text" class="form-control" id="name" placeholder="John Doe">
+
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" id="subject" placeholder="Subject">
+
+        <label for="message">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+
+      </div>
+
+      <div class="col">
+        <div class="cu-donate-btn">
+          <h5>DONATE</h5>
+          <p class="cu-donate-text">We've got a a Patreon account!<br>Help support live theatre in<br>Portland,OR. by becoming a Patron today!</p>
+          <button id="cu-contact-donate-btn" type="submit" class="btn btn-primary">Donate</button>
+        </div>
+
+        <div class="cu-volunteer-div">
+          <h5>VOLUNTEER</h5>
+          <p class="cu-volunteer-text">We've got a a Patreon account!<br>Help support live theatre in<br>Portland,OR. by becoming a<br>Patron today!</p>
+          <button id="cu-contact-volunteer_box" type="submit" class="btn btn-primary my-1">Volunteer</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <button id="cu-contact_form-submit" type="submit" class="btn btn-primary mb-9">Submit</button>
+  </form>
+
+</body>
