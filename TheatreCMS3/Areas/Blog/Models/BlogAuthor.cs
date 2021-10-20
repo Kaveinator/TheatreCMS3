@@ -17,5 +17,8 @@ namespace TheatreCMS3.Areas.Blog.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}",
                ApplyFormatInEditMode = true)]
         public DateTime? Left { get; set; }
+
+        // Creating (fully defined) relationship between BlogAuthor and BlogPost models
+        public List<BlogPost> BlogPosts { get; set; }
     }
 }
