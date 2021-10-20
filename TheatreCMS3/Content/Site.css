@@ -490,7 +490,7 @@ input[type=text].Donation, textarea.Donation {
 
 
 /*Contact-Page*/
-#contact-header {
+.cu-contact-header {
     display: block;
     width: 100vw;
     position: relative;
@@ -505,17 +505,16 @@ input[type=text].Donation, textarea.Donation {
     font-size: 40px;
     vertical-align: middle;
     border-bottom-left-radius: 100px;
-    
 }
 
 
 
-#h3-underline {
+.cu-h3-underline {
     text-decoration: none;
     position: relative;
 }
 
-#h3-underline::after {
+.cu-h3-underline::after {
     position: absolute;
     content: '';
     height: 4px;
@@ -525,16 +524,16 @@ input[type=text].Donation, textarea.Donation {
     right: 0;
     width: 25%;
     background: var(--main-color);
-}
+    }
 
-#contact-body {
+.cu-contact-body {
     background-color: var(--main-color--light);
 }
 
 
 
 
-#contact-form {
+.cu-contact-form {
     border-radius: 5px;
     padding: 20px;
     display: block;
@@ -542,38 +541,35 @@ input[type=text].Donation, textarea.Donation {
     
 }
 
-#donate {
+.cu-donate-btn {
     padding-top: 30px;
     padding-left: 50px;
 }
 
-#volunteer {
+.cu-volunteer-div {
     padding-top: 20px;
     padding-left: 50px;
 }
 
-#donate-text {
-    font-size: .9em;
-    
-}
-
-#volunteer-text {
+.cu-donate-text {
     font-size: .9em;
 }
 
-#contact-volunteer {
+.cu-volunteer-text {
+    font-size: .9em;
+}
+
+#cu-contact-volunteer_box {
     background-color: var(--main-color);
     border: 2px solid var(--light-color);
 }
 
-#contact-donate {
-    
+#cu-contact-donate-btn {
     background-color: var(--main-color);
     border: 2px solid var(--light-color);
-
 }
 
-#contact-submit {
+#cu-contact_form-submit {
     background-color: var(--main-color);
     border: 2px solid var(--light-color);
     width: 49%;
