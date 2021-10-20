@@ -564,7 +564,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Rent\Controllers\" />
-    <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
     <Folder Include="obj\" />
