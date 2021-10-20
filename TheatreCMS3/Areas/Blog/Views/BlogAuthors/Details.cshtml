@@ -2,49 +2,66 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/Areas/Blog.css" rel="stylesheet" type="text/css" />
 
-<h2>Details</h2>
+<div class="container BlogAuthor-details--body">
+    <!-- Top row nav buttons in card section -->
+    <div class="row justify-content-center">
+        <div class="list-group list-group-horizontal BlogAuthor-details--navbar">
+            <div class="pages btn btn-secondary mx-1 mt-1" onclick="currentPage(1)">
+                Author Details
+            </div>
+            <div class="pages btn btn-secondary mx-1 mt-1" onclick="currentPage(2)">
+                Blog Posts
+            </div>
+        </div>
+    </div>
+    <!-- Main card section -->
+    <div class="row BlogAuthor-details--card flex-wrap-reverse">
+        <div class="m-auto">
+            <img src="https://via.placeholder.com/175" alt="pic" />
 
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        </div>
+        <div class="col-lg-9 col-md-8 col-sm-7 container displays">
+            <div class="row">
+                <h4 class="ml-3">@Html.DisplayFor(model => model.Name)</h4>
+                <div class="ml-auto mr-1">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram-square"></i></a>
+                </div>
+            </div>
+            <p class="mb-sm-5">
+                @Html.DisplayFor(model => model.Bio)
+            <p>
+            <div class="row BlogAuthor-details--dates">
+                <div class="col-lg-3 col-md-4 col-sm-5 col-6">
+                    <h6>Joined Date</h6>
+                    @Html.DisplayFor(model => model.Joined)
+                </div>
+                <div class="col-sm-4 col-6">
+                    <h6>Left Date</h6>
+                    @Html.DisplayFor(model => model.Left)
+                </div>
+            </div>
+        </div>
+        <div class="displays">
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
+    <!-- Bottom row buttons section -->
+    <div class="row">
+        <div>
+            <a href="~/Blog/BlogAuthors/Index" class="btn btn-secondary m-1 fa fa-arrow-cirle-left py-2"><i class="fa fa-arrow-circle-left">Back to List</i></a>
+        </div>
+        <div>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorID }, htmlAttributes : new { @class = "btn btn-success m-1 fa fa-edit py-2" })
+        </div>
+        <div class="ml-auto">
+            
+            @Html.ActionLink(" ", "Delete", new { id = Model.BlogAuthorID }, htmlAttributes : new { @class = "btn btn-danger fa fa-trash-alt m-1 py-2" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<script src="~/Scripts/Areas/Blog.js"></script>
