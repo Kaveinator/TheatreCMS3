@@ -749,3 +749,24 @@ div#nameList.text-center > p {
 }
 /* ======= SIGN-IN PAGE STYLING END ======= */
 
+
+/*Rental History Index Styling*/
+
+.rh-index-header{
+    text-align: center;
+    margin-top: 5px;
+    
+}
+
+#rh-index-table {
+    background-color: white;
+    border-radius: 20px;
+    color: black;
+    white-space: nowrap;
+}
+
+#rh-table-rental {
+   
+}
+
+
