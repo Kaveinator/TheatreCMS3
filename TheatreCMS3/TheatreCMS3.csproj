@@ -405,6 +405,7 @@
     <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Shared\_BlogAuthor.cshtml" />
     <Content Include="Areas\Rent\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Rent\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistory\Create.cshtml" />
