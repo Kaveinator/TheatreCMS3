@@ -11,10 +11,10 @@
         <!-- Top row nav buttons in card section -->
         <div class="row justify-content-center">
             <div class="list-group list-group-horizontal BlogAuthor-details--navbar">
-                <div class="pages btn btn-secondary mx-1 mt-1" id="pg1(@item.BlogAuthorID)" onclick=" currentPage(1, @item.BlogAuthorID)">
+                <div class="pages btn btn-success mx-1 mt-1" id="pg1-@item.BlogAuthorID" onclick=" showPages(1, @item.BlogAuthorID)">
                     Author Details
                 </div>
-                <div class="pages btn btn-secondary mx-1 mt-1" id="pg2(@item.BlogAuthorID)" onclick=" currentPage(2, @item.BlogAuthorID)">
+                <div class="pages btn btn-secondary mx-1 mt-1" id="pg2-@item.BlogAuthorID" onclick=" showPages(2, @item.BlogAuthorID)">
                     Blog Posts
                 </div>
             </div>
@@ -56,10 +56,15 @@
                         </div>
                     </div>
             </div>
-            <div class="displays" id="blogPost(@item.BlogAuthorID)">
+            <div class="displays" id="blogPost-@item.BlogAuthorID">
 
             </div>
         </div>
     </div>
-    <script src="~/Scripts/Areas/Blog.js"></script>
+    
 }
+<script src="~/Scripts/Areas/Blog.js"></script>
+<script>
+    var pageIndex = 1;
+    showPages(pageIndex);
+</script>
