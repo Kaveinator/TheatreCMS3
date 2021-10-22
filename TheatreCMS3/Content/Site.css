@@ -752,21 +752,65 @@ div#nameList.text-center > p {
 
 /*Rental History Index Styling*/
 
-.rh-index-header{
+.Rental_History-Index-Header {
     text-align: center;
     margin-top: 5px;
-    
 }
 
-#rh-index-table {
+#Rental_History-Index-Table {
     background-color: white;
     border-radius: 20px;
     color: black;
     white-space: nowrap;
 }
 
-#rh-table-rental {
-   
+#Rental_History-Index--hover-row:hover {
+    background-color: lightgrey;
+
+}
+
+#Rental_History-Index--hover-row:hover #Rental_History-Index-Vertical_Ellipse {
+    cursor: pointer;
+    display: block;
+}
+
+
+
+#Rental_History-Index--BoolIcon {
+    margin-right: 19px;
+}
+
+
+
+#Rental_History-Index--crossmarkclass {
+    color: red;
+    padding-top: 10px;
+    margin-right: 19px;
+}
+
+#Rental_History-Index--checkmarkclass {
+    color: green;
+    padding-top: 10px;
+    margin-right: 19px;
+}
+
+#Rental_History-Index--TextOverFlow {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#Rental_Style-Index--bordertopWidth:after {
+    
+}
+
+#Rental_Style-Index--bordertopWidth:after {
+    
+}
+
+#Rental_History-Index-Vertical_Ellipse {
+    display: none;
 }
 
 

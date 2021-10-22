@@ -4,45 +4,63 @@
     ViewBag.Title = "Index";
 }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<h2 class="rh-index-header">Index</h2>
+
+<h2 class="Rental_History-Index-Header">Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table id="rh-index-table" class="table table-dark">
-    <tr>
-        <th>
-          Most Recent Rental Histories
-        </th>
-    </tr>
 
-@foreach (var item in Model) {
-<tr>
-  <td class="rh-index-checkbox">
-    <i class="fas fa-check">@Html.DisplayFor(modelItem => item.RentalDamaged)</i>
-  </td>
-  <td class="badge badge-secondary" style="font-size:0.75rem;">
-    @Html.DisplayFor(modelItem => item.Rental)
-  </td>
-  <td>
-    @Html.DisplayFor(modelItem => item.DamagesIncurred)
-  </td>
+<table id="Rental_History-Index-Table" class="table">
+  <tr>
+    <th>
+      Most Recent Rental Histories
+    </th>
+  </tr>
 
+  @foreach (var item in Model)
+  {
+    
+    <tr id="Rental_History-Index--hover-row">
+      <td id="Rental_History-Index--BoolIcon" class="col-xs-1" style="width: 0px;">
+        @if (item.RentalDamaged == true)
+        {
+          <i id="Rental_History-Index--crossmarkclass" class="fas fa-times-circle fa-lg"></i>
+        }
+        else
+        {
+          <i id="Rental_History-Index--checkmarkclass" class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
 
-  
-      <td>
-
-          @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-          @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-          @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        }
       </td>
-  
 
 
-</tr>
-}
+      <td class="col">
+        <button type="button" class="btn btn-dark">@Html.DisplayFor(modelItem => item.Rental)</button>
+      </td>
+
+      <td id="Rental_History-Index-DI_Text" class="text-muted">
+        @Html.DisplayFor(modelItem => item.DamagesIncurred)
+      </td>
+
+
+      <td id="Rental_History-Index-Vertical_Ellipse">
+        
+          <button class="btn btn-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+          </button>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.Id })"><i style="padding-right: 5px;" class="fa fa-edit" aria-hidden="true"></i>Edit </a></li>
+            <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.Id })"> <i style="padding-right: 5px;" class="fa fa-info" aria-hidden="true"></i>Details </a></li>
+            <li><div class="dropdown-divider"></div></li>
+            <li> <a class="dropdown-item" href="@Url.Action("Delete", new { id = item.Id })"><span style="color: red;"><i style="padding-right: 5px;" class="fa fa-trash" aria-hidden="true"></i>Delete</span> </a></li>
+          </ul>
+      </td>
+     </tr>
+    
+  }
 
 </table>
