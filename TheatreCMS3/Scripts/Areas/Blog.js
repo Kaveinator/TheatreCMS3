@@ -5,21 +5,25 @@ function currentPage(n) {
     showPages(pageIndex = n);
 }
 // This function is for the Blog Author Details page. It provides the ability to switch between views.
-function showPages(n) {
-    var i;
-    var pages = document.getElementsByClassName("pages");
-    var displays = document.getElementsByClassName("displays");
-    if (n > pages.length) { pageIndex = 1 };
-    if (n < 1) { pageIndex = pages.length };
-    for (i = 0; i < displays.length; i++) {
-        displays[i].style.display = "none";
+function showPages(n, blogId) {
+    
+    if (blogId=== undefined) { blogId= 0; }
+    var displaying = $("#" + blogId);
+    var blogPostDisplay = $("#blogPost(" + blogId+ ")");
+    var navDisplay1 = $("#pg1(" + n + ")");
+    var navDisplay2 = $("#pg2(" + n + ")");
+    if (n = 1) {
+        displaying.style.display = "block";
+        blogPostDisplay.style.display = "none";
+        navDisplay1.removeClass("btn-success");
+        if (!navDisplay1.hasClass("btn-secondary")) { navDisplay1.addClass("btn-secondary") };
     }
-    for (i = 0; i < pages.length; i++) {
-        pages[i].classList.remove("btn-success");
-        if (!pages[i].classList.contains("btn-secondary")) { pages[i].classList.add("btn-secondary") };
-    }
-    displays[pageIndex - 1].style.display = "block";
-    pages[pageIndex - 1].classList.remove("btn-secondary");
-    pages[pageIndex - 1].classList.add("btn-success");
 
+    if (n = 2) {
+        displaying.style.display = "block";
+        blogPostDisplay.style.display = "none";
+        navDisplay2.removeClass("btn-success");
+        if (!navDisplay2.hasClass("btn-secondary")) { navDisplay2.addClass("btn-secondary") };
+    }
+    
 }

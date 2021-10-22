@@ -2,8 +2,14 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<div class="mt-5">
+    <a href="~/Blog/BlogAuthors/Create" class="btn btn-success">Create New</a>
+</div> 
+    
 
 <div>
     @{Html.RenderPartial("_BlogAuthor");}
