@@ -759,7 +759,8 @@ div#nameList.text-center > p {
 
 #Rental_History-Index-Table {
     background-color: white;
-    border-radius: 20px;
+    border-radius: 25px;
+    overflow: hidden;
     color: black;
     white-space: nowrap;
 }
@@ -811,6 +812,7 @@ div#nameList.text-center > p {
 
 #Rental_History-Index-Vertical_Ellipse {
     display: none;
+    float: right;
 }
 
 #Rental_History-Index-DI_Text {
@@ -820,7 +822,3 @@ div#nameList.text-center > p {
 }
 
 
-.input {
-    padding-right: 0;
-    padding-left: 0;
-}

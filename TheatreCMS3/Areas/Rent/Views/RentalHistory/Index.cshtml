@@ -1,16 +1,13 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
 
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
-
-
-
 
 <h2 class="Rental_History-Index-Header">Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
 
 <table id="Rental_History-Index-Table" class="table">
@@ -22,7 +19,6 @@
 
   @foreach (var item in Model)
   {
-    
 <tr id="Rental_History-Index--hover-row">
   <td class="mx-auto" style="width: 100px;">
     @if (item.RentalDamaged == true)
@@ -37,34 +33,62 @@
     }
   </td>
 
-  
-
   <td>
-    <button type="button" class="btn btn-dark">@Html.DisplayFor(modelItem => item.Rental)</button>
+    <h3><span class="badge badge-secondary">@Html.DisplayFor(modelItem => item.Rental)</span></h3>
   </td>
 
+  @if (item.RentalDamaged == true)
+  {
+    <td id="Rental_History-Index-DI_Text" class="">
+      @Html.DisplayFor(modelItem => item.DamagesIncurred)
 
+      <span id="Rental_History-Index-Vertical_Ellipse">
 
-  <td id="Rental_History-Index-DI_Text" class="text-muted">
-    @Html.DisplayFor(modelItem => item.DamagesIncurred)
-  </td>
+        <button class="btn btn-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </button>
 
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.Id })"><i style="padding-right: 5px;" class="fa fa-edit" aria-hidden="true"></i>Edit </a></li>
+          <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.Id })"> <i style="padding-right: 5px;" class="fa fa-info" aria-hidden="true"></i>Details </a></li>
+          <li><div class="dropdown-divider"></div></li>
+          <li> <a class="dropdown-item" href="@Url.Action("Delete", new { id = item.Id })"><span style="color: red;"><i style="padding-right: 5px;" class="fa fa-trash" aria-hidden="true"></i>Delete</span> </a></li>
+        </ul>
+      </span>
+    </td>
+  }
+  else
+  {
+    <td id="Rental_History-Index-DI_Text" class="text-muted">
+      @Html.DisplayFor(modelItem => item.DamagesIncurred)
 
-  <td id="Rental_History-Index-Vertical_Ellipse">
+      <span id="Rental_History-Index-Vertical_Ellipse">
 
-    <button class="btn btn-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-    </button>
+        <button class="btn btn-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </button>
 
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.Id })"><i style="padding-right: 5px;" class="fa fa-edit" aria-hidden="true"></i>Edit </a></li>
-      <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.Id })"> <i style="padding-right: 5px;" class="fa fa-info" aria-hidden="true"></i>Details </a></li>
-      <li><div class="dropdown-divider"></div></li>
-      <li> <a class="dropdown-item" href="@Url.Action("Delete", new { id = item.Id })"><span style="color: red;"><i style="padding-right: 5px;" class="fa fa-trash" aria-hidden="true"></i>Delete</span> </a></li>
-    </ul>
-  </td>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li> <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.Id })"><i style="padding-right: 5px;" class="fa fa-edit" aria-hidden="true"></i>Edit </a></li>
+          <li> <a class="dropdown-item" href="@Url.Action("Details", new { id = item.Id })"> <i style="padding-right: 5px;" class="fa fa-info" aria-hidden="true"></i>Details </a></li>
+          <li><div class="dropdown-divider"></div></li>
+          <li> <a class="dropdown-item" href="@Url.Action("Delete", new { id = item.Id })"><span style="color: red;"><i style="padding-right: 5px;" class="fa fa-trash" aria-hidden="true"></i>Delete</span> </a></li>
+        </ul>
+      </span>
+    </td>
+  }
+
 </tr>
-    
+
   }
 
 </table>
+
+
+
+
+
+
+
+
+
