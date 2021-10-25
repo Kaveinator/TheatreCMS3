@@ -813,4 +813,14 @@ div#nameList.text-center > p {
     display: none;
 }
 
+#Rental_History-Index-DI_Text {
+    opacity: .75;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 
+
+.input {
+    padding-right: 0;
+    padding-left: 0;
+}
