@@ -31,20 +31,22 @@
 #Rental_History-Index-Table {
     background-color: white;
     border-radius: 25px;
-    display: flex;
-   
+    overflow: hidden;
+    margin: auto;
+    padding: 0;
     color: black;
-    
+    white-space: nowrap;
+    display: inline-block;
 }
 
 #Rental_History-Index--hover-row:hover {
     background-color: lightgrey;
 }
 
-#Rental_History-Index--hover-row:hover #Rental_History-Index-Vertical_Ellipse {
-    cursor: pointer;
-    display: inline-block;
-}
+    #Rental_History-Index--hover-row:hover #Rental_History-Index-Vertical_Ellipse {
+        cursor: pointer;
+        display: block;
+    }
 
 
 
@@ -67,16 +69,20 @@
 }
 
 
+
+
+
 #Rental_History-Index-Vertical_Ellipse {
     display: none;
     float: right;
 }
 
 #Rental_History-Index-DI_Text {
+    display: block;
+    width: 500px;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 100px;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
