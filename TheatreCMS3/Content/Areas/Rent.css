@@ -85,3 +85,38 @@
 
 
 /*End of Rental History Styling*/
+
+
+
+/*Create Rental History Page*/
+.Rental_History-Create--Header {
+    text-align: center;
+    margin-top: 5px;
+    padding-bottom: 20px;
+}
+
+.Rental_History-Create--Form {
+    background-color: #F04D44;
+    border-radius: 25px;
+}
+
+.Rental_History-Create--CheckBox {
+    display: inline-block;
+    float: right;
+    padding-right: 125px;
+
+}
+
+.Rental_History-Create--Rental-Title {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+
+.Rental_History-Create--Notes_DamagesIncurred {
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 100px;
+}
+
+/*End of Create Rental History Page*/
