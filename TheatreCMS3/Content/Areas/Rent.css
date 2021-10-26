@@ -13,3 +13,72 @@
 /*}*/
 
 /*Rental Create and Edit Page Start*/
+
+
+
+
+
+
+
+
+/*Rental History Index Styling*/
+
+.Rental_History-Index-Header {
+    text-align: center;
+    margin-top: 5px;
+}
+
+#Rental_History-Index-Table {
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+   
+    color: black;
+    
+}
+
+#Rental_History-Index--hover-row:hover {
+    background-color: lightgrey;
+}
+
+#Rental_History-Index--hover-row:hover #Rental_History-Index-Vertical_Ellipse {
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+
+#Rental_History-Index--BoolIcon {
+    margin-right: 19px;
+}
+
+
+
+#Rental_History-Index--crossmarkclass {
+    color: red;
+    padding-top: 10px;
+    margin-right: 19px;
+}
+
+#Rental_History-Index--checkmarkclass {
+    color: green;
+    padding-top: 10px;
+    margin-right: 19px;
+}
+
+
+#Rental_History-Index-Vertical_Ellipse {
+    display: none;
+    float: right;
+}
+
+#Rental_History-Index-DI_Text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100px;
+    overflow: hidden;
+}
+
+
+
+/*End of Rental History Styling*/
