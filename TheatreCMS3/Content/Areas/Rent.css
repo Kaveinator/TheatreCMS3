@@ -93,17 +93,20 @@
     text-align: center;
     margin-top: 5px;
     padding-bottom: 20px;
+    
 }
 
 .Rental_History-Create--Form {
     background-color: #F04D44;
     border-radius: 25px;
+    display: block;
+    width: 500px;
 }
 
 .Rental_History-Create--CheckBox {
     display: inline-block;
     float: right;
-    padding-right: 125px;
+    padding-right: 10%;
 
 }
 
@@ -116,7 +119,24 @@
 .Rental_History-Create--Notes_DamagesIncurred {
     font-size: 20px;
     margin-bottom: 5px;
-    margin-top: 100px;
+    margin-top: 2%;
+    
+   
+}
+
+.Rental_History-Create--BTContainer{
+    padding-top: 10px;
+}
+
+.Rental_History-Create--BTL {
+    
+}
+
+.Rental_History-Create--Create_Button{
+    text-align: center;
+    height: 20%;
+    padding-top: 5px;
+    
 }
 
 /*End of Create Rental History Page*/

@@ -6,6 +6,9 @@
 
 <link href="~/Content/Areas/Rent.css" rel="stylesheet" type="text/css" />
 
+
+
+
 <h2 class="Rental_History-Create--Header">Create Rental History</h2>
 
 @using (Html.BeginForm())
@@ -15,13 +18,14 @@
 
   <div class="form-horizontal container Rental_History-Create--Form">
 
+
     <div class="form-group Rental_History-Create--Rental-Title">
       @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
       <div class="form-group Rental_History-Create--CheckBox">
         @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-6">
           <div class="checkbox">
-            @Html.EditorFor(model => model.RentalDamaged)
+            @Html.EditorFor(model => model.RentalDamaged, new { htmlAttributes = new { @onchange = "checkLink()" } })
             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
           </div>
         </div>
@@ -33,11 +37,11 @@
     </div>
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    
+
 
     <div class="form-group Rental_History-Create--Notes_DamagesIncurred">
-      @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
-      <div class="col-md-10">
+      @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2 Switch" })
+      <div class="col-md-12">
         @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
       </div>
@@ -45,17 +49,20 @@
 
 
 
+    <div class="row d-flex justify-content-center Rental_History-Create--BTContainer">
+      <div class="btn btn-dark Rental_History-Create--BTL">
+        @Html.ActionLink("Back to List", "Index", null, new { style = "text-decoration:none; color: white; margin-bottom: 5px;" })
+      </div>
 
-    <div>
-      @Html.ActionLink("Back to List", "Index")
-    </div>
-
-    <div class="form-group">
-      <div class="col-md-offset-2 col-md-10">
-        <input type="submit" value="Create" class="btn btn-default" />
+      <div class="form-group">
+        <div class="col-md-5">
+          <input type="submit" value="Create" class="btn btn-success Rental_History-Create--Create_Button" />
+        </div>
       </div>
     </div>
   </div>
 }
+
+
 
 
