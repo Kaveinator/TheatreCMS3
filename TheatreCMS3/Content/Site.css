@@ -749,3 +749,42 @@ div#nameList.text-center > p {
 }
 /* ======= SIGN-IN PAGE STYLING END ======= */
 
+/* ----- ABOUT US PAGE STYLING ----- */
+.about-us-header {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 100px 0;
+    background-color: black;
+    text-align: center;
+    font-family: Broadway;
+    font-size: 40px;
+    vertical-align: middle;
+    border-bottom-left-radius: 100px;
+}
+
+.about-us-body {
+    background-color: var(--main-color--light);
+}
+
+.about-us-h3 {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+}
+
+.about-us-h3::after {
+    position: absolute;
+    content: '';
+    height: 4px;
+    bottom: -4px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 25%;
+    background: var(--main-color);
+}
