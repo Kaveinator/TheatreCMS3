@@ -5,66 +5,57 @@
 <h1 class="text-center">Consider Making A Donation</h1>
 
 
-<div class="full-width" style="background-color: #f04d44; border-radius: 5px;">
-  <div id="Donation-container" class="Donation-container align-content-center" style="color:fffbfb;">
+<div class="full-width Home-Donate--Container" >
+  <div class="Home-Donate--Container">
     <div class="business-container">
-      <a href="contacts.php" class=".cu-donate-text" style="color: #000; font-size: 14px; font-weight: bold; "></a>
+     <!-- <a href="contacts.php" class=".cu-donate-text">Contacts</a> -->
       <div class="business">
-        <h1>Consider making a donation!</h1>
         <!-- Form -->
         <form>
-          <div class="row">
-            <div id="Donation-container" class="grid" style="">
+          <div class="Home-Donate--row">
+            <div class="grid">
               <form action="" method="post">
 
-                <div class="row">
-                  <div class="col-12 col-lg-4">
-                    <label for="name">Name:</label>
+                <div class="Home-Donate--row">
+                  <div class="Home-Donate-TextRow">
+                    <label for="name">Name*:</label>
                   </div>
-                  
-                  <div class="col-12 col-lg-4 col-md-6">
-                    <input class="Donate" type="text" name="name" required>
-                  </div>
+                  <div class="Home-Donate--Name">
+                  <input class="Home-Donation--Field" type="text" name="firstName" placeholder="First Name" required>
+                  <input class="Home-Donation--Field" type="text" name="lastName" placeholder="Last Name" >
+                 </div>
                 </div>
 
-                <div class="row">
-                  <div class="col-12 col-lg-4">
-                    <label for="email">Email Address:</label>
+
+                <div class="Home-Donate--row">
+                  <div class="Home-Donate-TextRow ">
+                    <label for="email">Email Address*:</label>
                   </div>
-                  <div class="col-12 col-lg-8">
-                    <input class="Donation" type="text" name="email" required>
-                  </div>
+                  <input class="Home-Donation--Field" type="text" name="email" placeholder="Email Address" required>
                 </div>
 
-                <div class="row">
-                  <div class="col-12 col-lg-4">
+                <div class="Home-Donate--row">
+                  <div class="Home-Donate-TextRow">
                     <label for="address">Address:</label>
                   </div>
-                  <div class="col-12 col-lg-8">
-                    <input class="Donation" type="text" name="address" required>
-                  </div>
+                  <input class="Home-Donation--Field" type="text" name="address" placeholder="Address" required>
                 </div>
 
-                <div class="row">
-                  <div class="col-12 col-lg-4">
-                    <label for="donation">Donation amount:</label>
+                <div class="Home-Donate--row">
+                  <div class="Home-Donate-TextRow">
+                    <label for="donation">Donation amount($)*:</label>
                   </div>
-                  <div class="col-12 col-lg-8">
-                    <input class="Donation" type="text" name="donation" required>
-                  </div>
+                  <input class="Home-Donation--Field" type="text" name="donation" placeholder="Donation"required>
                 </div>
 
-                <div class="row">
-                  <div class="col-12 col-lg-4">
-                    <label for="message">Message:</label>
+                <div class="Home-Donate--row  ">
+                  <div class="Home-Donate-TextRow">
+                  <label for="message">Message:</label>
                   </div>
-                  <div class="col-12 col-lg-8">
-                    <textarea class="Donation" name="message"></textarea>
-                  </div>
+                  <textarea class="Home-Donation--Field" name="message" placeholder="Write a short message"></textarea>
                 </div>
 
-
-                <input type="Donation" class="text-align=center;" value="Submit">
+                <input type="button" class="Home-Donation--Submit" value="Submit">
 
                 <!-- End Form -->
               </form>
