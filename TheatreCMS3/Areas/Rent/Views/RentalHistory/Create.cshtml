@@ -2,9 +2,11 @@
 
 @{
   ViewBag.Title = "Create";
+
 }
 
 <link href="~/Content/Areas/Rent.css" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -24,8 +26,8 @@
       <div class="form-group Rental_History-Create--CheckBox" onclick="checkLink()">
         @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-6">
-          <div class="checkbox">
-            @Html.EditorFor(model => model.RentalDamaged, new { htmlAttributes = new { @onchange = "checkLink()" } })
+          <div class="checkbox" onclick="checkLink()">
+            @Html.EditorFor(model => model.RentalDamaged)
             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
           </div>
         </div>
@@ -38,15 +40,18 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-    <div id="Switch">
-    <div class="form-group Rental_History-Create--Notes_DamagesIncurred">
-  @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
-  <div class="col-md-12">
-    @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
-  </div>
-</div></div>
-    
+    <div>
+      <div class="form-group Rental_History-Create--Notes_DamagesIncurred"  id="Switch">
+        @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+          @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+          @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+        </div>
+      </div>
+    </div>
+
+
+
 
 
 
@@ -62,8 +67,7 @@
       </div>
     </div>
   </div>
+
 }
-
-
 
 @Scripts.Render("~/Scripts/Areas/Rent.js")
