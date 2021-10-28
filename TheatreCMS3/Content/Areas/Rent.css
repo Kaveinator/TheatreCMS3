@@ -120,11 +120,16 @@
     font-size: 20px;
     margin-bottom: 5px;
     margin-top: 2%;
+    white-space: nowrap;
     
    
 }
 
-.Rental_History-Create--BTContainer{
+.Damages_Incurred_Text {
+    display: inline-block;
+}
+
+.Rental_History-Create--BTContainer {
     padding-top: 10px;
 }
 
@@ -139,4 +144,34 @@
     
 }
 
+#Switch {
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 2%;
+    white-space: nowrap;
+}
+
 /*End of Create Rental History Page*/
+
+/*Edit Rental History Page*/
+
+.Rental_History-Edit--Header {
+    text-align: center;
+    margin-top: 5px;
+    padding-bottom: 20px;
+}
+
+.Rental_History-Edit--Form {
+    background-color: #F04D44;
+    border-radius: 25px;
+    display: block;
+    width: 500px;
+}
+
+.Rental_History-Edit--Rental-Title {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+
+/*End of Edit Rental History Page*/

@@ -24,9 +24,9 @@
     <div class="form-group Rental_History-Create--Rental-Title">
       @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
       <div class="form-group Rental_History-Create--CheckBox" onclick="checkLink()">
-        @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-6">
-          <div class="checkbox" onclick="checkLink()">
+          <div class="checkbox">
             @Html.EditorFor(model => model.RentalDamaged)
             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
           </div>
@@ -40,15 +40,17 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-    <div>
-      <div class="form-group Rental_History-Create--Notes_DamagesIncurred"  id="Switch">
-        @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
+    
+      <div class="form-group Rental_History-Create--Notes_DamagesIncurred"  >
+        <div id="Rental_History-Create--Switch">
+          @Html.LabelFor(model => model.DamagesIncurred, "Notes", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
         <div class="col-md-12">
           @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
           @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
         </div>
       </div>
-    </div>
+    
 
 
 
@@ -56,8 +58,8 @@
 
 
     <div class="row d-flex justify-content-center Rental_History-Create--BTContainer">
-      <div class="btn btn-dark Rental_History-Create--BTL">
-        @Html.ActionLink("Back to List", "Index", null, new { style = "text-decoration:none; color: white; margin-bottom: 5px;" })
+      <div class=" Rental_History-Create--BTL">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
       </div>
 
       <div class="form-group">
@@ -70,4 +72,5 @@
 
 }
 
+@Scripts.Render("~/Scripts/jquery-3.5.1.js")
 @Scripts.Render("~/Scripts/Areas/Rent.js")

@@ -1,11 +1,11 @@
 ﻿// Rental History Create
-var Counter = 0;
-function checkLink() {
-    Counter += 1;
-    if (Counter % 2 == 0) {
-        document.getElementById("Switch").innerHTML = "Notes";
+
+$('#RentalDamaged').click(function () {
+    
+    if (this.checked) {
+        document.getElementById("Rental_History-Create--Switch").innerHTML = "Damages";
     }
     else {
-        document.getElementById("Switch").innerHTML = "Damages";
+        document.getElementById("Rental_History-Create--Switch").innerHTML = "Notes";
     }
-}
+});
