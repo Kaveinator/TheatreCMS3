@@ -762,7 +762,7 @@ div#nameList.text-center > p {
     background-color: black;
     text-align: center;
     font-family: Broadway;
-    font-size: 40px;
+    font-size: 50px;
     vertical-align: middle;
     border-bottom-left-radius: 100px;
 }
@@ -775,6 +775,8 @@ div#nameList.text-center > p {
     text-decoration: none;
     position: relative;
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
 }
 
 .about-us-h3::after {
@@ -785,6 +787,35 @@ div#nameList.text-center > p {
     margin: 0 auto;
     left: 0;
     right: 0;
-    width: 25%;
+    width: 250px;
     background: var(--main-color);
+}
+
+.about-us-ensemble {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 100px 0;
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.about-us-board {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 25px 0;
+    text-align: center;
+    vertical-align: middle;
 }
