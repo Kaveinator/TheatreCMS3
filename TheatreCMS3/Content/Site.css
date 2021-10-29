@@ -463,7 +463,7 @@ footer {
 .Home-Donate--Container {
     background-color: var(--main-color);
     border-radius: 20px;
-    text-align: center;
+    text-align: right;
     align-content: center;
     padding: 15px;
     margin: 15px;
@@ -484,7 +484,9 @@ Home-Donate--row {
 }
 /* specific to First/Last Name fields */
 .Home-Donate--Name input {
-    width: 39%;
+    width: 38.5%;
+    float:right;
+    margin: 15px;
 }
 
 /* submit button */
@@ -492,6 +494,7 @@ Home-Donate--row {
     float: left;
     height: 30%;
     width: 20%;
+    margin-top: 10px;
     text-align: center;
 
 }
@@ -500,8 +503,8 @@ Home-Donate--row {
 
 .Home-Donate-TextRow {
     padding-top: 10px;
-    float: left;
-    width: 12%;
+    width: 1%;
+    margin-left: 35px;
 }
     .Home-Donate-TextRow label {
         float: right;
@@ -522,8 +525,9 @@ Home-Donate--row {
     }
     /* specific to First/Last Name fields */
     .Home-Donate--Name input {
-        width: 100%;
+        width: 85%;
         text-align: left;
+        float: left;
         margin: 2px;
     }
     .Home-Donate--Container {
@@ -540,6 +544,12 @@ Home-Donate--row {
         margin-top: 3em;
         width: 70%;
         text-align: center;
+    }
+    .Home-Donate--Name input {
+        width: 39%;
+        text-align: left;
+        float: right;
+        margin: 2px;
     }
 
     .Home-Donate-TextRow {
