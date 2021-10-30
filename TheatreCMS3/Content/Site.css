@@ -712,3 +712,132 @@ input[type=text].Donation, textarea.Donation {
     text-shadow: 1px 1px 1px black;
 }
 
+/*=========== Sign In Styling ===========*/
+div#nameList.text-center > p {
+    border-radius: 25px;
+    background: #DB1A11;
+    padding: 20px;
+    width: 140px;
+    height: 100px;
+    text-align: center;
+    text-overflow: ellipsis;
+    display: inline-flex;
+}
+
+
+/* ======= SIGN-IN PAGE STYLING START ======= */
+.home-signin--div_outer {
+    column-count: 4;
+    overflow: hidden;
+}
+
+.home-signin--div_inner {
+    display: block;
+}
+
+.text-center p {
+    background-color: #f04d44;
+    border-radius: 25px;
+    text-align: center;
+
+    /* all required attributes for text-overflow: ellipsis */
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+/* ======= SIGN-IN PAGE STYLING END ======= */
+
+/* ----- ABOUT US PAGE STYLING ----- */
+.about-us-header {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding-bottom: 25px;
+    background-color: black;
+    text-align: center;
+    font-family: Broadway;
+    font-size: 50px;
+    vertical-align: middle;
+}
+
+.about-us-header h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about-us-body {
+    background-color: var(--main-color--light);
+}
+
+.about-us-who {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 50px 0;
+    background-color: black;
+    text-align: center;
+    font-size: 18px;
+    vertical-align: middle;
+    border-bottom-left-radius: 100px;
+}
+
+.about-us-h3 {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.about-us-h3::after {
+    position: absolute;
+    content: '';
+    height: 4px;
+    bottom: -4px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 250px;
+    background: var(--main-color);
+}
+
+.about-us-ensemble {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 100px 0;
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.about-us-board {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 25px 0;
+    text-align: center;
+    vertical-align: middle;
+}
