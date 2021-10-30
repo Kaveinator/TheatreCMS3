@@ -758,17 +758,39 @@ div#nameList.text-center > p {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    padding: 100px 0;
+    padding-bottom: 25px;
     background-color: black;
     text-align: center;
     font-family: Broadway;
     font-size: 50px;
     vertical-align: middle;
-    border-bottom-left-radius: 100px;
+}
+
+.about-us-header h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .about-us-body {
     background-color: var(--main-color--light);
+}
+
+.about-us-who {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 50px 0;
+    background-color: black;
+    text-align: center;
+    font-size: 18px;
+    vertical-align: middle;
+    border-bottom-left-radius: 100px;
 }
 
 .about-us-h3 {
