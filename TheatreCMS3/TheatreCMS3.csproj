@@ -297,6 +297,7 @@
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\all.css" />
     <Content Include="Content\Areas\Blog.css" />
+    <Content Include="Content\images\Sponsors\Ellyn-Bye-Logo.png" />
     <Content Include="Content\Areas\Prod.css" />
     <Content Include="Content\Areas\Rent.css" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -314,8 +315,10 @@
     <Content Include="Content\images\Cast_Img_7.jpg" />
     <Content Include="Content\images\DollsHouse.png" />
     <Content Include="Content\images\dummy.txt" />
+    <Content Include="Content\images\Sponsors\LogoRoundColor.png" />
     <Content Include="Content\images\macbeth.png" />
     <Content Include="Content\images\MidsummerNightDream.png" />
+    <Content Include="Content\images\NAYAFamilyCenter.jpg" />
     <Content Include="Content\images\ProductionPhotos\Hamilton\02.jpg" />
     <Content Include="Content\images\ProductionPhotos\Hamilton\01.jpg" />
     <Content Include="Content\images\ProductionPhotos\Hamilton\03.jpg" />
@@ -326,6 +329,9 @@
     <Content Include="Content\images\ProductionPhotos\Wicked\03.jpg" />
     <Content Include="Content\images\ProductionPhotos\Wicked\04.jpg" />
     <Content Include="Content\images\ProductionPhotos\Wicked\05.jpg" />
+    <Content Include="Content\images\Sponsors\Ninkasi-white-text.png" />
+    <Content Include="Content\images\Sponsors\OCF-logo-in-white-with-tagline-lg.png" />
+    <Content Include="Content\images\Sponsors\RACC.png" />
     <Content Include="Content\images\Tempest.png" />
     <Content Include="Content\images\theater.jpg" />
     <Content Include="Content\images\TheatreLogo.png" />
@@ -544,6 +550,8 @@
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
+    <Content Include="webfonts\PTSans-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
