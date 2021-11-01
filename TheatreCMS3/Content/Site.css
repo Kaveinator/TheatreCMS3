@@ -466,7 +466,8 @@ footer {
     text-align: right;
     align-content: center;
     padding: 15px;
-    margin: 15px;
+    margin: 8px;
+    padding-bottom: 20px;
 
 }
 /* Text to the left of the fields */
@@ -492,13 +493,23 @@ Home-Donate--row {
 /* submit button */
 .Home-Donation--Submit  {
     float: left;
-    height: 30%;
-    width: 20%;
+    height: 35px;
+    margin-bottom: 10px;
+    width: 15%;
     margin-top: 10px;
     text-align: center;
+    background-color: white;
 
 }
+.Home-Donation-SubmitWrap {
+    margin-bottom: 10px;
+}
 
+.Home-Donation--Submit:hover {
+    background-color: #e2e2e2;
+    font-weight: bold;
+}
+/* end Submit Button*/
 
 
 .Home-Donate-TextRow {
@@ -517,6 +528,14 @@ Home-Donate--row {
         width: 80%;
         text-align: center;
 
+    }
+    .Home-Donation--Submit {
+        height: 35px;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        background-color: white;
     }
     .Home-Donate-TextRow {
         padding-top: 10px;
@@ -545,10 +564,22 @@ Home-Donate--row {
         width: 70%;
         text-align: center;
     }
+    .Home-Donate--TextRow label {
+        float: left;
+        margin: auto;
+    }
+
+    .Home-Donation--Submit {
+        height: 35px;
+        margin-left: 10%;
+        width: 80%;
+     
+    }
+
     .Home-Donate--Name input {
         width: 39%;
         text-align: left;
-        float: right;
+        float: left;
         margin: 2px;
     }
 
@@ -556,7 +587,6 @@ Home-Donate--row {
         padding-top: 10px;
         float: left;
         width: 10%;
-        align-text: center;
     }
 }
 
