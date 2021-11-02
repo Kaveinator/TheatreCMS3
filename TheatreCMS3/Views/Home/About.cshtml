@@ -1,4 +1,5 @@
-﻿@{
+﻿@using TheatreCMS3.Helpers;       <!-- At symble is Razor, to use C# in here. Must import the Helpers folder conents in here.-->
+@{
     ViewBag.Title = "About";
 }
 
@@ -13,9 +14,12 @@
         <h3 class="about-us-h3">Who We Are</h3>
         <p class="text-wrap">We seek to engage audiences through compelling, ensemble-driven productions with a focus on developing new works</p>
     </div>
-    <div class="text-center">
+  <!-- Razor syntax, to define the first About paragraph contents instead of hard coding to the <p> tag -->
+  @{ string txtString= "In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, The Electric Company, Theater!Theatre!, and The Shoebox Theater."; }  
+  <div class="text-center">
         <h3 class="about-us-h3">Company History</h3>
-        <p class="text-wrap" style="font-size: 18px">In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, The Electric Company, Theater!Theatre!, and The Shoebox Theater.</p>
+    <!-- Razor instead of hard coding the paragraph to display the full text, call the method: StrEllipsis, that allow a strLength to be entered as needed (50 for this example) & pass in the Razor txtString. -->    
+    <p class="text-wrap" style="font-size: 18px">@TextHelpers.StrEllipsis(txtString, 50)</p>
         <p class="text-wrap" style="font-size: 18px">From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser in collaboration with The Anonymous Theatre Company.  Other past collaborations include defunkt theatre, Stark Raving Theater, and Tears of Joy Theatre.</p>
         <p class="text-wrap" style="font-size: 18px">Theatre Vertigo has worked on world premieres including Faust.Us by Joseph Fisher, 99 Ways to Fuck a Swan by Kim Rosenstock, and The End of Sex by Craig Jessen.</p>
         <p class="text-wrap" style="font-size: 18px; padding-bottom: 20px">In 2016, Theatre Vertigo produced its first officially commissioned work from a playwright, I Want To Destroy You, by Rob Handel.</p>
