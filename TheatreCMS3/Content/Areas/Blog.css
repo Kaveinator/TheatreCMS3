@@ -14,7 +14,7 @@
 
 /* Style the Submit and Back to List buttons (background color, rounded corners, subtle hover effect, etc.).  There should be a color distinction between these two buttons 
     and they should both be centered on the page.*/
-.BlogPost-Create--btn {
+.BlogPost-Create--btn {             
     margin-top: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -44,7 +44,7 @@
         }
 
 /* Place the form in a centered container */
-.BlogPost-Create--formContainer {   /* parent */
+.BlogPost-Create--formContainer { /* parent */
     max-width: 500px;
     min-width: 200px;
     margin: 0 auto;
@@ -52,6 +52,7 @@
     justify-content: center;
     background-color: #d6972a;
     flex-direction: column;
+    border-radius: 4px;
 }
 
 .BlogPost-Create--formGroup { /* child */
@@ -62,30 +63,37 @@
     border-radius: 10px;
 }
 
-.BlogPost-Create-label {
-    width: 100%;
-    margin: 0 auto;
-    align-items: flex-start;
-    padding-left: 10px;
-}
-
 
 /* input textbox */
-/**/
 .BlogPost-Create--inputBox {
-    border: 2px solid #d6972a;
+    border: 2px solid #d6972a;                          /* border of inputbox will blend in with container color. */
 }
-    .BlogPost-Create--inputBox:hover {
-        border: #bd1a11;
-    }
-
     .BlogPost-Create--inputBox input[type=text],
     .BlogPost-Create--inputBox input[type=datetime] {
-        border: 2px solid #fffbfb;                          /* input fields' border color changes when clicked,match project colors */
-        background-color: lightgray;                        /* color of the input field to change when clicked*/
+        border: 2px solid #fffbfb;                      /* original color */                     
+        background-color: lightgray;                        
     }
         .BlogPost-Create--inputBox input[type=text]:focus,
         .BlogPost-Create--inputBox input[type=datetime]:focus {
-            border: 2px solid #f04d44;
-            background-color: #fffbfb;
+            border: 2px solid #f04d44;                  /* input fields' border color changes when clicked,match project colors */
+            background-color: #fffbfb;                  /* color of the input field to change when clicked*/
         }
+
+
+/* for different screen sizes */
+@media only screen and (max-width: 480px) { /*For Screens smaller than 480px or mobile*/
+    .BlogPost-Create--label {
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 30px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1200px) { /*For Screebs larger than 480px & smaller than 1200px*/
+    .BlogPost-Create--label {
+        width: 100%;
+        margin: 0 auto;
+        align-items: flex-start;
+        padding-left: 50px;
+    }
+}
