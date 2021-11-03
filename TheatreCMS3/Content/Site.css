@@ -613,7 +613,6 @@ Home-Donate--row {
         box-sizing: border-box;
     }
 
-    */
     /*Contact-Page*/
     .cu-contact-header {
         display: block;
@@ -961,4 +960,94 @@ Home-Donate--row {
     padding: 25px 0;
     text-align: center;
     vertical-align: middle;
+}
+
+/* ----- HOME PAGE STYLING ----- */
+.home-index--theatreLogo {
+   padding-top: 100px;
+   padding-bottom: 150px;
+   text-align: center;
+}
+
+.home-index--theatreLogo img {
+    width: 500px;
+    height: 100px;
+}
+
+.home-index--container {
+    float: left;
+    padding: 10px;
+}
+
+.home-index--columnLeft {
+    width: 64%;
+    float: left;
+}
+
+.home-index--columnRight {
+    width: 36%;
+    float: right;
+}
+
+@font-face {
+    font-family: Oswald;
+    src: url('/webfonts/Oswald-VariableFont_wght.ttf') format('truetype');
+}
+
+.home-index--h2 {
+    position: relative;
+    font-family: Oswald;
+    padding-bottom: 20px;
+    padding-top: 60px;
+}
+
+.home-index--h2::after {
+    position: absolute;
+    bottom: 4px;
+    content:'';
+    display: block;
+    border: 2px solid red;
+    width: 80px;
+}
+
+.home-index--spotlight img {
+    padding-top: 5px;
+    width: 95%;
+}
+
+.home-index--sponsors img {
+    padding-top: 15px;
+    width: 32%;
+}
+
+.home-index--btn {
+    background-color: #bd1a11;
+    border-radius: 5px;
+    border: none;
+    color: #fffbfb;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 22px;
+    width: 250px;
+    height: 70px;
+}
+
+.home-index--donationsBtn {
+    padding-top: 70px;
+    padding-bottom: 10px;
+}
+
+.home-index--donationsBtn a:hover {
+    color: white;
+    transform: scale(1.2);
+}
+
+.home-index--NAYA {
+    padding-top: 845px;
+}
+
+.home-index--NAYA img {
+    padding-left: 50px;
 }
