@@ -10,3 +10,60 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+
+/* Style the Submit and Back to List buttons (background color, rounded corners, subtle hover effect, etc.).  There should be a color distinction between these two buttons 
+    and they should both be centered on the page.*/
+.BlogPost-Create--btn {
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+}
+    .BlogPost-Create--btn:hover {
+        text-decoration: none;
+    }
+
+    .BlogPost-Create--btn1 {
+        background-color: #f04d44;
+    }
+
+        .BlogPost-Create--btn1:hover {
+            background-color: #bd1a11;
+        }
+
+.BlogPost-Create--btn2 {
+    background-color: #bd1a11;
+}
+
+        .BlogPost-Create--btn2:hover {
+            background-color: #f04d44;
+        }
+
+/* Place the form in a centered container */
+.BlogPost-Create--formContainer {   /* parent */
+    max-width: 500px;
+    min-width: 200px;
+    
+    display: flex;
+    justify-content: center;
+    background-color: #9d7c39;
+    flex-direction: column;
+}
+
+.BlogPost-Create--formGroup { /* child */
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.BlogPost-Create-label {
+    width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+    padding-left: 10px;
+}

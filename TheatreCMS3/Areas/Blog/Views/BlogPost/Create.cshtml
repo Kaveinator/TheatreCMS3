@@ -12,54 +12,61 @@
 {
   @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+<div class="BlogPost-Create--formContainer">
 
   <hr />
   @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-  <div class="form-group">
-    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-      @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+  <div class="BlogPost-Create--formGroup">
+    <div class="BlogPost-Create-label">
+      @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>
+    <div class="col-md-10 BlogPost-Create--formGroup">
+      @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Title" } })         <!-- Add placeholders to all input fields. -->
       @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
     </div>
   </div>
 
-  <div class="form-group">
-    @Html.LabelFor(model => model.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-      @Html.EditorFor(model => model.Contents, new { htmlAttributes = new { @class = "form-control" } })
+  <div class="BlogPost-Create--formGroup">
+    @Html.LabelFor(model => model.Contents, htmlAttributes: new { @class = "control-label col-md-2 " })
+    <div class="col-md-10 BlogPost-Create--formGroup">
+      @Html.EditorFor(model => model.Contents, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Contents" } })
       @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="BlogPost-Create--formGroup">
     @Html.LabelFor(model => model.DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-      @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control" } })
+    <div class="col-md-10 BlogPost-Create--formGroup">
+      @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Date" } })
       @Html.ValidationMessageFor(model => model.DateTime, "", new { @class = "text-danger" })
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="BlogPost-Create--formGroup">
     @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-      @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+    <div class="col-md-10 BlogPost-Create--formGroup">
+      <!-- Place the form in a centered container -->
+      @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Author's Name" } })
       @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
     </div>
   </div>
+  <br />
 
   <!-- Style the Submit and Back to List buttons (background color, rounded corners, subtle hover effect, etc.).  There should be a color distinction between these two buttons and they should both be centered on the page. -->
-  <div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-      <input type="submit" value="Create" class="btn btn-default" />
+  <div id="BlogPost-Create--formGroup">
+    <div class="col-md-offset-2 col-md-10 BlogPost-Create--formGroup">
+      <input type="submit" value="Create" class="btn BlogPost-Create--btn BlogPost-Create--btn1 btn-block" />
+    </div>
+    <div class="col-md-offset-2 col-md-10 BlogPost-Create--formGroup">
+      @Html.ActionLink("Back to List", "Index", "BlogPost", new { @class = "btn BlogPost-Create--btn BlogPost-Create--btn2 w-100 justify-content: center" })
+      <!-- must add "BlogPost" so it will find the controller. ActionLink automatically looks for Controller, so it is not necessary to add the full name BlogPostController -->
+      <!-- btn-block is not working for this, add w-100 which will span the entire col-md-10 of the div class -->
     </div>
   </div>
+  <hr />    <!-- add the needed space (matching above) by utilizing the Thematic Break-->
 </div>
 }
 
-<div>
-  @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
   @Scripts.Render("~/bundles/jqueryval")
