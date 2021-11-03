@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
-namespace TheatreCMS3.Models
+namespace TheatreCMS3.Areas.Prod.Models
 {
-    public class ProductionPhotoModels
+    public class ProductionPhoto
     {
+        [Key]
         public int ProPhotoID { get; set; }
         //public byte[] PhotoFile { get; set; }
         public string Title { get; set; }

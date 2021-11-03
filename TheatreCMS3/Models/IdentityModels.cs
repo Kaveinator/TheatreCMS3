@@ -42,5 +42,7 @@ namespace TheatreCMS3.Models
 
         /* ▼ Put DbSet's for your models below ▼ */
         public DbSet<Areas.Rent.Models.RentalHistory> RentalHistories { get; set; }
+
+        public DbSet<Areas.Prod.Models.ProductionPhoto> ProductionPhotos { get; set; }
     }
 }
