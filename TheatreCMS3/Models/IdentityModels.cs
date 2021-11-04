@@ -46,6 +46,8 @@ namespace TheatreCMS3.Models
         public DbSet<Areas.Prod.Models.ProductionPhoto> ProductionPhotos { get; set; }
         public DbSet<Areas.Blog.Models.BlogPost> BlogPost { get; set; }
 
+        public DbSet<Areas.Blog.Models.BlogAuthor> BlogAuthor { get; set; }
+
         
 
         public DbSet<Areas.Prod.Models.CastMember> CastMembers { get; set; }
