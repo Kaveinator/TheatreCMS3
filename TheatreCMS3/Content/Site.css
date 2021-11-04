@@ -843,8 +843,8 @@ Home-Donate--row {
 
 .home-index--donationsBtn a:hover {
     color: white;
-    transform: scale(1.2);
-}
+    opacity: 0.85;
+    }
 
 .home-index--NAYA {
     padding-top: 845px;
