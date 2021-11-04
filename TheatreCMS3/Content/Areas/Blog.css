@@ -10,3 +10,72 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+
+/* Style the Submit and Back to List buttons (background color, rounded corners, subtle hover effect, etc.).  There should be a color distinction between these two buttons 
+    and they should both be centered on the page.*/
+.BlogPost-CreateEdit--btn {             
+    width: 100%;
+    margin-top: 0;
+    padding: 10px 15px;                 /* L/R padding of this match formGroup */
+    border: 2px solid #fffbfb;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+}
+    .BlogPost-CreateEdit--btn:hover {
+        text-decoration: none;
+    }
+
+.BlogPost-CreateEdit--btn1 {
+    background-color: #f04d44;
+}
+
+    .BlogPost-CreateEdit--btn1:hover {
+        background-color: #bd1a11;
+    }
+
+.BlogPost-CreateEdit--btn2 {
+    background-color: #bd1a11;
+}
+
+    .BlogPost-CreateEdit--btn2:hover {
+        background-color: #f04d44;
+    }
+
+/* Place the form in a centered container */
+.BlogPost-CreateEdit--formContainer { /* parent */
+    max-width: 500px;
+    min-width: 200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    background-color: #d6972a;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+.BlogPost-CreateEdit--formGroup { /* child */
+    width: 100%;
+    margin: 2px auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* input textbox */
+.BlogPost-CreateEdit--inputBox input[type=text],
+.BlogPost-CreateEdit--inputBox input[type=datetime] {
+    border: 2px solid #fffbfb; /* original color */
+    background-color: lightgray;
+}
+    .BlogPost-CreateEdit--inputBox input[type=text]:focus,
+    .BlogPost-CreateEdit--inputBox input[type=datetime]:focus {
+        border: 2px solid #f04d44; /* input fields' border color changes when clicked,match project colors */
+        background-color: #fffbfb; /* color of the input field to change when clicked*/
+    }
+
+
