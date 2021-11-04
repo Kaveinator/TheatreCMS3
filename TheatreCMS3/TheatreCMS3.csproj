@@ -197,7 +197,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
-    <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
+    <Compile Include="Areas\Prod\Controllers\ProductionPhotosController.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
@@ -399,11 +399,11 @@
     <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Prod\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Prod\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Create.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Delete.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Details.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Edit.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotos\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotos\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotos\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotos\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotos\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />
