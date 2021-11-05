@@ -102,7 +102,6 @@
     border-radius: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    
 }
 
 
@@ -127,11 +126,11 @@
     height: 300px;
 }
 
-.BlogPost-Index--BodyRight {
+.BlogPost-Index--BodyCenterRight {
     padding: 1rem;
     justify-content: left;
+    align-self: center; /* align-self: overriding this on individual items. */
     width: 800px;
-    /* background-color: lightgray; */
 }
 
 

@@ -43,7 +43,7 @@
       @Html.LabelFor(model => model.DateTime, htmlAttributes: new { @class = "control-label" })
       </div>
       <div class="BlogPost-CreateEdit--formGroup BlogPost-CreateEdit--inputBox">
-        @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter mm/dd/yyyy hh:mm:ss AMorPM" } })
+        @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter mm/dd/yyyy" } })
         @Html.ValidationMessageFor(model => model.DateTime, "", new { @class = "text-danger" })
       </div>
     </div>
