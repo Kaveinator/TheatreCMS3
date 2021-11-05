@@ -12,7 +12,8 @@
 /*}*/
 
 
-/* Style the Submit and Back to List buttons (background color, rounded corners, subtle hover effect, etc.).  There should be a color distinction between these two buttons 
+/* BUTTONS */
+/* Create & Edit page Buttons: Style the Submit and Back to List buttons (background color, rounded corners, subtle hover effect, etc.).  There should be a color distinction between these two buttons 
     and they should both be centered on the page.*/
 .BlogPost-CreateEdit--btn {             
     width: 100%;
@@ -43,7 +44,45 @@
         background-color: #f04d44;
     }
 
-/* Place the form in a centered container */
+
+
+/* Index page Buttons: 3 buttons at the bottom of each Blog Post index cards */
+.BlogPost-Index--BtnBar {
+    position: absolute;
+    float: right;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    bottom: 0;
+    right: 0;
+}
+
+.BlogPost-Index--btnSecondary, .BlogPost-Index--btnDanger {
+    color: #fffbfb;
+    border: 2px solid #fffbfb;
+    border-radius: 4px;
+    padding: 6px 15px;
+}
+
+.BlogPost-Index--BtnGroup1 {
+    margin-left: 2px;
+} 
+
+.BlogPost-Index--BtnGroup2 {
+    margin-left: 30px;
+}
+
+.BlogPost-Index--btnSecondary {
+    background-color: #d6972a;
+}
+
+.BlogPost-Index--btnDanger {
+    background-color: red;
+
+}
+
+
+/* CONTAINERS */
+/* Create & Edit Page: Place the form in a centered container */
 .BlogPost-CreateEdit--formContainer { /* parent */
     max-width: 500px;
     min-width: 200px;
@@ -66,6 +105,52 @@
 }
 
 
+/* Index Page  */
+.BlogPost-Index--Wrap {
+    position: relative;
+    display: flex;
+    height: 305px;
+    flex-direction: column;
+    min-width: 20%;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 3px solid #9d7c39;
+    background-color: darkgray;
+    z-index: 1;
+}
+
+.BlogPost-Index--ImgLeft {
+    margin-left: .9rem;
+    padding: 0;
+    width: 300px;
+    height: 300px;
+}
+
+.BlogPost-Index--BodyCenterRight {
+    padding: 1rem;
+    justify-content: left;
+    align-self: center; /* align-self: overriding this on individual items. */
+    width: 800px;
+}
+
+
+
+
+/* TEXT */
+/* Index page: */
+h7 {
+    color: black;
+    font-size: 12px;
+}
+
+.BlogPost-Index--Contents { /* Only display 4 lines of the Content.  If there are more than 4 lines of Content, display ellipses (...). */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* input textbox */
 .BlogPost-CreateEdit--inputBox input[type=text],
 .BlogPost-CreateEdit--inputBox input[type=datetime] {
@@ -77,5 +162,7 @@
         border: 2px solid #f04d44; /* input fields' border color changes when clicked,match project colors */
         background-color: #fffbfb; /* color of the input field to change when clicked*/
     }
+
+
 
 
