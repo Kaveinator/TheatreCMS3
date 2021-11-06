@@ -1,5 +1,4 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogPost
-<!-- no IEnumerable, this is only getting one object at a time. -->
 
 @{
     ViewBag.Title = "Delete";
@@ -64,7 +63,8 @@
                 @using (Html.BeginForm("Delete", "BlogPost", new { id = Model.BlogPostId }, FormMethod.Post, new { @id = "delete", @class = "BlogPost-DelDet--BtnGroup2" }))
                 {
                   @Html.AntiForgeryToken()
-                  <input type="submit" class="btn BlogPost-DelDet--btn BlogPost-DelDet--btnDanger fas fa-trash-alt" />
+                  <!-- must use Button class for font-awesome instead of input -->
+              <button type="submit" class="btn BlogPost-DelDet--btn BlogPost-DelDet--btnDanger fas fa-trash-alt"> Delete</button>
                 }
                 <!-- antiforgerytoken for validateantiforgerytoken on controller -->
               </div>
