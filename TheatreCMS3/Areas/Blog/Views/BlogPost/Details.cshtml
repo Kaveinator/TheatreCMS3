@@ -1,51 +1,68 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogPost
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Details";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>BlogPost</h4>
+<!-- Center the content on the page (Title, Photo, and buttons). -->
+<div class="BlogPost-DelDet--AlignCenter">
+
+  <!-- Change the heading of the page to "Delete this Blog Post?" -->
+  <div class="BlogPost-DelDet--HeaderAlignCenter">
+    <h2>Blog Post Details</h2>
+
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contents)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contents)
-        </dd>
+    <!-- bootstrap Grid system -->
+    <div class="container">
+      <div class="row">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </dt>
+        <div class="BlogPost-DelDet--Col">
+          <div class="BlogPost-DelDet--Middle">
+            <!-- Change the heading of the page to "Delete this Blog Post?" -->
+            <div class="BlogPost-DelDet--HeaderAlignCenter">
+              <h2><b>@Html.DisplayFor(model => model.Title)</b></h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateTime)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Author)
-        </dd>
+              <!-- Make the Image larger than it is on the Index page. -->
+              <a class="BlogPost-DelDet--ImgCenter" href="https://placeholder.com"><img src="https://via.placeholder.com/720x400.jpg?text=720x400" /></a>
+              <!-- Set width & height + text over the placeholder image. More info: https://placeholder.com/#How_To_Set_Image_Size -->
+            </div>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+            <div class="BlogPost-DelDet--BodyAlignLeft">
+              <p><b>Author: </b>@Model.Author</p>
+              <p><b>Posted Date: </b>@Model.DateTime.ToString("MMM dd yyyy")</p>
+              <h6 class="BlogPost-Details--Contents">@Model.Contents</h6>
+
+              <div>
+
+                <!-- The buttons should be centered on the page but the delete button should be right-aligned with respect to the central container -->
+
+                <div class="BlogPost-DelDet--BtnBar">
+                  <div class="row">
+                    <div class="BlogPost-DelDet--BtnGroup1">
+                      @Html.ActionLink(" Back to List", "Index", "BlogPost", new { @class = "btn BlogPost-DelDet--btn BlogPost-DelDet--btnSecondary fas fa-edit" })
+                    </div>
+                    <div class="BlogPost-DelDet--BtnGroup1">
+                      @Html.ActionLink(" Edit", "Edit", "BlogPost", new { id = Model.BlogPostId }, new { @class = "btn BlogPost-DelDet--btn BlogPost-DelDet--btnSecondary fas fa-info-circle" })
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
