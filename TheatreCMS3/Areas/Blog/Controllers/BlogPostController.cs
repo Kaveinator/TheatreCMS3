@@ -18,7 +18,7 @@ namespace TheatreCMS3.Areas.Blog
         // GET: Blog/BlogPosts
         public ActionResult Index()
         {
-            return View(db.BlogPost.ToList());
+            return View(db.BlogPost.ToList());              // if exception occurs, then in NuGet Console: type: update-database
         }
 
         // GET: Blog/BlogPosts/Details/5

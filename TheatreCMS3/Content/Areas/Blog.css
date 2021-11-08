@@ -163,6 +163,7 @@
 /* Delete & Details Page */
 .BlogPost-DelDet--AlignCenter {
     display: flex;
+    justify-content: center;
 }
 
 .BlogPost-DelDet--Col {
