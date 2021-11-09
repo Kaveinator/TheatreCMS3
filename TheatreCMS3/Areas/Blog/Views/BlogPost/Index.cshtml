@@ -1,52 +1,59 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPost>
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPost>  /* IEnumerable<>is getting the list */
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Blog Post Index</h2>
+@{  }
+
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contents)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contents)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPostId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPostId })
-        </td>
-    </tr>
+<!--The BlogPost Index page will show all of the current BlogPosts.  
+      display the BlogPosts.  
+      Replace the table on the Index page.  
+      Each BlogPost should have its own container where the photo for the BlogPost is on the left 
+      and the information about the BlogPost on the right. -->
+
+
+<!-- iterate through all items in database -->
+@foreach (var item in Model)
+{
+  <!-- wrap for the blog posts, including buttons -->
+  <div class="BlogPost-Index--Wrap">
+    <div class="row">
+      <!-- image to the left -->
+      <!-- Add an image to the project to be a placeholder image until the BlogPhotos model is linked. -->
+      <a class="BlogPost-Index--ImgLeft" href="https://placeholder.com"><img src="https://via.placeholder.com/300" /></a>
+
+      <!-- body to the right -->
+      <div class="BlogPost-Index--BodyCenterRight">
+        <h7><b>Author: </b>@item.Author</h7>
+        <h7><b>&emsp;&emsp;&emsp;Posted Date: </b>@item.DateTime.ToString("MMM dd yyyy")</h7>
+        <h4>@item.Title</h4>
+        <p class="BlogPost-Index--Contents">@item.Contents</p>
+
+        <!-- Card 1 buttons to the right & bottom of the card body -->
+        <!-- Use Font-Awesome to use icons inside of the buttons that represent each of those operations -->
+        <div class="BlogPost-Index--BtnBar">
+          <div class="row">
+            <div class="BlogPost-Index--BtnGroup1">
+              @Html.ActionLink(" Edit", "Edit", "BlogPost", new { id = item.BlogPostId }, new { @class = "BlogPost-Index--btnSecondary fas fa-edit" }) <!-- must pass in the BlogPostId for it to know which post this Edit method is associated with -->
+            </div>
+            <div class="BlogPost-Index--BtnGroup1">
+              @Html.ActionLink(" Details", "Details", "BlogPost", new { id = item.BlogPostId }, new { @class = "BlogPost-Index--btnSecondary fas fa-info-circle" })   
+            </div>
+            <div class="BlogPost-Index--BtnGroup2">
+              @Html.ActionLink(" Delete", "Delete", "BlogPost", new { id = item.BlogPostId }, new { @class = "BlogPost-Index--btnDanger fas fa-trash-alt" })
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
 }
-
-</table>
