@@ -217,6 +217,56 @@ h7 {
         background-color: var(--light-color); /* color of the input field to change when clicked*/
     }
 
+/* Blog Author create & edit page*/
+.BlogAuthor-CreateEdit--title {
+    text-align:center;
+    padding-top: 50px;
+}
 
+.BlogAuthor-CreateEdit--formContainer form action {
+    padding-top: 100px;
+}
 
+.BlogAuthor-CreateEdit--formContainer {
+    background-color: #bd1a11;
+    border-radius: 15px;
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+}
 
+.BlogAuthor-CreateEdit--TextContainer {
+    padding-left: 80px;
+}
+
+.BlogAuthor-CreateEdit--Bio textarea {
+    width: 100%;
+    height: 125px;
+    border-radius: 6px;
+}
+
+.BlogAuthor--DateTimeContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.BlogAuthor-CreateEdit--datetime::placeholder {
+    font-size: small;
+    text-align: center;
+}
+
+.BlogAuthor-CreateEdit--DateTime {
+    width: 33%;
+}
+
+.BlogAuthor-CreateEdit--BtnContainer {
+    display: flex;
+    gap: 5px;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+
+.BlogAuthor-CreateEdit--datetime {
+    border-radius: 5px;
+}
