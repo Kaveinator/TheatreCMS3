@@ -36,16 +36,16 @@
     <div class="BlogAuthor--DateTimeContainer">
       <div class="BlogAuthor-CreateEdit--DateTime">
         @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-          @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "BlogAuthor-CreateEdit--datetime" } })
+        <div class="BlogAuthor-CreateEdit--datefield">
+          @Html.TextBoxFor(model => model.Joined, "{0:yyyy-MM-dd}", new { @type="date", @class = "BlogAuthor-CreateEdit--datetime" })
           @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
         </div>
       </div>
 
       <div class="BlogAuthor-CreateEdit--DateTime">
         @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-          @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @class = "BlogAuthor-CreateEdit--datetime", placeholder = "mm/dd/yyyy --:-- AMorPM" } })
+        <div class="BlogAuthor-CreateEdit--datefield">
+          @Html.TextBoxFor(model => model.Left, "{0:yyyy-MM-dd}", new { @type="date", @class = "BlogAuthor-CreateEdit--datetime" })
           @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
         </div>
       </div>
