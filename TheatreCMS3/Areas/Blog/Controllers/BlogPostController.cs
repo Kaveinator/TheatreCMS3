@@ -116,6 +116,22 @@ namespace TheatreCMS3.Areas.Blog
             return RedirectToAction("Index");
         }
 
+        /* Clicking the confirm button should delete the BlogPost without reloading the page (using Ajax is one possible solution) */
+        // send back Json response to Ajax
+        [HttpPost]                                                  // for ConfirmDelete' type: Post.
+        public JsonResult AjaxDelete(int id)
+        {
+            BlogPost blogPost = db.BlogPost.Find(id);
+            var results = new JsonResult();                         // starting JsonResult.
+            results.Data = new List<string>() { blogPost.Title };   // putting the data which list of strings as results. can be anything, not a string.
+
+            db.BlogPost.Remove(blogPost);                           // remove from dB.
+            db.SaveChanges();
+
+                    
+            return Json(results, JsonRequestBehavior.AllowGet);     // return statement. JsonRequestBehavior.AllowGet= json response is accessible.
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

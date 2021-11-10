@@ -13,6 +13,11 @@
   @Html.ActionLink("Create New", "Create")
 </p>
 
+<!-- The popup message when a BlogPost is deleted should have a green theme and a Font-Awesome checkmark at the end of the sentence.  When the BlogPost is deleted, this message should appear and stay on the screen for 3 seconds, then fade out and disappear. -->
+<div id="fademsg"></div>
+
+
+
 <!--The BlogPost Index page will show all of the current BlogPosts.
       display the BlogPosts.
       Replace the table on the Index page.
@@ -50,11 +55,11 @@
               @Html.ActionLink(" Delete", "Delete", "BlogPost", new { id = item.BlogPostId }, new { @class = "BlogPost-Index--btnDanger fas fa-trash-alt" })
                </div>*@
 
-            <!-- Button trigger modal, click this will open modal popup --> 
-          <div class="BlogPost-Index--BtnGroup2">
-            <button type="button" class="BlogPost-Index--btnDanger fas fa-trash-alt" data-toggle="modal" data-target="#BlogPost-Index--ModalConfirmDelete" data-BlogPostId="@item.BlogPostId"> Delete</button>
-            
-          </div>
+            <!-- Button trigger modal, click this will open modal popup -->
+            <div class="BlogPost-Index--BtnGroup2">
+              <button type="button" class="BlogPost-Index--btnDanger fas fa-trash-alt" data-toggle="modal" data-target="#BlogPost-Index--ModalConfirmDelete" data-BlogPostId="@item.BlogPostId"> Delete</button>
+
+            </div>
           </div>
         </div>
       </div>
@@ -63,35 +68,36 @@
   <hr />
 }
 
-  <!-- Change the delete button for BlogPosts on the Index page.  Instead of taking the User to the Delete page, open a confirmation modal when that button is clicked.-->
-  <!-- locate Modal outside of other positioning to ensure popup will appear above other contents on the page.-->
-  <!-- Modal -->
-  <div class="modal fade" id="BlogPost-Index--ModalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Change the delete button for BlogPosts on the Index page.  Instead of taking the User to the Delete page, open a confirmation modal when that button is clicked.-->
+<!-- locate Modal outside of other positioning to ensure popup will appear above other contents on the page.-->
+<!-- Modal -->
+<div class="modal fade" id="BlogPost-Index--ModalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
 
-      <!-- 3 contents for the modal popup -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title" id="exampleModalLongTitle">Confirm Delete</h2>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Are You Sure You Want To Delete This Blog Post?</p>
-        </div>
+    <!-- 3 contents for the modal popup -->
+    <div class="modal-content" style="border-radius: 20px;">
+      <!-- override existing class with border-radius of 20px -->
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Confirm Delete</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are You Sure You Want To Delete This Blog Post?</p>
+      </div>
 
-        <!-- The modal should have a confirm button and a cancel button -->
-        <div class="modal-footer">
-              <div class="BlogPost-Index--BtnGroup1">
-                <button type="button" class="BlogPost-Index--btnSecondary fas fa-window-close" data-dismiss="modal"> Cancel</button>
-              </div>
-              <div class="BlogPost-Index--BtnGroup2">
-                <button type="button" class="BlogPost-Index--btnDanger fas fa-trash-alt"> Confirm Delete</button>
-              </div>
-            </div>
-          </div>
+      <!-- The modal should have a confirm button and a cancel button -->
+      <div class="modal-footer">
+        <div class="BlogPost-Index--BtnGroup1">
+          <button type="button" class="BlogPost-Index--btnSecondary fas fa-window-close" data-dismiss="modal"> Cancel</button>
         </div>
+        <div class="BlogPost-Index--BtnGroup2">
+          <button type="button" class="BlogPost-Index--btnDanger fas fa-trash-alt" id="BlogPost-Index--ConfirmDelete" data-dismiss="modal"> Confirm Delete</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <hr />
+</div>
+<hr />
 
