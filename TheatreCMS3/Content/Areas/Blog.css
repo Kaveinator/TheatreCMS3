@@ -163,6 +163,7 @@
 /* Delete & Details Page */
 .BlogPost-DelDet--AlignCenter {
     display: flex;
+    justify-content: center;
 }
 
 .BlogPost-DelDet--Col {
@@ -248,6 +249,24 @@ h7 {
 .BlogAuthor--DateTimeContainer {
     display: flex;
     justify-content: center;
+}
+/* ConfirmDelete modal texts */
+.modalTexts {
+    font-weight: bold;
+    padding-left: 150px;
+    margin-top: -25px;
+    margin-bottom: -25px;
+}
+
+/* After ConfirmDelete Popup */
+#fademsg {
+    display: none;                          /* this won't show until it is set to show in Blog.js */
+    background-color: mediumseagreen;
+    color: darkgreen;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 3px solid darkgreen;
+    font-weight: bold;
 }
 
 .BlogAuthor-CreateEdit--datetime::placeholder {
