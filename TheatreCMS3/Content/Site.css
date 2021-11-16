@@ -521,3 +521,30 @@ footer {
 .home-index--NAYA img {
     padding-left: 50px;
 }
+
+
+/* Sign In Sheet Style */
+.main-signin--devnames {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+}
+
+.main-signin--devnames > p {
+    border-radius: 25px;
+    background-color: #bd1a11;
+    padding: 12.5px;
+    width: 200px;
+    height: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
