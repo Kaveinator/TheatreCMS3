@@ -525,13 +525,11 @@ footer {
 
 /* Sign In Sheet Style */
 .main-signin--devnames {
-    max-width: 1200px;
+    max-width: 2000px;
     margin: 0 auto;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: space-evenly;
     justify-items: center;
     align-content: space-evenly;
