@@ -14,11 +14,16 @@ namespace TheatreCMS3.Models
 
         public static void ReadSiteSettings()
         {
-            using (StreamReader r = new StreamReader("file.json"))
+            string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string sFile = System.IO.Path.Combine(sCurrentDirectory, "SiteSettings.json");
+
+            using (StreamReader r = new StreamReader(sFile)) 
+               
             {
                 string json = r.ReadToEnd();
                 SiteSettings items = JsonConvert.DeserializeObject<SiteSettings>(json);
             }
         }
     }  
+
 }
