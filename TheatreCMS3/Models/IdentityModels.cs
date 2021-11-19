@@ -46,5 +46,8 @@ namespace TheatreCMS3.Models
         public DbSet<TheatreCMS3.Areas.Blog.Models.Comment> Comments { get; set; }
         public DbSet<Areas.Rent.Models.RentalHistory> RentalHistory { get; set; }
         public DbSet<Areas.Rent.Models.Rental> Rentals { get; set; }
+        public DbSet<Areas.Rent.Models.RentalRequest> RentalsRequests { get; set; }
+
+
     }
 }
