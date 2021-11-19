@@ -14,10 +14,49 @@
 
 /*Rental Create and Edit Page Start*/
 
+.Rental-Create--Create_Button {
+    color: var(--light-color);
+    background-color: var(--main-color);
+}
 
+.Rental-Create--Create_Button:hover {
+    background-color: var(--secondary-color);
+}
 
+.Rental-Create--ButtonWrap {
+    display: flex;
+    text-align: center;
+}
 
+.Rental-Create--FormBackground {
+    background-color: var(--main-color--light);
+    border-radius: 25px;
+}
 
+.Rental-Create--FormBackground input:focus {
+    -webkit-box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+    -moz-box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+    box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+}
+
+.Rental-Edit--Edit_Button {
+    color: var(--light-color);
+    background-color: var(--main-color);
+}
+
+.Rental-Edit--Edit_Button:hover {
+    background-color: var(--secondary-color);
+}
+
+.Rental-Edit--FormBackground {
+    background-color: var(--main-color--light);
+    border-radius: 25px;
+}
+
+.Rental-Edit--ButtonWrap {
+    display: flex;
+    text-align: center;
+}
 
 
 /*Rental History Index Styling*/
