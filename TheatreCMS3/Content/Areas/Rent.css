@@ -14,10 +14,87 @@
 
 /*Rental Create and Edit Page Start*/
 
+.Rental-Create--Create_Button {
+    color: var(--light-color);
+    background-color: var(--main-color);
+}
 
+.Rental-Create--Create_Button:hover {
+    background-color: var(--secondary-color);
+}
 
+.Rental-Create--BackToList_Button {
+    color: var(--light-color);
+    background-color: var(--secondary-color--dark);
+}
 
+.Rental-Create--BackToList_Button:hover {
+    background-color: var(--light-color);
+}
 
+.Rental-Create--ButtonWrap {
+    display: flex;
+    justify-content: center;
+}
+
+.Rental-Create--FormBackground {
+    background-color: var(--main-color--light);
+    border-radius: 25px;
+    padding-bottom: 1px;
+}
+
+.Rental-Create--FormBackground input:focus {
+    -webkit-box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+    -moz-box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+    box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+    background-color: var(--secondary-color);
+}
+
+.Rental-Create--InputWrap {
+    max-width: 100%;
+    width: 100%;
+}
+
+.Rental-Edit--Edit_Button {
+    color: var(--light-color);
+    background-color: var(--main-color);
+}
+
+.Rental-Edit--Edit_Button:hover {
+    background-color: var(--secondary-color);
+}
+
+.Rental-Edit--BackToList_Button {
+    color: var(--light-color);
+    background-color: var(--secondary-color--dark);
+}
+
+.Rental-Edit--BackToList_Button:hover {
+    background-color: var(--light-color);
+}
+
+.Rental-Edit--FormBackground {
+    background-color: var(--main-color--light);
+    border-radius: 25px;
+    padding-bottom: 1px;
+}
+
+.Rental-Edit--FormBackground input:focus {
+    -webkit-box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+    -moz-box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+    box-shadow: 0 0 5px 2px var(--secondary-color--dark);
+    background-color: var(--secondary-color);
+}
+
+.Rental-Edit--ButtonWrap {
+    display: flex;
+    justify-content: center;
+}
+
+.Rental-Edit--InputWrap {
+    max-width: 100%;
+    width: 100%;
+}
 
 
 /*Rental History Index Styling*/
