@@ -24,7 +24,7 @@
     <div class="form-group Rental_History-Create--CheckBox">
         @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <div class="checkbox">
+            <div class="checkbox ">
                 @Html.EditorFor(model => model.RentalDamaged)
                 @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
             </div>
@@ -33,7 +33,7 @@
 
     <div class="form-group Rental_History-Create--Notes_DamagesIncurred">
         @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
+        <div class="col-md-10 Damages_Incurred_Text">
             @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
         </div>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-offset-2 col-md-10 Rental_History-Create--Create_Button">
             <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>

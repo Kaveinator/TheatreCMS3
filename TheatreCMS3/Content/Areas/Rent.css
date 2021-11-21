@@ -100,6 +100,7 @@
     background-color: #F04D44;
     border-radius: 25px;
     display: block;
+    position: center;
     width: 500px;
 }
 
@@ -115,14 +116,15 @@
     padding-top: 10px;
 }
 
+.Rental_History-Create--Rental-TitleInput {
+    width: 50%;
+}
 
 .Rental_History-Create--Notes_DamagesIncurred {
     font-size: 20px;
     margin-bottom: 5px;
     margin-top: 2%;
     white-space: nowrap;
-    
-   
 }
 
 .Damages_Incurred_Text {
@@ -131,6 +133,9 @@
 
 .Rental_History-Create--BTContainer {
     padding-top: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 
 .Rental_History-Create--BTL {
