@@ -93,14 +93,16 @@
     text-align: center;
     margin-top: 5px;
     padding-bottom: 20px;
-    
 }
 
 .Rental_History-Create--Form {
     background-color: #F04D44;
     border-radius: 25px;
     display: block;
-    position: center;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
     width: 500px;
 }
 
@@ -111,13 +113,19 @@
 
 }
 
+.Rental_History-Create--CheckBoxTitle {
+    position: absolute;
+    right: 20%;
+    top: 35%;
+}
+
 .Rental_History-Create--Rental-Title {
     font-size: 20px;
     padding-top: 10px;
 }
 
 .Rental_History-Create--Rental-TitleInput {
-    width: 50%;
+    width: 40%;
 }
 
 .Rental_History-Create--Notes_DamagesIncurred {
@@ -129,13 +137,14 @@
 
 .Damages_Incurred_Text {
     display: inline-block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .Rental_History-Create--BTContainer {
     padding-top: 10px;
     position: fixed;
-    top: 0;
-    right: 0;
 }
 
 .Rental_History-Create--BTL {
