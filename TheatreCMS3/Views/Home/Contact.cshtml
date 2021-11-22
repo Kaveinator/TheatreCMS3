@@ -1,10 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using (Html.BeginForm(new { @class = "Contact-form", role = "form" }))
 {
+<div class="contactContainer" >
     <div>
         <center><h2>Contact Us</h2></center>
     </div>
@@ -48,4 +50,5 @@
         </div>
         <button type="button" class="btn btn-danger btn-lg btn-block">Submit</button>
     </div>
+</div>
 }
