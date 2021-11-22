@@ -458,17 +458,20 @@ footer {
 
 /* Contact Page */
 .contactContainer {
-    display: compact;
-    ... gap: 10px;
-    gap: 10px 20px; /* row-gap column gap */
-    row-gap: 10px;
-    column-gap: 20px;
+    font-family: Broadway;
 }
 
-/*.Contact-form {
-    display: compact;
-    ... gap: 10px;
-    gap: 10px 20px;*/ /* row-gap column gap */
-    /*row-gap: 10px;
-    column-gap: 20px;
-}*/
+.contactUs {
+    height: 200px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
+.getInTouch {
+    background-color: red;
+    height: 100%;
+    justify-content: stretch;
+    padding: 5px;
+}
+
