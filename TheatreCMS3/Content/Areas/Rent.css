@@ -125,7 +125,7 @@
 }
 
 .Rental_History-Create--Rental-TitleInput {
-    width: 40%;
+    width: 50%;
 }
 
 .Rental_History-Create--Notes_DamagesIncurred {
@@ -133,6 +133,7 @@
     margin-bottom: 5px;
     margin-top: 2%;
     white-space: nowrap;
+    width: 110%;
 }
 
 .Damages_Incurred_Text {
