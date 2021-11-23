@@ -6,50 +6,45 @@
 
 <link href="~/Content/Site.css" rel="stylesheet" />
 
-<div class="contactContainer" >
-    <div class="contactUs">
-        <center><h2>Contact Us</h2></center>
-    </div>
-    <br />
-    <div class="getInTouch">
-        <center><h2>Get In Touch</h2></center>
+<div class="contact-index-container" >
+        <div class="contact-us-container">
+            <center><h2>Contact Us</h2></center>
+        </div>
+        <div class="contact-get-in-touch">
+            <center><h2>Get In Touch</h2></center>
 
-
-        <div class="text-lg-right">
-            <h3>DONATE</h3>
+            @*<h3>DONATE</h3>
             <h4>We've got a Patreon account!<br /> Help support live threatre in<br /> Portland, OR, by cecoming a <br />Patron today!</h4>
             <br />
-            <button class="btn btn-danger" type="submit">Donate</button>
+            <button class="btn btn-danger" type="submit">Donate</button>*@
 
-        </div>
+            <form class="contact-form-container">
+                <div class="contact-index-message">
+                    <label for="msg">VOLUNTEER</label>
+                    <h4>Sed ut perspiciatis unde<br /> omnis iste natus error<br /> sit voluptatem accusantium <br />sit voluptatem</h4>
+                    <button class="btn btn-danger" type="submit">Donate</button>
+                
+                
+                    <label for="msg">DONATE</label>
+                    <h4>We've got a Patreon account!<br /> Help support live threatre in<br /> Portland, OR, by cecoming a <br />Patron today!</h4>
+                    <button class="btn btn-danger" type="submit">Donate</button>
+                </div>
+                <div class="contact">
+                    <label for="name">First & Last Name*</label>
+                    <input type="text" id="name">
 
-        <br />
-        <div class="text-lg-right">
-            <h3>VOLUNTEER</h3>
-            <h4>Sed ut perspiciatis unde<br /> omnis iste natus error<br /> sit voluptatem accusantium <br />sit voluptatem</h4>
-            <br />
-            <button class="btn btn-danger" type="submit">Donate</button>
-        </div>
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email">
 
-        <div class="contactForm">
-            <div class="mb-3">
-                <label for="flname" class="form-label">First & Last Name*</label>
-                <input type="text" class="form-control" id="flname" placeholder="">
-            </div>
-            <div class="mb-3">
-                <label for="emailaddress" class="form-label">Email Address*</label>
-                <input type="email" class="form-control" id="emailaddress" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-                <label for="subject" class="form-label">Subject*</label>
-                <input type="text" class="form-control" id="subject" placeholder="">
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message*</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
-            </div>
-            <button type="button" class="btn btn-danger btn-lg btn-block">Submit</button>
+                    <label for="subject">Subject*</label>
+                    <input type="text" id="subject">
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message*</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-danger btn-lg btn-block">Submit</button>
+                </div>
+            </form>
         </div>
-    </div>
 </div>
 

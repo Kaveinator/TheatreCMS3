@@ -457,21 +457,57 @@ footer {
 }
 
 /* Contact Page */
-.contactContainer {
+.contact-index-container {
     font-family: Broadway;
+
 }
 
-.contactUs {
-    height: 200px;
-    display: flex;
+.contact-us-container {
+    height: 300px;
+    padding-top: 125px;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
 }
 
-.getInTouch {
-    background-color: red;
-    height: 100%;
+.contact-get-in-touch {
+    background-color: #f04d44;
+    border-top-left-radius: 7%;
+    position: absolute;
+    left: 0;
+    right: 0;
     justify-content: stretch;
     padding: 5px;
 }
+
+
+.contact-form-container {
+    display: flex;
+    border-radius: 3px;
+    padding: 1.8em;
+}
+
+.contact-index-message {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    justify-content: space-evenly;
+}
+
+.contact {
+    flex: 1;
+    order: 1;
+    margin-right: 2em;
+}
+
+    .contact input {
+        width: 100%;
+    }
+
+    .contact input,
+    .contact button {
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    
 
