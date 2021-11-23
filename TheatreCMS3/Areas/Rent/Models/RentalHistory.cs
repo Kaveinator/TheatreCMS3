@@ -10,8 +10,8 @@ namespace TheatreCMS3.Areas.Rent.Models
     {
         [Key]
         public int ID { get; set; }
-        public bool RentalDamaged { get; set; }
-        public string DamagesIncurred { get; set; }
+        public bool Damaged { get; set; }
+        public string Notes { get; set; }
         public string Rental { get; set; }
     }
 }
