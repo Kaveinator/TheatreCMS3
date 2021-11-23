@@ -1,5 +1,8 @@
-﻿<script>
+﻿$(document).ready(function ()
+{
     var NumPersons = $('p').length;
-    document.getElementById('NumPersons').innerHTML = NumPersons;
-</script>
+    $('#NumPersons').html(NumPersons);
+})
+    
+
 
