@@ -13,26 +13,26 @@
 <table class="table table-dark" id="Rental_History-Index-Table">
     <tr>
         <th class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Damaged)
+            @Html.DisplayNameFor(model => model.RentalDamaged)
         </th>
         <th class="col-sm-4">
             @Html.DisplayNameFor(model => model.Rental)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Notes)
+            @Html.DisplayNameFor(model => model.DamagesIncurred)
         </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Damaged, new { @id = "Rental_History - Index--BoolIcon" })
+            @Html.DisplayFor(modelItem => item.RentalDamaged, new { @id = "Rental_History - Index--BoolIcon" })
         </td>
          <td>
             @Html.DisplayFor(modelItem => item.Rental)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Notes)
+            @Html.DisplayFor(modelItem => item.DamagesIncurred)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
