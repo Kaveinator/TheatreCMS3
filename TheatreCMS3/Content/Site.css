@@ -15,6 +15,7 @@
 }
 
 
+
 .cms-text-main-light {
     color: var(--main-color--light);
 }
@@ -109,6 +110,104 @@ body {
     height: 42px;
     width: auto;
 }
+
+/*.[model-controller]-[Home/About]--[h1/tag] */
+.home-about--header {
+    color: white;
+    text-align: center;
+    font-family: Broadway;
+    padding: 5px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 5em;
+
+}
+
+.container-photo{
+    text-align: center;
+}
+
+.Tom-profile-pics{
+    border-radius: 45em;
+    margin: auto;
+    display: inline-flex;
+}
+
+.Kaia-profile-pics {
+    border-radius: 45em;
+    margin: auto;
+    display: inline-flex;
+}
+
+.Heath-profile-pics {
+    border-radius: 45em;
+    margin: auto;
+    display: inline-flex;
+}
+
+.Jacquelie-profile-pics {
+    border-radius: 45em;
+    margin: auto;
+    display: inline-flex;
+}
+
+.Victoria-Chacon-profile-pics {
+    border-radius: 45em;
+    margin: auto;
+    display: inline-flex;
+}
+
+.img-bottom{
+    text-align:center;
+}
+
+.company-histoy{
+    text-align: center;
+}
+
+.history-info {
+    text-align: center;
+}
+
+.middle-paragraph{
+    text-align:center;
+}
+
+.third-paragraph {
+    text-align: center;
+}
+
+.fourth-paragraph {
+    text-align: center;
+}
+.top-photo-curtains {
+    display: flex;
+    width: 100%;
+}
+
+.container-history {
+    background-color: #f04d44;
+}
+
+.item {
+    order: 5;
+    display: flex;
+}
+
+.board{
+    text-align:center;
+    display: flex;
+}
+
+.president{
+    text-align:center;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+/*end of styling about page*/
 
 .navbar {
     background-color: var(--main-color);
