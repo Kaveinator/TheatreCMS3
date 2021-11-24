@@ -456,3 +456,68 @@ footer {
     overflow: hidden;
 }
 
+
+/* Styling for Home Page */
+@font-face {
+    font-family: 'oswald-variablefont_wght';
+    src: url('../webfonts/oswald-variablefont_wght.ttf') format('truetype');
+}
+
+.home-index--homeLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 6em;
+    padding-bottom: 8em;
+}
+
+.home-index--donateContainer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.home-index--donationBtn {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    width: 10em;
+    height: 3em;
+    border-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.home-index--donationBtn:hover {
+    background-color: var(--main-color--light);
+    text-decoration: none;
+    color: var(--light-color);
+}
+
+.home-index--sponserLogos {
+    width: 4em;
+}
+
+.home-index--productionPhotos {
+    width: 30em;
+}
+
+.home-index-sectionHeads {
+    padding-top: 2em;
+    font-family: 'oswald-variablefont_wght';
+}
+
+.home-index-sectionHeads:after {
+    background: none repeat scroll 0 0 var(--main-color);
+    bottom: -10px;
+    margin-bottom: 1em;
+    content: "";
+    display: block;
+    height: 5px;
+    position: relative;
+    width: 100px;
+}
+
+.home-index--NAYAimage {
+    padding-top: 70em;
+    text-align: center;
+}
+/* End Styling for Home Page */
