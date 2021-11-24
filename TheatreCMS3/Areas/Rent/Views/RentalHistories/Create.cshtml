@@ -23,21 +23,21 @@
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group Rental_History-Create--CheckBox">
-            @Html.LabelFor(model => model.Damaged, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Damaged, new { @id = "Damaged" })
-                    @Html.ValidationMessageFor(model => model.Damaged, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.RentalDamaged, new { @id = "RentalDamaged" })
+                    @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
     </div>
 
     <div class="form-group Rental_History-Create--Notes_DamagesIncurred">
-        @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2", @id = "Rental_History-Create--Switch" })
+        @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2", @id = "Rental_History-Create--Switch" })
         <div class="Rental_History-Create--Notes_InputWrap">
-            @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
         </div>
     </div>
 
