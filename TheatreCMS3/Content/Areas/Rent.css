@@ -169,22 +169,31 @@
 .Rental_History-Create--Header {
     text-align: center;
     margin-top: 5px;
-    padding-bottom: 20px;
-    
 }
 
 .Rental_History-Create--Form {
     background-color: #F04D44;
     border-radius: 25px;
     display: block;
-    width: 500px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+}
+
+.Rental_History-Create--subform {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .Rental_History-Create--CheckBox {
+    padding-top: 25px;
+    font-size: 20px;
     display: inline-block;
-    float: right;
-    padding-right: 10%;
-
+    padding-left: 100px;
 }
 
 .Rental_History-Create--Rental-Title {
@@ -192,33 +201,69 @@
     padding-top: 10px;
 }
 
+.Rental_History-Create--Rental-Title input {
+    width: 300%;
+    width: fit-content;
+}
 
 .Rental_History-Create--Notes_DamagesIncurred {
+    display: inline-block;
     font-size: 20px;
     margin-bottom: 5px;
     margin-top: 2%;
-    white-space: nowrap;
-    
-   
+    width: 100%;
+}
+
+.Rental_History-Create--Notes_DamagesIncurred input {
+    width: 100%;
+}
+
+.Rental_History-Create--Notes_InputWrap {
+    padding: 0 13px;
 }
 
 .Damages_Incurred_Text {
     display: inline-block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .Rental_History-Create--BTContainer {
-    padding-top: 10px;
+    padding-top: 15px;
+    position: fixed;
 }
 
 .Rental_History-Create--BTL {
     
 }
 
-.Rental_History-Create--Create_Button{
+.Rental_History-Create--Create_Button {
     text-align: center;
     height: 20%;
     padding-top: 5px;
-    
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+
+.Rental_History-Create--Back_Button {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Rental_History-Create--buttons {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 #Switch {
