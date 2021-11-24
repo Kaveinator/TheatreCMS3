@@ -119,73 +119,188 @@ body {
     padding: 5px;
     padding-bottom: 10px;
     border-bottom-left-radius: 5em;
+    color: #fffbfb;
+}
+
+
+
+
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: Broadway;
+    padding: 5px;
+    padding-bottom: 100px;
+    border-bottom-left-radius: 5em;
+}
+
+
+.underline:after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 3px;
+    background: var(--main-color;
+    top: 93%;
+    position: absolute;
+}
+
+.underline{
+    position: relative;
+    align-content: center;
+    display: inline;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
 
 }
 
-.container-photo{
+.second-underline:after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #bd1a11;
+    left: 50;
+    top: 50%;
+    position: relative;
+    font: bold;
+}
+
+
+
+.third-underline:after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #bd1a11;
+    left: 50;
+    top: 50%;
+    position: relative;
+    text-align: center !important;
+    font: bold;
+}
+
+.fourth-underline:after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #bd1a11;
+    left: 50;
+    top: 50%;
+    position: relative;
+    font: bold;
+    align-items:center;
+}
+
+.second-underline{
+    position: relative;
+    align-content: center;
+    display: inline;
     text-align: center;
 }
 
-.Tom-profile-pics{
-    border-radius: 45em;
+.container-photo {
+    text-align: center;
+    border-bottom-left-radius: 25px;
+}
+
+.Tom-profile-pics {
+    border-radius: 85rem;
     margin: auto;
     display: inline-flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    float: left;
+    color: #fffbfb;
 }
 
 .Kaia-profile-pics {
-    border-radius: 45em;
+    border-radius: 85rem;
     margin: auto;
     display: inline-flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    color: #fffbfb;
 }
 
 .Heath-profile-pics {
-    border-radius: 45em;
+    border-radius: 85rem;
+    width: auto;
     margin: auto;
     display: inline-flex;
+    margin-top: 80px;
+    color: #fffbfb;
 }
 
 .Jacquelie-profile-pics {
-    border-radius: 45em;
+    border-radius: 85rem;
     margin: auto;
     display: inline-flex;
+    margin-top: 80px;
+    color: #fffbfb;
 }
 
 .Victoria-Chacon-profile-pics {
-    border-radius: 45em;
+    border-radius: 85rem;
     margin: auto;
     display: inline-flex;
+    margin-top: 80px;
+    color: #fffbfb;
 }
 
 .img-bottom{
     text-align:center;
+    background-color: black;
+    justify-content: space-between;
 }
 
-.company-histoy{
+.company-histoy {
     text-align: center;
+    color: #fffbfb;
 }
 
 .history-info {
     text-align: center;
+    color: #fffbfb;
 }
 
-.middle-paragraph{
-    text-align:center;
+.middle-paragraph {
+    text-align: center;
+    color: #fffbfb;
 }
 
 .third-paragraph {
     text-align: center;
+    color: #fffbfb;
 }
 
 .fourth-paragraph {
     text-align: center;
+    color: #fffbfb;
 }
 .top-photo-curtains {
     display: flex;
     width: 100%;
 }
 
+.line {
+    border: 2px solid gray;
+
+}
+
 .container-history {
     background-color: #f04d44;
+    border-radius: 20px;
+
 }
 
 .item {
@@ -193,17 +308,27 @@ body {
     display: flex;
 }
 
-.board{
-    text-align:center;
+.board {
+    text-align: center;
     display: flex;
+    color: #fffbfb;
 }
 
-.president{
-    text-align:center;
+.president {
+    text-align: center;
+    color: #fffbfb;
 }
+
+.ensemble {
+    text-align: center;
+    justify-content: center;
+    color: #fffbfb;
+    font: bold;
+}
+
 
 h2 {
-    color: white;
+    color: #fffbfb;
     text-align: center;
 }
 
