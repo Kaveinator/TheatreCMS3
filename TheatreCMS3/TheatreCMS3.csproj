@@ -199,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
@@ -217,6 +218,10 @@
     <Compile Include="Migrations\202102162045367_InitialCreate.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.designer.cs">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111250935531_blogphoto.cs" />
+    <Compile Include="Migrations\202111250935531_blogphoto.designer.cs">
+      <DependentUpon>202111250935531_blogphoto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -579,7 +584,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Blog\Controllers\" />
-    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
@@ -602,6 +606,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202102162045367_InitialCreate.resx">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111250935531_blogphoto.resx">
+      <DependentUpon>202111250935531_blogphoto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
