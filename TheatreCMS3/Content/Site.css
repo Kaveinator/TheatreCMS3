@@ -476,15 +476,19 @@ footer {
     display: flex;
 }
 
-.contact-get-in-touch {
-    background-color: var(--main-color--light);
-    justify-content: center; 
-    display: flex;
-    padding: 5px;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-}
+    .contact-us-container h2{
+        margin-bottom: auto;
+    }
+
+    .contact-get-in-touch {
+        background-color: var(--main-color--light);
+        justify-content: center;
+        display: flex;
+        padding: 5px;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
     .contact-get-in-touch h2 {
        padding: 20px 0px;
        position: relative;
@@ -517,11 +521,22 @@ footer {
     flex: 1;
     order: 1;
     margin-right: 2em;
+
 }
 
-    .contact input {
-        width: 100%;
-    }
+.contact-form-input {
+    border-radius: 20px;
+}
+
+.form-control {
+    border-radius: 20px;
+    
+}
+
+.contact input {
+    width: 100%;
+    border-radius: 20px;
+}
 
     .contact input,
     .contact button {
