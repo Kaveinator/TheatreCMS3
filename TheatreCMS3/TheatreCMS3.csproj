@@ -200,6 +200,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogPhotosController.cs" />
+    <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotosController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
@@ -426,6 +428,11 @@
     <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPhotos\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPhotos\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPhotos\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPhotos\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPhotos\Index.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotos\Create.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotos\Delete.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotos\Details.cshtml" />
@@ -593,8 +600,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Blog\Controllers\" />
-    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
