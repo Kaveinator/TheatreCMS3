@@ -11,14 +11,14 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class BlogPhotoesController : Controller
+    public class BlogPhotosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Blog/BlogPhotoes
         public ActionResult Index()
         {
-            return View(db.BlogPhotoes.ToList());
+            return View(db.BlogPhotoes.ToList()); 
         }
 
         // GET: Blog/BlogPhotoes/Details/5
