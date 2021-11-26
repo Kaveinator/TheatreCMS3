@@ -471,7 +471,7 @@ footer {
 }
 
 
-/* Centered text */
+/* [Home-About]--[toptext/aboutUs] */
 .centered {
     position: absolute;
     top: 50%;
@@ -485,18 +485,19 @@ footer {
     border-bottom-left-radius: 5em;
 }
 
-
+/*[Home-About]-[underline/firstLine]*/
 .underline:after {
     content: "";
     display: block;
-    width: 150px;
+    width: 160px;
     height: 3px;
     background: var(--main-color);
     top: 93%;
     position: absolute;
 }
 
-.underline1 {
+/*[Home-About]-[positionline/firstLine]*/
+.underline {
     position: relative;
     align-content: center;
     display: flex;
@@ -506,19 +507,65 @@ footer {
     justify-content: center;
 }
 
-.underline1:after {
+/*[Home-About]-[underline/secondLine]*/
+.underline2:after {
     content: "";
     display: block;
-    width: 300px;
-    height: 50px;
-    background: #bd1a11 !important;
-    left: 50;
-    top: 50%;
-    position: relative;
-    font: bold;
+    width: 220px;
+    height: 3px;
+    top: 93%;
+    background: #bd1a11;
+    position: absolute;
 }
 
-.underline {
+/*[Home-About]-[positionline/secondLine]*/
+.underline2 {
+    position: relative;
+    align-content: center;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    top: 10px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*[Home-About]-[underline/thirdLine]*/
+.underline3:after {
+    content: "";
+    display: block;
+    width: 110px;
+    height: 3px;
+    background: var(--main-color);
+    top: 93%;
+    top: 30px;
+    position: absolute;
+}
+
+/*[Home-About]-[positionline/thirdLine]*/
+.underline3 {
+    position: relative;
+    align-content: center;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    top: 30px;
+    justify-content: center;
+}
+
+/*[Home-About]-[underline/fourthLine]*/
+.underline4:after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: var(--main-color);
+    top: 93%;
+    position: absolute;
+}
+
+/*[Home-About]-[positionline/fourthLine]*/
+.underline4 {
     position: relative;
     align-content: center;
     display: flex;
@@ -528,137 +575,110 @@ footer {
 }
 
 
-
-.third-underline:after {
-    content: "";
-    display: block;
-    width: 180px;
-    height: 2px;
-    background: #bd1a11;
-    left: 50;
-    top: 50%;
-    position: relative;
-    text-align: center !important;
-    font: bold;
-}
-
-.underline {
-    position: relative;
-    align-content: center;
-    display: flex;
-    text-align: center;
-    margin: auto;
-    justify-content: center;
-}
-
-
-.fourth-underline:after {
-    content: "";
-    display: block;
-    width: 120px;
-    height: 2px;
-    background: #bd1a11;
-    left: 50;
-    top: 50%;
-    position: relative;
-    font: bold;
-    align-items: center;
-}
-
-.second-underline {
-    position: relative;
-    align-content: center;
-    display: inline;
-    text-align: center;
-}
-
+/*[Home-About]-[topPhoto/container]*/
 .container-photo {
     text-align: center;
     border-bottom-left-radius: 25px;
+    justify-content: space-between;
 }
 
+/*[Home-About]-[topPhoto/container]*/
 .home-about--pics {
     margin: 0 5px;
     margin-top: 80px;
     color: #fffbfb;
 }
 
-    .home-about--pics img {
-        border-radius: 85rem;
-    }
+/*[Home-About]-[image/radius]*/
+ .home-about--pics img {
+    border-radius: 85rem;
+  }
 
 
-
+/*[Home-About]-[bottom/profilePhotos]*/
 .img-bottom {
     text-align: center;
     background-color: black;
     justify-content: space-between;
+    gap: 150px;
 }
 
+/*[Home-About]-[divHistory/Text]*/
 .company-histoy {
     text-align: center;
     color: #fffbfb;
 }
 
+/*[Home-About]-[textAlign/TextColor]*/
 .history-info {
     text-align: center;
     color: #fffbfb;
 }
 
+/*[Home-About]-[divMiddle/Text]*/
 .middle-paragraph {
     text-align: center;
     color: #fffbfb;
 }
 
+/*[Home-About]-[divThird/Text]*/
 .third-paragraph {
     text-align: center;
     color: #fffbfb;
 }
 
-
+/*[Home-About]-[divFourth/Text]*/
 .fourth-paragraph {
     text-align: center;
     color: #fffbfb;
 }
 
+/*[Home-About]-[curtain/photo]*/
 .top-photo-curtains {
     display: flex;
     width: 100%;
 }
 
+/*[Home-About]-[divLine/line]*/
 .line {
     border: 2px solid gray;
 }
 
+/*[Home-About]-[History/Container]*/
 .container-history {
     background-color: #f04d44;
     border-radius: 20px;
 }
 
+/*[Home-About]-[Container/Text]*/
 .item {
     order: 5;
     display: flex;
     flex-direction: column;
+    align-content: space-around;
 }
 
+/*[Home-About]-[image/display]*/
 .home-about--images {
     display: flex;
 }
 
 
-
+/*[Home-About]-[text/Text]*/
 .board {
     text-align: center;
     display: flex;
     color: #fffbfb;
 }
 
+/*[Home-About]-[text/Text]*/
 .president {
     text-align: center;
     color: #fffbfb;
     margin-top: 30px;
 }
 
+/*[Home-About]-[text/Text]*/
 .ensemble {
     text-align: center;
     justify-content: center;
@@ -666,7 +686,7 @@ footer {
     font: bold;
 }
 
-
+/*[Home-About]-[style/H2Text]*/
 h2 {
     color: #fffbfb;
     text-align: center;
