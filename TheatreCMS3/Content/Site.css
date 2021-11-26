@@ -521,3 +521,96 @@ footer {
     text-align: center;
 }
 /* End Styling for Home Page */
+
+/* Contact Page */
+.contact-index-container {
+    position: relative;
+    margin: 0 -35.75%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-color--light);
+}
+
+.contact-us-container {
+    font-family: Broadway;
+    height: 300px;
+    padding-top: 125px;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    background-color: var(--dark-color);
+    border-bottom-left-radius: 150px;
+    display: flex;
+}
+
+    .contact-us-container h2 {
+        margin-bottom: auto;
+    }
+
+.contact-get-in-touch {
+    background-color: var(--main-color--light);
+    justify-content: center;
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+    .contact-get-in-touch h2 {
+        padding: 20px 0px;
+        position: relative;
+    }
+
+        .contact-get-in-touch h2:before {
+            content: "";
+            display: block;
+            width: 190px;
+            height: 3px;
+            background: var(--main-color);
+            top: 75%;
+            position: absolute;
+        }
+
+
+.contact-form-container {
+    display: flex;
+    border-radius: 3px;
+    padding: 1.8em;
+}
+
+.contact-index-message {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    justify-content: space-evenly;
+}
+
+.contact {
+    flex: 1;
+    order: 1;
+    margin-right: 2em;
+}
+
+.contact-form-input {
+    border-radius: 20px;
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.contact input {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.contact input,
+.contact button {
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.contact-button-container {
+    border: 3px solid var(--light-color);
+    border-radius: 5px;
+}
