@@ -472,21 +472,22 @@ footer {
 
 
 /* [Home-About]--[toptext/aboutUs] */
-.centered {
+.home-about--centered {
     position: absolute;
     top: 50%;
     left: 50%;
+    font-size: 80px;
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
     font-family: Broadway;
     padding: 5px;
-    padding-bottom: 350px;
+    padding-bottom: 5px;
     border-bottom-left-radius: 5em;
 }
 
 /*[Home-About]-[underline/firstLine]*/
-.underline:after {
+.home-about--underline:after {
     content: "";
     display: block;
     width: 160px;
@@ -497,7 +498,7 @@ footer {
 }
 
 /*[Home-About]-[positionline/firstLine]*/
-.underline {
+.home-about--underline {
     position: relative;
     align-content: center;
     display: flex;
@@ -508,18 +509,18 @@ footer {
 }
 
 /*[Home-About]-[underline/secondLine]*/
-.underline2:after {
+.home-about--underline2:after {
     content: "";
     display: block;
     width: 220px;
-    height: 3px;
+    height: 5px;
     top: 93%;
     background: #bd1a11;
     position: absolute;
 }
 
 /*[Home-About]-[positionline/secondLine]*/
-.underline2 {
+.home-about--underline2 {
     position: relative;
     align-content: center;
     display: flex;
@@ -531,7 +532,7 @@ footer {
 }
 
 /*[Home-About]-[underline/thirdLine]*/
-.underline3:after {
+.home-about--underline3:after {
     content: "";
     display: block;
     width: 110px;
@@ -543,7 +544,7 @@ footer {
 }
 
 /*[Home-About]-[positionline/thirdLine]*/
-.underline3 {
+.home-about--underline3 {
     position: relative;
     align-content: center;
     display: flex;
@@ -554,7 +555,7 @@ footer {
 }
 
 /*[Home-About]-[underline/fourthLine]*/
-.underline4:after {
+.home-about--underline4:after {
     content: "";
     display: block;
     width: 70px;
@@ -565,18 +566,19 @@ footer {
 }
 
 /*[Home-About]-[positionline/fourthLine]*/
-.underline4 {
+.home-about--underline4 {
     position: relative;
     align-content: center;
     display: flex;
     text-align: center;
     margin: auto;
     justify-content: center;
+    padding-top: 10px;
 }
 
 
 /*[Home-About]-[topPhoto/container]*/
-.container-photo {
+.home-about--container-photo {
     text-align: center;
     border-bottom-left-radius: 25px;
     justify-content: space-between;
@@ -587,52 +589,88 @@ footer {
     margin: 0 5px;
     margin-top: 80px;
     color: #fffbfb;
+    padding-right: 80px;
 }
 
 /*[Home-About]-[image/radius]*/
- .home-about--pics img {
-    border-radius: 85rem;
-  }
+    .home-about--pics img {
+        border-radius: 100%;
+       
+    }
 
 
 /*[Home-About]-[bottom/profilePhotos]*/
-.img-bottom {
+.home-about--img-bottom {
     text-align: center;
-    background-color: black;
+    background-color: var(--main-color--light);
+    
     justify-content: space-between;
     gap: 150px;
 }
 
 /*[Home-About]-[divHistory/Text]*/
-.company-histoy {
+.home-about--company-histoy {
     text-align: center;
     color: #fffbfb;
+    font-size: 25px;
 }
 
 /*[Home-About]-[textAlign/TextColor]*/
-.history-info {
+/*.history-info {
     text-align: center;
     color: #fffbfb;
-}
+}*/
 
 /*[Home-About]-[divMiddle/Text]*/
-.middle-paragraph {
+.home-about--middle-paragraph {
     text-align: center;
     color: #fffbfb;
+    font-size: 25px;
 }
 
 /*[Home-About]-[divThird/Text]*/
-.third-paragraph {
+.home-about--third-paragraph {
     text-align: center;
     color: #fffbfb;
+    font-size: 25px;
 }
 
-/*[Home-About]-[divFourth/Text]*/
-.fourth-paragraph {
+/*[Home-About]--[divFourth/Text]*/
+.home-about--fourth-paragraph {
     text-align: center;
     color: #fffbfb;
+    font-size: 25px;
 }
 
+.home-about--container {
+    background-color: black;
+    border-bottom-left-radius: 120px;
+    padding-bottom: 20px;
+}
+
+.home-about--boardWrapper{
+    background-color: black;
+}
+
+.home-about--tom {
+    padding-top: 20px;
+}
+
+.home-about--kaia {
+    padding-top: 20px;
+}
+
+.home-about--heath {
+    padding-top: 20px;
+}
+
+.home-about--jacquelie {
+    padding-top: 20px;
+}
+
+.home-about--victoria {
+    padding-top: 20px;
+}
 /*[Home-About]-[curtain/photo]*/
 .top-photo-curtains {
     display: flex;
@@ -640,46 +678,57 @@ footer {
 }
 
 /*[Home-About]-[divLine/line]*/
-.line {
+.home-about--line {
     border: 2px solid gray;
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: 240px;
+  
 }
 
 /*[Home-About]-[History/Container]*/
-.container-history {
+.home-about--container-history {
     background-color: #f04d44;
-    border-radius: 20px;
+    padding-bottom: 60px;
+    padding-top: 60px;
 }
 
 /*[Home-About]-[Container/Text]*/
-.item {
-    order: 5;
+.home-about--item {
+    order: 7;
     display: flex;
     flex-direction: column;
     align-content: space-around;
+    border-top-right-radius: 120px;
+    background-color: black;
 }
 
 /*[Home-About]-[image/display]*/
 .home-about--images {
     display: flex;
+    border-bottom-right-radius: 25px;
+    flex-direction: row;
+    justify-content: center;
 }
 
 
 /*[Home-About]-[text/Text]*/
-.board {
+.home-about--board {
     text-align: center;
     display: flex;
     color: #fffbfb;
 }
 
 /*[Home-About]-[text/Text]*/
-.president {
+.home-about--president {
     text-align: center;
     color: #fffbfb;
     margin-top: 30px;
+    margin-bottom: 0;
 }
 
 /*[Home-About]-[text/Text]*/
-.ensemble {
+.home-about--ensemble {
     text-align: center;
     justify-content: center;
     color: #fffbfb;
