@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.Rental>
+@using TheatreCMS3.Areas.Rent.Models
 
 @{
     ViewBag.Title = "Index";
@@ -10,7 +11,127 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+
+
+<div class="col-12">
+  <h3>Rentals</h3>
+  <div class="row">
+    @foreach (var item in Model)
+    {
+      if (item.GetType() == typeof(Rental))
+      {
+        <div class="card col-3 offset-1 mb-2" style="width: 18rem;">
+          <img class="card-img-top" src="~/Content/images/BlogPostRobot.jpg" alt="Card image cap">
+          <div class="card-body">
+            <div class="row">
+              <h5 class="card-title" style="color: var(--dark-color)">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+            </div>
+            <div class="row pt-0">
+              <p class="card-text" style="color: var(--dark-color)">$@Html.DisplayFor(modelItem => item.RentalCost) / Day</p>
+            </div>
+            <div class=" row mt-4">
+              @Html.ActionLink(" Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-secondary fa fa-edit", @id = item.RentalId })
+              <div style="margin-left: 5px">
+                @Html.ActionLink(" Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-secondary fas fa-info", @id = item.RentalId })
+              </div>
+              <div style="margin-left: 25px">
+                @Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "btn btn-danger fas fa-trash", @id = item.RentalId })
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+      else
+      {
+        continue;
+      }
+    }
+  </div>
+</div>
+  
+ 
+
+<div class="col-12">
+  <h3>Rental Equipment</h3>
+  <div class="row">
+  @foreach (var item in Model)
+  {
+    if (item.GetType() == typeof(RentalEquipment))
+    {
+        <div class="card col-3 offset-1 mb-2" style="width: 18rem;">
+          <img class="card-img-top" src="~/Content/images/BlogPostRobot.jpg" alt="Card image cap">
+          <div class="card-body">
+            <div class="row">
+              <h5 class="card-title mb-0" style="color: var(--dark-color)">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+            </div>
+            <div class="row pt-0">
+              <p class="card-text" style="color: var(--dark-color)">$@Html.DisplayFor(modelItem => item.RentalCost) / Day</p>
+            </div>
+            <div class="row mt-0">
+              @if (((RentalEquipment)item).ChokingHazard)
+              {
+                <span class="badge badge-pill badge-warning">Choking Hazard</span>
+              }
+              @if (((RentalEquipment)item).SuffocationHazard)
+              {
+                <span class="badge badge-pill badge-warning">Suffocation Hazard</span>
+              }
+            </div>
+            <div class="row mt-4">
+              @Html.ActionLink(" Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-secondary fa fa-edit", @id = item.RentalId })
+              <div style="margin-left: 5px">
+                @Html.ActionLink(" Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-secondary fas fa-info", @id = item.RentalId })
+              </div>
+              <div style="margin-left: 25px">
+                @Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "btn btn-danger fas fa-trash", @id = item.RentalId })
+              </div>
+            </div>
+          </div>
+        </div>
+    }
+  }
+</div>
+</div>
+
+<div class="col-12">
+  <h3>Rental Rooms</h3>
+  <div class="row">
+  @foreach (var item in Model)
+  {
+    if (item.GetType() == typeof(RentalRoom))
+    {
+      <div class="card col-3 offset-1 mb-2" style="width: 18rem;">
+        <img class="card-img-top" src="~/Content/images/BlogPostRobot.jpg" alt="Card image cap">
+        <div class="card-body">
+          <div class="row">
+            <h5 class="card-title" style="color: var(--dark-color)">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+            <div style="margin-left: 35px">
+              @if (((RentalRoom)item).SquareFootage > 0)
+              {
+                var displaySquareFootage = ((RentalRoom)item).SquareFootage;
+              <span class="badge badge-pill badge-dark">@displaySquareFootage ft²</span>
+              }
+            </div>
+          </div>
+          <div class="pt-0">
+            <p class="card-text" style="color: var(--dark-color)">$@Html.DisplayFor(modelItem => item.RentalCost) / Day</p>
+          </div>
+          <div class="row mt-4">
+            @Html.ActionLink(" Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-secondary fa fa-edit", @id = item.RentalId })
+            <div style="margin-left: 5px">
+              @Html.ActionLink(" Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-secondary fas fa-info", @id = item.RentalId })
+            </div>
+            <div style="margin-left: 25px">
+              @Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "btn btn-danger fas fa-trash", @id = item.RentalId })
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>
+</div>
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.RentalName)
@@ -43,4 +164,4 @@
     </tr>
 }
 
-</table>
+</table>*@
