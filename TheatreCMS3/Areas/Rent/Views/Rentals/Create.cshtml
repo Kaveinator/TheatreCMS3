@@ -1,13 +1,24 @@
-﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+﻿@using TheatreCMS3.Areas.Rent.Models
+@model TheatreCMS3.Areas.Rent.Models.Rental
+
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
     //Scripts.Render("~/Content/Areas/Rent.css");
+    var RentalEquipment = new RentalEquipment();
+    var ChokingHazard = RentalEquipment.ChokingHazard;
+    var PurchasePrice = RentalEquipment.PurchasePrice;
+    var SuffocationHazard = RentalEquipment.SuffocationHazard;
+    var RentalRoom = new RentalRoom();
+    var RoomNumber = RentalRoom.RoomNumber;
+    var MaxOccupancy = RentalRoom.MaxOccupancy;
+    var SquareFootage = RentalRoom.SquareFootage;
 }
 
 <h2>Create Rental</h2>
 
+@Html.DropDownListFor(model => model.RentalOptions, new SelectList(Enum.GetValues(typeof(RentalEnum))), "Rental Options")
 
 @using (Html.BeginForm()) 
 {
@@ -18,28 +29,73 @@
           <hr />
           @Html.ValidationSummary(true, "", new { @class = "text-danger" })
           <div class="form-group">
-              @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
-              <div class="Rental-Create--InputWrap col-md-10">
-               
-                  @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @placeholder = "Enter name of rental here", @class = "form-control" } })
-                  @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
-              </div>
+            @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="Rental-Create--InputWrap col-md-10">
+
+              @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @placeholder = "Enter name of rental here", @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+            </div>
           </div>
 
           <div class="form-group">
-              @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
-              <div class="Rental-Create--InputWrap col-md-10">
-                  @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @placeholder = "Enter the cost of rental here", @class = "form-control" } })
-                  @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
-              </div>
+            @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="Rental-Create--InputWrap col-md-10">
+              @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @placeholder = "Enter the cost of rental here", @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+            </div>
           </div>
 
           <div class="form-group">
-              @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
-              <div class="Rental-Create--InputWrap col-md-10">
-                  @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @placeholder = "Enter any flaws or damages here", @class = "form-control" } })
-                  @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
-              </div>
+            @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="Rental-Create--InputWrap col-md-10">
+              @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @placeholder = "Enter any flaws or damages here", @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+            </div>
+          </div>
+
+          @*Adding new forms here*@
+          <div class="form-group">
+            @Html.LabelFor(model => ChokingHazard, htmlAttributes: new { @class = "control-label col-md-2", @id = "ChokingHazardLabel", @style = "display: none;" })
+            <div class="Rental-Create--InputWrap col-md-10">
+              @Html.EditorFor(model => ChokingHazard, new { htmlAttributes = new { @placeholder = "Enter if equipment is a choking hazard", @class = "form-control",
+           @style = "display: none;"} })
+              @Html.ValidationMessageFor(model => ChokingHazard, "", new { @class = "text-danger", @style = "display: none;" })
+            </div>
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(model => SuffocationHazard, htmlAttributes: new { @class = "control-label col-md-2",  @id="SuffocationHazardLabel", @style = "display: none;" })
+            <div class="Rental-Create--InputWrap col-md-10">
+              @Html.EditorFor(model => SuffocationHazard, new { htmlAttributes = new { @placeholder = "Enter if equipment is a suffocation hazard", @class = "form-control", @style = "display: none;" } })
+              @Html.ValidationMessageFor(model => SuffocationHazard, "", new { @class = "text-danger", @style = "display: none;" })
+            </div>
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2",  @id="PurchasePriceLabel", @style = "display: none;" })
+            <div class="Rental-Create--InputWrap col-md-10">
+              @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @placeholder = "Enter the purchase price of equipment", @class = "form-control", @style = "display: none;" } })
+              @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+            </div>
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(model => RoomNumber, htmlAttributes: new { @class = "control-label col-md-2",  @id="RoomNumberLabel", @style = "display: none;" })
+            <div class="Rental-Create--InputWrap col-md-10">
+              @Html.EditorFor(model => RoomNumber, new { htmlAttributes = new { @placeholder = "Enter the room number here", @class = "form-control", @style = "display: none;" } })
+              @Html.ValidationMessageFor(model => RoomNumber, "", new { @class = "text-danger", @style = "display: none;" })
+            </div>
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(model => SquareFootage, htmlAttributes: new { @class = "control-label col-md-2",  @id="SquareFootageLabel", @style = "display: none;" })
+            <div class="Rental-Create--InputWrap col-md-10">
+              @Html.EditorFor(model => SquareFootage, new { htmlAttributes = new { @placeholder = "Enter the square footage of the room here", @class = "form-control", @style = "display: none;" } })
+              @Html.ValidationMessageFor(model => SquareFootage, "", new { @class = "text-danger", @style = "display: none;" })
+            </div>
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(model => MaxOccupancy, htmlAttributes: new { @class = "control-label col-md-2",  @id="MaxOccupancyLabel", @style = "display: none;" })
+            <div class="Rental-Create--InputWrap col-md-10">
+              @Html.EditorFor(model => MaxOccupancy, new { htmlAttributes = new { @placeholder = "Enter the max occupancy of the room", @class = "form-control", @style = "display: none;" } })
+              @Html.ValidationMessageFor(model =>MaxOccupancy, "", new { @class = "text-danger", @style = "display: none;" })
+            </div>
           </div>
         </div>
 
