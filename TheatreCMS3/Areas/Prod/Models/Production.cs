@@ -42,5 +42,7 @@ namespace TheatreCMS3.Areas.Prod.Models
                 return false;
             }
         }
+
+        public virtual List<CalendarEventModel> calendarEvents { get; set; }
     }
 }

@@ -24,6 +24,13 @@
             </div>
         </div>
 
+      <div class="form-group">
+        @Html.LabelFor(model => model.Production, htmlAttributes: new {@class = "control-label col-md-2"})
+        <div class="col-md-2">
+          @Html.DropDownListFor(model => model.Production, (IEnumerable<SelectListItem>)null, "Production", new {@class = "form-control"})
+        </div>
+      </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
