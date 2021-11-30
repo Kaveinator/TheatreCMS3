@@ -39,6 +39,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CalendarEvents/Create
         public ActionResult Create()
         {
+            Productions();
             return View();
         }
 
@@ -47,10 +48,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEventModel calendarEventModel)
+        public ActionResult Create([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEventModel calendarEventModel, int production)
         {
             if (ModelState.IsValid)
             {
+                calendarEventModel.Production = db.Productions.Find(production);
                 db.CalendarEventModels.Add(calendarEventModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -59,9 +61,23 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(calendarEventModel);
         }
 
+        public void Productions()
+        {
+            List<Production> productions = db.Productions.GroupBy(prod => new { prod.ProductionID }).Select(i => i.FirstOrDefault()).ToList();
+
+            var Productions = productions.Select(i => new SelectListItem
+            {
+                Value = i.ProductionID.ToString(),
+                Text = i.Title
+            });
+
+            ViewData["Production"] = new SelectList(Productions, "Value", "Text");
+        }
+
         // GET: Prod/CalendarEvents/Edit/5
         public ActionResult Edit(int? id)
         {
+            Productions();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -79,10 +95,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEventModel calendarEventModel)
+        public ActionResult Edit([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEventModel calendarEventModel, int production)
         {
             if (ModelState.IsValid)
             {
+                calendarEventModel.Production = db.Productions.Find(production);
                 db.Entry(calendarEventModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
