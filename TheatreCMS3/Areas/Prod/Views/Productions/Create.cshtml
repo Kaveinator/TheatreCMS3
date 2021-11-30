@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Create Production</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+    <div class="create-border--container">
+
     <div class="form-horizontal">
-        <h4>Production</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -112,6 +112,11 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="container">
+    <button type="button" class="create-button-btn">Create Account</button>
+</div>
 }
 
 <div>
