@@ -648,7 +648,9 @@ footer {
 }
 
 .home-about--tom {
-  padding-top: 20px;
+    padding-top: 20px;
+
+    background-color: black;
 }
 
 .home-about--kaia {
@@ -674,10 +676,12 @@ footer {
 
 /*[Home-About]-[divLine/line]*/
 .home-about--line {
-  border: 2px solid gray;
-  justify-content: center;
-  max-width: 1400px;
-  margin-left: 240px;
+    border: 2px solid gray;
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: 240px;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 /*[Home-About]-[History/Container]*/
