@@ -627,3 +627,21 @@ footer {
     border-radius: 5px;
     color: orange;
 }
+
+.control-label col-md-2 {
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+    
+}
+
+.form-group {
+    color: darkblue;
+    align-content: center;
+    padding-left: 150px;
+}
+
+.border-square{
+    background-color: white;
+    border-radius: 5px;
+    padding-right: 150px;
+}
