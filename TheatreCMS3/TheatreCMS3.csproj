@@ -596,6 +596,7 @@
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
     <Content Include="SiteSettings.json" />
+    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
