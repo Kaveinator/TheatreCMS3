@@ -577,9 +577,10 @@ footer {
 
 /*[Home-About]-[topPhoto/container]*/
 .home-about--container-photo {
-  text-align: center;
-  border-bottom-left-radius: 25px;
-  justify-content: space-between;
+    text-align: center;
+    background-color: #f04d44;
+    border-bottom-left-radius: 25px;
+    justify-content: space-between;
 }
 
 /*[Home-About]-[topPhoto/container]*/
@@ -611,11 +612,6 @@ footer {
   font-size: 25px;
 }
 
-/*[Home-About]-[textAlign/TextColor]*/
-/*.history-info {
-    text-align: center;
-    color: #fffbfb;
-}*/
 
 /*[Home-About]-[divMiddle/Text]*/
 .home-about--middle-paragraph {
@@ -645,7 +641,10 @@ footer {
 }
 
 .home-about--boardWrapper {
-  background-color: black;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .home-about--tom {
@@ -679,12 +678,10 @@ footer {
 .home-about--line {
     border-bottom: 4px solid gray;
     justify-content: center;
-    width: 1400px;
+    width: 80%;
     
     margin-top: 50px;
     margin-bottom: 30px;
-   
-    margin: 0px 220px;
 }
 
 /*[Home-About]-[History/Container]*/
@@ -710,7 +707,7 @@ footer {
     border-bottom-right-radius: 25px;
     flex-direction: row;
     align-items: center;
-    padding: 120px;
+    padding: 0 120px;
 }
 
 /*[Home-About]-[text/Text]*/
@@ -736,11 +733,6 @@ footer {
   font: bold;
 }
 
-/*[Home-About]-[style/H2Text]*/
-h2 {
-  color: #fffbfb;
-  
-}
 
 .home-about--firstSentence{
     text-decoration: none;
