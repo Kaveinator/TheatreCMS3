@@ -900,3 +900,23 @@ footer {
   border: 3px solid var(--light-color);
   border-radius: 5px;
 }
+
+
+/*Donation Page*/
+
+.donation-font-title {
+    font-family: Broadway;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.donation-title-bgimage {
+    background-image: url("images/theater.jpg");
+    height: 100px;
+}
+
+.donation-rounded-corners {
+    border-radius: 25px;
+}
+
+/*End Donation Page CSS*/
