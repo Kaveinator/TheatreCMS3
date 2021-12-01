@@ -565,13 +565,14 @@ footer {
 
 /*[Home-About]-[positionline/fourthLine]*/
 .home-about--underline4 {
-  position: relative;
-  align-content: center;
-  display: flex;
-  text-align: center;
-  margin: auto;
-  justify-content: center;
-  padding-top: 10px;
+    position: relative;
+    align-content: center;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    padding-top: 10px;
+    padding-top: 20px;
 }
 
 /*[Home-About]-[topPhoto/container]*/
@@ -676,12 +677,14 @@ footer {
 
 /*[Home-About]-[divLine/line]*/
 .home-about--line {
-    border: 2px solid gray;
+    border-bottom: 4px solid gray;
     justify-content: center;
-    max-width: 1400px;
-    margin-left: 240px;
+    width: 1400px;
+    
     margin-top: 50px;
     margin-bottom: 30px;
+   
+    margin: 0px 220px;
 }
 
 /*[Home-About]-[History/Container]*/
@@ -703,10 +706,11 @@ footer {
 
 /*[Home-About]-[image/display]*/
 .home-about--images {
-  display: flex;
-  border-bottom-right-radius: 25px;
-  flex-direction: row;
-  justify-content: center;
+    display: flex;
+    border-bottom-right-radius: 25px;
+    flex-direction: row;
+    align-items: center;
+    padding: 120px;
 }
 
 /*[Home-About]-[text/Text]*/
@@ -735,15 +739,27 @@ footer {
 /*[Home-About]-[style/H2Text]*/
 h2 {
   color: #fffbfb;
-  text-align: center;
+  
+}
+
+.home-about--firstSentence{
+    text-decoration: none;
+}
+
+.home-about--productionLable {
+    text-decoration: none;
+}
+
+.home-about--focusText{
+    text-decoration: none;
 }
 
 /*end of styling about page*/
 
 /* Styling for Home Page */
 @font-face {
-  font-family: "oswald-variablefont_wght";
-  src: url("../webfonts/oswald-variablefont_wght.ttf") format("truetype");
+    font-family: "oswald-variablefont_wght";
+    src: url("../webfonts/oswald-variablefont_wght.ttf") format("truetype");
 }
 
 .home-index--homeLogo {
