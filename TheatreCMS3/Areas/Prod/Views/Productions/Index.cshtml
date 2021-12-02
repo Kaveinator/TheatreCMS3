@@ -45,7 +45,9 @@
         <th>
             @Html.DisplayNameFor(model => model.TicketLink)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.calendarEvents)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -82,6 +84,20 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TicketLink)
+        </td>
+        <td>
+          @if (item.calendarEvents == null)
+          {
+            continue;
+          }
+
+          else
+          {
+            foreach (var i in item.calendarEvents)
+            {
+              @Html.DisplayFor(modelItem => i.Title)
+            }
+          }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductionID }) |

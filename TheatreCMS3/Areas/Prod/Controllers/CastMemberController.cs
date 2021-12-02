@@ -6,112 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class BlogPhotosController : Controller
+    public class CastMemberController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/BlogPhotoes
+        // GET: Prod/CastMember
         public ActionResult Index()
         {
-            return View(db.BlogPhotoes.ToList()); 
+            return View(db.CastMemberModels.ToList());
         }
 
-        // GET: Blog/BlogPhotoes/Details/5
+        // GET: Prod/CastMember/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            if (blogPhoto == null)
+            CastMemberModel castMemberModel = db.CastMemberModels.Find(id);
+            if (castMemberModel == null)
             {
                 return HttpNotFound();
             }
-            return View(blogPhoto);
+            return View(castMemberModel);
         }
 
-        // GET: Blog/BlogPhotoes/Create
+        // GET: Prod/CastMember/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/BlogPhotoes/Create
+        // POST: Prod/CastMember/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMemberModel castMemberModel)
         {
             if (ModelState.IsValid)
             {
-                db.BlogPhotoes.Add(blogPhoto);
+                db.CastMemberModels.Add(castMemberModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(blogPhoto);
+            return View(castMemberModel);
         }
 
-        // GET: Blog/BlogPhotoes/Edit/5
+        // GET: Prod/CastMember/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            if (blogPhoto == null)
+            CastMemberModel castMemberModel = db.CastMemberModels.Find(id);
+            if (castMemberModel == null)
             {
                 return HttpNotFound();
             }
-            return View(blogPhoto);
+            return View(castMemberModel);
         }
 
-        // POST: Blog/BlogPhotoes/Edit/5
+        // POST: Prod/CastMember/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMemberModel castMemberModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogPhoto).State = EntityState.Modified;
+                db.Entry(castMemberModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blogPhoto);
+            return View(castMemberModel);
         }
 
-        // GET: Blog/BlogPhotoes/Delete/5
+        // GET: Prod/CastMember/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            if (blogPhoto == null)
+            CastMemberModel castMemberModel = db.CastMemberModels.Find(id);
+            if (castMemberModel == null)
             {
                 return HttpNotFound();
             }
-            return View(blogPhoto);
+            return View(castMemberModel);
         }
 
-        // POST: Blog/BlogPhotoes/Delete/5
+        // POST: Prod/CastMember/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            db.BlogPhotoes.Remove(blogPhoto);
+            CastMemberModel castMemberModel = db.CastMemberModels.Find(id);
+            db.CastMemberModels.Remove(castMemberModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

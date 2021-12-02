@@ -31,5 +31,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public bool AllDay { get; set; }
         public int TicketsAvailable { get; set; }
         public bool IsProduction { get; set; }
+
+        public virtual Production Production { get; set; }
     }
 }

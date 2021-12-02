@@ -19,6 +19,7 @@ namespace TheatreCMS3.Areas.Rent
         public ActionResult Index()
         {
             return View(db.Rentals.ToList());
+           
         }
 
         // GET: Rent/Rentals/Details/5
