@@ -595,10 +595,6 @@ footer {
     border-radius: 20px;
 }
 
-.form-control {
-    border-radius: 5px;
-    background-color: grey;
-}
 
 .contact input {
     width: 100%;
@@ -616,60 +612,7 @@ footer {
     border-radius: 5px;
 }
 
-/*start PG-10702--CRUD*/
-.create-border--containerBox {
-    background-color: #bd1a11;
-    /*display: flex;*/
-    padding-left: 150px;
-    border-radius: 25px;
-}
 
-/* PG-10702--CRUD*/
-.create-form--horizontal{
-    justify-content: center;
-}
 
-/* PG-10702--CRUD*/
-.create-form--subButton{
-    align-items: center;
-    padding-bottom: 20px;
-    padding-top: 20px;
-}
 
-/* PG-10702--CRUD*/
-.create-form--group {
-    /*display: flex;*/
-    padding-left: 20px;
-    color: #d6972a;
-    padding-bottom: 2%;
-}
 
-/* PG-10702--CRUD*/
-.create-form--title{
-    text-decoration: none;
-    align-content: center;
-}
-
-.create-form--backButton{
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-    align-content: center;
-}
-
-.create-form--backLink{
-    padding-left: 15px;
-}
-
-.create-form--backButton {
-    text-decoration: none;
-}
-
-.btn btn-success btn-lg{
-
-}
-
-.btn btn-warning btn-lg{
-    display: flex;
-
-}
