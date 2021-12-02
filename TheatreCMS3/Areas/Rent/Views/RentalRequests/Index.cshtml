@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ContactPerson)
@@ -79,4 +79,33 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+<div class="rent-index--accordionContainer">
+  <div class="accordion" id="accordionExample">
+    @foreach (var item in Model)
+    {
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link rent-index--cardBtn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <p>Company: @Html.DisplayFor(modelItem => item.Company)</p>
+              <p>Contact Person: @Html.DisplayFor(modelItem => item.ContactPerson)</p>
+            </button>
+          </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Start Time: @Html.DisplayFor(modelItem => item.StartTime)</p>
+            <p>End Time: @Html.DisplayFor(modelItem => item.EndTime)</p>
+            <p>Rental Code: @Html.DisplayFor(modelItem => item.RentalCode)</p>
+            <p>Project Info: @Html.DisplayFor(modelItem => item.ProjectInfo)</p>
+            <p>Accepted: @Html.DisplayFor(modelItem => item.Accepted)</p>
+            <p>Contract Signed: @Html.DisplayFor(modelItem => item.ContractSigned)</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

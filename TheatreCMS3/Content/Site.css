@@ -522,6 +522,23 @@ footer {
 }
 /* End Styling for Home Page */
 
+/* Styling for Rental Requests Page */
+.card {
+    background-color: var(--main-color);
+}
+
+.rent-index--cardBtn {
+    color: var(--light-color);
+    text-decoration: none;
+}
+
+.rent-index--cardBtn:hover {
+    color: var(--light-color);
+    text-decoration-line: underline;
+    text-decoration-color: var(--secondary-color--dark);
+}
+/* End Styling for Rental Requests Page */
+
 /* Contact Page */
 .contact-index-container {
     position: relative;
