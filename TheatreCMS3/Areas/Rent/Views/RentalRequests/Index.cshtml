@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ContactPerson)
@@ -79,4 +79,80 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+<div class="rent-index--accordionContainer">
+  <div class="accordion" id="accordionExample">
+    @foreach (var item in Model)
+    {
+
+      DateTime currentDate = DateTime.Now;
+
+      string startTimeString = Html.DisplayFor(modelItem => item.StartTime).ToString();
+      DateTime startTime = Convert.ToDateTime(startTimeString);
+      TimeSpan diff = startTime.Subtract(currentDate);
+
+      string endTimeString = Html.DisplayFor(modelItem => item.EndTime).ToString();
+      DateTime endTime = Convert.ToDateTime(endTimeString);
+      TimeSpan remainingDiff = endTime.Subtract(currentDate);
+
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link rent-index--cardBtn" type="button" data-toggle="collapse" data-target="#info-@item.RentalRequestID" aria-expanded="true" aria-controls="collapseOne">
+              <div class="rent-index--headBox">
+                <div class="rent-index--headDiv">
+                  <p class="rent-index--company">Company: @Html.DisplayFor(modelItem => item.Company)</p>
+                  <p class="rent-index--contact">Contact Person: @Html.DisplayFor(modelItem => item.ContactPerson)</p>
+                </div>
+                @if (diff.Days >= 1)
+                {
+                  <p class="rent-index--timeUntil">Time Until Start: @diff.Days Days</p>
+                }
+                else if (diff.Days < 1 && diff.Hours >= 1)
+                {
+                  <p class="rent-index--timeUntil">Time Until Start: @diff.Hours Hours</p>
+                }
+                else if (diff.Days < 1 && diff.Hours < 1 && diff.Minutes >= 1)
+                {
+                  <p class="rent-index--timeUntil">Time Until Start: @diff.Minutes Minutes</p>
+                }
+                else if (remainingDiff.Days >= 1)
+                {
+                  <p class="rent-index--timeUntil">Time Left: @remainingDiff.Days Days</p>
+                }
+                else if (remainingDiff.Days < 1 && remainingDiff.Hours >= 1)
+                {
+                  <p class="rent-index--timeUntil">Time Left: @remainingDiff.Hours Hours</p>
+                }
+                else if (remainingDiff.Days < 1 && remainingDiff.Hours < 1 && remainingDiff.Minutes >= 1)
+                {
+                  <p class="rent-index--timeUntil">Time Left: @remainingDiff.Minutes Minutes</p>
+                }
+              </div>
+            </button>
+          </h5>
+        </div>
+
+        <div id="info-@item.RentalRequestID" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="rent-index--timeBox">
+              <p class="rent-index--startTime">Start Time:<br /> <span class="rent-index--dateTime">@startTime.ToShortTimeString() <br /> @startTime.ToString("MMM") @startTime.Day, @startTime.Year</span></p>
+              <p class="rent-index--endTime">End Time:<br /> <span class="rent-index--dateTime">@endTime.ToShortTimeString() <br /> @endTime.ToString("MMM") @endTime.Day, @endTime.Year</span></p>
+            </div>
+            <div class="rent-index--infoBox">
+              <p class="rent-index--info">Rental Code: @Html.DisplayFor(modelItem => item.RentalCode)</p>
+              <p class="rent-index--info">Project Info: @Html.DisplayFor(modelItem => item.ProjectInfo)</p>
+              <p class="rent-index--info">Accepted: @Html.DisplayFor(modelItem => item.Accepted)</p>
+              <p class="rent-index--info">Contract Signed: @Html.DisplayFor(modelItem => item.ContractSigned)</p>
+
+              @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+              @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+              @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

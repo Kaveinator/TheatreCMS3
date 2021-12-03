@@ -815,11 +815,11 @@ footer {
 
 /* Contact Page */
 .contact-index-container {
-  position: relative;
-  margin: 0 -35.75%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--main-color--light);
+    position: relative;
+    margin: 0 -35.75%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-color--light);
 }
 
 .contact-us-container {
