@@ -813,67 +813,6 @@ footer {
 }
 /* End Styling for Home Page */
 
-/* Styling for Rental Requests Page */
-.card {
-    background-color: var(--main-color);
-}
-
-.rent-index--cardBtn {
-    color: var(--light-color);
-    text-decoration: none;
-}
-
-.rent-index--cardBtn:hover {
-    color: var(--light-color);
-    text-decoration: none;
-}
-
-.rent-index--cardBtn:focus {
-    box-shadow: none;
-    text-decoration: none;
-}
-
-.rent-index--timeBox {
-    text-align: center;
-    padding-bottom: 6em;
-}
-
-.rent-index--startTime {
-    margin: 0;
-    display: inline;
-    float: left;
-    padding-left: 6em;
-}
-
-.rent-index--endTime {
-    margin: 0;
-    display: inline;
-    float: right;
-    padding-right: 6em;
-}
-
-.rent-index--headBox {
-    text-align: center;
-    display: flex;
-    width: 100%;
-}
-
-.rent-index--headDiv {
-    padding-right: 18em;
-}
-
-.rent-index--company {
-    margin: 0;
-}
-
-.rent-index--contact {
-    margin: 0;
-}
-
-.rent-index--timeUntil {
-    margin: 0;
-}
-/* End Styling for Rental Requests Page */
 /* Contact Page */
 .contact-index-container {
     position: relative;
