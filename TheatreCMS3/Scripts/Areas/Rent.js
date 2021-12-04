@@ -66,3 +66,17 @@ $("#RentalOptions").change(function () {
         $("#MaxOccupancyLabel").hide();
     }
 })
+
+$("#expiredBtn").click(function () {
+
+    if ($(".rent-index--current").is(":visible")) {
+        $(".rent-index--current").hide();
+        $(".rent-index--expired").show();
+        $("#expiredBtn").val("Current Requests");
+    }
+    else if ($(".rent-index--expired").is(":visible")) {
+        $(".rent-index--expired").hide();
+        $(".rent-index--current").show();
+        $("#expiredBtn").val("Expired Requests");
+    }
+})
