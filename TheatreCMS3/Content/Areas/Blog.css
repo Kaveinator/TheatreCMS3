@@ -12,3 +12,40 @@
 /*}*/
 
 
+/*BlogAuthor*/
+
+.blogauthor-div-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 530px;
+    min-height: 100px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.blogauthor-bio-border {
+    border-color: black;
+    border-radius: 25px;    
+}
+
+.blogauthor-name-textbox {
+    width: 500px;    
+    border-radius: 2px;
+    resize: none;
+    border:none;
+}
+
+.blogauthor-timedate-timedate {
+    margin-left:auto;
+    margin-right:auto;
+    width: 150px;
+    border-radius: 2px;
+    resize: none;
+    border: none;
+}
+
+.blogauthor-left-timedate {
+    margin-left: 25px;
+}
+
+/*End BlogAuthor CSS*/
