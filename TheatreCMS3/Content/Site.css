@@ -790,4 +790,76 @@ footer {
 }
 /* End Styling for Home Page */
 
+/*BlogAuthor*/
+
+.blogauthor-div-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 530px;
+    min-height: 100px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.blogauthor-bio-border {
+    border-color: black;
+    border-radius: 25px;
+}
+
+.blogauthor-name-textbox {
+    width: 500px;
+    border-radius: 2px;
+    resize: none;
+    border: none;
+}
+
+.blogauthor-timedate-timedate {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    border-radius: 2px;
+    resize: none;
+    border: none;
+}
+
+.blogauthor-left-timedate {
+    margin-left: 25px;
+}
+
+.blogauthor-details-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    min-height: 100px;
+    border-radius: 5px;
+}
+
+.blogauthor-details-topbuttons {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.blogauthor-details-topbuttons-container {
+    margin-left: 350px;
+    margin-right: auto;
+    width: auto;
+}
+
+.blogauthor-details-p-name {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.blogauthor-details-joined-left {
+    font-weight: bold;
+}
+
+
+.blogauthor-details-socialmediaicons {
+    margin-left: 480px;
+}
+
+
+
+/*End BlogAuthor CSS*/
+
 

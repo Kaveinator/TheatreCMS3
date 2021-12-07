@@ -1,51 +1,82 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Details";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
+  <h4>BlogAuthor</h4>
+  <hr />
+  <div class="blogauthor-details-topbuttons-container">
+    <div class="row">
+      <div class="col-2">
+        <div class="btn-group text-nowrap cms-bg-main-light blogauthor-details-topbuttons">
+          <button type="button" class="btn btn-success mt-2 ml-2 mr-2" onclick="location.href = '@Url.Action("Details", "BlogAuthors", new { id = Model.BlogAuthorId })'">Author Details</button>
+          <button type="button" class="btn btn-dark mt-2 mr-2" onclick="location.href = '@Url.Action("BlogPosts", "BlogAuthors", new { id = Model.BlogAuthorId })'">Blog Posts</button>
+          <button type="button" class="btn btn-dark mt-2 mr-2" onclick="location.href = '@Url.Action("Contact", "BlogAuthors", new { id = Model.BlogAuthorId })'">Contact</button>
+          <button type="button" class="btn btn-dark mt-2 mr-2" onclick="location.href = '@Url.Action("Twitter", "BlogAuthors", new { id = Model.BlogAuthorId })'">Twitter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blogauthor-details-container cms-bg-main-light blogauthor-rounded-corners">
+    <div class="row">
+      <div class="col-4">
+        <div class="m-2">
+          <img src="https://www.fillmurray.com/340/180" />
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="row">
+          <p class="blogauthor-details-p-name mt-2">
             @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
+          </p>
+          <div class="btn-group-lg col-10 ">
+            <button type="button" class="btn blogauthor-details-socialmediaicons" onclick="location.href = 'http://www.instagram.com'"><i class="fab fa-instagram"></i></button>
+            <button type="button" class="btn" onclick="location.href = 'http://wwww.facebook.com'"><i class="fab fa-facebook-square"></i></button>
+          </div>
+        </div>
+        <div class="row mr-2">
+          <div class="blockquote ">
+            <p>
+              @Html.DisplayFor(model => model.Bio)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-content-center">
+      <div class="col-4"></div>
+      <div class="col-2 mb-2 blogauthor-details-joined-left">
+        Joined Date:        
+      </div>
+      <div class="col-6 mb-2 blogauthor-details-joined-left">
+        Left Date:        
+      </div>      
+    </div>
+    <div class="row align-content-center">     
+      <div class="col-4"></div>
+      <div class="col-2 mb-2">        
+        @Html.DisplayFor(model => model.Joined)
+      </div>
+      <div class="col-6 mb-2">        
+        @Html.DisplayFor(model => model.Left)
+      </div>
+      
+    </div>
+  </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="row">
+  <div class="col-11">
+    <button type="button" class="btn btn-primary mt-2" onclick="location.href = '@Url.Action("", "BlogAuthors")'"><i class="fa fa-arrow-alt-circle-left"></i> Back to List</button>
+    <button type="button" class="btn btn-success mt-2" onclick="location.href = '@Url.Action("Edit", "BlogAuthors", new { id = Model.BlogAuthorId })'"><i class="fa fa-edit"></i> Edit</button>    
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-danger mt-2 align-content-end" onclick="location.href = '@Url.Action("Delete", "BlogAuthors", new { id = Model.BlogAuthorId })'"><i class="fa fa-trash"></i></button>
+  </div>
+</div>
+
+

@@ -1,0 +1,48 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+
+@{
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Blog Posts</h2>
+
+<div>
+  <h4>BlogAuthor</h4>
+  <hr />
+  <div class="blogauthor-details-topbuttons-container">
+    <div class="row">
+      <div class="col-2">
+        <div class="btn-group text-nowrap cms-bg-main-light blogauthor-details-topbuttons">
+          <a href="~/Blog/BlogAuthors" class="btn btn-dark ml-2 mr-2 mt-2" role="button">Author Details</a>
+          <a href="~/Blog/BlogAuthors/BlogPosts" class="btn btn-success mr-2 mt-2" role="button">Blog Posts</a>
+          <a href="~/Blog/BlogAuthors/Contact" class="btn btn-dark mr-2 mt-2" role="button">Contact</a>
+          <a href="~/Blog/BlogAuthors/Twitter" class="btn btn-dark mr-2 mt-2" role="button">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="blogauthor-details-container cms-bg-main-light blogauthor-rounded-corners">
+    <div class="row">
+      <div class="col-4">
+        <div class="m-2">
+          <img src="https://www.fillmurray.com/340/180" />
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="row">
+          (implement in the future stories)
+        </div>
+
+        <p>
+          @Html.ActionLink("Back to List", "Index")
+        </p>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
