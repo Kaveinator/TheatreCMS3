@@ -11,3 +11,11 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+.rental-History--Form {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+}
