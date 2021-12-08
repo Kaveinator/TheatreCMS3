@@ -790,4 +790,6 @@ footer {
 }
 /* End Styling for Home Page */
 
-
+.home-contact--titleFont {
+    font-family: Broadway;
+}
