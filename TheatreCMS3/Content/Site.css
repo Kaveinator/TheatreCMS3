@@ -790,4 +790,34 @@ footer {
 }
 /* End Styling for Home Page */
 
+/*Home-Contact Page Styling*/
+
+.home-contact--titleFont {
+    font-family: Broadway;
+    font-size: 44px;
+}
+
+.home-contact--heading {
+    padding-top: 20px;
+    position: relative;
+    align-content: center;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.home-contact--heading::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 5px;
+    top: 93%;
+    background: #bd1a11;
+    position: absolute;
+}
+
+
+
 
