@@ -13,38 +13,38 @@
   </div>
 
 
-  <div class="container">
-    <br /><h3 class="heading">G<u>ET IN TOU</u>CH</h3><br /><br />
+  <div class="container-fluid">
+    <br /><h3 class="home-contact--heading">GET IN TOUCH</h3><br />
     <form id="contact-form" name="contact-form" action="" method="POST">
       <div class="row">
         <div class="form-group col-md-7 ml-5">
           <label for="name" class="">First & Last Name *</label>
-          <input type="text" id="name" name="name" class="form-control"><br />
+          <input type="text" id="name" name="name" class="form-control">
 
           <label for="email" class="">Email Address *</label>
-          <input type="text" id="email" name="email" class="form-control"><br />
+          <input type="text" id="email" name="email" class="form-control">
 
           <label for="subject" class="">Subject *</label>
-          <input type="text" id="subject" name="subject" class="form-control"><br />
+          <input type="text" id="subject" name="subject" class="form-control">
 
           <label for="message">Message *</label>
-          <textarea type="text" id="message" name="message" rows="5" class="form-control md-textarea"></textarea><br />
+          <textarea type="text" id="message" name="message" rows="5" class="form-control md-textarea"></textarea><br>
 
-          <button type="submit" class="btn btn-danger btn-block btn-outline-light" style="background-color: darkred;">Submit</button>
+          <button type="submit" class="btn btn-danger btn-block btn-outline-light" id="submit-button" style="background-color: darkred;">Submit</button>
         </div>
 
 
 
         <!--Donate/Volunteer Block-->
         <div class="col-md-3 ml-5">
-          <br />
+          
           <h3 class="mr-1">DONATE</h3><br />
           <p>
             We've got a Patreon account! Help support live theatre in Portland, OR. by becoming a Patreon today!
-          </p><br />
-          <button type="button" class="btn btn-danger btn-outline-light" onclick="" style="background-color: darkred;">Donate</button><br />
+          </p>
+          <button type="button" class="btn btn-danger btn-outline-light" onclick="" style="background-color: darkred; padding-top: 2px;">Donate</button><br />
 
-          <br /><br /><h3 class="mr-1">VOLUNTEER</h3>
+          <br /><h3 class="mr-1">VOLUNTEER</h3>
           <p>
             Lorem ipsum dolor sit amet, conssecletur adipiscing ellif, sed do eiusmod tempar incididunt ut labore el dolore magna.
           </p>
@@ -62,6 +62,8 @@
     background-color: #f04d44;
   }
 
+
+
   .container {
     max-width: 100%;
     padding-right: 0px;
@@ -77,35 +79,16 @@
     height: 250px;
     margin-left: 0px;
     margin-right: 0px;
-    width: 100%;
+    max-width: 100%;
   }
 
-  #jumbotron-container {
-    width: 100%;
-    height: 250px;
+
+  footer {
+    background-color: black;
+    border: 2px solid black;
+    max-width: 100%;
+    -webkit-border-radius: 0px 80px 0px 0px;
+    border-radius: 0px 80px 0px 0px;
   }
 
-  #title {
-    
-    font-size: 44px;
-    letter-spacing: 2px;
-    word-spacing: 2px;
-    color: white;
-    font-weight: normal;
-    text-align: center;
-    vertical-align: middle;
-    text-decoration: none solid rgb(68, 68, 68);
-    font-style: normal;
-    font-variant: normal;
-    text-transform: uppercase;
-  }
-
-  .heading {
-    text-align: center;
-  }
-
-  u {
-    text-decoration: underline;
-    text-decoration-color: darkred;
-  }
 </style>
