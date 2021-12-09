@@ -597,6 +597,7 @@
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Models\.vs\Models\v16\" />
+    <Folder Include="Areas\Rent\Views\Rentals\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
     <Folder Include="obj\" />
