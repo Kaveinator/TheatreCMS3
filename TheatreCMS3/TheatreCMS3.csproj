@@ -402,6 +402,7 @@
     <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
     <Content Include="Areas\Prod\Views\web.config" />
+    <Content Include="Areas\Rent\Views\RentalHistories\ShowRentalHistoryList.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

@@ -10,17 +10,19 @@
         }
     });
 
-    // Toggel the drowpdown menu
-    $('.dropdown').hover(function () {
-        $(this).children(".dropdown-menu").css({
-            "display": "block"
+    function dropdownList() {
+        // Toggel the drowpdown menu
+        $('.dropdown').hover(function () {
+            $(this).children(".dropdown-menu").css({
+                "display": "block",
+            });
+        }, function () {
+            $(this).children(".dropdown-menu").css({
+                "display": "none"
+            });
         });
-    }, function () {
-        $(this).children(".dropdown-menu").css({
-            "display": "none"
-        });
-    });
-
+    }
+    dropdownList();
     // when selected
     $("#sortSelect").on('change', function () {
         event.preventDefault();
@@ -33,6 +35,7 @@
             success: function (data) {
                 console.log("success");
                 $("#rentHistoryListArea").html(data);
+                dropdownList();
             }
         });
     });

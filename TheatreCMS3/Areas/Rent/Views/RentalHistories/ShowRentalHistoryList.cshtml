@@ -37,7 +37,7 @@
         </div>
         <div class="p-2 dropdown">
             <button class="btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="rentHistory-dropdown-List dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a href="@Url.Action("Edit", new { id = item.RentalHistoryId } )" class="dropdown-item"><i class="fa fa-pen-square" aria-hidden="true"></i> Edit</a>
                 <a href="@Url.Action("Details", new { id = item.RentalHistoryId } )" class="dropdown-item"><i class="fa fa-info-circle" aria-hidden="true"></i> Details</a>
                 <div role="separator" class="dropdown-divider"></div>
