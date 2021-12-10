@@ -431,9 +431,6 @@
     <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\BlogPosts.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Contact.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Twitter.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

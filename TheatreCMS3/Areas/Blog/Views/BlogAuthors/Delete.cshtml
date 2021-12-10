@@ -8,12 +8,12 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<div>
-  <div class="blogauthor-details-container cms-bg-main-light blogauthor-rounded-corners">
+<div class="container">
+  <div class="cms-bg-main-light">
     <div class="row">
       <div class="col-4">
         <div class="m-2">
-          <img src="https://www.fillmurray.com/340/180" />
+          <img src="https://www.fillmurray.com/340/340" />
         </div>
       </div>
 
@@ -26,7 +26,7 @@
         </div>
 
         <div class="row mr-2">
-          <div class="blockquote ">
+          <div class="blockquote">
             <p>
               @Html.DisplayFor(model => model.Bio)
             </p>
@@ -34,29 +34,27 @@
         </div>
         <div">
           <div class"row">
-            <div class="col-4">
+            <p>
               Joined Date
               @Html.DisplayFor(model => model.Joined)
-            </div>
-            <div class="col-4">
+              |
               Left Date
               @Html.DisplayFor(model => model.Left)
-            </div>
+            </p>
           </div>
       </div>
-
-
     </div>
   </div>
-</div>
-@using (Html.BeginForm())
-{
-  @Html.AntiForgeryToken()
-<div class="row">
-  <div class="form-actions">
-    <button type="submit" value="" class="btn btn-danger mt-2 ml-4 mr-2" /><i class="fa fa-trash"></i>
+  <div class="container">
+    @using (Html.BeginForm())
+    {
+      @Html.AntiForgeryToken()
+      <div class="row">
+        <div class="form-actions">
+          <button type="submit" value="" class="btn btn-danger mt-2 ml-4 mr-2" /><i class="fa fa-trash"></i>
+        </div>
+        <button type="button" class="btn btn-primary mt-2" onclick="location.href = '@Url.Action("", "BlogAuthors")'"><i class="fa fa-list"></i> Back to List</button>
+      </div>
+    }</div>
   </div>
-  <button type="button" class="btn btn-primary mt-2" onclick="location.href = '@Url.Action("", "BlogAuthors")'"><i class="fa fa-list"></i> Back to List</button>
-</div>
-}
-</div>
+
