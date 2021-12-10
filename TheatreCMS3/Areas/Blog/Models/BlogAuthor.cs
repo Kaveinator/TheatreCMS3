@@ -13,10 +13,10 @@ namespace TheatreCMS3.Areas.Blog.Models
         public string Name { get; set; }        
         public string Bio { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:MMM dd, yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Joined { get; set; }
         [DataType(DataType.Date)]        
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:MMM dd, yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Left { get; set; }
     }
 }
