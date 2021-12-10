@@ -39,13 +39,12 @@
 
                 </div>
             </div>
-            @foreach (var item in Model)
-            {
-                var isDamage = "";
-            <div id="rentHistoryListArea">
+            
                 
+            <div id="rentHistoryListArea">
+                @Html.Partial("ShowRentalHistoryList", Model)
             </div>
-            }
+            
         </div>
     </div>
 </div>

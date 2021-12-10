@@ -40,7 +40,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     damageList = db.RentalHistories.OrderByDescending(s => s.Rental);
                     break;
                 default:
-                    damageList = db.RentalHistories.OrderBy(s => !s.RentalDamaged);
+                    damageList = db.RentalHistories;
                     break;
             }
 

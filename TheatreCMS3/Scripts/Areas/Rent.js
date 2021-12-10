@@ -6,7 +6,7 @@
             $("#RentalLabel").html("Damages Incurred");
         }
         else {
-            decs.innerHTML = "Notes";
+            $("#RentalLabel").html("Notes");
         }
     });
 
@@ -21,25 +21,19 @@
         });
     });
 
-    // Display the rental history list 
-    function loadRentalHistoryList(val) {
+    // when selected
+    $("#sortSelect").on('change', function () {
+        event.preventDefault();
+        // value of the selection
+        var val = this.value;
         $.ajax({
             type: "POST",
-            url: 'ShowRentalHistoryList',
+            url: 'RentalHistories/ShowRentalHistoryList',
             data: { sortOrder: val },
             success: function (data) {
                 console.log("success");
                 $("#rentHistoryListArea").html(data);
             }
         });
-    }
-    // On Page Load
-    loadRentalHistoryList("damaged");
-    // when selected
-    $("#sortSelect").on('change', function () {
-        event.preventDefault();
-        // value of the selection
-        var val = this.value;
-        loadRentalHistoryList(val)
     });
 });
