@@ -1,51 +1,120 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Details";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
 
-<div>
+
     <h4>BlogAuthor</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+<div class="blogauthor-details-container">
+  <div class="blogauthor-details-center">
+    <ul class="blogauthor-details-tab-navigation">
+      <li class="blogauthor-details-li">Author Details</li>
+      <li class="blogauthor-details-li">Blog</li>
+      <li class="blogauthor-details-li">Contact</li>
+      <li class="blogauthor-details-li">Twitter</li>
+    </ul>
+  </div>
+  <div class="blogauthor-details-tab_container_area">
+    <div class="blogauthor-details-tab-container">
+      <div class="blogauthor-details-flex-container">        
+          <div class="flex-child blogauthor-details-flex-child">
+            <img src="https://www.fillmurray.com/340/340" />
+          </div>
+          <div class=" flex-child blogauthor-details-flex-child">
+            <div class="row">
+              <div class="col">
+                <h1>
+                  @Html.DisplayFor(model => model.Name)
+                </h1>
+              </div>
+              <div class="col">
+                <button type="button" class="btn blogauthor-details-socialmediaicons float-right" onclick="location.href = 'http://www.instagram.com'"><i class="fab fa-instagram fa-3x"></i></button>
+                <button type="button" class="btn blogauthor-details-socialmediaicons mr-2 float-right" onclick="location.href = 'http://wwww.facebook.com'"><i class="fab fa-facebook-square fa-3x"></i></button>
+              </div>                        
+            </div>          
+          <div class="row">
+            <div class="col mb-2">
+              @Html.DisplayFor(model => model.Bio)
+            </div>
+          </div>
+          <div class="blogauthor-details-joined-left mt-2">
+            <div class="row">
+              <div class="col mb-2 blogauthor-details-bold-joined-left">
+                Joined Date:
+              </div>
+              <div class="col mb-2 blogauthor-details-bold-joined-left">
+                Left Date:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                @Html.DisplayFor(model => model.Joined)
+              </div>
+              <div class="col">
+                @Html.DisplayFor(model => model.Left)
+              </div>
+            </div>
+          </div>
+        </div>          
+      </div>
+    </div>
+  </div>
+  <div class="blogauthor-details-tab-container">
+    <div container>
+      <div class="row">
+        <div class="col">
+          <img src="https://www.fillmurray.com/340/340" />
+        </div>
+        <div class="col">
+          <p class="blogauthor-details-p-name mt-2">
+            Future information...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blogauthor-details-tab-container">
+    <div container>
+      <div class="row">
+        <div class="col">
+          <img src="https://www.fillmurray.com/340/340" />
+        </div>
+        <div class="col">
+          <p class="blogauthor-details-p-name mt-2">
+            Future information...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blogauthor-details-tab-container">
+    <div container>
+      <div class="row">
+        <div class="col">
+          <img src="https://www.fillmurray.com/340/340" />
+        </div>
+        <div class="col">
+          <p class="blogauthor-details-p-name mt-2">
+            Future information...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-primary mt-2" onclick="location.href = '@Url.Action("", "BlogAuthors")'"><i class="fa fa-arrow-alt-circle-left"></i> Back to List</button>
+      <button type="button" class="btn btn-success mt-2" onclick="location.href = '@Url.Action("Edit", "BlogAuthors", new { id = Model.BlogAuthorId })'"><i class="fa fa-edit"></i> Edit</button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-danger mt-2 float-right" onclick="location.href = '@Url.Action("Delete", "BlogAuthors", new { id = Model.BlogAuthorId })'"><i class="fa fa-trash"></i></button>
+    </div>
+  </div>
+</div>  
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
