@@ -790,4 +790,33 @@ footer {
 }
 /* End Styling for Home Page */
 
+/* Styling for Home Page */
+.home-signin-container {
+    display: flex;
+    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-left: -10px;
+    margin-right: 8px;
+}
 
+.home-signin-names {
+    column-count: 4;
+}
+
+.home-signin-names p {
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+    border-radius: 45px;
+    background-color: #db1a11;
+    margin: 5px;
+    padding: 5px;
+    height: 55px;
+    width: 265px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 14px;
+}
+/* End Styling for Home Page */
