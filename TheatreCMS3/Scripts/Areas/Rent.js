@@ -1,22 +1,42 @@
-﻿// get the variable for the label and checkbox
-var damage = document.querySelector("#RentalDamaged");
-var decs = document.querySelector("#RentalLabel");
-// Listener when checked or enchecked
-damage.addEventListener('change', function () {
-    if (this.checked) {
-        decs.innerHTML = "Damages Incurred";
-    }
-    else {
-        decs.innerHTML = "Notes";
-    }
-});
-// Toggel the drowpdown menu
-$('.dropdown').hover(function () {
-    $(this).children(".dropdown-menu").css({
-        "display": "block"
+﻿$(function () {
+
+    // get the variable for the label and checkbox
+    $('#RentalDamaged').change(function () {
+        if ($(this).is(":checked")) {
+            $("#RentalLabel").html("Damages Incurred");
+        }
+        else {
+            $("#RentalLabel").html("Notes");
+        }
     });
-}, function () {
-    $(this).children(".dropdown-menu").css({
-        "display": "none"
+
+    function dropdownList() {
+        // Toggel the drowpdown menu
+        $('.dropdown').hover(function () {
+            $(this).children(".dropdown-menu").css({
+                "display": "block",
+            });
+        }, function () {
+            $(this).children(".dropdown-menu").css({
+                "display": "none"
+            });
+        });
+    }
+    dropdownList();
+    // when selected
+    $("#sortSelect").on('change', function () {
+        event.preventDefault();
+        // value of the selection
+        var val = this.value;
+        $.ajax({
+            type: "POST",
+            url: 'RentalHistories/ShowRentalHistoryList',
+            data: { sortOrder: val },
+            success: function (data) {
+                console.log("success");
+                $("#rentHistoryListArea").html(data);
+                dropdownList();
+            }
+        });
     });
 });

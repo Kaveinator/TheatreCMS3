@@ -21,6 +21,32 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(db.RentalHistories.ToList());
         }
 
+        [HttpPost]
+        public ActionResult ShowRentalHistoryList(string sortOrder)
+        {
+            var damageList = from s in db.RentalHistories select s;
+            switch (sortOrder)
+            {
+                case "damaged":
+                    damageList = db.RentalHistories.OrderBy(s => !s.RentalDamaged);
+                    break;
+                case "undamaged":
+                    damageList = db.RentalHistories.OrderBy(s => s.RentalDamaged);
+                    break;
+                case "asc":
+                    damageList = db.RentalHistories.OrderBy(s => s.Rental);
+                    break;
+                case "desc":
+                    damageList = db.RentalHistories.OrderByDescending(s => s.Rental);
+                    break;
+                default:
+                    damageList = db.RentalHistories;
+                    break;
+            }
+
+            return PartialView(damageList.ToList());
+        }
+
         // GET: Rent/RentalHistories/Details/5
         public ActionResult Details(int? id)
         {
