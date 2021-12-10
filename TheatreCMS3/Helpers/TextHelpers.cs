@@ -14,9 +14,15 @@ namespace TheatreCMS3.Helpers
         //      - limit: int
         public static string LimitCharacter (string text, int limit)
         {
-            //Check for null or empty value
-            if (string.IsNullOrEmpty(text)) return text;
-            return text.Substring(0, limit) + "...";
+            try
+            {
+                //Check for null or empty value
+                if (string.IsNullOrEmpty(text)) return text;
+                return text.Substring(0, limit) + "...";
+            }catch
+            {
+                return text + "...";
+            }
         }
     }
 }

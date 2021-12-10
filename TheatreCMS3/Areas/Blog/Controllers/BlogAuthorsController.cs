@@ -124,5 +124,20 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult BlogPosts()
+        {
+            return View();
+        }
+
+        public ActionResult Twitter()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }
