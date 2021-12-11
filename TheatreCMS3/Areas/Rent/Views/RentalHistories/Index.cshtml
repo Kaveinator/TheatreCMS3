@@ -42,8 +42,10 @@
             
                 
             <div id="rentHistoryListArea">
-                @Html.Partial("ShowRentalHistoryList", Model)
-            </div>
+                <div id="accordion">
+                    @Html.Partial("ShowRentalHistoryList", Model)
+                </div>
+             </div>
             
         </div>
     </div>
