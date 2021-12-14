@@ -203,6 +203,8 @@
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
+    <Compile Include="Areas\Rent\Models\Rental.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
@@ -404,6 +406,11 @@
     <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Create.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Delete.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Details.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Edit.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Index.cshtml" />
     <Content Include="Areas\Prod\Views\web.config" />
     <Content Include="Areas\Rent\Views\RentalHistories\ShowRentalHistoryList.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Create.cshtml" />
@@ -577,7 +584,6 @@
     <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Models\.vs\Models\v16\" />
-    <Folder Include="Areas\Rent\Views\Rentals\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
     <Folder Include="obj\" />
