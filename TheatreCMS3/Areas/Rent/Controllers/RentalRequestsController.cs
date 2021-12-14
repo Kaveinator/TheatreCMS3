@@ -6,112 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Prod.Models;
+using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Prod.Controllers
+namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    public class ProductionsController : Controller
+    public class RentalRequestsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/Productions
+        // GET: Rent/RentalRequests
         public ActionResult Index()
         {
-            return View(db.Productions.ToList());
+            return View(db.RentalRequests.ToList());
         }
 
-        // GET: Prod/Productions/Details/5
+        // GET: Rent/RentalRequests/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            if (rentalRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(rentalRequest);
         }
 
-        // GET: Prod/Productions/Create
+        // GET: Rent/RentalRequests/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/Productions/Create
+        // POST: Rent/RentalRequests/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionID,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEven,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
+        public ActionResult Create([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
         {
             if (ModelState.IsValid)
             {
-                db.Productions.Add(production);
+                db.RentalRequests.Add(rentalRequest);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(production);
+            return View(rentalRequest);
         }
 
-        // GET: Prod/Productions/Edit/5
+        // GET: Rent/RentalRequests/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            if (rentalRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(rentalRequest);
         }
 
-        // POST: Prod/Productions/Edit/5
+        // POST: Rent/RentalRequests/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionID,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEven,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
+        public ActionResult Edit([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(production).State = EntityState.Modified;
+                db.Entry(rentalRequest).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(production);
+            return View(rentalRequest);
         }
 
-        // GET: Prod/Productions/Delete/5
+        // GET: Rent/RentalRequests/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            if (rentalRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(rentalRequest);
         }
 
-        // POST: Prod/Productions/Delete/5
+        // POST: Rent/RentalRequests/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Production production = db.Productions.Find(id);
-            db.Productions.Remove(production);
+            RentalRequest rentalRequest = db.RentalRequests.Find(id);
+            db.RentalRequests.Remove(rentalRequest);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
