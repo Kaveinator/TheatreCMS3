@@ -5,7 +5,7 @@
 {
     var isDamage = "";
     <div class="d-flex flex-column rent-list-border-top ">
-        <div class="d-flex rentHistory-accordion-tab"  href="#collapse-@item.RentalHistoryId">
+        <div class="d-flex rentHistory-accordion-tab" href="#collapse-@item.RentalHistoryId">
             <div class="p-2">
                 @if (item.RentalDamaged)
                 {
@@ -18,7 +18,7 @@
                     isDamage = "text-muted";
                 }
             </div>
-            <div class="p-2 d-flex align-items-center flex-grow-1">
+            <div class="p-2 d-flex align-items-center flex-grow-1 rentHistory-text-ellipse-parent">
                 <div class="badge badge-dark p-2 text-white rounded"> @Html.DisplayFor(modelItem => item.Rental)</div>
                 <div class="@isDamage rentHistory-text-ellipse p-2 ">
                     @if (item.RentalDamaged)

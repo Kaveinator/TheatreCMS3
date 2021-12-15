@@ -39,18 +39,23 @@
 }
 
 .rentHistory-accordion-content {
-    transition: display 0.3s ease-out;
-    display: none;
+    transition: all .5s ease-out !important;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
 }
 
-.rentHistory-accordion-tab.active + .rentHistory-accordion-content {
-    display: block; 
-   transition: display 0.3s ease-out;
-}
+    .rentHistory-accordion-content.active {
+        opacity: 1;
+        max-height: 200px;
+        overflow: hidden;
+    }
 
+.rentHistory-text-ellipse-parent {
+    overflow: hidden;
+}
 .rentHistory-text-ellipse {
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 100px;
     overflow: hidden;
 }

@@ -204,8 +204,6 @@
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
-    <Compile Include="Areas\Rent\Models\ApplicationUser.cs" />
-    <Compile Include="Areas\Rent\Models\HistoryManager.cs" />
     <Compile Include="Areas\Rent\Models\Rental.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
