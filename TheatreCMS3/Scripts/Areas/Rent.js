@@ -20,14 +20,18 @@
             });
         });
 }
-    function collapseList() {
-        $(".rentHistory-accordion-tab").on('click', function () {
-            $(".rentHistory-accordion-tab").each(function () {
-                $(this).removeClass("active");
-            });
-            $(this).addClass("active");
-        });   
-    }
+function collapseList() {
+    $(".rentHistory-accordion-tab").on("click", function (event) {
+        const nextTap = $(this).next(".rentHistory-accordion-content");
+        if (nextTap.hasClass("active")) {
+            nextTap.removeClass("active");
+            } else {
+            $(".rentHistory-accordion-content.active").removeClass("active");
+            nextTap.addClass("active");
+         }
+        
+      });
+}
 
     dropdownList();
     collapseList();
