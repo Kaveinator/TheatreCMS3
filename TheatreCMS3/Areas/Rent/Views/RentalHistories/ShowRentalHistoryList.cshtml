@@ -4,8 +4,8 @@
 @foreach (var item in Model)
 {
     var isDamage = "";
-    <div class="d-flex flex-column rent-list-border-top">
-        <div class="d-flex" data-toggle="collapse" href="#collapse-@item.RentalHistoryId" role="button" aria-expanded="false" aria-controls="collapse-@item.RentalHistoryId">
+    <div class="d-flex flex-column rent-list-border-top ">
+        <div class="d-flex rentHistory-accordion-tab"  href="#collapse-@item.RentalHistoryId">
             <div class="p-2">
                 @if (item.RentalDamaged)
                 {
@@ -18,8 +18,18 @@
                     isDamage = "text-muted";
                 }
             </div>
-            <div class="p-2 flex-grow-1">
+            <div class="p-2 d-flex align-items-center flex-grow-1">
                 <div class="badge badge-dark p-2 text-white rounded"> @Html.DisplayFor(modelItem => item.Rental)</div>
+                <div class="@isDamage rentHistory-text-ellipse p-2 ">
+                    @if (item.RentalDamaged)
+                    {
+                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                    }
+                    else
+                    {
+                        <span>None</span>
+                    }
+                </div>
             </div>
             <div class="p-2 dropdown">
                 <button class="btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button>
@@ -31,19 +41,17 @@
                 </div>
             </div>
         </div>
-        <div class="collapse" id="collapse-@item.RentalHistoryId" data-parent="#accordion"  style="" >
-            
-                <div class="@isDamage p-2">
-                    @if (item.DamagesIncurred.Length > 50)
-                    {
-                        @TextHelpers.LimitCharacter(item.DamagesIncurred, 50)
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
-                    }
-                </div>
-            
+        <div class="rentHistory-accordion-content" id="collapse-@item.RentalHistoryId"   style="" >  
+            <div class="@isDamage p-2">
+                @if (item.RentalDamaged)
+                {
+                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                }
+                else
+                {
+                 <span>Notes: </span> @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                }
+            </div> 
         </div>
     </div>
 }

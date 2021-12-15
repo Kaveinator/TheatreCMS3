@@ -37,3 +37,20 @@
     top: 0px;
     left: 0px;
 }
+
+.rentHistory-accordion-content {
+    transition: display 0.3s ease-out;
+    display: none;
+}
+
+.rentHistory-accordion-tab.active + .rentHistory-accordion-content {
+    display: block; 
+   transition: display 0.3s ease-out;
+}
+
+.rentHistory-text-ellipse {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100px;
+    overflow: hidden;
+}

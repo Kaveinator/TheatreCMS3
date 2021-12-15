@@ -1,6 +1,4 @@
-﻿$(function () {
-
-    // get the variable for the label and checkbox
+﻿//(function () {  get the variable for the label and checkbox
     $('#RentalDamaged').change(function () {
         if ($(this).is(":checked")) {
             $("#RentalLabel").html("Damages Incurred");
@@ -21,8 +19,18 @@
                 "display": "none"
             });
         });
+}
+    function collapseList() {
+        $(".rentHistory-accordion-tab").on('click', function () {
+            $(".rentHistory-accordion-tab").each(function () {
+                $(this).removeClass("active");
+            });
+            $(this).addClass("active");
+        });   
     }
+
     dropdownList();
+    collapseList();
     // when selected
     $("#sortSelect").on('change', function () {
         event.preventDefault();
@@ -36,7 +44,8 @@
                 console.log("success");
                 $("#rentHistoryListArea").html(data);
                 dropdownList();
+                collapseList();
             }
         });
     });
-});
+//}, []);
