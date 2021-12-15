@@ -549,4 +549,33 @@ footer {
 
 /*End BlogAuthor CSS*/
 
+/* Styling for SignIn Page */
+.home-signin-container {
+    display: inline-flex;
+    flex-grow: inherit;
+    flex-direction: column;
+    margin-left: -10px;
+    margin-right: 8px;
 
+}
+
+.home-signin-names {
+    column-count: 4;
+}
+
+.home-signin-names p {
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+    border-radius: 45px;
+    background-color: #db1a11;
+    margin: 5px;
+    height: 55px;
+    width: 265px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 14px;
+    flex-basis: auto;
+   
+/* End Styling for SignIn */
