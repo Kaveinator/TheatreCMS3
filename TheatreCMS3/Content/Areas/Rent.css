@@ -37,3 +37,25 @@
     top: 0px;
     left: 0px;
 }
+
+.rentHistory-accordion-content {
+    transition: all .5s ease-out !important;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+    .rentHistory-accordion-content.active {
+        opacity: 1;
+        max-height: 200px;
+        overflow: hidden;
+    }
+
+.rentHistory-text-ellipse-parent {
+    overflow: hidden;
+}
+.rentHistory-text-ellipse {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
