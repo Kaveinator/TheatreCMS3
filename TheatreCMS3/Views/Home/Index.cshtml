@@ -1,31 +1,132 @@
 ﻿@{
-  ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Page";
 }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<div class="home-index-homepage-img">
+    <img src="~/Content/images/TheatreLogo.png" alt="Theatre Vertigo Logo" />
+</div>
 
 <div>
-  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
-  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
-  @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
-  @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+
+    @*<h1 class="cms-text-white cms-text-bigger">welcome to theatre vertigo</h1>
+        <p class="text-xl-center">@html.actionlink("about theatre vertigo", "about", new { }, new { @class = "cms-text-bigger" })</p>*@
+    @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
+
+
+<div class="home-index-container">
+    <div class="home-index-container2">
+        <div class="home-index-homepage-col-left">
+            <p class="home-index-spotlight-text">SPOTLIGHT</p>
+            <div class="home-index-spotpics">
+                <div class="home-index-homepage-col-left-imgs">
+                    <img src="~/Content/images/DollsHouse.png" alt="Dolls House" />
+                </div>
+                <div class="home-index-homepage-col-left-imgs">
+                    <img src="~/Content/images/Tempest.png" alt="Tempest" />
+                </div>
+            </div>
+
+        </div>        
+            <div class="home-index-homepage-col-right">
+                <div class="home-index-donations">
+                    <div class="home-index-donateline">
+                        <p>DONATIONS</p>
+                    </div>
+                    <div class="home-index-button">
+                        <a href="~/Home/Donate" class="home-index-donation-button text-white text-decoration-none btn-lg active" role="button" aria-pressed="true">Click to Support</a>
+                    </div>
+                </div>
+
+                <div class="home-index-sponsors">
+                    <div class="home-index-homepage-sponsors-text">
+                        <p>SPONSORS</p>
+                    </div>
+                    <div class="home-index-fleximgs-right">
+                        <div class="home-index-homepage-col-right-img">
+                            <img class="home-index-upperpics" src="~/Content/images/Sponsors/LogoRoundColor.png" alt="Cider Riot Logo" />&nbsp;&nbsp;
+                        </div>
+                        <div class="home-index-homepage-col-right-img">
+                            <img class="home-index-upperpics" src="~/Content/images/Sponsors/Ninkasi-white-text.png" alt="Ninkasi Logo" />&nbsp;&nbsp;
+                        </div>
+                        <div class="home-index-homepage-col-right-img">
+                            <img class="home-index-upperpics" src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" alt="Ellen Bye Logo" />&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="home-index-fleximgs-right2">
+                    <div class="home-index-homepage-col-right-img">
+                        <img class="home-index-midpic" src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" alt="OCF Logo" />
+                    </div>
+                    <div class="home-index-homepage-col-right-img">
+                        <img class="home-index-midpic" src="~/Content/images/Sponsors/RACC.png" alt="RACC Logo" />
+                    </div>
+                </div>
+
+            </div>        
+    </div>
+</div>
+
+    <div class="home-index-landwrap">
+        <div class="home-index-homepage-land">
+            <p>LAND ACKNOWLEDGMENT</p>
+        </div>
+
+        <div class="home-index-homepage-land-text">
+            <div class="home-index-nayarow">
+                <p class="home-index-nayatext-stretch">
+                    Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional<br>
+                    brands of the Multnomah, Wasco, Clackamas, Chinook bands, Kathlamet, Tualatin<br />
+                    Kalapuya Cowlitz, Mollala, Cascades, Oregon City Tumwater, Confederated Tribes of<br />
+                    the Grand Ronde and other indigenous peoples.<br />
+
+                    <br /><strong>We are on stolen land.</strong> <br />
+
+                    <br />Theatre Vertigo has been and continues to examine our community relationships to<br />
+                    ensure our collaborators, partners and sponsors support the our regions Indigenous<br />
+                    Nations and communities. <br />
+
+                    <br />One of the ways Theatre Vertigo is working to act on our commitment to being of<br />
+                    service to the lands that we now share is to build bridges between our arts <br />
+                    community and local Nations.
+                </p>
+                <div class="home-index-naya">
+                    <a href=" https://nayapdx.org/" target="_self">
+                        <img class="home-index-nayapic" src="~/Content/images/NAYAFamilyCenter.jpg" alt="NAYA Family Center Logo" />
+                    </a>
+                    <p style="font-size:1vw;">
+                        Click to visit the NAYA Family Center to learn more<br />
+                        about supporting our local indigenous communities
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@*<div class="home-index-homepage-land">
+        <p>LAND ACKNOWLEDGMENT</p>
+    </div>*@
 @*<div class="row">
-      <div class="col-md-4">
-          <h2>Getting started</h2>
-          <p>
-              ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-              enables a clean separation of concerns and gives you full control over markup
-              for enjoyable, agile development.
-          </p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-          <h2>Get more libraries</h2>
-          <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-          <h2>Web Hosting</h2>
-          <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-      </div>
-  </div>*@
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
