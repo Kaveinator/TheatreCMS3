@@ -590,18 +590,15 @@ footer {
  }
 
  /*spotlight*/
- .home-index-homepage-col-left {
-     
-     margin-top: 10%;
-     font-size: 1.9vw;
-     font-family: 'Oswald', sans-serif;
-     flex-direction: column;
-     justify-content: center;
-     width: 66%; 
-     margin-right: 5%;
-     
-    
- }
+.home-index-homepage-col-left {
+    margin-top: 10%;
+    font-size: 1.9vw;
+    font-family: 'oswald-variablefont_wght';
+    flex-direction: column;
+    justify-content: center;
+    width: 66%;
+    margin-right: 5%;
+}
 .home-index-spotlight-text{
   margin: 5% 0; 
 }
@@ -634,7 +631,7 @@ footer {
 .home-index-homepage-col-right {
     margin-top: 13%;
     font-size: 1.9vw;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'oswald-variablefont_wght';
     display: flex;
     justify-content: right;
     flex-direction: column;
@@ -675,12 +672,13 @@ align-items: center;
 
 /*land acknowledgment styling*/
 /*left column under spotlight */
-.home-index-homepage-land{
-   float: left;
-   display: flex;
-   justify-content: left; 
-    font-size: 1.9vw; 
-    font-family: 'Oswald', sans-serif; 
+.home-index-homepage-land {
+    float: left;
+    display: flex;
+    justify-content: left;
+    font-size: 1.9vw;
+    font-family: 'oswald-variablefont_wght';
+  
 }
 
 .home-index-homepage-land::after {
@@ -698,13 +696,12 @@ align-items: center;
     float: left; 
     display: flex; 
     justify-content: left; 
-    font-size: 1.1vw; 
+    font-size: 1vw; 
     font-family: 'Oswald' sans-serif; 
     font-stretch: expanded;
 }
 
     
-
 /*land acknowledgement helps with paragraph*/
 .home-index-landwrap{
     display: flex; 
@@ -736,7 +733,7 @@ align-items: center;
 
 /*pic adjustment for the 3 right picture sponsors*/
 .home-index-upperpics{
-    width: 8vw;
+    width: 7.3vw;
 }
 
 /*positioning for right column under first 3 pictures*/
@@ -749,7 +746,7 @@ align-items: center;
 
 /*sizing for RACC and other pic */
 .home-index-midpic{
-    width: 10vw; 
+    width: 9vw; 
 }
 
 /*donations position*/
@@ -785,9 +782,6 @@ align-items: center;
    gap: 135px; 
 }
 
-.home-index-nayatext-stretch{
-    font-stretch: expanded; 
-}
 
 .home-index-button {
     margin-top: 15%;
@@ -800,4 +794,9 @@ align-items: center;
     padding: 24px 12px;
     
     
+}
+
+@font-face {
+    font-family: 'oswald-variablefont_wght';
+    src: url('../webfonts/oswald-variablefont_wght.ttf') format('truetype');
 }
