@@ -1,0 +1,122 @@
+﻿@model TheatreCMS3.Areas.Prod.Models.Production
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="Production-heading2">Create Production</h2>
+
+<div class="Production-form">
+  @using (Html.BeginForm())
+  {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+      <hr />
+      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Production Title" } })
+          @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Production Description" } })
+          @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.Playwright, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.Playwright, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Playwright Name" } })
+          @Html.ValidationMessageFor(model => model.Playwright, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.Runtime, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Production Runtime" } })
+          @Html.ValidationMessageFor(model => model.Runtime, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.OpeningDay, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Opening Date of Production (MM/DD/YYYY)" } })
+          @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.ClosingDay, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Closing Date of Production (MM/DD/YYYY)" } })
+          @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.ShowTimeEve, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Production Evening Showtime (MM/DD/YYYY HH:MM AM/PM)" } })
+          @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.ShowTimeMat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Production Matinee Showtime (MM/DD/YYYY HH:MM AM/PM)" } })
+          @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Production Season Number" } })
+          @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.IsWorldPremiere, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          <div class="checkbox">
+            @Html.EditorFor(model => model.IsWorldPremiere)
+            @Html.ValidationMessageFor(model => model.IsWorldPremiere, "", new { @class = "text-danger" })
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.TicketLink, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Production-div">
+          @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "form-control Production-input", placeholder = "Production Ticket Link" } })
+          @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 Production-div Production-Create/Save-btn">
+          <input type="submit" value="Create" class="btn btn-default Production-button" />
+        </div>
+      </div>
+    </div>
+  }
+</div>
+<div>
+  <button type="button" class="Production-BackToList-button btn btn-default" onclick="location.href='@Url.Action("Index")'">Back to List</button>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

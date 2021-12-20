@@ -717,3 +717,62 @@ align-items: center;
     font-family: 'oswald-variablefont_wght';
     src: url('../webfonts/oswald-variablefont_wght.ttf') format('truetype');
 }
+
+
+/* Production CRUD Pages */
+
+/* Centers elements, sets width, creates border for the Prodution Create and Edit pages*/
+.Production-form {
+    color: var(--secondary-color);
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+/* Center align headings and format color and spacing */
+.Production-heading2 {
+    color: var(--secondary-color);
+    text-align: center;
+    padding-top: 5px;
+}
+/* Allow elements to fill entire form and be centered */
+.Production-div {
+    padding: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+/* Change background color of production create/edit input fields */
+.Production-input {
+    background-color: white;
+    border: 2px solid black;
+}
+
+/* Hover effects for production create/edit page input fields */
+.Production-input:hover {
+    box-shadow: 0px 0px 10px var(--secondary-color--dark);
+}
+/* Style submit button for production create page */
+.Production-button {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+/* Button hover effect for production create/edit input fields */
+.Production-button:hover {
+    box-shadow: 0px 0px 5px var(--main-color--light);
+}
+/* Style back to list button */
+.Production-BackToList-button {
+    background-color: var(--main-color--light);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    margin: 0 auto;
+}
+/* Button hover effect for back to list button */
+.Production-BackToList-button:hover {
+    box-shadow: 0px 0px 5px var(--secondary-color);
+}
