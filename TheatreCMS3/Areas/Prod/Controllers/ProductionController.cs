@@ -6,112 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class BlogAuthorsController : Controller
+    public class ProductionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/BlogAuthors
+        // GET: Prod/Production
         public ActionResult Index()
         {
-            return View(db.BlogAuthors.ToList());
+            return View(db.Productions.ToList());
         }
 
-        // GET: Blog/BlogAuthors/Details/5
+        // GET: Prod/Production/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(production);
         }
 
-        // GET: Blog/BlogAuthors/Create
+        // GET: Prod/Production/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/BlogAuthors/Create
+        // POST: Prod/Production/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
         {
             if (ModelState.IsValid)
             {
-                db.BlogAuthors.Add(blogAuthor);
+                db.Productions.Add(production);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(blogAuthor);
+            return View(production);
         }
 
-        // GET: Blog/BlogAuthors/Edit/5
+        // GET: Prod/Production/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(production);
         }
 
-        // POST: Blog/BlogAuthors/Edit/5
+        // POST: Prod/Production/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Edit([Bind(Include = "Id,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogAuthor).State = EntityState.Modified;
+                db.Entry(production).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blogAuthor);
+            return View(production);
         }
 
-        // GET: Blog/BlogAuthors/Delete/5
+        // GET: Prod/Production/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(production);
         }
 
-        // POST: Blog/BlogAuthors/Delete/5
+        // POST: Prod/Production/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            db.BlogAuthors.Remove(blogAuthor);
+            Production production = db.Productions.Find(id);
+            db.Productions.Remove(production);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -123,21 +123,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public ActionResult BlogPosts()
-        {
-            return View();
-        }
-
-        public ActionResult Twitter()
-        {
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            return View();
         }
     }
 }
