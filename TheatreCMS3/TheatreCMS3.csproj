@@ -199,8 +199,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
-    <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
-    <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionController.cs" />
