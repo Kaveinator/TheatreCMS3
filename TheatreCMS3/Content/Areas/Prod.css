@@ -11,4 +11,21 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*header styling*/
+h2 {
+    font-family:oswald-variablefont_wght; 
+    text-align: center; 
+}
 
+.form-horizontal{
+    align-items: center; 
+}
+
+.prod-create-button1{
+    margin-top: 3%; 
+}
+/*oswald font*/
+@font-face {
+    font-family: 'oswald-variablefont_wght';
+    src: url('../../webfonts/oswald-variablefont_wght.ttf') format('truetype');
+}
