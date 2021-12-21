@@ -11,7 +11,7 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class ProductionController : Controller
+    public class ProductionsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
