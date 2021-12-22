@@ -11,107 +11,107 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class ProductionController : Controller
+    public class CastMembersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/Production
+        // GET: Prod/CastMembers
         public ActionResult Index()
         {
-            return View(db.Productions.ToList());
+            return View(db.CastMembers.ToList());
         }
 
-        // GET: Prod/Production/Details/5
+        // GET: Prod/CastMembers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            CastMember castMember = db.CastMembers.Find(id);
+            if (castMember == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(castMember);
         }
 
-        // GET: Prod/Production/Create
+        // GET: Prod/CastMembers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/Production/Create
+        // POST: Prod/CastMembers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
-                db.Productions.Add(production);
+                db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(production);
+            return View(castMember);
         }
 
-        // GET: Prod/Production/Edit/5
+        // GET: Prod/CastMembers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            CastMember castMember = db.CastMembers.Find(id);
+            if (castMember == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(castMember);
         }
 
-        // POST: Prod/Production/Edit/5
+        // POST: Prod/CastMembers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink")] Production production)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(production).State = EntityState.Modified;
+                db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(production);
+            return View(castMember);
         }
 
-        // GET: Prod/Production/Delete/5
+        // GET: Prod/CastMembers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            CastMember castMember = db.CastMembers.Find(id);
+            if (castMember == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(castMember);
         }
 
-        // POST: Prod/Production/Delete/5
+        // POST: Prod/CastMembers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Production production = db.Productions.Find(id);
-            db.Productions.Remove(production);
+            CastMember castMember = db.CastMembers.Find(id);
+            db.CastMembers.Remove(castMember);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

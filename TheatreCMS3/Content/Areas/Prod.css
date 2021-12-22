@@ -11,20 +11,62 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-/*header styling*/
-h2 {
-    font-family:oswald-variablefont_wght; 
-    text-align: center; 
+/* Production CRUD Pages */
+
+/* Centers elements, sets width, creates border for the Prodution Create and Edit pages*/
+.Production-Create--form, .Production-Edit--form {
+    color: var(--secondary-color);
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+/* Center align headings and format color and spacing */
+.Production-Create--heading2, .Production-Edit--heading2 {
+    color: var(--secondary-color);
+    text-align: center;
+    padding-top: 5px;
+}
+/* Allow elements to fill entire form and be centered */
+.Production-Create--div, .Production-Edit--div {
+    padding: 5px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+/* Change background color of production create/edit input fields */
+.Production-Create--input, .Production-Edit--input {
+    background-color: white;
+    border: 2px solid black;
 }
 
-
-
-/*styling for button */
-.prod-create-button1{
-    margin-top: 3%; 
+/* Hover effects for production create/edit page input fields */
+.Production-Create--input:hover, .Production-Edit--input:hover {
+    box-shadow: 0px 0px 10px var(--secondary-color--dark);
 }
-/*oswald font*/
-@font-face {
-    font-family: 'oswald-variablefont_wght';
-    src: url('../../webfonts/oswald-variablefont_wght.ttf') format('truetype');
+/* Style submit button for production create page */
+.Production-Create--submitBtn, .Production-Edit--submitBtn {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
 }
+/* Button hover effect for production create/edit input fields */
+    .Production-Create--submitBtn:hover, .Production-Edit--submitBtn:hover {
+        box-shadow: 0px 0px 5px var(--main-color--light);
+    }
+/* Style back to list button */
+.Production-Create--BackToListBtn, .Production-Edit--BackToListBtn {
+    background-color: var(--main-color--light);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    margin: 0 auto;
+}
+/* Button hover effect for back to list button */
+.Production-Create--BackToListBtn:hover, .Production-Edit--BackToListBtn:hover {
+    box-shadow: 0px 0px 5px var(--secondary-color);
+}
+
+/* End Production Create/Edit Styling */
