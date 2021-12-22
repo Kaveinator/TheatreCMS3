@@ -201,7 +201,6 @@
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
-    
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
@@ -583,6 +582,7 @@
     <Content Include="webfonts\PTSans-Regular.ttf" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="SiteSettings.json" />
+    <Content Include="Views\Home\Donate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
