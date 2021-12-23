@@ -17,11 +17,13 @@
             @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "float-right" })
         </div>
         <p class="footer-address">
-          2110 SE 10th Ave
-          <br />
-          Portland, OR 97214
-          <br />
-          (503) 482-8655
+            @SiteSettings.ReadSiteSettings().StreetAddress,
+            <br />
+            @SiteSettings.ReadSiteSettings().CityAddress, 
+            @SiteSettings.ReadSiteSettings().StateAddress 
+            @SiteSettings.ReadSiteSettings().ZipAddress
+            <br />
+            @SiteSettings.ReadSiteSettings().PhoneNumber
         </p>
         <p class="footer-lcopyright">
             <i class="far fa-copyright"></i>
@@ -36,8 +38,8 @@
             <i class="fab fa-twitter fa-2x"></i>
         </span>
         <p class="footer-copyright">
-          <i class="far fa-copyright"></i>
-          2021
+            <i class="far fa-copyright"></i>
+            @SiteSettings.ReadSiteSettings().Copyright
         </p>
     </div>
 
