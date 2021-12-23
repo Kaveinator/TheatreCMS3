@@ -5,90 +5,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Productions</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Playwright)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Runtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpeningDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClosingDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeEve)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeMat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsWorldPremiere)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketLink)
-        </th>
-        <th></th>
-    </tr>
+<div>
+  <button type="button" class="Production-Index--CreateNew btn btn-default" onclick="location.href='@Url.Action("Create")'">Create New</button>
+</div>
+  <div class="Production-Index--CardContainer">
+    <div class="card-deck Production-Index--CardColumns">
+      @foreach (var item in Model)
+      {
+        <div class="card text-center bg-transparent" style="width: 18rem;">
+                                                                             <!-- This link below is just a placeholder that pulls an image from a current production that Theater Vertigo is currently showing.  Link to be replaced in future site development -->
+            <img src="https://theatrevertigo.org/wp-content/uploads/2021/11/theattre-vertigo-landscape-225x300.png" class="card-img-top" style="width: 100%;" alt=@Html.DisplayFor(modelItem => item.Title)>
+            
+            <div class="Production-Index--cardBadge Prodution-Index--BadgeOverlay">
+              @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "badge badge-pill" })
+              @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "badge badge-pill" })
+              @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "stretched-link" })
+            </div>
+          <div class="card-footer text-center">
+            <h5 class="card-title text-white">@Html.DisplayFor(modelItem => item.Title)</h5>
+          </div>
+         </div>
+      }
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Playwright)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Runtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OpeningDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClosingDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeEve)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeMat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsWorldPremiere)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketLink)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+  
 
-</table>
+</div>
