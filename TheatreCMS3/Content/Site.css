@@ -736,3 +736,66 @@ align-items: center;
 /* End Styling for SignIn */
 
 
+/* styling for Donate page */
+
+.home-donate-formcontainer {
+    border-radius: 20px;
+    padding: 30px;
+    border: none;
+    background-color: #db1a11;
+}
+
+.home-donate-col, .home-donate-col-1 {
+    -ms-flex-preferred-size: 0;
+    -ms-flex-positive: 1;
+    width: 32%;
+    margin: 5px;
+}
+
+.home-donate-col-4 {
+    -ms-flex: 0 0 32%;
+    flex: 0 0 32%;
+    max-width: 32%;
+    margin: 5px;
+}
+
+.home-donate-col-8 {
+    -ms-flex: 0 0 65%;
+    flex: 0 0 65%;
+    max-width: 65%;
+    margin: 5px;
+}
+
+@media screen and (max-width: 991px) {
+    .home-donate-col {
+        width: 100%;
+    }
+
+    .home-donate-col-1 {
+        max-width: 100%;
+        width: 48.4%;
+        margin: 5px;
+    }
+
+    .home-donate-col-8 {
+        -ms-flex: none;
+        flex: none;
+        max-width: 100%;
+        width: 98.5%;
+    }
+
+    .home-donate-col-4 {
+        -ms-flex: none;
+        flex: none;
+        max-width: 100%;
+        width: 98.5%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .home-donate-col-1 {
+        width: 100%;
+    }
+}
+
+/* end styling for Donate page */
