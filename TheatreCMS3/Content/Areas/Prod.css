@@ -70,3 +70,76 @@
 }
 
 /* End Production Create/Edit Styling */
+
+
+/*Styling for Create & Edit Pages*/
+
+/*title styling */
+.create-title, .edit-title {
+    text-align: center;
+    margin-top: 2%;
+}
+
+/*positioning form*/
+.create-form-horizontal, .edit-form-horizontal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-form-group, .edit-form-group {
+    align-content: center;
+    margin-left: 2.5%;
+}
+
+.create-form-width, .edit-form-width {
+    width: 50%;
+}
+/*end of positioning*/
+
+/*border styling*/
+.create-container, .edit-container {
+    border-radius: 9px;
+    padding-top: 9px;
+    margin: 0 auto;
+    background-color: darkred;
+    border: 3px solid darkgoldenrod;
+}
+/*end of border styling*/
+
+/*button styling and positioning */
+.create-button {
+    margin-bottom: 10px; 
+    display: flex;
+    justify-content: center; 
+
+}
+
+.edit-button{
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 10px; 
+}
+
+.edit-back-button, .create-back-button{
+    display:flex; 
+    justify-content: center; 
+    margin-top: 7px; 
+    color: darkgoldenrod;
+    
+    
+}
+
+
+
+
+/*styling for input fields*/
+.create-form-input, .edit-form-input {
+    border: 2px solid black;
+}
+
+.create-form-input:hover, .edit-form-input:hover {
+    border: solid;
+    border-color: darkgoldenrod;
+}
+
