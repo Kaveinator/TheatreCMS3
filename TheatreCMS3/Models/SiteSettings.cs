@@ -13,16 +13,35 @@ namespace TheatreCMS3.Models
     public class SiteSettings
     {
         public int Copyright { get; set; }
-        
+        public string PhoneNumber { get; set; }
+        public string StreetAddress { get; set; }
+        public string CityAddress { get; set; }
+        public string StateAddress { get; set; }
+        public string ZipAddress { get; set; }
+
+
         // This is the method that deserializes "SiteSettings.json" and assigns the value to the "SiteSettings" class object "Copyright" property.
-        public static void ReadSiteSettings()
+        public static SiteSettings ReadSiteSettings()
         {
             var path = Path.Combine(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "SiteSettings.json"));
                         
             // This code block deserializes the json file and this one creates an object based off the class and assigns the property "Copyright" the value of "2021"
             var jsonContent = File.ReadAllText(path);
             SiteSettings siteSettings = JsonConvert.DeserializeObject<SiteSettings>(jsonContent);
+
+            // ------------------------
+            // Print Results
+            // ------------------------
             Console.WriteLine(siteSettings.Copyright);
+            Console.WriteLine(siteSettings.PhoneNumber);
+            // Address
+            Console.Write(siteSettings.StreetAddress + ", ");
+            Console.Write(siteSettings.CityAddress + ", ");
+            Console.Write(siteSettings.StateAddress + ", ");
+            Console.WriteLine(siteSettings.ZipAddress);
+
+
+            return siteSettings;
         }
     }
 }
