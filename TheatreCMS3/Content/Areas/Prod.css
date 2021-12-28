@@ -11,7 +11,7 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-/* Production CRUD Pages */
+/* Production CRUD Pages Styling */
 
 /* Centers elements, sets width, creates border for the Prodution Create and Edit pages*/
 .Production-Create--form, .Production-Edit--form {
@@ -67,6 +67,28 @@
 /* Button hover effect for back to list button */
 .Production-Create--BackToListBtn:hover, .Production-Edit--BackToListBtn:hover {
     box-shadow: 0px 0px 5px var(--secondary-color);
+}
+/* Container created to set sizing and margin for production cards */
+.Production-Index--CardContainer {
+    width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+/* Stylizing the "Create New" button to match site styling */
+.Production-Index--CreateNew {
+    background-color: var(--main-color--light);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+    margin: 0;
+}
+/* Button hover effect for Index page "Create New" button */
+    .Production-Index--CreateNew:hover {
+        box-shadow: 0px 0px 5px var(--secondary-color);
+}
+/* Sets theme for badge color to match the site styling */
+.badge-pill {
+    background-color: var(--secondary-color);
 }
 
 /* End Production Create/Edit Styling */
