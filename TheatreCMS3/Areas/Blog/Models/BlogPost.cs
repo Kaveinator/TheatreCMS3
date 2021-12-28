@@ -14,8 +14,4 @@ namespace TheatreCMS3.Areas.Blog.Models
         public DateTime Posted { get; set; }
         public string Author { get; set; }
     }
-    public class MovieDBContext : DbContext
-    {
-        public DbSet<BlogPost> BlogPosts { get; set; }
-    }
 }
