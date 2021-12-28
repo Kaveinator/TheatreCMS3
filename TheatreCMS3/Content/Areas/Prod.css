@@ -75,71 +75,75 @@
 /*Styling for Create & Edit Pages*/
 
 /*title styling */
-.create-title, .edit-title {
+.cast-create--title, .cast-edit--title {
     text-align: center;
     margin-top: 2%;
 }
 
 /*positioning form*/
-.create-form-horizontal, .edit-form-horizontal {
+.cast-create--form-horizontal, .create-edit--form-horizontal {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.create-form-group, .edit-form-group {
+.cast-create--form-group, .cast-edit--form-group {
     align-content: center;
     margin-left: 2.5%;
+    width: 100%;
 }
 
-.create-form-width, .edit-form-width {
+.cast-create--form-width, .cast-edit--form-width {
     width: 50%;
 }
 /*end of positioning*/
 
 /*border styling*/
-.create-container, .edit-container {
+.cast-create--container, .cast-edit--container {
     border-radius: 9px;
     padding-top: 9px;
     margin: 0 auto;
-    background-color: darkred;
-    border: 3px solid darkgoldenrod;
+    background-color: var(--main-color);
+    border: 3px solid var(--secondary-color--dark);
 }
 /*end of border styling*/
 
 /*button styling and positioning */
-.create-button {
+.cast-create--button {
     margin-bottom: 10px; 
     display: flex;
     justify-content: center; 
 
 }
 
-.edit-button{
+.cast-edit--button{
     display: flex; 
     justify-content: center; 
     margin-bottom: 10px; 
 }
 
-.edit-back-button, .create-back-button{
-    display:flex; 
-    justify-content: center; 
-    margin-top: 7px; 
-    color: darkgoldenrod;
-    
-    
+.cast-edit--back-button, .cast-create--back-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 7px;
+    color: var(--secondary-color--dark);
 }
 
 
 
 
 /*styling for input fields*/
-.create-form-input, .edit-form-input {
+.cast-create--form-input, .cast-edit--form-input {
     border: 2px solid black;
 }
 
-.create-form-input:hover, .edit-form-input:hover {
+.cast-create--form-input:hover, .cast-edit--form-input:hover {
     border: solid;
-    border-color: darkgoldenrod;
+    border-color: var(--secondary-color--dark);
 }
 
+/*back to list button color*/
+.cast-create--btn {
+    background-color: var(--secondary-color--dark);
+    color: var(--light-color);
+}
