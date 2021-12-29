@@ -435,68 +435,6 @@ footer {
   background: var(--light-color) !important;
 }
 
-
-/*Home-Contact Page Styling*/
-
-.home-contact--titleFont {
-    font-family: Broadway;
-    font-size: 44px;
-}
-
-.home-contact--heading {
-    padding-top: 20px;
-    position: relative;
-    align-content: center;
-    display: flex;
-    text-align: center;
-    margin: auto;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.home-contact--heading::after {
-    content: "";
-    display: block;
-    width: 150px;
-    height: 5px;
-    top: 93%;
-    background: #bd1a11;
-    position: absolute;
-}
-
-
-
-/* Styling for SignIn Page */
-.home-signin-container {
-    display: inline-flex;
-    flex-grow: inherit;
-    flex-direction: column;
-    margin-left: -10px;
-    margin-right: 8px;
-
-}
-
-.home-signin-names {
-    column-count: 4;
-}
-
-    .home-signin-names p {
-        font-weight: bold;
-        font-size: 18px;
-        display: inline-block;
-        border-radius: 45px;
-        background-color: #db1a11;
-        margin: 5px;
-        height: 55px;
-        width: 265px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding: 14px;
-        flex-basis: auto;
-    }
-/* End Styling for SignIn */
-
 /*styling for img under navbar*/
 /*theatre logo*/
  .home-index-homepage-img{
@@ -718,22 +656,6 @@ align-items: center;
     src: url('../webfonts/oswald-variablefont_wght.ttf') format('truetype');
 }
 
-    .home-signin-names p {
-        font-weight: bold;
-        font-size: 18px;
-        display: inline-block;
-        border-radius: 45px;
-        background-color: #db1a11;
-        margin: 5px;
-        height: 55px;
-        width: 265px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding: 14px;
-        flex-basis: auto;
-    }
-/* End Styling for SignIn */
 
 
 /* styling for Donate page */
