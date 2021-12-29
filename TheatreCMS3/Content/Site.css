@@ -721,3 +721,81 @@ align-items: center;
 }
 
 /* end styling for Donate page */
+
+/*styling for contact page*/
+
+
+#contact-tron {
+    background-color: #d6972a;
+    border-radius: 0px 0px 24px 24px;
+}
+
+#contact-header {
+    font-family: 'oswald-variablefont_wght';
+    justify-content: center;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    
+}
+.donate-volunteer {
+    display: inline-block;
+    float: left;
+    width: 40%;
+    padding: 2vh;
+    margin: 0vh 0vh 4vh 8vh;
+    text-size-adjust: 30%;
+    line-height: 2.5vh;
+}
+.d-v-btn {
+    width: 40%;
+    border-radius: 5px;
+    height: 4vh;
+    background-color: #f04d44;
+    border: solid 1px #f04d44;
+    color: black;
+}
+
+.d-v-btn:hover {
+    background-color: #f04d44;
+    color: whitesmoke;
+}
+#contact-form{
+    float: left;
+    width: 75%;
+    background-color: #d6972a;
+    text-align: center;
+    border-radius: 24px;
+    width: 45%;
+}
+
+.contact-label {
+    font-size: 2vh;
+    color: black;
+    font-weight: 500;
+} 
+.contact-entry {
+    
+    width: 100%;
+    padding: 12px 20px;
+    margin: 1% 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: whitesmoke;
+
+}
+
+.form-btn {
+    height: 4vh;
+    background-color: #f04d44;
+    width: 40%;
+    border-radius: 5px;
+    margin: 2%;
+    border: 1px solid black;
+}
+.form-btn:hover{
+    background-color: #f04d44;
+    color: whitesmoke;
+}
