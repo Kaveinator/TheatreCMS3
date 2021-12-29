@@ -799,3 +799,43 @@ align-items: center;
 }
 
 /* end styling for Donate page */
+
+/* About Page styling */
+
+.home-about-content {
+    text-align:center;
+}
+
+.home-about-content header {
+    position: relative;
+}
+
+.home-about-content header > img {
+    margin-bottom: 12vh;
+    height: 80vh;
+    width: 90vw;
+}
+
+/* center "ABOUT US" text over the theatre image */
+.home-about-content h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Broadway;
+}
+
+.home-about-row img {
+    max-height: 20vh;
+    max-width: 35vw;
+    margin-bottom:12vh;
+}
+
+.home-about-headers {
+    margin-top: 20vh;
+    margin-bottom:8vh;
+}
+
+.home-about-headers u {
+    text-decoration-color: #db1a11;
+}
