@@ -21,9 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.FlawsAndDamages)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Photo)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -38,9 +38,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.FlawsAndDamages)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Photo)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
             @Html.ActionLink("Details", "Details", new { id=item.RentalId }) |
