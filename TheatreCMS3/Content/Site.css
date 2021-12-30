@@ -722,6 +722,85 @@ align-items: center;
 
 /* end styling for Donate page */
 
+/* About Page styling */
+.home-about-content {
+    text-align: center;
+    background-color: #f04d44;
+}
+
+/* Section 1: About Us and Who We Are*/
+.home-about-s1 {
+    background-color:black;
+    border-bottom-left-radius:60px;
+    padding-bottom:30px;
+}
+
+/* center "ABOUT US" text over the theatre image */
+.home-about-content h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Broadway;
+}
+
+.home-about-headers {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+}
+
+.home-about-headers u {
+    text-decoration-color: #db1a11;
+}
+
+.home-about-s1 img {
+    margin-bottom: 12vh;
+    height: 80vh;
+    width: 80%;
+}
+
+/* Section 2: Company History */
+.home-about-s2 {
+    padding-bottom: 30px;
+}
+
+.home-about-content p{
+    font-size:20px;
+    padding-top:8px;
+    padding-bottom:8px;
+    padding-left:35px;
+    padding-right:35px;
+}
+
+/* Section 3: Ensemble and Board */
+.home-about-s3{
+    background-color:black;
+    border-top-right-radius:60px;
+    padding-bottom:30px;
+}
+
+/* Ensemble images */
+.home-about-row img {
+    max-height: 20vh;
+    max-width: 35vw;
+    
+}
+
+/* Ensemble names beneath images */
+.home-about-s3 p {
+    padding-top: 5px;
+    padding-bottom:20px;
+    font-size: small
+}
+
+.home-about-content hr {
+    border: 1px solid #fffbfb;
+    width: 80%;
+}
+
+/* end styling for Donate page */
+
 /*styling for contact page*/
 #home-contact--contactpg {
     background-color: #f04d44;

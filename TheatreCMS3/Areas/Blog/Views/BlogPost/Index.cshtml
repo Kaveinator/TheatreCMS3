@@ -1,0 +1,66 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPost>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron cms-bg-dark cms-text-light" style="text-align: center;">
+    <div class="container mx-auto">
+        <div class="row">
+            <div class="col">
+                <h2>Blog Posts</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col align-self-end">
+            @Html.ActionLink("Create New", "Create", routeValues: null, htmlAttributes: new { @class = "col-md-auto btn btn-default cms-bg-main mx-auto cms-text-light" })
+        </div>
+    </div>
+</div>
+<br />
+<table class="table cms-bg-main cms-text-light" style="border-radius: 0px 0px 8px 8px;">
+    <tr class="cms-bg-secondary cms-text-dark">
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Posted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Posted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, htmlAttributes: new { @class = "col-md-auto btn btn-default cms-bg-secondary mx-auto cms-text-light py-0 mx-auto" }) |
+                <!-- TODO: restrict Edit and Delete to admin and author only -->
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, htmlAttributes: new { @class = "col-md-auto btn btn-default cms-bg-secondary mx-auto cms-text-light py-0 mx-auto" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, htmlAttributes: new { @class = "col-md-auto btn btn-default cms-bg-secondary mx-auto cms-text-light py-0 mx-auto" })
+            </td>
+        </tr>
+    }
+
+</table>

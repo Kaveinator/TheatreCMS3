@@ -1,0 +1,79 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogPost
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron cms-bg-dark cms-text-light" style="text-align: center;">
+    <div class="container mx-auto">
+        <div class="row">
+            <div class="col">
+                <h2>Create Blog Post</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container border cms-bg-main mx-auto" style="border-radius: 8px; width: 80%;">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <br />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group row-cols-1">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Title" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-auto">
+                    @Html.TextAreaFor(model => model.Content, htmlAttributes: new { @class = "form-control", @rows = "8", @placeholder = "Your content goes here!" })
+                    @*@Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control", @rows = "3" } })*@
+                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Posted, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.Posted, new { htmlAttributes = new { @class = "form-control", @placeholder = "1/1/2020 12:00:00 AM" } })
+                    @Html.ValidationMessageFor(model => model.Posted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-auto">
+                    @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control", @placeholder = "Author" } })
+                    @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row m-sm-3">
+                    <div class="col-md-auto cms-bg-secondary mx-auto cms-text-light rounded">
+                        <input type="submit" value="Create" class="btn btn-default mx-auto cms-text-light" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="container">
+    <div class="row m-sm-5">
+        <div class="col-md-auto cms-bg-main mx-auto cms-text-light rounded">
+            @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "col-md-auto btn btn-default cms-bg-main mx-auto cms-text-light" })
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
