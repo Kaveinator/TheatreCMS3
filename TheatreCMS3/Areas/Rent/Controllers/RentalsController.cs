@@ -43,19 +43,24 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // POST: Rent/Rentals/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,Photo")] Rental rental)
+        public ActionResult Create([Bind(Include = "RentalName,RentalCost,FlawsAndDamages,Photo")] Rental rental) // removed the <pk> value "Id" (since set by SQL Server, not User)
         {
-            if (ModelState.IsValid)
+            // ANY exceptions will prompt a 2nd try by User:
+            try
             {
-                db.Rental.Add(rental);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Rental.Add(rental);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save changes.  Try aain, and if the problem persists, see your System Administrator.");
+            }
             return View(rental);
         }
 
