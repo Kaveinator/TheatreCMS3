@@ -11,7 +11,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         public string RentalName { get; set; }
         public int RentalCost { get; set; }
         public string FlawsAndDamages { get; set; }
-        public byte Photo { get; set; } // this attribute is in the UML diagram for the Rental Area
+        //public byte Photo { get; set; } // this attribute is in the UML diagram for the Rental Area
     }
 
     public class RentalEquipment : Rental
