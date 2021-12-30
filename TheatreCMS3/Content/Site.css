@@ -723,105 +723,120 @@ align-items: center;
 /* end styling for Donate page */
 
 /*styling for contact page*/
-#contact-pg {
+#home-contact--contactpg {
     background-color: #f04d44;
-    width: max-content;
+    width: 100%;
     margin: 0%;
+    display: flex;
+    flex-flow: column;
+
 }
 
-#contact-tron {
+#home-contact--contacttron {
     background-color: black;
-    border-radius: 0px 0px 44px 0px;
-    float: left;
-    width: 100%;
+    border-radius: 0px 0px 0px 60px;
+    height: 30%;
 }
-.contact-intro {
+#home-contact--header {
+    font-family: 'Limelight', cursive;
+    justify-content: center;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 200;
+    color: white;
+}
+.home-contact-midline {
+    color: #db1a11;
+    width: 5%;
+    
+}
+.home-contact--intro {
+    width: 100%;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2vh;
     color: whitesmoke;
-    border-bottom: 3px double black;
-    border-bottom-width: 1%;
+}
+/*form section*/
+.home-contact--form{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30vh 10vh 0;
 }
 
-#contact-header {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    justify-content: center;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 600;
-    color: white;
-    
-}
-.donate-volunteer {
-    display: inline-block;
-    float: left;
-    width: 40%;
-    padding: 2vh;
-    margin: 0vh 0vh 4vh 8vh;
-    text-size-adjust: 30%;
-    line-height: 2.5vh;
-}
-.d-v-btn {
-    width: 40%;
-    border-radius: 5px;
-    height: 4vh;
-    background-color: #db1a11;
-    border: solid 1px #f04d44;
-    color: whitesmoke;
-    border: solid 1px black;
-}
-
-.d-v-btn:hover {
-    background-color: whitesmoke;
-    color: black;
-}
-#contact-form{
-    float: left;
-    width: 75%;
+#home-contact--formXdonateXvolunteer {
+    display: flex;
+    flex: 1;
     background-color: #f04d44;
-    text-align: center;
-    border-radius: 40px;
-    width: 45%;
+    padding: 0% 5% 5% 5%;
 }
 
-.contact-label {
+.home-contact--formlabel {
+    flex-direction: column;
     font-size: 2vh;
     color: white;
     background-color: #f04d44;
     font-weight: 300;
-} 
-.contact-entry {
-    
-    width: 100%;
+}
+
+.home-contact--formentry {
+    width: 200%;
     padding: 12px 20px;
     margin: 1% 0;
-    display: inline-block;
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
     color: whitesmoke;
     height: 3vh;
-
 }
-.contact-message {
+
+.home-contact--formmessage {
     height: 12vh;
     border: 1px solid #ccc;
     border-radius: 14px;
-    width: 100%;
+    width: 200%;
     padding: 12px 20px;
-    margin: 1% 0;
+    margin: 1vh 0;
 }
-.form-btn {
-    height: 4vh;
+
+.home-contact--formbtn {
+    height: 3vh;
     background-color: #db1a11;
-    width: 40%;
-    border-radius: 5px;
+    width: 200%;
+    border-radius: 10px;
     color: white;
-    margin: 8%;
-    border: 1px solid black;
+    margin: 3vh 0vh 0vh 0vh;
+    border: 1px solid white;
 }
-.form-btn:hover{
+
+.home-contact--formbtn:hover {
     background-color: whitesmoke;
     color: black;
 }
+
+/*donate and volunteer section*/
+
+.home-contact--dvmaster {
+    width: 20%;
+    padding: 2vh;
+    text-size-adjust: 30%;
+    line-height: 2.5vh;
+    margin: 0% 0% 0% 20%;
+
+}
+.home-contact--dvbtn {
+    width: 50%;
+    border-radius: 10px;
+    height: 4vh;
+    background-color: #db1a11;
+    border: solid 1px #f04d44;
+    color: whitesmoke;
+    border: solid 1px white;
+    margin: 0vh 0vh 10vh 0vh;
+}
+
+.home-contact--dvbtn:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
