@@ -12,3 +12,26 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+
+
+/*---- Rental Page's styling: ----*/
+.Rental-heading {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+
+.Rental-div {
+    padding: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.Rental-div input:focus {
+    border: 2px solid orange;
+    box-shadow: none;
+}
+.Rental-textboxes-inputField {
+    background-color: lightgrey;
+}
