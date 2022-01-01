@@ -26,7 +26,7 @@
         @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10 Rental-div">
           @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control Rental-textboxes-inputField", @placeholder = "Rental's Cost" } })
-          @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+          @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-white" })
         </div>
       </div>
 
@@ -34,7 +34,7 @@
         @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10 Rental-div">
           @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control Rental-textboxes-inputField", @placeholder = "Flaws & Damages" } })
-          @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+          @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-white" })
         </div>
       </div>
 
