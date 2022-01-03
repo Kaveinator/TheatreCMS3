@@ -1,65 +1,69 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.Rental
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Rental";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2 class="Rental-CreateEdit--heading">@ViewBag.Title</h2>
 
-
-@using (Html.BeginForm())
-{
+<div class="container border cms-bg-main mx-auto" style="border-radius: 8px; width: 40%" ;>
+  @using (Html.BeginForm())
+  {
     @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
-        <h4>Rental</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.RentalId)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
-            </div>
+      <hr />
+      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      @Html.HiddenFor(model => model.RentalId)
+      <div class="form-group">
+        @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Rental-div">
+          @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control Rental-CreateEdit--inputField", @placeholder= "Update Rental's Name" } })
+          @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-white" })
         </div>
+      </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
-            </div>
+      <div class="form-group">
+        @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Rental-div">
+          @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control Rental-CreateEdit--inputField", @placeholder = "Update Rental's Cost" } })
+          @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-white" })
         </div>
+      </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
-            </div>
+      <div class="form-group">
+        @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 Rental-div">
+          @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control Rental-CreateEdit--inputField", @placeholder = "Update Flaws/Damages Amount " } })
+          @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-white" })
         </div>
+      </div>
 
-        @*<div class="form-group">
+      @*<div class="form-group">
             @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control Rental-CreateEdit--inputField", @placeholder = "Update Photo" } })
+                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-white" })
             </div>
         </div>*@
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+      <div class="form-group">
+        <div class="row m-sm-3">
+          <div class="col-md-auto cms-bg-secondary mx-auto cms-text-light rounded">
+            <input type="submit" value="Submit" class="btn btn-default mx-auto cms-text-light" />
+          </div>
         </div>
+      </div>
     </div>
-}
+  }
+</div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="container">
+  <div class="row m-sm-5">
+    <div class="col-md-auto cms-bg-main mx-auto cms-text-light rounded">
+      @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "col-md-auto btn btn-default cms-bg-main mx-auto cms-text-light" })
+    </div>
+  </div>
 </div>
 
 @section Scripts {
