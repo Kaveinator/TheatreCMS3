@@ -12,3 +12,28 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+
+
+/*---- Rental.Create & Edit Page's styling: ----*/
+.Rental-CreateEdit--heading {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+.Rental-CreateEdit--div {
+    padding: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.Rental-CreateEdit--div input:focus {
+    border: 2px solid orange;
+    box-shadow: none;
+}
+.Rental-CreateEdit--inputField {
+    background-color: lightgrey;
+}
+.btn:focus {
+    box-shadow: none;
+}
