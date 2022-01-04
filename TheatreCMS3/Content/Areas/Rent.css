@@ -15,5 +15,64 @@
 /* Rental Request Page Styling */
 
 .accordion {
-    background-color: var(--main-color);
+    background-color: #9D7C39;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border-style: solid;
+    border-color: #DB1A11;
+    border-radius: 25px;
+    outline: none;
+    transition: 0.4s;
+    margin-top: 5px;
+}
+.active, .accordion:hover {
+  background-color: #D6972A;
+}
+#panel {
+    padding: 0 18px;
+    background-color: #D6972A;
+    display: none;
+    overflow: hidden;
+    margin-top: 5px;
+    border-style: solid;
+    border-color: #DB1a11;
+    border-radius: 25px;
+}
+.info {
+    color: #000000;
+    font-weight: bold;
+}
+.list-group {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.time {
+    float: right;
+}
+#leftTime {
+    text-align: left;
+    display: inline;
+    margin: 0;
+    
+}
+#rightTime {
+    display: inline;
+    margin: 0;
+    
+}
+
+#timeContainer {
+    text-align: center;
+    padding: 20px;
+}
+.container {
+    padding: 50px;
+    margin: auto;
+    border-radius: 15px / 50px;
+    border-width: thin;
+    border-color: #F04D44;
+    border-style: ridge;
 }

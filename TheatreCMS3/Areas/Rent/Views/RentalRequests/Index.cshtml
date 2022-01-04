@@ -6,63 +6,88 @@
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="accordion">
+<div class="container" id="accordion1">
 
   @foreach (var item in Model)
   {
+
+    //DateTime dateTime = DateTime.Now;
+
+    var startTime = item.StartTime;
+    var endTime = item.EndTime;
+
+    //TimeSpan timeTill = startTime.Subtract(endTime).Duration();
+    //TimeSpan timeDiff = startTime.Subtract(dateTime).Duration();
+
+    int days;
+    int hours;
+    int mins;
+    string text = "";
+    if (DateTime.Now < item.EndTime && DateTime.Now > item.StartTime)
+    {
+      days = (item.EndTime - DateTime.Now).Days;
+      hours = (item.EndTime - DateTime.Now).Hours;
+      mins = (item.EndTime - DateTime.Now).Minutes;
+      text = " Time Remaining: " + days + " Day(s) " + hours + " Hours " + mins + " Minutes";
+    }
+    else if (DateTime.Now < item.StartTime)
+    {
+      days = (item.StartTime - DateTime.Now).Days;
+      hours = (item.StartTime - DateTime.Now).Hours;
+      mins = (item.StartTime - DateTime.Now).Minutes;
+      text = " Time till Start: " + days + " Day(s) " + hours + " Hours " + mins + " Minutes";
+    }
+
+
+
+
+
+
+
+  <button class="accordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
+
+    <h5>Company: @Html.DisplayFor(modelItem => item.Company)</h5>
+    <h5>Contact Person: @Html.DisplayFor(modelItem => item.ContactPerson)</h5>
+
+      <h6 class="time">@text</h6> 
     
 
 
+  </button>
 
-    <div class="panel-group" id="accordion-header">
-      <div class="panel panel-default" id="panel">
-        <div class="panel-heading">
-          <a data-toggle="collapse" data-target="#collapseOne">
+  <div id="panel" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 
-            <p>@Html.DisplayNameFor(model => model.Company)</p>
-            <p>@Html.DisplayNameFor(model => model.ContactPerson)</p>
-            <p>Time Remaining/Time till Start</p>
-
-          </a>
-        </div>
-
-
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body">
-
-            <p>@Html.DisplayNameFor(model => model.StartTime) @Html.DisplayNameFor(model => model.EndTime)</p>
-
-            <p>@Html.DisplayNameFor(model => model.RentalCode)</p>
-
-            <p>@Html.DisplayNameFor(model => model.ProjectInfo)</p>
-
-            <p>Rentals</p>
-
-            <p>@Html.DisplayNameFor(model => model.ContractSigned)</p>
-
-            <p>Survey</p>
-
-            @Html.ActionLink("Create New", "Create") |
-            @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
-
-
-
-
-
-
-
-          </div>
-        </div>
+    <div class="info">
+      <div id="timeContainer">
+      <p id="leftTime"> Start Time @Html.DisplayFor(modelItem => item.StartTime)</p>
+      <p id="rightTime"> End Time @Html.DisplayFor(modelItem => item.EndTime) </p>
       </div>
-    </div>
 
+      <ul class="list-group">
+        <li>Rental Code: @Html.DisplayFor(modelItem => item.RentalCode)</li>
+
+        <li> Project Info: @Html.DisplayFor(modelItem => item.ProjectInfo)</li>
+
+        <li>Rentals:</li>
+
+        <li> Accepted: @Html.DisplayFor(modelItem => item.Accepted)</li>
+
+        <li> Contract Signed: @Html.DisplayFor(modelItem => item.ContractSigned)</li>
+
+        <li>Survey:</li>
+      </ul>
+
+      @Html.ActionLink("Create New", "Create") |
+      @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+      @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+      @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+
+
+    </div>
+  </div>
   }
 </div>
-
-
-
 
 
 
