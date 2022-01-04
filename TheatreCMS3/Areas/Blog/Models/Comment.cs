@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Blog.Models
 {
     public class Comment
     {
         public int CommentId { get; set; }
-        public string Author { get; set; }
+        public ApplicationUser Author { get; set; }
         public string Message { get; set; }
         public DateTime CommentDate { get; set; }
         public int Likes { get; set; }
