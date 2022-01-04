@@ -696,3 +696,21 @@ footer {
     background-color: whitesmoke;
     color: black;
 }
+
+/*signin names section*/
+.home-signin--names p {
+    border-radius: 20px;
+    background: #db1a11;
+    padding: 30px;
+    width: 200px;
+    height: 50px;
+    position: static;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+}
+
+    .home-signin--names p:hover {
+        background-color: #fffbfb;
+        color: black;
+    }
