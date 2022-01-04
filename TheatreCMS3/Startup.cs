@@ -2,7 +2,6 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
-using TheatreCMS3.Models;
 
 
 [assembly: OwinStartupAttribute(typeof(TheatreCMS3.Startup))]
