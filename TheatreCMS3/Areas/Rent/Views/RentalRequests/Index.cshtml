@@ -6,8 +6,8 @@
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @Html.ActionLink("Create New", "Create")
- @*// Start of accordion //*@
-<div class="accordion" id="accordionOne">
+@*// Start of accordion //*@
+<div class="accordion" id="accordionExample">
 
   @foreach (var item in Model)
   {
@@ -37,11 +37,11 @@
     }
 
 
-
+    //accordion header//
     <div class="card Rental_Request-index--card">
-      <div class="card-header" id="headingOne">
+      <div class="card-header" id="heading-@item.RentalRequestID">
         <h2 class="mb-0">
-          <button class="btn-block text-left" type="button" data-toggle="collapse" data-target="#@item.RentalRequestID" aria-expanded="false" aria-controls="@item.RentalRequestID">
+          <button class="btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-@item.RentalRequestID" aria-expanded="false" aria-controls="#@item.RentalRequestID">
             <h2 class="Rental_Request-index--company">
               Company: @item.Company
             </h2>
@@ -55,12 +55,12 @@
         </h2>
       </div>
       @*//accordion content //*@
-      <div id="@item.RentalRequestID" class="collapse" aria-labelledby="heading-@item.RentalRequestID" data-parent="#accordionOne">
+      <div id="collapse-@item.RentalRequestID" class="collapse" aria-labelledby="heading-@item.RentalRequestID" data-parent="#accordionExample">
         <div class="card-body">
           <div class="Rental_Request-index--card-body">
-            <h4>Start Time                              End Time</h4>
-            <p>@startTime.Date.ToString("d")           @endTime.Date.ToString("d")</p>
-            <p>@startTime.Date.ToString("hh:mm tt")        @endTime.Date.ToString("hh:mm tt")</p>
+            <h4>Start Time                              |    End Time</h4>
+            <p>@startTime.Date.ToString("hh:mm tt")     |    @endTime.Date.ToString("hh:mm tt") </p>
+            <p>@startTime.Date.ToString("MMM dd, yyyy") |   @endTime.Date.ToString("MMM dd, yyyy")</p>
 
           </div>
           <ul class="Rental_Request-index--list-group">
