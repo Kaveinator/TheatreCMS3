@@ -710,7 +710,7 @@ footer {
     display: inline-block;
 }
 
-    .home-signin--names p:hover {
+.home-signin--names p:hover {
         background-color: #fffbfb;
         color: black;
-    }
+}
