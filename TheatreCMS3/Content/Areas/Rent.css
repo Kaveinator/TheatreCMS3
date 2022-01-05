@@ -53,9 +53,11 @@
 .Rental_Request-index--links {
     vertical-align: middle;
     text-align: center;
+    padding-bottom: 10px;
 }
 .Rental_Request-index--card-body {
     text-align: center;
+    color: black;
 }
 .Rental_Request-index--list-group {
     list-style-type: none;

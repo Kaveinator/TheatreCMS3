@@ -6,11 +6,12 @@
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @Html.ActionLink("Create New", "Create")
-<div id="accordion">
+ @*// Start of accordion //*@
+<div class="accordion" id="accordionOne">
 
   @foreach (var item in Model)
   {
-
+    DateTime dateTime = DateTime.Now;
     var startTime = item.StartTime;
     var endTime = item.EndTime;
 
@@ -37,10 +38,10 @@
 
 
 
-    <div class="Rental_Request-index--card">
+    <div class="card Rental_Request-index--card">
       <div class="card-header" id="headingOne">
-        <h2 class="mB-0">
-          <button class="btn-block text-left" type="button" data-toggle="collapse" data-target="#one" aria-expanded="false" aria-controls="collapseOne">
+        <h2 class="mb-0">
+          <button class="btn-block text-left" type="button" data-toggle="collapse" data-target="#@item.RentalRequestID" aria-expanded="false" aria-controls="@item.RentalRequestID">
             <h2 class="Rental_Request-index--company">
               Company: @item.Company
             </h2>
@@ -53,37 +54,39 @@
           </button>
         </h2>
       </div>
+      @*//accordion content //*@
+      <div id="@item.RentalRequestID" class="collapse" aria-labelledby="heading-@item.RentalRequestID" data-parent="#accordionOne">
+        <div class="card-body">
+          <div class="Rental_Request-index--card-body">
+            <h4>Start Time                              End Time</h4>
+            <p>@startTime.Date.ToString("d")           @endTime.Date.ToString("d")</p>
+            <p>@startTime.Date.ToString("hh:mm tt")        @endTime.Date.ToString("hh:mm tt")</p>
 
-      <div id="one" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="Rental_Request-index--card-body">
-          <h4>Start Time            End Time</h4>
-          <p>@item.StartTime.Date.ToString("d")        @item.EndTime.Date.ToString("d")</p>
-          <p>@item.StartTime.Date.ToString("HH:mm")     @item.EndTime.Date.ToString("HH:mm")</p>
+          </div>
+          <ul class="Rental_Request-index--list-group">
+            <li>Rental Code: @item.RentalCode</li>
+
+            <li> Project Info: @item.ProjectInfo</li>
+
+            <li>Rentals:</li>
+
+            <li> Accepted: @item.Accepted</li>
+
+            <li> Contract Signed: @item.ContractSigned</li>
+
+            <li>Survey:</li>
+          </ul>
+
+          @*// action links //*@
+          <div class="Rental_Request-index--links">
+            <a href="@Url.Action("Edit", new { id = item.RentalRequestID })"><i class="fa fa-bars"></i> </a> |
+            <a href="@Url.Action("Details", new { id = item.RentalRequestID })"><i class="fa fa-info"></i> </a> |
+            <a href="@Url.Action("Delete", new { id = item.RentalRequestID })"><i class="fa fa-trash"></i> </a>
+          </div>
 
         </div>
-        <ul class="Rental_Request-index--list-group">
-          <li>Rental Code: @item.RentalCode</li>
-
-          <li> Project Info: @item.ProjectInfo</li>
-
-          <li>Rentals:</li>
-
-          <li> Accepted: @item.Accepted</li>
-
-          <li> Contract Signed: @item.ContractSigned</li>
-
-          <li>Survey:</li>
-        </ul>
-
-        <div class="Rental_Request-index--links">
-          <a href="@Url.Action("Edit", new { id = item.RentalRequestID })"><i class="fa fa-bars"></i> </a> |
-          <a href="@Url.Action("Details", new { id = item.RentalRequestID })"><i class="fa fa-info"></i> </a> |
-          <a href="@Url.Action("Delete", new { id = item.RentalRequestID })"><i class="fa fa-trash"></i> </a>
-        </div>
-
-
 
       </div>
     </div>
-    }
-  </div>
+  }
+</div>
