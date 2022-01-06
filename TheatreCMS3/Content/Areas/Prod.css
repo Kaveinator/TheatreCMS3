@@ -78,6 +78,40 @@
 .cast_member-create--back_btn:hover {
     opacity: .8;
 }
+
+.cast_member-create--form_group {
+    background-color: lightgrey;
+    border: 2px solid var(--dark-color);
+    outline: none;
+    width: 100%;
+    text-align: left;
+    margin: auto;
+    margin: auto;
+}
+
+.cast_member-create--bio_form_group, textarea {
+    background-color: lightgrey;
+    border: 2px solid var(--dark-color);
+    outline: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cast_member-create--form_group:focus, textarea:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 3px var(--secondary-color);
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.cast_member-create--bio_form_group:focus, textarea:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 3px var(--secondary-color);
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
 /*Styling of the Edit Cast Member Page*/
 
 .cast_member-createedit--h1 {
@@ -138,4 +172,46 @@
     padding: 8px;
     width: auto;
     margin-bottom: 22px;
+}
+
+.cast_member-createedit--form_container {
+    background-color: lightgrey;
+    border: 2px solid var(--dark-color);
+    outline: none;
+    width: 100%;
+    text-align: left;
+    margin: auto;
+    margin: auto;
+}
+
+.cast_member-createedit--bio_form_group, textarea {
+    background-color: lightgrey;
+    border: 2px solid var(--dark-color);
+    outline: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cast_member-createedit--form_group:focus, textarea:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 3px var(--secondary-color);
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.cast_member-createedit--bio_form_group:focus, textarea:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 3px var(--secondary-color);
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.table th {
+    background-color: var(--main-color);
+    color: white;
+}
+.table td {
+    background-color: black;
+    color: white;
 }
