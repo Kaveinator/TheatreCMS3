@@ -38,55 +38,55 @@
 
 
     //accordion header//
-    <div class="card Rental_Request-index--card">
-      <div class="card-header" id="heading-@item.RentalRequestID">
-        <h2 class="mb-0">
-          <button class="btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-@item.RentalRequestID" aria-expanded="false" aria-controls="#@item.RentalRequestID">
-            <h2 class="Rental_Request-index--company">
-              Company: @item.Company
-            </h2>
-            <h2 class="Rental_Request-index--contact">
-              Contact Person: @item.ContactPerson
-            </h2>
-            <p class="Rental_Request-index--time">
-              @text
-            </p>
-          </button>
-        </h2>
-      </div>
-      @*//accordion content //*@
-      <div id="collapse-@item.RentalRequestID" class="collapse" aria-labelledby="heading-@item.RentalRequestID" data-parent="#accordionExample">
-        <div class="card-body">
-          <div class="Rental_Request-index--card-body">
-            <h4>Start Time                              |    End Time</h4>
-            <p>@startTime.Date.ToString("hh:mm tt")     |    @endTime.Date.ToString("hh:mm tt") </p>
-            <p>@startTime.Date.ToString("MMM dd, yyyy") |   @endTime.Date.ToString("MMM dd, yyyy")</p>
+  <div class="card Rental_Request-index--card">
+    <div class="card-header" id="heading-@item.RentalRequestID">
+      <h2 class="mb-0">
+        <button class="btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-@item.RentalRequestID" aria-expanded="false" aria-controls="#@item.RentalRequestID">
+          <h2 class="Rental_Request-index--company">
+            Company: @item.Company
+          </h2>
+          <h2 class="Rental_Request-index--contact">
+            Contact Person: @item.ContactPerson
+          </h2>
+          <p class="Rental_Request-index--time">
+            @text
+          </p>
+        </button>
+      </h2>
+    </div>
+    @*//accordion content //*@
+    <div id="collapse-@item.RentalRequestID" class="collapse" aria-labelledby="heading-@item.RentalRequestID" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="Rental_Request-index--card-body">
+          <h4>Start Time                              |    End Time</h4>
+          <p>@startTime.ToShortTimeString()           |   @endTime.ToShortTimeString() </p>
+          <p>@startTime.Date.ToString("MMM dd, yyyy") |   @endTime.Date.ToString("MMM dd, yyyy")</p>
 
-          </div>
-          <ul class="Rental_Request-index--list-group">
-            <li>Rental Code: @item.RentalCode</li>
+        </div>
+        <ul class="Rental_Request-index--list-group">
+          <li>Rental Code: @item.RentalCode</li>
 
-            <li> Project Info: @item.ProjectInfo</li>
+          <li> Project Info: @item.ProjectInfo</li>
 
-            <li>Rentals:</li>
+          <li>Rentals:</li>
 
-            <li> Accepted: @item.Accepted</li>
+          <li> Accepted: @item.Accepted</li>
 
-            <li> Contract Signed: @item.ContractSigned</li>
+          <li> Contract Signed: @item.ContractSigned</li>
 
-            <li>Survey:</li>
-          </ul>
+          <li>Survey:</li>
+        </ul>
 
-          @*// action links //*@
-          <div class="Rental_Request-index--links">
-            <a href="@Url.Action("Edit", new { id = item.RentalRequestID })"><i class="fa fa-bars"></i> </a> |
-            <a href="@Url.Action("Details", new { id = item.RentalRequestID })"><i class="fa fa-info"></i> </a> |
-            <a href="@Url.Action("Delete", new { id = item.RentalRequestID })"><i class="fa fa-trash"></i> </a>
-          </div>
-
+        @*// action links //*@
+        <div class="Rental_Request-index--links">
+          <a href="@Url.Action("Edit", new { id = item.RentalRequestID })"><i class="fa fa-bars"></i> </a> |
+          <a href="@Url.Action("Details", new { id = item.RentalRequestID })"><i class="fa fa-info"></i> </a> |
+          <a href="@Url.Action("Delete", new { id = item.RentalRequestID })"><i class="fa fa-trash"></i> </a>
         </div>
 
       </div>
+
     </div>
+  </div>
   }
 </div>
