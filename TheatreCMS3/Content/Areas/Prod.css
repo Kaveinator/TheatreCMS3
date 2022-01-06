@@ -33,40 +33,109 @@
     margin-left: auto;
     margin-right: auto;
     border-color: var(--main-bg-color);
-    background-color: var(--main-color);
+    background-color: var(--main-color--light);
+    
 }
 
 .cast_member-create--form {
     text-align: left;
 }
 
-.cast_member-create--submit_btn {
+.check-box {
     text-align: center;
-    background-color: var(--secondary-color);
-    border-radius: 10px;
-    width: auto;
-    margin-top: 50px;
-    padding: 10px;
 }
 
-    .cast_member-create--submit_btn:hover {
-        opacity: .8;
-    }
+.cast_member-create--current_member {
+    text-align: center;
+    padding: 20px;
+}
 
-.cast_member-create--back_btn {
+.cast_member-create--submit_btn {
     margin-top: 50px;
     text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    width: auto;
+    margin-bottom: 15px;
+    
+}
+
+
+.cast_member-create--submit_btn:hover {
+    opacity: .8;
+}
+
+.cast_member-create--back_btn {
+    margin-top: 59px;
+    text-align: center;
     background-color: var(--secondary-color);
+    border-radius: 5px;
+    padding: 8px;
+    width: auto;
+    margin-bottom: 22px;
+    
+}
+.cast_member-create--back_btn:hover {
+    opacity: .8;
+}
+/*Styling of the Edit Cast Member Page*/
+
+.cast_member-createedit--h1 {
+    text-align: center;
+    color: var(--light-color);
+    padding: 30px;
+}
+
+.cast_member-createedit--h4 {
+    text-align: center;
+    color: var(--light-color);
+    padding: 30px;
+}
+.cast_member-createedit--form_container {
+    text-align: center;
+    border: solid 10px;
+    border-radius: 25px;
+    border-color: var(--main-bg-color);
+    /*Centers the form*/
+    margin-left: auto;
+    margin-right: auto;
+    border-color: var(--main-bg-color);
+    background-color: var(--main-color--light);
+}
+
+.cast_member-createedit--form {
+    text-align: left;
+}
+
+.check-box {
+    text-align: center;
+}
+
+.cast_member-createedit--current_member {
+    text-align: center;
+    padding: 20px;
+}
+
+.cast_member-createedit--submit_btn {
+    margin-top: 50px;
+    text-align: center;
     border-radius: 10px;
     padding: 10px;
     width: auto;
     margin-bottom: 15px;
 }
 
-    .cast_member-create--back_btn:hover {
-        opacity: .8;
-    }
 
-.check-box {
+.cast_member-createedit--submit_btn:hover {
+    opacity: .8;
+}
+
+.cast_member-createedit--back_btn {
+    margin-top: 59px;
     text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    padding: 8px;
+    width: auto;
+    margin-bottom: 22px;
 }
