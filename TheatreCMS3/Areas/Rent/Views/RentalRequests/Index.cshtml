@@ -1,0 +1,92 @@
+﻿
+@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalRequest>
+
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.ActionLink("Create New", "Create")
+@*// Start of accordion //*@
+<div class="accordion" id="accordionExample">
+
+  @foreach (var item in Model)
+  {
+    DateTime dateTime = DateTime.Now;
+    var startTime = item.StartTime;
+    var endTime = item.EndTime;
+
+
+    //Time Remaining and Time till start//
+    int days;
+    int hours;
+    int mins;
+    string text = "";
+    if (DateTime.Now < item.EndTime && DateTime.Now > item.StartTime)
+    {
+      days = (item.EndTime - DateTime.Now).Days;
+      hours = (item.EndTime - DateTime.Now).Hours;
+      mins = (item.EndTime - DateTime.Now).Minutes;
+      text = " Time Remaining: " + days + " Day(s) " + hours + " Hours " + mins + " Minutes";
+    }
+    else if (DateTime.Now < item.StartTime)
+    {
+      days = (item.StartTime - DateTime.Now).Days;
+      hours = (item.StartTime - DateTime.Now).Hours;
+      mins = (item.StartTime - DateTime.Now).Minutes;
+      text = " Time till Start: " + days + " Day(s) " + hours + " Hours " + mins + " Minutes";
+    }
+
+
+    //accordion header//
+  <div class="card Rental_Request-index--card">
+    <div class="card-header" id="heading-@item.RentalRequestID">
+      <h2 class="mb-0">
+        <button class="btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-@item.RentalRequestID" aria-expanded="false" aria-controls="#@item.RentalRequestID">
+          <h2 class="Rental_Request-index--company">
+            Company: @item.Company
+          </h2>
+          <h2 class="Rental_Request-index--contact">
+            Contact Person: @item.ContactPerson
+          </h2>
+          <p class="Rental_Request-index--time">
+            @text
+          </p>
+        </button>
+      </h2>
+    </div>
+    @*//accordion content //*@
+    <div id="collapse-@item.RentalRequestID" class="collapse" aria-labelledby="heading-@item.RentalRequestID" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="Rental_Request-index--card-body">
+          <h4>Start Time                              |    End Time</h4>
+          <p>@startTime.ToShortTimeString()           |   @endTime.ToShortTimeString() </p>
+          <p>@startTime.Date.ToString("MMM dd, yyyy") |   @endTime.Date.ToString("MMM dd, yyyy")</p>
+
+        </div>
+        <ul class="Rental_Request-index--list-group">
+          <li>Rental Code: @item.RentalCode</li>
+
+          <li> Project Info: @item.ProjectInfo</li>
+
+          <li>Rentals:</li>
+
+          <li> Accepted: @item.Accepted</li>
+
+          <li> Contract Signed: @item.ContractSigned</li>
+
+          <li>Survey:</li>
+        </ul>
+
+        @*// action links //*@
+        <div class="Rental_Request-index--links">
+          <a href="@Url.Action("Edit", new { id = item.RentalRequestID })"><i class="fa fa-bars"></i> </a> |
+          <a href="@Url.Action("Details", new { id = item.RentalRequestID })"><i class="fa fa-info"></i> </a> |
+          <a href="@Url.Action("Delete", new { id = item.RentalRequestID })"><i class="fa fa-trash"></i> </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  }
+</div>
