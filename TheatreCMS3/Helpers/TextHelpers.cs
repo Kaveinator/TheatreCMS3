@@ -26,6 +26,15 @@ namespace TheatreCMS3.Helpers
             return result;
         
         }
+        public static string LimitWords(string content, int maxWords)
+        {
+            if (content == null || content.Length < maxWords || maxWords <= 0) return content;
+
+            string[] trimmed = content.Split(' ').Take(maxWords).ToArray();
+            content = String.Join(" ", trimmed);
+
+            return content + "...";
+        }
 
     }
 }
