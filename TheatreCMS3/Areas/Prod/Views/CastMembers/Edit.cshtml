@@ -52,7 +52,7 @@
         <div class="form-group cast_member-createedit--current_member">
             @Html.LabelFor(model => model.CurrentMember, "Current Member", htmlAttributes: new { @class = "control-label col-md-8" })
             <div class="col-md-12">
-                <div class="check-box">
+                <div class="cast_member-createedit--check-box">
                     @Html.EditorFor(model => model.CurrentMember)
                     @Html.ValidationMessageFor(model => model.CurrentMember, "", new { @class = "text-danger" })
                 </div>
