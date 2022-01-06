@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.YearJoined,"Year Joined", htmlAttributes: new { @class = "control-label col-md-8" })
+                @Html.LabelFor(model => model.YearJoined, "Year Joined", htmlAttributes: new { @class = "control-label col-md-8" })
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { @class = "form-control cast_member-create--form_group", placeholder = "Enter Year Joined" } })
                     @Html.ValidationMessageFor(model => model.YearJoined, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.MainRole,"Main Role", htmlAttributes: new { @class = "control-label col-md-8" })
+                @Html.LabelFor(model => model.MainRole, "Main Role", htmlAttributes: new { @class = "control-label col-md-8" })
                 <div class="col-md-12">
                     @Html.EnumDropDownListFor(model => model.MainRole, htmlAttributes: new { @class = "form-control cast_member-create--form_group" })
                     @Html.ValidationMessageFor(model => model.MainRole, "", new { @class = "text-danger" })
@@ -49,9 +49,9 @@
             </div>
 
             <div class="form-group cast_member-create--current_member">
-                @Html.LabelFor(model => model.CurrentMember,"Current Member", htmlAttributes: new { @class = "control-label col-md-8" })
+                @Html.LabelFor(model => model.CurrentMember, "Current Member", htmlAttributes: new { @class = "control-label col-md-8" })
                 <div class="col-md-12">
-                    <div class="check-box">
+                    <div class="cast_member-create--check-box">
                         @Html.EditorFor(model => model.CurrentMember)
                         @Html.ValidationMessageFor(model => model.CurrentMember, "", new { @class = "text-danger" })
                     </div>
@@ -82,17 +82,18 @@
                 </div>
             </div>
 
-            <div class="row justify-content-around">
+            <div class="row justify-content-center">
                 <div class="form-group cast_member-create--submit_btn">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-default cms-bg-main" style="color:white;" />
                 </div>
+                
                 @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default cast_member-create--back_btn " })
+
             </div>
         </div>
 
     }
 </div>
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
