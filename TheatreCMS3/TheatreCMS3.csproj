@@ -579,7 +579,6 @@
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
-    <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
     <Folder Include="obj\" />
     <Folder Include="UIUX\Images\" />
