@@ -571,35 +571,3 @@ footer {
         color: black;
 }
 
-/*---Rental History Create Page---*/
-.rentalhistory-create--title {
-    text-align: center;
-}
-.rentalhistory-create--form {
-    background-color: #f04d44;
-    display: flex;
-    margin: 2.5vh;
-    width: 100%;
-    border-radius: 14px;
-    flex-direction: column;
-}
-.rentalhistory-create--row1 {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-.retalhistory-create--label {
-    font-weight: 700;
-    width: 120%;
-    margin: 1vh 0vh 1vh 0vh;
-}
-.rentalhistory-create--btns {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    margin: 1vh 0vh 1vh 0vh;
-}
-.rentalhistory-create--checkbox {
-    font-size: 3vh;
-}
