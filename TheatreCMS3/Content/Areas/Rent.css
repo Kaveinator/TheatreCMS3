@@ -37,3 +37,28 @@
 .btn:focus {
     box-shadow: none;
 }
+/* Rental Request Page Styling */
+
+.Rental_Request-index--accordion {
+    width: 100%;
+    transition: 0.4s;
+    margin-top: 5px;
+}    
+.Rental_Request-index--card {
+    background-color: var(--main-color);
+}
+.Rental_Request-index--time {
+    float: right;
+}
+.Rental_Request-index--links {
+    vertical-align: middle;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.Rental_Request-index--card-body {
+    text-align: center;
+    color: black;
+}
+.Rental_Request-index--list-group {
+    list-style-type: none;
+}
