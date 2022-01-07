@@ -2,9 +2,9 @@
 $("#damaged").on("click",function () {
 
     if (damaged.checked) {
-        ($("#trigger").text("Notes"));
+        ($("#trigger").text("Damages Incurred"));
     }
-    else { $("#trigger").text("Damages Incurred");
+    else { $("#trigger").text("Notes");
     }
 
 });
