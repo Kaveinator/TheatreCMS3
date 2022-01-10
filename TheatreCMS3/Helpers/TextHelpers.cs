@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace TheatreCMS3.Helpers
@@ -25,6 +26,21 @@ namespace TheatreCMS3.Helpers
             }
             return result;
         
+        }
+        public static string LimitWords(string content, int maxWords)
+        {
+            if (content == null || content.Length < maxWords || maxWords <= 0) return content;
+
+            string trimSpaces = Regex.Replace(content, @"\s+", " ").Trim();
+
+            string[] trimmed = trimSpaces.Split(' ').Take(maxWords).ToArray();
+            foreach (var x in trimmed)
+            {
+                x.Trim();
+            }
+            content = String.Join(" ", trimmed);
+
+            return content + "...";
         }
 
     }
