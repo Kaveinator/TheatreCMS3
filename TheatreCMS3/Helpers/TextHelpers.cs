@@ -34,6 +34,10 @@ namespace TheatreCMS3.Helpers
             string trimSpaces = Regex.Replace(content, @"\s+", " ").Trim();
 
             string[] trimmed = trimSpaces.Split(' ').Take(maxWords).ToArray();
+            foreach (var x in trimmed)
+            {
+                x.Trim();
+            }
             content = String.Join(" ", trimmed);
 
             return content + "...";
