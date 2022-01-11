@@ -44,7 +44,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-8" })
             <div class="col-md-12">
-                @Html.TextAreaFor(model => model.Bio, new { @class = "form-control cast_member-create--bio_form_group", placeholder = "Enter short bio" })
+                @Html.TextAreaFor(model => model.Bio, new { @class = "form-control cast_member-createedit--bio_form_group", placeholder = "Enter short bio" })
                 @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -62,7 +62,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Character, htmlAttributes: new { @class = "control-label col-md-8" })
             <div class="col-md-12">
-                @Html.EditorFor(model => model.Character, new { htmlAttributes = new { @class = "form-control cast_member-create--form_group", placeholder = "Enter Character Name" } })
+                @Html.EditorFor(model => model.Character, new { htmlAttributes = new { @class = "form-control cast_member-createedit--form_group", placeholder = "Enter Character Name" } })
                 @Html.ValidationMessageFor(model => model.Character, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,7 +70,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CastYearLeft, "Cast Year Left", htmlAttributes: new { @class = "control-label col-md-8" })
             <div class="col-md-12">
-                @Html.EditorFor(model => model.CastYearLeft, new { htmlAttributes = new { @class = "form-control cast_member-create--form_group", placeholder = "Enter Year Left" } })
+                @Html.EditorFor(model => model.CastYearLeft, new { htmlAttributes = new { @class = "form-control cast_member-createedit--form_group", placeholder = "Enter Year Left" } })
                 @Html.ValidationMessageFor(model => model.CastYearLeft, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -78,14 +78,23 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DebutYear, "Debut Year", htmlAttributes: new { @class = "control-label col-md-8" })
             <div class="col-md-12">
-                @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { @class = "form-control cast_member-create--form_group", placeholder = "Enter Debut Year" } })
+                @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { @class = "form-control cast_member-createedit--form_group", placeholder = "Enter Debut Year" } })
                 @Html.ValidationMessageFor(model => model.DebutYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @* Image upload section *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-8" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(model => model.Photo, new { @class = "form-control cast_member-createedit--img_btn", @type = "file", placeholder = "Enter photo" })
+                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="row justify-content-center">
             <div class="form-group cast_member-create--submit_btn">
-                <input type="submit" value="Save" class="btn btn-default cms-bg-main" style="color:white;" />
+                <input type="submit" value="Save" class="btn btn-default cms-bg-main" style="color:white;"  />
             </div>
             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default cast_member-create--back_btn " })
         </div>
