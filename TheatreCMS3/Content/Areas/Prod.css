@@ -26,7 +26,7 @@
 
 .cast_member-create--form_container {
     text-align: center;
-    border: solid 10px;
+    border: solid 6px;
     border-radius: 25px;
     border-color: var(--main-bg-color);
     /*Centers the form*/
@@ -86,7 +86,6 @@
     width: 100%;
     text-align: left;
     margin: auto;
-    margin: auto;
 }
 
 .cast_member-create--bio_form_group, textarea {
@@ -111,6 +110,15 @@
     color: var(--dark-color);
     background-color: var(--light-color);
 }
+.cast_member-create--img_btn {
+    background-color: var(--main-color--light);
+    border: hidden;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    margin: auto;
+    height: auto;
+}
 
 /*Styling of the Edit Cast Member Page*/
 
@@ -127,7 +135,7 @@
 }
 .cast_member-createedit--form_container {
     text-align: center;
-    border: solid 10px;
+    border: solid 3px;
     border-radius: 25px;
     border-color: var(--main-bg-color);
     /*Centers the form*/
@@ -135,6 +143,15 @@
     margin-right: auto;
     border-color: var(--main-bg-color);
     background-color: var(--main-color--light);
+}
+
+.cast_member-createedit--form_group {
+    background-color: lightgrey;
+    border: 2px solid var(--dark-color);
+    outline: none;
+    width: 100%;
+    text-align: left;
+    margin: auto;
 }
 
 .cast_member-createedit--form {
@@ -206,6 +223,15 @@
     color: var(--dark-color);
     background-color: var(--light-color);
 }
+.cast_member-createedit--img_btn {
+    background-color: var(--main-color--light);
+    border: hidden;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    margin: auto;
+    height: auto;
+}
 
 .table th {
     background-color: var(--main-color);
@@ -214,4 +240,10 @@
 .table td {
     background-color: black;
     color: white;
+}
+
+
+.cast_member-index--photo {
+    width: 100%;
+    height: auto;
 }

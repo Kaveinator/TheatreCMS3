@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, Image")] CastMember castMember, HttpPostedFileBase Photo)
         {
+            var photobyte = Photoconvert(Photo);
+
             if (ModelState.IsValid)
             {
+                castMember.Photo = photobyte;
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,7 +83,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, Image")] CastMember castMember )
         {
             if (ModelState.IsValid)
             {
@@ -124,5 +128,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+        //creating byte array called "Photoconvert"
+       public Byte[] Photoconvert(HttpPostedFileBase photo)
+        {
+            byte[] bytes;//create byte array called "bytes"
+            using (BinaryReader br = new BinaryReader(photo.InputStream))//creating binaryreader br, gets input stream of photo file location, also prepares for files to be read.
+            {
+                bytes = br.ReadBytes(photo.ContentLength);//converts photo into a byte
+                
+            }
+            return bytes;
+        }
+
+
+    }    
 }
