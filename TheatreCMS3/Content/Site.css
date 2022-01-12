@@ -571,3 +571,76 @@ footer {
         color: black;
 }
 
+/*column homepage css*/
+#Home-index--column {
+    width: 90%;
+    float: left
+}
+
+#Home-index--column-2 {
+    width: 10%;
+    float: right;
+    
+   
+}
+
+/*Theatre Vertigo img css*/
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+
+button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 20px;
+    width: 200px;
+}
+
+
+/*CSS for all sponsor img*/
+.one {
+    width:100%;
+    
+}
+
+.two {
+    width: 150%;
+    
+}
+
+.three {
+    width: 100%;
+   
+}
+
+.four {
+    
+    display: flex;
+}
+
+.five {
+    width: 150%;
+}
+
+.six {
+    width: 150%
+}
+/*CSS for h2 */
+h2 {
+    border-bottom: 2px solid orange;
+    position: relative;
+}
+
+.Image-2 {
+    flex: 33.33%;
+    padding: 5px;
+}
