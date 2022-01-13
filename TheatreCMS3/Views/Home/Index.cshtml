@@ -4,65 +4,67 @@
 
 <div>
   <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
-    <img src="/Content/images/TheatreLogo.png" class="center">
+    <img src="/Content/images/TheatreLogo.png" class="home-index--center">
   <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
   @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
   @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
 
 <div id="Home-index--column">
-    <h2>SPOTLIGHT</h2>
+    <p class="home-index--SpotlightFont">SPOTLIGHT</p>
     <img src="/Content/images/DollsHouse.png"><br>
     <img src="/Content/images/Tempest.png"><br>
-    <p>LAND ACKNOWLEDGEMENT</p>
-    <p>Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional
-    tribal lands<br> of the Multnomah, Wasco, Clackamas, Chinook brands, Kathlamet, Tualatin
-    Kalapuya, Cowlitz,<br> Moliala, Cascades, Oregon City Tumwater, Confederated Tribs of
-    the Grand Ronde and other<br> indigenous peoples.</p>
+    <p class="home-index--LandFont">LAND ACKNOWLEDGEMENT</p>
+    <p>
+        Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional
+        tribal lands<br> of the Multnomah, Wasco, Clackamas, Chinook brands, Kathlamet, Tualatin
+        Kalapuya, Cowlitz,<br> Moliala, Cascades, Oregon City Tumwater, Confederated Tribs of
+        the Grand Ronde and other<br> indigenous peoples.
+    </p>
 
     <p><b>We are on stolen land.</b></p>
 
-    <p>Theatre Vertigo has been and continues to examine our commnity relationships to
-    ensure <br>our collaborators, partners and sponsors support our regions indigenous
-    Nations and communities.</p>
+    <p>
+        Theatre Vertigo has been and continues to examine our commnity relationships to
+        ensure <br>our collaborators, partners and sponsors support our regions indigenous
+        Nations and communities.
+    </p>
 
-    <p>One of the ways Theatre Vertigo is working to act on our commitment to being of
-    servie <br>to the lands that we now share is to build bridges between our arts community and local Nations.</p>
+    <p>
+        One of the ways Theatre Vertigo is working to act on our commitment to being of
+        servie <br>to the lands that we now share is to build bridges between our arts community and local Nations.
+    </p>
+    <a href="https://nayapdx.org/"><img src="~/Content/images/NAYAFamilyCenter.jpg" style="width: 25%;"></a>
 </div>
 
 <div id="Home-index--column-2">
-    <h2>DONATIONS</h2>
-    <button type="button">
-        Click to Support
-        <a href="@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "float-right" })"></a>
+    <p class="home-index--DonationFont">DONATIONS</p>
+    <button class="home-index--button">
+       
+        @Html.ActionLink("Click To Support", "Contact", "Home")
     </button>
-    <a href="https://nayapdx.org/"><img src="~/Content/images/NAYAFamilyCenter.jpg" class="one"></a>
     <br>
     <br>
     <br>
-    <h2>SPONSORS</h2>
-
+    <p class="home-index--SponsorsFont">SPONSORS</p>
     <div>
-        <div class="Image-1">
-            <img src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" class="two">
+        <div class="Home-Content--Images-1">
+            <img src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" style="width: 200%;">
         </div>
     </div>
-
     <div>
-        <div class="Image-2">
-            <img src="~/Content/images/Sponsors/LogoRoundColor.png" style="width:auto">
-            <img src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" style="width:100%">
-
+        <div class="Home-Content--Images-2">
+            <img src="~/Content/images/Sponsors/LogoRoundColor.png" style="width: 100%;">
+            <img src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" style="width: 150%;">
         </div>
     </div>
-
     <div>
-        <div class="Image-3">
-            <img src="~/Content/images/Sponsors/Ninkasi-white-text.png">
-            <img src="~/Content/images/Sponsors/RACC.png">
-
+        <div class="Home-Content--Images-3">
+            <img src="~/Content/images/Sponsors/Ninkasi-white-text.png" style="width: 100%;">
+            <img src="~/Content/images/Sponsors/RACC.png" style="width: 150%;">
         </div>
     </div>
+</div>
 
  
 

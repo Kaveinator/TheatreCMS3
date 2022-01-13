@@ -571,6 +571,8 @@ footer {
         color: black;
 }
 
+/*STYLING HOME PAGE BEGINS*/
+
 /*column homepage css*/
 #Home-index--column {
     width: 90%;
@@ -580,22 +582,23 @@ footer {
 #Home-index--column-2 {
     width: 10%;
     float: right;
-    
-   
+}
+
+/*CSS for sponsors*/
+.Home-Content--Images-1 {
+    width: 50%;
 }
 
 /*Theatre Vertigo img css*/
-.center {
+.home-index--center {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
 }
 
-
-
-button {
-    background-color: red;
+.home-index--button {
+    background-color: var(--main-color);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -605,42 +608,36 @@ button {
     width: 200px;
 }
 
-
-/*CSS for all sponsor img*/
-.one {
-    width:100%;
-    
+/*CSS for p class Spotlight */
+.home-index--SpotlightFont {
+    font-family: oswald;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 4px;
 }
 
-.two {
-    width: 150%;
-    
+/*CSS for p class Donations */
+.home-index--DonationFont {
+    font-family: oswald;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 4px;
 }
 
-.three {
-    width: 100%;
-   
+/*CSS for p class Sponsor */
+.home-index--SponsorsFont {
+    font-family: oswald;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 4px;
 }
 
-.four {
-    
-    display: flex;
+.home-index--LandFont {
+    font-family: oswald;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 4px;
 }
 
-.five {
-    width: 150%;
-}
+/*STYLING HOME PAGE ENDS*/
 
-.six {
-    width: 150%
-}
-/*CSS for h2 */
-h2 {
-    border-bottom: 2px solid orange;
-    position: relative;
-}
-
-.Image-2 {
-    flex: 33.33%;
-    padding: 5px;
-}
