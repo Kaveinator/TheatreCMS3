@@ -4,28 +4,88 @@
 
 <div>
   <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
+    <img src="/Content/images/TheatreLogo.png" class="home-index--center">
   <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
   @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
   @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
-@*<div class="row">
-      <div class="col-md-4">
-          <h2>Getting started</h2>
-          <p>
-              ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-              enables a clean separation of concerns and gives you full control over markup
-              for enjoyable, agile development.
-          </p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-          <h2>Get more libraries</h2>
-          <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-          <h2>Web Hosting</h2>
-          <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-      </div>
-  </div>*@
+
+<div id="Home-index--column">
+    <p class="home-index--SpotlightFont">SPOTLIGHT</p>
+    <img src="/Content/images/DollsHouse.png"><br>
+    <img src="/Content/images/Tempest.png"><br>
+    <p class="home-index--LandFont">LAND ACKNOWLEDGEMENT</p>
+    <p>
+        Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional
+        tribal lands<br> of the Multnomah, Wasco, Clackamas, Chinook brands, Kathlamet, Tualatin
+        Kalapuya, Cowlitz,<br> Moliala, Cascades, Oregon City Tumwater, Confederated Tribs of
+        the Grand Ronde and other<br> indigenous peoples.
+    </p>
+
+    <p><b>We are on stolen land.</b></p>
+
+    <p>
+        Theatre Vertigo has been and continues to examine our commnity relationships to
+        ensure <br>our collaborators, partners and sponsors support our regions indigenous
+        Nations and communities.
+    </p>
+
+    <p>
+        One of the ways Theatre Vertigo is working to act on our commitment to being of
+        servie <br>to the lands that we now share is to build bridges between our arts community and local Nations.
+    </p>
+    <a href="https://nayapdx.org/"><img src="~/Content/images/NAYAFamilyCenter.jpg" style="width: 25%;"></a>
+</div>
+
+<div id="Home-index--column-2">
+    <p class="home-index--DonationFont">DONATIONS</p>
+    <button class="home-index--button">
+       
+        @Html.ActionLink("Click To Support", "Contact", "Home")
+    </button>
+    <br>
+    <br>
+    <br>
+    <p class="home-index--SponsorsFont">SPONSORS</p>
+    <div>
+        <div class="Home-Content--Images-1">
+            <img src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" style="width: 200%;">
+        </div>
+    </div>
+    <div>
+        <div class="Home-Content--Images-2">
+            <img src="~/Content/images/Sponsors/LogoRoundColor.png" style="width: 100%;">
+            <img src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" style="width: 150%;">
+        </div>
+    </div>
+    <div>
+        <div class="Home-Content--Images-3">
+            <img src="~/Content/images/Sponsors/Ninkasi-white-text.png" style="width: 100%;">
+            <img src="~/Content/images/Sponsors/RACC.png" style="width: 150%;">
+        </div>
+    </div>
+</div>
+
+ 
+
+    @*<div class="row">
+            <div class="col-md-4">
+                <h2>Getting started</h2>
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Web Hosting</h2>
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </div>
+        </div>*@
