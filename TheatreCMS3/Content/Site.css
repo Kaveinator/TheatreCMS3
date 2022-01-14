@@ -435,98 +435,6 @@ footer {
   background: var(--light-color) !important;
 }
 
-/*styling for contact page*/
-#home-contact--contactpg {
-    background-color: #f04d44;
-    width: 100%;
-    margin: 0%;
-    display: flex;
-    flex-flow: column;
-
-}
-
-#home-contact--contacttron {
-    background-color: black;
-    border-radius: 0px 0px 0px 60px;
-    height: 30%;
-}
-#home-contact--header {
-    font-family: 'Limelight', cursive;
-    justify-content: center;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 200;
-    color: white;
-}
-.home-contact-midline {
-    color: #db1a11;
-    width: 5%;
-    
-}
-.home-contact--intro {
-    width: 100%;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2vh;
-    color: whitesmoke;
-}
-/*form section*/
-.home-contact--form{
-    display: flex;
-    flex-direction: column;
-    padding: 0 30vh 10vh 0;
-}
-
-#home-contact--formXdonateXvolunteer {
-    display: flex;
-    flex: 1;
-    background-color: #f04d44;
-    padding: 0% 5% 5% 5%;
-}
-
-.home-contact--formlabel {
-    flex-direction: column;
-    font-size: 2vh;
-    color: white;
-    background-color: #f04d44;
-    font-weight: 300;
-}
-
-.home-contact--formentry {
-    width: 200%;
-    padding: 12px 20px;
-    margin: 1% 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-    color: whitesmoke;
-    height: 3vh;
-}
-
-.home-contact--formmessage {
-    height: 12vh;
-    border: 1px solid #ccc;
-    border-radius: 14px;
-    width: 200%;
-    padding: 12px 20px;
-    margin: 1vh 0;
-}
-
-.home-contact--formbtn {
-    height: 3vh;
-    background-color: #db1a11;
-    width: 200%;
-    border-radius: 10px;
-    color: white;
-    margin: 3vh 0vh 0vh 0vh;
-    border: 1px solid white;
-}
-
-.home-contact--formbtn:hover {
-    background-color: whitesmoke;
-    color: black;
-}
-
 /*donate and volunteer section*/
 
 .home-contact--dvmaster {
@@ -570,4 +478,74 @@ footer {
         background-color: #fffbfb;
         color: black;
 }
+
+/*STYLING HOME PAGE BEGINS*/
+
+/*column homepage css*/
+#Home-index--column {
+    width: 90%;
+    float: left
+}
+
+#Home-index--column-2 {
+    width: 10%;
+    float: right;
+}
+
+/*CSS for sponsors*/
+.Home-Content--Images-1 {
+    width: 50%;
+}
+
+/*Theatre Vertigo img css*/
+.home-index--center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.home-index--button {
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 20px;
+    width: 200px;
+}
+
+/*CSS for p class Spotlight */
+.home-index--SpotlightFont {
+    font-family: oswald;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 4px;
+}
+
+/*CSS for p class Donations */
+.home-index--DonationFont {
+    font-family: oswald;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 4px;
+}
+
+/*CSS for p class Sponsor */
+.home-index--SponsorsFont {
+    font-family: oswald;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 4px;
+}
+
+.home-index--LandFont {
+    font-family: oswald;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 4px;
+}
+
+/*STYLING HOME PAGE ENDS*/
 
