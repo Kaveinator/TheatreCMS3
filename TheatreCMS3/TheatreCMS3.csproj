@@ -197,6 +197,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogPostsController.cs" />
+    <Compile Include="Areas\Blog\Models\BlogPost.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
@@ -314,6 +316,11 @@
     <Content Include="Areas\Prod\Views\ProductionPhotoes\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoes\Index.cshtml" />
     <Content Include="Areas\Blog\Models\.Dummy" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Index.cshtml" />
     <Content Include="Areas\Rent\Views\web.config" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
@@ -480,6 +487,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Blog\Pages\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Controllers\" />
