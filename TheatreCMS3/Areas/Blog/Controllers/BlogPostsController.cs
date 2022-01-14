@@ -6,117 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Rent.Controllers
+namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class RentalsController : Controller
+    public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Rent/Rentals
+        // GET: Blog/BlogPosts
         public ActionResult Index()
         {
-            return View(db.Rental.ToList());
+            return View(db.BlogPosts.ToList());
         }
 
-        // GET: Rent/Rentals/Details/5
+        // GET: Blog/BlogPosts/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rental.Find(id);
-            if (rental == null)
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            if (blogPost == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View(blogPost);
         }
 
-        // GET: Rent/Rentals/Create
+        // GET: Blog/BlogPosts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Rent/Rentals/Create
+        // POST: Blog/BlogPosts/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalName,RentalCost,FlawsAndDamages,Photo")] Rental rental) // removed the <pk> value "Id" (since set by SQL Server, not User)
+        public ActionResult Create([Bind(Include = "BlogPostID,Title,Content,DateTime,Author")] BlogPost blogPost)
         {
-            // ANY exceptions will prompt a 2nd try by User:
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    db.Rental.Add(rental);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                db.BlogPosts.Add(blogPost);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            catch (DataException)
-            {
-                ModelState.AddModelError("", "Unable to save changes.  Try aain, and if the problem persists, see your System Administrator.");
-            }
-            return View(rental);
+
+            return View(blogPost);
         }
 
-        // GET: Rent/Rentals/Edit/5
+        // GET: Blog/BlogPosts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rental.Find(id);
-            if (rental == null)
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            if (blogPost == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View(blogPost);
         }
 
-        // POST: Rent/Rentals/Edit/5
+        // POST: Blog/BlogPosts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,Photo")] Rental rental)
+        public ActionResult Edit([Bind(Include = "BlogPostID,Title,Content,DateTime,Author")] BlogPost blogPost)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rental).State = EntityState.Modified;
+                db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rental);
+            return View(blogPost);
         }
 
-        // GET: Rent/Rentals/Delete/5
+        // GET: Blog/BlogPosts/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rental.Find(id);
-            if (rental == null)
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            if (blogPost == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View(blogPost);
         }
 
-        // POST: Rent/Rentals/Delete/5
+        // POST: Blog/BlogPosts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Rental rental = db.Rental.Find(id);
-            db.Rental.Remove(rental);
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            db.BlogPosts.Remove(blogPost);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
