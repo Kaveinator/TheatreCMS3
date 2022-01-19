@@ -657,3 +657,41 @@ footer {
 }
 
 /* End of About Page*/
+
+/* Start of Contact page*/
+
+.home-contact--header {
+    text-align: center;
+    font-family: Broadway;
+    background-color: var(--dark-color);
+    
+}
+
+.home-contact--messagebox {
+    height: 50px;
+
+}
+
+.home-title--title {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+}
+
+.home-contacts--column1 {
+    float: left;
+    width: 50%;
+    background-color: var(--main-color--light);
+}
+
+.home-contacts--column2 {
+    float: left;
+    width: 50%;
+    background-color: var(--main-color--light);
+}
+
+
+
+
+
+ 
