@@ -12,9 +12,20 @@
 /*}*/
 
 
-.blog_author-create--name_field
+.blog_author-create_edit--container
 {
-    color: var(--main-color);
-    width: 100px;
-    background-color: #DB1A11;
+    background-color: var(--main-color--light);
+
+}
+
+.blog_author-create_edit--joined
+{
+    width: 50%;
+    float: left;
+}
+
+.blog_author-create_edit--left
+{
+    width: 50%;
+    float: right;
 }

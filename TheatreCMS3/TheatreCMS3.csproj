@@ -491,7 +491,6 @@
     <Content Include="UIUX\Wireframes\TheatreHomePageWireframe.psd" />
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
-    
     <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
