@@ -34,7 +34,8 @@
             </div>
         </div>
 
-        <div id="joined" class= "form-group blog_author-create_edit--joined JoinedDate">
+        <div class="blog_author-create_edit--outsideDatePickers">
+                   <div id="joined" class= "form-group blog_author-create_edit--joined JoinedDate">
             @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @type = "date", @class = "form-control datepicker", @id="dateJoined" } })
@@ -49,18 +50,25 @@
                 @* @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" }) *@
             </div>
         </div>
+        </div>
+ 
 
-        <div class="form-group">
+  <div class="blog_author-create_edit--buttonsContainer">
+
+         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Confirm" class="blog_author-create_edit--confirm" />
             </div>
         </div>
+    
+        <div>
+    @Html.ActionLink("Back to List", "Index", null, new {@class = "blog_author-create_edit--backToList"})
+    </div>
+    </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
