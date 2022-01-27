@@ -210,6 +210,7 @@
     <Compile Include="Areas\Rent\Models\Rentalrequest.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CastMembersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -221,6 +222,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CastMember.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -492,6 +494,11 @@
     <Content Include="webfonts\PTSans-Regular.ttf" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\CastMembers\Create.cshtml" />
+    <Content Include="Views\CastMembers\Delete.cshtml" />
+    <Content Include="Views\CastMembers\Details.cshtml" />
+    <Content Include="Views\CastMembers\Edit.cshtml" />
+    <Content Include="Views\CastMembers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
