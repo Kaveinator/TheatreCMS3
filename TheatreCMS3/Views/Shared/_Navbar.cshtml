@@ -70,7 +70,7 @@
           Production
         </a>
         <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
-          @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+          <a class="dropdown-item dropdowntxt" href="~/CastMembers/Index">Cast Members</a>
           @Html.ActionLink("Production Photos", "Index", "ProductionPhotos", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
           @Html.ActionLink("Productions", "Index", "Productions", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
           @Html.ActionLink("Calendar Events", "Index", "CalendarEvents", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
