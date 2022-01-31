@@ -197,6 +197,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
+    <Compile Include="Areas\Prod\Models\CastMembers.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalrequestsController.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
@@ -221,6 +223,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Prod\Controllers\dummy.txt" />
+    <Content Include="Areas\Prod\Models\dummy.txt" />
     <Content Include="Content\all.css" />
     <Content Include="Content\Areas\Blog.css" />
     <Content Include="Content\images\Sponsors\Ellyn-Bye-Logo.png" />
