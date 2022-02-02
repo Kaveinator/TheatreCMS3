@@ -10,3 +10,66 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+h2 {
+    text-align: center;
+}
+.Create-form {
+    margin-left: 25%;
+    width: 70%;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.btn {
+    border: outset 2px;
+    width: 150px;
+    margin: 5px;
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: var(--dark-color) 0.8px 0.8px 5px;
+}
+
+.btn_b {
+    color: var(--secondary-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color--light);
+}
+
+.btn_c {
+    color: var(--main-color);
+    background-color: var(--secondary-color);
+    border-color: var(--main-color--light);
+}
+
+.create_nav {
+    margin-left: 28%;
+    margin-right: 8px;
+    border-radius: 5px;
+    justify-content: center;
+    list-style: none;
+}
+
+#Create-input {
+    background-color: var(--secondary-color);
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+#Create-input::placeholder {
+    color: var(--dark-color);
+    font-weight: bold;
+}
+#Create-input:valid {
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+#Create-input:focus {
+    color: var(--dark-color);
+    background-color: var(--main-color--light);
+    border: 2px solid orange;
+    box-shadow: none;
+    font-weight: bold;
+}
+
