@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create Cast Member</h2>
+<div class="CastMembers-Create-h2">
+    <h2>Create Cast Member</h2>
+</div>
 
 
 @using (Html.BeginForm()) 
@@ -88,14 +90,13 @@
             <ul class="create_nav">
                 <li>
                     <div>
-                        <input type="submit" value="Create" class="btn btn_c btn-warning ">
+                        <input type="submit" value="Create" class="btn btn_c btn-warning">
                     </div>
                 </li>
 
                 <li>
                     <div>
                         <a class="btn btn_b btn-warning" href="~/Prod/CastMembers">Back to List</a>
-                        @*@Html.ActionLink("Back to List", "Index")*@
                     </div>
                 </li>
             </ul>
