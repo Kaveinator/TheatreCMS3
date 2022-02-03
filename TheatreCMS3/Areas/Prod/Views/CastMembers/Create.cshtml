@@ -5,23 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="CastMembers-Create-h2">
+<div class="CastMembers-CreateEdit-h2">
     <h2>Create Cast Member</h2>
 </div>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="Create-form">
+
+    <div class="CastMembers-CreateEdit-form">
 
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div  class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @id = "Create-input", @class = "form-control", @placeholder = "First and Last Name" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @id = "CastMembers-Create-input", @class = "form-control", @placeholder = "First and Last Name" } })
 
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
@@ -30,7 +30,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.YearJoined, "Year Joined", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { @id = "Create-input", @class = "form-control", @placeholder = "Year Joined" } })
+                @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { @id = "CastMembers-Create-input", @class = "form-control", @placeholder = "Year Joined" } })
                 @Html.ValidationMessageFor(model => model.YearJoined, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MainRole, "Main Role", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.MainRole, htmlAttributes: new { @id = "Create-input", @class = "form-control" })
+                @Html.EnumDropDownListFor(model => model.MainRole, htmlAttributes: new { @id = "CastMembers-Create-input", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MainRole, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Bio, "Biography", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @id = "Create-input", @class = "form-control", @placeholder = "Biography" } })
+                @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @id = "CastMembers-Create-input", @class = "form-control", @placeholder = "Biography" } })
                 @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -64,7 +64,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Character, "Character they are most famous for", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Character, new { htmlAttributes = new { @id = "Create-input", @class = "form-control", @placeholder = "Character they are most famous for" } })
+                @Html.EditorFor(model => model.Character, new { htmlAttributes = new { @id = "CastMembers-Create-input", @class = "form-control", @placeholder = "Character they are most famous for" } })
                 @Html.ValidationMessageFor(model => model.Character, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -72,7 +72,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CastYearLeft, "Year they left the cast", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CastYearLeft, new { htmlAttributes = new { @id = "Create-input", @class = "form-control", @placeholder = "Year they left the cast" } })
+                @Html.EditorFor(model => model.CastYearLeft, new { htmlAttributes = new { @id = "CastMembers-Create-input", @class = "form-control", @placeholder = "Year they left the cast" } })
                 @Html.ValidationMessageFor(model => model.CastYearLeft, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -80,23 +80,23 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DebutYear, "Debut Year", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { @id = "Create-input", @class = "form-control", @placeholder = "Debut Year" } })
+                @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { @id = "CastMembers-Create-input", @class = "form-control", @placeholder = "Debut Year" } })
                 @Html.ValidationMessageFor(model => model.DebutYear, "", new { @class = "text-danger" })
             </div>
         </div>
 
 
         <div>
-            <ul class="create_nav">
+            <ul class="CastMembers-CreateEdit-create_nav">
                 <li>
-                    <div>
-                        <input type="submit" value="Create" class="btn btn_c btn-warning">
+                    <div class="CastMembers-CreateEdit-CreateSave-btn">
+                        <input type="submit" value="Create" class="btn CastMembers-CreateEdit-CreateSave-btn_c btn-warning">
                     </div>
                 </li>
 
                 <li>
-                    <div>
-                        <a class="btn btn_b btn-warning" href="~/Prod/CastMembers">Back to List</a>
+                    <div class="CastMembers-CreateEdit-CreateSave-btn">
+                        <a class="btn CastMembers-CreateEdit-CreateSave-btn_b btn-warning" href="~/Prod/CastMembers">Back to List</a>
                     </div>
                 </li>
             </ul>
