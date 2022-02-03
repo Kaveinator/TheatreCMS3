@@ -13,11 +13,54 @@
 
 /* This page is about Blog Photo stylish page*/
 
+.BlogPhoto-Create--FormContainer {
+    background-color: var(--secondary-color--dark);
+}
+
 .BlogPhoto-Create--SubmitButton {
     border-radius: 13px;
     background-color: var(--main-color);
 }
 
-.BlogPhoto-Create--FormContainer {
+.BlogPhoto-Create--BackButton {
+    border-radius: 13px;
+}
+
+.BlogPhoto-Create--InputOriginal {
+    background-color: var(--main-color--light);
+}
+
+.BlogPhoto-Create--InputSelection input:focus {
+    border: 2px solid var(--main-color);
+    box-shadow: none;
+}
+
+.BlogPhoto-Create--ButtonContainer {
+    padding-bottom: 10px;
+}
+
+.BlogPhoto-Edit--FormContainer {
     background-color: var(--secondary-color--dark);
+}
+
+.BlogPhoto-Edit--EditButton {
+    border-radius: 13px;
+    background-color: var(--main-color);
+}
+
+.BlogPhoto-Edit--BackButton {
+    border-radius: 13px;
+}
+
+.BlogPhoto-Edit--InputOriginal {
+    background-color: var(--main-color--light);
+}
+
+.BlogPhoto-Edit--InputSelection input:focus {
+    border: 2px solid var(--main-color);
+    box-shadow: none;
+}
+
+.BlogPhoto-Edit--ButtonContainer {
+    padding-bottom: 10px;
 }
