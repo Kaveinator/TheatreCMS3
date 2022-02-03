@@ -12,7 +12,7 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div class="form-horizontal BlogPhoto-Create--FormContainer">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -32,9 +32,8 @@
         </div>
 
         <div class="form-group">
-            @*change to just "col"*@
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-6">
+                <input type="submit" value="Submit" class="btn btn-danger BlogPhoto-Create--SubmitButton" />
             </div>
         </div>
     </div>

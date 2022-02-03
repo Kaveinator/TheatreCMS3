@@ -12,3 +12,12 @@
 /*}*/
 
 /* This page is about Blog Photo stylish page*/
+
+.BlogPhoto-Create--SubmitButton {
+    border-radius: 13px;
+    background-color: var(--main-color);
+}
+
+.BlogPhoto-Create--FormContainer {
+    background-color: var(--secondary-color--dark);
+}
