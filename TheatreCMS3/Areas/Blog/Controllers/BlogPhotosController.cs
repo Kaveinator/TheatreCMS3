@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,6 +19,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // GET: Blog/BlogPhotos
         public ActionResult Index()
         {
+
             return View(db.BlogPhotoes.ToList());
         }
 
@@ -47,13 +49,28 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase PhotoFile)
         {
+
+            //if (PhotoFile is null)
+            //{
+            //    throw new ArgumentNullException(nameof(PhotoFile));
+            //}
+
+            var convertedPhoto = PhotoConvert(PhotoFile);
+
             if (ModelState.IsValid)
             {
+                blogPhoto.Photo = convertedPhoto;
                 db.BlogPhotoes.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+
+            //Add code to display image to screen, if image exists
+            if (PhotoFile != null)
+            {
+                ViewImage(blogPhoto.BlogPhotoId);
             }
 
             return View(blogPhoto);
@@ -123,6 +140,33 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //create method for converting a photo to a byte array
+        public byte[] PhotoConvert(HttpPostedFileBase photo)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photo.InputStream))
+            {
+                bytes = br.ReadBytes(photo.ContentLength);
+            }
+
+            return bytes;
+        }
+
+        //method for retrieving a photo stored as a byte array in the database
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ViewImage(int id)
+        {
+            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+            byte[] buffer = blogPhoto.Photo;
+            return File(buffer, "image/jpg", string.Format("{0}.jpg", id));
+            //string photoBase64 = Convert.ToBase64String(buffer);
+            //string photoURL = string.Format("data:image/jpg;base64,0}", photoBase64);
+            //ViewBag.PhotoData = photoURL;
+
+            //return View();
         }
     }
 }
