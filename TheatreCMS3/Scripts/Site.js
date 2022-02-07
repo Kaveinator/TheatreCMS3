@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     $('#NumPersons').append(
-        $('#PersonList p').length
+        $('#PersonList p').length,
+        <p></p>
     );
 });
