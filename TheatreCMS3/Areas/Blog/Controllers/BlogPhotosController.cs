@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,15 +48,21 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase PhotoFile)
         {
             if (ModelState.IsValid)
             {
+                //only attempt to convert and store photo in database if user selected a photo 
+                if (PhotoFile != null)
+                {
+                    var convertedPhoto = PhotoConvert(PhotoFile);
+                    blogPhoto.Photo = convertedPhoto;
+                }
+
                 db.BlogPhotoes.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(blogPhoto);
         }
 
@@ -79,10 +86,16 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase PhotoFile)
         {
             if (ModelState.IsValid)
             {
+                if (PhotoFile != null)
+                {
+                    var convertedPhoto = PhotoConvert(PhotoFile);
+                    blogPhoto.Photo = convertedPhoto;
+                }
+
                 db.Entry(blogPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +136,39 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //create method for converting a photo to a byte array
+        public byte[] PhotoConvert(HttpPostedFileBase photo)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photo.InputStream))
+            {
+                bytes = br.ReadBytes(photo.ContentLength);
+            }
+
+            return bytes;
+        }
+
+        //method for retrieving a photo stored as a byte array in the database
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ViewImage(int id)
+        {
+            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+
+            //check for if a photo exists for the passed id
+            if (blogPhoto.Photo != null)
+            {
+                byte[] buffer = blogPhoto.Photo;
+                return File(buffer, "image/jpg", string.Format("{0}.jpg", id));
+            }
+
+            //since no photo exists at this stage, simply return the view
+            else
+            {
+                return View(blogPhoto);
+            }
         }
     }
 }
