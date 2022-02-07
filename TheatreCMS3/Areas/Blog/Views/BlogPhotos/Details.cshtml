@@ -23,8 +23,9 @@
             @Html.DisplayNameFor(model => model.Photo)
         </dt>
 
+        @*show the image specific to this entry in the database*@
         <dd>
-            @Html.DisplayFor(model => model.Photo)
+            <img src="@Url.Action("ViewImage", "BlogPhotos", new { id = (Model.BlogPhotoId) } )" />
         </dd>
 
     </dl>

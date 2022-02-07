@@ -25,7 +25,10 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Photo)
+            @if (Model.Photo != null)
+            {
+                <img src="@Url.Action("ViewImage", "BlogPhotos", new { id = (Model.BlogPhotoId) } )" />
+            }
         </dd>
 
     </dl>

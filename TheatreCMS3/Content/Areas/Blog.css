@@ -64,3 +64,8 @@
 .BlogPhoto-Edit--ButtonContainer {
     padding-bottom: 10px;
 }
+
+.BlogPhoto-Index--FormContainer {
+    background-color: var(--secondary-color--dark);
+    padding: 10px;
+}
