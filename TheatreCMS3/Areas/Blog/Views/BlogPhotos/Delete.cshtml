@@ -5,40 +5,62 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2 class="BlogPhoto-Delete--CenterText">Delete this Blog Photo?</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h5 class="BlogPhoto-Delete--CenterText">(This action cannot be undone.)</h5>
 <div>
-    <h4>BlogPhoto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            @*@Html.DisplayNameFor(model => model.Title)*@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Title)
+            <h6 class="BlogPhoto-Delete--CenterText">
+                @Html.DisplayFor(model => model.Title)
+            </h6>
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Photo)
+            @*@Html.DisplayNameFor(model => model.Photo)*@
         </dt>
 
         <dd>
             @if (Model.Photo != null)
             {
-                <img src="@Url.Action("ViewImage", "BlogPhotos", new { id = (Model.BlogPhotoId) } )" />
+                <img class="BlogPhoto-Delete--ImageFit" src="@Url.Action("ViewImage", "BlogPhotos", new { id = (Model.BlogPhotoId) } )" />
             }
         </dd>
 
     </dl>
+</div>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+<div>
+    <p>
+        <button type="button" class="btn btn-secondary fa-arrow-left">
+            @Html.ActionLink("Back to List", "Index", null, new
+            {
+                style = "color: var(--light-color); " +
+                "text-decoration: none;"
+            })
+        </button>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        <a href="@Url.Action("Edit", "BlogPhotos", new { id = Model.BlogPhotoId })">
+            <button class="btn btn-secondary fa-edit">
+                Edit
+            </button>
+        </a>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <button type="submit" value="Delete" class="btn btn-danger fa-trash BlogPhoto-Delete--ButtonDelete">
+                    <b>Delete</b>
+                </button>
+            </div>
+        }
+    </p>
+
+
 </div>

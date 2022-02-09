@@ -37,7 +37,7 @@
         <div class="col-md-10">
             @if (Model.Photo != null)
             {
-                <img src="@Url.Action("ViewImage", "BlogPhotos", new { id = (Model.BlogPhotoId) } )" />
+                <img class="BlogPhoto-Edit--ImageFit" src="@Url.Action("ViewImage", "BlogPhotos", new { id = (Model.BlogPhotoId) } )" />
             }
             @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
         </div>
