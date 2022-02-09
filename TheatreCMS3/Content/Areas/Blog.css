@@ -104,3 +104,36 @@
 .BlogPhoto-Index--Card {
     background-color: var(--secondary-color--dark);
 }
+
+.BlogPhoto-Details--ImageFit {
+    max-width: 99%;
+}
+
+.BlogPhoto-Details--CenterText {
+    text-align: center;
+}
+
+.BlogPhoto-Details--ButtonDelete {
+    position: absolute;
+    right: 7%;
+    background-color: var(--main-color);
+}
+
+.BlogPhoto-Delete--CenterText {
+    text-align: center;
+}
+
+.BlogPhoto-Delete--ImageFit {
+    max-width: 99%;
+}
+
+.BlogPhoto-Delete--ButtonDelete {
+    position: absolute;
+    right: 7%;
+    background-color: var(--main-color);
+    padding: 2%;
+}
+
+.BlogPhoto-Edit--ImageFit {
+    max-width: 99%;
+}
