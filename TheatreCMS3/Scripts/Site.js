@@ -1,5 +1,5 @@
-﻿$(document).ready(function () {
-    $('#NumPersons').append(
-        $('#PersonList p').length,
-    );
-});
+﻿////$(document).ready(function () {
+////    $('#NumPersons').append(
+////        $('#PersonList p').length,
+////    );
+////});
