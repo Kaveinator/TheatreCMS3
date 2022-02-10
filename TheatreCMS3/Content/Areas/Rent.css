@@ -11,3 +11,55 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+/*Styling Form Container */
+.Rent-CreateEdit--FormContainer {
+    background: var(--main-color--light);
+    max-width: 600px;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+/*Form Button Styling*/
+.Rent-CreateEdit--Buttons a {
+   background: var(--dark-color);
+   color: var(--light-color);
+   margin-bottom: 12px;
+   border-radius: 8px;
+}
+.Rent-CreateEdit--Submit {
+    background: rgb(93, 123, 244); /*var(--light-blue); didn't work so the rgb was used instead*/
+    color: var(--light-color);
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Button hover effects */
+.Rent-CreateEdit--Buttons a:hover {
+    background: var(--secondary-color--dark);
+    color: var(--light-color);
+    font-weight: bolder;
+}
+.Rent-CreateEdit--Submit:hover {
+    background: var(--secondary-colo);
+    color: var(--light-color);
+    font-weight: bolder;
+}
+
+/*Styling Labels*/
+.Rent-CreateEdit--RentalLabel, .Rent-CreateEdit--CheckboxLabel,
+.Rent-CreateEdit--DamagesOrNotes {
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 0;
+}
+
+/*Styling Input Elements*/
+.Rent-CreateEdit--RentalInput {
+    margin-left: 14px;
+}
+.Rent-CreateEdit--Checkbox {
+    margin-left: 30%;    
+}
+
+

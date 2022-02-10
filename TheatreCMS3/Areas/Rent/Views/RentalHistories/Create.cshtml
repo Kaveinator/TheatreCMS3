@@ -5,55 +5,49 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="mb-4 mt-3 text-center">Create Rental History</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>RentalHistory</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RentalDamaged)
+<div class="Rent-CreateEdit--FormContainer">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })   
+    <div class="form-group">
+        <div class="row mt-3">
+            <div class="col-md-5 mt-2">
+                @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "Rent-CreateEdit--RentalLabel control-label col-md-5" })
+                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "Rent-CreateEdit--RentalInput form-control" } })
+                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-5 mt-2">
+                @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "Rent-CreateEdit--CheckboxLabel control-label col-md-5" })
+                <div class="Rent-CreateEdit--Checkbox checkbox">
+                    @Html.EditorFor(model => model.RentalDamaged, new { htmlAttributes = new { @onchange = "LabelChanger(this)" } })
                     @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DamagesIncurred, "Notes", new { id = "Rent-Create--Label", @class = "Rent-CreateEdit--DamagesOrNotes col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "Rent-CreateEdit--DmgIncurInput col-md-10" } })
+            @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group text-center">
+        <div class="Rent-CreateEdit--Buttons col-md-offset-2 col-md-10">
+            <a href="@Url.Action("Index", "RentalHistories")" class="btn btn-default">Back to List</a>
+            <input type="submit" value="Create" class="Rent-CreateEdit--Submit btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval")    
 }
