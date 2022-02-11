@@ -23,7 +23,7 @@
     text-align: center;        */
 }
 .Rent-Index--Tr {
-    border-top: solid thin rgba(169,169,169,0.5);
+    border-top: solid thin rgba(169,169,169,0.5); /*rgba adds transparency (fades out) by adding last number*/
     border-bottom: solid thin rgba(169,169,169,0.5);
     line-height: 50px;    
 }
