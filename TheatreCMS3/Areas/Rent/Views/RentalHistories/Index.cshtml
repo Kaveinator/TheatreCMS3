@@ -5,40 +5,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Most Recent Rental Histories</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p>    
+    <a href="@Url.Action("Create", "RentalHistories")" class="btn btn-dark" data-toggle="tooltip" title="Create New">
+        <span class="fa fa-plus"></span>
+    </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
-
+<table class="Rent-Index--Table">    
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
+    <tr class="Rent-Index--Tr">
+        <td id="Rent-Index--RentalDamageColumn">
+            @if (item.RentalDamaged == true)
+             {
+                <span class="Rent-Index--XIcon fa fa-times-circle"></span>
+             }
+             else
+             {
+                <span class="Rent-Index--CheckIcon fa fa-check-circle"></span>
+             }
+            
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
+        <td id="Rent-Index--RentalColumn">
+            <span class="Rent-Index--Badges badge badge-light">
+                @Html.DisplayFor(modelItem => item.Rental)
+            </span>            
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
+        <td class="Rent-Index--DmgNotesColumn text-left">
+            @if (item.RentalDamaged == true)
+            {
+            <span class="Rent-Index--DmgIncur">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+            }
+            else
+            {
+            <span class="Rent-Index--Notes"n>@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+
+            }
+
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryID })
+        <td class="text-left">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="Rent-Index--Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="fa fa-ellipsis-v"></span>
+            </button>
+            <div class="Rent-Index--DropdownMenu dropdown-menu" aria-labelledby="Rent-Index--Dropdown">
+                <a class="Rent-Index--EditLink dropdown-item btn btn-dark" href="@Url.Action("Edit", "RentalHistories", new { id = item.RentalHistoryID })">
+                    <span class="fa fa-edit" style="margin-right: 12px;"></span>Edit
+                </a>
+                <a class="Rent-Index--DetailsLink dropdown-item btn btn-dark" href="@Url.Action("Details", "RentalHistories", new { id = item.RentalHistoryID })">
+                    <span class="fa fa-info-circle" style="margin-right: 12px;"></span>Details
+                </a>
+                <a class="Rent-Index--DeleteLink dropdown-item btn btn-dark" href="@Url.Action("Delete", "RentalHistories", new { id = item.RentalHistoryID })">
+                    <span class="fa fa-trash" style="margin-right: 12px;"></span>Delete
+                </a>
+            </div>                                       
         </td>
     </tr>
 }
