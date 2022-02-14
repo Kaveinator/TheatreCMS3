@@ -7,10 +7,18 @@
 
 <h2>Most Recent Rental Histories</h2>
 
-<p>    
-    <a href="@Url.Action("Create", "RentalHistories")" class="btn btn-dark" data-toggle="tooltip" title="Create New">
+<p class="row"">    
+    <a href="@Url.Action("Create", "RentalHistories")" class="col-md-1 btn btn-dark" data-toggle="tooltip" title="Create New" style="background: var(--dark-color);">
         <span class="fa fa-plus"></span>
     </a>
+    <label for="SortingOptions" class="col Rent-Index--SortLabel">Sort by: </label>
+    <select class="col-md-2" id="Rent-Index--Select">
+        <option value="NoExtraSorting">No Extra Sorting...</option>
+        <option value="DamagedRentals">Damaged Rentals</option>
+        <option value="UndamagedRentals">Undamaged Rentals</option>
+        <option value="RentalsAtoZ">Rentals A - Z</option>
+        <option value="RentalsZtoA">Rentals Z - A</option>
+    </select>
 </p>
 <table class="Rent-Index--Table">    
 @foreach (var item in Model) {

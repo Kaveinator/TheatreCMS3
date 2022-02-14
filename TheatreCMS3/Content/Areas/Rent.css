@@ -16,6 +16,17 @@
     INDEX PAGE STYLING 
 =======================================*/
 
+/*Sort by: Label*/
+.Rent-Index--SortLabel {
+    width: 100%;
+    text-align: right;    
+    font-weight: bold;
+}
+/*Select Dropdown Styling for Sroting*/
+#Rent-Index--Select {
+    background: var(--dark-color);
+    color: var(--light-color);
+}
 /*Table Styling*/
 .Rent-Index--Table {
     color: var(--light-color);    
