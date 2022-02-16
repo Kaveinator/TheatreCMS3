@@ -16,6 +16,21 @@
     INDEX PAGE STYLING 
 =======================================*/
 
+/*Sort by: Label*/
+.Rent-Index--SortLabel {
+    width: 100%;
+    text-align: right;    
+    font-weight: bold;
+}
+/*Sort Dropdown Styling*/
+.Rent-Index--SortButton {
+    background: var(--dark-color);
+    color: var(--light-color);        
+}
+.Rent-Index--SortItems {    
+    color: var(--light-color);
+    font-size: 12px;
+}
 /*Table Styling*/
 .Rent-Index--Table {
     color: var(--light-color);    
@@ -65,13 +80,13 @@
 
 /*Dropdown Styling*/
 #Rent-Index--Dropdown {
-    text-align: left;  
-    background: var(--dark-color);    
-    display: none;
+    text-align: left;
+    background: var(--dark-color);
+    display: none; /*hides the dropdown*/
 }
 .Rent-Index--DropdownMenu {
     background: var(--dark-color);
-    color: var(--light-color); /*hides the dropdown*/       
+    color: var(--light-color);        
 }
 
 /*Action Link Styling */
