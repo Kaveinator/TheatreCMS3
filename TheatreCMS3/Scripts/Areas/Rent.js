@@ -12,3 +12,4 @@ function LabelChanger(checkbox) { // checked == (this)
         document.getElementById("Rent-Create--Label").innerHTML = newLabel;        
     }
 }
+
