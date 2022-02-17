@@ -2,11 +2,95 @@
   ViewBag.Title = "Home Page";
 }
 
-<div>
-  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
-  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
+<div class="col-12">
+  
+  @*<p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>*@
   @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
   @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+
+    <div class="row">
+        @*<h1 class="CMS-text-white CMS-text-bigger m-5"><br />Welcome to Theatre Vertigo<br /><br /></h1>*@
+        <img class="home-Index-theaterLogo" src="~/Content/images/TheatreLogo.png" alt="Sample Photo" /><br />
+    </div>
+
+    @*Formating for the two columns*@
+    <div>
+        
+        <div class="row no-gutters">
+            @*production posters*@
+            <div class="col-9">
+                <div>
+                    <h1 class="home-Index-headingText">SPOTLIGHT</h1>
+                <div >
+                    <img class="home-Index-prodPoster" src="~/Content/images/MidsummerNightDream.png" alt="Sample Photo" /><br />
+                </div>
+                <div class="home-Index-prodPoster">
+                    <img class="home-Index-prodPoster" src="~/Content/images/macbeth.png" alt="Sample Photo" /><br />
+                </div>
+                <div class="home-Index-prodPoster">
+                    <img class="home-Index-prodPoster" src="~/Content/images/DollsHouse.png" alt="Sample Photo" /><br />
+                </div>
+                </div>
+                
+                
+                
+                
+            </div>
+            <div class="col">
+                <div class="row mb-3">
+                    <div>
+                        <h1 class="home-Index-headingText mb-3">DONATIONS</h1><br />
+                        
+                        <input type="button" class="btn btn-danger btn-lg m-3" value="Click to Support" onclick="location.href='@Url.Action("Donate","Home")'" />
+                        <br />
+                    </div>
+                    
+                </div>
+                <div class="row pt-3 mt-5">
+                    <div>
+                        <h1 class="home-Index-headingText">SPONSCERS</h1>
+                        <img class="home-Index-sponsorLogo" src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" alt="Sample Photo" />
+                        <img class="home-Index-sponsorLogo" src="~/Content/images/Sponsors/LogoRoundColor.png" alt="Sample Photo" />
+                        <img class="home-Index-sponsorLogo" src="~/Content/images/Sponsors/Ninkasi-white-text.png" alt="Sample Photo" />
+                        <img class="home-Index-sponsorLogo" src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" alt="Sample Photo" />
+                        <img class="home-Index-sponsorLogo" src="~/Content/images/Sponsors/RACC.png" alt="Sample Photo" />
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        @*land acknolwgement row*@
+        <div class="row">
+            <div class="col-9 mt-4">
+                <h1 class="">Land Acknowlegement</h1>
+                <p>
+                    Theatre Vertigo humbly acknowledges we live and work on the unceded, tradtional tribal lands of the Multnomah, Wasco,
+                    Clackamas, Chinook bands, Kathlamet, Tulatin Kalapuya, Cowlitz, Mollala, Cascades, Oregon City Tumwater, confederate Tribes of 
+                    the Grand Ronde and other indigenous peoples.
+                    <br /><br /><strong>We are on stolen land.</strong><br /><br />
+                    Theatre Vertigo has been and contiunes to examine our community relationships to ensure our collaborators, partners and 
+                    sponsors support the our regions Indigenous Nationas and communities.<br />
+                    One of the ways Theatre Vertigo is working to act on our commitment to bring of service to the lands that we now share is to 
+                    build bridges between our arts community and local Nations.
+                </p>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <a href="https://nayapdx.org/">
+                        <img class="home-Index-NAYALogo" src="~/Content/images/NAYAFamilyCenter.jpg" alt="Sample Photo" /><br />
+                    </a>
+                </div>
+                <div class="row">
+                    <p>
+                        Click to visit the NAYA Family Center to learn more about supporting our local indigenous communities.
+                    </p>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
 </div>
 
 
