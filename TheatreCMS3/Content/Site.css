@@ -524,3 +524,44 @@ footer {
     border: 2px solid var(--main-color);
 }
 
+.home-Index-theaterLogo{
+    height:auto;
+    width:100%;
+    object-fit:fill;
+    padding: 175px;
+    object-position:center;
+}
+.home-Index-prodPoster {
+    width: 400px; /* You can set the dimensions to whatever you want */
+    height: 300px;
+    /*object-fit: fill;*/
+    object-position: center;
+    margin-top:20px;
+    margin-bottom:20px;
+    
+}
+
+.home-Index-sponsorLogo{
+    height: auto;
+    width: 100px;
+}
+
+.home-Index-NAYALogo {
+    height: 250px;
+    width: 250px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+    padding-left:20px;
+    
+}
+
+.home-Index-headingText {
+    font-family: 'oswald';
+    padding-bottom: 5px;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+}
+
+
