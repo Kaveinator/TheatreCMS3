@@ -524,3 +524,10 @@ footer {
     border: 2px solid var(--main-color);
 }
 
+.Home-Donate-backgroundImg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Content/images/theater.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 75%;
+}
+
