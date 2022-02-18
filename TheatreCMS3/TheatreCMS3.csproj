@@ -201,6 +201,7 @@
     <Compile Include="Areas\Prod\Controllers\ProductionPhotosController.cs" />
     <Compile Include="Areas\Prod\Controllers\TheatreMembersController.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionMember.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\Models\TheatreMember.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
