@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TheatreCMS3.Areas.Prod.Models
 {
-    public enum prodPosition
+    public enum ProdPosition
     {
         Actor, Director, Technician, StageManager, Other
     }
@@ -14,7 +14,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int ProductionMemberId { get; set; }
         public String Name { get; set; }
         public int? YearJoined { get; set; }
-        public prodPosition MainRole { get; set; }
+        public ProdPosition MainRole { get; set; }
         public String Bio { get; set; }
         //public Byte[] Photo { get; set; }
         public bool CurrentMember { get; set; }
