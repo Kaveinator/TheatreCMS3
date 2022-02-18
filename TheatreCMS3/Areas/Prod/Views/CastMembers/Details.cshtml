@@ -85,7 +85,11 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CastMemberId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="text-center">
+    <button onclick="location.href = '@Url.Action("Index")'" class="castmembers-Create--listBtn">Back To List</button>
+</div>
+
+<div class="text-center">
+    <button onclick="location.href = '@Url.Action("Edit", new { id = Model.CastMemberId })'" class="castmembers-Create--submitBtn">Edit Member</button>
+</div>
