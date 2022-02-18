@@ -11,6 +11,22 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.ProductionPhotos-Create-form {
+    max-width: auto;
+    height: 50px;
+    text-align:start;
+    word-wrap: break-word;
+    word-break: break-all;
+    
+    
+}
+.productionphotos-Create-formtable {
+    border-radius: 25px;
+    background-color: var(--main-color--light);
+    margin-top: 20px;
+}
+
+
 /*===================================
     CREATE THEATREMEMBER PAGE
   ===================================*/
