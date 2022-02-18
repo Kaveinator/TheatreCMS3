@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -20,6 +21,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             return View(db.ProductionPhotos.ToList());
         }
+
 
         // GET: Prod/ProductionPhotos/Details/5
         public ActionResult Details(int? id)
@@ -47,14 +49,22 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionPhotodId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProductionPhotodId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
         {
+            
             if (ModelState.IsValid)
-            {
+            {   
+                if(Photo!=null)
+                {
+                    var photobyte = PhotoConvert(Photo);
+                    productionPhoto.PhotoFile = photobyte;
+                }
                 db.ProductionPhotos.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+                
             }
+            
 
             return View(productionPhoto);
         }
@@ -79,10 +89,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionPhotodId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "ProductionPhotodId,Title,Description,PhotoFile")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
         {
+            var photobyte = PhotoConvert(Photo);
             if (ModelState.IsValid)
             {
+                productionPhoto.PhotoFile = photobyte;
                 db.Entry(productionPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +135,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public byte[] PhotoConvert(HttpPostedFileBase photo)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photo.InputStream))
+            {
+                bytes = br.ReadBytes(photo.ContentLength);
+            }
+            return bytes;
         }
     }
 }
