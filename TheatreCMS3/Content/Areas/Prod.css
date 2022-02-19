@@ -26,3 +26,15 @@
     margin-top: 20px;
 }
 
+.Prod-ProductionMember ::placeholder {
+    color: var(--dark-color);
+    opacity: 0.5;
+}
+
+.Prod-ProductionMember input[type="text"]:focus, .productionMember input[type="number"]:focus, .productionMember select:focus {
+    outline: 0 none;
+    border-color: var(--secondary-color--dark);
+    box-shadow: 0 0 0 3px var(--secondary-color);
+}
+
+.productionMember prodBtn:hover
