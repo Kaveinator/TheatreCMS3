@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -47,11 +48,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] ProductionMember productionMember)
+        public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] ProductionMember productionMember, HttpPostedFileBase imgFile)
         {
             if (ModelState.IsValid)
             {
-                db.ProductionMembers.Add(productionMember);
+                if (imgFile != null)
+                {
+                    db.ProductionMembers.Add(productionMember);
+                    productionMember.Photo = ImgtoByte(imgFile);
+                }
+                else
+                {
+                    db.ProductionMembers.Add(productionMember);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -79,10 +88,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] ProductionMember productionMember)
+        public ActionResult Edit([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] ProductionMember productionMember, HttpPostedFileBase imgFile)
         {
             if (ModelState.IsValid)
             {
+                productionMember.Photo = ImgtoByte(imgFile);
                 db.Entry(productionMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -114,6 +124,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             db.ProductionMembers.Remove(productionMember);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // Retrieves uploaded img file and converts into byte[]
+        public byte[] ImgtoByte(HttpPostedFileBase imgFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(imgFile.InputStream))
+            {
+                bytes = br.ReadBytes(imgFile.ContentLength);
+            }
+            return bytes;
         }
 
         protected override void Dispose(bool disposing)
