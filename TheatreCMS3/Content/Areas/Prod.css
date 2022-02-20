@@ -237,7 +237,7 @@
     border-radius: 8px;
 }
 
-.Prod-ProductionMember-image {
+#Prod-ProductionMember-image {
     position: relative;
     width: 200px;
     height: 200px;
