@@ -49,16 +49,23 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionPhotodId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
+        public ActionResult Create([Bind(Include = "ProductionPhotodId,Title,Description,PathPhoto")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
         {
+            //Extract Image File Name.
+            string fileName = System.IO.Path.GetFileName(Photo.FileName);
+
+            //Set the Image File Path.
+            string filePath = "~/Content/images/ProductionPhotos/" + fileName;
+
+            //Save the Image File in Folder.
+            Photo.SaveAs(Server.MapPath(filePath));
             
+
+            var photobyte = PhotoConvert(Photo);
             if (ModelState.IsValid)
-            {   
-                if(Photo!=null)
-                {
-                    var photobyte = PhotoConvert(Photo);
-                    productionPhoto.PhotoFile = photobyte;
-                }
+            {
+                productionPhoto.PathPhoto = filePath;
+                productionPhoto.Photo = photobyte;
                 db.ProductionPhotos.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,12 +96,23 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionPhotodId,Title,Description,PhotoFile")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
+        public ActionResult Edit([Bind(Include = "ProductionPhotodId,Title,Description,PathPhoto")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
         {
+            ////Extract Image File Name.
+            //string fileName = System.IO.Path.GetFileName(Photo.FileName);
+
+            ////Set the Image File Path.
+            //string filePath = "~/Content/images/ProductionPhotos/" + fileName;
+
+            ////Save the Image File in Folder.
+            //Photo.SaveAs(Server.MapPath(filePath));
+
+            
             var photobyte = PhotoConvert(Photo);
             if (ModelState.IsValid)
             {
-                productionPhoto.PhotoFile = photobyte;
+                //productionPhoto.PathPhoto = filePath;
+                productionPhoto.Photo = photobyte;
                 db.Entry(productionPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -146,5 +164,27 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             return bytes;
         }
+
+        public ActionResult RetrieveImage(int id)
+        {
+            byte[] cover = GetImageFromDataBase(id);
+            if (cover != null)
+            {
+                return File(cover, "image/jpg");
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public byte[] GetImageFromDataBase(int Id)
+        {
+            var q = from temp in db.ProductionPhotos where temp.ProductionPhotodId == Id select temp.Photo;
+            byte[] cover = q.First();
+            return cover;
+        }
+
+
     }
 }

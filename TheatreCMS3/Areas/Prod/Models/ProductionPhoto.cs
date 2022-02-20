@@ -10,8 +10,9 @@ namespace TheatreCMS3.Areas.Prod.Models
     {
         [Key]
         public int ProductionPhotodId { get; set; }
-        public byte[] PhotoFile { get; set; }
+        public byte[] Photo { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string PathPhoto { get; set; }
     }
 }
