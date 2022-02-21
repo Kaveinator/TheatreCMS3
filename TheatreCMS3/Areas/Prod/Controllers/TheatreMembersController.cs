@@ -48,15 +48,22 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember)
+        public ActionResult Create([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember, HttpPostedFileBase imageFile)
         {
             if (ModelState.IsValid)
             {
-                db.TheatreMember.Add(theatreMember);
+                if (imageFile != null)
+                {
+                    db.TheatreMember.Add(theatreMember);
+                    theatreMember.Photo = ImageToByte(imageFile);
+                }
+                else
+                {
+                    db.TheatreMember.Add(theatreMember);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(theatreMember);
         }
 
@@ -80,10 +87,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember)
+        public ActionResult Edit([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember, HttpPostedFileBase imageFile)
         {
             if (ModelState.IsValid)
             {
+                theatreMember.Photo = ImageToByte(imageFile);
                 db.Entry(theatreMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -117,9 +125,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return RedirectToAction("Index");
         }
 
-        //method to get uploaded photo and convert it into a byte[]
-        [HttpPost]
-        public byte[] imageToByte(HttpPostedFileBase imageFile)
+        // Get uploaded photo and convert it into a byte[]
+
+        public byte[] ImageToByte(HttpPostedFileBase imageFile)
         {
             byte[] bytes;
             using (BinaryReader br = new BinaryReader(imageFile.InputStream))
@@ -129,6 +137,28 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return bytes;
         }
 
+        //Retrieve the stored byte[] from entity in TheatreMember table/db (using id)
+        public byte[] GetImageFromDB(int id)
+        {
+            TheatreMember member = db.TheatreMember.Find(id);
+            byte[] memberPhoto = member.Photo;
+            return memberPhoto;
+        }
+
+        //Retrieve and display image from db (using id)
+        public ActionResult DisplayImage(TheatreMember id)
+        {
+            TheatreMember member = db.TheatreMember.Find(id.TheatreMemberId);
+            byte[] image = GetImageFromDB(member.TheatreMemberId);
+            if(image != null)
+            {
+                return File(image, "image/png");
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         protected override void Dispose(bool disposing)
         {
