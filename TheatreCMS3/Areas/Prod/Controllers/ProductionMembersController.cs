@@ -137,6 +137,32 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return bytes;
         }
 
+        // Retrieves byte[] of ProductionMember from database
+        public byte[] ImgfrmDb(int id)
+        {
+            ProductionMember member = db.ProductionMembers.Find(id);
+            byte[] memberPhoto = member.Photo;
+            return memberPhoto;
+        }
+        // Retrieves img file from db and displays
+        public ActionResult DisplayImg(ProductionMember id)
+        {
+            ProductionMember member = db.ProductionMembers.Find(id.ProductionMemberId);
+            if (member.ProductionMemberId != null)
+            {
+                byte[] img = ImgfrmDb(member.ProductionMemberId);
+                if (img != null)
+                {
+                    return base.File(img, "image/png");
+                }
+                else return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
