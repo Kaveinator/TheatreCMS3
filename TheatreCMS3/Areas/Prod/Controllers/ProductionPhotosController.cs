@@ -51,20 +51,20 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductionPhotodId,Title,Description,PathPhoto")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
         {
-            //Extract Image File Name.
-            string fileName = System.IO.Path.GetFileName(Photo.FileName);
+            ////Extract Image File Name.
+            //string fileName = System.IO.Path.GetFileName(Photo.FileName);
 
-            //Set the Image File Path.
-            string filePath = "~/Content/images/ProductionPhotos/" + fileName;
+            ////Set the Image File Path.
+            //string filePath = "~/Content/images/ProductionPhotos/" + fileName;
 
-            //Save the Image File in Folder.
-            Photo.SaveAs(Server.MapPath(filePath));
+            ////Save the Image File in Folder.
+            //Photo.SaveAs(Server.MapPath(filePath));
             
 
             var photobyte = PhotoConvert(Photo);
             if (ModelState.IsValid)
             {
-                productionPhoto.PathPhoto = filePath;
+                //productionPhoto.PathPhoto = filePath;
                 productionPhoto.Photo = photobyte;
                 db.ProductionPhotos.Add(productionPhoto);
                 db.SaveChanges();
@@ -164,6 +164,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             return bytes;
         }
+
 
         public ActionResult RetrieveImage(int id)
         {
