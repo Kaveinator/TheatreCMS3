@@ -68,7 +68,17 @@
             @Html.DisplayFor(modelItem => item.DebutYearLeft)
         </td>
         <td>
-            <img class="mb-3" style=" position: relative; width: 50px; height: 50px; overflow: hidden; border-radius: 5%;" src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" />
+            @{
+                if (item.Photo != null)
+                {
+                    <img class="mb-3" style=" position: relative; width: 50px; height: 50px; overflow: hidden; border-radius: 5%;" src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" />
+                }
+                else
+                {
+                    <p>No photo</p>
+                }
+            }
+
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductionMemberId }) |
