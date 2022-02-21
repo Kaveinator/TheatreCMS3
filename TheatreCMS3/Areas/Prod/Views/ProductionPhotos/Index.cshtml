@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>
+@using TheatreCMS3.Helpers
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <input type="button" class="btn btn-dark m-3" value="Create New" onclick="location.href='@Url.Action("Create New", "Create")'" />
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+
+<h2>@TextHelpers.Truncate("Black", 2)</h2>
+
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th></th>
+    </tr>*@
+
+
+ @foreach (var item in Model) {
+
+    <div class="card" style="width: 18rem;">
+        <a href="@Url.Action("Details", new { id = item.ProductionPhotodId })">
+            <img class="card-img-top" src="/ProductionPhotos/RetrieveImage/@item.ProductionPhotodId" alt="Card image cap">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionPhotodId }, new { @class = "badge badge-danger" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionPhotodId }, new { @class = "badge badge-danger", onclick = "return confirm('Are sure wants to delete?');" })
+        </div>
+    </div>
+    <!--<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            <img src="/ProductionPhotos/RetrieveImage/@item.ProductionPhotodId" alt="" />
+        </td>-->
+        @*<td>
+
+            <img src="@Url.Content(item.PathPhoto)" alt="Image" />
+        </td>*@
+        <!--<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionPhotodId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProductionPhotodId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionPhotodId })
+        </td>
+    </tr>-->
+    }
+
+@*</table>*@

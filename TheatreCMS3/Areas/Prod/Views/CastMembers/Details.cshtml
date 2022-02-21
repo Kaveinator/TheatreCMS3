@@ -1,0 +1,95 @@
+﻿@model TheatreCMS3.Areas.Prod.Models.CastMember
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CastMember</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearJoined)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearJoined)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainPosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainPosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentMember)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentMember)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Character)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Character)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CastYearLeft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CastYearLeft)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DebutYearLeft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DebutYearLeft)
+        </dd>
+
+    </dl>
+</div>
+
+<div class="text-center">
+    <button onclick="location.href = '@Url.Action("Index")'" class="castmembers-Create--listBtn">Back To List</button>
+</div>
+
+<div class="text-center">
+    <button onclick="location.href = '@Url.Action("Edit", new { id = Model.CastMemberId })'" class="castmembers-Create--submitBtn">Edit Member</button>
+</div>

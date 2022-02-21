@@ -6,60 +6,108 @@
 }
 
 <h2>Most Recent Rental Histories</h2>
-
-<p>    
-    <a href="@Url.Action("Create", "RentalHistories")" class="btn btn-dark" data-toggle="tooltip" title="Create New">
+<div class="row">
+    <a href="@Url.Action("Create", "RentalHistories")" class="col-md-1 btn btn-dark" data-toggle="tooltip" title="Create New" style="background: var(--dark-color);">
         <span class="fa fa-plus"></span>
     </a>
-</p>
-<table class="Rent-Index--Table">    
-@foreach (var item in Model) {
-    <tr class="Rent-Index--Tr">
-        <td id="Rent-Index--RentalDamageColumn">
-            @if (item.RentalDamaged == true)
-             {
-                <span class="Rent-Index--XIcon fa fa-times-circle"></span>
-             }
-             else
-             {
-                <span class="Rent-Index--CheckIcon fa fa-check-circle"></span>
-             }
-            
-        </td>
-        <td id="Rent-Index--RentalColumn">
-            <span class="Rent-Index--Badges badge badge-light">
-                @Html.DisplayFor(modelItem => item.Rental)
-            </span>            
-        </td>
-        <td class="Rent-Index--DmgNotesColumn text-left">
-            @if (item.RentalDamaged == true)
-            {
-            <span class="Rent-Index--DmgIncur">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
-            }
-            else
-            {
-            <span class="Rent-Index--Notes"n>@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+    <label for="SortingOptions" class="col Rent-Index--SortLabel"> </label>
+    <button class="Rent-Index--SortButton col-md-1 btn btn-secondary dropdown-toggle" type="button" id="Rent-Index--SortDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By:</button>
+    <div class="Rent-Index--DropdownMenu dropdown-menu" aria-labelledby="Rent-Index--SortDropdown">
+        <a class="Rent-Index--SortItems btn btn-dark dropdown-item" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#CustomerList" href="@Url.Action("Index", "RentalHistories", new { sortName = "NoExtraSorting" })">No Extra Sorting...</a>
+        <a class="Rent-Index--SortItems btn btn-dark dropdown-item" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#CustomerList" href="@Url.Action("Index", "RentalHistories", new { sortName = "Damaged Rentals" })">Damaged Rentals</a>
+        <a class="Rent-Index--SortItems btn btn-dark dropdown-item" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#CustomerList" href="@Url.Action("Index", "RentalHistories", new { sortName = "Undamaged Rentals" })">Undamaged Rentals </a>
+        <a class="Rent-Index--SortItems btn btn-dark dropdown-item" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#CustomerList" href="@Url.Action("Index", "RentalHistories", new { sortName = "RentalsAtoZ" })">Rentals A - Z</a>
+        <a class="Rent-Index--SortItems btn btn-dark dropdown-item" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#CustomerList" href="@Url.Action("Index", "RentalHistories", new { sortName = "RentalsZtoA" })">Rentals Z - A</a>
 
-            }
+    </div>
+</div>
+<table class="Rent-Index--Table" id="RntIndTbl">
+    @foreach (var item in Model)
+    {
+        <tr class="Rent-Index--Tr">
+            <td id="Rent-Index--RentalDamageColumn">
+                @if (item.RentalDamaged == true)
+                {
+                    <span class="Rent-Index--XIcon fa fa-times-circle"></span>
+                }
+                else
+                {
+                    <span class="Rent-Index--CheckIcon fa fa-check-circle"></span>
+                }
 
-        </td>
-        <td class="text-left">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="Rent-Index--Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="fa fa-ellipsis-v"></span>
-            </button>
-            <div class="Rent-Index--DropdownMenu dropdown-menu" aria-labelledby="Rent-Index--Dropdown">
-                <a class="Rent-Index--EditLink dropdown-item btn btn-dark" href="@Url.Action("Edit", "RentalHistories", new { id = item.RentalHistoryID })">
-                    <span class="fa fa-edit" style="margin-right: 12px;"></span>Edit
-                </a>
-                <a class="Rent-Index--DetailsLink dropdown-item btn btn-dark" href="@Url.Action("Details", "RentalHistories", new { id = item.RentalHistoryID })">
-                    <span class="fa fa-info-circle" style="margin-right: 12px;"></span>Details
-                </a>
-                <a class="Rent-Index--DeleteLink dropdown-item btn btn-dark" href="@Url.Action("Delete", "RentalHistories", new { id = item.RentalHistoryID })">
-                    <span class="fa fa-trash" style="margin-right: 12px;"></span>Delete
-                </a>
-            </div>                                       
-        </td>
-    </tr>
-}
+            </td>
+            <td id="Rent-Index--RentalColumn">
+                <span class="Rent-Index--Badges badge badge-light">
+                    @Html.DisplayFor(modelItem => item.Rental)
+                </span>
+            </td>
+            <td class="Rent-Index--DmgNotesColumn text-left">
+                @if (item.RentalDamaged == true)
+                {
+                    <span class="Rent-Index--DmgIncur">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                }
+                else
+                {
+                    <span class="Rent-Index--Notes" n>@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+
+                }
+
+            </td>
+            <td class="text-left">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="Rent-Index--Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-ellipsis-v"></span>
+                </button>
+                <div class="Rent-Index--DropdownMenu dropdown-menu" aria-labelledby="Rent-Index--Dropdown">
+                    <a class="Rent-Index--EditLink dropdown-item btn btn-dark" href="@Url.Action("Edit", "RentalHistories", new { id = item.RentalHistoryID })">
+                        <span class="fa fa-edit" style="margin-right: 12px;"></span>Edit
+                    </a>
+                    <a class="Rent-Index--DetailsLink dropdown-item btn btn-dark" href="@Url.Action("Details", "RentalHistories", new { id = item.RentalHistoryID })">
+                        <span class="fa fa-info-circle" style="margin-right: 12px;"></span>Details
+                    </a>
+                    <a class="Rent-Index--DeleteLink dropdown-item btn btn-dark" href="@Url.Action("Delete", "RentalHistories", new { id = item.RentalHistoryID })">
+                        <span class="fa fa-trash" style="margin-right: 12px;"></span>Delete
+                    </a>
+                </div>
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    $(document).ready(function () {
+        $("#Rent-Index--Select").on("change", function () {
+            var url = '@Url.Action("AjaxMethod","RentalHistoriesController", new { Area = "Rent" })';
+    function GetSortedRentals(sortName) {
+        $.ajax({
+            type: "GET",
+            url: ajaxUrl,
+            contentType: "application/json; charset=utf-8",
+            data: { sortName : "this"},
+            dataType: "json",
+            success: OnSuccess(),
+            error: function() { alert('Something went wrong'); }
+        });
+
+    function OnSuccess(response) {
+        var model = response;
+        var row = $("#RntIndTbl tr:last-child").removeAttr("style").clone(true);
+        $("#RntIndTbl tr").not($("#RntIndTbl tr:first-child")).remove();
+        $.each(model.RentalHistory, function () {
+            var rentals = this;
+            $("td", row).eq(0).html(rentals.RentalDamaged);
+            $("td", row).eq(1).html(rentals.Rental);
+            $("td", row).eq(2).html(rentals.DamagesIncurred);
+            $("#RntIndTbl").append(row);
+            row = $("#RntIndTbl tr:last-child").clone(true);
+        });
+    };
+    }
+        }
+    };
+
+</script>
