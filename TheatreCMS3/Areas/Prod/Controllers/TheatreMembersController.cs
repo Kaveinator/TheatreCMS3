@@ -146,10 +146,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         //Retrieve and display image from db (using id)
-        public ActionResult DisplayImage(int id)
+        public ActionResult DisplayImage(TheatreMember id)
         {
-            //TheatreMember member = db.TheatreMember.Find(id.TheatreMemberId);
-            byte[] image = GetImageFromDB(id);
+            TheatreMember member = db.TheatreMember.Find(id.TheatreMemberId);
+            byte[] image = GetImageFromDB(member.TheatreMemberId);
             if(image != null)
             {
                 return File(image, "image/png");
