@@ -134,7 +134,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 bytes = br.ReadBytes(imageFile.ContentLength);
             }
-            return bytes;
+            return bytes;           
         }
 
         //Retrieve the stored byte[] from entity in TheatreMember table/db (using id)
@@ -146,10 +146,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         //Retrieve and display image from db (using id)
-        public ActionResult DisplayImage(TheatreMember id)
+        public ActionResult DisplayImage(int id)
         {
-            TheatreMember member = db.TheatreMember.Find(id.TheatreMemberId);
-            byte[] image = GetImageFromDB(member.TheatreMemberId);
+            //TheatreMember member = db.TheatreMember.Find(id.TheatreMemberId);
+            byte[] image = GetImageFromDB(id);
             if(image != null)
             {
                 return File(image, "image/png");
