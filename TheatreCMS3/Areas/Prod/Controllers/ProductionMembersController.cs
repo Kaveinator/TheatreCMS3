@@ -94,21 +94,30 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
-                //  Retrieves TempData
-                ProductionMember previousMember = TempData["previousMember"] == null ? db.ProductionMembers.Find(productionMember.ProductionMemberId) :
-                   (ProductionMember) TempData["previousMember"];
-                if (imgFile != null)
-                {
-                    productionMember.Photo = ImgtoByte(imgFile);
+                if (Request.Form["Save"] != null)
+                {                
+                    //  Retrieves TempData
+                    ProductionMember previousMember = TempData["previousMember"] == null ? db.ProductionMembers.Find(productionMember.ProductionMemberId) :
+                       (ProductionMember)TempData["previousMember"];
+                    if (imgFile != null)
+                    {
+                        productionMember.Photo = ImgtoByte(imgFile);
+                    }
+                    //  If no file is uploaded but productionMember has a photo, this ensures that the productionMember.Photo is kept instead of changing to a null value.
+                    if (imgFile == null && productionMember.Photo == null && previousMember.Photo != null)
+                    {
+                        productionMember.Photo = previousMember.Photo;
+                    }
+                    db.Entry(productionMember).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-                //  If no file is uploaded but productionMember has a photo, this ensures that the productionMember.Photo is kept instead of changing to a null value
-                if (imgFile == null && previousMember.Photo != null)
+                else if (Request.Form["Remove"] != null)
                 {
-                    productionMember.Photo = previousMember.Photo;
+                    RemoveImage(productionMember);
+                    return RedirectToAction("Edit", new { id = productionMember.ProductionMemberId });
                 }
-                db.Entry(productionMember).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
             }
             return View(productionMember);
         }
@@ -167,6 +176,27 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                     return base.File(img, "image/png");
                 }
                 else return null;
+        }
+
+        // Removes img from database on Edit page
+        public ProductionMember RemoveImage(ProductionMember productionMember)
+        {
+            ProductionMember member = db.ProductionMembers.Find(productionMember.ProductionMemberId);
+            if (member == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    member.Photo = null;
+                    db.Entry(member).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return productionMember;
+                }
+            }
+            return productionMember;
         }
 
         protected override void Dispose(bool disposing)

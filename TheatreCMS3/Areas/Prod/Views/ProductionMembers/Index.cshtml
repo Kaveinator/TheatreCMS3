@@ -41,51 +41,68 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearJoined)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainRole)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Character)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CastYearLeft)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DebutYearLeft)
-        </td>
-        <td>
-            @{
-                if (item.Photo != null)
-                {
-                    <img class="mb-3" style=" position: relative; width: 50px; height: 50px; overflow: hidden; border-radius: 5%;" src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" />
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearJoined)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Character)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CastYearLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DebutYearLeft)
+            </td>
+            <td>
+                @{
+                    if (item.Photo != null)
+                    {
+                        <img class="mb-3" style=" position: relative; width: 50px; height: 50px; overflow: hidden; border-radius: 5%;" src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" />
+                    }
+                    else
+                    {
+                        <p>No photo</p>
+                    }
                 }
-                else
-                {
-                    <p>No photo</p>
-                }
-            }
 
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductionMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductionMemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductionMemberId })
-        </td>
-    </tr>
-}
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductionMemberId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductionMemberId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductionMemberId })
+            </td>
+        </tr>
+    }
 
 </table>
+<div class="container-fluid">
+    @foreach (var item in Model)
+    {
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <img src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" style="width: 100%; height: 250px;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title cms-text-dark">@Html.DisplayFor(modelItem => item.Name)</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
