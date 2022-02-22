@@ -80,6 +80,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
+            //  TempData to pass value to a different method
+            TempData["previousMember"] = productionMember;
             return View(productionMember);
         }
 
@@ -88,11 +90,22 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] ProductionMember productionMember, HttpPostedFileBase imgFile)
+        public ActionResult Edit([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft,Photo")] ProductionMember productionMember, HttpPostedFileBase imgFile)
         {
             if (ModelState.IsValid)
             {
-                productionMember.Photo = ImgtoByte(imgFile);
+                //  Retrieves TempData
+                ProductionMember previousMember = TempData["previousMember"] == null ? db.ProductionMembers.Find(productionMember.ProductionMemberId) :
+                   (ProductionMember) TempData["previousMember"];
+                if (imgFile != null)
+                {
+                    productionMember.Photo = ImgtoByte(imgFile);
+                }
+                //  If no file is uploaded but productionMember has a photo, this ensures that the productionMember.Photo is kept instead of changing to a null value
+                if (imgFile == null && previousMember.Photo != null)
+                {
+                    productionMember.Photo = previousMember.Photo;
+                }
                 db.Entry(productionMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
