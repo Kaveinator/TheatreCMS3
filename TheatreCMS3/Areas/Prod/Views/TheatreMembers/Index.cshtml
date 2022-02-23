@@ -36,7 +36,9 @@
         <th>
             @Html.DisplayNameFor(model => model.DebutYearLeft)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -65,6 +67,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.DebutYearLeft)
         </td>
+        <td>
+            @{
+                if (item.Photo != null)
+                {
+                    <img style="width: 60px; height: 60px; border-radius: 25%; position: relative;" src="@Url.Action("DisplayImage", "TheatreMembers", new {item.TheatreMemberId})" />
+                }
+                else
+                {
+                    <p>No Photo</p>
+                }
+            }
+         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TheatreMemberId }) |
             @Html.ActionLink("Details", "Details", new { id=item.TheatreMemberId }) |
