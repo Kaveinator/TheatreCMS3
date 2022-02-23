@@ -75,7 +75,23 @@
         <dd>
             @Html.DisplayFor(model => model.DebutYearLeft)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
 
+        </dt>
+        <dd>
+            @{
+                if (Model.Photo == null)
+                {
+                    <p>No Photo</p>
+                }
+                else
+                {
+                    <img style="width: 300px; height: 350px;" src="@Url.Action("DisplayImage", "TheatreMembers", new { Model.TheatreMemberId })" />
+
+                }
+            }
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {
