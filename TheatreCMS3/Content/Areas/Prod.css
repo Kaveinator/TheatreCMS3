@@ -181,6 +181,38 @@
     }
 }
 
+/*===================================
+    INDEX THEATREMEMBER PAGE
+  ===================================*/
+
+.prod-index--create_button {
+    background-color: #d6972a;
+    font-weight: 700;
+    width: 20vw;
+    text-shadow: 2px 2px #9D7C39;
+}
+
+.prod-index--create_button:hover {
+    background-color: rgba(255,255,255,.75);
+}
+
+.prod-index-edit_button {
+    /*visibility: hidden;*/
+    background-color: #d6972a;
+    font-weight: 700;
+    width: auto;
+    text-shadow: 2px 2px #9D7C39;
+}
+
+.prod-index--hover_buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
 /* Styling for ProductionMembers Create & Edit Pages*/
 .Prod-ProductionMember ::placeholder {
     color: var(--dark-color);

@@ -5,12 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>*@
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+<div class="col-md-offset-2 col-md-5 mb-3 mt-5 mx-auto">
+    <a class="btn prod-index--create_button" href="~/Prod/TheatreMembers/Create" role="button">Create New</a>
+</div>
+
+
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -41,50 +48,76 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearJoined)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainRole)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Character)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CastYearLeft)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DebutYearLeft)
-        </td>
-        <td>
-            @{
-                if (item.Photo != null)
-                {
-                    <img style="width: 60px; height: 60px; border-radius: 25%; position: relative;" src="@Url.Action("DisplayImage", "TheatreMembers", new {item.TheatreMemberId})" />
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearJoined)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Character)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CastYearLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DebutYearLeft)
+            </td>
+            <td>
+                @{
+                    if (item.Photo != null)
+                    {
+                        <img style="width: 60px; height: 60px; border-radius: 25%; position: relative;" src="@Url.Action("DisplayImage", "TheatreMembers", new { item.TheatreMemberId })" />
+                    }
+                    else
+                    {
+                        <p>No Photo</p>
+                    }
                 }
-                else
-                {
-                    <p>No Photo</p>
-                }
-            }
-         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TheatreMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TheatreMemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TheatreMemberId })
-        </td>
-    </tr>
-}
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TheatreMemberId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TheatreMemberId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TheatreMemberId })
+            </td>
+        </tr>
+    }
 
-</table>
+</table>*@
+
+<h1 class="m-3 mt-5">The Lion King</h1>
+<div class="mb-3" style="width: 100%; height: 15px; background-color: #DB1A11;"></div>
+<div class="card-group">
+    @foreach (var item in Model)
+    {
+
+        <div class="card m-3" style="width: 18rem;">
+            <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })">
+                
+                <img src="@Url.Action("DisplayImage", "TheatreMembers", new { item.TheatreMemberId })" class="card-img-top" style="width:100%; height: 15vw; margin: 0 auto;" alt="MemberImage" onclick="" />
+            </a>
+
+            <div class="card-body " style="background-color: #9D7C39;">
+                <h5 class="card-title" style="text-align: center;">@Html.DisplayFor(modelItem => item.Name)</h5>
+                @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                <div class="prod-index--hover_buttons">
+                    <a href="#" class="btn prod-index-edit_button">Edit</a>
+                    <a href="#" class="btn btn-primary">Delete</a>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
