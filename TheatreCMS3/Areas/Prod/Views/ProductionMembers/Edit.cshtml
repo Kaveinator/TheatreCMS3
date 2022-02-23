@@ -94,9 +94,14 @@
                         else
                         {
                             <img class="mb-3" style=" position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 5%;" src="@Url.Action("DisplayImg","ProductionMembers",new { Model.ProductionMemberId })" />
-                            <input type="submit" value="Remove" class="Prod-ProductionMember-createBtn" name="Remove"/>
+                            <input type="submit" value="Remove" name="Remove" />
                             <div>
-                                <input type="file" name="imgFile" />
+                                <div class="col">
+                                    <p>Replace File:</p>
+                                </div>
+                                <div class="col">
+                                    <input type="file" name="imgFile" />
+                                </div>
                             </div>
                         }
                     }
