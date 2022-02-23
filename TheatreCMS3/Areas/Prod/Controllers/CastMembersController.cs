@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -36,6 +37,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
+
         // GET: Prod/CastMembers/Create
         public ActionResult Create()
         {
@@ -47,10 +49,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] CastMember castMember, HttpPostedFileBase castPhoto)
         {
+            var finalPhoto = UploadToByte(castPhoto);
             if (ModelState.IsValid)
             {
+                castMember.Photo = finalPhoto;
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +83,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] CastMember castMember, HttpPostedFileBase castPhoto)
         {
             if (ModelState.IsValid)
             {
+                castMember.Photo = UploadToByte(castPhoto);
                 db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -115,6 +120,30 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        // get image upload and convert it to byte
+
+        public byte[] UploadToByte(HttpPostedFileBase castPhoto)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(castPhoto.InputStream))
+            {
+                bytes = br.ReadBytes(castPhoto.ContentLength);
+            }
+            return bytes;
+        }
+
+        // get the stored byte from castmember database and display image- ended up not using but want to keep for reference later
+
+        //public ActionResult DisplayPhotoFromDb(int id)
+        //{
+        //    CastMember cast = db.CastMembers.Find(id);
+        //    byte[] photo = cast.Photo;
+
+        //    return File(photo, "image/png");
+
+        //}
 
         protected override void Dispose(bool disposing)
         {
