@@ -196,12 +196,31 @@
     background-color: rgba(255,255,255,.75);
 }
 
-.prod-index-edit_button {
-    /*visibility: hidden;*/
+.prod-index--edit_button {
     background-color: #d6972a;
     font-weight: 700;
     width: auto;
     text-shadow: 2px 2px #9D7C39;
+    z-index: 2;
+}
+
+.prod-index--edit_button:hover {
+    background-color: rgba(255,255,255,.75);
+    text-shadow: none;
+}
+
+.prod-index--delete_button {
+    color: white;
+    background-color: #DB1A11;
+    font-weight: 700;
+    width: auto;
+    text-shadow: 2px 2px black;
+    z-index: 2;
+}
+
+.prod-index--delete_button:hover {
+    background-color: rgba(255,255,255,.75);
+    text-shadow: none;
 }
 
 .prod-index--hover_buttons {
@@ -211,6 +230,26 @@
     justify-content: center;
 }
 
+.prod-index--member_image {
+    width: 100%;
+    height: 15vw;
+    margin: 0 auto;
+}
+
+.prod-index--member_image:hover {
+    filter: brightness(50%);
+}
+.prod-index--hover_buttons{
+    visibility: hidden;
+}
+
+.prod-index--card_hover_buttons:hover .prod-index--hover_buttons {
+    visibility: visible;
+}
+
+.prod-index--card_hover_buttons:hover .prod-index--member_image {
+    filter: brightness(50%);
+}
 
 
 /* Styling for ProductionMembers Create & Edit Pages*/
