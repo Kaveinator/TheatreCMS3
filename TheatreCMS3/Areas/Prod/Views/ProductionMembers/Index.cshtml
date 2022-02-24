@@ -8,7 +8,7 @@
 <h2 class="hi">Index</h2>
 
 <button class="Prod-ProductionMember-createBtn" type="button" onclick="location.href='@Url.Action("Create")'">Create</button>
-    
+
 <table class="table">
     <tr>
         <th>
@@ -103,7 +103,7 @@
     {
         if (name.ProductionTitle == null)
         {
-            <h2 class="hi CMS-text-bigger">No Production</h2>
+            <h2 class="hi CMS-text-bigger cms-text-dark">No Production</h2>
         }
         <h2 class="CMS-text-bigger cms-text-dark">@Html.DisplayFor(modelName => name.ProductionTitle)</h2>
         <hr />
@@ -112,11 +112,11 @@
             {
                 if (item.ProductionTitle == name.ProductionTitle)
                 {
-                    <div class="col-3 container1">
-                        <div class="card cms-bg-secondary w-75 m-3" style="width: 18rem;">
-                            <img src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" style="width: 100%; height: 250px;" class="card-img-top image1" alt="...">
-                            <div class="middle1">
-                                <button class="text1">Edit</button>
+                    <div class="col-3">
+                        <div class="card cms-bg-secondary w-75 m-3 hover-mask" style="width: 18rem;">
+                            <img src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" class="card-img-top Prod-ProductionMember-imgsize" alt="...">
+                            <div>
+                                <button>Edit</button>
                                 <button>Delete</button>
                             </div>
                             <div class="card-body">
@@ -185,4 +185,30 @@
             }
         </div>*@
 </div>
+
+<section class="team">
+    <div class="grid">
+        <figure class="effect-steve">
+            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=731&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D 731w" style="width: 100%;" />
+            <figcaption>
+                <h2>Sara</h2>
+                <p>Wizard</p>
+            </figcaption>
+        </figure>
+        <figure class="effect-steve">
+            <img src="~/Content/images/Cast_Img_3.jpg"style="width: 100%;" />
+            <figcaption>
+                <h2>Tom</h2>
+                <p>Lion asdfffasdffasfdsafadfasdfdfasfdasdfadfasdf</p>
+            </figcaption>
+        </figure>
+        <figure class="effect-steve">
+            <img src="~/Content/images/Cast_Img_4.jpg" style="width: 100%;"/>
+            <figcaption>
+                <h2>Casey</h2>
+                <p>Tin Man</p>
+            </figcaption>
+        </figure>
+    </div>
+</section>
 
