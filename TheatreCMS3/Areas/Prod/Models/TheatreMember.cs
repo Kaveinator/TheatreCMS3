@@ -20,6 +20,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Bio { get; set; }
         public Byte[] Photo { get; set; } 
         public bool CurrentMember { get; set; }
+        public string Production { get; set; }
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
         public int? DebutYearLeft { get; set; }
