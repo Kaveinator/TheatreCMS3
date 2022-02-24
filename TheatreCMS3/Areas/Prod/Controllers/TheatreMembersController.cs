@@ -48,7 +48,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember, HttpPostedFileBase imageFile)
+        public ActionResult Create([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,Photo,CurrentMember,Production,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember, HttpPostedFileBase imageFile)
         {
             if (ModelState.IsValid)
             {
@@ -87,12 +87,20 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember, HttpPostedFileBase imageFile)
+        public ActionResult Edit([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,Photo,CurrentMember,Production,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember, HttpPostedFileBase imageFile)
         {
             if (ModelState.IsValid)
             {
-                theatreMember.Photo = ImageToByte(imageFile);
-                db.Entry(theatreMember).State = EntityState.Modified;
+                if (imageFile != null)
+                {
+                    db.Entry(theatreMember).State = EntityState.Modified;
+                    theatreMember.Photo = ImageToByte(imageFile);
+                }
+                else
+                {
+                    db.Entry(theatreMember).State = EntityState.Modified;
+
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
