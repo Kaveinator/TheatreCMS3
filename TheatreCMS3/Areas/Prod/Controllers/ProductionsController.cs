@@ -8,142 +8,113 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
-using System.IO;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class CastMembersController : Controller
+    public class ProductionsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/CastMembers
+        // GET: Prod/Productions
         public ActionResult Index()
         {
-            return View(db.CastMembers.ToList());
+            return View(db.Productions.ToList());
         }
 
-        // GET: Prod/CastMembers/Details/5
+        // GET: Prod/Productions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(production);
         }
 
-
-        // GET: Prod/CastMembers/Create
+        // GET: Prod/Productions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/CastMembers/Create
+        // POST: Prod/Productions/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] CastMember castMember, HttpPostedFileBase castPhoto)
+        public ActionResult Create([Bind(Include = "ProductionId,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink,IsCurrentlyShowing")] Production production)
         {
-            var finalPhoto = UploadToByte(castPhoto);
             if (ModelState.IsValid)
             {
-                castMember.Photo = finalPhoto;
-                db.CastMembers.Add(castMember);
+                db.Productions.Add(production);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(castMember);
+            return View(production);
         }
 
-        // GET: Prod/CastMembers/Edit/5
+        // GET: Prod/Productions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(production);
         }
 
-        // POST: Prod/CastMembers/Edit/5
+        // POST: Prod/Productions/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] CastMember castMember, HttpPostedFileBase castPhoto)
+        public ActionResult Edit([Bind(Include = "ProductionId,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink,IsCurrentlyShowing")] Production production)
         {
             if (ModelState.IsValid)
             {
-                castMember.Photo = UploadToByte(castPhoto);
-                db.Entry(castMember).State = EntityState.Modified;
+                db.Entry(production).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(castMember);
+            return View(production);
         }
 
-        // GET: Prod/CastMembers/Delete/5
+        // GET: Prod/Productions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            Production production = db.Productions.Find(id);
+            if (production == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(production);
         }
 
-        // POST: Prod/CastMembers/Delete/5
+        // POST: Prod/Productions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CastMember castMember = db.CastMembers.Find(id);
-            db.CastMembers.Remove(castMember);
+            Production production = db.Productions.Find(id);
+            db.Productions.Remove(production);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
-        // get image upload and convert it to byte
-
-        public byte[] UploadToByte(HttpPostedFileBase castPhoto)
-        {
-            byte[] bytes;
-            using (BinaryReader br = new BinaryReader(castPhoto.InputStream))
-            {
-                bytes = br.ReadBytes(castPhoto.ContentLength);
-            }
-            return bytes;
-        }
-
-        // get the stored byte from castmember database and display image- ended up not using but want to keep for reference later
-
-        //public ActionResult DisplayPhotoFromDb(int id)
-        //{
-        //    CastMember cast = db.CastMembers.Find(id);
-        //    byte[] photo = cast.Photo;
-
-        //    return File(photo, "image/png");
-
-        //}
 
         protected override void Dispose(bool disposing)
         {

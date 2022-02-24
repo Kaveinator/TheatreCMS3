@@ -644,3 +644,22 @@ footer {
     background-position: 50% 75%;
 }
 
+/* Sign-In List Page START */
+
+.home-signin--container p {
+    background-color: var(--secondary-color--dark);
+    text-align: center;
+    width: 20%;
+    border-radius: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow: hidden;
+    float: left;
+    display: block;
+    border: 2px solid var(--secondary-color);
+    box-shadow: inset 7px 3px 15px black;
+    text-shadow: 1px 1px 1px black;
+}
+
+/* Sign-In List Page END */
+
