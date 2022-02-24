@@ -13,3 +13,62 @@
 
 /* This page is about Blog Photo stylish page*/
 
+/* Styling buttons */
+
+.BlogPhotoes-CreateEdit-SubmitBackList {
+    background-color: var(--main-color);
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 0px;
+}
+
+.BlogPhotoes-CreateEdit-Submit:hover {
+    font-size: 105%;
+}
+
+
+.BlogPhotoes-CreateEdit-BackToList:hover {
+    font-size: 105%;
+}
+
+.BlogPhotoes-Create-BG {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    padding: 12px;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    width: 650px;
+}
+
+.label-CreateEdit:focus{
+    border-color: var(--main-color--light);
+    background-color: white;    
+}
+
+.label-BGColor{
+    background-color: lightgray;
+}
+
+.WhiteText-BlogPhotoes-Index{
+    color: white;
+}
+
+.btn-SideBySide{
+    display: inline-block;
+    width: fit-content;
+}
+
+::-webkit-file-upload-button {
+    display: none;
+}
+
+.image-area {
+    padding: 12px;
+    position: relative;
+}
+
