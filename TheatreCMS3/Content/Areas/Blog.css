@@ -31,12 +31,18 @@
     font-size: 105%;
 }
 
-.centered{
+.BlogPhotoes-Create-BG {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    padding: 12px;
+}
+
+.centered {
     margin-left: auto;
     margin-right: auto;
     display: block;
     text-align: center;
-    width: 350px;
+    width: 650px;
 }
 
 .label-CreateEdit:focus{
@@ -62,7 +68,7 @@
 }
 
 .image-area {
-    padding: 1rem;
+    padding: 12px;
     position: relative;
 }
 
