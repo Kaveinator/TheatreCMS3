@@ -25,31 +25,25 @@
 <div class="card-group">
     @foreach (var item in Model.Where(x => x.Production == "The Lion King"))
     {
-
-        <div class="card m-3 border border-light rounded" style="width: 18rem;">
-            <div class="prod-index--card_hover_buttons">
-                <div class="prod-index--hover_buttons position-absolute mt-3">
-                    <a href="@Url.Action("Edit", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--edit_button">
-                        <i class="fa-regular fa-pen-to-square fa-2x"></i><br />Edit
-                    </a>
-                    <a href="@Url.Action("Delete", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--delete_button">
-                        <i class="fa-regular fa-trash-can fa-2x"></i><br />Delete
-                    </a>
-                </div>
-                <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })">
-                    <img src="@Url.Action("DisplayImage", "TheatreMembers", new { item.TheatreMemberId })" class="card-img-top prod-index--member_image" alt="MemberImage" onclick="" />
+    <div class="card m-3 border border-light rounded" style="width: 18rem;">
+        <div class="prod-index--card_hover_buttons">
+            <div class="prod-index--hover_buttons position-absolute mt-3">
+                <a href="@Url.Action("Edit", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--edit_button">
+                    <i class="fa-regular fa-pen-to-square fa-2x"></i><br />Edit
                 </a>
-                <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })" style="  text-decoration: none;
-      color: inherit;">
-                    <div class="card-body " style="background-color: #9D7C39; ">
-                        <p class="card-title" style="text-align: center; font-size: 2vw;">@Html.DisplayFor(modelItem => item.Name)</p>
-                    </div></a>
-
+                <a href="@Url.Action("Delete", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--delete_button">
+                    <i class="fa-regular fa-trash-can fa-2x"></i><br />Delete
+                </a>
             </div>
-            </div>
-
-       
-
+            <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })">
+                <img src="@Url.Action("DisplayImage", "TheatreMembers", new { item.TheatreMemberId })" class="card-img-top prod-index--member_image" alt="MemberImage" onclick="" />
+            </a>
+            <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })" style="  text-decoration: none; color: inherit;">
+                <div class="card-body " style="background-color: #9D7C39; ">
+                    <p class="card-title" style="text-align: center; font-size: 1.25vw;">@Html.DisplayFor(modelItem => item.Name)</p>
+                </div></a>
+        </div>
+    </div>
     }
 </div>
 
@@ -58,54 +52,52 @@
 <div class="card-group">
     @foreach (var item in Model.Where(x => x.Production == "Wicked"))
     {
-        <div class="card m-3 border border-light rounded" style="width: 18rem;">
-            <div class="prod-index--card_hover_buttons">
-                <div class="prod-index--hover_buttons position-absolute mt-3">
-                    <a href="@Url.Action("Edit", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--edit_button">
-                        <i class="fa-regular fa-pen-to-square fa-2x"></i><br />Edit
-                    </a>
-                    <a href="@Url.Action("Delete", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--delete_button">
-                        <i class="fa-regular fa-trash-can fa-2x"></i><br />Delete
-                    </a>
-                </div>
-                <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })">
-                    <img src="@Url.Action("DisplayImage", "TheatreMembers", new { item.TheatreMemberId })" class="card-img-top prod-index--member_image" alt="MemberImage" onclick="" />
+    <div class="card m-3 border border-light rounded" style="width: 18rem; background-color: #9D7C39;">
+        <div class="prod-index--card_hover_buttons">
+            <div class="prod-index--hover_buttons position-absolute mt-3">
+                <a href="@Url.Action("Edit", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--edit_button">
+                    <i class="fa-regular fa-pen-to-square fa-2x"></i><br />Edit
+                </a>
+                <a href="@Url.Action("Delete", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--delete_button">
+                    <i class="fa-regular fa-trash-can fa-2x"></i><br />Delete
                 </a>
             </div>
-
-            <div class="card-body " style="background-color: #9D7C39;">
-                <h5 class="card-title" style="text-align: center; font-size: 2vw">@Html.DisplayFor(modelItem => item.Name)</h5>
-            </div>
+            <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })">
+                <img src="@Url.Action("DisplayImage", "TheatreMembers", new { item.TheatreMemberId })" class="card-img-top prod-index--member_image" alt="MemberImage" onclick="" />
+            </a> 
+            <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })" style="  text-decoration: none; color: inherit;">
+                <div class="card-body " style="background-color: #9D7C39; ">
+                    <p class="card-title" style="text-align: center; font-size: 1.25vw;">@Html.DisplayFor(modelItem => item.Name)</p>
+                </div></a>
         </div>
-
+    </div>
     }
 </div>
 
 <h1 class="mx-3 mt-5">Other Roles</h1>
 <div class="mb-3" style="width: 100%; height: 15px; background-color: #DB1A11;"></div>
-
 <div class="card-group">
     @foreach (var item in Model.Where(x => x.Production == null))
     {
-        <div class="card m-3 border border-light rounded" style="width: 18rem;">
-            <div class="prod-index--card_hover_buttons">
-                <div class="prod-index--hover_buttons position-absolute mt-3">
-                    <a href="@Url.Action("Edit", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--edit_button">
-                        <i class="fa-regular fa-pen-to-square fa-2x"></i><br />Edit
-                    </a>
-                    <a href="@Url.Action("Delete", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--delete_button">
-                        <i class="fa-regular fa-trash-can fa-2x"></i><br />Delete
-                    </a>
-                </div>
-                <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })">
-                    <img src="@Url.Action("DisplayImage", "TheatreMembers", new { item.TheatreMemberId })" class="card-img-top prod-index--member_image" alt="MemberImage" onclick="" />
+    <div class="card m-3 border border-light rounded" style="width: 18rem;">
+        <div class="prod-index--card_hover_buttons">
+            <div class="prod-index--hover_buttons position-absolute mt-3">
+                <a href="@Url.Action("Edit", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--edit_button">
+                    <i class="fa-regular fa-pen-to-square fa-2x"></i><br />Edit
+                </a>
+                <a href="@Url.Action("Delete", "TheatreMembers", new { id = item.TheatreMemberId })" class="btn mx-2 prod-index--delete_button">
+                    <i class="fa-regular fa-trash-can fa-2x"></i><br />Delete
                 </a>
             </div>
-
-            <div class="card-body " style="background-color: #9D7C39;">
-                <h5 class="card-title" style="text-align: center; font-size: 2vw">@Html.DisplayFor(modelItem => item.Name)</h5>
-            </div>
+            <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })">
+                <img src="@Url.Action("DisplayImage", "TheatreMembers", new { item.TheatreMemberId })" class="card-img-top prod-index--member_image" alt="MemberImage" onclick="" />
+            </a>
+            <a href="@Url.Action("Details", "TheatreMembers", new { id = item.TheatreMemberId })" style="  text-decoration: none; color: inherit;">
+                <div class="card-body " style="background-color: #9D7C39; ">
+                    <p class="card-title" style="text-align: center; font-size: 1.25vw;">@Html.DisplayFor(modelItem => item.Name)</p>
+                </div>
+            </a>
         </div>
-
+    </div>
     }
 </div>

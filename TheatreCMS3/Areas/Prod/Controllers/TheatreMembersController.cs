@@ -91,7 +91,6 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 if (imageFile != null)
                 {
                     db.Entry(theatreMember).State = EntityState.Modified;
@@ -102,8 +101,6 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                     db.Entry(theatreMember).State = EntityState.Modified;
 
                 }
-
-
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
