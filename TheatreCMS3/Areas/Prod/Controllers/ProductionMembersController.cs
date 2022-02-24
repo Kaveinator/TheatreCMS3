@@ -19,7 +19,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionMembers
         public ActionResult Index()
         {
-            return View(db.ProductionMembers.ToList());
+            var productionTitle = db.ProductionMembers.OrderBy(x => x.ProductionTitle == null)
+                .ThenBy(x => x.ProductionTitle)
+                .ThenBy(x => x.Name == null)
+                .ThenBy(x => x.Name);
+            return View(productionTitle.ToList());
         }
 
         // GET: Prod/ProductionMembers/Details/5
@@ -48,7 +52,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] ProductionMember productionMember, HttpPostedFileBase imgFile)
+        public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft,ProductionTitle")] ProductionMember productionMember, HttpPostedFileBase imgFile)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +94,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft,Photo")] ProductionMember productionMember, HttpPostedFileBase imgFile)
+        public ActionResult Edit([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft,ProductionTitle")] ProductionMember productionMember, HttpPostedFileBase imgFile)
         {
             if (ModelState.IsValid)
             {
