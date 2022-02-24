@@ -5,13 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="hi">Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<button class="Prod-ProductionMember-createBtn" type="button" onclick="location.href='@Url.Action("Create")'">Create</button>
+    
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionTitle)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -44,6 +46,10 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductionTitle)
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -91,23 +97,30 @@
 
 </table>
 
-<div class="container-fluid">
+<div class="container-fluid cms-bg-main-light">
 
-    @foreach (var name in Model.GroupBy(x => x.Name).Select(y => y.First()).ToList())
+    @foreach (var name in Model.GroupBy(x => x.ProductionTitle).Select(y => y.First()).ToList())
     {
-        @Html.DisplayFor(modelName => name.Name)
+        if (name.ProductionTitle == null)
+        {
+            <h2 class="hi CMS-text-bigger">No Production</h2>
+        }
+        <h2 class="CMS-text-bigger cms-text-dark">@Html.DisplayFor(modelName => name.ProductionTitle)</h2>
+        <hr />
         <div class="row">
             @foreach (var item in Model)
             {
-                if (item.Name == name.Name)
+                if (item.ProductionTitle == name.ProductionTitle)
                 {
-                    <div class="col">
-                        <div class="card w-75" style="width: 18rem;">
-                            <img src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" style="width: 100%; height: 250px;" class="card-img-top" alt="...">
+                    <div class="col-3 container1">
+                        <div class="card cms-bg-secondary w-75 m-3" style="width: 18rem;">
+                            <img src="@Url.Action("DisplayImg","ProductionMembers",new { item.ProductionMemberId })" style="width: 100%; height: 250px;" class="card-img-top image1" alt="...">
+                            <div class="middle1">
+                                <button class="text1">Edit</button>
+                                <button>Delete</button>
+                            </div>
                             <div class="card-body">
-                                <h5 class="card-title cms-text-dark">@Html.DisplayFor(modelItem => item.Name)</h5>
-                                <p class="card-text"></p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 class="card-title cms-text-light text-center">@Html.DisplayFor(modelItem => item.Character)</h5>
                             </div>
                         </div>
                     </div>
