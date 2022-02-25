@@ -49,7 +49,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] CastMember castMember, HttpPostedFileBase castPhoto)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,ProductionTitle,CastYearLeft,DebutYearLeft")] CastMember castMember, HttpPostedFileBase castPhoto)
         {
             var finalPhoto = UploadToByte(castPhoto);
             if (ModelState.IsValid)
@@ -83,7 +83,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] CastMember castMember, HttpPostedFileBase castPhoto)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainPosition,Bio,Photo,CurrentMember,Character,ProductionTitle,CastYearLeft,DebutYearLeft")] CastMember castMember, HttpPostedFileBase castPhoto)
         {
             if (ModelState.IsValid)
             {

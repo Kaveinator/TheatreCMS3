@@ -9,6 +9,11 @@ namespace TheatreCMS3.Areas.Prod.Models
     {
         Actor, Director, Technician, StageManager, Other
     }
+
+    public enum ProductionEnum
+    {
+        Wicked, LionKing, Other
+    }
     
     public class CastMember
     {
@@ -20,6 +25,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public byte[] Photo { get; set; }
         public bool CurrentMember { get; set; }
         public string Character { get; set; }
+        public ProductionEnum ProductionTitle { get; set; }
         public int? CastYearLeft { get; set; }
         public int? DebutYearLeft { get; set; }
     }

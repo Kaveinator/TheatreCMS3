@@ -356,6 +356,29 @@
         transition-duration:0.2s;
  }
 
+.castmembers-Index--CardBtn {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 5px 40px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 10px;
+    transition-duration: 0.2s;
+    margin: 5px;
+}
+
+.castmembers-Index--CardBtn:hover {
+        background-color: var(--secondary-color);
+        color: var(--light-color);
+        padding: 5px 40px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 400;
+        border-radius: 10px;
+    }
+
 .castmembers-Create--listBtn {
     background-color: var(--dark-color);
     color: var(--secondary-color);
