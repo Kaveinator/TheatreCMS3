@@ -101,10 +101,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 //else
                 //{
 
-                //    //    var tempPhoto = db.ProductionPhotos.Find(productionPhoto.ProductionPhotodId);
-                //    //    //productionPhoto.Photo = tempPhoto.Photo;
-                //    //    var photobyte = tempPhoto.Photo;
-                //    productionPhoto.Photo = db.ProductionPhotos.Find(productionPhoto.Photo);
+                //    var tempPhoto = db.ProductionPhotos.Find(productionPhoto.ProductionPhotodId);
+                //    //productionPhoto.Photo = tempPhoto.Photo;
+                //    var photobyte = tempPhoto.Photo;
+                //    productionPhoto.Photo = photobyte;
 
 
                 //}
