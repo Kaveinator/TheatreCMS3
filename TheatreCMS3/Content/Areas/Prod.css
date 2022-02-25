@@ -29,6 +29,12 @@
     margin-top: 20px;
 }
 
+.productionphotos-Details-background {
+    border-radius: 25px;
+    background-color: var(--main-color--light);
+    margin-top: 20px;
+}
+
 .form-control {
     background-color: rgb(200, 200, 200);
 }
