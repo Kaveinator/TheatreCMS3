@@ -37,7 +37,8 @@
 
         @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Photo, new { @type = "file" })
+            @Html.TextBoxFor(model => model.Photo, new { type = "file", id = " ImgUpload", onchange = "ImgPre(this)" })
+            <p><img class="img-fluid" id="ImgPreview" /></p>
             @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
         </div>
 
