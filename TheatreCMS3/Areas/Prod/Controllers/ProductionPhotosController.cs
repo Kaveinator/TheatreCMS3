@@ -79,6 +79,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["previous"] = productionPhoto;
             return View(productionPhoto);
         }
 
@@ -93,21 +94,23 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             
             if (ModelState.IsValid)
             {
+                ProductionPhoto previousEntry = TempData["previous"] == null ? db.ProductionPhotos.Find(productionPhoto.ProductionPhotodId) :
+                    (ProductionPhoto)TempData["previous"];
                 if (Photo != null)
                 {
                     var photobyte = PhotoConvert(Photo);
                     productionPhoto.Photo = photobyte;
                 }
-                //else
-                //{
+                if (Photo == null && productionPhoto.Photo == null && previousEntry.Photo != null)
+                {
+                    productionPhoto.Photo = previousEntry.Photo;
+                    //    var tempPhoto = db.ProductionPhotos.Find(productionPhoto.ProductionPhotodId);
+                    //    //productionPhoto.Photo = tempPhoto.Photo;
+                    //    var photobyte = tempPhoto.Photo;
+                    //    productionPhoto.Photo = photobyte;
+                    
 
-                //    var tempPhoto = db.ProductionPhotos.Find(productionPhoto.ProductionPhotodId);
-                //    //productionPhoto.Photo = tempPhoto.Photo;
-                //    var photobyte = tempPhoto.Photo;
-                //    productionPhoto.Photo = photobyte;
-
-
-                //}
+                }
 
                 db.Entry(productionPhoto).State = EntityState.Modified;
                 db.SaveChanges();
