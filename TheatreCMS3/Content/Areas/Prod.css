@@ -332,6 +332,13 @@
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
     border-radius: 5px
 }
+.Prod-ProductionMember-Img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 5%;
+}
 
 .castmembers-Create--submitBtn {
     background-color: var(--secondary-color);

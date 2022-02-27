@@ -4,80 +4,149 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script>
+</head>
+<body style="font-family: Broadway;">
+    <h2 class="text-center m-4">Details</h2>
 
-<h2>Details</h2>
+    <div class="container-fluid cms-bg-main-light text-center rounded Prod-ProductionMember-Index cms-text-dark">
 
-<div>
-    <h4>ProductionMember</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        <div class="text-center">
+            <h2 class="text-center">@Html.DisplayFor(modelItem => Model.Name)</h2>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </dt>
+        <div class="text-center">
+            <div>
+                @{
+                    if (Model.Photo == null)
+                    {
+                        <p>No Photo</p>
+                    }
+                    else
+                    {
+                        <img class="mb-3 Prod-ProductionMember-Img" src="@Url.Action("DisplayImg","ProductionMembers",new { Model.ProductionMemberId })" />
+                    }
+                }
+            </div>
+        </div>
+        <p class="text-left h2 row ml-1">Bio</p>
+        <div class="cms-bg-light rounded Prod-ProductionMember-Index mb-2 row ml-1 mr-1 justify-content-center">
+            <p>@Html.DisplayFor(modelItem => Model.Bio)</p>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.YearJoined)
-        </dd>
+        <div class="container text-center cms-bg-light rounded Prod-ProductionMember-Index mt-2 ml-1">
+            <div class=" form-horizontal">
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ProductionTitle, "Production Title", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.ProductionTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Character, "Character", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.Character, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.YearJoined, "Year Joined", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.YearJoined, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.CastYearLeft, "Cast Year Left", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.CastYearLeft, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.DebutYearLeft, "Debut Year Left", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.DebutYearLeft, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MainRole)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+    <button class="Prod-ProductionMember-backBtn text-center mt-2" type="button" onclick="location.href='@Url.Action("Index")'"><i class="fa-solid fa-backward"></i> Back to List</button>
+    <button class="Prod-ProductionMember-createBtn text-center mt-2" type="button" onclick="location.href='@Url.Action("Edit", "ProductionMembers", new {id = Model.ProductionMemberId })'"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </dt>
+    @*<div>
+            <h4>ProductionMember</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CurrentMember)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Character)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.YearJoined)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Character)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.YearJoined)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MainRole)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CastYearLeft)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.MainRole)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DebutYearLeft)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bio)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DebutYearLeft)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Bio)
+                </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductionMemberId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CurrentMember)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CurrentMember)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Character)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Character)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CastYearLeft)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CastYearLeft)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DebutYearLeft)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DebutYearLeft)
+                </dd>
+
+            </dl>
+        </div>*@
+
+</body>
