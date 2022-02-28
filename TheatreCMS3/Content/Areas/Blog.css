@@ -72,3 +72,75 @@
     position: relative;
 }
 
+/* Create page */
+
+.BlogAuthor-Create--container {
+    background-color: var(--main-color);
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    
+    overflow: hidden;
+}
+
+.BlogAuthor-Create--container h4 {
+    padding-left: 15px;
+    padding-top: 15px;
+    transition: 1s;
+    text-shadow: 2px 1px 1px black;
+}
+
+.BlogAuthor-Create--container h4:hover {
+    color: var(--secondary-color--dark);
+}
+
+.BlogAuthor-Create--innercontainer {
+    background-color: var(--main-color--light);
+    border-radius: 15px;
+    transition: 1s;
+    box-shadow: inset 1px 1px 10px black;
+    padding:4px;
+}
+
+.BlogAuthor-Create--biolabel {
+    
+    width:300px;
+}
+
+.BlogAuthor-Create--labelcenter {
+    width:120%;
+}
+
+
+.BlogAuthor-Create--textshadow {
+    text-shadow: 2px 1px 1px black;
+    color: white;
+}
+
+.BlogAuthor-Create--buttonflex {
+    float: left;
+    width: 48%;
+    background-color: var(--main-color--light);
+    margin-top: 10px;
+    margin-left: 7px;
+    margin-right: 2px;
+    transition: .5s ease-in-out;
+    color:white;
+    text-shadow: 2px 1px black;
+}
+
+.BlogAuthor-Create--buttonflex:hover {
+    box-shadow: inset 2px 1px 10px black;
+    text-shadow:none;
+}
+
+.BlogAuthor-Edit-timecontainer {
+    width:40%;
+    overflow:hidden;
+}
+
+.BlogAuthor-Create--test {
+    min-width: 140px;
+    padding: 20px;
+}
