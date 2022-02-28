@@ -49,22 +49,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionPhotodId,Title,Description,PathPhoto")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
+        public ActionResult Create([Bind(Include = "ProductionPhotodId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
         {
-            ////Extract Image File Name.
-            //string fileName = System.IO.Path.GetFileName(Photo.FileName);
-
-            ////Set the Image File Path.
-            //string filePath = "~/Content/images/ProductionPhotos/" + fileName;
-
-            ////Save the Image File in Folder.
-            //Photo.SaveAs(Server.MapPath(filePath));
             
 
             var photobyte = PhotoConvert(Photo);
             if (ModelState.IsValid)
             {
-                //productionPhoto.PathPhoto = filePath;
                 productionPhoto.Photo = photobyte;
                 db.ProductionPhotos.Add(productionPhoto);
                 db.SaveChanges();
@@ -88,6 +79,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["previous"] = productionPhoto;
             return View(productionPhoto);
         }
 
@@ -96,23 +88,30 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionPhotodId,Title,Description,PathPhoto")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
+        public ActionResult Edit([Bind(Include = "ProductionPhotodId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase Photo)
         {
-            ////Extract Image File Name.
-            //string fileName = System.IO.Path.GetFileName(Photo.FileName);
-
-            ////Set the Image File Path.
-            //string filePath = "~/Content/images/ProductionPhotos/" + fileName;
-
-            ////Save the Image File in Folder.
-            //Photo.SaveAs(Server.MapPath(filePath));
-
             
-            var photobyte = PhotoConvert(Photo);
+            
             if (ModelState.IsValid)
             {
-                //productionPhoto.PathPhoto = filePath;
-                productionPhoto.Photo = photobyte;
+                ProductionPhoto previousEntry = TempData["previous"] == null ? db.ProductionPhotos.Find(productionPhoto.ProductionPhotodId) :
+                    (ProductionPhoto)TempData["previous"];
+                if (Photo != null)
+                {
+                    var photobyte = PhotoConvert(Photo);
+                    productionPhoto.Photo = photobyte;
+                }
+                if (Photo == null && productionPhoto.Photo == null && previousEntry.Photo != null)
+                {
+                    productionPhoto.Photo = previousEntry.Photo;
+                    //    var tempPhoto = db.ProductionPhotos.Find(productionPhoto.ProductionPhotodId);
+                    //    //productionPhoto.Photo = tempPhoto.Photo;
+                    //    var photobyte = tempPhoto.Photo;
+                    //    productionPhoto.Photo = photobyte;
+                    
+
+                }
+
                 db.Entry(productionPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

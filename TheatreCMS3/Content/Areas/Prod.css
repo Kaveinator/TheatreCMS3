@@ -11,6 +11,9 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*===================================
+    CREATE PRODUCTION PHOTOS PAGE
+  ===================================*/
 .ProductionPhotos-Create-form {
     max-width: auto;
     height: 50px;
@@ -26,6 +29,12 @@
     margin-top: 20px;
 }
 
+.productionphotos-Details-background {
+    border-radius: 25px;
+    background-color: var(--main-color--light);
+    margin-top: 20px;
+}
+
 .form-control {
     background-color: rgb(200, 200, 200);
 }
@@ -35,6 +44,15 @@
     box-shadow: 0px 0px 8px #D6972A;
     background-color: white;
 }
+
+.productionPhotos-Index-Text {
+    text-decoration-color: var(--dark-color);
+}
+
+.productionPhotos-Index-Title {
+    text-decoration-color: var(--main-color);
+}
+
 
 /*===================================
     CREATE THEATREMEMBER PAGE
@@ -337,6 +355,29 @@
         border-radius: 12px;
         transition-duration:0.2s;
  }
+
+.castmembers-Index--CardBtn {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 5px 40px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 10px;
+    transition-duration: 0.2s;
+    margin: 5px;
+}
+
+.castmembers-Index--CardBtn:hover {
+        background-color: var(--secondary-color);
+        color: var(--light-color);
+        padding: 5px 40px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 400;
+        border-radius: 10px;
+    }
 
 .castmembers-Create--listBtn {
     background-color: var(--dark-color);

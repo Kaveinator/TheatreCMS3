@@ -5,34 +5,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h1>Details</h1>
 
-<div>
-    <h4>ProductionPhoto</h4>
+<div class="productionphotos-Details-background">
+    <h2 class="d-flex justify-content-center">ProductionPhoto</h2>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+    <div class="d-flex justify-content-center">
+        <div class="flex-column m-2">
+            <div>
+                <h5> @Html.DisplayNameFor(model => model.Title)</h5>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <div class="mb-3">
+                @Html.DisplayFor(model => model.Title)
+            </div>
+            @*</div>
+                <div class="flex-column m-2">*@
+            <div>
+                <h5>@Html.DisplayNameFor(model => model.Description)</h5>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dd>
-            <img src="/ProductionPhotos/RetrieveImage/@Model.ProductionPhotodId" alt="" />
-        </dd>
-
-    </dl>
+            <div class="mb-3">
+                @Html.DisplayFor(model => model.Description)
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <img src="/ProductionPhotos/RetrieveImage/@Model.ProductionPhotodId" alt="" />
+    </div>
+    <p class="d-flex justify-content-center p-2">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductionPhotodId }, new { @class = "btn btn-dark float-left m-2" })
+        <input type="button" class="btn btn-dark m-2" value="Back to list" onclick="location.href='@Url.Action("Index","ProductionPhotos")'" />
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductionPhotodId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

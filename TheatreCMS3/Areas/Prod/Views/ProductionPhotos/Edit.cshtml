@@ -8,7 +8,7 @@
 
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -37,7 +37,8 @@
 
         @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Photo, new { @type = "file" })
+            @Html.TextBoxFor(model => model.Photo, new { type = "file", id = " ImgUpload", onchange = "ImgPre(this)" })
+            <p><img class="img-fluid" id="ImgPreview" /></p>
             @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
         </div>
 
@@ -45,7 +46,7 @@
     <div class="form-group">
         <div class="d-flex flex-row justify-content-center p-2">
 
-            <input type="button" class="btn btn-dark m-3" value="Back to list" onclick="location.href='@Url.Action("Back to List","Index")'" />
+            <input type="button" class="btn btn-dark m-3" value="Back to list" onclick="location.href='@Url.Action("Index","ProductionPhotos")'" />
             <input type="submit" value="Save" class="btn btn-success m-3" />
         </div>
 
