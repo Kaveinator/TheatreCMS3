@@ -80,7 +80,7 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 8px;
-    width: 75%;
+    
     overflow: hidden;
 }
 
@@ -104,6 +104,7 @@
 }
 
 .BlogAuthor-Create--biolabel {
+    
     width:300px;
 }
 
@@ -135,9 +136,7 @@
 }
 
 .BlogAuthor-Edit-timecontainer {
-    display: flex;
-    margin-bottom: 20px;
-    margin-left: 30px;
+    width:40%;
     overflow:hidden;
 }
 

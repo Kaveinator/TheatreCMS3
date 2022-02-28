@@ -12,56 +12,56 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Blog Author</h4>
-        <hr />
-        <div class="BlogAuthor-Create--test">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.BlogAuthorId)
+<div class="form-horizontal BlogAuthor-Create--container">
+    <h4>Blog Author</h4>
+    <hr />
+    <div class="BlogAuthor-Create--innercontainer">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BlogAuthorId)
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 BlogAuthor-Create--textshadow" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control BlogAuthor-Create--labelcenter" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2 BlogAuthor-Create--textshadow" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="BlogAuthor-Edit-timecontainer centered">
             <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 BlogAuthor-Create--textshadow" })
+                @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2 BlogAuthor-Create--textshadow" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control BlogAuthor-Create--labelcenter" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "form-control BlogAuthor-Create--labelcenter", type = "datetime-local" } })
+                    @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2 BlogAuthor-Create--textshadow" })
-                <div>
-                    @Html.TextAreaFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control BlogAuthor-Create--biolabel" } })
-                    @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="BlogAuthor-Edit-timecontainer">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2 BlogAuthor-Create--textshadow" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "form-control BlogAuthor-Create--labelcenter", type = "datetime-local" } })
-                        @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2 BlogAuthor-Create--textshadow" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @class = "form-control BlogAuthor-Create--labelcenter", type = "datetime-local" } })
-                        @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div>
-                    @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "btn BlogAuthor-Create--buttonflex" })
-                </div>
-                <div>
-                    <input type="submit" value="Save" class="btn BlogAuthor-Create--buttonflex" />
+                @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2 BlogAuthor-Create--textshadow" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @class = "form-control BlogAuthor-Create--labelcenter", type = "datetime-local" } })
+                    @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
     </div>
+    <div class="form-group centered">
+        <div>
+            @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "btn BlogAuthor-Create--buttonflex" })
+        </div>
+        <div>
+            <input type="submit" value="Save" class="btn BlogAuthor-Create--buttonflex" />
+        </div>
+    </div>
+</div>
 }
 
 
