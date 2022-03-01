@@ -462,10 +462,6 @@ footer {
    color: #fffbfb;
 }
 
-@font-face {
-    font-family: "Broadway";
-    src: url("../webfonts/Broadway.ttf")
-}
 
 .home-donation--title {
     font-family: 'Broadway';
