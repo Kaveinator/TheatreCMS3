@@ -211,6 +211,8 @@
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\Models\TheatreMember.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
+    <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
     <Compile Include="Areas\Rent\Models\Rental.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
@@ -347,6 +349,11 @@
     <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
     <Content Include="Areas\Rent\Views\web.config" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Create.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Details.cshtml" />
@@ -509,6 +516,7 @@
     <Content Include="UIUX\Wireframes\TheatreHomePageWireframe.psd" />
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
+    <Content Include="Views\Home\Donate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
