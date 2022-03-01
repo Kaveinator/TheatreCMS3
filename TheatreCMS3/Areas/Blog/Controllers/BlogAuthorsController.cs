@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Create([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor,HttpPostedFileBase image1)
         {
+            
             if (ModelState.IsValid)
             {
+                blogAuthor.AuthorPhoto = new byte[image1.ContentLength];
+                image1.InputStream.Read(blogAuthor.AuthorPhoto, 0, image1.ContentLength);
                 db.BlogAuthors.Add(blogAuthor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -115,6 +119,8 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
 
         protected override void Dispose(bool disposing)
         {
