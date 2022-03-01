@@ -8,7 +8,7 @@ namespace TheatreCMS3.Helpers
     public class TextHelpers
     {
         //takes in string and integer that defines the max length of the string
-        static string TruncateStringByChar(string String, int charLength)
+        public static string TruncateStringByChar(string String, int charLength)
         {
             if (String.Length > charLength)
             {
