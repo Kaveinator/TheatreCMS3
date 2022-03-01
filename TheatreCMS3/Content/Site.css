@@ -455,3 +455,16 @@ footer {
 
 /* Sign-In List Page END */
 
+/* Donate Form h1 tag*/
+.donate-home-form{
+   position: relative;
+   text-align: center;
+   color: #fffbfb;
+}
+
+.donation-title {
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
