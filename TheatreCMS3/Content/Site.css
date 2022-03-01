@@ -455,16 +455,23 @@ footer {
 
 /* Sign-In List Page END */
 
-/* Donate Form h1 tag*/
-.donate-home-form{
+/* Donate Form Start*/
+.home-donation--form{
    position: relative;
    text-align: center;
    color: #fffbfb;
 }
 
-.donation-title {
+@font-face {
+    font-family: "Broadway";
+    src: url("../webfonts/Broadway.ttf")
+}
+
+.home-donation--title {
+    font-family: 'Broadway';
     position: absolute;
     top: 37%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/* Donate Form End*/

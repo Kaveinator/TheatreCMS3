@@ -2,13 +2,18 @@
 @{
     ViewBag.Title = "Donate";
 }
+<style>
+    @@import url('http://fonts.cdnfonts.com/css/broadway');
+</style>
+
 
 @using (Html.BeginForm("Donate", "Home", FormMethod.Post))
+
 {
-    <div class="donate-home-form">
+    <div class="home-donation--form">
         <img src="~/Content/images/theater.jpg" style="width: 100%;" />
-        <div class="donation-title">
-            <h1 class="text-center mt-2 mb-4"><strong>Consider Making a Donation</strong></h1>
+        <div class="home-donation--title">
+            <h1 class="text-center mt-2 mb-4" style="font-size: 52px; font-weight: 500;">Consider Making a Donation</h1>
         </div>
     </div>
     <div style="background-color: #f04d44; border-radius: 10px; padding: 15px 20px 15px 20px; margin: auto;">
