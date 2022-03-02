@@ -2,133 +2,116 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
-using System.Drawing;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    public class BlogPhotoesController : Controller
+    public class RentalPhotosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/BlogPhotoes
-
+        // GET: Rent/RentalPhotos
         public ActionResult Index()
         {
-            return View(db.BlogPhotoes.ToList());
+            return View(db.RentalPhotoes.ToList());
         }
 
-        // GET: Blog/BlogPhotoes/Details/5
+        // GET: Rent/RentalPhotos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            if (blogPhoto == null)
+            RentalPhoto rentalPhoto = db.RentalPhotoes.Find(id);
+            if (rentalPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(blogPhoto);
+            return View(rentalPhoto);
         }
 
-        // GET: Blog/BlogPhotoes/Create
+        // GET: Rent/RentalPhotos/Create
         public ActionResult Create()
         {
             return View();
         }
 
-
-        public byte[] ConvertToByte(HttpPostedFileBase file)
-        {
-            byte[] Photo = null;
-            if (file != null)
-            {
-                BinaryReader rdr = new BinaryReader(file.InputStream);
-                Photo = rdr.ReadBytes(file.ContentLength);
-            }
-            return Photo;
-        }
-
-        // POST: Blog/BlogPhotoes/Create
+        // POST: Rent/RentalPhotos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damages,RentalPhotos,Details")] RentalPhoto rentalPhoto)
         {
-            var photoByte = ConvertToByte(file);
             if (ModelState.IsValid)
             {
-                blogPhoto.Photo = photoByte;
-                db.BlogPhotoes.Add(blogPhoto);
+                db.RentalPhotoes.Add(rentalPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blogPhoto);
+
+            return View(rentalPhoto);
         }
 
-
-        // GET: Blog/BlogPhotoes/Edit/5
+        // GET: Rent/RentalPhotos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            if (blogPhoto == null)
+            RentalPhoto rentalPhoto = db.RentalPhotoes.Find(id);
+            if (rentalPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(blogPhoto);
+            return View(rentalPhoto);
         }
 
-        // POST: Blog/BlogPhotoes/Edit/5
+        // POST: Rent/RentalPhotos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damages,RentalPhotos,Details")] RentalPhoto rentalPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogPhoto).State = EntityState.Modified;
+                db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blogPhoto);
+            return View(rentalPhoto);
         }
 
-        // GET: Blog/BlogPhotoes/Delete/5
+        // GET: Rent/RentalPhotos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            if (blogPhoto == null)
+            RentalPhoto rentalPhoto = db.RentalPhotoes.Find(id);
+            if (rentalPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(blogPhoto);
+            return View(rentalPhoto);
         }
 
-        // POST: Blog/BlogPhotoes/Delete/5
+        // POST: Rent/RentalPhotos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            db.BlogPhotoes.Remove(blogPhoto);
+            RentalPhoto rentalPhoto = db.RentalPhotoes.Find(id);
+            db.RentalPhotoes.Remove(rentalPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
