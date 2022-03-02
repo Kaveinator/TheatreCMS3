@@ -29,9 +29,9 @@
                     <strong>
                         @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-10" })
                     </strong>
-                    <div class="col-md-10 rentalHistory-create--damagedCheck">
+                    <div class="col-md-10">
                         <div class="rentalHistory-create--checkbox">
-                            @Html.EditorFor(model => model.RentalDamaged, "", new { @onclick = "changedText()" })
+                            @Html.EditorFor(model => model.RentalDamaged)
                             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" } )
                         </div>
                     </div>
@@ -40,7 +40,7 @@
 
             <div class="form-group">
                 <strong>
-                    @Html.LabelFor(model => model.DamagedIncurred, "Notes", htmlAttributes: new { @class = "control-label col-md-2", @id = "changeName" })
+                    @Html.LabelFor(model => model.DamagedIncurred, "Notes", htmlAttributes: new { @class = "control-label col-md-2", @id = "changeLabel" })
                 </strong>
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.DamagedIncurred, new { htmlAttributes = new { @class = "form-control" } })
@@ -62,5 +62,4 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/Areas/Rent.js" type="text/javascript"></script>
 }

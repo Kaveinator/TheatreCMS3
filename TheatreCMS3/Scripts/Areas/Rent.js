@@ -1,28 +1,40 @@
 ﻿/*  ==========================================
  CHANGE LABEL TEXT FROM NOTES TO DAMAGED INCURRED
 * ========================================== */
-//function changed() {
-//    let damagedIncurred = document.getElementsByClassName("check-box");
-//    let notes = document.getElementById("changeName");
-//    if (!damagedIncurred.checked) {
-//        notes.te = "Damaged Incurred";
+
+$("#RentalDamaged").click(function () {
+    if (this.checked) {
+        document.getElementById("changeLabel").innerHTML = "Damages Incurred";
+    }
+    else {
+        document.getElementById("changeLabel").innerHTML = "Notes";
+    }
+});
+
+// few other ways to write this code using vanilla js
+
+//function changedText() {
+//    try {
+//        var damageIncurred = document.getElementById("RentalDamaged");
+//        var text = document.getElementById("SpotToChange");
+
+//        if (damageIncurred.checked == true) {
+//            text.innerHTML = "Damaged Incurred"
+//        }
+//        else {
+//            text.innerHTML = "Notes"
+//        }
 //    }
-//    else {
-//        notes.innerHTML = "Damaged Incurred";
+//    catch(e) {
+//        alert(e.message);
 //    }
 //}
 
-function changedText() {
-    var damageIncurred = document.getElementById("RentalDamaged");
-    var text = document.getElementById("changeName");
-
-    if (damageIncurred.checked == true) {
-        text.innerHTML = "Damaged Incurred"
-    }
-    else {
-        text.innerHTML = "Damaged Incurred"
-    }
-
-}
-
-  
+//function changeLabel(checkbox) {
+//    if (checkbox.checked) {
+//        document.getElementById("test").innerHTML = "Damaged Incurred";
+//    }
+//    else {
+//        document.getElementById("test").innerHTML = "Notes";
+//    }
+//}
