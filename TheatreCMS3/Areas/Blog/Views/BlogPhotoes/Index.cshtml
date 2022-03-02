@@ -22,13 +22,19 @@
     </tr>
 
 @foreach (var item in Model) {
+    string text = "";
+    if (item.Photo != null)
+    {
+        text = Convert.ToBase64String(item.Photo);
+    }
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Photo)
+            <image src="data:image/jpg;base64, @text" class="image-index-size"></image>
         </td>
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BlogPhotoId }) |
             @Html.ActionLink("Details", "Details", new { id=item.BlogPhotoId }) |
