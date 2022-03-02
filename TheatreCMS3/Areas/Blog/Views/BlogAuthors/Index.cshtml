@@ -24,6 +24,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Left)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorPhoto)
+        </th>
         <th></th>
     </tr>
 
@@ -40,6 +43,13 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Left)
+        </td>
+        <td>
+            @{
+                var base64 = Convert.ToBase64String(item.AuthorPhoto);
+                var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+             }
+            <img src="@imgsrc" class="BlogAuthor-Index--photo"/>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BlogAuthorId }) |
