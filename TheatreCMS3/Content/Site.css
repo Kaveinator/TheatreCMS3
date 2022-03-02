@@ -455,6 +455,22 @@ footer {
 
 /* Sign-In List Page END */
 
+/* Donate Form Start*/
+.home-donation--form{
+   position: relative;
+   text-align: center;
+   color: #fffbfb;
+}
+
+
+.home-donation--title {
+    font-family: 'Broadway';
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Donate Form End*/
 /*  Contact Page Start */
 
 .Contact-donate  {
