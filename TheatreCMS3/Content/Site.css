@@ -471,3 +471,38 @@ footer {
     transform: translate(-50%, -50%);
 }
 /* Donate Form End*/
+
+/* Create Rental Form*/
+.rentalHistory-create--wholeForm {
+    display: block;
+    margin: auto;
+    padding: 15px 20px 15px 20px;
+    background-color: var(--main-color--light);
+    border-radius: 15px;
+    max-width: 600px;
+}
+.rentalHistory-create--formContainer{
+    display:flex;
+}
+  
+.rentalHistory-create--backToList {
+    display: flex;
+    justify-content:center;
+    padding-right: 5px;
+}
+.rentalHistory-create--createButton{
+    display: flex;
+    justify-content: center;
+    padding-left: 5px;
+}
+.rentalHistory-create--allButtons{
+    display: flex;
+    justify-content: center;
+}
+.rentalHistory-create--checkbox {
+    margin-top: 10px; margin-left: 10px;
+    transform: scaleX(1.5) scaleY(1.5);
+    display: flex;
+    justify-content: center;
+}
+
