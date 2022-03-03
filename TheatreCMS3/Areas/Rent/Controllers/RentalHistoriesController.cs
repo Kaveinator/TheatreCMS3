@@ -47,7 +47,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamaagedIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagedIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamaagedIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagedIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
             {
