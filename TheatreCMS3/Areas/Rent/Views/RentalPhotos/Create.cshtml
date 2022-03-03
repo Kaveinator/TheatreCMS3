@@ -16,17 +16,17 @@
         <h2>Create Rental Photo</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group-photo">
+        <div class="form-group">
             @Html.LabelFor(model => model.RentalsName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 offset-1 text-center">
                 @Html.EditorFor(model => model.RentalsName, new { htmlAttributes = new { @class = "RentalPhotos-Create--form-control", placeholder = "Rentals Name" } })
                 @Html.ValidationMessageFor(model => model.RentalsName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group-photo">
+        <div class="form-group">
             @Html.LabelFor(model => model.Damages, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 offset-1 text-center">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Damages)
                     @Html.ValidationMessageFor(model => model.Damages, "", new { @class = "text-danger" })
@@ -34,26 +34,28 @@
             </div>
         </div>
 
-        <div class="form-group-photo">
+        <div class="form-group">
             @Html.LabelFor(model => model.RentalPhotos, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 offset-1 text-center">
                 @Html.EditorFor(model => model.RentalPhotos, new { htmlAttributes = new { @class = "RentalPhotos-Create--form-control", placeholder = "Rental Photo"} })
                 @Html.ValidationMessageFor(model => model.RentalPhotos, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group-photo">
+        <div class="form-group">
             @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 offset-1 text-center">
                 @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "RentalPhotos-Create--form-control", placeholder = " Rental Photo Details" } })
                 @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group-photo">
-            <div class="col-md-10">
-                <input type="button" class="RentalPhotos-Create--backBtn" value="Back to List" onclick="location.href='@Url.Action("Back to List", "Index")'">
-                <input type="submit" value="Create" class="RentalPhotos-Create-submitBtn">
+        <div class="form-group">
+            <div class="RentalPhotos-Create--buttons">
+                <input type="submit" value="Create" class="RentalPhotos-Create--submitBtn" />
+            </div>
+            <div class="RentalPhotos-Create--buttons">
+                <button onclick="location.href = '@Url.Action("Index")'" class="RentalPhotos-Create--backBtn">Back to List</button>
             </div>
         </div>
     </div>
