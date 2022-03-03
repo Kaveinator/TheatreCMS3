@@ -45,9 +45,9 @@
     width: 650px;
 }
 
-.label-CreateEdit:focus{
+.label-CreateEdit:focus {
     border-color: var(--main-color--light);
-    background-color: white;    
+    background-color: white;
 }
 
 .label-BGColor{
@@ -63,13 +63,22 @@
     width: fit-content;
 }
 
-::-webkit-file-upload-button {
-    display: none;
-}
 
 .image-area {
-    padding: 12px;
     position: relative;
+}
+
+input[type='file'] {
+    color: transparent;
+    width: 100px;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.image-index-size {
+    height: 200px;
+    width: auto;
 }
 
 /* Create page */

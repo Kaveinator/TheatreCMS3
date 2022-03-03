@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
+using System.Drawing;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -16,6 +18,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Blog/BlogPhotoes
+
         public ActionResult Index()
         {
             return View(db.BlogPhotoes.ToList());
@@ -42,22 +45,36 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View();
         }
 
+
+        public byte[] ConvertToByte(HttpPostedFileBase file)
+        {
+            byte[] Photo = null;
+            if (file != null)
+            {
+                BinaryReader rdr = new BinaryReader(file.InputStream);
+                Photo = rdr.ReadBytes(file.ContentLength);
+            }
+            return Photo;
+        }
+
         // POST: Blog/BlogPhotoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase file)
         {
+            var photoByte = ConvertToByte(file);
             if (ModelState.IsValid)
             {
+                blogPhoto.Photo = photoByte;
                 db.BlogPhotoes.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(blogPhoto);
         }
+
 
         // GET: Blog/BlogPhotoes/Edit/5
         public ActionResult Edit(int? id)
