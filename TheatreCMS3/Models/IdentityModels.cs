@@ -59,6 +59,8 @@ namespace TheatreCMS3.Models
 
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.Rental> Rentals { get; set; }
 
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalPhoto> RentalPhotoes { get; set; }
+
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalItem> RentalItems { get; set; }
     }
 }

@@ -213,10 +213,12 @@
     <Compile Include="Areas\Prod\Models\TheatreMember.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalPhotosController.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalItemController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
     <Compile Include="Areas\Rent\Models\Rental.cs" />
+    <Compile Include="Areas\Rent\Models\RentalPhoto.cs" />
     <Compile Include="Areas\Rent\Models\RentalItem.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -362,6 +364,11 @@
     <Content Include="Areas\Rent\Views\Rentals\Details.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalPhotos\Create.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalPhotos\Delete.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalPhotos\Details.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalPhotos\Edit.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalPhotos\Index.cshtml" />
     <Content Include="Areas\Rent\Views\RentalItem\Create.cshtml" />
     <Content Include="Areas\Rent\Views\RentalItem\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\RentalItem\Details.cshtml" />
