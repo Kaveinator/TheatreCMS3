@@ -5,26 +5,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm("Create", "RentalPhotos", FormMethod.Post, new { enctype = "multipart/form_data" }))
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>RentalPhoto</h4>
+    <div class="RentalPhotos-Create--form-contain">
+        <h2>Create Rental Photo</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group-photo">
             @Html.LabelFor(model => model.RentalsName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalsName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.RentalsName, new { htmlAttributes = new { @class = "RentalPhotos-Create--form-control", placeholder = "Rentals Name" } })
                 @Html.ValidationMessageFor(model => model.RentalsName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group-photo">
             @Html.LabelFor(model => model.Damages, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -34,33 +34,33 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group-photo">
             @Html.LabelFor(model => model.RentalPhotos, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalPhotos, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.RentalPhotos, new { htmlAttributes = new { @class = "RentalPhotos-Create--form-control", placeholder = "Rental Photo"} })
                 @Html.ValidationMessageFor(model => model.RentalPhotos, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group-photo">
             @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "RentalPhotos-Create--form-control", placeholder = " Rental Photo Details" } })
                 @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <div class="form-group-photo">
+            <div class="col-md-10">
+                <input type="button" class="RentalPhotos-Create--backBtn" value="Back to List" onclick="location.href='@Url.Action("Back to List", "Index")'">
+                <input type="submit" value="Create" class="RentalPhotos-Create-submitBtn">
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
