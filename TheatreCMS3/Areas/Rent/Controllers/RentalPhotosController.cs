@@ -11,107 +11,107 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    public class RentalHistoriesController : Controller
+    public class RentalPhotosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Rent/RentalHistories
+        // GET: Rent/RentalPhotos
         public ActionResult Index()
         {
-            return View(db.RentalHistories.ToList());
+            return View(db.RentalPhotoes.ToList());
         }
 
-        // GET: Rent/RentalHistories/Details/5
+        // GET: Rent/RentalPhotos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalHistory rentalHistory = db.RentalHistories.Find(id);
-            if (rentalHistory == null)
+            RentalPhoto rentalPhoto = db.RentalPhotoes.Find(id);
+            if (rentalPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalHistory);
+            return View(rentalPhoto);
         }
 
-        // GET: Rent/RentalHistories/Create
+        // GET: Rent/RentalPhotos/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Rent/RentalHistories/Create
+        // POST: Rent/RentalPhotos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagedIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damages,RentalPhotos,Details")] RentalPhoto rentalPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.RentalHistories.Add(rentalHistory);
+                db.RentalPhotoes.Add(rentalPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rentalHistory);
+            return View(rentalPhoto);
         }
 
-        // GET: Rent/RentalHistories/Edit/5
+        // GET: Rent/RentalPhotos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalHistory rentalHistory = db.RentalHistories.Find(id);
-            if (rentalHistory == null)
+            RentalPhoto rentalPhoto = db.RentalPhotoes.Find(id);
+            if (rentalPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalHistory);
+            return View(rentalPhoto);
         }
 
-        // POST: Rent/RentalHistories/Edit/5
+        // POST: Rent/RentalPhotos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagedIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damages,RentalPhotos,Details")] RentalPhoto rentalPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rentalHistory).State = EntityState.Modified;
+                db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rentalHistory);
+            return View(rentalPhoto);
         }
 
-        // GET: Rent/RentalHistories/Delete/5
+        // GET: Rent/RentalPhotos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalHistory rentalHistory = db.RentalHistories.Find(id);
-            if (rentalHistory == null)
+            RentalPhoto rentalPhoto = db.RentalPhotoes.Find(id);
+            if (rentalPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalHistory);
+            return View(rentalPhoto);
         }
 
-        // POST: Rent/RentalHistories/Delete/5
+        // POST: Rent/RentalPhotos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RentalHistory rentalHistory = db.RentalHistories.Find(id);
-            db.RentalHistories.Remove(rentalHistory);
+            RentalPhoto rentalPhoto = db.RentalPhotoes.Find(id);
+            db.RentalPhotoes.Remove(rentalPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
