@@ -45,7 +45,7 @@
     
 }
 
-.flex-container {
+.ALRent-flex-container {
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -53,34 +53,33 @@
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 10%;
-    
 }
 
-.flex-formgroup {
+.ALRent-flex-formgroup {
     display: flex;
     flex-direction: column;
     width: 500px;
 }
 
-.flex-item {
+.ALRent-flex-item {
     margin: 5px;
 }
 
-.flex-form-action {
+.ALRent-flex-form-action {
     display: flex;
     flex-direction:
 }
 
-.form-wrapper {
+.ALRent-form-wrapper {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-.crud-heading {
-    margin-left:25%;
-    margin-right:25%;
+.ALRent-crud-heading {
+    margin-left: 25%;
+    margin-right: 25%;
     position: relative;
     top: 100px;
 }
