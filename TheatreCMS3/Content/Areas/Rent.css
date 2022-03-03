@@ -11,3 +11,76 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+.ALRent-label {
+    color: black;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.ALRent-input {
+    border: 1px solid var(--light-color);
+    background-color: lightgray !important; /* Overriding bootstrap styles for these form items */
+    /*width: ;*/
+}
+
+.ALRent-input-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.ALRent-input:focus {
+    border: 2px solid #f78536 !important;
+    background-color: white !important;
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.ALRent-btn-create {
+    border: 1px solid var(--light-color);
+    background-color: #f78536 !important;
+    color: white;
+    
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: whitesmoke;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10%;
+    
+}
+
+.flex-formgroup {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.flex-item {
+    margin: 5px;
+}
+
+.flex-form-action {
+    display: flex;
+    flex-direction:
+}
+
+.form-wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.crud-heading {
+    margin-left:25%;
+    margin-right:25%;
+    position: relative;
+    top: 100px;
+}
