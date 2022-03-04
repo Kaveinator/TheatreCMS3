@@ -49,26 +49,26 @@
     justify-content: center;
 }
 
-.ALRent-label {
+.rental-create-edit--label{
     color: black;
     margin-top: 3px;
     margin-bottom: 3px;
 }
-.ALRent-input {
+.rental-create-edit--input {
     border: 1px solid var(--light-color);
     background-color: lightgray !important; /* Overriding bootstrap styles for these form items */
     /*width: ;*/
 }
 
-.ALRent-input-container {
+.rental-create-edit--inputcontainer {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.ALRent-input:focus {
-    border: 2px solid #f78536 !important;
+.rental-create-edit--input:focus {
+    border: 2px solid #DB1A11 !important;
     background-color: white !important;
     outline: none !important;
     outline-width: 0 !important;
@@ -76,14 +76,13 @@
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
 }
-.ALRent-btn-create {
-    border: 1px solid var(--light-color);
-    background-color: #f78536 !important;
-    color: white;
-    
+.rental-create-edit--btn {
+    border: 1px solid var(--light-color) !important;
+    background-color: #DB1A11 !important;
+    color: white !important;
 }
 
-.ALRent-flex-container {
+.rental-create-edit--flexcontainer {
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -93,31 +92,23 @@
     margin-top: 10%;
 }
 
-.ALRent-flex-formgroup {
+.rental-create-edit--flex-formgroup {
     display: flex;
     flex-direction: column;
     width: 500px;
 }
 
-.ALRent-flex-item {
-    margin: 5px;
-}
-
-.ALRent-flex-form-action {
-    display: flex;
-    flex-direction:
-}
-
-.ALRent-form-wrapper {
+.rental-create-edit--formwrapper {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-.ALRent-crud-heading {
+.rental-create-edit--CRUDheading {
     margin-left: 25%;
     margin-right: 25%;
     position: relative;
     top: 100px;
 }
+
