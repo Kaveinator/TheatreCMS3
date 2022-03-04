@@ -10,53 +10,66 @@
 <div>
     <h4>BlogAuthor</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="form-group centered BlogAuthor-Details--container">
+        <input type="button" class="btn-outline BlogAuthor-Details--btn" value="Author Details" />
+        <input type="button" class="btn-outline BlogAuthor-Details--btn" value="Blog Posts" />
+        <div class="form-group centered BlogAuthor-Details--innercontainer">
+            
+            <div class="BlogAuthor-Details-row">
+                <div class="BlogAuthor-Details--column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AuthorPhoto)
+                        </dt>
+                    </dl>
+                    @{
+                        var base64 = Convert.ToBase64String(Model.AuthorPhoto);
+                        var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                    }
+                    <img src="@imgsrc" class="BlogAuthor-Details--photo" />
+                </div>
+                <div class="BlogAuthor-Details--column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Bio)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Bio)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Joined)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Joined)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Left)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorPhoto)
-        </dt>
-
-        <dd>
-            @{
-                var base64 = Convert.ToBase64String(Model.AuthorPhoto);
-                var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
-            }
-            <img src="@imgsrc" class="BlogAuthor-Index--photo" />
-        </dd>
-
-    </dl>
+                        <dd>
+                            @Html.DisplayFor(model => model.Left)
+                        </dd>
+                    </dl>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-address-book BlogAuthor-Details--address" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="centered">
+            @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "btn-outline BlogAuthor-Details--btn" })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn-outline BlogAuthor-Details--btn" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
