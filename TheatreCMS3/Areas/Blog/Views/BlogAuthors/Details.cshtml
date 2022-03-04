@@ -69,6 +69,7 @@
         <div class="centered">
             @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "btn-outline BlogAuthor-Details--btn" })
             @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn-outline BlogAuthor-Details--btn" })
+            @Html.ActionLink("Delete", "Delete", new { id = Model.BlogAuthorId }, new { @class = "btn-outline BlogAuthor-Details--btn" })
         </div>
     </div>
 </div>
