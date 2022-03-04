@@ -28,13 +28,17 @@
             </div>
 
             <div>
+                @{
+                    string text = "";
+                    if (Model.Photo != null)
+                    {
+                        text = Convert.ToBase64String(Model.Photo);
+                    }
+                }
                 @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "" })
+                <image src="data:image/jpg;base64, @text" class="image-index-size"></image>
                 <div>
-                    @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "label-BGColor" } })
                     <div>
-                        <div>
-                            <input type="file" id="file" name="file" onchange="readURL(this);" class="form-control label-BGColor label-CreateEdit" />
-                        </div>
                         <div class="image-area"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
                     </div>
                     @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
@@ -42,9 +46,11 @@
             </div>
 
             <div>
+                 <div>
+                    <input type="file" id="file" name="file" onchange="readURL(this);" class="centered" />
+                </div>
                 <div class="btn-SideBySide">
-                    <input type="button" id="upload" onclick="document.getElementById('file').click();" value="Choose file" class="BlogPhotoes-CreateEdit-SubmitBackList btn"/>
-                    <input type="submit" value="Save" class="BlogPhotoes-CreateEdit-SubmitBackList btn" />
+                    <input type="submit" value="Create" class="BlogPhotoes-CreateEdit-SubmitBackList  btn"/>
                     @Html.ActionLink("Back to List", "Index", new { }, new { @class = "BlogPhotoes-CreateEdit-SubmitBackList btn" })
                 </div>
             </div>

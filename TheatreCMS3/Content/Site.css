@@ -461,8 +461,6 @@ footer {
    text-align: center;
    color: #fffbfb;
 }
-
-
 .home-donation--title {
     font-family: 'Broadway';
     position: absolute;
@@ -514,4 +512,72 @@ footer {
 
 
 /* Contact Page End */
+
+/*About Page Styling START*/
+
+.home-about--theatreContainer{
+    position:relative;
+    text-align:center;
+    color:white;
+}
+.home-about--overalltitle {
+    font-family: Broadway;
+    text-align: center;
+    color: var(--light-color);
+    font-size: 4rem;
+    top:10%;
+    left:40%;
+    position:absolute;
+}
+
+.home-about--castPhotoStyling {
+    width: 65%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,.2)
+   
+}
+
+.home-about--cardStyling {
+    width: 12rem;
+    background-color:black
+}
+
+.home-about--minorTitle {
+    text-align: center; 
+    font-size: 1rem;
+    text-decoration: underline;
+    text-decoration-color:red;
+    text-decoration-thickness: 20%;
+    padding-bottom:1rem;
+    padding-top:1rem;
+}
+
+.home-about--listStyle{
+    text-align:center;
+    list-style-type:none;
+}
+
+.home-about--lineStyle {
+    text-align: center;
+    height: 5px;
+    color: var(--light-color);
+    background-color: var(--light-color);
+    
+}
+
+.home-about--theatreImage {
+    width: auto;
+    height: 400px;
+}
+
+.home-about--secondThirdSectBG {
+    background-color: var(--main-color--light);
+}
+
+.home-about-secondThirdSectText {
+    text-align: center;
+    padding-bottom: 1rem
+}
+
+/*About Page Styling END*/
 
