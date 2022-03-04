@@ -48,4 +48,12 @@
     display: flex;
     justify-content: center;
 }
+.rentalHistory-index-formTable{
+    margin: auto;
+    border:solid;
+    border-color: var(--main-color);
+    background-color: var(--light-color);
+    color: black;
+    border-radius:10px;
+}
 

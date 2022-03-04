@@ -5,42 +5,48 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagedIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
+<div class="rentalHistory-index-formTable">
+    <table class="table">
+        <thead>
+            <tr>
+                <td scope="col">Most recent Rental Histories</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                @if (item.RentalDamaged == true)
+                {
+                    <td class="fa fa-times-circle" style="color:red; font-size: 16px;">
+                        
+                    </td>
+                }
+                else
+                {
+                    <td class="fa fa-check-circle" style="color:limegreen; font-size: 16px;">
+                       
+                    </td>
+                }
+                <td>
+                    <button type="button" class="btn btn-dark bn-sm" disabled>@Html.DisplayFor(modelItem => item.Rental)</button>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DamagedIncurred)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagedIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
-}
-
-</table>
+</div>
