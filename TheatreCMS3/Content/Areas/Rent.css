@@ -201,3 +201,66 @@
 /* End of Rental Photo Styling */
 
 
+.rental-create-edit--label{
+    color: black;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.rental-create-edit--input {
+    border: 1px solid var(--light-color);
+    background-color: lightgray !important; /* Overriding bootstrap styles for these form items */
+    /*width: ;*/
+}
+
+.rental-create-edit--inputcontainer {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.rental-create-edit--input:focus {
+    border: 2px solid #DB1A11 !important;
+    background-color: white !important;
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.rental-create-edit--btn {
+    border: 1px solid var(--light-color) !important;
+    background-color: #DB1A11 !important;
+    color: white !important;
+}
+
+.rental-create-edit--flexcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: whitesmoke;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10%;
+}
+
+.rental-create-edit--flex-formgroup {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.rental-create-edit--formwrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.rental-create-edit--CRUDheading {
+    margin-left: 25%;
+    margin-right: 25%;
+    position: relative;
+    top: 100px;
+}
+
