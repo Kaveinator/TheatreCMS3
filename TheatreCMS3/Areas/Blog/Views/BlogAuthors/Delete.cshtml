@@ -11,47 +11,68 @@
 <div>
     <h4>BlogAuthor</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="form-group centered BlogAuthor-Details--container">
+        <div class="form-group centered BlogAuthor-Details--innercontainer">
+            <div class="BlogAuthor-Details-row">
+                <div class="BlogAuthor-Details--column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AuthorPhoto)
+                        </dt>
+                    </dl>
+                    @{
+                        var base64 = Convert.ToBase64String(Model.AuthorPhoto);
+                        var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                    }
+                    <img src="@imgsrc" class="BlogAuthor-Details--photo" />
+                </div>
+                <div class="BlogAuthor-Details--column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Bio)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Bio)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Joined)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Joined)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Left)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                        <dd>
+                            @Html.DisplayFor(model => model.Left)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
         </div>
-    }
+        <div class="centered">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "btn-outline BlogAuthor-Details--btn" })
+                    <input type="submit" value="Delete" class="btn-outline BlogAuthor-Details--btn" />
+                </div>
+            }
+        </div>
+    </div>
 </div>
