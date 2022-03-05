@@ -39,15 +39,19 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
+            
             return View();
+            
         }
+
+
 
         // POST: Rent/Rentals/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SuffocationHazard,PurchasePrice,RoomNumber,SquareFootage,MaxOccupancy")] Rental rental)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +61,19 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
 
             return View(rental);
+        }
+
+        public ActionResult CreateRentalEquipment()
+        {
+            TempData["rentaltype"] = "rentalequipment";
+            return RedirectToAction("Create");
+        }
+
+
+        public ActionResult CreateRentalRoom()
+        {
+            TempData["rentaltype"] = "rentalroom";
+            return RedirectToAction("Create");
         }
 
         // GET: Rent/Rentals/Edit/5

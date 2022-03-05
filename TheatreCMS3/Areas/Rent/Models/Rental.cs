@@ -25,3 +25,4 @@ namespace TheatreCMS3.Areas.Rent.Models
         public int MaxOccupancy { get; set; }
     }
 }
+
