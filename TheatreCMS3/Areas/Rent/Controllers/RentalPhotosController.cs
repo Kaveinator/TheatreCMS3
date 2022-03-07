@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
@@ -41,16 +42,19 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             return View();
         }
+       
 
         // POST: Rent/RentalPhotos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damages,RentalPhotos,Details")] RentalPhoto rentalPhoto)
+        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damages,Details")] RentalPhoto rentalPhoto, HttpPostedFileBase photoFile)
         {
+            var photoByte = ConvertImageToByte(photoFile);
             if (ModelState.IsValid)
             {
+                rentalPhoto.RentalPhotos = photoByte;
                 db.RentalPhotoes.Add(rentalPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +127,18 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public byte[] ConvertImageToByte(HttpPostedFileBase photoFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photoFile.InputStream))
+
+            {
+                bytes = br.ReadBytes(photoFile.ContentLength);
+
+            }
+            return bytes;
+
         }
     }
 }

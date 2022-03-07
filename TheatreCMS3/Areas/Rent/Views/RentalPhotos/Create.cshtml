@@ -37,7 +37,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RentalPhotos, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10 offset-1 text-center">
-                @Html.EditorFor(model => model.RentalPhotos, new { htmlAttributes = new { @class = "RentalPhotos-Create--form-control", placeholder = "Rental Photo"} })
+                @Html.TextBoxFor(model => model.RentalPhotos, new { @class = "", placeholder = "Rental Photo", type="file" })
+                @*<div>
+                    <input type="file" id="photoFile"  name="photoFile" onchange="readURL(this)" class="" />
+                </div>
+                <div>
+                    <div class="image-area"><image id="Result" src="#" alt="" class="img-fluid"></div>
+                </div>*@
                 @Html.ValidationMessageFor(model => model.RentalPhotos, "", new { @class = "text-danger" })
             </div>
         </div>
