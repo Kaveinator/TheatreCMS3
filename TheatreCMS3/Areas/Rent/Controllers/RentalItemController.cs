@@ -43,12 +43,14 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // POST: Rent/RentalItem/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate,ItemPhoto")] RentalItem rentalItem)
         {
+            //IsValid indicates if it was possible to bind the
+            //incoming values from the request to the model correctly 
+
             if (ModelState.IsValid)
             {
                 db.RentalItems.Add(rentalItem);
@@ -59,7 +61,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalItem);
         }
 
-        // GET: Rent/RentalItem/Edit/5
+        //* GET: Rent/RentalItem/Edit/5
+
+        // NB. "null means no value. It does not mean the numeral '0'.
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,9 +79,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalItem);
         }
 
-        // POST: Rent/RentalItem/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // *POST: Rent/RentalItem/Edit/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate,ItemPhoto")] RentalItem rentalItem)
@@ -116,6 +120,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return RedirectToAction("Index");
         }
 
+        //"Protected" means this method is only accessable in this class and all child classes.
         protected override void Dispose(bool disposing)
         {
             if (disposing)
