@@ -6,47 +6,39 @@
 }
 
 <h2 class="text-center">Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <div class="rentalHistory-index-formTable">
-    <table class="table">
-        <thead>
-            <tr>
-                <td scope="col">Most recent Rental Histories</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-                @if (item.RentalDamaged == true)
+    <table class="table table-responsive-lg">
+        <tr>
+            <td scope="col">Most recent Rental Histories</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr class="rentalHistory-index--tableItems">
+            @if (item.RentalDamaged == true)
                 {
-                    <td class="fa fa-times-circle" style="color:red; font-size: 16px;">
-                        
-                    </td>
+            <td class="fa fa-times-circle" style="color:red; font-size: 16px;"></td>
                 }
                 else
                 {
-                    <td class="fa fa-check-circle" style="color:limegreen; font-size: 16px;">
-                       
-                    </td>
+            <td class="fa fa-check-circle" style="color:limegreen; font-size: 16px;"></td>
                 }
-                <td>
-                    <button type="button" class="btn btn-dark bn-sm" disabled>@Html.DisplayFor(modelItem => item.Rental)</button>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DamagedIncurred)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
-                </td>
-            </tr>
-            }
-        </tbody>
+            <td>
+                <button type="button" class="btn btn-dark bn-sm" id="rentalHistory-index--rentalName" disabled>@Html.DisplayFor(modelItem => item.Rental)</button>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DamagedIncurred)
+            </td>
+            <td class="rentalHistory-index--editDetailDeleteButtons">
+                @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
+            </td>
+        </tr>
+        }
     </table>
-
 </div>
+
