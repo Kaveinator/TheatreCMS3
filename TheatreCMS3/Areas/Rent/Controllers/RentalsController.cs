@@ -88,6 +88,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+            if (rental.SuffocationHazard != null || rental.ChokingHazard != null || rental.PurchasePrice != null)
+            {
+                ViewData["rentaltype"] = "rentalequipment";
+                return View(rental);
+            }
+            if (rental.SquareFootage != null || rental.RoomNumber != null || rental.MaxOccupancy != null)
+            {
+                ViewData["rentaltype"] = "rentalroom";
+                return View(rental);
+            }
             return View(rental);
         }
 
@@ -96,7 +106,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SuffocationHazard,PurchasePrice,RoomNumber,SquareFootage,MaxOccupancy")] Rental rental)
         {
             if (ModelState.IsValid)
             {
@@ -105,6 +115,18 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 return RedirectToAction("Index");
             }
             return View(rental);
+        }
+
+        public ActionResult EditRentalEquipment()
+        {
+            TempData["rentaltype"] = "rentalequipment";
+            return RedirectToAction("Edit");
+        }
+
+        public ActionResult EditRentalRoom()
+        {
+            TempData["rentaltype"] = "rentalroom";
+            return RedirectToAction("Edit");
         }
 
         // GET: Rent/Rentals/Delete/5
