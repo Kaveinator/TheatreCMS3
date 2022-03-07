@@ -335,7 +335,7 @@
 }
 
 .rental_Item_Field_Box {
-    background-color: var(--light-color);
+    background-color: silver;
     border: 3px solid #ccc;
     -webkit-transition: 0.5s;
     transition: 0.5s;
