@@ -48,9 +48,31 @@
     display: flex;
     justify-content: center;
 }
+.rentalHistory-index-formTable {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    border: solid;
+    border-color: var(--main-color);
+    background-color: var(--light-color);
+    color: black;
+    border-radius: 10px;
+    max-width: 600px;
+}
+.rentalHistory-index--tableItems{
+    display: flex;
+    order: 5;
+}
+#rentalHistory-index--ellipsisButton {
+    display: none;
+    margin-left: 120px;
+}
+.rentalHistory-index--tableItems:hover #rentalHistory-index--ellipsisButton {
+    display: flex;
+}
+
 
 /* Beginning of Rental Photo Styling*/
-
 .RentalPhotos-Create--form-contain {
     width: 70%;
     padding-right: 10px;
@@ -64,7 +86,6 @@
     border-radius: 10px;
     background-color: var(--main-color);
     text-align: center;
-   
 }
 .RentalPhotos-Create--form-control {
     display: block;
@@ -264,3 +285,86 @@
     top: 100px;
 }
 
+/* Rental Item Create Form START*/
+
+.rental_Item_Create_Title{
+    text-align:center;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+
+.rental_Item_Form_Container {
+    display: block;
+    margin: auto;
+    padding: 15px 20px 15px 20px;
+    background-color: var(--main-color--light);
+    border-radius: 15px;
+    max-width: 600px;
+}
+
+.rental_Item_All_Buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.rental_Item_BacktoList {
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+    margin-bottom:5px;
+    text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: var(--main-color);
+}
+
+.rental_Item_BacktoList:hover {
+    background-color: var(--secondary-color--dark);
+}
+
+.rental_Item_BacktoList:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.rental_Item_Create {
+    display: flex;
+    justify-content: center;
+    margin-left: 5px;
+    background-color: silver;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: var(--main-color);
+    margin-bottom: 5px;
+}
+
+.rental_Item_Create:hover {
+    background-color: var(--secondary-color--dark);
+}
+
+.rental_Item_Create:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.rental_Item_Form {
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+}
+
+.rental_Item_Field_Box {
+    background-color: silver;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+    .rental_Item_Field_Box:focus {
+        border: 3px solid var(--main-color)
+    }
+
+/* Rental Item Create Form END*/
