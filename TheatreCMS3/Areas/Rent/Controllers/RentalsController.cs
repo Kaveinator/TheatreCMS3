@@ -117,17 +117,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
-        public ActionResult EditRentalEquipment()
-        {
-            TempData["rentaltype"] = "rentalequipment";
-            return RedirectToAction("Edit");
-        }
-
-        public ActionResult EditRentalRoom()
-        {
-            TempData["rentaltype"] = "rentalroom";
-            return RedirectToAction("Edit");
-        }
 
         // GET: Rent/Rentals/Delete/5
         public ActionResult Delete(int? id)
