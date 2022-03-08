@@ -6,7 +6,7 @@
 }
 
 <h2 class="text-center">Index</h2>
-<p>
+<p class="text-center" style="margin-right: 470px;">
     @Html.ActionLink("Create New", "Create")
 </p>
 
@@ -17,26 +17,39 @@
         </tr>
         @foreach (var item in Model)
         {
-        <tr class="rentalHistory-index--tableItems">
-            @if (item.RentalDamaged == true)
-                {
+    <tr class="rentalHistory-index--tableItems">
+        @if (item.RentalDamaged == true)
+        {
             <td class="fa fa-times-circle" style="color:red; font-size: 16px;"></td>
-                }
-                else
-                {
+        }
+        else
+        {
             <td class="fa fa-check-circle" style="color:limegreen; font-size: 16px;"></td>
-                }
-            <td>
-                <button type="button" class="btn btn-dark bn-sm" id="rentalHistory-index--rentalName" disabled>@Html.DisplayFor(modelItem => item.Rental)</button>
-            </td>
-            <td>
+        }
+        <td>
+            <button type="button" class="btn btn-dark bn-sm" id="rentalHistory-index--rentalName" disabled>@Html.DisplayFor(modelItem => item.Rental)</button>
+        </td>
+        <td>
+            @if (item.RentalDamaged == true)
+             {
                 @Html.DisplayFor(modelItem => item.DamagedIncurred)
-            </td>
-            <td class="rentalHistory-index--editDetailDeleteButtons">
-                @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
-            </td>
+             }
+            else
+            {
+                <div style="opacity: 0.6;">
+                    @Html.DisplayFor(modelItem => item.DamagedIncurred)
+                </div>
+            }
+         </td>
+         <td class="dropdown">
+            <button type="button" class="fa fa-ellipsis-v btn-dark" id="rentalHistory-index--ellipsisButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="dropdown-menu" aria-labelledby="rentalHistory-index--ellipsisButton">
+                <a class=" fa fa-edit dropdown-item" href='@Url.Action("Edit", "RentalHistories", new { id = item.RentalHistoryId } )'> Edit |</a>
+                <a class="fa fa-info-circle dropdown-item" href='@Url.Action("Details", "RentalHistories", new { id = item.RentalHistoryId } )'> Details |</a>
+                <div class="dropdown-divider"></div>
+                    <a class="fa fa-trash-alt dropdown-item" style="color:red;" href='@Url.Action("Delete", "RentalHistories", new { id = item.RentalHistoryId } )'> Delete</a>
+            </div>
+         </td>
         </tr>
         }
     </table>

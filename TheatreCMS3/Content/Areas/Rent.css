@@ -57,17 +57,22 @@
     background-color: var(--light-color);
     color: black;
     border-radius: 10px;
-    max-width: 700px;
+    max-width: 600px;
 }
 .rentalHistory-index--tableItems{
     display: flex;
     order: 5;
 }
-
+#rentalHistory-index--ellipsisButton {
+    display: none;
+    margin-left: 120px;
+}
+.rentalHistory-index--tableItems:hover #rentalHistory-index--ellipsisButton {
+    display: flex;
+}
 
 
 /* Beginning of Rental Photo Styling*/
-
 .RentalPhotos-Create--form-contain {
     width: 70%;
     padding-right: 10px;
@@ -81,7 +86,6 @@
     border-radius: 10px;
     background-color: var(--main-color);
     text-align: center;
-   
 }
 .RentalPhotos-Create--form-control {
     display: block;
