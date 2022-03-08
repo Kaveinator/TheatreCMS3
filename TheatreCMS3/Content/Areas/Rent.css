@@ -200,7 +200,7 @@
 
 /* End of Rental Photo Styling */
 
-
+/*Beginning of Rental Create Edit Index Styling*/
 .rental-create-edit--label{
     color: black;
     margin-top: 3px;
@@ -264,3 +264,7 @@
     top: 100px;
 }
 
+.rental-index--textblack {
+    color: black !important;
+}
+/*End of Rental Create Edit Index Styling*/

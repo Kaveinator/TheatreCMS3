@@ -4,43 +4,133 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="https://use.fontawesome.com/e665f4ef29.js"></script>
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FlawsAndDamages)
-        </th>
-        <th></th>
-    </tr>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlawsAndDamages)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalId })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RentalName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RentalCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlawsAndDamages)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RentalId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalId })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>*@
+
+
+<div class="row mb-3">
+    @foreach (var item in Model)
+    {
+        if (item.SuffocationHazard == null && item.SquareFootage == null)
+        {
+            <div class="col-auto">
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/Content/images/theater.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="rental-index--textblack card-title control-label">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <h6 class="rental-index--textblack card-text">$@Html.DisplayFor(modelItem => item.RentalCost) / day</h6>
+                        <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
+                        <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+</div>
+ 
+<div class="row mb-3">
+    @foreach (var item in Model)
+            {
+                if (item.SuffocationHazard != null || item.ChokingHazard != null || item.PurchasePrice != null)
+                {
+                    <div class="col-auto">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="~/Content/images/theater.jpg" alt="Card image cap" />
+                            <div class="card-body">
+                                <h5 class="card-title rental-index--textblack">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                                <p class="card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                if (item.SuffocationHazard == true)
+                                {
+                                <div class="col-auto">
+                                    <span class="badge badge-pill badge-warning">Suffocation Hazard</span>
+                                </div>
+                                }
+                                if (item.ChokingHazard == true)
+                                {
+                                <div class="col-auto">
+                                    <span class="badge badge-pill badge-warning">Choking Hazard</span>
+                                </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+    
+
+
+
+
+
+        </div>
+
+<div class="row mb-3">
+    @foreach (var item in Model)
+    {
+        if (item.SquareFootage != null || item.RoomNumber != null || item.MaxOccupancy != null)
+        {
+            <div class="col-auto">
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/Content/images/theater.jpg" alt="Card image cap">
+                    <div class="card-body rental-index--button">
+                        <h5 class="card-title rental-index--textblack">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <p class="card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <span class="badge badge-secondary">@Html.DisplayFor(modelItem => item.SquareFootage) ft²</span>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+
+
+
