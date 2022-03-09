@@ -33,6 +33,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+            if (rental.SuffocationHazard != null || rental.ChokingHazard != null || rental.PurchasePrice != null)
+            {
+                ViewData["rentaltype"] = "rentalequipment";
+                return View(rental);
+            }
+            if (rental.SquareFootage != null || rental.RoomNumber != null || rental.MaxOccupancy != null)
+            {
+                ViewData["rentaltype"] = "rentalroom";
+                return View(rental);
+            }
             return View(rental);
         }
 
@@ -129,6 +139,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             if (rental == null)
             {
                 return HttpNotFound();
+            }
+            if (rental.SuffocationHazard != null || rental.ChokingHazard != null || rental.PurchasePrice != null)
+            {
+                ViewData["rentaltype"] = "rentalequipment";
+                return View(rental);
+            }
+            if (rental.SquareFootage != null || rental.RoomNumber != null || rental.MaxOccupancy != null)
+            {
+                ViewData["rentaltype"] = "rentalroom";
+                return View(rental);
             }
             return View(rental);
         }
