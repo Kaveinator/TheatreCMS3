@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string rentaltype = (string)ViewData["rentaltype"];
+    
 }
 
 <h2>Details</h2>
@@ -34,6 +36,62 @@
         <dd>
             @Html.DisplayFor(model => model.FlawsAndDamages)
         </dd>
+        @if (rentaltype == "rentalequipment")
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.ChokingHazard)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChokingHazard)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PurchasePrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PurchasePrice)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SuffocationHazard)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SuffocationHazard)
+            </dd>
+        }
+
+
+        @if (rentaltype == "rentalroom")
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaxOccupancy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaxOccupancy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SquareFootage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SquareFootage)
+            </dd>
+        }
+
+
 
     </dl>
 </div>

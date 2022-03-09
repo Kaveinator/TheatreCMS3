@@ -24,8 +24,8 @@
                         <h5 class="mb-0 rental-index--textblack card-title control-label">@Html.DisplayFor(modelItem => item.RentalName)</h5>
                         <h6 class="rental-index--textblack card-text">$@Html.DisplayFor(modelItem => item.RentalCost) / day</h6>
                         <hr />
-                        <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
-                        <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+                        <div href="#" class="rental-index--inlineblock">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-dark" })</div>
+                        <div href="#" class="rental-index--inlineblock">@Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-dark" })</div>
                         <div class="btn rental-index--float-right">@Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "fa fa-trash btn btn-danger rental-index--btntrashcan" })</div>
 
 
@@ -67,8 +67,8 @@
                         </div>
 
                         <hr />
-                        <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
-                        <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+                        <div href="#" class="rental-index--inlineblock">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-dark" })</div>
+                        <div href="#" class="rental-index--inlineblock">@Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-dark" })</div>
                         <div class="btn rental-index--float-right">@Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "fa fa-trash btn btn-danger rental-index--btntrashcan" })</div>
 
 
@@ -107,8 +107,8 @@
                         </div>
 
                         <hr />
-                        <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
-                        <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+                        <div href="#" class="rental-index--inlineblock">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-dark" })</div>
+                        <div href="#" class="rental-index--inlineblock">@Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-dark" })</div>
                         <div class="btn rental-index--float-right">@Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "fa fa-trash btn btn-danger rental-index--btntrashcan" })</div>
 
 
