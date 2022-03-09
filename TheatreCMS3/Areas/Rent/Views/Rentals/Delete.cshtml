@@ -3,14 +3,16 @@
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    string rentaltype = (string)TempData["rentaltype"];
+    string rentaltype = (string)ViewData["rentaltype"];
 }
 
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
+<br />
 <div>
     <h4>Rental</h4>
+    <hr class="rental-index--hrforheadings">
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -38,13 +40,20 @@
         </dd>
         @if (rentaltype == "rentalequipment")
         {
-            <dt>
-                @Html.DisplayNameFor(model => model.ChokingHazard)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ChokingHazard)
-            </dd>
+            if (Model.ChokingHazard == true)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.ChokingHazard)
+                </dt>
+                <dd>True</dd>
+            }
+            if (Model.ChokingHazard == false)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.ChokingHazard)
+                </dt>
+                <dd>False</dd>
+            }
 
             <dt>
                 @Html.DisplayNameFor(model => model.PurchasePrice)
@@ -54,13 +63,22 @@
                 @Html.DisplayFor(model => model.PurchasePrice)
             </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SuffocationHazard)
-            </dt>
+            if (Model.SuffocationHazard == true)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.SuffocationHazard)
+                </dt>
+                <dd>True</dd>
+            }
+            if (Model.SuffocationHazard == false)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.SuffocationHazard)
+                </dt>
+                <dd>False</dd>
+            }
 
-            <dd>
-                @Html.DisplayFor(model => model.SuffocationHazard)
-            </dd>
+
         }
 
 
@@ -95,12 +113,14 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-danger" /> 
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
+
+</div>
     }
 </div>
