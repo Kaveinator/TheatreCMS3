@@ -57,10 +57,12 @@
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="~/Content/images/theater.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="rental-index--textblack card-title control-label">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <h5 class="mb-0 rental-index--textblack card-title control-label">@Html.DisplayFor(modelItem => item.RentalName)</h5>
                         <h6 class="rental-index--textblack card-text">$@Html.DisplayFor(modelItem => item.RentalCost) / day</h6>
+                        <hr />
                         <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
                         <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+
                         <i class="fa fa-trash" aria-hidden="true"></i>
 
                     </div>
@@ -80,21 +82,32 @@
                         <div class="card" style="width: 18rem;">
                             <img class="card-img-top" src="~/Content/images/theater.jpg" alt="Card image cap" />
                             <div class="card-body">
-                                <h5 class="card-title rental-index--textblack">@Html.DisplayFor(modelItem => item.RentalName)</h5>
-                                <p class="card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                if (item.SuffocationHazard == true)
-                                {
-                                <div class="col-auto">
-                                    <span class="badge badge-pill badge-warning">Suffocation Hazard</span>
+                                <h5 class="mb-0 card-title rental-index--textblack">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                                <h6 class="mb-0 card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</h6>
+
+                                <div>
+                                    @if (item.SuffocationHazard == true)
+                                    {
+
+                                        <span class="badge badge-pill badge-warning">Suffocation Hazard</span>
+
+                                    }
+                                    @if (item.ChokingHazard == true)
+                                    {
+
+                                        <span class="badge badge-pill badge-warning">Choking Hazard</span>
+
+                                    }
                                 </div>
-                                }
-                                if (item.ChokingHazard == true)
-                                {
-                                <div class="col-auto">
-                                    <span class="badge badge-pill badge-warning">Choking Hazard</span>
-                                </div>
-                                }
+
+                                <hr />
+                                <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
+                                <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+
+
+
+
+
 
                             </div>
                         </div>
@@ -119,10 +132,18 @@
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="~/Content/images/theater.jpg" alt="Card image cap">
                     <div class="card-body rental-index--button">
-                        <h5 class="card-title rental-index--textblack">@Html.DisplayFor(modelItem => item.RentalName)</h5>
-                        <p class="card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                        <span class="badge badge-secondary">@Html.DisplayFor(modelItem => item.SquareFootage) ft²</span>
+                        <h5 class="mb-0 card-title rental-index--textblack">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <div class="flex-row">
+                            <h6 class="rental-index--float-left rental-index--inlineblock card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</h6>
+                            <span class="rental-index--badge rental-index--float-right badge badge-secondary mt-2">@Html.DisplayFor(modelItem => item.SquareFootage) ft²</span>
+                        </div>
+                        
+                        <hr />
+                        <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
+                        <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+
+
+
                     </div>
                 </div>
             </div>

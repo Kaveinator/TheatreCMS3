@@ -350,4 +350,18 @@
 .rental-index--textblack {
     color: black !important;
 }
+
+.rental-index--inlineblock {
+    display: inline-block !important;
+    
+}
+.rental-index--float-right {
+    float:right;
+    
+}
+
+.rental-index--badge {
+    margin-top: 5px !important;
+}
+
 /*End of Rental Create Edit Index Styling*/
