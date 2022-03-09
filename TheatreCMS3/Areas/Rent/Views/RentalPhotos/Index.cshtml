@@ -28,6 +28,12 @@
     </tr>
 
 @foreach (var item in Model) {
+    string image = "";
+    if (item.RentalPhotos != null)
+    {
+        image = Convert.ToBase64String(item.RentalPhotos);
+    }
+
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.RentalsName)
@@ -36,7 +42,7 @@
             @Html.DisplayFor(modelItem => item.Damages)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RentalPhotos)
+            <image src="data:image/jpg;base64, @image" class="image"></image>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Details)
