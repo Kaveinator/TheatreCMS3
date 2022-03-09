@@ -221,7 +221,7 @@
 
 /* End of Rental Photo Styling */
 
-
+/*Beginning of Rental Create Edit Index Styling*/
 .rental-create-edit--label{
     color: black;
     margin-top: 3px;
@@ -368,3 +368,37 @@
     }
 
 /* Rental Item Create Form END*/
+.rental-index--textblack {
+    color: black !important;
+}
+
+.rental-index--inlineblock {
+    display: inline-block !important;
+    
+}
+.rental-index--float-right {
+    float:right;
+    
+}
+
+.rental-index--badge {
+    margin-top: 5px !important;
+}
+
+.rental-index--btntrashcan {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    bottom: 6px;
+    
+}
+
+.rental-index--hrforheadings {
+    color: red;
+    background: red;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+/*End of Rental Create Edit Index Styling*/
