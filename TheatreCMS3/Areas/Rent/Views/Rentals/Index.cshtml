@@ -4,49 +4,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
 <script src="https://use.fontawesome.com/e665f4ef29.js"></script>
-<h2>Index</h2>
 
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.RentalName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RentalCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FlawsAndDamages)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RentalName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RentalCost)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.RentalId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalId })
-                </td>
-            </tr>
-        }
-
-    </table>*@
-
-
+<h2>Rental</h2>
+<hr class="rental-index--hrforheadings">
 <div class="row mb-3">
     @foreach (var item in Model)
     {
@@ -62,8 +26,9 @@
                         <hr />
                         <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
                         <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+                        <div class="btn rental-index--float-right">@Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "fa fa-trash btn btn-danger rental-index--btntrashcan" })</div>
 
-                        <i class="fa fa-trash" aria-hidden="true"></i>
+
 
                     </div>
                 </div>
@@ -72,56 +37,59 @@
 
     }
 </div>
- 
+<h2>Rental Equipment</h2>
+<hr class="rental-index--hrforheadings">
 <div class="row mb-3">
     @foreach (var item in Model)
-            {
-                if (item.SuffocationHazard != null || item.ChokingHazard != null || item.PurchasePrice != null)
-                {
-                    <div class="col-auto">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="~/Content/images/theater.jpg" alt="Card image cap" />
-                            <div class="card-body">
-                                <h5 class="mb-0 card-title rental-index--textblack">@Html.DisplayFor(modelItem => item.RentalName)</h5>
-                                <h6 class="mb-0 card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</h6>
+    {
+        if (item.SuffocationHazard != null || item.ChokingHazard != null || item.PurchasePrice != null)
+        {
+            <div class="col-auto">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/Content/images/theater.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="mb-0 card-title rental-index--textblack">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <h6 class="mb-0 card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</h6>
 
-                                <div>
-                                    @if (item.SuffocationHazard == true)
-                                    {
+                        <div>
+                            @if (item.SuffocationHazard == true)
+                            {
 
-                                        <span class="badge badge-pill badge-warning">Suffocation Hazard</span>
+                                <span class="badge badge-pill badge-warning">Suffocation Hazard</span>
 
-                                    }
-                                    @if (item.ChokingHazard == true)
-                                    {
+                            }
+                            @if (item.ChokingHazard == true)
+                            {
 
-                                        <span class="badge badge-pill badge-warning">Choking Hazard</span>
+                                <span class="badge badge-pill badge-warning">Choking Hazard</span>
 
-                                    }
-                                </div>
-
-                                <hr />
-                                <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
-                                <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
-
-
-
-
-
-
-                            </div>
+                            }
                         </div>
+
+                        <hr />
+                        <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
+                        <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+                        <div class="btn rental-index--float-right">@Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "fa fa-trash btn btn-danger rental-index--btntrashcan" })</div>
+
+
+
+
+
+
                     </div>
-                }
-            }
-    
+                </div>
+            </div>
+        }
+    }
 
 
 
 
 
-        </div>
 
+</div>
+<h2>Rental Room</h2>
+<hr class="rental-index--hrforheadings">
 <div class="row mb-3">
     @foreach (var item in Model)
     {
@@ -137,10 +105,11 @@
                             <h6 class="rental-index--float-left rental-index--inlineblock card-text rental-index--textblack">$@Html.DisplayFor(modelItem => item.RentalCost) / day</h6>
                             <span class="rental-index--badge rental-index--float-right badge badge-secondary mt-2">@Html.DisplayFor(modelItem => item.SquareFootage) ft²</span>
                         </div>
-                        
+
                         <hr />
                         <div href="#" class="btn btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })</div>
                         <div href="#" class="btn btn-dark">@Html.ActionLink("Details", "Details", new { id = item.RentalId })</div>
+                        <div class="btn rental-index--float-right">@Html.ActionLink(" ", "Delete", new { id = item.RentalId }, new { @class = "fa fa-trash btn btn-danger rental-index--btntrashcan" })</div>
 
 
 
