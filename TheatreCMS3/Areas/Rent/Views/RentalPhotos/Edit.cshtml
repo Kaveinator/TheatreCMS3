@@ -37,10 +37,23 @@
         </div>
 
         <div class="form-group">
+            <div>
+                @{ 
+                    string image = "";
+                    if (Model.RentalPhotos != null)
+                    {
+                        image = Convert.ToBase64String(Model.RentalPhotos);
+                    }
+                }
+            </div>
             @Html.LabelFor(model => model.RentalPhotos, htmlAttributes: new { @class = "control-label col-md-2" })
+            <image src="data:image/jpg;base64, @image" class="image"></image>
             <div class="col-md-10 offset-1 text-center">
-                @Html.EditorFor(model => model.RentalPhotos, new { htmlAttributes = new { @class = "RentalPhotos-Edit--form-control", placeholder = "Rental Photos" } })
+                
                 @Html.ValidationMessageFor(model => model.RentalPhotos, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                <input type="file" id="photoFile" name="photoFile" class="" />
             </div>
         </div>
 
