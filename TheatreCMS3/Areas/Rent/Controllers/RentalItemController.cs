@@ -44,15 +44,21 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         // POST: Rent/RentalItem/Create
         
+        // [HttpPost] is a C sharp method for posting data to the server.
+        // 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate,ItemPhoto")] RentalItem rentalItem)
+
+        public ActionResult Create([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate,ItemPhoto")] RentalItem rentalItem,HttpPostedFileBase file)
         {
             //IsValid indicates if it was possible to bind the
             //incoming values from the request to the model correctly 
 
             if (ModelState.IsValid)
             {
+                rentalItem.ItemPhoto = new byte[file.ContentLength];
+                file.InputStream.Read(rentalItem.ItemPhoto, 0, file.ContentLength);
+                
                 db.RentalItems.Add(rentalItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
