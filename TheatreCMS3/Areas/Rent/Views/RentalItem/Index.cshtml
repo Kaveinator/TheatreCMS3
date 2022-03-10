@@ -31,6 +31,11 @@
     </tr>
 
 @foreach (var item in Model) {
+  string stanley = "";
+  if (item.ItemPhoto != null)
+  {
+    stanley = Convert.ToBase64String(item.ItemPhoto);
+  }
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Item)
@@ -45,11 +50,15 @@
             @Html.DisplayFor(modelItem => item.ReturnDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ItemPhoto)
+
+          <img src="data:image/jpeg;base64, @stanley"/>
+          
+
+         
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalItemId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalItemId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RentalItemId }) |))
             @Html.ActionLink("Delete", "Delete", new { id=item.RentalItemId })
         </td>
     </tr>
