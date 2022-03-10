@@ -26,13 +26,20 @@
         <dd>
             @Html.DisplayFor(model => model.Damages)
         </dd>
+        @{ 
+            string image = "";
+            if (Model.RentalPhotos != null)
+            {
+                image = Convert.ToBase64String(Model.RentalPhotos);
+            }
+        }
 
         <dt>
             @Html.DisplayNameFor(model => model.RentalPhotos)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RentalPhotos)
+            <image src ="data:image/jpg.base64, @image" class="image-index--size"></image>
         </dd>
 
         <dt>
