@@ -5,54 +5,176 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Rentals</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button onclick="location.href = '@Url.Action("Create")'" class="RentalPhotos-Create--backBtn">Create New</button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalsName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Damages)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalPhotos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Details)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    string image = "";
-    if (item.RentalPhotos != null)
-    {
-        image = Convert.ToBase64String(item.RentalPhotos);
-    }
+<div class="card-deck"> 
+    <div class="row row-cols-1 row-cols-4">
+        @*<table class="table">*@
+           
+            @foreach (var item in Model)
+            {
+                string image = "";
+                if (item.RentalPhotos != null)
+                {
+                    image = Convert.ToBase64String(item.RentalPhotos);
+                }
 
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalsName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Damages)
-        </td>
-        <td>
-            <image src="data:image/jpg;base64, @image" class="image"></image>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalPhotoId })
-        </td>
-    </tr>
-}
+                    <div class="col mb-4 text-center">
+                    
+                            @Html.DisplayFor(modelItem => item.RentalsName)
+                            <img src="data:image/jpg;base64, @image" class="" atl="Rental Photo"/>
+                            <div class="RentalPhotos-index--card-img-overlay">
+                                <button class="btn btn-danger btn-sm btn-outline-light">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalPhotoId })
+                                </button> 
+                                <button class="btn btn-dark btn-sm btn-outline-light">
+                                    <i class="fa fa-user-edit" aria-hidden="true"></i>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalPhotoId })
+                                </button>
+                                <button class="btn btn-warning btn-sm btn-outline-light">
+                                    @Html.ActionLink("Details", "Details", new { id = item.RentalPhotoId })
+                                </button>
+                                
 
-</table>
+
+
+                            </div>
+                    </div>
+
+                @*<tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RentalsName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Damages)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RentalPhotos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Details)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RentalPhotoId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.RentalPhotoId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RentalPhotoId })
+                    </td>
+                </tr>*@
+             }
+
+        @*</table>*@
+
+        @*<div class="col mb-4">
+            <div class="card">
+                <img src="../../Content/images/Cast_Img_4.jpg" alt="">
+                <div class="RentalPhotos-index--card-img-overlay">
+                    <a class="btn btn-danger" href="path/to/settings">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-dark" href="path/to/settings">
+                        <i class="fa fa-user-edit" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col mb-4">
+            <div class="card">
+                    <img src="../../Content/images/Cast_Img_3.jpg" alt="">
+                    <div class="RentalPhotos-index--card-img-overlay">
+                        <a class="btn btn-danger" href="path/to/settings">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-dark" href="path/to/settings">
+                            <i class="fa fa-user-edit" aria-hidden="true"></i>
+                        </a>
+                    </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                    <img src="../../Content/images/Cast_Img_3.jpg" alt="">
+                    <div class="RentalPhotos-index--card-img-overlay">
+                        <a class="btn btn-danger" href="path/to/settings">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-dark" href="path/to/settings">
+                            <i class="fa fa-user-edit" aria-hidden="true"></i>
+                        </a>
+                    </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                    <img src="../../Content/images/Cast_Img_4.jpg" alt="">
+                    <div class="RentalPhotos-index--card-img-overlay">
+                        <a class="btn btn-danger" href="path/to/settings">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-dark" href="path/to/settings">
+                            <i class="fa fa-user-edit" aria-hidden="true"></i>
+                        </a>
+                    </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                <a href='@Url.Action("Details")'>
+                    <img src="../../Content/images/Cast_Img_4.jpg" alt="">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title ">Rental Photo</h5>
+                        <p class="card-text">Edit and Delete</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                <a href='@Url.Action("Details")'>
+                    <img src="../../Content/images/Cast_Img_3.jpg" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title ">Rental Photo</h5>
+                        <p class="card-text">Edit and Delete</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                <a href='@Url.Action("Details")'>
+                    <img src="../../Content/images/Cast_Img_4.jpg" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title ">Rental Photo</h5>
+                        <p class="card-text">Edit and Delete</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                <a href='@Url.Action("Details")'>
+                    <img src="../../Content/images/Cast_Img_4.jpg" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title ">Rental Photo</h5>
+                        <p class="card-text">Edit and Delete</p>
+                    </div>
+                </a>
+            </div>
+        </div>*@
+
+    </div>
+</div>
+
+
+
+
+    
