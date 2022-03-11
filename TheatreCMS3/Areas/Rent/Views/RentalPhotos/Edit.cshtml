@@ -47,7 +47,7 @@
                 }
             </div>
             @Html.LabelFor(model => model.RentalPhotos, htmlAttributes: new { @class = "control-label col-md-2" })
-            <image src="data:image/jpg;base64, @image" class="image"></image>
+            <img src="data:image/jpg;base64, @image" class="" />
             <div class="col-md-10 offset-1 text-center">
 
                 @Html.ValidationMessageFor(model => model.RentalPhotos, "", new { @class = "text-danger" })

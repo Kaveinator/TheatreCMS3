@@ -428,5 +428,48 @@
 
 /* Rental Photo Index End */
 
+/* Rental Photo Delete Start */
+.RentalPhotos-Delete--form-contain {
+    display: block;
+    width: 60%;
+    height: 700px;
+    margin-top: 20px;
+    margin-left:230px;
+    padding: 1rem;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius:10px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    color: var(--dark-color);
+}
+.RentalPhotos-Delete--form-contain h3 {
+    color:var(--main-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+}
 
+
+.RentalPhotos-Details--form-contain {
+    display: block;
+    width: 60%;
+    height: 650px;
+    margin-top: 20px;
+    margin-left: 230px;
+    padding: 1rem;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: var(--main-color);
+    text-align: center;
+    color: var(--dark-color);
+}
+.RentalPhotos-Details--form-contain h3 {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.RentalPhotos-Details--form-contain h5 {
+    color: var(--light-color);
+}
 
