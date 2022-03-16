@@ -42,16 +42,5 @@ namespace TheatreCMS3.Models
 
         /* ▼ Put DbSet's for your models below ▼ */
 
-        object placeHolderVariable;
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogPhoto> BlogPhotoes { get; set; }
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogAuthor> BlogAuthors { get; set; }
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalHistory> RentalHistories { get; set; }
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.Rental> Rentals { get; set; }
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalPhoto> RentalPhotoes { get; set; }
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalItem> RentalItems { get; set; }
     }
 }
