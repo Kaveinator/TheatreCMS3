@@ -10,3 +10,84 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+.Theatre-logo {
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    width: 50%;
+}
+.spotlight-column {
+    float: left;
+    padding: 10px;
+    margin-right: 5%;
+    width: 60%;
+}
+
+.dono-spons-column {
+    width: 30%;
+    padding: 10px;
+}
+.text-land {
+    width: 50%
+}
+.img-land {
+    width: 50%
+}
+.spotlight-imgs {
+    
+    width: 100%;
+    margin-top: 20px;
+}
+.section-title {
+    padding: 10px;
+    color: var(--light-color);
+    border-bottom: 1px solid var(--main-color--light);
+    font-family: Oswald;
+}
+.sup-btn {
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: var(--main-color--light);
+    border: none;
+    color: var(--light-color);
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.dono-btn-row {
+    margin-bottom: 150px;
+}
+.spons-img-type-1{
+    height: 65px;
+    width: 65px;
+    margin: 10px;
+}
+.spons-img-type-2 {
+    height: 65px;
+    width: 235px;
+    margin: 5px;
+}
+.text-land {
+    float: left;
+    padding: 10px;
+    margin-right: 5%;
+    width: 60%;
+}
+
+.img-land {
+    width: 30%;
+    padding: 10px;
+    
+}
+#land-pic{
+    margin-left: 35px;
+}
+#photo-text{
+    text-align:center;
+    
+}
