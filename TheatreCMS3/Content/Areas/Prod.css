@@ -10,6 +10,63 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+.Prod-Create--InputBorder:focus {
+    border: 2px solid var(--main-color--light);
+}
+
+.Prod-Create-Back {
+    background-color: var(--secondary-color--dark);
+}
+
+.Prod-Create-Center {
+    margin: auto;
+    width: 50%;
+}
+
+
+.Prod-Create--button1 {
+    background-color: var(--main-color--light); /* Red, a shade lighter */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0.25rem;
+}
+
+.Prod-Create--button2 {
+    background-color: var(--main-color--light); /* Red, a shade lighter */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0.25rem;
+}
+
+.Prod-Create--button1:hover {
+    background-color: var(--main-color); /* Red */
+    color: white;
+}
+
+.Prod-Create--button2:hover {
+    background-color: var(--main-color); /* Red */
+    color: white;
+    text-decoration: none;
+}
+
+
 .Home-Index--TheatreLogo {
     width: 500px;
     display: block;
@@ -88,3 +145,5 @@
 #Home-Index--PhotoText {
     text-align: center;
 }
+
+
