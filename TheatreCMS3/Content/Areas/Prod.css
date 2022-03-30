@@ -37,7 +37,7 @@
 }
 
 .Cast-Create--button2 {
-    background-color: var(--main-color--light); /* Red, a shade lighter */
+    background-color: var(--main-color); /* Red*/
     border: none;
     color: var(--dark-color);
     padding: 15px 32px;
