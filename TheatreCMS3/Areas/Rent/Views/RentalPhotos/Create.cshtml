@@ -13,7 +13,9 @@
     @Html.AntiForgeryToken()
 
     <h1 class="RentalPhoto-Create--header">Create Rental Photo</h1>
+
     <div class="RentalPhoto-Create--container-fluid">
+
         <div class="form-horizontal">
 
 
@@ -58,14 +60,16 @@
                     <input type="submit" value="Create" class="RentalPhoto-Create--Button" />
                 </div>
             </div>
+
+            <div class="RentalPhoto-Create--Back btn">
+                @Html.ActionLink("Back to List", "Index", new { @class = "RentalPhoto-Create--Back btn" })
+            </div>
+
         </div>
     </div>
 
 }
 
-<div class="RentalPhoto-Create--Back">
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
