@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhoto,Details")] RentalPhotos rentalPhotos)
+        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhoto,Details")] RentalPhotos rentalPhotos, HttpPostedFileBase userImage)
         {
+            var byteArray = ConvertImage(userImage);
             if (ModelState.IsValid)
             {
+                rentalPhotos.RentalPhoto = byteArray;
                 db.RentalPhotos.Add(rentalPhotos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +82,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhoto,Details")] RentalPhotos rentalPhotos)
+        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhoto,Details")] RentalPhotos rentalPhotos, HttpPostedFileBase userImage)
         {
+
             if (ModelState.IsValid)
             {
+                var byteArray = ConvertImage(userImage);
+                rentalPhotos.RentalPhoto = byteArray;
                 db.Entry(rentalPhotos).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +129,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public byte[] ConvertImage(HttpPostedFileBase userImage)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(userImage.InputStream))
+            {
+                bytes = br.ReadBytes(userImage.ContentLength);
+            }
+            return bytes;
         }
     }
 }
