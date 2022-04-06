@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="RentalPhoto-Index--h2">Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<button class="RentalPhoto-Index--btn" @Html.ActionLink("Create New", "Create")></button>
+
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.RentalsName)
@@ -24,34 +24,45 @@
         <th>
             @Html.DisplayNameFor(model => model.Details)
         </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
+    </tr>*@
+<div class="RentalPhoto-Index--container">
+@foreach (var item in Model)
+{
     string text = "";
     if (item.RentalPhoto != null)
     {
         text = Convert.ToBase64String(item.RentalPhoto);
     }
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalsName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Damaged)
-        </td>
-        <td>
-            <img src="data:image/jpg;base64,@text"/>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalPhotoId })
-        </td>
-    </tr>
-}
+    @*<div class="row row-cols-3 row-cols-md-2 ">
+        <div class="col-mb-4 RentalPhoto-Index--cards">
+            <div class="RentalPhoto-Index--card">
+                <img src="data:image/jpg;base64,@text" class="RentalPhoto-Index--card-image" />
+                <div class="card-body RentalPhoto-Index--card-content">
+                    <h5 class="RentalPhoto-Index--card-title" @Html.DisplayFor(modelItem => item.RentalsName)></h5>
+                    <p class="RentalPhoto-Index--card-text" @Html.DisplayFor(modelItem => item.Details)></p>
+                    <p class="RentalPhoto-Index--card-text-2" @Html.DisplayFor(modelItem => item.Damaged)></p>
+                    <a href="#" class="RentalPhoto-Index--btn-Edit" @Html.ActionLink("Edit", "Edit", new { id = item.RentalPhotoId })></a>
+                    <a href="#" class="RentalPhoto-Index--btn-Delete" @Html.ActionLink("Delete", "Delete", new { id = item.RentalPhotoId })></a>
+                    <a href="#" class="RentalPhoto-Index--btn-Details" @Html.ActionLink("Details", "Details", new { id = item.RentalPhotoId })></a>
+                </div>
+            </div>
+        </div>
+        </div>*@
+    
+        <div class="row row-cols-1 row-cols-md-3 RentalPhoto-Index--cards">
+            <div class="col-mb-4">
+                <div class="card">
+                    <img src="data:image/jpg;base64,@text" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title" @Html.DisplayFor(modelItem => item.RentalsName)></h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+    }
 
-</table>
+</div>
+
+        @*</table>*@

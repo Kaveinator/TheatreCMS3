@@ -149,6 +149,46 @@
         font: bold;
     }
 
+.RentalPhoto-Index--container {
+    flex-wrap: wrap;
+}
+
+.RentalPhoto-Index--h2 {
+}
+
+    .RentalPhoto-Index--btn {
+        background-color: var(--secondary-color);
+        color: var(--main-color-light);
+    }
+
+    .RentalPhoto-Index--cards {
+        /*margin: 0 auto;
+        display: grid;
+        max-width: 1000px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;*/
+   
+        flex-grow: 1;
+    }
+
+    .RentalPhoto-Index--card-image {
+     
+    }
+
+    .RentalPhoto-Image--card-title {
+      
+    }
+
+    .RentalPhoto-Index--card-text {
+
+    }
+
+    .RentalPhoto-Index--card-text2 {
+
+    }
+
+    
+
 
    
 
