@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+}
+
+
+
+<div class="Home-Contact--header">
+    <h1>CONTACT US</h1>
+</div>
+
+
+    @*Needs a form that includes these fields: first and last name, email, Subject, Message, and these buttons: submit, donate and volunteer. *@
+
+    @*Add the contacts page to the nav bar?*@
+@*<div class="form-title">GET IN TOUCH</div>*@
+<div class="Home-Contact--floatContainer">
+       <div class="Home-Contact--floatChild">
+        <p class="Home-Contact--formTitle">GET IN TOUCH</p>
+        <form action="">
+            <label for="name">First & Last Name*</label><br>
+            <input class="Home-Contact--input" type="text" id="name" name="name"><br>
+
+            <label for="email">Email Address*</label><br>
+            <input class="Home-Contact--input" type="email" id="email" name="email"><br>
+
+            <label for="subject">First & Last Name*</label><br>
+            <input class="Home-Contact--input" type="text" id="subject" name="subject"><br>
+
+            <label for="Message">Message*</label><br>
+            <textarea class="Home-Contact--msg" rows="4" cols="68" name="comment" form="userform"></textarea><br>
+
+            <input class="Home-Contact--submit" type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="Home-Contact--floatChild2">
+        <h5>DONATE</h5>
+        <br>
+        <p>We've got a patreon account!<br> Help support live theatre in <br>Portland, Or. by becoming<br> a patreon today!</p>
+        <button class="Home-Contact--button">DONATE</button>
+        <br><br><br>
+        <h5>VOLUNTEER</h5>
+        <br>
+        <p>We have Dozens of internships and community outreach programs.<br>   If interested we encourage you to find<br>  out more! </p>
+        <button class="Home-Contact--button">Volunteer</button>
+    </div>
+
+</div>
