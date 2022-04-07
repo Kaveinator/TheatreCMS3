@@ -25,6 +25,8 @@
             @Html.DisplayNameFor(model => model.Details)
         </th>
     </tr>*@
+
+@* Wrapped this next bit INSIDE a div to get the cards to align horizontally *@
 <div class="RentalPhoto-Index--container">
 @foreach (var item in Model)
 {
@@ -33,30 +35,23 @@
     {
         text = Convert.ToBase64String(item.RentalPhoto);
     }
-    @*<div class="row row-cols-3 row-cols-md-2 ">
-        <div class="col-mb-4 RentalPhoto-Index--cards">
-            <div class="RentalPhoto-Index--card">
-                <img src="data:image/jpg;base64,@text" class="RentalPhoto-Index--card-image" />
-                <div class="card-body RentalPhoto-Index--card-content">
-                    <h5 class="RentalPhoto-Index--card-title" @Html.DisplayFor(modelItem => item.RentalsName)></h5>
-                    <p class="RentalPhoto-Index--card-text" @Html.DisplayFor(modelItem => item.Details)></p>
-                    <p class="RentalPhoto-Index--card-text-2" @Html.DisplayFor(modelItem => item.Damaged)></p>
-                    <a href="#" class="RentalPhoto-Index--btn-Edit" @Html.ActionLink("Edit", "Edit", new { id = item.RentalPhotoId })></a>
-                    <a href="#" class="RentalPhoto-Index--btn-Delete" @Html.ActionLink("Delete", "Delete", new { id = item.RentalPhotoId })></a>
-                    <a href="#" class="RentalPhoto-Index--btn-Details" @Html.ActionLink("Details", "Details", new { id = item.RentalPhotoId })></a>
-                </div>
-            </div>
-        </div>
-        </div>*@
-    
-        <div class="row row-cols-1 row-cols-md-3 RentalPhoto-Index--cards">
+   
+@* Here begins the cards, wrapping the img tag in an 'a' tag made the whole card clickable*@
+        <div class="row row-cols-1 row-cols-md-1 RentalPhoto-Index--cards">
             <div class="col-mb-4">
-                <div class="card">
-                    <img src="data:image/jpg;base64,@text" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title" @Html.DisplayFor(modelItem => item.RentalsName)></h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
+                <div class="card RentalPhoto-Index--card">
+                    <a href="@Url.Action(" ", "Details", new { id = item.RentalPhotoId })">
+                        <img src="data:image/jpg;base64,@text" class="card-img-top RentalPhoto-Index--card-image"></a>
+                        <div class="card-body RentalPhoto-Index--card-content">
+                            <h5 class="card-title RentalPhoto-Index--card-title">@Html.DisplayFor(modelItem => item.RentalsName)</h5>
+                            <p class="RentalPhoto-Index--card-text">@Html.DisplayFor(modelItem => item.Details)</p>
+                            <div class="RentalPhoto-Index--icons">
+                                <i href="#">@Html.ActionLink(" ", "Edit", new { id = item.RentalPhotoId }, new { @class = "fa fa-edit" })</i>
+                                <i href="#">@Html.ActionLink(" ", "Delete", new { id = item.RentalPhotoId }, new { @class = "fa fa-trash" })</i>
+
+                            </div>
+
+                        </div>
                 </div>
             </div>
         </div>
