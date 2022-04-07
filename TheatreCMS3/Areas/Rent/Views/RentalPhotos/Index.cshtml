@@ -7,7 +7,7 @@
 
 <h2 class="RentalPhoto-Index--h2">Index</h2>
 
-<button class="RentalPhoto-Index--btn" @Html.ActionLink("Create New", "Create")></button>
+<button class="RentalPhoto-Index--btn">@Html.ActionLink("Create New", "Create")</button>
 
 
 @*<table class="table">
@@ -40,7 +40,7 @@
         <div class="row row-cols-1 row-cols-md-1 RentalPhoto-Index--cards">
             <div class="col-mb-4">
                 <div class="card RentalPhoto-Index--card">
-                    <a href="@Url.Action(" ", "Details", new { id = item.RentalPhotoId })">
+                    <a href="@Url.Action("Details", new { id = item.RentalPhotoId })">
                         <img src="data:image/jpg;base64,@text" class="card-img-top RentalPhoto-Index--card-image"></a>
                         <div class="card-body RentalPhoto-Index--card-content">
                             <h5 class="card-title RentalPhoto-Index--card-title">@Html.DisplayFor(modelItem => item.RentalsName)</h5>
