@@ -11,3 +11,108 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+body {
+    background: black;
+    background: #F04D44;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 100%;
+}
+
+.container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+hr {
+    border: 1px solid white;
+}
+
+.blog-about--hr_div {
+    background: black;
+    padding: 10px 120px 10px 120px
+}
+
+ul {
+    list-style: none;
+}
+
+h3 {
+    text-decoration: underline;
+    text-decoration-color: red;
+    margin: 30px;
+}
+
+.blog-about--theater_img_container {
+    position: relative;
+    text-align: center;
+    
+}
+
+.blog-about--theater_img_container img {
+    width: 100%;
+}
+
+.blog-about--broadway_font {
+    font-family: Broadway;
+}
+
+.blog-about--heading_container {
+    width: 100%;
+    text-align: center;
+    background: black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    border-radius: 0% 0% 0% 200px;
+}
+
+.blog-about--theater_img_container h1 {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blog-about--company_history_container {
+    background: #F04D44;
+    width: 100%;
+    text-align: center;
+    padding: 50px;
+}
+
+.blog-about--ensemble_container {
+    width: 100%;
+    text-align: center;
+    padding: 50px;
+    background: black;
+    border-radius: 0% 200px 0% 0%;
+}
+
+.blog-about--cast_images_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+    .blog-about--cast_images_container img {
+        border-radius: 50%;
+        margin: 1em;
+        height: 180px;
+        width: 180px;
+    }
+
+.blog-about--board_container {
+    width: 100%;
+    text-align: center;
+    padding: 50px;
+    background: black;
+}
