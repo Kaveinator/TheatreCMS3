@@ -149,6 +149,35 @@
         font: bold;
     }
 
+    .RentalPhoto-Details--header {
+        text-align:center;
+        color: var(--light-color);
+        font-family: 'Franklin Gothic';
+    }
+
+    .RentalPhoto-Details--h4 {
+        text-align:center;
+
+    }
+
+.RentalPhoto-Details--container {
+    align-content: center;
+    margin-top:40px;
+    padding: 20px;
+    background-color: var(--main-color);
+    box-sizing:border-box;
+    text-align: center;
+    width: 800px;
+    height: 1000px;
+}
+
+.RentalPhoto-Details--card {
+    
+    text-align: center;
+    background-color: var(--secondary-color);
+
+}
+
 
    
 

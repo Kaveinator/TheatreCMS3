@@ -5,12 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="RentalPhoto-Details--header">Details</h2>
 
 <div>
-    <h4>RentalPhotos</h4>
+    <h4 class="RentalPhoto-Details--h4">RentalPhotos</h4>
+
+    <div class="RentalPhoto-Details--container">
+
+        <div class="card RentalPhoto-Details--card" style="width: 20rem;">
+            <img src="@Html.DisplayNameFor(model => model.RentalsName)" class="card-img-top RentalPhoto-Details--img">
+            <div class="card-body RentalPhoto-Details--card-body">
+                <h5 class="card-title RentalPhoto-Details--card-title">@Html.DisplayFor(model => model.RentalsName)</h5>
+                <p class="card-text RentalPhoto-Details--card-text"> @Html.DisplayFor(model => model.Details)</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@Html.DisplayFor(model => model.Damaged)</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link RentalPhoto-Details--edit-link">@Html.ActionLink("Edit", "Edit", new { id = Model.RentalPhotoId })</a>
+                <a href="#" class="card-link RentalPhoto-Details--back-link">@Html.ActionLink("Back to List", "Index")</a>
+            </div>
+        </div>
+
+
+
+    </div>
     <hr />
-    <dl class="dl-horizontal">
+    @*<dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.RentalsName)
         </dt>
@@ -48,4 +71,4 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.RentalPhotoId }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
