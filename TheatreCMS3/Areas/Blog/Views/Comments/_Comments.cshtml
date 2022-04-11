@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+
+<h2>Comments</h2>
+
+<p>
+  @Html.ActionLink("Add Comment", "Create")
+</p>
+<table class="table">
+
+  @foreach (var item in Model)
+  {
+  <tr>
+    <td>
+      @Html.DisplayFor(modelItem => item.Author)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.Message)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.CommentDate)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.Likes)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.Dislikes)
+    </td>
+    <td>
+      @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
+      @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
+      @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
+    </td>
+  </tr>
+  }
+
+</table>
