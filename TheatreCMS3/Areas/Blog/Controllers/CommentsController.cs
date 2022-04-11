@@ -49,8 +49,17 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
-            if (ModelState.IsValid)
+            if (comment.Author == null)
             {
+                comment.Author = "Anonymous";
+            }
+
+            comment.Likes = 0;
+            comment.Dislikes = 0;
+            comment.CommentDate = DateTime.Now;
+
+            if (ModelState.IsValid)
+            {               
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
