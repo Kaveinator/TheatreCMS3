@@ -222,8 +222,158 @@
     z-index: 100;
     
 }
-
     
+
+.RentalPhoto-Details--header {
+    text-align:center;
+    color: var(--light-color);
+    font-family: 'Franklin Gothic';
+    text-decoration-line: underline;
+}
+
+.RentalPhoto-Details--h4 {
+    text-align:center;
+
+}
+
+.RentalPhoto-Details--container {
+    margin-left: 180px;
+    align-content:center;
+    margin-top:40px;
+    padding: 20px;
+    background-color: var(--main-color);
+    box-sizing:border-box;
+    text-align: center;
+    width: 800px;
+    height: 800px;
+    border-block-color: var(--secondary-color);
+    border-style: solid;
+}
+
+.RentalPhoto-Details--card {
+    height: 400px;
+    width: 500px;
+    margin-top: 60px;
+    margin-left: 140px;
+    align-content:center;
+    text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+.RentalPhoto-Details--item1 {
+    color: var(--main-color);
+    font-weight: bolder;
+}
+
+.RentalPhoto-Details--item2 {
+    color: var(--dark-color);
+}
+
+.RentalPhoto-Details--item3 {
+    color: var(--dark-color);
+    font-weight:bold;
+}
+
+.RentalPhoto-Details--card-body-bottom {
+    margin-top: 30px;
+}
+
+.RentalPhoto-Details--edit-link {
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.RentalPhoto-Details--back-link {
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.RentalPhoto-Details--delete-link {
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.RentalPhoto-Delete--header {
+    text-align: center;
+    color: var(--light-color);
+    font-family: 'Franklin Gothic';
+    font-weight: bolder;
+    font-size:xx-large;
+    color: var(--main-color);
+    text-decoration-line: underline;
+}
+
+.RentalPhoto-Delete--header2 {
+    text-align: center;
+}
+
+.RentalPhoto-Delete--container {
+    margin-left: 180px;
+    align-content: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--main-color);
+    box-sizing: border-box;
+    text-align: center;
+    width: 800px;
+    height: 800px;
+    border-block-color: var(--secondary-color);
+    border-style: solid;
+}
+
+.RentalPhoto-Delete--card {
+    height: 400px;
+    width: 500px;
+    margin-top: 60px;
+    margin-left: 140px;
+    align-content: center;
+    text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+.RentalPhoto-Delete--item1 {
+    color: var(--main-color);
+    font-weight: bolder;
+}
+
+.RentalPhoto-Delete--item2 {
+    color: var(--dark-color);
+}
+
+.RentalPhoto-Delete--item3 {
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.RentalPhoto-Delete--card-body-bottom {
+    margin-top: 30px;
+}
+
+.RentalPhoto-Delete--edit-link {
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.RentalPhoto-Delete--delete-link {
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.RentalPhoto-Delete--back-link {
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
 
 
    

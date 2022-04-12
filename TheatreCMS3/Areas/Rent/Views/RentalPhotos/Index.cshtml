@@ -9,23 +9,6 @@
 
 <button class="RentalPhoto-Index--btn">@Html.ActionLink("Create New", "Create")</button>
 
-
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalsName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Damaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalPhoto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Details)
-        </th>
-    </tr>*@
-
 @* Wrapped this next bit INSIDE a div to get the cards to align horizontally *@
 <div class="RentalPhoto-Index--container">
 @foreach (var item in Model)
