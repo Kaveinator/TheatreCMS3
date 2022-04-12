@@ -13,12 +13,12 @@
 
 /*----------------------------------blogPhoto create page---------------------------------*/
 .blogPhoto-create-formBody {
-    background-color: red;
+    background-color: var(--main-color);
     color: white;
 }
 
 .blogPhoto-create-submitBtnDiv {
-    background-color: red;
+    background-color: var(--main-color);
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
@@ -28,7 +28,7 @@
 
 .blogPhoto-create-backBtnDiv {
     margin-bottom: 20px;
-    background-color: red;
+    background-color: var(--main-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +68,7 @@
 }
 
 .blogPhoto-create-formContainer {
-    background-color: red;
+    background-color: var(--main-color);
     border: 10px solid white;
 }
 
@@ -102,12 +102,12 @@ blogPhoto-create-inputField {
 /*--------------------------------blogphoto edit page---------------------------*/
 
 .blogPhoto-edit-formBody {
-    background-color: red;
+    background-color: var(--main-color);
     color: white;
 }
 
 .blogPhoto-edit-submitBtnDiv {
-    background-color: red;
+    background-color: var(--main-color);
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
@@ -117,7 +117,7 @@ blogPhoto-create-inputField {
 
 .blogPhoto-edit-backBtnDiv {
     margin-bottom: 20px;
-    background-color: red;
+    background-color: var(--main-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,7 +157,7 @@ blogPhoto-create-inputField {
 }
 
 .blogPhoto-edit-formContainer {
-    background-color: red;
+    background-color: var(--main-color);
     border: 10px solid white;
 }
 
