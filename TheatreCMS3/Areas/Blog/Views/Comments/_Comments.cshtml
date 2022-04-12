@@ -1,36 +1,30 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
+<script src="https://kit.fontawesome.com/c3af1be62f.js" crossorigin="anonymous"></script>
+<link href="~/Content/Areas/Blog.css" rel="stylesheet" />
 <h2>Comments</h2>
 
 <p>
   @Html.ActionLink("Add Comment", "Create")
 </p>
-<table class="table">
 
-  @foreach (var item in Model)
-  {
-  <tr>
-    <td>
-      @Html.DisplayFor(modelItem => item.Author)
-    </td>
-    <td>
+@foreach (var item in Model)
+{
+  <div class="blog-comments--comment">
+    <div class="blog-comments--name_date">
+      <span class="blog-comments--name">@Html.DisplayFor(modelItem => item.Author)</span>
+      <span class="blog-comments--date">@Html.Action("TimeSinceComment", new { date = item.CommentDate })</span>
+    </div>
+    <div class="blog-comments--message">
       @Html.DisplayFor(modelItem => item.Message)
-    </td>
-    <td>
-      @Html.DisplayFor(modelItem => item.CommentDate)
-    </td>
-    <td>
-      @Html.DisplayFor(modelItem => item.Likes)
-    </td>
-    <td>
-      @Html.DisplayFor(modelItem => item.Dislikes)
-    </td>
-    <td>
-      @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
-      @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
-      @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
-    </td>
-  </tr>
-  }
+    </div>
+    <div class="blog-comments--icons">
+      <span class="blog-comments--icon blog-comments--likes"><i class="fa-solid fa-thumbs-up"></i></span>
+      <span class="blog-comments--icon blog-comments--dislikes"><i class="fa-solid fa-thumbs-down"></i></span>
+      <span class="blog-comments--icon blog-comments--reply">REPLY</span>
+      <span class="blog-comments--icon blog-comments--delete"><i class="fa-solid fa-trash"></i></span>
+    </div>
+  </div>
+}
 
-</table>
+
