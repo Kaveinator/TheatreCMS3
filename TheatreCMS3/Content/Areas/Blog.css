@@ -11,6 +11,23 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.blog-comments--date {
+    font-size: 11px;
+    color: gray;
+}
+
+.blog-comments--message {
+    font-size: 11px;
+}
+
+.blog-comments--icon {
+    margin: 10px;
+}
+
+.blog-comments--reply {
+    font-size: 11px;
+    color: gray;
+}
 /*----------------------------------blogPhoto create page---------------------------------*/
 .blogPhoto-create-formBody {
     background-color: var(--main-color);

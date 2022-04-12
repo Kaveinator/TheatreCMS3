@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -20,6 +21,50 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         {
             return View(db.Comments.ToList());
         }
+
+
+        public string TimeSinceComment(DateTime date)
+        {
+            string timeSinceString;
+            var timeSince = DateTime.Now - date;
+
+            if(timeSince.TotalSeconds < 60)
+            {
+                timeSinceString = "Just Now";
+                return timeSinceString;
+            }
+            else if (timeSince.TotalSeconds < 120)
+            {
+                timeSinceString = "1 minute ago";
+                return timeSinceString;
+            }
+            else if (timeSince.TotalSeconds < 3600)
+            {
+                timeSinceString = (Convert.ToInt32(Math.Floor(timeSince.TotalSeconds / 60))) + " minutes ago";
+                return timeSinceString;
+            }
+            else if (timeSince.TotalSeconds < 7200)
+            {
+                timeSinceString =  "1 hour ago";
+                return timeSinceString;
+            }
+            else if (timeSince.TotalSeconds < 86400)
+            {
+                timeSinceString = (Convert.ToInt32(Math.Floor(timeSince.TotalSeconds / 3600))) + " hours ago";
+                return timeSinceString;
+            }
+            else if (timeSince.TotalSeconds < 172800)
+            {
+                timeSinceString = "1 day ago";
+                return timeSinceString;
+            }
+            else
+            {
+                timeSinceString = (Convert.ToInt32(Math.Floor(timeSince.TotalSeconds / 86400))) + " days ago";
+                return timeSinceString;
+            }
+        }
+
 
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
@@ -49,8 +94,22 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
         {
-            if (ModelState.IsValid)
+            
+            if(User.Identity.GetUserName() == "")
             {
+                comment.Author = "Anonymous";
+            }
+            else
+            {
+                comment.Author = User.Identity.GetUserName();
+            }
+
+            comment.Likes = 0;
+            comment.Dislikes = 0;
+            comment.CommentDate = DateTime.Now;
+
+            if (ModelState.IsValid)
+            {               
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
