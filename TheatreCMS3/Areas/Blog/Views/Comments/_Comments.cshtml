@@ -1,9 +1,13 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
-
+@{
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <script src="https://kit.fontawesome.com/c3af1be62f.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 <link href="~/Content/Areas/Blog.css" rel="stylesheet" />
 <h2>Comments</h2>
-
+<button onclick="myTest()"></button>
 <p>
   @Html.ActionLink("Add Comment", "Create")
 </p>
@@ -19,8 +23,9 @@
       @Html.DisplayFor(modelItem => item.Message)
     </div>
     <div class="blog-comments--icons">
-      <span class="blog-comments--icon blog-comments--likes"><i class="fa-solid fa-thumbs-up fa-xs"></i></span>
-      <span class="blog-comments--like_count">15</span>
+      <button onclick="addLike(@item.CommentId)"><span class="blog-comments--icon blog-comments--likes"><i class="fa-solid fa-thumbs-up fa-xs"></i></span></button>
+
+      <span class="blog-comments--like_count" @item.CommentId>@Html.DisplayFor(modelItem => item.Likes)</span>
       <span class="blog-comments--icon blog-comments--dislikes"><i class="fa-solid fa-thumbs-down fa-xs"></i></span>
       <span class="blog-comments--dislike_count">88</span>
       <span class="blog-comments--icon blog-comments--reply">REPLY</span>
