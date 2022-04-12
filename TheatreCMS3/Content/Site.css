@@ -609,3 +609,20 @@ footer {
     padding: 50px;
     background: black;
 }
+
+.Home-Donate--FormStyle {
+    background-color: var(--main-color--light);
+    border-radius: 2em;
+    margin: .5em;
+    padding: 2em;
+}
+
+.Home-Donate--FormTitle {
+    text-align: center;
+    font-family: 'Broadway BT';
+    margin: .5em;
+}
+
+.Home-Donate--BackgroundImage {
+    background-image: url("images/DonateStage.jpeg");
+}
