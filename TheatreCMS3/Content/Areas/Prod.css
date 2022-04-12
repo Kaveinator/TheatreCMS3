@@ -11,6 +11,9 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*========================================================
+        START CastMember Create/Edit styling
+========================================================*/
 .CastMember-Create--Container {
     background-color: transparent;
 }
@@ -91,3 +94,4 @@
     background-color: var(--dark-color);
     color: var(--light-color);
 }
+/*========END CastMember Create/Edit styling============*/
