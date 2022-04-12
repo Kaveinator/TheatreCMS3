@@ -21,10 +21,18 @@
 }
 
 .blog-comments--icon {
-    margin: 10px;
+    margin: 5px;
 }
 
 .blog-comments--reply {
     font-size: 11px;
+    color: gray;
+}
+
+.blog-comments--like_count,
+.blog-comments--dislike_count
+{
+    margin-bottom: 3px;
+    font-size: 10px;
     color: gray;
 }
