@@ -35,6 +35,19 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult GetAddDislike(int? Id)
+        {
+            Comment comment = db.Comments.Find(Id);
+            var result = new JsonResult();
+            comment.Dislikes++;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+            result.Data = comment;
+            return Json(result,
+            JsonRequestBehavior.AllowGet);
+        }
+
 
         public string TimeSinceComment(DateTime date)
         {
