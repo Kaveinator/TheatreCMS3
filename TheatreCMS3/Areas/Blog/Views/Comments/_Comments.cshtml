@@ -4,14 +4,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 <link href="~/Content/Areas/Blog.css" rel="stylesheet" />
-<h2>Comments</h2>
+<div class="blog-comments--delete_success">The comment was deleted successfully <i class="fa-solid fa-check"></i></div>
+<div class="blog-comments--delete_confirm_page">
+  <div class="blog-comments--delete_confirm_container">
+    <div class="blog-comments--delete_confirm_button_container">
+      <button class="blog-comments--cancel_button" onclick="hideConfirmation()">Cancel</button>
+      <button class="blog-comments--delete_button" onclick="hideMyComment()">Delete</button>
+    </div>
+  </div>
+</div>
+<h2 class="blog-comments--h2">Comments</h2>
 <p>
   @Html.ActionLink("Add Comment", "Create")
 </p>
 
 @foreach (var item in Model)
 {
-  <div class="blog-comments--comment">
+  <div class="blog-comments--comment @item.CommentId">
     <div class="blog-comments--name_date">
       <span class="blog-comments--name">@Html.DisplayFor(modelItem => item.Author)</span>
       <span class="blog-comments--date">@Html.Action("TimeSinceComment", new { date = item.CommentDate })</span>
@@ -25,7 +34,7 @@
       <a onclick="addDislike(@item.CommentId)"><span class="blog-comments--icon blog-comments--dislikes"><i class="fa-solid fa-thumbs-down fa-xs"></i></span></a>
       <span class="blog-comments--dislike_count @item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes)</span>
       <span class="blog-comments--icon blog-comments--reply">REPLY</span>
-      <span class="blog-comments--icon blog-comments--delete"><i class="fa-solid fa-trash fa-xs"></i></span>
+      <a onclick="deleteCommentConfirmation(@item.CommentId)"><span class="blog-comments--icon blog-comments--delete"><i class="fa-solid fa-trash fa-xs"></i></span></a>
 </div>
   </div>
 }

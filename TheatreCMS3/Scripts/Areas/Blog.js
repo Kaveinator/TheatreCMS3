@@ -1,4 +1,5 @@
 
+var myComment;
 
 function addLike(commentId) {
     {
@@ -40,4 +41,48 @@ function addDislike(commentId) {
             alert(e.message);
         }
     }
+}
+
+
+function hideMyComment() {
+    {
+        try {
+            $.ajax({
+                url: '/Comments/DeleteComment',
+                type: "POST",
+                data: { id: myComment },
+                success: function (result) {
+                    hideComment();
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        }
+        catch (e) {
+            alert(e.message);
+        }
+    }
+}
+
+
+function deleteCommentConfirmation(commentId) {
+    $("body").find('div[class="blog-comments--delete_confirm_page"]').css("display", "block");
+    myComment = commentId;
+}
+
+function hideConfirmation() {
+    $("body").find('div[class="blog-comments--delete_confirm_page"]').css("display", "none");
+}
+
+function hideComment()
+{
+    successDeleteMessage();
+    $("body").find('div[class="blog-comments--comment ' + myComment + '"]').css("display", "none");
+    $("body").find('div[class="blog-comments--delete_confirm_page"]').css("display", "none");
+}
+
+function successDeleteMessage() {
+    $("body").find('div[class="blog-comments--delete_success"]').css("display", "block");
+    $("body").find('div[class="blog-comments--delete_success"]').delay(3000).fadeOut(1000);
 }
