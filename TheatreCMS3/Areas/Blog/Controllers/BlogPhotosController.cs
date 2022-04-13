@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +49,21 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,PhotoName,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,PhotoName,")] BlogPhoto blogPhoto, Image BPimage)//took photo out of bind and added BPimage parameter
         {
             if (ModelState.IsValid)
-            {
+            {     //for view :   <input type="file" id="BPimage" name="BPimage" />
+                //ImageConverter imgCon = new ImageConverter();
+                //byte[] photo = (byte[])imgCon.ConvertTo(BPimage, typeof(byte[]));
+
+                //BinaryReader br = new BinaryReader(BPimage.PostedFile.InputStream);
+                //byte[] photo = br.ReadBytes((int)BPimage.PostedFile.InputStream.Length);
+
+                //HttpPostedFileBase file = Request.Files[BPimage];
+                //byte[] Photo = File.ReadAllBytes(file);
+                //Photo = blogPhoto.Photo;
+
+                //blogPhoto.Photo = photo;
                 db.BlogPhotoes.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
