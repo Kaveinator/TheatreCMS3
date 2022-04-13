@@ -10,3 +10,99 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+/*========================================================
+        START CastMember Create/Edit styling
+========================================================*/
+.CastMember-Create--Container {
+    background-color: transparent;
+}
+.CastMember-Create--FormBody {
+    background-color: var(--light-color);
+    color: white;
+    border-radius: 50px;
+    margin-top:50px;
+}
+.CastMember-Create--Header {
+    color: var(--dark-color);
+    text-align: center;
+    padding-top: 20px;
+}
+.CastMember-Create--FieldLabel {
+    padding-left: 20px;
+    font-size: 2em;
+    color: var(--dark-color);
+}
+
+.CastMember-Create--InputField {
+    background-color: var(--light-color);
+    outline-color: var(--light-color);
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px 1px;
+}
+.CastMember-Create--InputField:focus {
+    outline-color: var(--secondary-color);
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.CastMember-Create--Center {
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+}
+.CastMember-Create--Checkbox {
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+
+
+.CastMember-Create--CreateButtonDiv {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.CastMember-Create--CreateButton {
+    background-color: var(--secondary-color);
+    width: 250px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    border: 0px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 1px;
+}
+
+
+.CastMember-Create--BackButtonDiv {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.CastMember-Create--BackButton {
+    background-color: var(--main-color);
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    border: 0px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 1px;
+}
+.CastMember-Create--Link {
+    color: var(--dark-color);
+}
+.CastMember-Create--Link:link {
+    color: var(--dark-color);
+}
+.CastMember-Create--Link:hover {
+    color: var(--dark-color);
+}
+/*========END CastMember Create/Edit styling============*/
