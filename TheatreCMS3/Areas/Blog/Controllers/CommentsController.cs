@@ -22,6 +22,32 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(db.Comments.ToList());
         }
 
+        [HttpPost]
+        public JsonResult GetAddLike(int? Id)
+        {
+            Comment comment = db.Comments.Find(Id);
+            var result = new JsonResult();
+            comment.Likes++;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+            result.Data = comment;
+            return Json(result,
+            JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GetAddDislike(int? Id)
+        {
+            Comment comment = db.Comments.Find(Id);
+            var result = new JsonResult();
+            comment.Dislikes++;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+            result.Data = comment;
+            return Json(result,
+            JsonRequestBehavior.AllowGet);
+        }
+
 
         public string TimeSinceComment(DateTime date)
         {

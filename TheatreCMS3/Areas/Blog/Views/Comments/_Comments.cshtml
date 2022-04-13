@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
 <script src="https://kit.fontawesome.com/c3af1be62f.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 <link href="~/Content/Areas/Blog.css" rel="stylesheet" />
 <h2>Comments</h2>
-
 <p>
   @Html.ActionLink("Add Comment", "Create")
 </p>
@@ -19,11 +20,13 @@
       @Html.DisplayFor(modelItem => item.Message)
     </div>
     <div class="blog-comments--icons">
-      <span class="blog-comments--icon blog-comments--likes"><i class="fa-solid fa-thumbs-up"></i></span>
-      <span class="blog-comments--icon blog-comments--dislikes"><i class="fa-solid fa-thumbs-down"></i></span>
+      <a onclick="addLike(@item.CommentId)"><span class="blog-comments--icon blog-comments--likes"><i class="fa-solid fa-thumbs-up fa-xs"></i></span></a>
+      <span class="blog-comments--like_count @item.CommentId">@Html.DisplayFor(modelItem => item.Likes)</span>
+      <a onclick="addDislike(@item.CommentId)"><span class="blog-comments--icon blog-comments--dislikes"><i class="fa-solid fa-thumbs-down fa-xs"></i></span></a>
+      <span class="blog-comments--dislike_count @item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes)</span>
       <span class="blog-comments--icon blog-comments--reply">REPLY</span>
-      <span class="blog-comments--icon blog-comments--delete"><i class="fa-solid fa-trash"></i></span>
-    </div>
+      <span class="blog-comments--icon blog-comments--delete"><i class="fa-solid fa-trash fa-xs"></i></span>
+</div>
   </div>
 }
 
