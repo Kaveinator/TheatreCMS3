@@ -12,47 +12,47 @@
 {
     @Html.AntiForgeryToken()
 <div class="CastMember-Create--Container">
-    <div class="CastMember-Create-FormBody">
+    <div class="CastMember-Create--FormBody">
         <h1 class="CastMember-Create--Header">Edit Cast Member</h1>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.CastMemberId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "CastMember-Create-FieldLabel" })
-            <div class="CastMember-Create-Center">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "CastMember-Create-InputField" } })
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "CastMember-Create--InputField" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.YearJoined, htmlAttributes: new { @class = "CastMember-Create-FieldLabel" })
-            <div class="CastMember-Create-Center">
-                @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { @class = "CastMember-Create-InputField" } })
+            @Html.LabelFor(model => model.YearJoined, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { @class = "CastMember-Create--InputField" } })
                 @Html.ValidationMessageFor(model => model.YearJoined, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MainRole, htmlAttributes: new { @class = "CastMember-Create-FieldLabel" })
-            <div class="CastMember-Create-Center">
-                @Html.EnumDropDownListFor(model => model.MainRole, htmlAttributes: new { @class = "CastMember-Create-InputField" })
+            @Html.LabelFor(model => model.MainRole, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EnumDropDownListFor(model => model.MainRole, htmlAttributes: new { @class = "CastMember-Create--InputField" })
                 @Html.ValidationMessageFor(model => model.MainRole, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "CastMember-Create-FieldLabel" })
-            <div class="CastMember-Create-Center">
-                @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "CastMember-Create-InputField" } })
+            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "CastMember-Create--InputField" } })
                 @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "CastMember-Create-FieldLabel" })
-            <div class="CastMember-Create-Checkbox">
+            @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Checkbox">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.CurrentMember)
                     @Html.ValidationMessageFor(model => model.CurrentMember, "", new { @class = "text-danger" })
@@ -61,35 +61,35 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Character, htmlAttributes: new { @class = "CastMember-Create-FieldLabel" })
-            <div class="CastMember-Create-Center">
-                @Html.EditorFor(model => model.Character, new { htmlAttributes = new { @class = "CastMember-Create-InputField" } })
+            @Html.LabelFor(model => model.Character, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EditorFor(model => model.Character, new { htmlAttributes = new { @class = "CastMember-Create--InputField" } })
                 @Html.ValidationMessageFor(model => model.Character, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CastYearLeft, htmlAttributes: new { @class = "CastMember-Create-FieldLabel" })
-            <div class="CastMember-Create-Center">
-                @Html.EditorFor(model => model.CastYearLeft, new { htmlAttributes = new { @class = "CastMember-Create-InputField" } })
+            @Html.LabelFor(model => model.CastYearLeft, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EditorFor(model => model.CastYearLeft, new { htmlAttributes = new { @class = "CastMember-Create--InputField" } })
                 @Html.ValidationMessageFor(model => model.CastYearLeft, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DebutYear, htmlAttributes: new { @class = "CastMember-Create-FieldLabel" })
-            <div class="CastMember-Create-Center">
-                @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { @class = "CastMember-Create-InputField" } })
+            @Html.LabelFor(model => model.DebutYear, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { @class = "CastMember-Create--InputField" } })
                 @Html.ValidationMessageFor(model => model.DebutYear, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="CastMember-Create-ButtonDiv">
+        <div class="CastMember-Create--CreateButtonDiv">
             <input type="submit" value="Save" class="CastMember-Create--CreateButton" />
         </div>
-    </div>
-    <div class="CastMember-Create-BackButtonDiv">
-        <button class="CastMember-Create-BackButton">@Html.ActionLink("Back to List", "Index")</button>
+        <div class="CastMember-Create--BackButtonDiv">
+            <button class="CastMember-Create--BackButton">@Html.ActionLink("Back to List", "Index", null, new { @class = "CastMember-Create--Link" })</button>
+        </div>
     </div>
 </div>
     }
