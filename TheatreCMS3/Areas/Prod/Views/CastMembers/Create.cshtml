@@ -5,15 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
 
 <div class="CastMember-Create--Container">
     <div class="CastMember-Create--FormBody">
         <h1 class="CastMember-Create--Header">Create Cast Member</h1>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <input type="file" name="userImage" id="userImage" accept=".png,.jpg,.jpeg,.gif,.tif" />
+
         <div>
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
             <div class="CastMember-Create--Center">
@@ -86,7 +89,7 @@
             <button class="CastMember-Create--BackButton">@Html.ActionLink("Back to List", "Index", null, new { @class = "CastMember-Create--Link" })</button>
         </div>
     </div>
-    
+
 </div>
  }
 
