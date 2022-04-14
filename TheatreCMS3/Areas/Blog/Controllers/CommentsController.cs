@@ -48,6 +48,19 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult DeleteComment(int? Id)
+        {
+            Comment comment = db.Comments.Find(Id);
+            var result = new JsonResult();
+            db.Comments.Remove(comment);
+            db.SaveChanges();
+            db.Entry(comment).State = EntityState.Modified;       
+            result.Data = comment;
+            return Json(result,
+            JsonRequestBehavior.AllowGet);
+        }
+
 
         public string TimeSinceComment(DateTime date)
         {

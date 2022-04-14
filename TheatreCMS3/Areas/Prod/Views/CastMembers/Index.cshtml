@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <h2>Index</h2>
@@ -10,8 +11,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="CastMember-Index--Table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -39,8 +43,17 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+    string text = "";
+    if (item.Photo != null)
+    {
+        text = Convert.ToBase64String(item.Photo);
+    }
     <tr>
+        <td>
+            <img src="data:image/jpg;base64,@text" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
