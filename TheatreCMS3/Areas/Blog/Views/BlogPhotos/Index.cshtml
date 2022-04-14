@@ -21,20 +21,46 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhotoName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPhotoId })
-        </td>
-    </tr>
-}
+
+    @foreach (var item in Model)
+    {
+        if (item.Photo != null)
+        {
+
+            
+            ViewBag.Base64String = "data:image/png;base64," + Convert.ToBase64String(item.Photo);
+
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhotoName)
+            </td>
+
+            <td>
+                <img alt="No Image" src="@ViewBag.Base64String"/>
+            </td>
+            <td>
+
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new
+                {
+                    id = item.BlogPhotoId
+                    }) |
+                @Html.ActionLink("Details", "Details", new
+                {
+                    id = item.BlogPhotoId
+                }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+
+
+
+
