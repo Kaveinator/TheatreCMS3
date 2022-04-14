@@ -8,7 +8,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "CastMembers", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 <div class="CastMember-Create--Container">
@@ -17,6 +17,18 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.CastMemberId)
+
+        @{
+            string text = "";
+            if (Model.Photo != null)
+            {
+                text = Convert.ToBase64String(Model.Photo);
+            }
+         }
+        <div class="CastMember-Edit--Photo">
+            <img src="data:image/jpg;base64,@text" />
+        </div>
+        <input type="file" name="userImage" id="userImage" accept=".png,.jpg,.jpeg,.gif,.tif" />
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })

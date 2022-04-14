@@ -12,7 +12,7 @@
 /*}*/
 
 /*========================================================
-        START CastMember Create/Edit styling
+        START CastMember Create styling
 ========================================================*/
 .CastMember-Create--Container {
     background-color: transparent;
@@ -105,4 +105,24 @@
 .CastMember-Create--Link:hover {
     color: var(--dark-color);
 }
-/*========END CastMember Create/Edit styling============*/
+/*========END CastMember Create styling==========*/
+
+
+/*========================================================
+        START CastMember Edit styling
+========================================================*/
+.CastMember-Edit--Photo {
+    max-width: 20px;
+}
+
+/*========END CastMember Edit styling==========*/
+
+
+
+/*========================================================
+        START CastMember Index styling
+========================================================*/
+.CastMember-Index--Table {
+    color: var(--light-color);
+}
+/*========END CastMember Index styling==========*/
