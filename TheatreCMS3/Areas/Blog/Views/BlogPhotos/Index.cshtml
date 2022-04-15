@@ -10,54 +10,47 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PhotoName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th></th>
-    </tr>
 
 
-    @foreach (var item in Model)
+
+
+
+
+
+
+
+@foreach (var item in Model)
+{
+    if (item.Photo != null)
     {
-        if (item.Photo != null)
-        {
 
-            
-            ViewBag.Base64String = "data:image/png;base64," + Convert.ToBase64String(item.Photo);
 
-        }
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhotoName)
-            </td>
+        ViewBag.Base64String = "data:image/png;base64," + Convert.ToBase64String(item.Photo);
 
-            <td>
-                <img alt="No Image" src="@ViewBag.Base64String"/>
-            </td>
-            <td>
-
-            </td>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new
-                {
-                    id = item.BlogPhotoId
-                    }) |
-                @Html.ActionLink("Details", "Details", new
-                {
-                    id = item.BlogPhotoId
-                }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })
-            </td>
-        </tr>
     }
 
-</table>
+    <div class="blogPhoto-index-container">
+        
+        <div>
+            <a href="@Url.Action("Details", new { id = item.BlogPhotoId })">
+                <img class="card-img blogPhoto-index-img" src="@ViewBag.Base64String" alt="no image">
+            </a>
+            <button class="badge badge-pill btn-lg blogPhoto-index-editBtn">@Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId })</button>
+            <button class="badge badge-pill blogPhoto-index-deleteBtn">@Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })</button>
+            <div class="card-img-overlay">
+                <h2 class="card-title">@Html.DisplayFor(modelItem => item.PhotoName)</h2>
+
+
+            </div>
+        </div>
+    </div>
+
+   
+}
+
+
+
+
 
 
 
