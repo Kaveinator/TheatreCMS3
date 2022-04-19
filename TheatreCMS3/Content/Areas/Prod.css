@@ -232,3 +232,52 @@
     color: var(--dark-color);
 }
 /*========END CastMember Index styling==========*/
+
+
+/*========================================================
+        START TheatreMember Create styling
+========================================================*/
+.TheatreMember-Create--CreateButton {
+    background-color: var(--main-color);
+    margin: auto;
+    display: block;
+    border-radius: .4em;
+    width: 50%;
+}
+.TheatreMember-Create--CreateButton:hover {
+    background-color: var(--main-color--light);
+}
+.TheatreMember-Create--BackToList {
+    background-color: var(--main-color--light);
+    margin: .3em auto;
+    display: block;
+    border-radius: .4em;
+    margin-bottom: 2em;
+    width: 50%;
+}
+.TheatreMember-Create--BackToList:hover {
+    background-color: var(--main-color);
+}
+.TheatreMember-Create--BackToList a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+.TheatreMember-Create--FormContainer {
+    background-color: var(--light-color);
+    margin-top: 3em;
+    color: var(--dark-color);
+    border-radius: .2em;
+}
+.TheatreMember-Create--InputField {
+    background-color: var(--secondary-color);
+}
+.TheatreMember-Create--InputField:focus {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--light-color);
+    box-shadow: none;
+}
+.TheatreMember-Create--FormTitle {
+    margin-left: .4em;
+    padding-top: .2em;
+}
+/*========END CastMember Create styling==========*/
