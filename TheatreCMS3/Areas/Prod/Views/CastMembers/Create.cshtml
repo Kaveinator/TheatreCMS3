@@ -60,6 +60,14 @@
         </div>
 
         <div>
+            @Html.LabelFor(model => model.ProductionTitle, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EnumDropDownListFor(model => model.ProductionTitle, htmlAttributes: new { @class = "CastMember-Create--InputField" })
+                @Html.ValidationMessageFor(model => model.ProductionTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div>
             @Html.LabelFor(model => model.Character, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
             <div class="CastMember-Create--Center">
                 @Html.EditorFor(model => model.Character, new { htmlAttributes = new { placeholder = "Enter current character", @class = "CastMember-Create--InputField" } })

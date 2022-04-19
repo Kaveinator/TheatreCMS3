@@ -14,6 +14,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Bio { get; set; }
         public byte[] Photo { get; set; }
         public bool CurrentMember { get; set; }
+        public Production ProductionTitle { get; set; }
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
         public int? DebutYear { get; set; }
@@ -25,6 +26,14 @@ namespace TheatreCMS3.Areas.Prod.Models
             Technician,
             StageManager,
             Other
+        }
+
+        public enum Production
+        {
+            LionKing,
+            SoundofMusic,
+            BeautyandtheBeast,
+            TheWizardofOz
         }
     }
 }

@@ -111,8 +111,12 @@
 /*========================================================
         START CastMember Edit styling
 ========================================================*/
+.CastMember-Edit--PhotoContainer {
+    text-align: center;
+}
 .CastMember-Edit--Photo {
-    max-width: 20px;
+    max-width: 500px;
+    align-content: center;
 }
 
 /*========END CastMember Edit styling==========*/
@@ -122,7 +126,109 @@
 /*========================================================
         START CastMember Index styling
 ========================================================*/
-.CastMember-Index--Table {
+.CastMember-Index--Container {
+
+}
+.CastMember-Index--PageHeader {
+    text-align: center;
+}
+
+.CastMember-Index--GroupHeader {
     color: var(--light-color);
+    font-size: 25px;
+    background: linear-gradient(to left, var(--secondary-color), var(--main-color) 100%);
+    background-position: 0 100%;
+    background-size: 100% 2px;
+    background-repeat: repeat-x;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.CastMember-Index-Deck {
+    padding-right: 10px;
+    margin-bottom: 75px;
+}
+
+.CastMember-Index--Card {
+    -webkit-filter: brightness(100%);
+    max-width: 23%;
+    margin: 1%;
+}
+
+.CastMember-Index--Card:hover {
+    -webkit-filter: brightness(80%);
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    transition: all .1s ease;
+}
+
+.CastMember-Index--Card:hover .CastMember-Index--IconContainer {
+    display: block;
+}
+
+.CastMember-Index--CardTitle {
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 30px;
+    padding-right: 0px;
+}
+
+.CastMember-Index--IconContainer {
+    display: none;
+}
+.CastMember-Index--DeleteIcon:link {
+    color: var(--main-color);
+    font-size: 50px;
+}
+.CastMember-Index--DeleteIcon:visited {
+    color: var(--main-color);
+    font-size: 50px;
+}
+.CastMember-Index--EditIcon:link {
+    color: var(--secondary-color);
+    font-size: 50px;
+}
+.CastMember-Index--EditIcon:visited {
+    color: var(--secondary-color);
+    font-size: 50px;
+}
+
+.CastMember-Index--CreateButtonDiv {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.CastMember-Index--CreateButton {
+    background-color: var(--secondary-color);
+    width: 250px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    border: 0px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 1px;
+    -webkit-filter: brightness(100%);
+}
+.CastMember-Index--CreateButton:hover {
+    -webkit-filter: brightness(60%);
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    transition: all .1s ease;
+}
+.CastMember-Index--Link {
+    color: var(--dark-color);
+}
+.CastMember-Index--Link:link {
+    color: var(--dark-color);
+}
+.CastMember-Index--Link:hover {
+    color: var(--dark-color);
 }
 /*========END CastMember Index styling==========*/
