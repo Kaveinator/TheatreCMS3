@@ -24,9 +24,9 @@
             {
                 text = Convert.ToBase64String(Model.Photo);
             }
-         }
-        <div class="CastMember-Edit--Photo">
-            <img src="data:image/jpg;base64,@text" />
+        }
+        <div class="CastMember-Edit--PhotoContainer">
+            <img src="data:image/jpg;base64,@text" class="CastMember-Edit--Photo"/>
         </div>
         <input type="file" name="userImage" id="userImage" accept=".png,.jpg,.jpeg,.gif,.tif" />
 
@@ -69,6 +69,14 @@
                     @Html.EditorFor(model => model.CurrentMember)
                     @Html.ValidationMessageFor(model => model.CurrentMember, "", new { @class = "text-danger" })
                 </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductionTitle, htmlAttributes: new { @class = "CastMember-Create--FieldLabel" })
+            <div class="CastMember-Create--Center">
+                @Html.EnumDropDownListFor(model => model.ProductionTitle, htmlAttributes: new { @class = "CastMember-Create--InputField" })
+                @Html.ValidationMessageFor(model => model.ProductionTitle, "", new { @class = "text-danger" })
             </div>
         </div>
 
