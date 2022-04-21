@@ -20,10 +20,23 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/CastMembers
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.CastMembers.ToList());
+            if (searchString == null)
+            {
+                return View(db.CastMembers.ToList());
+            }
+            List<CastMember> result = new List<CastMember>();
+            foreach (CastMember castMember in db.CastMembers)
+            {
+                if (castMember.Name.ToLower().Contains(searchString.ToLower()) || castMember.Bio.ToLower().Contains(searchString.ToLower()))
+                {
+                    result.Add(castMember);
+                }
+            }
+            return View(result);
         }
+
 
         // GET: Prod/CastMembers/Details/5
         public ActionResult Details(int? id)
