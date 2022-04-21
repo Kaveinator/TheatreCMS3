@@ -5,79 +5,78 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>CastMember</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
+<div class="container CastMember-Details--Container">
+    <div class="row CastMember-Details--NameHeader">
+        <div class="col">
             @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.YearJoined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MainRole)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentMember)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Character)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Character)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CastYearLeft)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DebutYear)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
+    <div class="row CastMember-Details--Photo">
+        <img src="data:image/jpg;base64,@Convert.ToBase64String(Model.Photo)" class="card-img-top" />
+    </div>
+    <div class="row CastMember-Details--Label">
+        @Html.DisplayNameFor(model => model.Bio)
+    </div>
+    <div class="row CastMember-Details--Entry">
+        @Html.DisplayFor(model => model.Bio)
+    </div>
+    <div class="row">
+        <div class="col CastMember-Details--Column">
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.MainRole)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.MainRole)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.ProductionTitle)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.ProductionTitle)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.Character)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.Character)
+            </div>
+        </div>
+        <div class="col">
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.CurrentMember)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.CurrentMember)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.YearJoined)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.YearJoined)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.DebutYear)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.DebutYear)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.CastYearLeft)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.CastYearLeft)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col CastMember-Details--DeleteIcon">
+            <i href="#">@Html.ActionLink(" ", "Delete", new { id = Model.CastMemberId }, new { @class = "fa fa-trash CastMember-Index--DeleteIcon" })</i>
+        </div>
+        <div class="col CastMember-Details--EditIcon">
+            <i href="#">@Html.ActionLink(" ", "Edit", new { id = Model.CastMemberId }, new { @class = "fa fa-edit CastMember-Index--EditIcon" })</i>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CastMemberId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="CastMember-Create--BackButtonDiv">
+    <button class="CastMember-Create--BackButton">@Html.ActionLink("Back to List", "Index", null, new { @class = "CastMember-Create--Link" })</button>
+</div>

@@ -4,86 +4,94 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="CastMember-Delete--DeleteConfirm">
+    <p>DELETE this Cast Member?</p>
+</div>
+<div class="form-actions no-color CastMember-Delete--ButtonContainer">
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>CastMember</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.YearJoined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MainRole)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentMember)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Character)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Character)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CastYearLeft)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DebutYear)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+        <button type="submit" class="CastMember-Delete--DeleteButton">
+            <i class="fa fa-trash"> DELETE</i>
+        </button>
     }
+
+    <button class="CastMember-Delete--BackButton">
+        <i class="fa-regular fa-arrow-left"></i>
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "CastMember-Create--Link" })
+    </button>
+    <button class="CastMember-Delete--EditButton">
+        <i href="#" class="CastMember-Delete--EditIcon"></i>
+        @Html.ActionLink(" Edit", "Edit", new { id = Model.CastMemberId }, new { @class = "fa fa-edit CastMember-Delete--EditLink" })
+    </button>
+</div>
+
+<div class="container CastMember-Details--Container">
+    <div class="row CastMember-Details--NameHeader">
+        <div class="col">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+    <div class="row CastMember-Details--Photo">
+        <img src="data:image/jpg;base64,@Convert.ToBase64String(Model.Photo)" class="card-img-top" />
+    </div>
+    <div class="row CastMember-Details--Label">
+        @Html.DisplayNameFor(model => model.Bio)
+    </div>
+    <div class="row CastMember-Details--Entry">
+        @Html.DisplayFor(model => model.Bio)
+    </div>
+    <div class="row">
+        <div class="col CastMember-Details--Column">
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.MainRole)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.MainRole)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.ProductionTitle)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.ProductionTitle)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.Character)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.Character)
+            </div>
+        </div>
+        <div class="col">
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.CurrentMember)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.CurrentMember)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.YearJoined)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.YearJoined)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.DebutYear)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.DebutYear)
+            </div>
+            <div class="row CastMember-Details--Label">
+                @Html.DisplayNameFor(model => model.CastYearLeft)
+            </div>
+            <div class="row CastMember-Details--Entry">
+                @Html.DisplayFor(model => model.CastYearLeft)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="CastMember-Create--BackButtonDiv">
+    <button class="CastMember-Create--BackButton">@Html.ActionLink("Back to List", "Index", null, new { @class = "CastMember-Create--Link" })</button>
 </div>
