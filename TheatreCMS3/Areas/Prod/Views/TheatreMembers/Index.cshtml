@@ -36,6 +36,9 @@
         <th>
             @Html.DisplayNameFor(model => model.DebutYearLeft)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
         <th></th>
     </tr>
 
@@ -64,6 +67,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DebutYearLeft)
+        </td>
+        <td>
+            <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" height="100px" width="100px" />
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TheatreMemberId }) |

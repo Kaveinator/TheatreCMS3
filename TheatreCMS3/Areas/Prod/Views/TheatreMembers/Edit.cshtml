@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "TheatreMembers", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -80,6 +80,8 @@
             @Html.ValidationMessageFor(model => model.DebutYearLeft, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <input type="file" name="uploadedImage" class="ml-3" />
 
     <div>
         <input type="submit" value="Save" class="TheatreMember-Create--CreateButton" />
