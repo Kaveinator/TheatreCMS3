@@ -10,16 +10,27 @@
     <h1>@ViewBag.Title</h1>
 </div>
 
-<div class="CastMember-Index--CreateButtonDiv">
-    <button class="CastMember-Index--CreateButton">@Html.ActionLink("Create New Cast Member", "Create", null, new { @class = "CastMember-Index--Link" })</button>
+<div class="row justify-content-between CastMember-Index--CreateButtonDiv">
+    <div class="col-auto mr-auto">
+        <button class="CastMember-Index--CreateButton">@Html.ActionLink("Create New Cast Member", "Create", null, new { @class = "CastMember-Index--Link" })</button>
+    </div>
+    <div class="col-auto CastMember-Index--SearchForm">
+        <h4>Search by Name or Bio:</h4>
+        <form action="Index" method="POST">
+            <input type="text" name="searchString" />
+            <input type="submit" value="Apply filter" />
+        </form>
+    </div>
 </div>
+
+
 
 <div class="CastMember-Index--Container">
 
     @foreach (var group in GroupByProduction)
     {
         <h2 class="CastMember-Index--GroupHeader">@group.Key</h2>
-        <div class="row row-cols-2 CastMember-Index-Deck">
+        <div class="row row-cols-2 CastMember-Index-Deck" id="deck">
             @foreach (var castMember in group)
             {
                 string text = "";
@@ -45,4 +56,3 @@
         </div>
     }
 </div>
-
