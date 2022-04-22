@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember)
+        public ActionResult Create([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft,Photo")] TheatreMember theatreMember, HttpPostedFileBase uploadedImage)
         {
             if (ModelState.IsValid)
             {
+                theatreMember.Photo = ConvertToBytes(uploadedImage);
                 db.TheatreMembers.Add(theatreMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +81,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft")] TheatreMember theatreMember)
+        public ActionResult Edit([Bind(Include = "TheatreMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYearLeft,Photo")] TheatreMember theatreMember, HttpPostedFileBase uploadedImage)
         {
             if (ModelState.IsValid)
             {
+                theatreMember.Photo = ConvertToBytes(uploadedImage);
                 db.Entry(theatreMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +126,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        public byte[] ConvertToBytes(HttpPostedFileBase uploadedImage)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(uploadedImage.InputStream))
+            {
+                bytes = br.ReadBytes(uploadedImage.ContentLength);
+            }
+            return bytes;
         }
     }
 }
