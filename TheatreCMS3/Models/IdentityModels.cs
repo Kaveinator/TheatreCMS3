@@ -42,6 +42,6 @@ namespace TheatreCMS3.Models
 
 
         /* ▼ Put DbSet's for your models below ▼ */
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalItems> RentalItems { get; set; }
+        
     }
 }  
