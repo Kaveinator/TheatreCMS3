@@ -435,5 +435,65 @@ footer {
 }
 
 
+/* Start of Donate Page styling.*/
 
 
+/* Style form with smaller size, centered element, discerning background, shape, and shadow */
+.Donate-form {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--main-color--light), -1px -1px 0px var(--light-color);
+}
+
+/* Center align headings and format color and spacing */
+.Home-Donate--heading2 {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+
+/* Allow elements to fill entire form and be centered */
+.Home-Donate--Div {
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Home-Donate--div {
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Change background color of input fields */
+.Home-Donate--input {
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+/* Style submit button */
+.Home-Donate--button {
+    background-color: var(--light-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+    /* Button hover effect */
+    .Home-Donate--button:hover {
+        box-shadow: 0px 0px 5px var(--light-color);
+    }
+
+Home-Donate--labels{
+
+}
+
+
+/* End of Donate Page styling.*/

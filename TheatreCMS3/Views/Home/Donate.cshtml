@@ -3,67 +3,67 @@
     ViewBag.Title = "Donate";
 }
 
-<h2class ="Donate-heading2">Consider Making A Donation</h2class>
+<h2class ="Home-Donate--heading2">Consider Making A Donation</h2class>
 
 @using (Html.BeginForm("Donate", "Home", FormMethod.Post, new { @class = "Donate-form", role = "form" }))
 {
     <div class=" container">
         <div class="form-row">
-            <div class="col-4 Donate-Div">
-                <label for="FirstName"> Name* </label>
+            <div class="col-4 Home-Donate--Div">
+                <label> Name* </label>
             </div>
 
-            @*@Html.LabelFor(m => m.FirstName, new { @class = "col-md Donate-labels" })*@
-            <div class="col-md Donate-div">
-                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control Donate-input",  id = "FirstName", placeholder = "First Name" })
+            @*@Html.LabelFor(m => m.FirstName, new { @class = "col-md Home-Donate--labels" })*@
+            <div class="col-md Home-Donate--div">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control Home-Donate--input", id = "FirstName", placeholder = "First Name" })
             </div>
 
-            @*@Html.LabelFor(m => m.LastName, new { @class = "col-md Donate-labels" })*@
-            <div class="col-md Donate-div">
-                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control Donate-input", placeholder = "Last Name" })
+            @*@Html.LabelFor(m => m.LastName, new { @class = "col-md Home-Donate--labels" })*@
+            <div class="col-md Home-Donate--div">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control Home-Donate--input", placeholder = "Last Name" })
             </div>
         </div>
 
         <div class="form-row">
-            <div class="col-4 Donate-Div">
+            <div class="col-4 Home-Donate--Div">
                 <label> Email Address* </label>
             </div>
-            @*@Html.LabelFor(m => m.Email, new { @class = "col-md Donate-labels" })*@
-            <div class="col-md Donate-div">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control Donate-input", placeholder = "Email Address" })
+            @*@Html.LabelFor(m => m.Email, new { @class = "col-md Home-Donate--labels" })*@
+            <div class="col-md Home-Donate--div">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control Home-Donate--input", placeholder = "Email Address" })
             </div>
         </div>
         <div class="form-row">
-            <div class="col-4 Donate-Div">
+            <div class="col-4 Home-Donate--Div">
                 <label> Address </label>
             </div>
-            @*@Html.LabelFor(m => m.Address, new { @class = "col-md Donate-labels" })*@
-            <div class="col-md Donate-div">
-                @Html.TextBoxFor(m => m.Address, new { @class = "form-control Donate-input", placeholder = "Address" })
+            @*@Html.LabelFor(m => m.Address, new { @class = "col-md Home-Donate--labels" })*@
+            <div class="col-md Home-Donate--div">
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control Home-Donate--input", placeholder = "Address" })
             </div>
         </div>
         <div class="form-row">
-            <div class="col-4 Donate-Div">
-                <label> Donation Amount($) </label>
+            <div class="col-4 Home-Donate--Div">
+                <label> Donation Amount($)* </label>
             </div>
-            @*@Html.LabelFor(m => m.DonationAmount, new { @class = "col-md Donate-labels" })*@
-            <div class="col-md Donate-div">
-                @Html.TextBoxFor(m => m.DonationAmount, new { @class = "form-control Donate-input", placeholder = "Donation Amount" })
+            @*@Html.LabelFor(m => m.DonationAmount, new { @class = "col-md Home-Donate--labels" })*@
+            <div class="col-md Home-Donate--div">
+                @Html.TextBoxFor(m => m.DonationAmount, new { @class = "form-control Home-Donate--input", placeholder = "Donation Amount" })
             </div>
         </div>
         <div class="form-row">
-            <div class="col-4 Donate-Div">
+            <div class="col-4 Home-Donate--Div">
                 <label> Donation Comments </label>
             </div>
-            @*@Html.LabelFor(m => m.DonationComment, new { @class = "col-md Donate-labels" })*@
-            <div class="col-md Donate-div">
-                @Html.TextBoxFor(m => m.DonationComments, new { @class = "form-control Donate-input", placeholder = "Place comments here." })
+            @*@Html.LabelFor(m => m.DonationComment, new { @class = "col-md Home-Donate--labels" })*@
+            <div class="col-md Home-Donate--div">
+                @Html.TextBoxFor(m => m.DonationComments, new { @class = "form-control Home-Donate--input", placeholder = "Place comments here." })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md Donate-div">
-                <input type="submit" class="btn btn-light Donate-button" value="Submit" />
+            <div class="col-md Home-Donate--div">
+                <input type="submit" class="btn Home-Donate--button" value="Submit" />
             </div>
         </div>
     </div>
