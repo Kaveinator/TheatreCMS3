@@ -112,4 +112,40 @@ namespace TheatreCMS3.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    /*Start of Donate View Model*/
+
+    public class DonateViewModel
+    {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "Donation Amount")]
+        public decimal DonationAmount { get; set; }
+
+        [Display(Name = "Donation Comments")]
+        public string DonationComments { get; set; }
+
+    }
+    /*End of Donate View Model*/
+
 }
+
+
+
+
