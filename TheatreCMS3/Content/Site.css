@@ -474,7 +474,8 @@ footer {
 /* Change background color of input fields */
 .Home-Donate--input {
     background-color: white;
-    border: 1px solid black;
+    border: 1px outset black;
+    border-radius: 0;
 }
 
 
@@ -484,6 +485,7 @@ footer {
     font-weight: bold;
     margin-bottom: 10px;
     border: 1px solid black;
+    border-radius:0;
 }
 
     /* Button hover effect */
