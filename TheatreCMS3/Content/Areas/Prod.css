@@ -11,4 +11,57 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.CastMembers-CreateEdit--CreateBtn {
+    background-color: var(--secondary-color);
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+    .CastMembers-CreateEdit--CreateBtn:hover {
+        background-color: var(--secondary-color--dark);
+    }
+
+.CastMembers-CreateEdit--BackToListBtn {
+    background-color: var(--dark-color);
+    width: fit-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+    .CastMembers-CreateEdit--BackToListBtn:hover {
+        background-color: var(--main-color);
+    }
+
+.CastMembers-CreateEdit--PageHeader {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.CastMembers-CreateEdit--form-horizontal {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+
+.CastMembers-CreateEdit--inputBoxshadow:focus {
+    box-shadow: 0px 0px 10px var(--dark-color);
+    background: var(--secondary-color);
+}
+
 
