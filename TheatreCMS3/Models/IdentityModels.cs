@@ -42,6 +42,9 @@ namespace TheatreCMS3.Models
 
 
         /* ▼ Put DbSet's for your models below ▼ */
+
+        public DbSet<TheatreCMS3.Areas.Prod.Models.CastMember> CastMembers { get; set; }
+
         
     }
 }  
