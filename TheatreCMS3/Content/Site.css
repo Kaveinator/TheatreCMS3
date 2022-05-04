@@ -537,7 +537,7 @@ Home-Donate--labels{
     font-size:25px;
 }
 
-div.item {
+.Home-About--item {
     /* To correctly align image, regardless of content height: */
     vertical-align: top;
     display: inline-block;
@@ -549,15 +549,16 @@ div.item {
     margin-right: auto;
 }
 
-img {
+.Home-About--img {
     width: 105px;
     height: 105px;
     background-color: grey;
     border-radius:60%
 }
 
-.caption {
+.Home-About--caption {
     /* Make the caption a block so it occupies its own line. */
     display: block;
 }
+/*End Styling*/
 
