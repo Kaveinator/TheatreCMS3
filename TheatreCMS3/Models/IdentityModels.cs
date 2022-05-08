@@ -45,6 +45,6 @@ namespace TheatreCMS3.Models
 
         public DbSet<TheatreCMS3.Areas.Prod.Models.CastMember> CastMembers { get; set; }
 
-        
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.TheatreMember> TheatreMembers { get; set; }
     }
 }  
