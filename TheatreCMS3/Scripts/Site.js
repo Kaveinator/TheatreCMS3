@@ -1,1 +1,1 @@
-﻿
+﻿document.getElementById("NumPersons").innerHTML = $("p").length;
