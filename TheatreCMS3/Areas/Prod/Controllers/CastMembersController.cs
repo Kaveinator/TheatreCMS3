@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
@@ -47,7 +48,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +56,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
+            
 
             return View(castMember);
         }
@@ -79,7 +82,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
@@ -124,5 +127,63 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+
+
+        [HttpPost]
+
+        public byte[] ImagetoByte(HttpPostedFileBase castMemberPhotoUpload)
+        {
+            byte[] CastMemberImage = null;
+            BinaryReader br = new BinaryReader(castMemberPhotoUpload.InputStream);
+            {
+                CastMemberImage = br.ReadBytes(castMemberPhotoUpload.ContentLength);
+            }
+            return CastMemberImage;
+
+            
+            //string strFileName;
+            //string strFilePath;
+            //string strFolder;
+            //strFolder = Server.MapPath("./");
+            //strFileName = castMemberPhotoUpload.FileName;
+            //strFileName = Path.GetFileName(strFileName);
+            //if (castMemberPhotoUpload.FileName != "")
+            //{
+            //    // Create the folder if it does not exist.
+            //    if (!Directory.Exists(strFolder))
+            //    {
+            //        Directory.CreateDirectory(strFolder);
+            //    }
+            //    // Save the uploaded file to the server.
+            //    strFilePath = strFolder + strFileName;
+
+            //if (File.Exists(strFilePath))
+            //{
+            //    lblUploadResult.Text = strFileName + " already exists on the server!";
+            //}
+            //else
+            //{
+            //    oFile.PostedFile.SaveAs(strFilePath);
+            //    lblUploadResult.Text = strFileName + " has been successfully uploaded.";
+            //}
+            //}
+            //else
+            //{
+            //    lblUploadResult.Text = "Click 'Browse' to select the file to upload.";
+            //}
+
+
+            //FilesEntities entities = new FilesEntities();
+            //entities.CastMembers.Add(new CastMember
+            //{
+
+            //});
+            //entities.SaveChanges();
+            //return RedirectToAction("");
+        }
+
+
+    }   
+    
 }
