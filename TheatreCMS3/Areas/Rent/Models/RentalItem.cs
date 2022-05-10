@@ -14,6 +14,6 @@ namespace TheatreCMS3.Areas.Rent.Models
         public string ItemDescription { get; set; }
         public DateTime PickupDate { get; set; }
         public DateTime? ReturnDate { get; set; }
-        //public Byte[] ItemPhoto { get; set; }
+        public Byte[] ItemPhoto { get; set; }
     }
 }

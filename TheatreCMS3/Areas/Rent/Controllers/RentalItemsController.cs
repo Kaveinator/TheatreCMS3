@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
@@ -47,11 +48,19 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate")] RentalItem rentalItem)
+        public ActionResult Create([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate,ItemPhoto")] RentalItem rentalItem, HttpPostedFileBase imageFile)
         {
             if (ModelState.IsValid)
             {
-                db.RentalItems.Add(rentalItem);
+                if (imageFile != null)
+                {
+                    rentalItem.ItemPhoto = ImageToByte(imageFile);
+                    db.RentalItems.Add(rentalItem);
+                }
+                else
+                {
+                    db.RentalItems.Add(rentalItem);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -79,11 +88,15 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate")] RentalItem rentalItem)
+        public ActionResult Edit([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate,ItemPhoto")] RentalItem rentalItem, HttpPostedFileBase imageFile)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rentalItem).State = EntityState.Modified;
+                if (imageFile != null)
+                {
+                    db.Entry(rentalItem).State = EntityState.Modified;
+                    rentalItem.ItemPhoto = ImageToByte(imageFile);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -123,6 +136,41 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        // Gets uploaded img file and converts it into byte[].
+        public byte[] ImageToByte(HttpPostedFileBase imageFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(imageFile.InputStream))
+            {
+                bytes = br.ReadBytes(imageFile.ContentLength);
+            }
+            return bytes;
+        }
+
+        // Retrieves the stored byte[] from entity in RentalItem table/db using id.
+        public byte[] GetImageFromDB(int id)
+        {
+            RentalItem item = db.RentalItems.Find(id);
+            byte[] itemPhoto = item.ItemPhoto;
+            return itemPhoto;
+        }
+
+        //Retrieve and display image from db using id.
+        public ActionResult DisplayImage(RentalItem id)
+        {
+            RentalItem item = db.RentalItems.Find(id.RentalItemId);
+            byte[] image = GetImageFromDB(item.RentalItemId);
+            if (image != null)
+            {
+                return File(image, "image/png");
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
