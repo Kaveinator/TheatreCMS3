@@ -7,9 +7,9 @@
 
 <h2>Index</h2>
 
-<p>
+<div class=" btn CastMembers-CreateEdit--CreateBtn">
     @Html.ActionLink("Create New", "Create")
-</p>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -43,6 +43,10 @@
     </tr>
 
 @foreach (var item in Model) {
+    string text = "";
+    if (item.Photo != null){
+        text = @Convert.ToBase64String(item.Photo);
+    }
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.Name)
@@ -58,7 +62,7 @@
     </td>
     <td>
         @*@Html.DisplayFor(modelItem => item.Photo)*@
-        <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.Photo)" />)
+        <img src="data:image/jpeg;base64,@text" />)
 
     </td>
     <td>
