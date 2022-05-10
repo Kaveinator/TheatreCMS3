@@ -45,6 +45,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            <text><img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Photo)" /></text>
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.CurrentMember)
         </dt>
 

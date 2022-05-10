@@ -19,6 +19,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers
         public ActionResult Index()
         {
+            
             return View(db.CastMembers.ToList());
         }
 
@@ -48,12 +49,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember , HttpPostedFileBase castMemberPhotoUpload)
         {
             if (ModelState.IsValid)
             {
+
+                var a = ImagetoByte(castMemberPhotoUpload);
+                castMember.Photo = a;
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             
@@ -131,57 +136,32 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
 
         [HttpPost]
-
         public byte[] ImagetoByte(HttpPostedFileBase castMemberPhotoUpload)
         {
-            byte[] CastMemberImage = null;
+            byte[] CastMemberImage;
             BinaryReader br = new BinaryReader(castMemberPhotoUpload.InputStream);
             {
                 CastMemberImage = br.ReadBytes(castMemberPhotoUpload.ContentLength);
             }
             return CastMemberImage;
 
-            
-            //string strFileName;
-            //string strFilePath;
-            //string strFolder;
-            //strFolder = Server.MapPath("./");
-            //strFileName = castMemberPhotoUpload.FileName;
-            //strFileName = Path.GetFileName(strFileName);
-            //if (castMemberPhotoUpload.FileName != "")
-            //{
-            //    // Create the folder if it does not exist.
-            //    if (!Directory.Exists(strFolder))
-            //    {
-            //        Directory.CreateDirectory(strFolder);
-            //    }
-            //    // Save the uploaded file to the server.
-            //    strFilePath = strFolder + strFileName;
-
-            //if (File.Exists(strFilePath))
-            //{
-            //    lblUploadResult.Text = strFileName + " already exists on the server!";
-            //}
-            //else
-            //{
-            //    oFile.PostedFile.SaveAs(strFilePath);
-            //    lblUploadResult.Text = strFileName + " has been successfully uploaded.";
-            //}
-            //}
-            //else
-            //{
-            //    lblUploadResult.Text = "Click 'Browse' to select the file to upload.";
-            //}
-
-
-            //FilesEntities entities = new FilesEntities();
-            //entities.CastMembers.Add(new CastMember
-            //{
-
-            //});
-            //entities.SaveChanges();
-            //return RedirectToAction("");
+      
         }
+
+
+        //This is a controll function that will retrieve the Photo for display based on the CastMemberID.
+        //It is not being used right now as razor syntax is doing the same job. 
+        // 
+        //[HttpGet, ActionName("Retrieve")]
+        //public ActionResult RetrievePhoto(int id)
+        //{
+        //    CastMember castMember = db.CastMembers.Find(id);
+        //    if (castMember == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(castMember.Photo);
+        //}
 
 
     }   
