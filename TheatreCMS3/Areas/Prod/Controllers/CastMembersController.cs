@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
@@ -18,6 +19,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers
         public ActionResult Index()
         {
+            
             return View(db.CastMembers.ToList());
         }
 
@@ -47,14 +49,20 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember , HttpPostedFileBase castMemberPhotoUpload)
         {
             if (ModelState.IsValid)
             {
+
+                var a = ImagetoByte(castMemberPhotoUpload);
+                castMember.Photo = a;
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
+            
+            
 
             return View(castMember);
         }
@@ -79,7 +87,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
         {
             if (ModelState.IsValid)
             {
@@ -124,5 +132,38 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+
+
+        [HttpPost]
+        public byte[] ImagetoByte(HttpPostedFileBase castMemberPhotoUpload)
+        {
+            byte[] CastMemberImage;
+            BinaryReader br = new BinaryReader(castMemberPhotoUpload.InputStream);
+            {
+                CastMemberImage = br.ReadBytes(castMemberPhotoUpload.ContentLength);
+            }
+            return CastMemberImage;
+
+      
+        }
+
+
+        //This is a controll function that will retrieve the Photo for display based on the CastMemberID.
+        //It is not being used right now as razor syntax is doing the same job. 
+        // 
+        //[HttpGet, ActionName("Retrieve")]
+        //public ActionResult RetrievePhoto(int id)
+        //{
+        //    CastMember castMember = db.CastMembers.Find(id);
+        //    if (castMember == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(castMember.Photo);
+        //}
+
+
+    }   
+    
 }
