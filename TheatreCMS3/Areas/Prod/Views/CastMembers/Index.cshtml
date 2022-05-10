@@ -10,79 +10,22 @@
 <div class=" btn CastMembers-CreateEdit--CreateBtn">
     @Html.ActionLink("Create New", "Create")
 </div>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Character)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
+
+@foreach (var item in Model)
+{
+   
     string text = "";
-    if (item.Photo != null){
+    if (item.Photo != null)
+    {
         text = @Convert.ToBase64String(item.Photo);
     }
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.YearJoined)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MainRole)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Bio)
-    </td>
-    <td>
-        @*@Html.DisplayFor(modelItem => item.Photo)*@
-        <img src="data:image/jpeg;base64,@text" />)
-
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CurrentMember)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Character)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CastYearLeft)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DebutYear)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.CastMemberId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
-    </td>
-</tr>
-}
-
-</table>
+    <div class="CastMembers-Index--ProductionTitle">Aladdin</div>
+    <div class="card" style="width: 18rem;">
+        <img src="data:image/jpeg;base64,@text" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+   
+    <div class="CastMembers-Index--ProductionTitle">BeetleJuice</div>
