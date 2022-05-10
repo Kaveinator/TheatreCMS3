@@ -560,5 +560,13 @@ Home-Donate--labels{
     /* Make the caption a block so it occupies its own line. */
     display: block;
 }
-/*End Styling*/
+/*End of About Styling*/
+
+/*Begin Rental Item Styling*/
+.RentalItem-CreateEdit-input:focus {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(219, 26, 17, 0.25) !important;
+}
+
+/*End of Rental Item Styling*/
 
