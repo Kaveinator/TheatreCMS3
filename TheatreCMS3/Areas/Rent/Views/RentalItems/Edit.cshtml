@@ -19,7 +19,7 @@
     <div class="form-group row">
         @Html.LabelFor(model => model.Item, "Item", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Item, new { htmlAttributes = new { @class = "form-control RentalItem-CreateEdit--input" } })
+            @Html.EditorFor(model => model.Item, new { htmlAttributes = new { @class = "form-control Rent-RentalItem--CreateEditInput" } })
             @Html.ValidationMessageFor(model => model.Item, "", new { @class = "cms-text-main" })
         </div>
     </div>
@@ -27,7 +27,7 @@
     <div class="form-group row">
         @Html.LabelFor(model => model.ItemDescription, "Item Description", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control RentalItem-CreateEdit--input" } })
+            @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control Rent-RentalItem--CreateEditInput" } })
             @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "cms-text-main" })
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="form-group row">
         @Html.LabelFor(model => model.PickupDate, "Pick Up Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.PickupDate, new { htmlAttributes = new { @class = "form-control RentalItem-CreateEdit--input" } })
+            @Html.EditorFor(model => model.PickupDate, new { htmlAttributes = new { @class = "form-control Rent-RentalItem--CreateEditInput" } })
             @Html.ValidationMessageFor(model => model.PickupDate, "", new { @class = "cms-text-main" })
         </div>
     </div>
@@ -43,7 +43,7 @@
     <div class="form-group row">
         @Html.LabelFor(model => model.ReturnDate, "Return Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control RentalItem-CreateEdit--input" } })
+            @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control Rent-RentalItem--CreateEditInput" } })
             @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "cms-text-main" })
         </div>
     </div>
@@ -61,9 +61,9 @@
                 }
                 else
                 {
-                    <img style="" src="@Url.Action("DisplayImage","RentalItems", new { Model.RentalItemId })" />
+                    <img style="width: 150px; height: 150px;" src="@Url.Action("DisplayImage","RentalItems", new { Model.RentalItemId })" />
                     <div>
-                        <input type="file" name="imageFile" />
+                        <input class="mt-2" type="file" name="imageFile" />
                     </div>
                 }
             }
@@ -72,8 +72,8 @@
 
     <div class="form-group text-center pt-3">
         <div class="col-md-offset-2 col-md-12">
-            <input type="submit" value="Save" class="btn cms-bg-main btn-lg cms-text-light" />
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn cms-bg-dark btn-lg cms-text-light" })
+            <input type="submit" value="Save" class="Rent-RentalItem--createBtn" />
+            <input type="submit" value="Back to List" class="Rent-RentalItem--deleteBtn" onclick="location.href='@Url.Action("Index")'" />
         </div>
     </div>
 </div>
