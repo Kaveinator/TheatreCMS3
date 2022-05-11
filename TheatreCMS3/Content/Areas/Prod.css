@@ -99,7 +99,7 @@
 
 .TheatreMembers-Create-Backtolistbtn {
     border: none;
-    color: var(*--light-color);
+    color: var(--light-color);
     background-color: var(--secondary-color);
     text-align: center;
     margin: 4px 2px;
