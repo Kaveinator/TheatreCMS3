@@ -1,0 +1,85 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalItem
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Edit", "RentalItems", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal cms-bg-light cms-text-main rounded mt-5 p-3">
+    <h2 class="text-center pb-2">Edit Rental Item</h2>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "cms-text-main" })
+    @Html.HiddenFor(model => model.RentalItemId)
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Item, "Item", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Item, new { htmlAttributes = new { @class = "form-control RentalItem-CreateEdit--input" } })
+            @Html.ValidationMessageFor(model => model.Item, "", new { @class = "cms-text-main" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ItemDescription, "Item Description", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control RentalItem-CreateEdit--input" } })
+            @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "cms-text-main" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.PickupDate, "Pick Up Date", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PickupDate, new { htmlAttributes = new { @class = "form-control RentalItem-CreateEdit--input" } })
+            @Html.ValidationMessageFor(model => model.PickupDate, "", new { @class = "cms-text-main" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ReturnDate, "Return Date", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control RentalItem-CreateEdit--input" } })
+            @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "cms-text-main" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ItemPhoto, "Item Photo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @{
+                if (Model.ItemPhoto == null)
+                {
+                    <p>No Photo</p>
+                    <div>
+                        <input type="file" name="imageFile" />
+                    </div>
+                }
+                else
+                {
+                    <img style="" src="@Url.Action("DisplayImage","RentalItems", new { Model.RentalItemId })" />
+                    <div>
+                        <input type="file" name="imageFile" />
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="form-group text-center pt-3">
+        <div class="col-md-offset-2 col-md-12">
+            <input type="submit" value="Save" class="btn cms-bg-main btn-lg cms-text-light" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn cms-bg-dark btn-lg cms-text-light" })
+        </div>
+    </div>
+</div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

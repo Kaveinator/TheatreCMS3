@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Item)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickupDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemPhoto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Item)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ItemDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PickupDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReturnDate)
+    </td>
+    <th>
+        <a href="@Url.Action("Details", "RentalItems", new { id = item.RentalItemId})">
+            <img src="@Url.Action("DisplayImage", "RentalItems", new { item.RentalItemId })" class="" alt="Rental Item Photo" width="300" height="300">
+        </a>
+    </th>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.RentalItemId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.RentalItemId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.RentalItemId })
+    </td>
+</tr>
+}
+
+</table>
