@@ -88,33 +88,33 @@
 
 .TheatreMembers-Create--submitbtn {
     border-radius: 30px;
-    background-color: #F04D44;
+    background-color: var(--main-color--light);
     padding: 15px 30px;
     font-weight: 900;
 }
 
     .TheatreMembers-Create--submitbtn:hover {
-        background-color: #FFFBFB
+        background-color: var(--light-color)
     }
 
 .TheatreMembers-Create-Backtolistbtn {
     border: none;
-    color: white;
-    background-color: #D6972A;
+    color: var(*--light-color);
+    background-color: var(--secondary-color);
     text-align: center;
     margin: 4px 2px;
     display: inline-block;
     padding: 15px 32px;
-    border-radius:30px
+    border-radius: 30px
 }
 
     .TheatreMembers-Create-Backtolistbtn:hover {
-        background-color: #9D7C39
+        background-color: var(--secondary-color--dark)
     }
 
 .TheatreMembers-Create-inputshadows:focus {
-    background-color: #D6972A;
-    box-shadow: 0 0 5px #000000
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 5px var(--dark-color)
 }
 
     
