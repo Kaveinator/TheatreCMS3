@@ -13,7 +13,7 @@ namespace TheatreCMS3.Areas.Prod.Models
 
     public enum Production
     {
-        BeetleJuice, Aladdin, Other
+        Aladdin , BeetleJuice , Other
     }
 
     public class CastMember 
