@@ -65,9 +65,9 @@
 }
 
 .CastMembers-Index--EditDeleteContainer {
-    /*visibility:hidden;*/
+    visibility:hidden;
 }
-.CastMembers-Index--CastMemberPhoto:hover + .CastMembers-Index--EditDeleteContainer {
+.CastMembers-Index--Card:hover + .CastMembers-Index--EditDeleteContainer {
     visibility: visible;
     background-color: var(--secondary-color--dark);
 }
@@ -79,6 +79,8 @@
     background-color: var(--main-color);
     border: thin;
     border-color: var(--dark-color);
+    display:flex;
+    flex-direction:row;
     
 }
 

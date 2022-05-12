@@ -17,50 +17,52 @@
 
 
 
-<div class=" card-deck">
-    @foreach (var group in GroupByProduction)
-    {
+
+@foreach (var group in GroupByProduction)
+{
+    <div class=" card-deck">
         <h2 class="CastMembers-Index--ProductionTitleHeader">@group.Key</h2>
-        <hr />
-        <div class="card CastMembers-Index--Card">
+        <br>
+        <hr style="height:5px;background-color:white;">
 
+        @foreach (var castMember in group)
+        {
 
-            @foreach (var castMember in group)
+            string text = "";
+            if (castMember.Photo != null)
             {
-                string text = "";
-                if (castMember.Photo != null)
-                {
-                    text = @Convert.ToBase64String(castMember.Photo);
-                }
-
-                <div class=" border-dark  mb-3  CastMembers-Index--CardBorder">
+            text = @Convert.ToBase64String(castMember.Photo);
+            }
+            <div class="card col-sm-4 CastMembers-Index--Card">
+                <div class=" card-border-dark  mb-3  CastMembers-Index--CardBorder">
                     <a href="@Url.Action("Details", new { id = castMember.CastMemberId })">
                         <img src="data:image/jpeg;base64,@text" class=" card-img-top CastMembers-Index--CastMemberPhoto" alt="...">
                     </a>
 
-                    
+
 
                     <div class="card-body">
                         <h4 class="card-title CastMembers-Index--CardTitleName">@Html.DisplayFor(modelItem => castMember.Name)</h4>
                         <h4 class="card-title CastMembers-Index--CardTitleCharacter">@Html.DisplayFor(modelItem => castMember.Character)</h4>
-                        
+
                         <div class="card-footer CastMembers-Index--EditDeleteContainer ">
-                            <i href="#"> @Html.ActionLink("Edit", "Edit", new { id = castMember.CastMemberId }, new { @class ="fas fa-edit CastMember-Index--EditDeleteIcons" })</i>
-                            <i href="#"> @Html.ActionLink(" Delete", "Delete", new { id = castMember.CastMemberId },new { @class ="fa fa-trash CastMember-Index--EditDeleteIcons" })</i>
+                            <i href="#"> @Html.ActionLink("Edit", "Edit", new { id = castMember.CastMemberId }, new { @class = "fas fa-edit CastMember-Index--EditDeleteIcons" })</i>
+                            <i href="#"> @Html.ActionLink(" Delete", "Delete", new { id = castMember.CastMemberId }, new { @class = "fa fa-trash CastMember-Index--EditDeleteIcons" })</i>
                         </div>
 
                     </div>
 
                 </div>
-            }
-        </div>
+            </div>
+        }
 
 
 
 
+    </div>
 
-    }
-</div>
+}
+
 
 
 
