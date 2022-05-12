@@ -19,13 +19,12 @@
     box-shadow: 0 0 0 0.2rem rgba(219, 26, 17, 0.25) !important;
 }
 
-/* Rental Item Index Page */
 .Rent-RentalItem--createBtn {
     background-color: var(--main-color--light);
     color: var(--dark-color);
     padding: 5px 20px;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     border-radius: 8px;
 }
@@ -42,7 +41,7 @@
     color: var(--light-color);
     padding: 5px 20px;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     border-radius: 8px;
     transition-duration: 0.2s;
@@ -76,7 +75,7 @@
     padding: 0;
     overflow: hidden;
     margin: 5px;
-    border: 2px solid var(--dark-color);
+    border: 3px solid var(--main-color);
     box-shadow: 0 0 0 1px var(--main-color--light);
     height: 250px;
     width: 250px;
@@ -134,14 +133,14 @@
     -ms-transition: all 0.2s ease-in-out;
 }
 
-    .Rent-RentalItem--ImgHover span {
-        font-size: 40px;
-        color: var(--dark-color);
-        position: relative;
-        margin: 0 auto;
-        width: 100%;
-        top: 13px;
-    }
+.Rent-RentalItem--ImgHover span {
+    font-size: 40px;
+    color: var(--dark-color);
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    top: 13px;
+}
 
 .Rent-RentalItem--IndexContainer:hover {
     cursor: pointer;
@@ -175,9 +174,16 @@
     border-radius: .5rem;
 }
 
+.Rent-RentalItem--Photo {
+    border: 3px solid var(--dark-color);
+    border-radius: .5rem;
+    width: 400px;
+    height: 400px;
+}
+
 /*End of Rental Item Styling*/
 
-/*Beggining of Rental Photos styling */
+/*Begin Rental Photos styling */
 
 .RentalPhotos-Create-SubmitButton {
     border-radius: 10px 10px 10px 10px;
