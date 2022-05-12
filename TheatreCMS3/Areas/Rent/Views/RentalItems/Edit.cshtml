@@ -61,7 +61,7 @@
                 }
                 else
                 {
-                    <img style="width: 150px; height: 150px;" src="@Url.Action("DisplayImage","RentalItems", new { Model.RentalItemId })" />
+                    <img src="@Url.Action("DisplayImage","RentalItems", new { Model.RentalItemId })" style="width: 150px; height: 150px; border: 2px solid var(--main-color--light); border-radius: 4px; " />
                     <div>
                         <input class="mt-2" type="file" name="imageFile" />
                     </div>
