@@ -14,9 +14,165 @@
 /* Create Rental Form*/
 
 /*Begin Rental Item Styling*/
-.RentalItem-CreateEdit--input:focus {
+.Rent-RentalItem--CreateEditInput:focus {
     border-color: var(--main-color) !important;
     box-shadow: 0 0 0 0.2rem rgba(219, 26, 17, 0.25) !important;
+}
+
+/* Rental Item Index Page */
+.Rent-RentalItem--createBtn {
+    background-color: var(--main-color--light);
+    color: var(--dark-color);
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.Rent-RentalItem--createBtn:hover {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    border: 2px solid var(--light-color);
+    transition-duration: 0.2s;
+}
+
+.Rent-RentalItem--deleteBtn {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+}
+
+.Rent-RentalItem--deleteBtn:hover {
+    opacity: 1;
+    background-color: var(--dark-color);
+    border: 2px solid var(--main-color--light);
+    color: var(--main-color--light);
+}
+
+.Rent-RentalItem--createNewBtn {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.Rent-RentalItem--createNewBtn:hover {
+    background-color: var(--secondary-color--dark);
+    border: 2px solid var(--light-color);
+    color: var(--light-color);
+}
+
+.Rent-RentalItem--IndexContainer {
+    background-color: var(--secondary-color);
+    padding: 0;
+    overflow: hidden;
+    margin: 5px;
+    border: 2px solid var(--dark-color);
+    box-shadow: 0 0 0 1px var(--main-color--light);
+    height: 250px;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.Rent-RentalItem--IndexContainer article {
+    padding: 5%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.Rent-RentalItem--IndexContainer h2 {
+    color: var(--dark-color);
+    font-weight: 800;
+    font-size: 25px;
+    text-shadow: 1px 1px var(--main-color--light);
+    opacity: 0.9;
+}
+
+.Rent-RentalItem--IndexContainer img {
+    width: 100%;
+    opacity: 0.9;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.Rent-RentalItem--ImgHover {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0;
+    transform: translate(0px, 60px);
+    transition: all 0.2s ease-in-out;
+    -webkit-transform: translate(0px, 60px);
+    -moz-transform: translate(0px, 60px);
+    -o-transform: translate(0px, 60px);
+    -ms-transform: translate(0px, 60px);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+}
+
+    .Rent-RentalItem--ImgHover span {
+        font-size: 40px;
+        color: var(--dark-color);
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        top: 13px;
+    }
+
+.Rent-RentalItem--IndexContainer:hover {
+    cursor: pointer;
+}
+
+.Rent-RentalItem--IndexContainer:hover img {
+    opacity: 0.6;
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.Rent-RentalItem--IndexContainer:hover article {
+    transform: translate(2px, -50px);
+    -webkit-transform: translate(2px, -50px);
+    -moz-transform: translate(2px, -50px);
+    -o-transform: translate(2px, -50px);
+    -ms-transform: translate(2px, -50px);
+}
+
+.Rent-RentalItem--IndexContainer:hover .Rent-RentalItem--ImgHover {
+    transform: translate(0px, 0px);
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.Rent-RentalItem--Index {
+    padding: 10px;
+    border-radius: .5rem;
 }
 
 /*End of Rental Item Styling*/
