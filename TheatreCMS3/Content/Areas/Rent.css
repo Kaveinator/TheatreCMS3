@@ -24,7 +24,7 @@
     color: var(--dark-color);
     padding: 5px 20px;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     border-radius: 8px;
 }
@@ -41,7 +41,7 @@
     color: var(--light-color);
     padding: 5px 20px;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     border-radius: 8px;
     transition-duration: 0.2s;
@@ -177,15 +177,13 @@
 .Rent-RentalItem--Photo {
     border: 3px solid var(--dark-color);
     border-radius: .5rem;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
 }
 
-
-/*End of Rental Item Styling*/
 /*End of Rental Item Styling*/
 
-/*Beggining of Rental Photos styling */
+/*Begin Rental Photos styling */
 
 .RentalPhotos-Create-SubmitButton {
     border-radius: 10px 10px 10px 10px;
