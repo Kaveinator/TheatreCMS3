@@ -49,7 +49,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember , HttpPostedFileBase castMemberPhotoUpload)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,ProductionTitle,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember , HttpPostedFileBase castMemberPhotoUpload)
         {
             if (ModelState.IsValid)
             {

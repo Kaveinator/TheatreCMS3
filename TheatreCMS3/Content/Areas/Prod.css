@@ -64,6 +64,52 @@
     background: var(--secondary-color);
 }
 
+.CastMembers-Index--CardDeck{
+   
+}
+
+.CastMembers-Index--EditDeleteContainer {
+    /*visibility:hidden;*/
+    display: none;
+}
+.CastMembers-Index--Card:hover .CastMembers-Index--EditDeleteContainer {
+    /*visibility: visible;*/
+    display: block;
+    background-color: var(--secondary-color--dark);
+    opacity: 0.8;
+}
+
+.CastMembers-Index--Card:hover .CastMembers-Index--CastMemberPhoto {
+    opacity: 0.8;
+}
+
+.CastMembers-Index--CastMemberPhoto {
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
+}
+
+
+
+.CastMembers-Index--Card {
+    border-radius: 5px;
+    background-color: var(--main-color);
+    border: thin;
+    border-color: var(--dark-color);
+   
+    
+}
+
+.CastMembers-Index--CardTitleName, .CastMembers-Index--CardTitleCharacter {
+    background-color: var(--secondary-color);
+    color: black;
+    text-align: center;
+    text-size-adjust: auto;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+
 /*Styling Create page for TheatreMembers*/
 
 .TheatreMembers-Create--Header {

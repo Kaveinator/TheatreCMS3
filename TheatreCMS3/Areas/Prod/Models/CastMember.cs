@@ -11,9 +11,15 @@ namespace TheatreCMS3.Areas.Prod.Models
         Actor, Director, Technician, StageManager, Other
     }
 
+    public enum Production
+    {
+        Aladdin , BeetleJuice , Other
+    }
+
     public class CastMember 
     {
         public int CastMemberId { get; set; }
+        public Production ProductionTitle { get; set; }
         public string Name { get; set; }
         public int? YearJoined { get; set; }
         public Position MainRole { get; set; }
