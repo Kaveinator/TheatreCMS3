@@ -18,49 +18,48 @@
 
 
 
-@foreach (var group in GroupByProduction)
-{
-<div class=" ">
-    <h2 class="CastMembers-Index--ProductionTitleHeader">@group.Key</h2>
-    
-    <hr style="height:12px;background-color:white;">
-    <div class="card-deck">
-        @foreach (var castMember in group)
-        {
+    @foreach (var group in GroupByProduction)
+    {
 
-            string text = "";
-            if (castMember.Photo != null)
+        <h2 class="CastMembers-Index--ProductionTitleHeader">@group.Key</h2>
+
+        <hr style="height:12px;background-color:white;">
+
+        <div class="card-deck CastMembers-Index--CardDeck">
+            @foreach (var castMember in group)
             {
-                text = @Convert.ToBase64String(castMember.Photo);
-            }
-            <div class="card col-sm-4 CastMembers-Index--Card">
-                <div class=" card-border-dark  mb-3  CastMembers-Index--CardBorder">
-                    <a href="@Url.Action("Details", new { id = castMember.CastMemberId })">
-                        <img src="data:image/jpeg;base64,@text" class=" card-img-top CastMembers-Index--CastMemberPhoto" alt="...">
-                    </a>
 
+                string text = "";
+                if (castMember.Photo != null)
+                {
+                    text = @Convert.ToBase64String(castMember.Photo);
+                }
+                
+                    <div class="card col-sm-4 CastMembers-Index--Card">
 
+                        <div class="card-body CastMembers-Index--Cardbody">
+                            <h4 class="card-header CastMembers-Index--CardTitleName">@Html.DisplayFor(modelItem => castMember.Name)</h4>
+                            <a href="@Url.Action("Details", new { id = castMember.CastMemberId })">
+                                <img src="data:image/jpeg;base64,@text" class=" card-img-top img-fluid CastMembers-Index--CastMemberPhoto" alt="...">
+                            </a>
+                            <h4 class="card-title CastMembers-Index--CardTitleCharacter">@Html.DisplayFor(modelItem => castMember.Character)</h4>
 
-                    <div class="card-body">
-                        <h4 class="card-title CastMembers-Index--CardTitleName">@Html.DisplayFor(modelItem => castMember.Name)</h4>
-                        <h4 class="card-title CastMembers-Index--CardTitleCharacter">@Html.DisplayFor(modelItem => castMember.Character)</h4>
+                            <div class="card-img-overlay flex-center CastMembers-Index--EditDeleteContainer ">
+                                <i href="#"> @Html.ActionLink("Edit", "Edit", new { id = castMember.CastMemberId }, new { @class = "fas fa-edit CastMember-Index--EditDeleteIcons" })</i>
+                                <i href="#"> @Html.ActionLink(" Delete", "Delete", new { id = castMember.CastMemberId }, new { @class = "fa fa-trash CastMember-Index--EditDeleteIcons" })</i>
+                            </div>
 
-                        <div class="card-img-overlay flex-center CastMembers-Index--EditDeleteContainer ">
-                            <i href="#"> @Html.ActionLink("Edit", "Edit", new { id = castMember.CastMemberId }, new { @class = "fas fa-edit CastMember-Index--EditDeleteIcons" })</i>
-                            <i href="#"> @Html.ActionLink(" Delete", "Delete", new { id = castMember.CastMemberId }, new { @class = "fa fa-trash CastMember-Index--EditDeleteIcons" })</i>
                         </div>
 
                     </div>
+               
+            }
 
-                </div>
-            </div>
-        }
+        </div>
 
-    </div>
-    
-</div>
 
-}
+
+    }
 
 
 
