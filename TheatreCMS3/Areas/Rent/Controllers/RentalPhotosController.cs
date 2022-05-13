@@ -18,6 +18,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalPhotos
         public ActionResult Index()
         {
+            RentalPhoto rentalPhoto = new RentalPhoto();
+            
             return View(db.RentalPhotoes.ToList());
         }
 
@@ -39,6 +41,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalPhotos/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -51,6 +54,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
+                //converting Image from string to byte[] for proper storage to Db
+                
+                string to64StringData = Convert.ToBase64String(rentalPhoto.RentalsPhoto);
+                byte[] UserImageChoice = System.IO.File.ReadAllBytes(to64StringData);
+                UserImageChoice = rentalPhoto.RentalsPhoto; 
                 db.RentalPhotoes.Add(rentalPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -124,5 +132,22 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+        public Action(HttpPostedFileBase postedFile)
+        {
+           
+            
+        }
+        
     }
+
 }
+
+
+
+
+
+
+
+
+
+

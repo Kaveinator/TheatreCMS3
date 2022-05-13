@@ -11,7 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    <tr> 
         <th>
             @Html.DisplayNameFor(model => model.RentalsName)
         </th>
@@ -36,7 +36,7 @@
             @Html.DisplayFor(modelItem => item.Damaged)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RentalsPhoto)
+             <img src="@ViewBag.ImageData"/> <!--browser knows src attribute contains image data-->
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Details)
