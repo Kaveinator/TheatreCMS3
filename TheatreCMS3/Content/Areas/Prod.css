@@ -65,11 +65,18 @@
 }
 
 .CastMembers-Index--EditDeleteContainer {
-    visibility:hidden;
+    /*visibility:hidden;*/
+    display:none;
 }
-.CastMembers-Index--Card:hover + .CastMembers-Index--EditDeleteContainer {
-    visibility: visible;
+.CastMembers-Index--Card:hover .CastMembers-Index--EditDeleteContainer {
+    /*visibility: visible;*/
+    display: block;
     background-color: var(--secondary-color--dark);
+    opacity: 0.8;
+}
+
+.CastMembers-Index--Card:hover .CastMembers-Index--CastMemberPhoto {
+    opacity: 0.8;
 }
 
 
@@ -79,9 +86,8 @@
     background-color: var(--main-color);
     border: thin;
     border-color: var(--dark-color);
-    display:flex;
-    flex-direction:row;
-    
+    display: flex;
+    flex-direction: row;
 }
 
 .CastMembers-Index--CardTitleName, .CastMembers-Index--CardTitleCharacter {
