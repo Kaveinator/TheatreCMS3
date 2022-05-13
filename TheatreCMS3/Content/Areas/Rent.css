@@ -13,3 +13,332 @@
 /*}*/
 /* Create Rental Form*/
 
+/*Begin Rental Item Styling*/
+.Rent-RentalItem--CreateEditInput:focus {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(219, 26, 17, 0.25) !important;
+}
+
+.Rent-RentalItem--createBtn {
+    background-color: var(--main-color--light);
+    color: var(--dark-color);
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.Rent-RentalItem--createBtn:hover {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    border: 2px solid var(--light-color);
+    transition-duration: 0.2s;
+}
+
+.Rent-RentalItem--deleteBtn {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+}
+
+.Rent-RentalItem--deleteBtn:hover {
+    opacity: 1;
+    background-color: var(--dark-color);
+    border: 2px solid var(--main-color--light);
+    color: var(--main-color--light);
+}
+
+.Rent-RentalItem--createNewBtn {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.Rent-RentalItem--createNewBtn:hover {
+    background-color: var(--secondary-color--dark);
+    border: 2px solid var(--light-color);
+    color: var(--light-color);
+}
+
+.Rent-RentalItem--IndexContainer {
+    background-color: var(--secondary-color);
+    padding: 0;
+    overflow: hidden;
+    margin: 5px;
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 0 1px var(--main-color--light);
+    height: 250px;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.Rent-RentalItem--IndexContainer article {
+    padding: 5%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.Rent-RentalItem--IndexContainer h2 {
+    color: var(--dark-color);
+    font-weight: 800;
+    font-size: 25px;
+    text-shadow: 1px 1px var(--main-color--light);
+    opacity: 0.9;
+}
+
+.Rent-RentalItem--IndexContainer img {
+    width: 100%;
+    opacity: 0.9;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.Rent-RentalItem--ImgHover {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0;
+    transform: translate(0px, 60px);
+    transition: all 0.2s ease-in-out;
+    -webkit-transform: translate(0px, 60px);
+    -moz-transform: translate(0px, 60px);
+    -o-transform: translate(0px, 60px);
+    -ms-transform: translate(0px, 60px);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+}
+
+.Rent-RentalItem--ImgHover span {
+    font-size: 40px;
+    color: var(--dark-color);
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    top: 13px;
+}
+
+.Rent-RentalItem--IndexContainer:hover {
+    cursor: pointer;
+}
+
+.Rent-RentalItem--IndexContainer:hover img {
+    opacity: 0.6;
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.Rent-RentalItem--IndexContainer:hover article {
+    transform: translate(2px, -50px);
+    -webkit-transform: translate(2px, -50px);
+    -moz-transform: translate(2px, -50px);
+    -o-transform: translate(2px, -50px);
+    -ms-transform: translate(2px, -50px);
+}
+
+.Rent-RentalItem--IndexContainer:hover .Rent-RentalItem--ImgHover {
+    transform: translate(0px, 0px);
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.Rent-RentalItem--Index {
+    padding: 10px;
+    border-radius: .5rem;
+}
+
+.Rent-RentalItem--Photo {
+    border: 3px solid var(--dark-color);
+    border-radius: .5rem;
+    width: 400px;
+    height: 400px;
+}
+
+/*End of Rental Item Styling*/
+
+/*Begin Rental Photos styling */
+
+.RentalPhotos-Create-SubmitButton {
+    border-radius: 10px 10px 10px 10px;
+    background-color: var(--main-color);
+    margin-left: 15%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: fit-content;
+    font-family: Calibri;
+    color: black;
+    font-size: 19px;
+    font-weight: bold;
+    display: inline;
+}
+
+.RentalPhotos-Edit-SubmitButton {
+    border-radius: 10px 10px 10px 10px;
+    background-color: var(--main-color--light);
+    margin-left: 15%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: fit-content;
+    font-family: Calibri;
+    color: black;
+    font-size: 19px;
+    font-weight: bold;
+    display: inline;
+}
+
+    .RentalPhotos-Create-SubmitButton:hover, .RentalPhotos-Edit-SubmitButton:hover {
+        border: var(--secondary-color);
+        font-weight: bolder;
+        border-style: solid;
+        color: var(--secondary-color);
+    }
+
+.RentalPhotos-Create-BackToListButton, .RentalPhotos-Edit-BackToListButton {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: var(--secondary-color);
+    border-radius: 10px 10px 10px 10px;
+    width: fit-content;
+    font-family: Calibri;
+    font-size: 18px;
+    font-weight: bold;
+    font-display: block;
+    display: inline;
+}
+
+    .RentalPhotos-Create-BackToListButton:hover, .RentalPhotos-Edit-BackToListButton:hover {
+        border: var(--main-color);
+        font-weight: bolder;
+        border-style: solid;
+        color: var(--light-color);
+    }
+
+.RentalPhotos-Create-BackgroundContainer {
+    background-color: var(--main-color);
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0 3.5px var(--main-color);
+}
+
+.RentalPhotos-Edit-BackgroundContainer {
+    background-color: var(--secondary-color--dark);
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0 1.5px white;
+}
+
+.RentalPhotos-Create-form-horizontal-container {
+    background-color: var(--secondary-color--dark);
+    width: 63%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    box-shadow: 0 0 0 3.5px var(--main-color);
+    border-radius: 5px 5px 5px 5px;
+}
+
+.RentalPhotos-Edit-form-horizontal-container {
+    background-color: black;
+    width: 63%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    box-shadow: 0 0 0 2px white;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.RentalPhotos-Create-form-horizontal {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: var(--main-color--light);
+    padding-bottom: 1px;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3.5px 3.5px 3.5px black;
+}
+
+.RentalPhotos-Edit-form-horizontal {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: var(--secondary-color--dark);
+    padding-bottom: 1px;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px white;
+}
+
+.RentalPhotos-Create-checkbox, .RentalPhotos-Edit-checkbox {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 5px;
+}
+
+.RentalPhotos-Create-Header, .RentalPhotos-Edit-Header {
+    margin-top: 50px;
+    text-align: center;
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 1px white;
+    font-style: italic;
+    padding-bottom: 3%;
+}
+
+.RentalPhotos-Create-ButtonsCenter, .RentalPhotos-Edit-ButtonsCenter {
+    display: inline;
+}
+
+.RentalPhotos-Create-FeildAlign, .RentalPhotos-Edit-FeildAlign {
+    width: 27vw;
+    margin: 0 auto;
+    padding-left: 15px;
+}
+
+.RentalPhotos-Create-FeildBorder:focus, .RentalPhotos-Edit-FeildBorder:focus {
+    border: var(--main-color);
+    border-style: solid;
+    background-color: var(--secondary-color);
+}
+
+.RentalPhotos-Create-FeildLabels, .RentalPhotos-Edit-FeildLabels {
+    color: black;
+    text-shadow: .2px .2px .2px white;
+    font-weight: bold;
+    text-shadow: .4px .4px .4px white;
+    position: center;
+}
+/*End of Rental Photos styling */

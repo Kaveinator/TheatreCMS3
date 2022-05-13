@@ -5,60 +5,64 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "RentalItems", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>RentalItem</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Item, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Item, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Item, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div class="form-horizontal cms-bg-light cms-text-main rounded mt-5 p-3 w-75 mx-auto">
+    <h2 class="text-center pb-2">Create Rental Item</h2>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "cms-text-main" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ItemDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PickupDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PickupDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PickupDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Item, "Item", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Item, new { htmlAttributes = new { @class = "form-control Rent-RentalItem--CreateEditInput", placeholder = "Item name" } })
+            @Html.ValidationMessageFor(model => model.Item, "", new { @class = "cms-text-main" })
         </div>
     </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ItemDescription, "Description", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control Rent-RentalItem--CreateEditInput", placeholder = "A short description of the item..." } })
+            @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "cms-text-main" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.PickupDate, "Pick Up Date", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PickupDate, new { htmlAttributes = new { @class = "form-control Rent-RentalItem--CreateEditInput", placeholder = "01/20/2022" } })
+            @Html.ValidationMessageFor(model => model.PickupDate, "", new { @class = "cms-text-main" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ReturnDate, "Return Date", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control Rent-RentalItem--CreateEditInput", placeholder = "01/23/2022" } })
+            @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "cms-text-main" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ItemPhoto, "Item Photo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="imageFile" />
+        </div>
+    </div>
+
+    <div class="form-group text-center pt-3">
+        <div class="">
+            <input type="submit" value="Create" class="Rent-RentalItem--createBtn" />
+            <input type="submit" value="Back to List" class="Rent-RentalItem--deleteBtn" onclick="location.href='@Url.Action("Index")'" />
+        </div>
+    </div>
+</div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

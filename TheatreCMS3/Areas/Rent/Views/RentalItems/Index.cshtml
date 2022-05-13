@@ -4,49 +4,42 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script>
+</head>
 
-<h2>Index</h2>
+<div class="mt-5">
+    <h2 class-="text-left">Rental Items</h2>
+    <div class="mt-2" style="width: 100%; height: 12px; background-color: var(--secondary-color)"</div>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Item)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PickupDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReturnDate)
-        </th>
-        <th></th>
-    </tr>
+<div class="Rent-RentalItem--Index cms-bg-dark text-center rounded row">
+    @foreach (var item in Model)
+    {
+        <div class="col-3 mt-3">
+            <div class="Rent-RentalItem--IndexContainer card">
+                <div class="Rent-RentalItem--ImgHover text-center">
+                    <button class="Rent-RentalItem--createBtn text-center mt-2" type="button" onclick="location.href='@Url.Action("Edit", "RentalItems", new {id = item.RentalItemId })'">
+                        <i class="fa-solid fa-pen-to-square"></i> Edit
+                    </button>
+                    <button class="Rent-RentalItem--deleteBtn text-center mt-2" type="button" onclick="location.href='@Url.Action("Delete", "RentalItems", new {id = item.RentalItemId })'">
+                        <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                </div>
+                <a href="@Url.Action("Details", "RentalItems", new { id = item.RentalItemId })">
+                    <article class="">
+                        <h2>@Html.DisplayFor(modelItem => item.Item)</h2>
+                    </article>
+                    <img src="@Url.Action("DisplayImage", "RentalItems", new { item.RentalItemId })" class="" alt="Rental Item Photo">
+                </a>
+            </div>
+        </div>
+    }
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Item)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PickupDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReturnDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalItemId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalItemId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalItemId })
-        </td>
-    </tr>
-}
+<div class="d-flex justify-content-center mt-4">
+    <input type="submit" value="Create New" class="Rent-RentalItem--createNewBtn w-50" onclick="location.href='@Url.Action("Create")'" />
+</div>
 
-</table>
+
+
