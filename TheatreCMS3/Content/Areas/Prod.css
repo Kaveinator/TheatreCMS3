@@ -65,7 +65,7 @@
 }
 
 .CastMembers-Index--CardDeck{
-    flex-flow:row wrap;
+   
 }
 
 .CastMembers-Index--EditDeleteContainer {
@@ -95,9 +95,7 @@
     background-color: var(--main-color);
     border: thin;
     border-color: var(--dark-color);
-    width: 100%;
-    display:flex;
-    resize:none;
+   
     
 }
 
@@ -110,6 +108,6 @@
     width: 100%;
 }
 
-CastMembers-Index--CardContainer
+
 
 
