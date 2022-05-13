@@ -64,9 +64,13 @@
     background: var(--secondary-color);
 }
 
+.CastMembers-Index--CardDeck{
+    flex-flow:row wrap;
+}
+
 .CastMembers-Index--EditDeleteContainer {
     /*visibility:hidden;*/
-    display:none;
+    display: none;
 }
 .CastMembers-Index--Card:hover .CastMembers-Index--EditDeleteContainer {
     /*visibility: visible;*/
@@ -79,6 +83,11 @@
     opacity: 0.8;
 }
 
+.CastMembers-Index--CastMemberPhoto {
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
+}
+
 
 
 .CastMembers-Index--Card {
@@ -86,16 +95,21 @@
     background-color: var(--main-color);
     border: thin;
     border-color: var(--dark-color);
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    display:flex;
+    resize:none;
+    
 }
 
 .CastMembers-Index--CardTitleName, .CastMembers-Index--CardTitleCharacter {
     background-color: var(--secondary-color);
     color: black;
     text-align: center;
-    border-radius: 10px;
+    text-size-adjust: auto;
+    border-radius: 5px;
+    width: 100%;
 }
 
+CastMembers-Index--CardContainer
 
 
