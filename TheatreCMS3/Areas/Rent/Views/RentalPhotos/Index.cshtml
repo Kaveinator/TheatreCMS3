@@ -35,8 +35,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.Damaged)
         </td>
-        <td>
-             <img src="@ViewBag.ImageData"/> <!--browser knows src attribute contains image data-->
+        <td>                          
+            <img style = "max-width:50px;max-height:50px"src="data:image;base64,@System.Convert.ToBase64String(item.RentalsPhoto)" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Details)
