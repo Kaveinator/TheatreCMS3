@@ -17,9 +17,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/RentalItems
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.RentalItems.ToList());
+
+            return View(db.RentalItems.Where(x => x.Item.Contains(searchString) || x.ItemDescription.Contains(searchString) || searchString == null).ToList());
         }
 
         // GET: Rent/RentalItems/Details/5

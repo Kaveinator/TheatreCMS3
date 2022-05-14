@@ -3,82 +3,70 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var GroupByProduction = Model.GroupBy(model => model.ProductionTitle);
 }
 
 <h2>Index</h2>
 
-<p>
+<div class=" btn CastMembers-CreateEdit--CreateBtn">
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Character)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </th>
-        <th></th>
-    </tr>
+</div>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.YearJoined)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MainRole)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Bio)
-    </td>
-    <td>
-        @*@Html.DisplayFor(modelItem => item.Photo)*@
-        <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.Photo)" />)
 
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CurrentMember)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Character)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CastYearLeft)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DebutYear)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.CastMemberId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
-    </td>
-</tr>
-}
 
-</table>
+
+
+
+
+    @foreach (var group in GroupByProduction)
+    {
+
+        <h2 class="CastMembers-Index--ProductionTitleHeader">@group.Key</h2>
+
+        <hr style="height:12px;background-color:white;">
+
+        <div class="card-deck CastMembers-Index--CardDeck">
+            @foreach (var castMember in group)
+            {
+
+                string text = "";
+                if (castMember.Photo != null)
+                {
+                    text = @Convert.ToBase64String(castMember.Photo);
+                }
+            <div class="col-3 mt-3">
+                <div class="card CastMembers-Index--Card">
+
+                    <div class="card-body CastMembers-Index--Cardbody">
+                        <h4 class="card-header CastMembers-Index--CardTitleName">@Html.DisplayFor(modelItem => castMember.Name)</h4>
+                        <a href="@Url.Action("Details", new { id = castMember.CastMemberId })">
+                            <img src="data:image/jpeg;base64,@text" class=" card-img-top img-fluid CastMembers-Index--CastMemberPhoto" alt="..." style="width:30em; height:10em;">
+                        </a>
+                        <h4 class="card-title CastMembers-Index--CardTitleCharacter">@Html.DisplayFor(modelItem => castMember.Character)</h4>
+
+                        <div class="card-img-overlay CastMembers-Index--EditDeleteContainer ">
+                            <i href="#"> @Html.ActionLink("Edit", "Edit", new { id = castMember.CastMemberId }, new { @class = "fas fa-edit CastMember-Index--EditDeleteIcons" })</i>
+                            <i href="#"> @Html.ActionLink(" Delete", "Delete", new { id = castMember.CastMemberId }, new { @class = "fa fa-trash CastMember-Index--EditDeleteIcons" })</i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+                    
+               
+            }
+
+        </div>
+
+
+
+    }
+
+
+
+
+
+
+
