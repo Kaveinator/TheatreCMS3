@@ -53,16 +53,22 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
-                //converting Image to byte[] for proper storage to Db               
-                using (var binaryReader = new BinaryReader(UserImageFile.InputStream))
-                {                   
-                    rentalPhoto.RentalsPhoto = binaryReader.ReadBytes(UserImageFile.ContentLength);                   
-                }              
-                db.RentalPhotoes.Add(rentalPhoto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (UserImageFile != null)
+                {
+                    //converting Image to byte[] for proper storage to Db               
+                    using (var binaryReader = new BinaryReader(UserImageFile.InputStream))
+                    {
+                        rentalPhoto.RentalsPhoto = binaryReader.ReadBytes(UserImageFile.ContentLength);
+                    }
+                    db.RentalPhotoes.Add(rentalPhoto);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
             }
-
             return View(rentalPhoto);
         }
 
