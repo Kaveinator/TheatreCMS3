@@ -33,7 +33,7 @@
           <div class="col-md-10">
             <div class="RentalPhotos-Edit-checkbox">
               @Html.EditorFor(model => model.Damaged)
-              @Html.ValidationMessageFor(model => model.Damaged, "", new { @class = "text-danger" })
+              @Html.ValidationMessageFor(model => model.Damaged, "Check if Damaged", new { @class = "text-secondary" })
             </div>
           </div>
         </div>

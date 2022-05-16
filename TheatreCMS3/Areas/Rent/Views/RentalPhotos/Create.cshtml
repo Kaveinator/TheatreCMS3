@@ -28,9 +28,9 @@
         <div class="form-group RentalPhotos-Create-FeildAlign">
           @Html.LabelFor(model => model.Damaged, htmlAttributes: new { @class = "control-label col-md-2  RentalPhotos-Create-FeildLabels" })
           <div class="col-md-10">
-            <div class="RentalPhotos-Create-checkbox">
+            <div class="RentalPhotos-Create-checkbox ">
               @Html.EditorFor(model => model.Damaged, "", new { @class = "RentalPhotos-Create-FeildBorder", placeholder = "Check the box if rental is damaged." })
-              @Html.ValidationMessageFor(model => model.Damaged, "", new { @class = "text-danger" })
+              @Html.ValidationMessageFor(model => model.Damaged, "Check If Damaged", new { @class = "text-secondary" })
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="form-group RentalPhotos-Create-FeildAlign">
           @Html.LabelFor(model => model.RentalsPhoto, htmlAttributes: new { @class = "control-label col-md-2  RentalPhotos-Create-FeildLabels" })
           <div class="col-md-10">
-            <input class="form-control RentalPhotos-Create-FeildBorder" ,placeholder="Add the rental photo here." />
+            <input class ="form-control" type="file" name="UserImageFile"/>
           </div>
         </div>
 

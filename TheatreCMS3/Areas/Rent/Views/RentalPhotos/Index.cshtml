@@ -11,7 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    <tr> 
         <th>
             @Html.DisplayNameFor(model => model.RentalsName)
         </th>
@@ -36,7 +36,19 @@
             @Html.DisplayFor(modelItem => item.Damaged)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RentalsPhoto)
+            @if (item.RentalsPhoto != null)
+            {
+                var base64 = Convert.ToBase64String(item.RentalsPhoto);
+                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                <img src='@imgsrc'
+                     style="max-width:100px;max-height:100px" />
+            }
+            else
+            {
+                <img src="~/img/avatar-default.jpg"
+                     style="max-width:100px;max-height:100px" />
+            }
+            @*<img style="max-width:50px;max-height:50px;" src="data:image;base64,@System.Convert.ToBase64String(item.RentalsPhoto)" />*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Details)

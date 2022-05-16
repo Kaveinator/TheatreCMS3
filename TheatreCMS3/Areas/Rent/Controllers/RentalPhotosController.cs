@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,7 +18,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         // GET: Rent/RentalPhotos
         public ActionResult Index()
-        {
+        {                      
             return View(db.RentalPhotoes.ToList());
         }
 
@@ -39,6 +40,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalPhotos/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -47,15 +49,26 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalsPhoto,Details")] RentalPhoto rentalPhoto)
+        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalsPhoto,Details")] RentalPhoto rentalPhoto, HttpPostedFileBase UserImageFile)
         {
             if (ModelState.IsValid)
             {
-                db.RentalPhotoes.Add(rentalPhoto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (UserImageFile != null)
+                {
+                    //converting Image to byte[] for proper storage to Db               
+                    using (var binaryReader = new BinaryReader(UserImageFile.InputStream))
+                    {
+                        rentalPhoto.RentalsPhoto = binaryReader.ReadBytes(UserImageFile.ContentLength);
+                    }
+                    db.RentalPhotoes.Add(rentalPhoto);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
             }
-
             return View(rentalPhoto);
         }
 
@@ -126,3 +139,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
