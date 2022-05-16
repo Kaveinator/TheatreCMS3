@@ -34,7 +34,7 @@
                 }
             </div>
         </div>
-        <p class="text-left h2 row ml-3">Item Description</p>
+        <p class="text-left h2 row ml-3" style="color: var(--light-color);">Item Description</p>
         <div class=" cms-bg-light rounded Rent-RentalItem--Index mb-2 ml-3 mr-3 justify-content-center" style="border: 3px solid var(--dark-color); font-size: 18px;">
             <p>@Html.DisplayFor(model => model.ItemDescription)</p>
         </div>
@@ -57,10 +57,10 @@
         </div>
     </div>
 
-    <button class="Rent-RentalItem--deleteBtn text-center mt-3" type="button" onclick="location.href='@Url.Action("Index")'">
+    <button class="Rent-RentalItem--btnFour text-center mt-3" type="button" onclick="location.href='@Url.Action("Index")'">
         <i class="fa-solid fa-backward"></i> Back to List
     </button>
-    <button class="Rent-RentalItem--createBtn text-center mt-3" type="button" onclick="location.href='@Url.Action("Edit", "RentalItems", new {id = Model.RentalItemId })'">
+    <button class="Rent-RentalItem--btnOne text-center mt-3" type="button" onclick="location.href='@Url.Action("Edit", "RentalItems", new {id = Model.RentalItemId })'">
         <i class="fa-solid fa-pen-to-square"></i> Edit
     </button>
 
