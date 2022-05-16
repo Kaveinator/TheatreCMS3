@@ -19,7 +19,7 @@
     box-shadow: 0 0 0 0.2rem rgba(219, 26, 17, 0.25) !important;
 }
 
-.Rent-RentalItem--createBtn {
+.Rent-RentalItem--btnOne {
     background-color: var(--main-color--light);
     color: var(--dark-color);
     padding: 5px 20px;
@@ -29,14 +29,14 @@
     border-radius: 8px;
 }
 
-.Rent-RentalItem--createBtn:hover {
+.Rent-RentalItem--btnOne:hover {
     background-color: var(--main-color--light);
     color: var(--light-color);
     border: 2px solid var(--light-color);
     transition-duration: 0.2s;
 }
 
-.Rent-RentalItem--deleteBtn {
+.Rent-RentalItem--btnTwo {
     background-color: var(--dark-color);
     color: var(--light-color);
     padding: 5px 20px;
@@ -47,14 +47,14 @@
     transition-duration: 0.2s;
 }
 
-.Rent-RentalItem--deleteBtn:hover {
+.Rent-RentalItem--btnTwo:hover {
     opacity: 1;
     background-color: var(--dark-color);
     border: 2px solid var(--main-color--light);
     color: var(--main-color--light);
 }
 
-.Rent-RentalItem--createNewBtn {
+.Rent-RentalItem--btnThree {
     background-color: var(--secondary-color);
     color: var(--dark-color);
     padding: 5px 20px;
@@ -64,10 +64,29 @@
     border-radius: 8px;
 }
 
-.Rent-RentalItem--createNewBtn:hover {
+.Rent-RentalItem--btnThree:hover {
     background-color: var(--secondary-color--dark);
     border: 2px solid var(--light-color);
     color: var(--light-color);
+}
+
+.Rent-RentalItem--btnFour {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+    border: 2px solid var(--light-color);
+}
+
+.Rent-RentalItem--btnFour:hover {
+    opacity: 1;
+    background-color: var(--dark-color);
+    border: 2px solid var(--main-color--light);
+    color: var(--main-color--light);
 }
 
 .Rent-RentalItem--IndexContainer {
