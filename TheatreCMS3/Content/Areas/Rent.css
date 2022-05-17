@@ -236,7 +236,7 @@
     display: inline;
 }
 
-    .RentalPhotos-Create-SubmitButton:hover, .RentalPhotos-Edit-SubmitButton:hover {
+    .RentalPhotos-Create-SubmitButton:hover, .RentalPhotos-Edit-SubmitButton:hover, .RentalPhotos-Index-CreateNewButton:hover {
         border: var(--secondary-color);
         font-weight: bolder;
         border-style: solid;
@@ -352,7 +352,6 @@
     border-style: solid;
     background-color: var(--secondary-color);
 }
-
 .RentalPhotos-Create-FeildLabels, .RentalPhotos-Edit-FeildLabels {
     color: black;
     text-shadow: .2px .2px .2px white;
@@ -360,4 +359,130 @@
     text-shadow: .4px .4px .4px white;
     position: center;
 }
+.RentalPhotos-Index-cardImage {
+    max-height: auto;
+    min-width: auto;
+    filter: grayscale(23%);
+    z-index: 1;
+    color: white;    
+}
+    .RentalPhotos-Index-cardImage:hover {
+        max-height: auto;
+        min-width: auto;
+        filter: grayscale(1%);
+        z-index: -1;
+    }
+.RentalPhotos-Index-cardContainerBackground {
+    padding-top: 10px;
+    padding-left: 10px;
+    width: auto;
+    height: auto;
+    border-radius: 1px 1px 1px 1px;
+}
+.RentalPhotos-Index-Card {
+    background-color: var(--light-color);
+    border-radius: 1px 1px 1px 1px;
+    box-shadow: 2px 2px 2px 2px var(--secondary-color);
+    background-color: var(--dark-color);
+    filter: grayscale(50%);
+}
+    .RentalPhotos-Index-Card:hover {
+        background-color: var(--light-color);
+        border-radius: 1px 1px 1px 1px;
+        box-shadow: 2px 2px 2px 2px var(--secondary-color);
+        background-color: var(--dark-color);
+        filter: grayscale(5%);
+    }
+.RentalPhotos-Index-CreateNewButton {
+    box-shadow: 0 0 0 2px var(--secondary-color);
+    background-color: var(--dark-color);
+    position:fixed;
+    z-index:2;
+    margin-top: 5px;
+    margin-bottom:5vh;
+    margin-left: 39.7vw;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: fit-content;
+    height: 40px;
+    align-content: flex-end;
+    color: var(--secondary-color);
+    font-size: 19px;
+    font-weight: bold;
+    display: inline;
+}
+    .RentalPhotos-Index-CreateNewButton:hover {
+        box-shadow: 0 0 0 2px var(--light-color);
+        border: var(--light-color);
+        font-weight: bolder;
+        border-style: solid;
+        color: var(--secondary-color-dark);
+        text-shadow: 0 0 0 2px var(--light-color);
+    }
+.RentalPhotos-Index-HeaderInline {
+    display: inline;
+    text-shadow: 0 0 0 4px var(--secondary-color);
+    padding-top: 25px;
+    color: var(--secondary-color);
+    font-family: Calibri;
+    font-size: 37px;
+}
+
+.RentalPhotos-Index-icon1 {
+    position: -webkit-sticky;
+    display: inline-block;
+    z-index: -1;
+    color: white;
+}
+
+.RentalPhotos-Index-icon1wrapper {
+    display: inline-block;
+    position: -webkit-sticky;
+    border: none;
+    background: none;
+    color: white;
+}
+
+    .RentalPhotos-Index-icon1wrapper:hover {
+        background-color: white;
+        display: inline-block;
+        position: -webkit-sticky;
+        border: none;
+        background: none;
+        z-index: 2;
+    }
+
+.RentalPhotos-Index-icon2 {
+    position: -webkit-sticky;
+    display: inline-block;
+    color: white;
+    z-index: -1;
+}
+
+.RentalPhotos-Index-CardImgOverlay {
+    background-color: transparent;
+}
+
+    .RentalPhotos-Index-CardImgOverlay:hover {
+        color: white;
+        display: inline-block;
+        z-index: 1;
+    }
+
+.RentalPhotos-Index-icon1:hover {
+    color: var(--secondary-color);
+    display: inline-block;
+}
+
+.RentalPhotos-Index-icon2:hover {
+    color: var(--main-color);
+    display: inline-block;
+    padding-bottom: 80vw;
+}
+
+.Rental-Photos-Index-cardText {
+    text-align: center;
+    color: var(--secondary-color);
+}
+
 /*End of Rental Photos styling */
