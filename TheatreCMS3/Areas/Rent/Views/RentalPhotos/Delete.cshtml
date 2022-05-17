@@ -5,53 +5,81 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2 class="RentalPhotos-Delete-Center">Delete</h2>
+<div class="RentalPhotos-Delete-OUTBackgroundContainer">
+    <h3 class="RentalPhotos-Delete-Center">Are you sure you want to delete this</h3>
+    <div class="RentalPhotos-Delete-BackgroundContainer">
+        <h4 class="RentalPhotos-Delete-Center">RentalPhoto?</h4>
+        <hr />
+        <dl class="RentalPhotos-Delete-InBackgroundContainer ">
+            <dt class="RentalPhotos-Delete-InBackgroundContainerFeilds">
+                @Html.DisplayNameFor(model => model.RentalsPhoto)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>RentalPhoto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RentalsName)
-        </dt>
+            <dd class="RentalPhotos-Delete-InBackgroundContainerFeilds">
 
-        <dd>
-            @Html.DisplayFor(model => model.RentalsName)
-        </dd>
+                @if (Model.RentalsPhoto != null)
+                {
+                    var base64 = Convert.ToBase64String(Model.RentalsPhoto);
+                    var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                    <img class="RentalPhotos-Delete-cardImage" src='@imgsrc' />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Damaged)
-        </dt>
+                }
+                else
+                {
+                    <img class="RentalPhotos-Delete-cardImage" src="~/img/avatar-default.jpg" />
+                }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RentalsName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Damaged)
-        </dd>
+            <dd class="RentalPhotos-Delete-InBackgroundContainerFeilds">
+                @Html.DisplayFor(model => model.RentalsName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Details)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RentalsPhoto)
-        </dt>
+            <dd class="RentalPhotos-Delete-InBackgroundContainerFeilds">
+                @Html.DisplayFor(model => model.Details)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Damaged)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.RentalsPhoto)
-        </dd>
+            <dd class="RentalPhotos-Delete-InBackgroundContainerFeilds">
+                @Html.DisplayFor(model => model.Damaged)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Details)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Details)
-        </dd>
 
-    </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <span>
+        <button class="RentalPhotos-Delete-icon1wrapper">
+            <i>
+                @Html.ActionLink(" ", "Index", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "fas fa-arrow-left h2 RentalPhotos-Delete-icon1" })
+            </i>
+        </button>
+        <button class="RentalPhotos-Delete-icon1wrapper" value="Edit">
+            <i>
+                @Html.ActionLink(" ", "Edit", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "fas fa-edit h2 fa-pen-square RentalPhotos-Delete-icon2" })
+            </i>
+        </button>
+        <button class="RentalPhotos-Delete-icon1wrapper">
+            <i>
+                @Html.ActionLink(" ", "Delete", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "fas fa-trash h2 RentalPhotos-Delete-icon3" })
+            </i>
+        </button>
+
+    </span>
+        }
+    </div>
 </div>

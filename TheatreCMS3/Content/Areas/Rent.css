@@ -444,8 +444,7 @@
 }
 
     .RentalPhotos-Index-icon1wrapper:hover {
-        background-color: white;
-        display: inline-block;
+        background-color: white;       
         position: -webkit-sticky;
         border: none;
         background: none;
@@ -454,7 +453,6 @@
 
 .RentalPhotos-Index-icon2 {
     position: -webkit-sticky;
-    display: inline-block;
     color: white;
     z-index: -1;
 }
@@ -470,19 +468,136 @@
     }
 
 .RentalPhotos-Index-icon1:hover {
-    color: var(--secondary-color);
-    display: inline-block;
+    color: var(--secondary-color);    
 }
 
 .RentalPhotos-Index-icon2:hover {
-    color: var(--main-color);
-    display: inline-block;
-    padding-bottom: 80vw;
+    color: var(--main-color);    
 }
 
 .Rental-Photos-Index-cardText {
     text-align: center;
     color: var(--secondary-color);
+}
+.RentalPhotos-Delete-BackgroundContainer {
+    background-color: var(--main-color);
+    width: 100%;
+    height: 100%;
+    color: black;
+    position: center;
+    text-shadow: 1px 1px 1px white;
+    font-size: 25px;
+    z-index:4;
+}
+
+.RentalPhotos-Delete-InBackgroundContainer {
+    width: auto;
+    height: 75%;
+    box-shadow: 3.5px var(--main-color);
+    text-align: center;
+    color: var(--light-color);
+    font-style: italic;
+    position: center;
+    text-shadow: 3px 3px 3px black;
+    z-index:3;
+}
+
+.RentalPhotos-Delete-OUTBackgroundContainer {
+    margin-top: 20px;
+    background-color: var(--main-color--light);
+    width: 100%;
+    height: 100%;
+    box-shadow: 3.5px 3.5px 3.5px 3.5px var(--dark-color);
+    position: center;
+    border-radius: 5px 5px 5px 5px;
+    text-shadow: 1px 1px 1px white;
+    z-index: 2;
+}
+
+.RentalPhotos-Delete-Center {
+    text-align: center;
+    color: black;
+    font-size: 35px;
+}
+
+.RentalPhotos-Delete-InBackgroundContainer dt {
+    background-color: var(--dark-color);
+    
+}
+
+.RentalPhotos-Delete-InBackgroundContainerFeilds {
+    background-color: var(--main-color--light);
+    border-radius: 5px 5px 5px 5px;
+}
+
+.RentalPhotos-Delete-cardImage {
+    max-height: 40vw;
+    min-width: 20vw;
+}
+.RentalPhotos-Delete-icon1, .RentalPhotos-Details-icon1 {
+    position: -webkit-sticky;
+    display: inline-block;
+    color: rgb(93, 123, 244);
+    z-index: -1;
+}
+    .RentalPhotos-Delete-icon1:hover, .RentalPhotos-Details-icon1:hover {
+        position: -webkit-sticky;
+        display: inline-block;
+        color: var(--dark-color);
+        z-index: -1;
+        text-shadow: 0 0 0 3px white;
+    }
+
+.RentalPhotos-Delete-icon3 {
+    position: -webkit-sticky;
+    display: inline-block;
+    color: white;
+    z-index: 1;
+}
+    .RentalPhotos-Delete-icon3:hover {
+        position: -webkit-sticky;
+        display: inline-block;
+        color: var(--secondary-color--dark);
+        z-index: 1;
+        border:thick;
+    }
+.RentalPhotos-Delete-icon1wrapper, .RentalPhotos-Details-icon1wrapper {
+    display: inline-block;
+    position: -webkit-sticky;
+    border: none;
+    background: none;
+    color: white;
+    margin-inline: 25px;
+    margin-bottom: 8px;
+}
+
+    .RentalPhotos-Delete-icon1wrapper:hover, .RentalPhotos-Details-icon1wrapper:hover {
+        background-color: white;
+        position: -webkit-sticky;
+        border: none;
+        background: none;
+        z-index: 2;
+    }
+.RentalPhotos-Delete-icon2, .RentalPhotos-Details-icon2 {
+    position: -webkit-sticky;
+    display: inline-block;
+    color: var(--secondary-color);
+    z-index: -1;
+}
+    .RentalPhotos-Delete-icon2:hover, .RentalPhotos-Details-icon2:hover {
+        color: var(--light-color);
+        display: inline-block;
+    }
+.RentalPhotos-Details-BackgroundOutContainer {
+    margin-top: 20px;
+    background-color: var(--main-color--light);
+    width: 100%;
+    height: 100%;
+    box-shadow: 3.5px 3.5px 3.5px 3.5px var(--dark-color);
+    position: center;
+    border-radius: 5px 5px 5px 5px;
+    text-shadow: 1px 1px 1px white;
+    z-index: 2;
 }
 
 /*End of Rental Photos styling */

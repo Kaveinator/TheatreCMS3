@@ -92,10 +92,22 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalsPhoto,Details")] RentalPhoto rentalPhoto)
+        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalsPhoto,Details")] RentalPhoto rentalPhoto, HttpPostedFileBase UserImageFile)
         {
             if (ModelState.IsValid)
             {
+                if (UserImageFile != null)
+                {
+                    //converting Image to byte[] for proper storage to Db               
+                    using (var binaryReader = new BinaryReader(UserImageFile.InputStream))
+                    {
+                        rentalPhoto.RentalsPhoto = binaryReader.ReadBytes(UserImageFile.ContentLength);
+                    }
+                    db.RentalPhotoes.Add(rentalPhoto);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                
                 db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
