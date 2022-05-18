@@ -531,7 +531,7 @@
 }
 
 .RentalPhotos-Delete-cardImage {
-    max-height: 40vw;
+    max-height: 40vh;
     min-width: 20vw;
 }
 .RentalPhotos-Delete-icon1, .RentalPhotos-Details-icon1 {
@@ -583,6 +583,7 @@
     display: inline-block;
     color: var(--secondary-color);
     z-index: -1;
+    
 }
     .RentalPhotos-Delete-icon2:hover, .RentalPhotos-Details-icon2:hover {
         color: var(--light-color);
@@ -590,14 +591,74 @@
     }
 .RentalPhotos-Details-BackgroundOutContainer {
     margin-top: 20px;
-    background-color: var(--main-color--light);
+    background-color: var(--secondary-color--dark);
     width: 100%;
     height: 100%;
-    box-shadow: 3.5px 3.5px 3.5px 3.5px var(--dark-color);
+    box-shadow: 0 0 0 .5px white;
     position: center;
-    border-radius: 5px 5px 5px 5px;
-    text-shadow: 1px 1px 1px white;
+    border-radius: 2px 2px 2px 2px;
+   
     z-index: 2;
+    text-align: center;
 }
 
-/*End of Rental Photos styling */
+.RentalPhotos-Details-InBackgroundContainer {
+    border-radius: 5px 5px 5px 5px;
+}
+    .RentalPhotos-Details-InBackgroundContainer dd {
+        background-color: var(--secondary-color--dark);
+        color: black;
+        padding: 5px 5px 5px 5px;
+        border-radius: 2px 2px 2px 2px;
+        
+        font-weight:bold;
+    }
+    .RentalPhotos-Details-InBackgroundContainer dt {
+        background-color: var(--dark-color);
+        
+        color: var(--light-color);
+        font-style: italic;
+        
+    }
+.RentalPhotos-Details-Center {
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    padding-bottom: 5px;
+    
+}
+.RentalPhotos-Details-Center1 {
+    text-align: center;
+    background-color: var(--dark-color);
+    color: white;
+    font-size: 15px;
+    font-style: italic;
+    display:inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top:10px;
+    border-radius: 10px 5px 5px 5px;
+    box-shadow: 0 0 0 .5px white;
+}
+.RentalPhotos-Details-icon1:hover {
+    position: -webkit-sticky;
+    display: inline-block;
+    color: var(--light-color);
+    z-index: -1;
+    text-shadow: 0 0 0 3px white;
+}
+.RentalPhotos-Details-cardImage {
+    max-height: 40vh;
+    min-width: 20vw;
+    padding-bottom: 5px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 3.5px 3.5px 3.5px var(--dark-color);
+}
+.RentalPhotos-Details-icon1 {
+    position: -webkit-sticky;
+    display: inline-block;
+    color: var(--main-color);
+    z-index: -1;
+}
+
+    /*End of Rental Photos styling */
