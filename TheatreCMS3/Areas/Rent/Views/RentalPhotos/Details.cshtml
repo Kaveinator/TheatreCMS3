@@ -20,16 +20,7 @@
                 Html.ActionLink("Click for details", "Details", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "" });
                 <img class="RentalPhotos-Details-cardImage" src="@imgsrc" />
             }
-        </dd>
-        <dt>
-            <input class="RentalPhotos-Details-Center1" type="file" name="UserImageFile" />
-            <i class= "fas fa-arrow-left font-italic text-white">
-                Replacement image?
-            </i>
-
-        </dt>
-            
-        
+        </dd>         
         <dt>
             @Html.LabelFor(model => model.RentalsName, htmlAttributes: new { @class = "" })
         </dt>
@@ -63,12 +54,5 @@
         <i>
             @Html.ActionLink(" Edit", "Edit", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "fas fa-edit h4 fa-pen-square RentalPhotos-Details-icon2" })
         </i>
-    </button>
-    <button class="RentalPhotos-Details-icon1wrapper" value="Edit">
-        <i>
-            @Html.ActionLink(" Submit", "", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "fas fa-edit h4 fa-pen-square RentalPhotos-Details-icon2" })
-        </i>
-    </button>
-
-
+    </button>  
 </span>
