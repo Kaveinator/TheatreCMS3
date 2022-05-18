@@ -660,5 +660,10 @@
     color: var(--main-color);
     z-index: -1;
 }
-
+.RentalPhotos-Details-icon2 {
+    position: -webkit-sticky;
+    display: inline-block;
+    color: var(--secondary-color-dark);
+    z-index: -1;
+}
     /*End of Rental Photos styling */
