@@ -5,20 +5,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="white-text text-center">Details</h2>
 
-<div>
-    <h4>RentalPhoto</h4>
+<div class="RentalPhotos-Details-BackgroundOutContainer">
+    <h4 class="card-text h-100  text-center">RentalPhoto</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RentalsName)
-        </dt>
+    <dl class="RentalPhotos-Details-InBackgroundContainer ">
 
+        <dd>
+            @if (Model.RentalsPhoto != null)
+            {
+                var base64 = Convert.ToBase64String(Model.RentalsPhoto);
+                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                Html.ActionLink("Click for details", "Details", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "" });
+                <img class="RentalPhotos-Details-cardImage" src="@imgsrc" />
+            }
+        </dd>         
+        <dt>
+            @Html.LabelFor(model => model.RentalsName, htmlAttributes: new { @class = "" })
+        </dt>
         <dd>
             @Html.DisplayFor(model => model.RentalsName)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Damaged)
         </dt>
@@ -26,15 +34,6 @@
         <dd>
             @Html.DisplayFor(model => model.Damaged)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RentalsPhoto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RentalsPhoto)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Details)
         </dt>
@@ -45,7 +44,15 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RentalPhotoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<span>
+    <button class="RentalPhotos-Details-icon1wrapper">
+        <i>
+            @Html.ActionLink(" Back to List", "Index", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "fas fa-arrow-left h4 RentalPhotos-Details-icon1" })
+        </i>
+    </button>
+    <button class="RentalPhotos-Details-icon1wrapper" value="Edit">
+        <i>
+            @Html.ActionLink(" Edit", "Edit", new { Controller = "RentalPhotos", id = Model.RentalPhotoId }, new { @class = "fas fa-edit h4 fa-pen-square RentalPhotos-Details-icon2" })
+        </i>
+    </button>  
+</span>
