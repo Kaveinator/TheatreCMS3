@@ -398,8 +398,8 @@
     background-color: var(--dark-color);
     position:fixed;
     z-index:2;
-    margin-top: 5px;
-    margin-bottom:5vh;
+    margin-top:19px;
+    margin-bottom:4vh;
     margin-left: 39.7vw;
     padding-left: 4%;
     padding-right: 4%;
@@ -428,7 +428,7 @@
     font-size: 37px;
 }
 
-.RentalPhotos-Index-icon1 {
+.RentalPhotos-Index-icon1, .RentalPhotos-Index-icon3 {
     position: -webkit-sticky;
     display: inline-block;
     z-index: -1;
@@ -474,11 +474,43 @@
 .RentalPhotos-Index-icon2:hover {
     color: var(--main-color);    
 }
-
+.RentalPhotos-Index-icon3:hover {
+    color: blue;
+}
 .Rental-Photos-Index-cardText {
     text-align: center;
     color: var(--secondary-color);
 }
+.RentalPhotos-Index-searchbar {
+    background-color: var(--dark-color);
+    border-color: var(--secondary-color);
+    border-radius: 1px 1px 1px 1px;
+    box-shadow: 0 0 0 2px var(--secondary-color);
+    background-color: var(--dark-color);
+    margin-bottom: 20px;
+}
+    .RentalPhotos-Index-searchbar:hover {
+        box-shadow: 0 0 0 2px var(--light-color);
+        border-color: var(--secondary-color);
+        border: var(--light-color);
+        font-weight: bolder;
+        color: var(--secondary-color-dark);
+        text-shadow: 0 0 0 2px var(--light-color);
+    }
+.RentalPhotos-Index-SearchBtn 
+{
+    
+    background-color: var(--dark-color);
+    position: fixed;
+    z-index: 2;
+    width: fit-content;
+    height: 40px;
+    align-content: flex-end;    
+    font-size: 19px;
+    font-weight: bold;
+    display: inline;
+}
+
 .RentalPhotos-Delete-BackgroundContainer {
     background-color: var(--main-color);
     width: 100%;
@@ -487,7 +519,7 @@
     position: center;
     text-shadow: 1px 1px 1px white;
     font-size: 25px;
-    z-index:4;
+    z-index: 4;
 }
 
 .RentalPhotos-Delete-InBackgroundContainer {

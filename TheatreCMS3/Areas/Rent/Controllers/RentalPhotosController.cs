@@ -18,25 +18,29 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         // GET: Rent/RentalPhotos
         public ActionResult Index(string searchString)
-        {
-            //var rentalSearchItemName = rentalPhoto.RentalsName.ToLower();
-            //var rentalSearchItemDetails = rentalPhoto.Details.ToLower();
-            var results = from x in db.RentalPhotoes select x;
+        {            
+            var resultsName = from x in db.RentalPhotoes select x;
+            var resultsDetails = from y in db.RentalPhotoes select y;
             ViewBag.ShowList = false;
             if (!String.IsNullOrEmpty(searchString))
             {
                 ViewBag.ShowList = true;
-                results = results.Where(x => x.RentalsName.ToUpper().Contains(searchString.ToUpper()));
-                //if(rentalPhoto.RentalsName.ToLower() == searchString.ToLower() || rentalPhoto.Details.ToLower() == searchString.ToLower())
-            }
+                resultsName = resultsName.Where(x => x.RentalsName.ToUpper().Contains(searchString.ToUpper()));
+                resultsDetails = resultsDetails.Where(y => y.Details.Contains(searchString.ToUpper()));
+                if (resultsDetails.Any() == true) //does resultsDetails have any elements
                 {
-
-                    return View(results);
+                    return View(resultsDetails);
+                }
+                else
+                {
+                    return View(resultsName);
                 }
             }
-
-
-        
+            else
+            {
+                return View();
+            }
+        }
 
         // GET: Rent/RentalPhotos/Details/5
         public ActionResult Details(int? id)
@@ -112,7 +116,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
