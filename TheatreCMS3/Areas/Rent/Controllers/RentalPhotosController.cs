@@ -38,7 +38,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             else
             {
-                return View();
+                ViewBag.ShowList = true;
+                return View(db.RentalPhotoes.ToList());
             }
         }
 
