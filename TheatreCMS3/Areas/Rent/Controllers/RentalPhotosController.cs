@@ -17,9 +17,30 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/RentalPhotos
-        public ActionResult Index()
-        {                      
-            return View(db.RentalPhotoes.ToList());
+        public ActionResult Index(string searchString)
+        {            
+            var resultsName = from x in db.RentalPhotoes select x;
+            var resultsDetails = from y in db.RentalPhotoes select y;
+            ViewBag.ShowList = false;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                ViewBag.ShowList = true;
+                resultsName = resultsName.Where(x => x.RentalsName.ToUpper().Contains(searchString.ToUpper()));
+                resultsDetails = resultsDetails.Where(y => y.Details.Contains(searchString.ToUpper()));
+                if (resultsDetails.Any() == true) //does resultsDetails have any elements
+                {
+                    return View(resultsDetails);
+                }
+                else
+                {
+                    return View(resultsName);
+                }
+            }
+            else
+            {
+                ViewBag.ShowList = true;
+                return View(db.RentalPhotoes.ToList());
+            }
         }
 
         // GET: Rent/RentalPhotos/Details/5
@@ -62,7 +83,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     }
                     db.RentalPhotoes.Add(rentalPhoto);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Create");
                 }
                 else
                 {
@@ -96,7 +117,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

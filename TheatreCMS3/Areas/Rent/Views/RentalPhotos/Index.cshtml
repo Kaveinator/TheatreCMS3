@@ -1,6 +1,4 @@
-﻿Index
-
-
+﻿
 @model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalPhoto>
 
 @{
@@ -10,81 +8,94 @@
 <div>
     <h2 class="card-text RentalPhotos-Index-HeaderInline">Index</h2>
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn-btn RentalPhotos-Index-CreateNewButton" })
-
 </div>
 <div class="RentalPhotos-Index-cardContainerBackground">
-
-    <div class="row row-cols-4 row-cols-md-4 mr-0">
-        @foreach (var item in Model)
+    <div style="margin-top: 30px;" class="col-lg-offset-2 col-lg-8">
+        @using (Html.BeginForm())
         {
-            <div class="col mb-4">
-                <div class="card text-white h-100 w-100 RentalPhotos-Index-Card ">
-                    @if (item.RentalsPhoto != null)
-                    {
-                        var base64 = Convert.ToBase64String(item.RentalsPhoto);
-                        var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
-                        Html.ActionLink("Click for details", "Details", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "RentalPhotos-Index-cardImage" });
-                        <img class="RentalPhotos-Index-cardImage" src="@imgsrc" />
-
-                        <div class="card-body text-alert">
-                            <h5 class="card-header bg-transparent alert-light Rental-Photos-Index-cardText">Rental Id # @item.RentalPhotoId</h5>
-                            <p class="card-header card-text bg text-light Rental-Photos-Index-cardText">
-                                Rental Name: @item.RentalsName
-                            </p>
-                            <a>                               
-                             </a>
-                            <div class="card-img-overlay RentalPhotos-Index-CardImgOverlay">
-                                <span>
-                                    <button class="RentalPhotos-Index-icon1wrapper">
-                                        <i>
-                                            @Html.ActionLink(" ", "Details", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-info-circle h4 RentalPhotos-Index-icon1" })
-                                        </i>
-                                        </button>                                   
-                                    <button class="RentalPhotos-Index-icon1wrapper" value="Edit">
-                                        <i>
-                                            @Html.ActionLink(" ", "Edit", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-edit h4 fa-pen-square RentalPhotos-Index-icon1" })
-                                        </i>
-                                    </button>
-                                    <button class="RentalPhotos-Index-icon1wrapper">
-                                        <i>
-                                            @Html.ActionLink(" ", "Delete", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-backspace h4 RentalPhotos-Index-icon2" })
-                                        </i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <img class="card-img-top" src="~/img/avatar-default.jpg" alt="No image uploaded delete and try again" />
-                        <div class="card-body">
-                            <h5 class="card-header bg-transparent alert-light Rental-Photos-Index-cardText">Rental Id # @item.RentalPhotoId</h5>
-                            <p class="card-header card-text bg text-light Rental-Photos-Index-cardText">
-                                Rental Name:@item.RentalsName
-                            </p>
-                            <div class="card-img-overlay RentalPhotos-Index-CardImgOverlay">
-                                <span>
-                                    <button class="RentalPhotos-Index-icon1wrapper">
-                                        <i>
-                                            @Html.ActionLink(" ", "Details", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-info-circle h4 RentalPhotos-Index-icon1" })
-                                        </i>
-                                    </button>
-                                    <button class="RentalPhotos-Index-icon1wrapper" value="Edit">
-                                        <i>
-                                            @Html.ActionLink(" ", "Edit", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-edit h3 fa-pen-square RentalPhotos-Index-icon1" })"
-                                        </i>
-                                    </button>
-                                    <button class="RentalPhotos-Index-icon1wrapper">
-                                        <i>
-                                            @Html.ActionLink(" ", "Delete", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-backspace h3 RentalPhotos-Index-icon2" })
-                                        </i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    }
+            <div class="input-group RentalPhotos-Index-searchbar"> <!--searchString is parameter in Index method for use in lambda query-->
+                @Html.TextBox("searchString", null, new { @class = "form-control border-dark  bg-transparent text-white ", @style = "z-index: 10", @placeholder = "Enter Rental Name" })
+                <div class="input-group-btn">
+                    <button class="btn ccl-btn" type="submit"><i class="fa fa-search text-white "></i></button>
                 </div>
             </div>
         }
     </div>
-</div>
+    @if (ViewBag.ShowList)
+    {
+        <div class="row row-cols-4 row-cols-md-4 mr-0">
+            @foreach (var item in Model)
+            {
+                <div class="col mb-4">
+                    <div class="card text-white h-100 w-100 RentalPhotos-Index-Card ">
+                        @if (item.RentalsPhoto != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.RentalsPhoto);
+                            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                            Html.ActionLink("Click for details", "Details", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "RentalPhotos-Index-cardImage" });
+                            <img class="RentalPhotos-Index-cardImage" src="@imgsrc" />
+
+                            <div class="card-body text-alert">
+                                <h5 class="card-header bg-transparent alert-light Rental-Photos-Index-cardText">Rental Id # @item.RentalPhotoId</h5>
+                                <p class="card-header card-text bg text-light Rental-Photos-Index-cardText">
+                                    Rental Name: @item.RentalsName</p>
+                                    <p class="card-header card-text bg text-light Rental-Photos-Index-cardText">Rental Details:    
+                                @item.Details  
+                                </p>
+                                <a>
+                                </a>
+                                <div class="card-img-overlay RentalPhotos-Index-CardImgOverlay">
+                                    <span>
+                                        <button class="RentalPhotos-Index-icon1wrapper">
+                                            <i>
+                                                @Html.ActionLink(" info", "Details", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-info-circle h4 RentalPhotos-Index-icon3" })
+                                            </i>
+                                        </button>
+                                        <button class="RentalPhotos-Index-icon1wrapper" value="Edit">
+                                            <i>
+                                                @Html.ActionLink(" ", "Edit", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-edit h4 fa-pen-square RentalPhotos-Index-icon1" })
+                                            </i>
+                                        </button>
+                                        <button class="RentalPhotos-Index-icon1wrapper">
+                                            <i>
+                                                @Html.ActionLink(" ", "Delete", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-backspace h4 RentalPhotos-Index-icon2" })
+                                            </i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="~/img/avatar-default.jpg" alt="No image uploaded delete and try again" />
+                            <div class="card-body">
+                                <h5 class="card-header bg-transparent alert-light Rental-Photos-Index-cardText">Rental Id # @item.RentalPhotoId</h5>
+                                <p class="card-header card-text bg text-light Rental-Photos-Index-cardText">
+                                    Rental Name:@item.RentalsName
+                                </p>
+                                <div class="card-img-overlay RentalPhotos-Index-CardImgOverlay">
+                                    <span>
+                                        <button class="RentalPhotos-Index-icon1wrapper">
+                                            <i>
+                                                @Html.ActionLink(" info", "Details", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-info-circle h4 RentalPhotos-Index-icon3" })
+                                            </i>
+                                        </button>
+                                        <button class="RentalPhotos-Index-icon1wrapper" value="Edit">
+                                            <i>
+                                                @Html.ActionLink("Edit", "Edit", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-edit h4 fa-pen-square RentalPhotos-Index-icon1" })"
+                                            </i>
+                                        </button>
+                                        <button class="RentalPhotos-Index-icon1wrapper">
+                                            <i>
+                                                @Html.ActionLink("Delete", "Delete", new { Controller = "RentalPhotos", id = item.RentalPhotoId }, new { @class = "fas fa-backspace h4 RentalPhotos-Index-icon2" })
+                                            </i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
