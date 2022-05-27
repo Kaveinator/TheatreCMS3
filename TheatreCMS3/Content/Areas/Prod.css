@@ -11,3 +11,82 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/* CREATE & EDIT PAGES */
+/*form div*/
+.ProductionMember-Create--formContainer {
+    padding: 0 2rem 1rem;
+    margin: 1rem;
+    background-color: #111;
+    border: solid var(--secondary-color) 3.5px;
+    border-radius: 6px;
+}
+
+/*input fields*/
+.ProductionMember-Create--inputField {
+    width: 100%;
+    height: 2.5rem;
+    padding-left: .5rem;
+    border: none;
+    border-radius: 3px;
+    transition: all .2s;
+    outline: none;
+    background-color: #ddd;
+    color: var(--dark-color);
+}
+
+.ProductionMember-Create--inputField:focus {
+    border: none;
+    box-shadow: 0 0 2px 3px var(--secondary-color);
+    background-color: var(--light-color);
+}
+
+/*create/save button*/
+.ProductionMember-Create--input {
+    width: 8rem;
+    height: 3rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--main-color);
+    color: var(--dark-color);
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    transition: all .2s;
+}
+
+.ProductionMember-Create--input:hover {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+}
+
+/*back to list button*/
+.ProductionMember-Create--button {
+    width: 8rem;
+    height: 3rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-color--dark);
+    border-radius: 6px;
+    transition: all .2s;
+    color: var(--dark-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.ProductionMember-Create--button a {
+    color: var(--dark-color);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .2s;
+}
+
+.ProductionMember-Create--button:hover {
+    background-color: var(--secondary-color);
+}
+
+.ProductionMember-Create--button:hover a {
+    color: var(--light-color);
+}
+/* END CREATE & EDIT PAGES */
