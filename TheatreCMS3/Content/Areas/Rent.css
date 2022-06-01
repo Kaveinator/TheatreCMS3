@@ -11,3 +11,37 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+.RentalItem-FormContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.RentalItem-Edit--Input input:focus {
+    outline: none;
+    border: 3px solid var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.RentalItem-Create--Input input:focus {
+    outline: none;
+    border: 3px solid var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.RentalItem-CreateEdit--CreateButton {
+    background-color: var(--main-color);
+}
+
+.RentalItem-CreateEdit--CreateButton:hover {
+    opacity: 0.7;
+}
+
+.RentalItem-CreateEdit--BackButton {
+    background-color: var(--secondary-color);
+}
+
+.RentalItem-CreateEdit--BackButton:hover {
+    opacity: 0.7;
+}
