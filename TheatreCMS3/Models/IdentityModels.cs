@@ -45,6 +45,8 @@ namespace TheatreCMS3.Models
         public DbSet<Areas.Prod.Models.ProductionMember> productionMembers { get; set; }
         public DbSet<Areas.Prod.Models.CastMember> CastMembers { get; set; }
 
+        public DbSet<Areas.Rent.Models.RentalItem> RentalItems { get; set; }
+
         object placeHolderVariable;
     }
 }  
