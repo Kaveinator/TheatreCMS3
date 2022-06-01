@@ -24,32 +24,32 @@
         @Html.HiddenFor(model => model.RentalItemId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Item, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="RentalItem-Input">
+            @Html.LabelFor(model => model.Item, htmlAttributes: new { @class = "control-label" })
+            <div class="RentalItem-Edit--Input">
                 @Html.EditorFor(model => model.Item, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Item" } })
                 @Html.ValidationMessageFor(model => model.Item, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ItemDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="RentalItem-Input">
+            @Html.LabelFor(model => model.ItemDescription, htmlAttributes: new { @class = "control-label" })
+            <div class="RentalItem-Edit--Input">
                 @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Description" } })
                 @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PickUpDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="RentalItem-Input">
+            @Html.LabelFor(model => model.PickUpDate, htmlAttributes: new { @class = "control-label" })
+            <div class="RentalItem-Edit--Input">
                 @Html.EditorFor(model => model.PickUpDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Pick Up Date" } })
                 @Html.ValidationMessageFor(model => model.PickUpDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="RentalItem-Input">
+            @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label" })
+            <div class="RentalItem-Edit--Input">
                 @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Return Date" } })
                 @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
             </div>
@@ -57,8 +57,8 @@
 
         <div class="text-center">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-primary" />
-                <input type="submit" value="Back To List" onclick="location.href='@Url.Action("Index", "RentalItem")'" class="btn btn-danger" />
+                <input type="submit" value="Submit" class="btn RentalItem-CreateEdit--CreateButton" />
+                <input type="submit" value="Back To List" onclick="location.href='@Url.Action("Index", "RentalItem")'" class="btn RentalItem-CreateEdit--BackButton" />
             </div>
         </div>
     </div>

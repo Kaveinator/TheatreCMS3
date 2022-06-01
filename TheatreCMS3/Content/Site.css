@@ -478,15 +478,4 @@ footer {
     font-family: "Oswald";
 }
 
-.RentalItem-FormContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.RentalItem-Input input:focus {
-    outline: none;
-    border: 3px solid var(--main-color);
-    background-color: var(--secondary-color);
-}
 
