@@ -25,6 +25,9 @@
             @Html.DisplayNameFor(model => model.Bio)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CurrentMember)
         </th>
         <th>
@@ -36,6 +39,7 @@
         <th></th>
     </tr>
 
+@{ var index = 0; }
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -49,6 +53,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Bio)
+        </td>
+        <td>
+            <img src="@ViewBag.ImageDataUrls[index]" width="auto" height="75px" /> @{ index++; }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CurrentMember)

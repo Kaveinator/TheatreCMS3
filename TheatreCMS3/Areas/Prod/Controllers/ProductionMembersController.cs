@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,7 +20,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionMembers
         public ActionResult Index()
         {
-            return View(db.productionMembers.ToList());
+            var productionMembers = db.ProductionMembers.ToList();
+            ViewBag.ImageDataUrls = new List<string>();
+            foreach (var member in productionMembers)
+                ViewBag.ImageDataUrls.Add(GetPhotoDataUrl(member.ProductionMemberId));
+            return View(productionMembers);
         }
 
         // GET: Prod/ProductionMembers/Details/5
@@ -28,7 +34,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionMember productionMember = db.productionMembers.Find(id);
+            ProductionMember productionMember = db.ProductionMembers.Find(id);
             if (productionMember == null)
             {
                 return HttpNotFound();
@@ -47,11 +53,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,CastYearLeft,DebutYearLeft")] ProductionMember productionMember)
+        public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,CastYearLeft,DebutYearLeft")] ProductionMember productionMember, HttpPostedFileBase file)
         {
+            if (file != null)
+                productionMember.Photo = HttpPostedFileBaseToByteArr(file);
             if (ModelState.IsValid)
             {
-                db.productionMembers.Add(productionMember);
+                db.ProductionMembers.Add(productionMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +74,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionMember productionMember = db.productionMembers.Find(id);
+            ProductionMember productionMember = db.ProductionMembers.Find(id);
             if (productionMember == null)
             {
                 return HttpNotFound();
@@ -97,7 +105,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductionMember productionMember = db.productionMembers.Find(id);
+            ProductionMember productionMember = db.ProductionMembers.Find(id);
             if (productionMember == null)
             {
                 return HttpNotFound();
@@ -110,8 +118,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProductionMember productionMember = db.productionMembers.Find(id);
-            db.productionMembers.Remove(productionMember);
+            ProductionMember productionMember = db.ProductionMembers.Find(id);
+            db.ProductionMembers.Remove(productionMember);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -123,6 +131,23 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public byte[] HttpPostedFileBaseToByteArr(HttpPostedFileBase file)
+        {
+            byte[] bytes = new byte[file.ContentLength];
+            file.InputStream.Read(bytes, 0, file.ContentLength);
+            return bytes;
+        }
+
+        public string GetPhotoDataUrl(int id)
+        {
+            ProductionMember productionMember = db.ProductionMembers.Find(id);
+            if (productionMember.Photo == null)
+                return "";
+            string imgBase64Data = Convert.ToBase64String(productionMember.Photo);
+            string imgDataURL = string.Format("data:image/png;base64,{0}", imgBase64Data);
+            return imgDataURL;
         }
     }
 }
