@@ -8,7 +8,7 @@
 <h2 class="CastMember-Create--h2">Create a Cast Member</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "CastMember", FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -45,10 +45,10 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CurrentMember, "Current Member", htmlAttributes: new { @class = "control-label col-md-2 CastMember-Create--singlewordcoloring" })
         <div class="col-md-10 mx-auto">
             <div class="checkbox CastMember-Create--currentmember">
-                @Html.EditorFor(model => model.CurrentMember, new { htmlAttributes = new { @class= "CastMember-Create--inputfield" } })
+                @Html.EditorFor(model => model.CurrentMember, new { htmlAttributes = new { @class = "CastMember-Create--inputfield" } })
                 @Html.ValidationMessageFor(model => model.CurrentMember, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -76,6 +76,19 @@
     </div>
 
     <div class="form-group">
+        <div class="col-md-10 mx-auto">
+            <label for="file" class="CastMember-Create--singlewordcoloring">Upload a Picture</label>
+        </div>
+    </div>
+
+    @*input file HTML*@
+    <div class="form-group">
+        <div class="col-md-10 mx-auto">
+            <input type="file" name="image" class="mx-auto"/>
+        </div>
+    </div>
+
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10 mx-auto">
             <input type="submit" value="Create" class="btn btn-block btn-default CastMember-Create--submitbutton" />
         </div>
@@ -83,7 +96,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10 mx-auto">
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn-block CastMember-Create--backbutton" } )
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn-block CastMember-Create--backbutton" })
         </div>
     </div>
 
