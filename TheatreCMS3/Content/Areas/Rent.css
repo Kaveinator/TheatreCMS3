@@ -16,6 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10vh;
 }
 
 .RentalItem-Edit--Input input:focus {
@@ -44,4 +45,9 @@
 
 .RentalItem-CreateEdit--BackButton:hover {
     opacity: 0.7;
+}
+
+.RentalItem-CreateEdit--Photo {
+    color: var(--main-color);
+    font-size: large;
 }

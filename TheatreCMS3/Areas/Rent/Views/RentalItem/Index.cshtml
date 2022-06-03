@@ -24,7 +24,9 @@
         <th>
             @Html.DisplayNameFor(model => model.ReturnDate)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemPhoto)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -40,6 +42,17 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReturnDate)
+        </td>
+        <td>
+            @if (item.ItemPhoto != null)
+            {              
+                    <img src="@Url.Action("DisplayImageFromDb", "RentalItem", new { item.RentalItemId})" width="160" height="125"/>    
+            }
+            else
+                {
+                    <p>No image uploaded</p>
+                }
+
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalItemId }) |
