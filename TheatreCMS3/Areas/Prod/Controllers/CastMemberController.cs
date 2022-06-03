@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -47,10 +48,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear,Photo")] CastMember castMember, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+                // imageByteArray is being assigned to the castMember.Photo property here.
+                castMember.Photo = ConvertImage(image);
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +126,24 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // Take file from Create View;
+        // Convert file to Byte[] for dB;
+        // Add file to dB;
+        // How does it correspond to a particular castmember?
+        public byte[] ConvertImage(HttpPostedFileBase image)
+        {
+            // Initializing empty byte array
+            byte[] imageByteArray;
+
+            // BinaryReader provides methods that simplify reading primitive data types from a stream.
+            // In our case, the stream will be the client uploaded file 'image' from the 'Create' view.
+            using (BinaryReader br = new BinaryReader(image.InputStream))
+            {
+                imageByteArray = br.ReadBytes(image.ContentLength);
+            }
+            return imageByteArray;
         }
     }
 }
