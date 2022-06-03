@@ -161,4 +161,9 @@
     color: var(--secondary-color);
 }
 
+/* 'Current Member' and 'Upload a Picture' text color */
+.CastMember-Create--singlewordcoloring{
+    color: var(--main-color);
+}
+
 /***** END CREATE & EDIT CAST MEMBER PAGE STYLING *****/
