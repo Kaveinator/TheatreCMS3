@@ -1,65 +1,61 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Rentals";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<script src="https://kit.fontawesome.com/ff5f3796c3.js" crossorigin="anonymous"></script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Item)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PickUpDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReturnDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemPhoto)
-        </th>
-    </tr>
+<h2>Rentals</h2>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Item)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PickUpDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReturnDate)
-        </td>
-        <td>
-            @if (item.ItemPhoto != null)
-            {              
-                    <img src="@Url.Action("DisplayImageFromDb", "RentalItem", new { item.RentalItemId})" width="160" height="125"/>    
-            }
-            else
+<input type="submit" value="Create Item" class="btn RentalItem-CreateEdit--CreateButton" onclick="location.href='@Url.Action("Create", "RentalItem")'">
+
+<hr />
+
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card" style="height: 20rem;">
+            <div class="card-body">
+
+                @if (item.ItemPhoto != null)
                 {
-                    <p>No image uploaded</p>
+                    <div class="RentalItem-Index--ImageContainer">
+
+                        <div style="text-align:center;">
+                            <img class="card-img-top" src="@Url.Action("DisplayImageFromDb", "RentalItem", new { item.RentalItemId})" width="150" height="175" />
+
+                            <button type="button" class="btn RentalItem-Index--OverlayBtn" onclick="location.href ='@Url.Action("Edit", "RentalItem", new { id = item.RentalItemId })'">
+                                <i class="fa-solid fa-file-pen"></i>
+                            </button>
+                            <button type="button" class="btn RentalItem-Index--OverlayBtn" onclick="location.href ='@Url.Action("Delete", "RentalItem", new { id = item.RentalItemId })'">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p class="card-title RentalItem-Index--Card">No Image Upladed</p>
                 }
 
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalItemId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalItemId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalItemId })
-        </td>
-    </tr>
-}
 
-</table>
+                <a onclick="location.href='@Url.Action("Details", "RentalItem", new { id = item.RentalItemId})'">
+                    <h3 class="card-title RentalItem-Index--Card">
+                        @Html.DisplayFor(modelItem => item.Item)
+                    </h3>
+                </a>
+
+
+
+
+                @*@Html.ActionLink("Details", "Details", new { id = item.RentalItemId })*@
+
+
+
+            </div>
+        </div>
+
+    }
+

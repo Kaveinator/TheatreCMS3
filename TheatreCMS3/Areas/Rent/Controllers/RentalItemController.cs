@@ -96,6 +96,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 {
                     db.Entry(rentalItem).State = EntityState.Modified;
                     rentalItem.ItemPhoto = ConvertImageToByte(ImageData);
+                    db.RentalItems.Add(rentalItem);
+                }
+                else
+                {
+                    db.RentalItems.Add(rentalItem);
                 }
                 
                 db.SaveChanges();
