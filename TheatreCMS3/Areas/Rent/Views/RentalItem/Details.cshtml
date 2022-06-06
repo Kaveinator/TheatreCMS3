@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h1 class="text-center">Details</h1>
 
-<div>
-    <h4>RentalItem</h4>
+<div class="text-center">
+    <h4>Item Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -48,4 +48,6 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.RentalItemId }) |
     @Html.ActionLink("Back to List", "Index")
+  
+       <i class="fa-solid fa-arrow-left-long"><a href="@Url.Action("Index", "RentalItem")"></a></i>
 </p>
