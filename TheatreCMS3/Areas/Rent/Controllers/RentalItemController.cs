@@ -94,7 +94,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 if (ImageData != null)
                 {
-                    db.Entry(rentalItem).State = EntityState.Modified;
                     rentalItem.ItemPhoto = ConvertImageToByte(ImageData);
                     db.RentalItems.Add(rentalItem);
                 }
@@ -102,7 +101,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 {
                     db.RentalItems.Add(rentalItem);
                 }
-                
+
+                db.Entry(rentalItem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
