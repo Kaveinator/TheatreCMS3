@@ -10,6 +10,7 @@ using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 using System.IO;
 
+
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
     public class RentalItemController : Controller
@@ -18,20 +19,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         // GET: Rent/RentalItem
         public ActionResult Index(string searchString)
-        {
-            if (searchString!= null)
-            {
-                var items = db.RentalItems;
-                if (!String.IsNullOrEmpty(searchString))
-                {
-                    items = (DbSet<RentalItem>)items.Where(x => x.ItemDescription.Contains(searchString));
-                }
-                return View(items.ToList());
-            }
-            else
-            {
-                return View(db.To)
-            }
+        {             
+            return View(db.RentalItems.Where(x => x.Item.StartsWith(searchString) || searchString == null).ToList());
         }
 
         // GET: Rent/RentalItem/Details/5
