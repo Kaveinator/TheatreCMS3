@@ -77,10 +77,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             RentalItem rentalItem = db.RentalItems.Find(id);
+
+
+
             if (rentalItem == null)
             {
                 return HttpNotFound();
             }
+
+            TempData["previous"] = rentalItem;
+
             return View(rentalItem);
         }
 
@@ -93,11 +99,21 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
+                RentalItem previousEntry = TempData["previous"] == null ? db.RentalItems.Find(rentalItem.RentalItemId) :
+                    (RentalItem)TempData["previous"];
+
                 if (ImageData != null)
                 {
                     rentalItem.ItemPhoto = ConvertImageToByte(ImageData);
                     db.RentalItems.Add(rentalItem);
                 }
+
+                //If there is no photo uploaded, this is what keeps the original photo in the database.
+                if (ImageData == null && rentalItem.ItemPhoto == null && previousEntry.ItemPhoto != null)
+                {
+                    rentalItem.ItemPhoto = previousEntry.ItemPhoto;
+                }
+
                 else
                 {
                     db.RentalItems.Add(rentalItem);
