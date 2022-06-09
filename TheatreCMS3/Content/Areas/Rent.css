@@ -89,3 +89,38 @@
     transition: all 0.7s ease-in-out;
     color: var(--main-color);
 }
+
+.RentalItem-DetailsDelete--EditBtn {
+    color: var(--secondary-color);
+}
+
+.RentalItem-DetailsDelete--IndexBtn {
+    color: var(--light-color);
+}
+
+.RentalItem-Details--li {
+    color: var(--dark-color);
+}
+
+.RentalItem-DetailsDelete--Container {
+    max-width: 40%;
+    margin-left: 30%;
+}
+
+.RentalItem-DetailsDelete--Container li:hover {
+    background-color: var(--secondary-color);
+    transition: 0.8s ease-in;
+}
+
+
+.RentalItem-Delete--IndexEditDelBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.RentalItem--Delete-Btn {
+    color: var(--main-color);
+}
+

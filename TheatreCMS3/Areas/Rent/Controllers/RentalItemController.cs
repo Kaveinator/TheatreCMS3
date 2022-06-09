@@ -10,6 +10,7 @@ using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 using System.IO;
 
+
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
     public class RentalItemController : Controller
@@ -17,9 +18,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/RentalItem
-        public ActionResult Index()
-        {
-            return View(db.RentalItems.ToList());
+        public ActionResult Index(string searchString)
+        {             
+            return View(db.RentalItems.Where(x => x.Item.StartsWith(searchString) || searchString == null).ToList());
         }
 
         // GET: Rent/RentalItem/Details/5
@@ -76,10 +77,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             RentalItem rentalItem = db.RentalItems.Find(id);
+
+
+
             if (rentalItem == null)
             {
                 return HttpNotFound();
             }
+
+            TempData["previous"] = rentalItem;
+
             return View(rentalItem);
         }
 
@@ -92,11 +99,21 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
+                RentalItem previousEntry = TempData["previous"] == null ? db.RentalItems.Find(rentalItem.RentalItemId) :
+                    (RentalItem)TempData["previous"];
+
                 if (ImageData != null)
                 {
                     rentalItem.ItemPhoto = ConvertImageToByte(ImageData);
                     db.RentalItems.Add(rentalItem);
                 }
+
+                //If there is no photo uploaded, this is what keeps the original photo in the database.
+                if (ImageData == null && rentalItem.ItemPhoto == null && previousEntry.ItemPhoto != null)
+                {
+                    rentalItem.ItemPhoto = previousEntry.ItemPhoto;
+                }
+
                 else
                 {
                     db.RentalItems.Add(rentalItem);
