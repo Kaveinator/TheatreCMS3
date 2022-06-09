@@ -505,12 +505,9 @@ footer {
     text-decoration: underline var(--main-color);
 }
 
-img {
-    width: 19%;
-}
-
 .Home--About--Names {
     text-align: center;
     font-size: 20px;
 }
+
 
