@@ -7,9 +7,20 @@
 
 <script src="https://kit.fontawesome.com/ff5f3796c3.js" crossorigin="anonymous"></script>
 
-<h2>Rentals</h2>
+<div>
+    <h2>Rentals</h2>
+    <input type="submit" value="Create Item" class="btn RentalItem-CreateEdit--CreateButton" onclick="location.href='@Url.Action("Create", "RentalItem")'">
+</div>
 
-<input type="submit" value="Create Item" class="btn RentalItem-CreateEdit--CreateButton" onclick="location.href='@Url.Action("Create", "RentalItem")'">
+
+<div class="text-right">
+    <form asp-controller="RentalItem" asp-action="Index">
+        <p>
+            Search Titles: <input type="text" name="SearchString" />
+            <input type="submit" value="Search" />
+        </p>
+    </form>
+</div>
 
 <hr />
 

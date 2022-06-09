@@ -8,7 +8,7 @@
 
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "RentalItem", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -62,7 +62,7 @@
 
             <div class="text-center">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn RentalItem-CreateEdit--CreateButton"/>
+                    <input type="submit" value="Save" class="btn RentalItem-CreateEdit--CreateButton" />
                     <input type="submit" value="Back To List" onclick="location.href='@Url.Action("Index", "RentalItem")'" class="btn RentalItem-CreateEdit--BackButton" />
                 </div>
             </div>
