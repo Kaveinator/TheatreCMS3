@@ -12,7 +12,7 @@
 {
 @Html.AntiForgeryToken()
 
-<div class="RentalItem-FormContainer">
+<div class="RentalItem-FormContainer text-center">
 
     <div class="form-horizontal ">
 
@@ -23,11 +23,18 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group">
+        <div class="RentalItem-Create-inputFile">
+            <label class="RentalItem-CreateEdit--Photo">Upload Item Photo</label>
+            <input type="file" name="ImageData" id="ImageData" />
+        </div>
 
-        <label class="RentalItem-CreateEdit--Photo">Upload Item Photo</label>
-        <input type="file" name="ImageData" id="ImageData" />
-    </div>
+        <div class="RentalItem-Create--imgPreview" id="imagePreview">
+            <img src="" alt="Image Preview" class="RentalItem-Create--imgPreviewImg" />
+            <span class="RentalItem-Create--imgPreviewDefaultText">Image Preview</span>
+        </div>
+
+        <script type="text/javascript" src="~/Scripts/Areas/Rent.js"></script>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Item, htmlAttributes: new { @class = "control-label" })
