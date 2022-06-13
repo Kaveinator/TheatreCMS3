@@ -1,50 +1,10 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+  ViewBag.Title = "Home Page";
 }
 
-<div class="Home--Index--Logo">
-    <img src="~/Content/images/TheatreLogo.png" />
-</div>
-
-
-<div class="Home--Index--Left--Column">
-    <p class="Titles">SPOTLIGHT</p>
-    <img src="~/Content/images/ProductionPhotos/Wicked/01.jpg" />
-    <img src="~/Content/images/ProductionPhotos/Hamilton/01.jpg" />
-    <br />
-    <p class="Titles">LAND ACKNOWLEDGEMENT</p>
-    <p>
-        Theatre Vertigo humbly acknowledges we live and work on the unceded,
-        traditional tribal lands of the Multnomah, Wasco, Clackamas, Chinook bands,
-        Kathlamet, Tualatin Kalapuya, Cowlitz, Mollala, Cascades, Oregon City Tumwater,
-        Confederated Tribes of the Grand Ronde and other indigenous peoples.
-        We are on stolen land.
-        Theatre Vertigo has been and continues to examine our community relationships
-        to ensure our collaborators, partners and sponsors support the our regions Indigenous
-        Nations and communities.
-        One of the ways Theatre Vertigo is working to act on our commitment to being of service
-        to the lands that we now share is to build bridges between our arts community and local
-        Nations.
-    </p>
-    <a href="https://nayapdx.org/" class="text-cent" target="_blank"><img src="~/Content/images/NAYAFamilyCenter.jpg" /></a>
-</div>
-
-<div class="Home--Index--Right--Column">
-    <p class="Titles">DONATIONS</p>
-    <button type="submit" onclick="location.href='@Url.Action("Donate", "Home")'" class="btn-danger btn-lg">Click to support</button>
-    <br />
-    <br />
-    <p class="Titles">SPONSORS</p>
-</div>
-
-<div class="Home--Sponsor--Container">
-    <img src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" />
-    <br />
-    <img src="~/Content/images/Sponsors/LogoRoundColor.png" />
-    <br />
-    <img src="~/Content/images/Sponsors/Ninkasi-white-text.png" />
-    <br />
-    <img src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" />
-    <br />
-    <img src="~/Content/images/Sponsors/RACC.png" />
+<div>
+  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
+  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
+  @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
+  @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
