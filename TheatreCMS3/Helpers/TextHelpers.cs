@@ -10,8 +10,7 @@ namespace TheatreCMS3.Helpers
         public static string CharacterLimit(string Input, int Length)
         {
             if (Input.Length < Length) return Input;
-            int index = Input.IndexOf(' ', Length);
-            return Input.Substring(0, index) + "...";
+            return Input.Substring(0, Length) + "...";
         }
     }
 }
