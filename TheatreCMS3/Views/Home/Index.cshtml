@@ -1,10 +1,17 @@
-﻿@{
-  ViewBag.Title = "Home Page";
+﻿@using TheatreCMS3.Helpers;
+
+@{
+    ViewBag.Title = "Home Page";
 }
 
+
 <div>
-  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
-  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
-  @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
-  @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
+    <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
+    @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div>
+    <p>@TextHelpers.CharacterLimit("This is a very long string", 10)</p>
 </div>
