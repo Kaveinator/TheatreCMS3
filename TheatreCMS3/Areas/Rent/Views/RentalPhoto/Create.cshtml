@@ -8,31 +8,30 @@
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
 
 <center>
-    <h2 class="Rental-RentalPhotos--Titles">Create a Rental Photo</h2>
+    <h2 class="RentalPhoto-EditCreate--H2">Create a Rental Photo</h2>
 
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal Home-Index--Titles">
-            @*<h4>Create Rental Photo</h4>*@
+        <div class="form-horizontal RentalPhoto-EditCreate--Titles">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.RentalsName, "RENTAL NAME", htmlAttributes: new { @class = "control-label col-md-2" })
-            <hr class="Rent-RentalPhoto--HR" />
+            <hr class="RentalPhoto-EditCreate--HR" />
             <div class="col-md-9">
-                @Html.EditorFor(model => model.RentalsName, new { htmlAttributes = new { @class = "form-control Rent-RentalPhoto--Create", @placeholder = "Enter the name of the rental here" } })
+                @Html.EditorFor(model => model.RentalsName, new { htmlAttributes = new { @class = "form-control RentalPhoto-EditCreate--Form", @placeholder = "Enter the name of the rental here" } })
                 @Html.ValidationMessageFor(model => model.RentalsName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Damaged, "DAMAGES?", htmlAttributes: new { @class = "control-label col-md-2" })
-            <hr class="Rent-RentalPhoto--HR" />
+            <hr class="RentalPhoto-EditCreate--HR" />
             <div class="col-md-9">
-                <div class="checkbox checkboxTst">
+                <div class="checkbox">
                     @Html.EditorFor(model => model.Damaged)
                     @Html.ValidationMessageFor(model => model.Damaged, "", new { @class = "text-danger" })
                 </div>
@@ -41,28 +40,28 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.RentalPhotos, "ADD PHOTOS", htmlAttributes: new { @class = "control-label col-md-2" })
-            <hr class="Rent-RentalPhoto--HR" />
+            <hr class="RentalPhoto-EditCreate--HR" />
             <div class="col-md-9">
-                @Html.EditorFor(model => model.RentalPhotos, new { htmlAttributes = new { @class = "form-control Rent-RentalPhoto--Create" } })
+                @Html.EditorFor(model => model.RentalPhotos, new { htmlAttributes = new { @class = "form-control RentalPhoto-EditCreate--Form" } })
                 @Html.ValidationMessageFor(model => model.RentalPhotos, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Details, "DETAILS", htmlAttributes: new { @class = "control-label col-md-2" })
-            <hr class="Rent-RentalPhoto--HR" />
+            <hr class="RentalPhoto-EditCreate--HR" />
             <div class="col-md-9">
-                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control Rent-RentalPhoto--Create", @placeholder = "Enter details about the rental here" } })
+                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control RentalPhoto-EditCreate--Form", @placeholder = "Enter details about the rental here" } })
                 @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
             </div>
         </div>
             <div class="row justify-content-center">
                 <div class="col-2 text-right">
-                    <input type="submit" value="Create" class="Rent-RentalPhoto--CreateBtn btn btn-lg" />
+                    <input type="submit" value="Create" class="RentalPhoto-EditCreate--CreateSaveBtn btn btn-lg" />
                 </div>
 
                 <div class="col-2 text-left">
-                    @Html.ActionLink("Back to List", "Index", null, new { @class = "Home-Index--DonateBtn btn btn-lg" })
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "RentalPhoto-EditCreate--BackBtn btn btn-lg" })
                 </div>
 
             </div>
