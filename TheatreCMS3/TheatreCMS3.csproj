@@ -222,6 +222,7 @@
   <ItemGroup>
     <Content Include="Content\all.css" />
     <Content Include="Content\Areas\Blog.css" />
+    <Content Include="Content\Areas\CastMember.css" />
     <Content Include="Content\images\Sponsors\Ellyn-Bye-Logo.png" />
     <Content Include="Content\Areas\Prod.css" />
     <Content Include="Content\Areas\Rent.css" />
