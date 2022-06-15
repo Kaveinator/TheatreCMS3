@@ -510,4 +510,10 @@ footer {
     color: var(--light-color);
     font-family: 'Oswald';
 }
+
+.Home-Index--DonateBtn:hover {
+    background-color: var(--main-color--light);
+}
 /* ----- End Home Index ----- */
+
+
