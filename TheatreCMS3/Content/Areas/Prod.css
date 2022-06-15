@@ -11,3 +11,39 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.CastMember-FormContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+}
+
+.CastMember-Edit--Input input:focus {
+    outline: none;
+    border: 3px solid var(--secondary-color--dark);
+    background-color: var(--light-color);
+}
+
+.CastMember-Create--Input input:focus {
+    outline: none;
+    border: 3px solid var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.btn CastMember-CreateEdit--CreateButton {
+    background-color: var(--secondary-color--dark);
+}
+
+.btn CastMember-CreateEdit--CreateButton:hover {
+    opacity: 0.8;
+    background-color: var(--main-color);
+}
+
+.btn CastMember-CreateEdit--BackButton {
+    background-color: var(--secondary-color);
+}
+
+.btn CastMember-CreateEdit--BackButton:hover {
+    opacity: 0.7;
+    background-color: var(--main-color);
+}
