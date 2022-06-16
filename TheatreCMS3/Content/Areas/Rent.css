@@ -12,3 +12,53 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+
+
+/* ----- Rentals Photo Styling ----- */
+.RentalPhoto-EditCreate--H2 {
+    font-family: 'Oswald';
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+.RentalPhoto-EditCreate--Titles {
+    font-family: 'Oswald';
+    font-size: 22px;
+}
+
+.RentalPhoto-EditCreate--HR {
+    max-width: 2.5em;
+    margin-top: 0;
+    border-top: .3em solid var(--main-color);
+    color: var(--main-color);
+}
+
+.RentalPhoto-EditCreate--Form:focus {
+    border-color: var(--main-color);
+    box-shadow: var(--main-color) 0 1px 1px inset;
+}
+
+.RentalPhoto-EditCreate--Form {
+    background-color: #b6b6b6;
+}
+
+.RentalPhoto-EditCreate--CreateSaveBtn {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    font-family: 'Oswald';
+}
+
+.RentalPhoto-EditCreate--CreateSaveBtn:hover {
+    background-color: var(--secondary-color--dark);
+}
+
+.RentalPhoto-EditCreate--BackBtn {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    font-family: 'Oswald';
+}
+
+.RentalPhoto-EditCreate--BackBtn:hover {
+    background-color: var(--main-color--light);
+}
+/* ----- End Rentals Photo Styling ----- */
