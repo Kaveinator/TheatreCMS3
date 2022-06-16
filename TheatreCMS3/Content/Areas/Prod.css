@@ -15,7 +15,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--light-color);
+    background-color: var(--secondary-color--dark);
+    border-radius: 25px;
 }
 
 .CastMember-Edit--Input input:focus {
@@ -30,18 +31,20 @@
     background-color: var(--secondary-color);
 }
 
-.btn CastMember-CreateEdit--CreateButton {
+.CastMember-CreateEdit--CreateButton {
     background-color: var(--secondary-color--dark);
+    color: var(--light-color);
 }
 
-.btn CastMember-CreateEdit--CreateButton:hover {
+.CastMember-CreateEdit--CreateButton:hover {
     background-color: var(--main-color);
 }
 
-.btn CastMember-CreateEdit--BackButton {
+.CastMember-CreateEdit--BackButton {
     background-color: var(--secondary-color);
+    color: var(--light-color);
 }
 
-.btn CastMember-CreateEdit--BackButton:hover {
+.CastMember-CreateEdit--BackButton:hover {
     background-color: var(--main-color);
 }
