@@ -35,7 +35,6 @@
 }
 
 .btn CastMember-CreateEdit--CreateButton:hover {
-    opacity: 0.8;
     background-color: var(--main-color);
 }
 
@@ -44,6 +43,5 @@
 }
 
 .btn CastMember-CreateEdit--BackButton:hover {
-    opacity: 0.7;
     background-color: var(--main-color);
 }
