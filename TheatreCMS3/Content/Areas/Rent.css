@@ -62,3 +62,153 @@
     background-color: var(--main-color--light);
 }
 /* ----- End Rentals Photo Styling ----- */
+
+/* ------ Rental Items Styling -------*/
+
+.Rental-heading3 {
+    color: var(--light-color);
+    text-align: center;
+}
+
+#form-container {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: var(--main-color);
+    color: var(--dark-color);
+    margin: auto;
+    text-align: center;
+}
+
+#form-container input[type=text] 
+{
+    width: 100%;
+    padding: 3%;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: var(--dark-color);
+    font-size: 1vw;
+    text-align: center;
+    margin-left: 10%;
+}
+
+#form-container input[type=datetime] 
+{
+    width: 100%;
+    padding: 3%;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: var(--dark-color);
+    font-size: 1vw;
+    text-align: center;
+    margin-left: 10%;
+}
+
+#form-container input:focus 
+{
+    border: 1px solid var(--light-color);
+}
+
+#createbtn {
+    background: var(--main-color);
+    color: var(--dark-color);
+    border-radius: 40px;
+    border: 5px solid var(--light-color);
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin: auto;
+}
+
+#createbtn:hover 
+{
+    background: var(--main-color);
+    border: 5px solid var(--secondary-color);
+}
+
+#btnText 
+{
+    color: var(--dark-color);
+}
+
+#btnText:hover 
+{
+    color: var(--secondary-color);
+}
+
+.BackToList {
+    background: var(--dark-color);
+    border-radius: 40px;
+    border: 5px solid var(--light-color);
+    width: 84%;
+    height: 40px;
+    position: relative;
+    color: var(--light-color);
+    text-align: center;
+    text-decoration: none;
+    margin: auto;
+}
+
+.BackToList:hover {
+    background: var(--light-color);
+    border: 5px solid var(--dark-color);
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.EditRental-heading3 {
+    color: var(--dark-color);
+    text-align: center;
+}
+
+#editForm {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: var(--main-color);
+    color: var(--dark-color);
+    margin: auto;
+    text-align: center;
+}
+
+#editForm input[type=text] {
+    width: 100%;
+    padding: 3%;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: var(--secondary-color--dark);
+    font-size: 1vw;
+    text-align: center;
+    margin-left: 10%;
+}
+
+#editForm input[type=datetime] {
+    width: 100%;
+    padding: 3%;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: var(--secondary-color--dark);
+    font-size: 1vw;
+    text-align: center;
+    margin-left: 10%;
+}
+
+#editForm input:focus {
+    border: 1px solid var(--dark-color);
+}
+
+#savebtn {
+    background: var(--main-color);
+    color: var(--dark-color);
+    border-radius: 40px;
+    border: 5px solid var(--dark-color);
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin: auto;
+}
+
+#savebtn:hover {
+    background: var(--secondary-color--dark);
+    border: 5px solid var(--light-color);
+}
+
+/* ------ End Rental Items Styling -------*/
