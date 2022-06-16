@@ -11,8 +11,8 @@
 {
     @Html.AntiForgeryToken()
     
-<div class="form-horizontal" id="form-container">
-    <h3 class="Rental-heading3">Create Rental Item</h3>
+<div class="form-horizontal" id="RentalItem-Create-formContainer">
+    <h3 class="RentalItem-Create-heading3">Create Rental Item</h3>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -48,11 +48,11 @@
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10" id="createbtn">
+        <div class="col-md-offset-2 col-md-10" id="RentalItem-Create-createbtn">
             <input type="submit" value="Create" class="btn btn-default" id="btnText"/>
         </div>
     </div>
-    <div class="BackToList">
+    <div class="RentalItem-Create-BackToList">
         @Html.ActionLink("Back to List", "Index")
     </div>
 </div>

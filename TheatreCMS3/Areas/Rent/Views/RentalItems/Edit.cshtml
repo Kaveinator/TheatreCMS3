@@ -12,8 +12,8 @@
 {
     @Html.AntiForgeryToken()
     
-<div class="form-horizontal" id="editForm">
-    <h3 class="EditRental-heading3">Edit Rental Item</h3>
+<div class="form-horizontal" id="RentalItem-Edit-editForm">
+    <h3 class="RentalItem-Edit-heading3">Edit Rental Item</h3>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.RentalItemId)
@@ -51,11 +51,11 @@
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10" id="savebtn">
+        <div class="col-md-offset-2 col-md-10" id="RentalItem-Edit-savebtn">
             <input type="submit" value="Save" class="btn btn-default" />
         </div>
     </div>
-    <div class="BackToList">
+    <div class="RentalItem-Edit-BackToList">
         @Html.ActionLink("Back to List", "Index")
     </div>
 </div>
