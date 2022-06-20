@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,14 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotos,Details")] RentalPhoto rentalPhoto)
+        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotos,Details")] RentalPhoto rentalPhoto, HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+                //Converting uploaded file to array before db updates
+                var newPhoto = photoConv(photo);
+                rentalPhoto.RentalPhotos = newPhoto;
+
                 db.RentalPhotoes.Add(rentalPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -58,6 +63,20 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
             return View(rentalPhoto);
         }
+
+
+        public byte[] photoConv(HttpPostedFileBase photo)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photo.InputStream))
+            {
+                bytes = br.ReadBytes(photo.ContentLength);
+            }
+
+            return bytes;
+        }
+
+
 
         // GET: Rent/RentalPhoto/Edit/5
         public ActionResult Edit(int? id)
@@ -79,10 +98,15 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotos,Details")] RentalPhoto rentalPhoto)
+        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotos,Details")] RentalPhoto rentalPhoto, HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+
+                //Converting uploaded file to array before db updates
+                var newPhoto = photoConv(photo);
+                rentalPhoto.RentalPhotos = newPhoto;
+
                 db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

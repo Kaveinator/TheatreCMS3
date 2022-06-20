@@ -36,7 +36,8 @@
             @Html.DisplayFor(modelItem => item.Damaged)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RentalPhotos)
+            @*@Html.DisplayFor(modelItem => item.RentalPhotos)*@
+            <img alt="@item.RentalPhotoId" src="data:image/jpg;base64,@Convert.ToBase64String(item.RentalPhotos)" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Details)
