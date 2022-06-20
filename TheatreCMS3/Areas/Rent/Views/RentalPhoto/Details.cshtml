@@ -32,7 +32,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RentalPhotos)
+            @*@Html.DisplayFor(model => model.RentalPhotos)*@
+            <img alt="@Model.RentalPhotoId" src="data:image/jpg;base64,@Convert.ToBase64String(Model.RentalPhotos)" />
         </dd>
 
         <dt>
