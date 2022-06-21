@@ -522,7 +522,7 @@ footer {
 /*--Contact Page (Begin)--*/
 
 /*Body Section*/
-.contact-body {
+.Home-Contact--contact-body {
     background-color: red;
 }
 
@@ -541,21 +541,21 @@ footer {
 }
 
 /*Header Section*/
-.header h4 {
+.Home-Contact--header h4 {
     text-align: center;
 }
 
-.header hr { /*hard rule*/
+.Home-Contact--header hr { /*hard rule*/
     border: 1px solid maroon;
     width: 100px;
 }
 
 /*Column1 Section*/
-.row {
+.Home-Contact--row {
     display: flex;
 }
 
-.column1 {
+.Home-Contact--column1 {
     flex: 60%;
     padding-left: 40px; /*adjust position of column 1.*/
 }
@@ -577,7 +577,7 @@ input {
 }
 
 /*Column2 Section*/
-.column2 {
+.Home-Contact--column2 {
     flex: 40%;
     padding-top: 30px;
 }
