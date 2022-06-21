@@ -14,7 +14,7 @@
 
 
 
-/* ----- Rentals Photo Styling ----- */
+/* ----- Rentals Photo Edit/Create Styling ----- */
 .RentalPhoto-EditCreate--H2 {
     font-family: 'Oswald';
     font-size: 40px;
@@ -61,6 +61,82 @@
 .RentalPhoto-EditCreate--BackBtn:hover {
     background-color: var(--main-color--light);
 }
+
+.RentalPhoto-Index--Body {
+    font-family: 'Oswald';
+}
+
+.RentalPhoto-Index--Header {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.RentalPhoto-Index--CreateBtn {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    font-family: 'Oswald';
+}
+
+    .RentalPhoto-Index--CreateBtn:hover {
+        background-color: var(--main-color--light);
+    }
+
+.RentalPhoto-Index--Card {
+    background: black;
+    padding: 2%;
+    margin-bottom: 5%;
+}
+
+    .RentalPhoto-Index--Card:hover .RentalPhoto-Index--CardImg {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        opacity: 0.5;
+    }
+
+    .RentalPhoto-Index--Card:hover .RentalPhoto-Index--CardFooter {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+
+    .RentalPhoto-Index--Card:hover .RentalPhoto-Index--CardText {
+        transform: scale(1.3);
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+.RentalPhoto-Index--CardImg {
+    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.RentalPhoto-Index--CardText {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.RentalPhoto-Index--CardFooter {
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    z-index: 99;
+    opacity: 0;
+}
+
+.RentalPhoto-Index--Link {
+    color: var(--main-color--light);
+}
+
+    .RentalPhoto-Index--Link:hover {
+        color: var(--main-color);
+    }
 /* ----- End Rentals Photo Styling ----- */
 
 /* ------ Rental Items Styling -------*/
