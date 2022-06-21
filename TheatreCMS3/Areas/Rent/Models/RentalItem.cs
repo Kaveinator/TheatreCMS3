@@ -10,7 +10,7 @@ namespace TheatreCMS3.Areas.Rent.Models
     {
         public int RentalItemId { get; set; }
         public string Item { get; set; }
-        
+
         [DisplayName("Item Description")]
         public string ItemDescription { get; set; }
 
@@ -19,6 +19,9 @@ namespace TheatreCMS3.Areas.Rent.Models
 
         [DisplayName("Return Date")]
         public DateTime? ReturnDate { get; set; }
-        //public byte[] ItemPhoto { get; set; }
+
+        [DisplayName("Item Photo")]
+        public byte[] ItemPhoto { get; set; }
+
     }
 }
