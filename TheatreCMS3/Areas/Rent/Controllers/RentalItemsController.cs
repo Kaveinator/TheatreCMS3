@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,6 +19,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalItems
         public ActionResult Index()
         {
+            RentalItem entities = new RentalItem();
             return View(db.RentalItems.ToList());
         }
 
@@ -47,10 +49,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate")] RentalItem rentalItem)
+        public ActionResult Create([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate")] RentalItem rentalItem, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
+                var newpostedFile = ConvertData(postedFile);
+                rentalItem.ItemPhoto = newpostedFile;
+
                 db.RentalItems.Add(rentalItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +128,18 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        public byte[] ConvertData(HttpPostedFileBase postedFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            {
+                bytes = br.ReadBytes(postedFile.ContentLength);
+            }
+
+            return bytes;
         }
     }
 }
