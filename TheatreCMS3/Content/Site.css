@@ -560,16 +560,16 @@ footer {
     padding-left: 40px; /*adjust position of column 1.*/
 }
 
-label {
+.Home-Contact--form label {
     font-weight: bold;
 }
 
-input {
+.Home-Contact--form input {
     width: 80%; /*width of input forms in column 1.*/
     border-radius: 6px;
 }
 
-.submitbtn {
+.Home-Contact--submitbtn {
     background-color: maroon;
     color: white;
     border: 2px solid white;
@@ -582,23 +582,23 @@ input {
     padding-top: 30px;
 }
 
-.column2 p {
+.Home-Contact--column2 p {
     font-size: 18px;
     font-weight: bold;
 }
 
-.volunteer {
+.Home-Contact--volunteer {
     padding-top: 26px;
 }
 
-.donatebtn {
+.Home-Contact--donatebtn {
     background-color: maroon;
     color: white;
     border: 2px solid white;
     border-radius: 6px;
 }
 
-.volunteerbtn {
+.Home-Contact--volunteerbtn {
     background-color: maroon;
     color: white;
     border: 2px solid white;
