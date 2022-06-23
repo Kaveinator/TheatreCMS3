@@ -11,3 +11,63 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+
+/*----My Create and Edit CSS----*/
+
+h4 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+/*Buttons*/
+.BlogPhotoes-Create--submitThis {
+    background-color: var(--main-color--light);
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    margin-left: 110px;
+    margin-bottom: 26px;
+}
+
+.BlogPhotoes-Create--backToList {
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    margin-top: 10px;
+}
+
+/*Hover Effects*/
+.BlogPhotoes-Create--submitThis:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.BlogPhotoes-Create--backToList:hover {
+    background-color: var(--main-color--light);
+    color: white;
+}
+
+/*Form Container*/
+.form-horizontal {
+    background-color: lightgray;
+    margin-top: 50px;
+    margin-left: 20%;
+    border-radius: 8px;
+    color: darkblue;
+    font-weight: bold;
+    width:60%;
+}
