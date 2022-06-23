@@ -50,6 +50,21 @@ h4 {
     margin-top: 10px;
 }
 
+.BlogPhotoes-Edit--saveThis {
+    background-color: var(--main-color--light);
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    margin-left: 110px;
+    margin-bottom: 26px;
+}
+
 /*Hover Effects*/
 .BlogPhotoes-Create--submitThis:hover {
     background-color: var(--main-color);
