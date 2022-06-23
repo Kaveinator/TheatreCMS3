@@ -21,22 +21,33 @@
         @foreach (var item in Model) {
         <div class="col-sm-3">
             <div class="card text-center RentalPhoto-Index--Card">
+
+                @if (item.RentalPhotos != null)
+                {
                 <a href="@Url.Action("Details", new { id=item.RentalPhotoId })" class="stretched-link">
                     <img class="RentalPhoto-Index--CardImg" alt="@item.RentalPhotoId" src="data:image/jpg;base64,@Convert.ToBase64String(item.RentalPhotos)" />
                 </a>
+                }
+                else
+                {
+                <a href="@Url.Action("Details", new { id=item.RentalPhotoId })" class="stretched-link">
+                    <img class="RentalPhoto-Index--CardImg" src="~/Content/images/BlogPostRobot.jpg" />
+                </a>
+                }
 
-                <div class="card-img-overlay">
-                    <h5 class="card-header RentalPhoto-Index--CardText">@Html.DisplayFor(modelItem => item.RentalsName)</h5>
 
-                    <div class="card-body">
+                    <div class="card-img-overlay">
+                        <h5 class="card-header RentalPhoto-Index--CardText">@Html.DisplayFor(modelItem => item.RentalsName)</h5>
 
-                        <div class="icons card-footer RentalPhoto-Index--CardFooter">
-                            <a href="@Url.Action("Edit", new { id=item.RentalPhotoId })" class="RentalPhoto-Index--Link"><i class="fa-solid fa-pen-to-square">Edit</i></a>
-                            <a href="@Url.Action("Delete", new { id=item.RentalPhotoId })" class="RentalPhoto-Index--Link"><i class="fa-solid fa-trash-can">Delete</i></a>
+                        <div class="card-body">
 
+                            <div class="icons card-footer RentalPhoto-Index--CardFooter">
+                                <a href="@Url.Action("Edit", new { id=item.RentalPhotoId })" class="RentalPhoto-Index--Link"><i class="fa-solid fa-pen-to-square">Edit</i></a>
+                                <a href="@Url.Action("Delete", new { id=item.RentalPhotoId })" class="RentalPhoto-Index--Link"><i class="fa-solid fa-trash-can">Delete</i></a>
+
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div> }
     </div>
