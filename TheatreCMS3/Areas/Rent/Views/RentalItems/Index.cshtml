@@ -5,53 +5,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="https://kit.fontawesome.com/7ff84861fd.js" crossorigin="anonymous"></script>
+
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Item)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PickupDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReturnDate)
-        </th>
-        <th></th>
-    </tr>
+        <p>
+            <div class="RentalItem-Index-CreateNew">
+                @Html.ActionLink("Create New", "Create")
+            </div>
+        </p>
+ 
+    <div class="RentalItem-Index-Container">
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Item)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ItemDescription)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PickupDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReturnDate)
-    </td>
-    <td>
-         <text><img alt="@item.RentalItemId"
-                 src="data:image/jpg;base64,@Convert.ToBase64String(item.ItemPhoto)" /></text>
-        
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.RentalItemId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.RentalItemId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.RentalItemId })
-    </td>
-</tr>
-}
+        <div class="row row-cols-1 row-cols-md-4" id="RentalItem-Index-Cards">
 
-</table>
+            @foreach (var item in Model)
+            {
+                <div class="card-deck RentalItem-Index-CardDeck">
+                    <div class="m-4 RentalItem-Index-Overlay">
+                        <a href="@Url.Action("Details", new { id = item.RentalItemId })" class="page-link">
+                            <img alt="@item.RentalItemId"
+                                 src="data:image/jpg;base64,@Convert.ToBase64String(item.ItemPhoto)" class="card-img-top">
+                        </a>
+
+                        <div>
+                            <a href="@Url.Action("Edit", new { id = item.RentalItemId })" class="RentalItem-Index--Link"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a href="@Url.Action("Delete", new { id = item.RentalItemId })" class="RentalItem-Index--Link"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Item)</h5>
+                            <p class="card-text"> @Html.DisplayFor(modelItem => item.ItemDescription)</p>
+                            <p class="card-text"><small class="text-muted">Pickup Date: @Html.DisplayFor(modelItem => item.PickupDate)</small></p>
+                            <p class="card-text"><small class="text-muted">Return Date: @Html.DisplayFor(modelItem => item.ReturnDate)</small></p>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    <br />
