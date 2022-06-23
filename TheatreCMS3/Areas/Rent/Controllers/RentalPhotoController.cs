@@ -67,13 +67,22 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         public byte[] photoConv(HttpPostedFileBase photo)
         {
-            byte[] bytes;
-            using (BinaryReader br = new BinaryReader(photo.InputStream))
+
+            if (photo != null)
             {
-                bytes = br.ReadBytes(photo.ContentLength);
+                byte[] bytes;
+                using (BinaryReader br = new BinaryReader(photo.InputStream))
+                {
+                    bytes = br.ReadBytes(photo.ContentLength);
+                }
+
+                return bytes;
+            }
+            else
+            {
+                return null;
             }
 
-            return bytes;
         }
 
 
@@ -100,10 +109,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotos,Details")] RentalPhoto rentalPhoto, HttpPostedFileBase photo)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && photo != null)
             {
 
-                //Converting uploaded file to array before db updates
                 var newPhoto = photoConv(photo);
                 rentalPhoto.RentalPhotos = newPhoto;
 
@@ -111,7 +119,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rentalPhoto);
+            else
+            {
+                db.Entry(rentalPhoto).State = EntityState.Modified;
+                db.Entry(rentalPhoto).Property(o => o.RentalPhotos).IsModified = false;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         // GET: Rent/RentalPhoto/Delete/5
