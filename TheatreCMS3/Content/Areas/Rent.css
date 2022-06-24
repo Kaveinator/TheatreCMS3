@@ -137,12 +137,35 @@
     .RentalPhoto-Index--Link:hover {
         color: var(--main-color);
     }
+
+.RentalPhoto-Edit--ImageContainer {
+    display: flex;
+    padding-bottom: 2%;
+}
+
+.RentalPhoto-Edit--ImageContainerExisting {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+}
+
+.RentalPhoto-Edit--ImageContainerNew {
+    display: block;
+    margin-left: -80%;
+    margin-right: auto;
+    width: 80%;
+}
+
+.RentalPhoto-Edit--Img {
+    max-width: 700px;
+    max-height: 700px;
+}
 /* ----- End Rentals Photo Styling ----- */
 
-/* ------ Rental Items Styling -------*/
 
-.RentalItem-Create-heading3 
-{
+/* ------ Rental Items Styling -------*/
+.RentalItem-Create-heading3 {
     color: var(--light-color);
     text-align: center;
 }
