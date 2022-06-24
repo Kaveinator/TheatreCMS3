@@ -21,6 +21,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             RentalItem entities = new RentalItem();
             return View(db.RentalItems.ToList());
+
+            TempData["ItemPhoto"]= entities.ItemPhoto;
+            
         }
 
         // GET: Rent/RentalItems/Details/5
@@ -53,13 +56,17 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newpostedFile = ConvertData(postedFile);
-                rentalItem.ItemPhoto = newpostedFile;
+                if (postedFile != null )
+                {
+                    var newpostedFile = ConvertData(postedFile);
+                    rentalItem.ItemPhoto = newpostedFile;
+                }
 
                 db.RentalItems.Add(rentalItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
 
             return View(rentalItem);
         }
@@ -76,6 +83,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+
+            TempData["Previous"] = rentalItem;
+
             return View(rentalItem);
         }
 
@@ -84,10 +94,20 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate")] RentalItem rentalItem)
+        public ActionResult Edit([Bind(Include = "RentalItemId,Item,ItemDescription,PickupDate,ReturnDate,ItemPhoto")] RentalItem rentalItem, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
+                RentalItem previousEntry = TempData["Previous"] == null ? db.RentalItems.Find(rentalItem.RentalItemId) : (RentalItem)TempData["Previous"];
+                if (postedFile != null)
+                {
+                    var newpostedFile = ConvertData(postedFile);
+                    rentalItem.ItemPhoto = newpostedFile;
+                }
+                if (postedFile == null && rentalItem.ItemPhoto == null && previousEntry.ItemPhoto != null)
+                {
+                    rentalItem.ItemPhoto = previousEntry.ItemPhoto;
+                }
                 db.Entry(rentalItem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
