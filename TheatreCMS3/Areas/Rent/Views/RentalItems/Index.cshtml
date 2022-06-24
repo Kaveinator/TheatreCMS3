@@ -24,8 +24,12 @@
                 <div class="card-deck RentalItem-Index-CardDeck">
                     <div class="m-4 RentalItem-Index-Overlay">
                         <a href="@Url.Action("Details", new { id = item.RentalItemId })" class="page-link">
-                            <img alt="@item.RentalItemId"
+                            
+                            @if (item.ItemPhoto != null)
+                            {
+                                <img alt="@item.RentalItemId"
                                  src="data:image/jpg;base64,@Convert.ToBase64String(item.ItemPhoto)" class="card-img-top">
+                            }
                         </a>
 
                         <div>
