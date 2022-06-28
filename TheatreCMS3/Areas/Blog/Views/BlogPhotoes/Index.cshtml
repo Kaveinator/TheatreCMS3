@@ -16,7 +16,9 @@
 @foreach (var item in Model)
 {
     <div class="card bg-dark text-white">
-        <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" class="card-img" alt="..." onclick="@Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId })">
+        <a href="@Html.Action("Details", "BlogPhotoes", new { id = item.BlogPhotoId })">
+            <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" class="card-img" alt="...">
+        </a>
         <div class="card-img-overlay">
 
             <h3 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h3>
