@@ -107,26 +107,44 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotos,Details")] RentalPhoto rentalPhoto, HttpPostedFileBase photo)
+
+        //Added 'string submitButton'
+        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotos,Details")] RentalPhoto rentalPhoto, HttpPostedFileBase photo, string saveButton, string deleteButton)
         {
-            if (ModelState.IsValid && photo != null)
+            if (saveButton != null)
             {
+                if (ModelState.IsValid && photo != null)
+                {
 
-                var newPhoto = photoConv(photo);
-                rentalPhoto.RentalPhotos = newPhoto;
+                    var newPhoto = photoConv(photo);
+                    rentalPhoto.RentalPhotos = newPhoto;
 
+                    db.Entry(rentalPhoto).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    db.Entry(rentalPhoto).State = EntityState.Modified;
+                    db.Entry(rentalPhoto).Property(o => o.RentalPhotos).IsModified = false;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            else if (deleteButton != null)
+            {
+                rentalPhoto.RentalPhotos = null;
                 db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit");
             }
+
             else
             {
-                db.Entry(rentalPhoto).State = EntityState.Modified;
-                db.Entry(rentalPhoto).Property(o => o.RentalPhotos).IsModified = false;
-                db.SaveChanges();
                 return RedirectToAction("Index");
             }
         }
+
 
         // GET: Rent/RentalPhoto/Delete/5
         public ActionResult Delete(int? id)

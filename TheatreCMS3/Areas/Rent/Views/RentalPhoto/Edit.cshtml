@@ -64,19 +64,32 @@
                 @Html.LabelFor(model => model.RentalPhotos, "EDIT PHOTOS", htmlAttributes: new { @class = "control-label col-md-2" })
                 <hr class="RentalPhoto-EditCreate--HR" />
                 <div class="col-md-9">
+                    <div class="RentalPhoto-Edit--ImageContainer">
+                        <div class="align-items-center">
+                            <div class="RentalPhoto-Edit--ImageContainerExisting">
+                                @if (Model.RentalPhotos != null)
+                                {
+                                    <img id="originalImage" alt="@Model.RentalPhotoId" src="data:image/jpg;base64,@Convert.ToBase64String(Model.RentalPhotos)" class="RentalPhoto-Edit--Img" />
+                                }
+                                else
+                                {
+                                    <img id="originalImage" src="~/Content/images/BlogPostRobot.jpg" class="RentalPhoto-Edit--Img" />
+                                }
+                            </div>
+                        </div>
 
-                    @if (Model.RentalPhotos != null)
-                    {
-                        <img id="originalImage" alt="@Model.RentalPhotoId" src="data:image/jpg;base64,@Convert.ToBase64String(Model.RentalPhotos)" />
-                    }
-                    else
-                    {
-                        <img id="originalImage" src="~/Content/images/BlogPostRobot.jpg" />
-                    }
-
-                    <!-- Needs cleanup, image preview for upload -->
-                    <img id="imgpreview" height="200" width="200" src="" style="border-width: 0px; visibility: hidden;" />
-                    <input type="file" name="photo" id="fuimage" onchange="showpreview(this);" />
+                        <div class="RentalPhoto-Edit--ImageContainerNew">
+                            <img id="imgpreview" src="" style="border-width: 0px; visibility: hidden;" class="RentalPhoto-Edit--Img" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="file" name="photo" id="fuimage" onchange="showpreview(this);" />
+                        </div>
+                        <div class="col-md-6 float-right">
+                            <input type="submit" name="deleteButton" value="DeletePhoto" class="RentalPhoto-EditCreate--BackBtn btn btn-lg float-right" />
+                        </div>
+                    </div>
 
 
                     @Html.ValidationMessageFor(model => model.RentalPhotos, "", new { @class = "text-danger" })
@@ -94,7 +107,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-2 text-right">
-                    <input type="submit" value="Save" class="RentalPhoto-EditCreate--CreateSaveBtn btn btn-lg" />
+                    <input type="submit" name="saveButton" value="Save" class="RentalPhoto-EditCreate--CreateSaveBtn btn btn-lg" />
                 </div>
                 <div class="col-2 text-left">
                     @Html.ActionLink("Back to List", "Index", null, new { @class = "RentalPhoto-EditCreate--BackBtn btn btn-lg" })
@@ -102,9 +115,7 @@
             </div>
         </div>
     }
-
-
-</center>
+    </center>
 
 
 @section Scripts {
