@@ -130,3 +130,12 @@
     text-align: center;
     padding-top: 20px;
 }
+
+/*Index Page Cards*/
+.BlogPhotoes-Index--buttons {
+    padding-top: 100px;
+}
+
+.card bg-dark text-white:hover {
+    transition: width 2s, height 4s;
+}
