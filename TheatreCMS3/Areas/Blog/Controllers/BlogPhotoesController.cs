@@ -128,14 +128,14 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             base.Dispose(disposing);
         }
 
-        public byte[] ImageToByteArray(HttpPostedFileBase imageIn)
+        public byte[] ImageToByteArray(HttpPostedFileBase imageIn) // The created Method.
         {
             byte[] bytes;
             using(BinaryReader br = new BinaryReader(imageIn.InputStream)) //BinaryReader
             {
                 bytes = br.ReadBytes(imageIn.ContentLength); //Conversion.
             }
-            return bytes; //Return.
+            return bytes;
         }
     }
 }
