@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
+using System.Drawing;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -47,10 +49,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase imageIn)
         {
             if (ModelState.IsValid)
             {
+                blogPhoto.Photo = ImageToByteArray(imageIn);
                 db.BlogPhoto.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +126,16 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public byte[] ImageToByteArray(HttpPostedFileBase imageIn)
+        {
+            byte[] bytes;
+            using(BinaryReader br = new BinaryReader(imageIn.InputStream)) //BinaryReader
+            {
+                bytes = br.ReadBytes(imageIn.ContentLength); //Conversion.
+            }
+            return bytes; //Return.
         }
     }
 }
