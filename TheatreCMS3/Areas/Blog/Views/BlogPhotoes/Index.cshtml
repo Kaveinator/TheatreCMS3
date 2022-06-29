@@ -5,37 +5,67 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<center>
+    <br />
+    <h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+</center>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th></th>
-    </tr>
+@foreach (var item in Model)
+{
+    <div class="card bg-dark text-white BlogPhotoes-Index--card">
 
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" /> //Converts the byte array to Base64 string, then displaying image.
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })
-        </td>
-    </tr>
-    }
+        <a href="@Url.Action("Details", "BlogPhotoes", new { id = item.BlogPhotoId })">
+            <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" class="card-img BlogPhotoes-Index--Picture" alt="...">
+        </a>
 
-</table>
+        <div class="BlogPhotoes-Index--Overlay">
+
+            <h3 class="BlogPhotoes-Index--cardTitle">@Html.DisplayFor(modelItem => item.Title)</h3>
+
+            <div class="BlogPhotoes-Index--buttons">
+                <button type="button" class="btn btn-dark">
+                    <span class="badge rounded-pill text-bg-dark">@Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId })</span>
+                </button>
+                <button type="button" class="btn btn-danger">
+                    <span class="badge rounded-pill text-bg-danger">@Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <hr />
+}
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" /> Converts the byte array to Base64 string, then displaying image.
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })
+                </td>
+            </tr>
+        }
+
+    </table>*@

@@ -130,3 +130,31 @@
     text-align: center;
     padding-top: 20px;
 }
+
+/*Index Page Cards*/
+.BlogPhotoes-Index--buttons {
+    padding-top: 524px;
+    padding-left: 10px;
+}
+
+.BlogPhotoes-Index--card:hover {
+    opacity: .75;
+}
+
+.BlogPhotoes-Index--card:hover .BlogPhotoes-Index--Overlay { /*Does this then that*/
+    display: block;
+}
+
+.BlogPhotoes-Index--Overlay {
+    display: none;
+    position: absolute;
+}
+
+.BlogPhotoes-Index--Picture {
+    position: relative;
+}
+
+.BlogPhotoes-Index--cardTitle {
+    padding-top: 10px;
+    padding-left: 16px;
+}
