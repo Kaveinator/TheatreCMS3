@@ -133,9 +133,28 @@
 
 /*Index Page Cards*/
 .BlogPhotoes-Index--buttons {
-    padding-top: 200px;
+    padding-top: 524px;
+    padding-left: 10px;
 }
 
-.card bg-dark text-white:hover {
-    transition: width 2s, height 4s;
+.BlogPhotoes-Index--card:hover {
+    opacity: .75;
+}
+
+.BlogPhotoes-Index--card:hover .BlogPhotoes-Index--Overlay { /*Does this then that*/
+    display: block;
+}
+
+.BlogPhotoes-Index--Overlay {
+    display: none;
+    position: absolute;
+}
+
+.BlogPhotoes-Index--Picture {
+    position: relative;
+}
+
+.BlogPhotoes-Index--cardTitle {
+    padding-top: 10px;
+    padding-left: 16px;
 }

@@ -15,13 +15,15 @@
 
 @foreach (var item in Model)
 {
-    <div class="card bg-dark text-white">
-        <a href="@Html.Action("Details", "BlogPhotoes", new { id = item.BlogPhotoId })">
-            <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" class="card-img" alt="...">
-        </a>
-        <div class="card-img-overlay">
+    <div class="card bg-dark text-white BlogPhotoes-Index--card">
 
-            <h3 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h3>
+        <a href="@Url.Action("Details", "BlogPhotoes", new { id = item.BlogPhotoId })">
+            <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" class="card-img BlogPhotoes-Index--Picture" alt="...">
+        </a>
+
+        <div class="BlogPhotoes-Index--Overlay">
+
+            <h3 class="BlogPhotoes-Index--cardTitle">@Html.DisplayFor(modelItem => item.Title)</h3>
 
             <div class="BlogPhotoes-Index--buttons">
                 <button type="button" class="btn btn-dark">
