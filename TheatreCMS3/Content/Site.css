@@ -505,3 +505,46 @@ footer {
     font-family: 'Times New Roman', Times, serif;
     padding-bottom: 120px;
 }
+
+/*Contact Page*/
+
+.Home-Contact--Container {
+    background-color: var(--main-color--light);
+}
+
+.Home-Contact--LgHeader {
+    height: 200px;
+    width: 100%;
+    font-size: 50px;
+    padding: 0px 5px 0px 4px;
+    text-align: center;
+    font-family: Broadway, Arial, Verdana;
+    background-color: var(--dark-color);
+}
+
+.Home-Contact--ColumnParent {
+    column-count: 2;
+    column-width: auto;
+}
+
+.Home-Contact--ParentofForm {
+  padding: 100px;
+  
+}
+
+
+
+.Home-Contact--ParentofDonate {
+    text-align: left;
+    width: 500px;
+   
+}
+
+.Home-Contact--SmHeader {
+    font-size: 14pt;
+    text-decoration: underline;
+    text-align: center;
+    padding: 50px;
+}
+
+

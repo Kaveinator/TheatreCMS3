@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TheatreCMS3.Models.ContactModel
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="Home-Contact--Container">
+
+        <div class="container-fluid Home-Contact--LgHeader" style="padding: 0px; border-bottom-left-radius: 80px 80px">
+            <br />
+            Contact Us
+        </div>
+
+        <div class="Home-Contact--info">
+
+            <div>
+                <h2 class="Home-Contact--SmHeader">GET IN TOUCH</h2>
+            </div>
+
+            <div class="Home-Contact--ColumnParent">
+                <div class="Home-Contact--ParentOfForm">
+                    <div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.SenderName, new { @class = "col control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.SenderName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.SenderName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.SenderEmail, new { @class = "col control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.SenderEmail, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.SenderEmail)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Message, new { @class = "col control-label" })
+                            <div>
+                                @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Message)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" class="btn btn-dark" value="Send" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Home-Contact--ParentofDonate">
+
+                    <div>
+                        <h4>DONATE</h4>
+                        <p>
+                            We've got a Patreaon account<br />
+                            Help support live theatre in<br />
+                            Portland, OR. by becoming a<br />
+                            Patron today!<br />
+                            <a class="btn btn-dark" href="#" role="button">Donate</a>
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h4>VOLUNTEER</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet,<br />
+                            consectetuer adipiscing elit.<br />
+                            Et magnis dis parturient montes, nascetur<br />
+                            ridiculus mus. <br />
+                            <a class="btn btn-dark" href="#" role="button">Volunteer</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+} 
