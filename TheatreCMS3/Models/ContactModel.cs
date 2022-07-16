@@ -8,11 +8,13 @@ namespace TheatreCMS3.Models
 {
     public class ContactModel : DbContext
     {
-        [Required, Display(Name = "Sender Name")]
+        [Required, Display(Name = "First and Last Name")]
         public string SenderName { get; set; }
-        [Required, Display(Name = "Sender Email"), EmailAddress]
+        [Required, Display(Name = "Email Address"), EmailAddress]
         public string SenderEmail { get; set; }
-        [Required]
+        [Required, Display(Name = "Subject")]
+        public string Subject { get; set; }
+        [Required, Display(Name = "Message")]
         public string Message { get; set; }
     }
 }
