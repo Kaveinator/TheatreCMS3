@@ -22,13 +22,15 @@ namespace TheatreCMS3.Controllers
 
             return View();
         }
-        [HttpGet]
+
         public ActionResult Contact()
         {
+            
+            return View();
+        }
 
-
-            ViewBag.Message = "Your contact page.";
-
+        public ActionResult SuccessMessage()
+        {
             return View();
         }
 
