@@ -20,21 +20,21 @@
 .Production-Input:focus{
     outline: var(--main-color);
 }
-.form-horizontal {
+.CastMembers-Create-Form {
     background-color: var(--secondary-color);
     border-radius: 1em;
     padding-bottom: 5em;
     padding-top: 5em;
  
 }
-h4 {
+.CastMembers-Create-Title {
     text-align: center;
     font-family:'Times New Roman', Times, serif;
     font-size: 28px;
-    color: #FFFBFB;
+    color: var(--light-color);
 }
 
-.form-group {
+.CastMembers-Create-Group {
     padding-left: 160px;
     font-family:'Times New Roman', Times, serif;
     font-size: 18px;
