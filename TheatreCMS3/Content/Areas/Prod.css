@@ -1,4 +1,5 @@
-﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+﻿
+/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
 /* Do not uncomment these color variables */
 
 /* CSS color variables */
@@ -11,6 +12,14 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.Production-Create-Container{
+    padding: 10px;
+    background-color: var(--main-color--light);
+}
+
+.Production-Input:focus{
+    outline: var(--main-color);
+}
 .form-horizontal {
     background-color: var(--secondary-color);
     border-radius: 1em;
