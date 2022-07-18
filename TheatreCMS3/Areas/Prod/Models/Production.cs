@@ -40,7 +40,7 @@ namespace TheatreCMS3.Areas.Prod.Models
             public DateTime? ShowTimeMat { get; set; }
 
             [Required(ErrorMessage = "Season is required"), Display(Name = "Season")]
-            public int Season { get; set; }
+        public int Season { get; set; }
 
             [Required, Display(Name = "Check if this is a world premiere:")]
             public bool IsWorldPremiere { get; set; }

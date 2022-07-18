@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="Prod.css" type="text/css" rel="stylesheet" media="all" />
 
 <h2>Index</h2>
 
@@ -51,50 +52,51 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlayWright)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Runtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OpeningDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClosingDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeEve)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeMat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsWorldPremiere)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsCurrentlyShowing)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductionId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductionId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayWright)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Runtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowTimeEve)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowTimeMat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Season)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsWorldPremiere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCurrentlyShowing)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductionId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId })
+            </td>
+        </tr>
+    }
 
 </table>
