@@ -11,3 +11,28 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.form-horizontal {
+    background-color: var(--secondary-color);
+    border-radius: 1em;
+    padding-bottom: 5em;
+    padding-top: 5em;
+ 
+}
+h4 {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 28px;
+    color: #FFFBFB;
+}
+
+.form-group {
+    padding-left: 160px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.CastMembers-Create-InputBox:focus {
+    box-shadow: none;
+    border: 2px solid var(--secondary-color);
+}
+ 
