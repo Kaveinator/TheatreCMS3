@@ -651,5 +651,20 @@ footer {
     font-size: 16px;
     cursor: pointer;
     align-content: center;
-} 
+}
 
+#PersonList {
+    column-count: 4;
+}
+
+#PersonList p {
+    width: 160px;
+    background-color: var(--main-color);
+    text-align: center;
+    height: fit-content;
+    border-radius: 14px 14px;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
