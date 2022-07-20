@@ -54,6 +54,113 @@
     margin: 2px;
 }
 
+    .Production-CreateEdit-Input:focus {
+        background-color: var(--light-color);
+        border: 1px solid;
+        -webkit-box-shadow: 1px 1px 0 2px var(--dark-color);
+        box-shadow: 1px 1px 2px 2px var(--dark-color);
+        outline: none;
+        color: var(--dark-color);
+    }
+
+.Production-CreateEdit-Btn {
+    grid-column: 2;
+    .Production-CreateEdit-Form
+
+{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    padding: 3px 3px 3px 3px;
+}
+
+.Production-CreateEdit-Input {
+    background-color: #e6e6e6;
+    color: var(--dark-color);
+    width: 100%;
+    margin: 2px;
+}
+
+    .Production-CreateEdit-Input:focus {
+        background-color: var(--light-color);
+        border: 1px solid;
+        -webkit-box-shadow: 1px 1px 0 2px var(--dark-color);
+        box-shadow: 1px 1px 2px 2px var(--dark-color);
+        outline: none;
+        color: var(--dark-color);
+    }
+
+.Production-CreateEdit-Btn {
+    grid-column: 2;
+    grid-row: 3;
+.Production-Input:focus{
+    outline: var(--main-color);
+}
+
+/* Create page Styling*/
+.CastMembers-Create-Form {
+    background-color: var(--secondary-color);
+    border-radius: 1em;
+    padding-bottom: 5em;
+    padding-top: 5em;
+ 
+}
+.CastMembers-Create-Title {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 28px;
+    color: var(--light-color);
+}
+
+.CastMembers-Create-Group {
+    padding-left: 160px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.CastMembers-Create-InputBox:focus {
+    box-shadow: none;
+    border: 2px solid var(--secondary-color);
+}
+
+/*Edit page Styling*/
+.CastMembers-Edit-Form {
+    background-color: var(--secondary-color);
+    border-radius: 1em;
+    padding-bottom: 5em;
+    padding-top: 5em;
+}
+
+.CastMembers-Edit-Title {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 28px;
+    color: var(--light-color);
+}
+
+.CastMembers-Edit-Group {
+    padding-left: 160px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.CastMembers-Edit-InputBox:focus {
+    box-shadow: none;
+    border: 2px solid var(--secondary-color);
+}
+ 
+.Production-CreateEdit-Form {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    padding: 3px 3px 3px 3px;
+}
+
+.Production-CreateEdit-Input {
+    background-color: #e6e6e6;
+    color: var(--dark-color);
+    width: 100%;
+    margin: 2px;
+}
+
 .Production-CreateEdit-Input:focus {
     background-color: var(--light-color);
     border: 1px solid;

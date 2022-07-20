@@ -44,5 +44,7 @@ namespace TheatreCMS3.Models
         public DbSet<Areas.Prod.Models.CastMember> CastMembers { get; set; }
         public DbSet<Areas.Prod.Models.Production> Production { get; set; }
 
+        public DbSet<Areas.Prod.Models.ProdPhoto> ProdPhotos { get; set; }
+        
     }
 }  
