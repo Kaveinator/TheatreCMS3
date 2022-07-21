@@ -668,3 +668,24 @@ footer {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/*Donate Page*/
+.Home-Donate--Container {
+    font-family: Broadway;
+}
+
+.Home-Donate--LgHeader {
+    height: 200px;
+    width: 100%;
+    font-size: 45px;
+    padding: 0px 5px 0px 4px;
+    text-align: center;    
+    background-color: var(--dark-color);
+}
+
+.Home-Donate--Form {
+    background-color: var(--main-color--light);
+    padding: 10px 40px 20px 40px;
+    border-radius: 10px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
