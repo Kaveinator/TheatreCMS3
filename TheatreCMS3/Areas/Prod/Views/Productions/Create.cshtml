@@ -23,7 +23,7 @@
             <div class="form-group ">
                 @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Title" } })
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Description" } })
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.PlayWright, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.PlayWright, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.PlayWright, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Playwrite" } })
                     @Html.ValidationMessageFor(model => model.PlayWright, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Runtime, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Run Time" } })
                     @Html.ValidationMessageFor(model => model.Runtime, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -55,7 +55,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.OpeningDay, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Opening Day" } })
                     @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ClosingDay, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Closing Day" } })
                     @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -71,7 +71,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ShowTimeEve, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Evening Show Time" } })
                     @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -79,7 +79,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ShowTimeMat, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Mantee Show Time" } })
                     @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -87,7 +87,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-4 Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Season" } })
                     @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.TicketLink, htmlAttributes: new { @class = "control-label Production-CreateEdit-Label" })
                 <div>
-                    @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "Production-CreateEdit-Input" } })
+                    @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "Production-CreateEdit-Input", @Placeholder = "Ticket Link" } })
                     @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
                 </div>
             </div>
