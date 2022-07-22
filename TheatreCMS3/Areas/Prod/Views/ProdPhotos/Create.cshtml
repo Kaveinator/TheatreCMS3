@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="ProdPhotos-Create-Card">
-        @using (Html.BeginForm())
+        <!-- Controller function, Controller, Post-->
+        @using (Html.BeginForm("Create", "ProdPhotos", FormMethod.Post, new { enctype="multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
@@ -46,21 +47,33 @@
 
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <form method="post">
-                            <center>
-                                <input type="file">
-                            </center>
-                            <img class="ProdPhotos-Create-ImagePlaceholder" src="https://via.placeholder.com/600">
-                        </form>
-                    </div>
+            <div class="form-group">
+                <div class="ProdPhotos-Create-ImagePlaceholder">
+                    <center>
+                        <input type="file" id="uploadImage" name="postedFile" onchange="PreviewImage();" required />
+                        <div>
+                            <img id="viewImage" src="https://unsplash.it/600/400"/>
+                        </div>
+                    </center>
                 </div>
+            </div>
             </div>
         }
     </div>
 </body>
 
+<script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("viewImage").src = oFREvent.target.result;
+        };
+    };
+
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

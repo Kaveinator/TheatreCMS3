@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +49,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProdPhoto prodPhoto)
+        public ActionResult Create([Bind(Include = "ProPhotoId,PhotoFile,Title,Description")] ProdPhoto prodPhoto, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
+                prodPhoto.PhotoFile = convertImage(postedFile);
+
                 db.ProdPhotos.Add(prodPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -124,5 +128,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        //Convert image to byte 
+
+        public byte[] convertImage(HttpPostedFileBase postedFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            {
+                bytes = br.ReadBytes(postedFile.ContentLength);
+            }
+            return bytes;
+        }
+
     }
 }
