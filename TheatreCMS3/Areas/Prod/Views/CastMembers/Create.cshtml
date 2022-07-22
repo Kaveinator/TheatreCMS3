@@ -8,10 +8,13 @@
 
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+
+
 {
-    @Html.AntiForgeryToken()
-    
+@Html.AntiForgeryToken()
+
 <div class="form-horizontal CastMembers-Create-Form">
     <h4 class="CastMembers-Create-Title">Create Cast Member</h4>
     <hr />
@@ -81,6 +84,16 @@
             @Html.ValidationMessageFor(model => model.DebutYear, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <p class="CastMembers-Create-Statement">Upload A Personal Photo</p>
+    <div class="CastMembers-Create-FileUpload">
+        <div class="col-md-10">
+            <div class="CastMembers-Create-Button">
+                <input type="file" name="postedFile" />
+            </div>
+        </div>
+    </div>
+
 
     <div class="form-group CastMembers-Create-Group">
         <div class="col-md-offset-2 col-md-10">

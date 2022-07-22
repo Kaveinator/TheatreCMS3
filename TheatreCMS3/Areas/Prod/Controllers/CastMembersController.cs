@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        // Includes all of the columns in the database table. 
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
+                // postedFile is what file the user is uploading to the database.
+                castMember.Photo = Conversion(postedFile);
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +127,21 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        // This method is converting the file uploaded into a byte array which then will need to be 
+        // rendered into an image.
+        public byte[] Conversion(HttpPostedFileBase postedFile)
+        {
+            byte[] bytes;
+            // BinaryReader is a class that is used to handle binary data(aka the byte array).
+            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            {
+                // ReadBytes reads the specified number of bytes from the current inputstream.
+                bytes = br.ReadBytes(postedFile.ContentLength);
+            }
+            return bytes;
         }
     }
 }
