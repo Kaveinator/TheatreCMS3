@@ -12,9 +12,86 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-.Production-Create-Container{
-    padding: 10px;
+
+.Production-CreateEdit-Container {
+    display: grid;
+    align-content: center;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    padding: 2rem;
     background-color: var(--main-color--light);
+    margin: 3rem;
+}
+
+.Production-CreateEdit-Header {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    font-size: 40pt;
+    text-align: center;
+    padding: 10px 0px 15px 0px;
+    font-weight: 900;
+    color: var(--light-color);
+    text-decoration: underline var(--main-color) 4pt;
+    text-underline-offset: 7px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--dark-color);
+}
+
+.Production-CreateEdit-Label {
+    font-size: 14pt;
+}
+
+.Production-CreateEdit-Form {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    padding: 3px 3px 3px 3px;
+}
+
+.Production-CreateEdit-Input {
+    background-color: #e6e6e6;
+    color: var(--dark-color);
+    width: 100%;
+    margin: 2px;
+}
+
+    .Production-CreateEdit-Input:focus {
+        background-color: var(--light-color);
+        border: 1px solid;
+        -webkit-box-shadow: 1px 1px 0 2px var(--dark-color);
+        box-shadow: 1px 1px 2px 2px var(--dark-color);
+        outline: none;
+        color: var(--dark-color);
+    }
+
+.Production-CreateEdit-Btn {
+    grid-column: 2;
+}
+
+.Production-CreateEdit-Form {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    padding: 3px 3px 3px 3px;
+}
+
+.Production-CreateEdit-Input {
+    background-color: #e6e6e6;
+    color: var(--dark-color);
+    width: 100%;
+    margin: 2px;
+}
+
+.Production-CreateEdit-Input:focus {
+    background-color: var(--light-color);
+    border: 1px solid;
+    -webkit-box-shadow: 1px 1px 0 2px var(--dark-color);
+    box-shadow: 1px 1px 2px 2px var(--dark-color);
+    outline: none;
+    color: var(--dark-color);
+}
+
+.Production-CreateEdit-Btn {
+    grid-column: 2;
+    grid-row: 3;
 }
 
 .Production-Input:focus{
@@ -84,4 +161,110 @@
     box-shadow: none;
     border: 2px solid var(--secondary-color);
 }
- 
+
+/* Production Photo Create CSS */
+
+.ProdPhotos-Create-Title {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 500;
+    padding: 15px;
+    text-align: center;
+}
+
+.ProdPhotos-Create-Form {
+    align-content: center;
+}
+
+.ProdPhotos-Create-Card {
+    margin-top: 20px;
+    background-color: var(--main-color);
+}
+
+.ProdPhotos-Create-Buttons-Center {
+    display: flex;
+    justify-content: center;
+}
+
+.ProdPhotos-Create-Buttons {
+    max-width: 200px;
+    background-color: var(--secondary-color);
+    width: 100%;
+    margin: 10px 20px 10px 20px;
+}
+
+.ProdPhotos-Create-BackButtons {
+    max-width: 200px;
+    background-color: var(--secondary-color--dark);
+    width: 100%;
+    margin: 10px 20px 10px 20px;
+}
+
+.ProdPhotos-Create-Buttons:hover {
+    box-shadow: inset 180px 0 0 0 var(--secondary-color--dark);
+    color: var(--light-color);
+}
+
+.ProdPhotos-Create-BackButtons:hover {
+    box-shadow: inset -180px 0 0 0 var(--secondary-color);
+}
+
+.ProdPhotos-Create-ImagePlaceholder {
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 2% 5% 2% 10%;
+}
+
+
+/* Production Photo Edit CSS*/
+
+.ProdPhotos-Edit-Title {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 500;
+    padding: 15px;
+    text-align: center;
+}
+
+.ProdPhotos-Edit-Form {
+    align-content: center;
+}
+
+.ProdPhotos-Edit-Card {
+    margin-top: 20px;
+    background-color: var(--secondary-color);
+}
+
+.ProdPhotos-Edit-Buttons-Center {
+    display: flex;
+    justify-content: center;
+}
+
+.ProdPhotos-Edit-Buttons {
+    max-width: 200px;
+    background-color: var(--main-color);
+    width: 100%;
+    margin: 10px 20px 10px 20px;
+}
+
+.ProdPhotos-Edit-BackButtons {
+    max-width: 200px;
+    background-color: var(--main-color--light);
+    width: 100%;
+    margin: 10px 20px 10px 20px;
+}
+
+.ProdPhotos-Edit-Buttons:hover {
+    box-shadow: inset 180px 0 0 0 var(--main-color--light);
+    color: var(--light-color);
+}
+
+.ProdPhotos-Edit-BackButtons:hover {
+    box-shadow: inset -180px 0 0 0 var(--main-color);
+}
+
+.ProdPhotos-Edit-ImagePlaceholder {
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 2% 5% 2% 10%;
+}

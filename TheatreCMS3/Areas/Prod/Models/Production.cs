@@ -11,22 +11,22 @@ namespace TheatreCMS3.Areas.Prod.Models
             [Key]
             public int ProductionId { get; set; }
 
-            [Required(ErrorMessage = "Title is required"), Display(Name = "Title")]
+            [Required(ErrorMessage = "Title is required"), Display(Name = "Title", Prompt = "Title")]
             public string Title { get; set; }
 
-            [Required(ErrorMessage = "Description is required"), Display(Name = "Description")]
+            [Required(ErrorMessage = "Description is required"), Display(Name = "Description",Prompt = "Description")]
             public string Description { get; set; } 
 
-            [Required(ErrorMessage = "PlayWright is required"), Display(Name = "Playwright")]
+            [Required(ErrorMessage = "PlayWright is required"), Display(Name = "Playwright", Prompt = "Playwright")]
             public string PlayWright { get; set; }
 
-            [Required(ErrorMessage = "Runtime is required"), Display(Name = "Run time")]
+            [Required(ErrorMessage = "Runtime is required"), Display(Name = "Run time", Prompt = "Run time")]
             public int Runtime { get; set; }
 
-            [Required(ErrorMessage = "Opening Day is required"), Display(Name = "Opening Day")]
+            [Required(ErrorMessage = "Opening Day is required"), Display(Name = "Opening Day", Prompt = "Opening Day")]
             public DateTime OpeningDay { get; set; }
 
-            [Required(ErrorMessage = "Closing Day is required"), Display(Name = "Closing Day")]
+            [Required(ErrorMessage = "Closing Day is required"), Display(Name = "Closing Day", Prompt = "Closing Day")]
             public DateTime ClosingDay { get; set; }
 
             [DataType(DataType.Time)]
@@ -39,13 +39,13 @@ namespace TheatreCMS3.Areas.Prod.Models
             [Display(Name = "Show Time - Matinee")]
             public DateTime? ShowTimeMat { get; set; }
 
-            [Required(ErrorMessage = "Season is required"), Display(Name = "Season")]
+            [Required(ErrorMessage = "Season is required"), Display(Name = "Season", Prompt = "Season")]
         public int Season { get; set; }
 
             [Required, Display(Name = "Check if this is a world premiere:")]
             public bool IsWorldPremiere { get; set; }
 
-            [Required(ErrorMessage = "Ticket Link is required"), Display(Name = "Link to purchase tickets")]
+            [Required(ErrorMessage = "Ticket Link is required"), Display(Name = "Link to purchase tickets", Prompt = "Link")]
             public string TicketLink { get; set; }
 
             [Required, Display(Name = "Check if this production is currently showing:")]
