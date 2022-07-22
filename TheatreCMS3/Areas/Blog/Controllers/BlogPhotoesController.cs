@@ -2,120 +2,116 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Prod.Models;
+using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Prod.Controllers
+namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class CastMembersController : Controller
+    public class BlogPhotoesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/CastMembers
+        // GET: Blog/BlogPhotoes
         public ActionResult Index()
         {
-            return View(db.CastMembers.ToList());
+            return View(db.BlogPhotos.ToList());
         }
 
-        // GET: Prod/CastMembers/Details/5
+        // GET: Blog/BlogPhotoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogPhoto blogPhoto = db.BlogPhotos.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogPhoto);
         }
 
-        // GET: Prod/CastMembers/Create
+        // GET: Blog/BlogPhotoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/CastMembers/Create
+        // POST: Blog/BlogPhotoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        // Includes all of the columns in the database table. 
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase postedFile)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
             if (ModelState.IsValid)
             {
-                // postedFile is what file the user is uploading to the database.
-                castMember.Photo = Conversion(postedFile);
-                db.CastMembers.Add(castMember);
+                db.BlogPhotos.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(castMember);
+            return View(blogPhoto);
         }
 
-        // GET: Prod/CastMembers/Edit/5
+        // GET: Blog/BlogPhotoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogPhoto blogPhoto = db.BlogPhotos.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogPhoto);
         }
 
-        // POST: Prod/CastMembers/Edit/5
+        // POST: Blog/BlogPhotoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(castMember).State = EntityState.Modified;
+                db.Entry(blogPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(castMember);
+            return View(blogPhoto);
         }
 
-        // GET: Prod/CastMembers/Delete/5
+        // GET: Blog/BlogPhotoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogPhoto blogPhoto = db.BlogPhotos.Find(id);
+            if (blogPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogPhoto);
         }
 
-        // POST: Prod/CastMembers/Delete/5
+        // POST: Blog/BlogPhotoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CastMember castMember = db.CastMembers.Find(id);
-            db.CastMembers.Remove(castMember);
+            BlogPhoto blogPhoto = db.BlogPhotos.Find(id);
+            db.BlogPhotos.Remove(blogPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -127,21 +123,6 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        [HttpPost]
-        // This method is converting the file uploaded into a byte array which then will need to be 
-        // rendered into an image.
-        public byte[] Conversion(HttpPostedFileBase postedFile)
-        {
-            byte[] bytes;
-            // BinaryReader is a class that is used to handle binary data(aka the byte array).
-            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
-            {
-                // ReadBytes reads the specified number of bytes from the current inputstream.
-                bytes = br.ReadBytes(postedFile.ContentLength);
-            }
-            return bytes;
         }
     }
 }
