@@ -57,6 +57,9 @@
             @Html.DisplayFor(modelItem => item.CurrentMember)
         </td>
         <td>
+            <img src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" />
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Character)
         </td>
         <td>
