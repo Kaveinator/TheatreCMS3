@@ -12,3 +12,104 @@
 /*}*/
 
 
+/*Style BlogPhoto Form Container*/
+#BlogPhoto-Create--FormContainer {
+    display: block;
+    align-content: center;
+    margin-left: 100px;
+    margin-right: 220px;
+    border-block: solid;
+    border-block-color: var(--secondary-color);
+    border-right: solid;
+    border-right-color: var(--secondary-color);
+    border-left: solid;
+    border-left-color: var(--secondary-color);
+}
+
+#BlogPhoto-Edit--FormContainer {
+    display: block;
+    align-content: center;
+    margin-left: 100px;
+    margin-right: 220px;
+    border-block: solid;
+    border-block-color: var(--secondary-color);
+    border-right: solid;
+    border-right-color: var(--secondary-color);
+    border-left: solid;
+    border-left-color: var(--secondary-color);
+}
+/* Style submit button */
+#BlogPhoto-Create--CreateButton {
+    display: flex;
+    background-color: var(--main-color);
+    font-weight: bolder;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    align-items: baseline;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px 10px;
+    width: 750px;
+}
+
+    /* Style button hover effect */
+    #BlogPhoto-Create--CreateButton:hover {
+        box-shadow: 0px 0px 5px var(--light-color);
+    }
+
+/* Style BackToList button */
+#BlogPhoto-BackToList {
+    display: flex;
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    font-weight: bolder;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    align-items: baseline;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px 10px;
+    width: 750px;
+}
+
+    /* Button hover effect */
+    #BlogPhoto-BackToList:hover {
+        box-shadow: 0px 0px 5px var(--light-color);
+    }
+
+/* Style Edit Button*/
+#BlogPhoto-Edit {
+    display: flex;
+    background-color: var(--main-color);
+    font-weight: bolder;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    align-items: baseline;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px 10px;
+    width: 750px;
+}
+
+    /* Style button hover effect */
+    #BlogPhoto-Edit:hover {
+        box-shadow: 0px 0px 5px var(--light-color);
+    }
+
+#BlogPhoto-Create--TitleEnter {
+    box-shadow: none;
+}
+
+    #BlogPhoto-Create--TitleEnter:focus {
+        box-shadow: none;
+        border: 2px solid var(--main-color--light);
+    }
+
+#BlogPhoto-Edit--TitleEnter {
+    box-shadow: none;
+}
+
+    #BlogPhoto-Edit--TitleEnter:focus {
+        box-shadow: none;
+        border: 2px solid var(--main-color--light);
+    }
