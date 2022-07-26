@@ -11,6 +11,68 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+@import url('Blog.css');
+
+.BlogPost-Create-Container {
+    align-content: center;
+    background-color: var(--main-color--light);
+    display: grid;
+}
+
+.BlogPost-Edit-Containter {
+    align-content: center;
+    background-color: var(--main-color);
+    display: grid;
+}
+
+.BlogPost-CreateEdit-Header {
+    text-align: center;
+    padding: 15px;
+    font-size: 25pt;
+    background-color: var(--dark-color);
+}
+
+.BlogPost-CreateEdit-Btn {
+    padding: 15px;
+    background-color: var(--light-color);
+    align-content: center;
+    position: center;
+    margin: 0 auto;
+    width: 300px;
+    margin-left: 25em;
+}
+
+.BlogPost-CreateEdit-BackBtn {
+    padding: 15px;
+    background-color: var(--secondary-color);
+    align-content: center;
+    position: center;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.BlogPost-CreateEdit-Form {
+    margin-left: 24em;
+    width: 400px;
+}
+
+.BlogPost-CreateEdit-Label {
+    text-align: center;
+}
+
+.BlogPost-CreateEdit-Form :focus {
+    border: 3px solid var(--secondary-color);
+    box-shadow: none;
+}
+
+.BlogPost-BackBtn-Bottom {
+    margin-left: 25em;
+}
+
+
+
+
+
 
 /*Style BlogPhoto Form Container*/
 #BlogPhoto-Create--FormContainer {
