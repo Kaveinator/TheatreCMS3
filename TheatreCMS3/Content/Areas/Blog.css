@@ -16,49 +16,60 @@
 .BlogPost-Create-Container {
     align-content: center;
     background-color: var(--main-color--light);
+    display: grid;
 }
 
 .BlogPost-Edit-Containter {
     align-content: center;
     background-color: var(--main-color);
+    display: grid;
 }
 
 .BlogPost-CreateEdit-Header {
     text-align: center;
     padding: 15px;
     font-size: 25pt;
+    background-color: var(--dark-color);
 }
 
 .BlogPost-CreateEdit-Btn {
     padding: 15px;
     background-color: var(--light-color);
     align-content: center;
-    width: 100px;
-    margin: 10px;
-    
+    position: center;
+    margin: 0 auto;
+    width: 300px;
+    margin-left: 25em;
 }
 
 .BlogPost-CreateEdit-BackBtn {
     padding: 15px;
     background-color: var(--secondary-color);
-    text-align: center;
-    width: 100px;
-    margin: 10px;
+    align-content: center;
+    position: center;
+    margin: 0 auto;
+    width: 300px;
 }
 
-.BlogPost-Create-Form {
-    text-align: center;
-    width: 100px;
-    margin: 4px;
+.BlogPost-CreateEdit-Form {
+    margin-left: 24em;
+    width: 400px;
 }
 
 .BlogPost-CreateEdit-Label {
     text-align: center;
 }
 
-.BlogPost-Create-Form :hover  {
-    border-color: var(--dark-color);
+.BlogPost-CreateEdit-Form :focus {
+    border: 3px solid var(--secondary-color);
+    box-shadow: none;
 }
+
+.BlogPost-BackBtn-Bottom {
+    margin-left: 25em;
+}
+
+
 
 
 
