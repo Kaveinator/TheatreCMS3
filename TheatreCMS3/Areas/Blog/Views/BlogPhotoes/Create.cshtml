@@ -4,47 +4,64 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+   <!-- <link rel="stylesheet" href="~/Content/Areas/Blog.css"> -->
+</head>
+<body>
+    <h2>Create</h2>
+    <header>Create Blog Photo</header>
 
-<h2>Create</h2>
-<header>Create Blog Photo</header>
+    <div id="BlogPhoto-Create--FormContainer">
+        @using (Html.BeginForm("Create", "BlogPhotoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
 
-<div id="BlogPhoto-Create--FormContainer">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <h4>BlogPhoto</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { id = "BlogPhoto-Create--TitleEnter", placeholder = "Enter Photo Title", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-horizontal">
-            <h4>BlogPhoto</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { id = "BlogPhoto-Create--TitleEnter", placeholder = "Enter Photo Title", @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" id="uploadImage" name="postedFile" onchange="PreviewImage();" required />
+                        @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" id="BlogPhoto-Create--CreateButton">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
+        }
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group" id="BlogPhoto-Create--CreateButton">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
+        <div id="BlogPhoto-BackToList">
+            @Html.ActionLink("Back to List", "Index")
         </div>
-    }
-
-    <div id="BlogPhoto-BackToList">
-        @Html.ActionLink("Back to List", "Index")
     </div>
-</div>
+</body>
+
+<script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("viewImage").src = oFREvent.target.result;
+        };
+    };
+
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
