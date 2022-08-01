@@ -41,13 +41,6 @@ namespace TheatreCMS3.Models
         }
 
         /* ▼ Put DbSet's for your models below ▼ */
-        public DbSet<Areas.Prod.Models.CastMember> CastMembers { get; set; }
-        public DbSet<Areas.Prod.Models.Production> Production { get; set; }
 
-        public DbSet<Areas.Prod.Models.ProdPhoto> ProdPhotos { get; set; }
-
-        public DbSet<Areas.Blog.Models.BlogPhoto> BlogPhotos { get; set; }
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogPost> BlogPosts { get; set; }
     }
 }  
