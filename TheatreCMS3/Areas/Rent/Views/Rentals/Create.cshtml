@@ -5,21 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Create Rental</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Rental</h4>
-        <hr />
+
+    <div class="form-horizontal rental-create--createForm">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Name" } })
                 @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -27,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Cost" } })
                 @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -35,22 +33,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", @placeholder = "Flaws And Damages" } })
                 @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+        <div class="form-group row rental-create--btns">
+            <div class="">
                 <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+            <div class="rental-create--backToList">
+                @Html.ActionLink("Back to List", "Index")
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
