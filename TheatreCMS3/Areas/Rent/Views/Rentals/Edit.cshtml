@@ -1,4 +1,5 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+@using TheatreCMS3.Areas.Rent.Models
 
 @{
     ViewBag.Title = "Edit";
@@ -11,7 +12,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Rental</h4>
         <hr />
@@ -35,10 +36,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RoomNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.RoomNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoomNumber, "", new { @class = "text-danger" })
             </div>
         </div>
 

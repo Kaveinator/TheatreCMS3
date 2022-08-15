@@ -1,17 +1,30 @@
-﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+﻿@using TheatreCMS3.Areas.Rent.Models
+@model TheatreCMS3.Areas.Rent.Models.Rental
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var RentalEquipment = new RentalEquipment();
+    var ChokingHazard = RentalEquipment.ChokingHazard;
+    var SuffocationHazard = RentalEquipment.SuffocationHazard;
+    var PurchasePrice = RentalEquipment.PurchasePrice;
+    var RentalRoom = new RentalRoom();
+    var RoomNumber = RentalRoom.RoomNumber;
+    var SquareFootage = RentalRoom.SquareFootage;
+    var MaxOccupancy = RentalRoom.MaxOccupancy;
 }
 
-<h2>Create</h2>
+<select name="RentalType" id="RentalType">
+    <option value="Rental">Rental</option>
+    <option value="RentalEquipment">Rental Equipment</option>
+    <option value="RentalRoom">Rental Room</option>
+</select>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Rental</h4>
         <hr />
@@ -39,7 +52,48 @@
                 @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => ChokingHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => ChokingHazard, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => ChokingHazard, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => SuffocationHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => SuffocationHazard, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => SuffocationHazard, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
