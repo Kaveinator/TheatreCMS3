@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
+using TheatreCMS3.Areas.Rent.ViewModels;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
@@ -39,6 +40,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
