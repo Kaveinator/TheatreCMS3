@@ -40,6 +40,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
+
             return View();
         }
 

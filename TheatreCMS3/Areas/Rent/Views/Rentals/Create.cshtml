@@ -1,6 +1,8 @@
 ﻿@using TheatreCMS3.Areas.Rent.Models
 @model TheatreCMS3.Areas.Rent.Models.Rental
 
+
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,55 +14,125 @@
     var RoomNumber = RentalRoom.RoomNumber;
     var SquareFootage = RentalRoom.SquareFootage;
     var MaxOccupancy = RentalRoom.MaxOccupancy;
+    string rentalType = Request.Params["rType"];
 }
 
+<select onchange="changeRentalType()" name="RentalType" id="RentalType">
+    <option value="">Pick a Rental Type</option>
+    <option value="Rental">Rental</option>
+    <option value="RentalEquipment">Rental Equipment</option>
+    <option value="RentalRoom">Rental Room</option>
+</select>
+
 <h2>Create Rental</h2>
+
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal rental-create--createForm">
-        <h4>Rental</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Name" } })
-                @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Cost" } })
-                @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", @placeholder = "Flaws And Damages" } })
-                @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group row rental-create--btns">
-            <div class="col-md-offset-2 col-md-10">
-
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-            <div class="rental-create--backToList">
-                @Html.ActionLink("Back to List", "Index")
-            </div>
+<div class="form-horizontal rental-create--createForm">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Name" } })
+            @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Cost" } })
+            @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", @placeholder = "Flaws And Damages" } })
+            @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @{ if (rentalType == "RentalEquipment")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => ChokingHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => ChokingHazard, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => ChokingHazard, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => SuffocationHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => SuffocationHazard, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => SuffocationHazard, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (rentalType == "RentalRoom")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => RoomNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => RoomNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => RoomNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => SquareFootage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => SquareFootage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => SquareFootage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => MaxOccupancy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => MaxOccupancy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => MaxOccupancy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+    }
+
+
+
+    <div class="form-group row rental-create--btns">
+        <div class="col-md-offset-2 col-md-10">
+
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+        <div class="rental-create--backToList">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+<script>
+    function changeRentalType() {
+        var type = $("#RentalType").val();
+        var url = window.location.href + "/";
+        var n = url.indexOf('?')
+        url = url.substring(0, n != -1 ? n : url.length)
+        window.location.replace(url + "?rType=" + type);
+    };
+</script>
