@@ -28,91 +28,91 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal rental-edit--editForm">
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.RentalId)
+    <div class="form-horizontal rental-edit--editForm">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.RentalId)
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Name" } })
-            @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Name" } })
+                @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Cost" } })
-            @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", @placeholder = "Rental Cost" } })
+                @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", @placeholder = "Flaws And Damages" } })
-            @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", @placeholder = "Flaws And Damages" } })
+                @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    @{ if (rentalType == "RentalEquipment")
-        {
-            <div class="form-group">
-                @Html.LabelFor(model => ChokingHazard, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => ChokingHazard, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => ChokingHazard, "", new { @class = "text-danger" })
+        @{ if (rentalType == "RentalEquipment")
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => ChokingHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => ChokingHazard, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => ChokingHazard, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => SuffocationHazard, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => SuffocationHazard, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => SuffocationHazard, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => SuffocationHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => SuffocationHazard, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => SuffocationHazard, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-        }
-        else if (rentalType == "RentalRoom")
-        {
-            <div class="form-group">
-                @Html.LabelFor(model => RoomNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => RoomNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => RoomNumber, "", new { @class = "text-danger" })
+            }
+            else if (rentalType == "RentalRoom")
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => RoomNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => RoomNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => RoomNumber, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => SquareFootage, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => SquareFootage, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => SquareFootage, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => SquareFootage, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => SquareFootage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => SquareFootage, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => MaxOccupancy, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => MaxOccupancy, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => MaxOccupancy, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => MaxOccupancy, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => MaxOccupancy, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => MaxOccupancy, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
             }
         }
-            <div class="form-group row rental-edit--btns">
-                <div>
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
-                <div class="rental-edit--backToList">
-                    @Html.ActionLink("Back to List", "Index")
-                </div>
+        <div class="form-group row rental-edit--btns">
+            <div>
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+            <div class="rental-edit--backToList">
+                @Html.ActionLink("Back to List", "Index")
             </div>
         </div>
+    </div>
 }
 
 
@@ -124,8 +124,25 @@
     function changeRentalType() {
         var type = $("#RentalType").val();
         var url = window.location.href + "/";
-        var n = url.indexOf('?')
-        url = url.substring(0, n != -1 ? n : url.length)
+        var n = url.indexOf('?');
+        url = url.substring(0, n != -1 ? n : url.length);
         window.location.replace(url + "?rType=" + type);
     };
 </script>
+
+@if (!String.IsNullOrEmpty(rentalType))
+{
+    <script>
+    var RentalTypeSelect = document.getElementById("RentalType");
+    console.log(RentalTypeSelect.options[1])
+
+    for (var i = 0; i < RentalTypeSelect.length; i++) {
+            console.log(RentalTypeSelect.options.value + " @rentalType")
+            if (RentalTypeSelect.options[i].value == "@rentalType") {
+                        console.log("@rentalType")
+                RentalTypeSelect.selectedIndex = i;
+                break;
+            }
+        }
+    </script>
+}
