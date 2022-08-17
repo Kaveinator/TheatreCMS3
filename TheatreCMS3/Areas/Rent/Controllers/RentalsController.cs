@@ -33,12 +33,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
-            if (rental == null)
+            dynamic rentalType = new ExpandoObject();
+            rentalType.Rental = db.Rentals.Find(id);
+            rentalType.RentalEquipment = db.Rentals.Find(id);
+            rentalType.RentalRoom = db.Rentals.Find(id);
+
+            if (rentalType.Rental == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View(rentalType);
         }
 
         // GET: Rent/Rentals/Create
@@ -59,7 +63,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 if (PurchasePrice > 0)
                 {
-                var rentalEquipment = new RentalEquipment();
+                    var rentalEquipment = new RentalEquipment();
                     rentalEquipment.RentalId = rental.RentalId;
                     rentalEquipment.RentalName = rental.RentalName;
                     rentalEquipment.RentalCost = rental.RentalCost;
@@ -68,9 +72,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     rentalEquipment.SuffocationHazard = Convert.ToBoolean(SuffocationHazard);
                     rentalEquipment.PurchasePrice = Convert.ToInt32(PurchasePrice);
                     db.Rentals.Add(rentalEquipment);
-                } else if (RoomNumber > 0)
+                }
+                else if (RoomNumber > 0)
                 {
-                var rentalRoom = new RentalRoom();
+                    var rentalRoom = new RentalRoom();
                     rentalRoom.RentalId = rental.RentalId;
                     rentalRoom.RentalName = rental.RentalName;
                     rentalRoom.RentalCost = rental.RentalCost;
@@ -79,11 +84,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     rentalRoom.SquareFootage = Convert.ToInt32(SquareFootage);
                     rentalRoom.MaxOccupancy = Convert.ToInt32(MaxOccupancy);
                     db.Rentals.Add(rentalRoom);
-                } else 
+                }
+                else
                 {
                     db.Rentals.Add(rental);
                 }
-                
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -117,7 +123,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 if (PurchasePrice > 0)
                 {
-                var rentalEquipment = new RentalEquipment();
+                    var rentalEquipment = new RentalEquipment();
                     rentalEquipment.RentalId = rental.RentalId;
                     rentalEquipment.RentalName = rental.RentalName;
                     rentalEquipment.RentalCost = rental.RentalCost;
@@ -129,7 +135,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 }
                 else if (RoomNumber > 0)
                 {
-                var rentalRoom = new RentalRoom();
+                    var rentalRoom = new RentalRoom();
                     rentalRoom.RentalId = rental.RentalId;
                     rentalRoom.RentalName = rental.RentalName;
                     rentalRoom.RentalCost = rental.RentalCost;
@@ -156,12 +162,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
-            if (rental == null)
+            dynamic rentalType = new ExpandoObject();
+            rentalType.Rental = db.Rentals.Find(id);
+            rentalType.RentalEquipment = db.Rentals.Find(id);
+            rentalType.RentalRoom = db.Rentals.Find(id);
+
+            if (rentalType == null)
             {
                 return HttpNotFound();
             }
-            return View(rental);
+            return View(rentalType);
         }
 
         // POST: Rent/Rentals/Delete/5
