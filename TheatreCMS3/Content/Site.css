@@ -434,3 +434,114 @@ footer {
   background: var(--light-color) !important;
 }
 
+/**** ABOUT PAGE ****/
+
+/* headings and text */
+.Home-about--heading {
+    font-family: broadway;
+    text-align: center;
+    margin: 0; /* need for top-right-curved-corners */
+}
+h1.Home-about--heading {
+    padding: 200px 0 200px 0;
+}
+h2.Home-about--heading {
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    padding: 20px 0 20px 0;
+}
+p.Home-about--heading {
+    padding: 20px 0 20px 0;
+}
+
+/* containers for each section */
+.Home-about--blackContainer {
+    background-color: var(--dark-color);
+}
+.Home-about--redContainer {
+    background-color: var(--main-color--light);
+}
+.Home-about--theaterContainer {
+    background-image: url(/Content/images/theater.jpg);
+    height: 500px;
+    margin: 0;
+}
+
+/* containers for images */
+.Home-about--imageContainer {
+    width: 15vw;
+    display: inline-grid;
+    text-align: center;
+}
+img.Home-about--rounded {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 10vw;
+    width: 10vw;
+    align-content: center;
+}
+.Home-about--imageCenter {
+    text-align: center;
+}
+
+/* line under ensemble section */
+.Home-about--greyLine {
+    display: block;
+    margin: 0.5em;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+
+/* curved corners */
+#Home-about--curvedCornerBottomLeft,
+#Home-about--curvedCornerTopRight,
+#Home-about--curvedCornerPlaceholderRight,
+#Home-about--curvedCornerPlaceholderLeft {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+#Home-about--curvedCornerBottomLeft:before,
+#Home-about--curvedCornerTopRight:before,
+#Home-about--curvedCornerPlaceholderRight:before,
+#Home-about--curvedCornerPlaceholderLeft:before {
+    content: "";
+    display: block;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    border-radius: 50%;
+}
+#Home-about--curvedCornerBottomLeft:before {
+    bottom: 0;
+    left: 0;
+    box-shadow: -50px 50px 0 0 var(--main-color--light);
+}
+#Home-about--curvedCornerTopRight:before {
+    top: 0;
+    right: 0;
+    box-shadow: 50px -50px 0 0 var(--main-color--light);
+    margin-left: auto;
+    margin-right: 0;
+}
+#Home-about--curvedCornerPlaceholderRight:before {
+    top: 0;
+    right: 0;
+    box-shadow: 50px -50px 0 0 var(--dark-color);
+    margin-left: auto;
+    margin-right: 0;
+}
+#Home-about--curvedCornerPlaceholderLeft:before {
+    bottom: 0;
+    left: 0;
+    box-shadow: -50px 50px 0 0 var(--dark-color);
+}
+#Home-about--curvedCornerTopRight,
+#Home-about--curvedCornerPlaceholder {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/**** END ABOUT PAGE ****/
