@@ -418,14 +418,14 @@ footer {
 
 /* SIGNIN PAGE */
 
-.home-signin--names {
+.home-signin--container {
     text-align: center;
 }
 
-.home-signin--names p {
+.home-signin--container p {
     display: inline-block;
     white-space: nowrap;
-    background-color: #f04d44;
+    background-color: var(--main-color--light);
     margin-left: 5px;
     margin-right: 5px;
     padding-left: 8px;
