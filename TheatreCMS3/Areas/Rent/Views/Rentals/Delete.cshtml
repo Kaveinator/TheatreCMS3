@@ -1,4 +1,5 @@
-﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+﻿@using TheatreCMS3.Areas.Rent.Models
+@model dynamic
 
 @{
     ViewBag.Title = "Delete";
@@ -13,32 +14,86 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.RentalName)
+            Rental Name
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RentalName)
+            @Model.Rental.RentalName
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RentalCost)
+            Rental Cost
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RentalCost)
+            @Model.Rental.RentalCost
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FlawsAndDamages)
+            Flaws and Damages
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FlawsAndDamages)
+            @Model.Rental.FlawsAndDamages
         </dd>
+
+        @if (Model.Rental.GetType().Name == "RentalEquipment")
+        {
+            <dt>
+                Choking Hazard
+            </dt>
+
+            <dd>
+                @Model.RentalEquipment.ChokingHazard
+            </dd>
+
+            <dt>
+                Suffocation Hazard
+            </dt>
+
+            <dd>
+                @Model.RentalEquipment.SuffocationHazard
+            </dd>
+
+            <dt>
+                Purchase Price
+            </dt>
+
+            <dd>
+                @Model.RentalEquipment.PurchasePrice
+            </dd>
+        }
+        @if (Model.Rental.GetType().Name == "RentalRoom")
+        {
+            <dt>
+                Room Number
+            </dt>
+
+            <dd>
+                @Model.RentalRoom.RoomNumber
+            </dd>
+
+            <dt>
+                Square Footage
+            </dt>
+
+            <dd>
+                @Model.RentalRoom.SquareFootage
+            </dd>
+
+            <dt>
+                Max Occupancy
+            </dt>
+
+            <dd>
+                @Model.RentalRoom.MaxOccupancy
+            </dd>
+        }
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
