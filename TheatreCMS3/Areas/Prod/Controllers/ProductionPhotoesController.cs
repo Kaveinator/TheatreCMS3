@@ -11,17 +11,17 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class ProductionController : Controller
+    public class ProductionPhotoesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/Production
+        // GET: Prod/ProductionPhotoes
         public ActionResult Index()
         {
             return View(db.ProductionPhotos.ToList());
         }
 
-        // GET: Prod/Production/Details/5
+        // GET: Prod/ProductionPhotoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(productionPhoto);
         }
 
-        // GET: Prod/Production/Create
+        // GET: Prod/ProductionPhotoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/Production/Create
+        // POST: Prod/ProductionPhotoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +59,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(productionPhoto);
         }
 
-        // GET: Prod/Production/Edit/5
+        // GET: Prod/ProductionPhotoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(productionPhoto);
         }
 
-        // POST: Prod/Production/Edit/5
+        // POST: Prod/ProductionPhotoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +90,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(productionPhoto);
         }
 
-        // GET: Prod/Production/Delete/5
+        // GET: Prod/ProductionPhotoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +105,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(productionPhoto);
         }
 
-        // POST: Prod/Production/Delete/5
+        // POST: Prod/ProductionPhotoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
