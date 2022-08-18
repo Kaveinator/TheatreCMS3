@@ -202,7 +202,6 @@
     <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
     <Compile Include="Areas\Rent\Models\Rental.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
-    <Compile Include="Areas\Rent\ViewModels\RentalVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -463,6 +462,7 @@
     <Content Include="UIUX\Wireframes\TheatreHomePageWireframe.psd" />
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -67,3 +67,7 @@
 .rental-edit--backToList:hover {
     opacity: 0.8;
 }
+
+.rental-index--cards{
+    color:var(--dark-color)
+}
