@@ -439,6 +439,23 @@ footer {
     text-overflow: ellipsis;
 }
 
+/* CRUD PAGES */
+/* CREATE PAGE */
+
+.productionphoto-createedit--form-container {
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+}
+
+.productionphoto-createedit--textPadding {
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.productionphoto-createedit--photoSizing {
+    margin: 20px;
+}
 
 /* Inputs: focus versus non-focus effects */
 
