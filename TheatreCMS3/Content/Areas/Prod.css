@@ -12,6 +12,20 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.productionphoto-createedit--form-container {
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+}
+
+.productionphoto-createedit--textPadding {
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.productionphoto-createedit--photoSizing {
+    margin: 20px;
+}
 
 /**** CAST MEMBERS ****/
 /* Create Page and Edit Page */
