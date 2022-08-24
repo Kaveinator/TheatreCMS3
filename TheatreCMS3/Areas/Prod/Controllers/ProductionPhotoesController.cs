@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -47,16 +48,30 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoID,PhotoFile,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProPhotoID,PhotoFile,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase fileChoice)
         {
             if (ModelState.IsValid)
             {
+                byte[] bytes;
+                using (BinaryReader br = new BinaryReader(fileChoice.InputStream))
+                {
+                    bytes = br.ReadBytes(fileChoice.ContentLength);
+                }
+                productionPhoto.PhotoFile = bytes;
                 db.ProductionPhotos.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(productionPhoto);
+        }
+
+        public ActionResult RenderPhoto(int id)
+        {
+            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
+            byte[] byteData = productionPhoto.PhotoFile;
+
+            return File(byteData, "image/png");
         }
 
         // GET: Prod/ProductionPhotoes/Edit/5
