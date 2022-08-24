@@ -39,7 +39,7 @@
                 <div id="productionphoto-createedit--formSide" class="form-group">
                     @Html.LabelFor(model => model.PhotoFile, htmlAttributes: new { @class = "control-label col-md-offset-2" })
                     <div class="productionphoto-createedit--photoSizing">
-                        @Html.DisplayFor(model => model.PhotoFile, new { htmlAttributes = new { @class = "form-control" } })
+                        <img height="100" src="@Url.Action("RenderPhoto", new { id = Model.ProPhotoID})" />
 
                     </div>
                 </div>
