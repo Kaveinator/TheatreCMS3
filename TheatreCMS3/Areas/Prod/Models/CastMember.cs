@@ -21,7 +21,6 @@ namespace TheatreCMS3.Areas.Prod.Models
         [DisplayName("Main Role")]
         public Position MainRole { get; set; }
         public string Bio { get; set; }
-        //public byte[] Photo { get; set; }
         [DisplayName("Current Member")]
         public bool CurrentMember { get; set; }
         public string Character { get; set; }
@@ -29,5 +28,6 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int? CastYearLeft { get; set; }
         [DisplayName("Debut Year")]
         public int? DebutYear { get; set; }
+        public byte[] Photo { get; set; }
     }
 }
