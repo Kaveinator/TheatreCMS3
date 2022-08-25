@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace TheatreCMS3.Areas.Prod.Models
 {
@@ -23,6 +24,8 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Bio { get; set; }
         [DisplayName("Current Member")]
         public bool CurrentMember { get; set; }
+        [DisplayName("Production Title")]
+        public string ProductionTitle { get; set; }
         public string Character { get; set; }
         [DisplayName("Cast Year Left")]
         public int? CastYearLeft { get; set; }
