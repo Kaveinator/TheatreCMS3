@@ -5,78 +5,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="display-2 text-center">Productions</h2>
+<hr />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Character)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearJoined)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainRole)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Character)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CastYearLeft)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DebutYear)
-        </td>
-        <td>
-            <img width="200" src="@Url.Action("RenderImage", new { id = item.CastMemberId })" />
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CastMemberId })
-        </td>
-    </tr>
-}
+<div class="text-center">
+    <button type="button" onclick="location.href='@Url.Action("Create", "CastMembers")'" class="btn btn-block" id="CastMember-CreateEdit--yellowButton">ADD A NEW CAST MEMBER</button>
+</div>
+<hr />
 
-</table>
+<!---------- COPY BLOCK FOR EACH NEW PRODUCTION ---------->
+<h2 class="display-4">Wicked</h2>
+<hr />
+
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+        if (item.ProductionTitle == "Wicked")
+        {
+
+            <div class="card bg-dark CastMember-Index--card">
+                <img src="@Url.Action("RenderImage", new { id = item.CastMemberId })" class="card-img CastMember-Index--image" />
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <a href="@Url.Action("Edit", "CastMembers", new { id = item.CastMemberId })" class="btn btn-warning CastMember-Index--editBtn CastMember-Index--button">Edit</a>
+                    <a href="@Url.Action("Delete", "CastMembers", new { id = item.CastMemberId })" class="btn btn-danger CastMember-Index--delBtn CastMember-Index--button">Delete</a>
+                    <a href="@Url.Action("Details", "CastMembers", new { id = item.CastMemberId })" class="stretched-link"></a>
+                    <p class="CastMember-Index--text">Click to see more!</p>
+                </div>
+            </div>
+        }
+    }
+</div>
+<hr />
+<!---------- END BLOCK ---------->
+
+<h2 class="display-4">Lion King</h2>
+
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+        if (item.ProductionTitle == "Lion King")
+        {
+
+            <div class="card bg-dark CastMember-Index--card">
+                <img src="@Url.Action("RenderImage", new { id = item.CastMemberId })" class="card-img CastMember-Index--image" />
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <a href="@Url.Action("Edit", "CastMembers", new { id = item.CastMemberId })" class="btn btn-warning CastMember-Index--editBtn CastMember-Index--button">Edit</a>
+                    <a href="@Url.Action("Delete", "CastMembers", new { id = item.CastMemberId })" class="btn btn-danger CastMember-Index--delBtn CastMember-Index--button">Delete</a>
+                    <a href="@Url.Action("Details", "CastMembers", new { id = item.CastMemberId })" class="stretched-link"></a>
+                    <p class="CastMember-Index--text">Click to see more!</p>
+                </div>
+            </div>
+        }
+    }
+</div>
+<hr />
+
+<h2 class="display-4">Other</h2>
+
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+        if (item.ProductionTitle != "Wicked" && item.ProductionTitle != "Lion King")
+        {
+
+            <div class="card bg-dark CastMember-Index--card">
+                <img src="@Url.Action("RenderImage", new { id = item.CastMemberId })" class="card-img-top CastMember-Index--image" />
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <a href="@Url.Action("Edit", "CastMembers", new { id = item.CastMemberId })" class="btn btn-warning CastMember-Index--editBtn CastMember-Index--button">Edit</a>
+                    <a href="@Url.Action("Delete", "CastMembers", new { id = item.CastMemberId })" class="btn btn-danger CastMember-Index--delBtn CastMember-Index--button">Delete</a>
+                    <a href="@Url.Action("Details", "CastMembers", new { id = item.CastMemberId })" class="stretched-link"></a>
+                    <p class="CastMember-Index--text">Click to see more!</p>
+                </div>
+            </div>
+        }
+    }
+</div>
+<hr />
+
+

@@ -52,6 +52,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.ProductionTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionTitle)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Character)
         </dt>
 
@@ -73,6 +81,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.DebutYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            <img width="200" src="@Url.Action("RenderImage", new { id = Model.CastMemberId })" />
         </dd>
 
     </dl>
