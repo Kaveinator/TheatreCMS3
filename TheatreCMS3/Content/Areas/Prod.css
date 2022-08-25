@@ -138,14 +138,64 @@ p.CastMember-Index--text {
     display: inline-block;
 }
 
-#CastMember-CreateEdit--editBtn:hover {
+.CastMember-Index--editBtn:hover {
     color: var(--light-color);
     background-color: var(--secondary-color--dark);
 }
 
-#CastMember-CreateEdit--redButton:hover {
+.CastMember-Index--delBtn:hover {
     color: var(--dark-color);
     background-color: var(--main-color--light);
 }
+
+.CastMember-Index--greyLine {
+    display: block;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+
+
 /* End Index Page */
+
+/* Details and Delete Pages */
+.CastMember-DetDel--container {
+    background: var(--main-color--light);
+}
+
+.CastMember-DetDel--greyLine {
+    display: block;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.CastMember-DetDel--bio {
+    border-color: var(--light-color);
+}
+
+.CastMember-DetDel--other {
+    border-color: var(--light-color);
+    overflow: hidden;
+}
+
+dl.CastMember-DetDel--other {
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 6em;
+}
+
+dt.CastMember-DetDel--other {
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+dd.CastMember-DetDel--other {
+    margin: 0;
+    padding: 4px;
+    min-height: 3em;
+    text-align: center;
+}
+/* End Details and Delete Pages*/
 /**** END CAST MEMBERS ****/
