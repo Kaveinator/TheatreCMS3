@@ -237,3 +237,56 @@ dd.CastMember-DetDel--other {
 }
 /* End Details and Delete Pages*/
 /**** END CAST MEMBERS ****/
+.Production-create--button {
+    background-color:var(--secondary-color);
+    /*
+    color: white;
+    padding: inherit;
+    border: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: center;
+    height: 30px;
+    width: 80px;
+    margin-left: 40%;
+    margin-right: 30%;*/
+}
+    .Production-create--button:hover {
+        background: var(--secondary-color--dark);
+    }
+.Production-create--ListButton {
+    background-color: var(--secondary-color);
+    /*color: white;
+    padding: inherit;
+    border: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: center;
+    height: 60px;
+    width: 80px;
+    margin-left: 40%;
+    margin-right: 30%;*/
+}
+
+    .Production-create--ListButton:hover {
+        background: var(--secondary-color--dark);
+    }
+
+.Productions-create--container {
+    border-radius: 10px;
+    background-color: var(--light-color);
+    padding: 20px;
+}
+.production-create--input:focus {
+    box-shadow: none;
+    border: solid 3px var(--main-color);
+
+}
+.production-create--centerButton{
+    display:flex;
+    justify-content:center;
+    
+}
+.production-create--text {
+    color: var(--dark-color);
+}
