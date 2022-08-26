@@ -8,17 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
     public class CastMembersController : Controller
     {
+
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/CastMembers
-        public ActionResult Index()
-        {
-            return View(db.CastMembers.ToList());
+        // GET: Prod/CastMembers        
+        public ActionResult Index(string search)
+        {            
+            return View(db.CastMembers.Where(x => x.Name.StartsWith(search) || x.Bio.Contains(search) || search == null).ToList());           
         }
 
         // GET: Prod/CastMembers/Details/5
@@ -36,6 +39,22 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
+        public ActionResult RenderImage(int id)
+        {
+            CastMember castMember = db.CastMembers.Find(id);
+
+            byte[] byteData = castMember.Photo;
+
+            try
+            {
+                return File(byteData, "image/png");
+            }
+            catch
+            {
+                return null;
+            }          
+        }
+
         // GET: Prod/CastMembers/Create
         public ActionResult Create()
         {
@@ -47,10 +66,27 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,ProductionTitle,Character,CastYearLeft,DebutYear,Photo")] CastMember castMember, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
+                byte[] bytes;
+
+                //Convert the image into bytes array type
+                if (postedFile != null)
+                {
+                    using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+                    {
+                        bytes = br.ReadBytes(postedFile.ContentLength);
+                    }
+                }
+                else
+                {
+                    bytes = null;
+                }
+
+                castMember.Photo = bytes;
+
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +115,28 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,ProductionTitle,Character,CastYearLeft,DebutYear,Photo")] CastMember castMember, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
+                byte[] bytes;
+
+                //Convert the image into bytes array type
+                
+                if (postedFile != null)
+                {
+                    using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+                    {
+                        bytes = br.ReadBytes(postedFile.ContentLength);
+                    }
+                }
+                else
+                {
+                    bytes = null;
+                }
+                    
+                castMember.Photo = bytes;
+
                 db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +177,6 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }         
     }
 }
