@@ -13,6 +13,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public byte[] PhotoFile { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Production { get; set; }
         
     }
 }

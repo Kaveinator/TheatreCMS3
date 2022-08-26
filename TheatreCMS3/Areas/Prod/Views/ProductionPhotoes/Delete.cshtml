@@ -33,6 +33,13 @@
         <dd>
             <img height="100" src="@Url.Action("RenderPhoto", new { id = Model.ProPhotoID})" />
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Production)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Production)
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {

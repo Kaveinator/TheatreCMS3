@@ -12,6 +12,8 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/* PRODUCTION PHOTOS */
+/* Create and Edit Pages */
 .productionphoto-createedit--form-container {
     background-color: var(--main-color--light);
     border-radius: 10px;
@@ -24,7 +26,35 @@
 }
 
 .productionphoto-createedit--photoSizing {
-    margin: 20px;
+    padding-left: 15px;
+    height: 70px;
+}
+
+/* Index Page */
+.productionphoto-index--cards {
+    width: 100px;
+    height: 600px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.productionphoto-index--cardBodyAlign {
+    margin: 0;
+    margin-right: 25px;
+    position: absolute;
+    top: 85%;
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+.productionphoto-index--buttonCenter {
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -ms-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%);
 }
 
 /**** CAST MEMBERS ****/
