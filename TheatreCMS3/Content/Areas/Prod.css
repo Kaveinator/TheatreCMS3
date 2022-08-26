@@ -11,6 +11,202 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+.productionphoto-createedit--form-container {
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+}
+
+.productionphoto-createedit--textPadding {
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.productionphoto-createedit--photoSizing {
+    margin: 20px;
+}
+
+/**** CAST MEMBERS ****/
+/* Create Page and Edit Page */
+#CastMember-CreateEdit--container {
+    border-radius: 25px;
+    border: 5px solid var(--main-color);
+    padding: 20px;
+    background-color: var(--light-color);
+    color: var(--main-color);
+}
+
+#CastMember-CreateEdit--input {
+    border: 2px solid var(--main-color);
+    background: #D3D3D3;
+}
+
+#CastMember-CreateEdit--input::placeholder {
+    color: var(--dark-color);
+}
+
+#CastMember-CreateEdit--input:focus {
+    border: 2px solid var(--secondary-color);
+    background: var(--light-color);
+    color: var(--dark-color);
+    box-shadow: none;
+}
+
+#CastMember-CreateEdit--yellowButton {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+}
+
+#CastMember-CreateEdit--yellowButton:hover {
+    color: var(--light-color);
+    background-color: var(--secondary-color--dark);
+}
+
+#CastMember-CreateEdit--redButton {
+    color: var(--light-color);
+    background-color: var(--main-color);
+}
+
+#CastMember-CreateEdit--redButton:hover {
+    color: var(--dark-color);
+    background-color: var(--main-color--light);
+}
+
+#CastMember-CreateEdit--yellowButton:focus,
+#CastMember-CreateEdit--redButton:focus {
+    box-shadow: none;
+}
+/* End Create Page and Edit Page */
+
+/* Index Page */
+.CastMember-Index--card:after {
+    content: '';
+    opacity: 0;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.CastMember-Index--card:hover:after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.CastMember-Index--button {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    font-family: Awesome;
+}
+
+.CastMember-Index--card:hover a.CastMember-Index--button {
+    display: inline-block;
+}
+
+.CastMember-Index--editBtn {
+    bottom: 5rem;
+    left: 5px;
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+}
+
+.CastMember-Index--delBtn {
+    bottom: 5rem;
+    right: 5px;
+    color: var(--light-color);
+    background-color: var(--main-color);
+}
+
+.CastMember-Index--card {
+    max-width: 400px;
+    min-height: 12rem;
+}
+
+p.CastMember-Index--text {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    font-family: Awesome;
+    top: 1rem;
+    left: 1rem;
+}
+.CastMember-Index--card:hover p.CastMember-Index--text {
+    display: inline-block;
+}
+
+.CastMember-Index--editBtn:hover {
+    color: var(--light-color);
+    background-color: var(--secondary-color--dark);
+}
+
+.CastMember-Index--delBtn:hover {
+    color: var(--dark-color);
+    background-color: var(--main-color--light);
+}
+
+.CastMember-Index--greyLine {
+    display: block;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.CastMember-Index--search {
+    color: var(--dark-color);
+    background-color: var(--main-color--light);
+}
+
+.CastMember-Index--search:hover {
+    color: var(--light-color);
+    background-color: var(--main-color);
+}
+/* End Index Page */
+
+/* Details and Delete Pages */
+.CastMember-DetDel--container {
+    background: var(--main-color--light);
+}
+
+.CastMember-DetDel--greyLine {
+    display: block;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.CastMember-DetDel--bio {
+    border-color: var(--light-color);
+}
+
+.CastMember-DetDel--other {
+    border-color: var(--light-color);
+    overflow: hidden;
+}
+
+dl.CastMember-DetDel--other {
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 6em;
+}
+
+dt.CastMember-DetDel--other {
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+dd.CastMember-DetDel--other {
+    margin: 0;
+    padding: 4px;
+    min-height: 3em;
+    text-align: center;
+}
+/* End Details and Delete Pages*/
+/**** END CAST MEMBERS ****/
 .Production-create--button {
     background-color:var(--secondary-color);
     /*

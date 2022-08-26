@@ -27,7 +27,12 @@
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotoFile)
+        </dt>
+        <dd>
+            <img height="100" src="@Url.Action("RenderPhoto", new { id = Model.ProPhotoID})" />
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {
