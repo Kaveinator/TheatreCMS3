@@ -32,20 +32,19 @@
                 @Html.DisplayFor(model => model.MainRole)
             </dd>
 
-
-
             <dt class="CastMember-DetDel--other">
                 @Html.DisplayNameFor(model => model.CurrentMember)
             </dt>
 
+            @* Display Yes or No instead of a checkbox *@
             <dd class="CastMember-DetDel--other">
                 @if (Model.CurrentMember)
                 {
-                    <p class="m-0">Yes</p>
+                <p class="m-0">Yes</p>
                 }
                 else
                 {
-                    <p class="m-0">No</p>
+                <p class="m-0">No</p>
                 }
             </dd>
 
