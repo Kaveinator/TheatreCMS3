@@ -18,10 +18,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/CastMembers
-        public ActionResult Index()
-        {
-            return View(db.CastMembers.ToList());
+        // GET: Prod/CastMembers        
+        public ActionResult Index(string search)
+        {            
+            return View(db.CastMembers.Where(x => x.Name.StartsWith(search) || x.Bio.Contains(search) || search == null).ToList());           
         }
 
         // GET: Prod/CastMembers/Details/5
