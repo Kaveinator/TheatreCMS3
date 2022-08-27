@@ -18,10 +18,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/CastMembers        
+        // GET: Prod/CastMembers
+        // Search feature
         public ActionResult Index(string search)
         {            
-            return View(db.CastMembers.Where(x => x.Name.StartsWith(search) || x.Bio.Contains(search) || search == null).ToList());           
+            return View(db.CastMembers.Where(model => model.Name.StartsWith(search) || model.Bio.Contains(search) || search == null).ToList());           
         }
 
         // GET: Prod/CastMembers/Details/5
@@ -86,6 +87,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 }
 
                 castMember.Photo = bytes;
+
+                //Converts null values to "Other"
+                if (castMember.ProductionTitle == null)
+                {
+                    castMember.ProductionTitle = "Other";
+                }
 
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
