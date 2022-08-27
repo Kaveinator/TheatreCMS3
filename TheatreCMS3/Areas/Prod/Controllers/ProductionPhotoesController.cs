@@ -48,7 +48,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoID,PhotoFile,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase fileChoice)
+        public ActionResult Create([Bind(Include = "ProPhotoID,PhotoFile,Title,Description,Production")] ProductionPhoto productionPhoto, HttpPostedFileBase fileChoice)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoID,PhotoFile,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "ProPhotoID,PhotoFile,Title,Description,Production")] ProductionPhoto productionPhoto)
         {
             if (ModelState.IsValid)
             {

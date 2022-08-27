@@ -4,43 +4,37 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
+<style>
+    .btn-primary {
+        background-color: var(--secondary-color--dark);
+        border-color: var(--secondary-color);
+    }
+    .btn-primary:hover {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+</style>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { id = 1 }, new { @class = "btn btn-success" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhotoFile)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
-    <td>
-        <img height="100" src="@Url.Action("RenderPhoto", new { id = item.ProPhotoID})" />
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ProPhotoID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoID })
-    </td>
-</tr>
-}
-
-</table>
+<div class="card-columns" style="display: inline-block;">
+    @foreach (var item in Model)
+    {
+        <div class="card p-2 productionphoto-index--cards">
+            <a href="@Url.Action("Details", new { id = item.ProPhotoID })"><img class="card-img-top" src="@Url.Action("RenderPhoto", new { id = item.ProPhotoID })" /></a>
+            <div class="card-body">
+                <div class="productionphoto-index--cardBodyAlign">
+                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.Production)</h3>
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                    <div class="card-text">@Html.DisplayFor(modelItem => item.Description)</div>
+                </div>
+                <div class="btn-group productionphoto-index--buttonCenter" style="width: 100%;">
+                    <button type="button" class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoID }, new { @style = "color: var(--light-color);" } )</button>
+                    <button type="button" class="btn btn-primary">@Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoID }, new { @style = "color: var(--light-color);" })</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
