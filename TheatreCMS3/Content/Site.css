@@ -250,6 +250,46 @@ a.CMS-text-bigger {
 
 /*----- End Styling for Navbar -------*/
 
+/*----- Styling for Home Page-----*/
+home {
+    font-family: Oswald;
+}
+
+.home-theatre {
+    height: 100px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.home-font {
+    font-family: Oswald;
+}
+
+.home-tempest {
+    margin-top: 10%;
+}
+
+.home-button {
+    margin: 10%;
+}
+
+.home-h-90 {
+    height: 90px;
+}
+
+.home-h-100 {
+    height: 100px;
+}
+
+.home-h-70 {
+    height: 70px;
+}
+
+.home-h-43 {
+    height: 43px;
+}
+/*----- End Styling for Home Page*/
+
 /*-----Styling for _Footer.cshtml-----*/
 
 footer {
