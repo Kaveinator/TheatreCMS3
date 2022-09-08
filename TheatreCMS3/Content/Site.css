@@ -466,10 +466,10 @@ footer {
   background-color: lightgray !important; /* Overriding bootstrap styles for these form items */
 }
 
-.Register-input input[type="text"]:focus,
-.Register-input input[type="date"]:focus,
-.Register-input input[type="time"]:focus,
-.Register-input input[type="number"]:focus {
-  border: 2px solid var(--secondary-color);
-  background: var(--light-color) !important;
+    .Register-input input[type="text"]:focus,
+    .Register-input input[type="date"]:focus,
+    .Register-input input[type="time"]:focus,
+    .Register-input input[type="number"]:focus {
+        border: 2px solid var(--secondary-color);
+        background: var(--light-color) !important;
 }
