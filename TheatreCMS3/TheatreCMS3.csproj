@@ -208,6 +208,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TextHelpers.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.designer.cs">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
@@ -461,6 +462,7 @@
     <Content Include="UIUX\Wireframes\TheatreHomePageWireframe.psd" />
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -475,7 +477,6 @@
     <Folder Include="Areas\Rent\Models\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
-    <Folder Include="Helpers\" />
     <Folder Include="obj\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
