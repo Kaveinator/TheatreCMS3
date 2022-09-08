@@ -473,3 +473,29 @@ footer {
         border: 2px solid var(--secondary-color);
         background: var(--light-color) !important;
 }
+
+.Home--About--Logo{
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.container .content {
+    position: absolute; 
+    top: 0; 
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1; 
+    width: 100%;
+    padding: 20px; 
+    text-align:center; 
+    font-family:Broadway; 
+    margin-bottom: 20%;
+}
+.Titles {
+    text-decoration: underline var(--main-color);
+    text-align: center;
+    font-family: fantasy;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+}
+
