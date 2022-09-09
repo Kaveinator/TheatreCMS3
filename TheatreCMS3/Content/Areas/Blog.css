@@ -11,3 +11,23 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+
+
+.blog_author-create--rectangle {
+    height: 500px;
+    width: 500px;
+    background: var(--main-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.blog_author-create--margin {
+    margin-left: 25%;
+}
+
+.blog_author-create--textbox {
+    height: 100px;
+}
