@@ -198,7 +198,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
+    <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalsController.cs" />
+    <Compile Include="Areas\Rent\Models\Rental.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
@@ -208,6 +212,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TextHelpers.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.designer.cs">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
@@ -299,6 +304,16 @@
     <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Prod\Views\web.config" />
     <Content Include="Areas\Rent\Views\web.config" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Create.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Delete.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Details.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Edit.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Index.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
@@ -465,9 +480,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
-    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Data\" />
@@ -476,7 +489,6 @@
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
-    <Folder Include="Helpers\" />
     <Folder Include="obj\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
