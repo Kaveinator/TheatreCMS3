@@ -498,4 +498,71 @@ footer {
     text-decoration: underline;
     text-decoration-color: var(--main-color);
 }
+ /* Contact page styling*/
 
+.Home-Contact--submitbtn {
+    background-color: var(--main-color);
+    border-right: 333px;
+    padding-right:333px;
+    border-color: var(--light-color);
+}
+
+.Home-Contact--Card {
+    background-color: var(--main-color--light);
+    width:50%;
+    height:100%;
+    float:left;
+}
+
+.Home-Contact--cardh5 {
+    text-decoration-color: var(--light-color)
+}
+
+.Home-Contact--Cardp {
+    text-decoration-color: var(--light-color)
+}
+
+.Home-Contact--Cardbtn {
+    background-color: var(--main-color);
+    border-color: var(--light-color);
+}
+
+.Home-Contact--Cards {
+    background-color: var(--main-color--light);
+    margin-left:50%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.Home-Contact--cardh6 {
+    text-decoration-color: var(--light-color)
+}
+
+.Home-Contact--Cardp1 {
+    text-decoration-color: var(--light-color)
+}
+
+.Home-Contact--Cardbtn1{
+    background-color: var(--main-color);
+    border-color: var(--light-color);
+}
+
+.Home-Contact--title {
+    background-color: var(#000000);
+}
+
+.Home-Contact--h1 {
+    text-align: center;
+    font-family:Broadway;
+}
+
+
+.Home-Contact--Form {
+    background-color: var(--main-color--light);
+}
+
+.Home-Contact--h2 {
+    text-align: center;
+    font-family: Broadway;
+}
