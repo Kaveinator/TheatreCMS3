@@ -509,9 +509,8 @@ footer {
 
 .Home-Contact--Card {
     background-color: var(--main-color--light);
-    width:50%;
-    height:100%;
-    float:left;
+    display:inline-block;
+    border:solid 1px var(--light-color);
 }
 
 .Home-Contact--cardh5 {
@@ -565,4 +564,10 @@ footer {
 .Home-Contact--h2 {
     text-align: center;
     font-family: Broadway;
+}
+
+.Home-Contact--CardParent {
+    display: flex;
+    width: 50%;
+    margin-top:2em;
 }

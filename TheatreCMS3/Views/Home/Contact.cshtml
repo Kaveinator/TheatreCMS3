@@ -13,43 +13,47 @@
     <h2 class="Home-Contact--h2">Get In Touch!</h2>
 
     <form class="col col-xs-6" id="idFormContact">
-        <div class="form-group">
-            <label>First & Last Name</label>
-            <input type="text" class="form-control"
-                   name="to" value="">
+      <div class="form-group">
+        <label>First & Last Name</label>
+        <input type="text" class="form-control"
+               name="to" value="">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" class="form-control"
+               value=""
+               name="Email Address">
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" class="form-control"
+               value=""
+               name="subject">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea class="form-control"
+                  name="message">Message</textarea>
+      </div>
+      <button type="submit"
+              class="btn Home-Contact--submitbtn">
+        Submit
+      </button>
+      <div class="Home-Contact--CardParent" style="width: 18rem;">
+        <div class="card-body Home-Contact--Card">
+          <h5 class="card-title Home-Contact--cardh5">Donate</h5>
+          <p class="card-text Home-Contact--Cardp">We've got patron account! Help support live theatre in Portland,Or.By becoming a patron today!</p>
+          <button type="submit" class="btn Home-Contact--Cardbtn">Donate</button>
         </div>
-        <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" class="form-control"
-                   value=""
-                   name="Email Address">
+
+        <div class="card-body Home-Contact--Card">
+          <h6 class="card-title Home-Contact--cardh6">Volunteer</h6>
+          <p class="card-text Home-Contact--Cardp1">We could always use volunteers to help support live theatres in Portland,Or. By becoming a volunteer today!</p>
+          <button type="submit" class="btn Home-Contact--Cardbtn1">Volunteer</button>
         </div>
-        <div class="form-group">
-            <label>Subject</label>
-            <input type="text" class="form-control"
-                   value=""
-                   name="subject">
-        </div>
-        <div class="form-group">
-            <label>Message</label>
-            <textarea class="form-control"
-                      name="message">Message</textarea>
-        </div>
-        <button type="submit"
-                class="btn Home-Contact--submitbtn">
-            Submit
-        </button>
-        <div class="column" style="width: 18rem;">
-            <div class="card-body Home-Contact--Card">
-                <h5 class="card-title Home-Contact--cardh5">Donate</h5>
-                <p class="card-text Home-Contact--Cardp">We've got patron account! Help support live theatre in Portland,Or.By becoming a patron today!</p>
-                <button type="submit" class="btn Home-Contact--Cardbtn">Donate</button>
-            </div>
-            <div class="column" style="width: 18rem;">
-                <div class="card-body Home-Contact--Cards">
-                    <h6 class="card-title Home-Contact--cardh6">Volunteer</h6>
-                    <p class="card-text Home-Contact--Cardp1">We could always use volunteers to help support live theatres in Portland,Or. By becoming a volunteer today!</p>
-                    <button type="submit" class="btn Home-Contact--Cardbtn1">Volunteer</button>
-                </div>
-            </div>
-        </div>
+
+      </div>
+       
+
+    </form>
+</div>
