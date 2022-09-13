@@ -12,7 +12,7 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
-h1 {
+.Rental--Create--Header {
     text-align: center;
     margin-top: 30px;
     font-family: Broadway;
@@ -21,27 +21,25 @@ h1 {
     text-decoration-thickness: 2px;
 }
 
-.CreateEdit--btn--Rental--Submit {
+.Rental--CreateEdit--Submit {
     background-color: var(--secondary-color--dark);
     text-align: center;
     margin: 10px;
-
 }
 
-.CreateEdit--btn--Rental--Submit:hover {
-    color: var(--light-color);
-    background-color: var(--secondary-color);
-    box-shadow: inset 1px 2px 15px 0 rgba(0,0,0,0.5);
-}
+    .Rental--CreateEdit--Submit:hover {
+        color: var(--light-color);
+        background-color: var(--secondary-color);
+        box-shadow: inset 1px 2px 15px 0 rgba(0,0,0,0.5);
+    }
 
-.CreateEdit--btn--Rental--BackToList {
+.Rental--CreateEdit--BackToList {
     background-color: var(--main-color);
     text-align: center;
     margin: 10px;
-    
 }
 
-    .CreateEdit--btn--Rental--BackToList:hover {
+    .Rental--CreateEdit--BackToList:hover {
         color: var(--light-color);
         background-color: var(--main-color--light);
         box-shadow: inset 1px 2px 15px 0 rgba(0,0,0,0.5);

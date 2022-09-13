@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<header class="Rent--Create--Header">
+<header class="Rental--Create--Header">
     <h1>CREATE RENTAL</h1>
 </header>
 
@@ -45,11 +45,11 @@
         </div>
 
         <div class="form-group">
-                <input class="btn CreateEdit--btn--Rental--Submit" type="submit" value="Submit" /> 
-                @Html.ActionLink("Back to List", "Index", "Rentals", null, new { @class = "btn CreateEdit--btn--Rental--BackToList" })
-            </div>
+                <input class="btn Rental--CreateEdit--Submit" type="submit" value="Submit" /> 
+                @Html.ActionLink("Back to List", "Index", "Rentals", null, new { @class = "btn Rental--CreateEdit--BackToList" })
         </div>
     </div>
+</div>
 }
 
 
