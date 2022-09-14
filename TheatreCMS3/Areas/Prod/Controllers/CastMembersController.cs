@@ -18,6 +18,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CastMembers
         public ActionResult Index()
         {
+          
             return View(db.CastMembers.ToList());
         }
 
@@ -124,5 +125,6 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
+        
     }
 }
