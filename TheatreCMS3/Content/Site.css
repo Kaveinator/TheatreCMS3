@@ -571,3 +571,19 @@ footer {
     width: 50%;
     margin-top:2em;
 }
+
+.home-signin--container p {
+    display: inline-block;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 180px;
+    background-color: var(--main-color--light);
+    border: 2px solid var(--main-color--light);
+    padding: 10px;
+    border-radius: 35px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
