@@ -1,59 +1,73 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.RentalHistory
-
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>RentalHistory</h4>
-        <hr />
+
+    <div class="rental_history-create--content_title" style="margin-top:5rem">Create Rental History</div>
+    <h5></h5>
+    <div class="form-horizontal col-md-6 rental_history-create--form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.Rental, "Rental", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class=" col-md-12">
+                    @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-5">
+                @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-1 " })
+                <div class="col-md-offset-2 col-md-10" onclick="myFunction()">
                     @Html.EditorFor(model => model.RentalDamaged)
                     @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DamageIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="row">
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DamageIncurred, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DamageIncurred, "", new { @class = "text-danger" })
+                <p class="col-md-offset-2" id="rental_history-create--alert">Notes</p>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.DamageIncurred, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DamageIncurred, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
+        <div class="row justify-content-center" style="padding-top: .5rem;">
+            <div class="col-md-3 rental_history-create--back_btn" style="border-radius: 5px;color: #f8f9fa;background-color: #343a40;">
+                @Html.ActionLink("Back to List", "Index")
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="rental_history-create--create_btn" style="background-color: #28a745;border-radius: 5px;color: #fffbfb;">
+                <div class="col-md-5">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<script>
+    function myFunction() {
+        // Get the checkbox
+        var checkbox = document.getElementById("RentalDamaged");
+        // Get the output text
+        var text = document.getElementById("rental_history-create--alert");
+        if (checkbox.checked == true) {
+            text.innerHTML = "DamageIncurred"
+        } if (checkbox.checked != true) { text.innerHTML = "Notes" }
+    }
+</script>
+
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+
 }
+@Scripts.Render("~/bundles/jqueryval")
+@Styles.Render("~/Content/Areas/Rent.css")
+<script src="~/Scripts/Areas/Rent.js"></script>

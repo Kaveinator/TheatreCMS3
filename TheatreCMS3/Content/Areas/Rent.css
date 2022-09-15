@@ -13,4 +13,51 @@
 /*}*/
 
 
- 
+.rental_history-create--content_title {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.rental_history-create--form {
+    background-color: #db1a11;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6rem;
+    padding: 10px;
+    border-radius: 10px;
+}
+rental_history-create--back_btn {
+    border-radius: 5px;
+    color: #f8f9fa;
+    background-color: #343a40;
+}
+rental_history-create--create_btn {
+    background-color: #28a745;
+    border-radius: 5px;
+    color: #fffbfb;
+}
+
+.rental_history-edit--content_title {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.rental_history-edit--form {
+    background-color: #db1a11;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+rental_history-edit--back_btn {
+    border-radius: 5px;
+    color: #f8f9fa;
+    background-color: #343a40;
+}
+
+rental_history-edit--create_btn {
+    background-color: #28a745;
+    border-radius: 5px;
+    color: #fffbfb;
+}
