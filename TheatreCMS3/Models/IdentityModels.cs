@@ -50,5 +50,8 @@ namespace TheatreCMS3.Models
         public DbSet<RentalHistory> RentalHistories { get; set; }
         public DbSet<TheatreCMS3.Areas.Prod.Models.CastMember> CastMembers { get; set; }
 
+        public DbSet<TheatreCMS3.Areas.Prod.Models.Production> Productions { get; set; }
+
+
     }
 }  
