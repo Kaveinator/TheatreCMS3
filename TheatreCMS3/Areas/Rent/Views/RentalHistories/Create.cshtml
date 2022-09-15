@@ -39,10 +39,10 @@
             </div>
         </div>
         <div class="row justify-content-center" style="padding-top: .5rem;">
-            <div class="col-md-3 rental_history-create--back_btn" style="border-radius: 5px;color: #f8f9fa;background-color: #343a40;">
-                @Html.ActionLink("Back to List", "Index")
+            <div id="col-md-3 rental_history-create--back_btn" style="border-radius: 5px; color: var(--light-color); background-color: var(--dark-color); ">
+                @Html.ActionLink( "Back to List", "Index",  new { style = "color: var(--light-color)" })
             </div>
-            <div class="rental_history-create--create_btn" style="background-color: #28a745;border-radius: 5px;color: #fffbfb;">
+            <div class="rental_history-create--create_btn" style="background-color: var(--green); border-radius: 5px; color: var(--light-color); ">
                 <div class="col-md-5">
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>

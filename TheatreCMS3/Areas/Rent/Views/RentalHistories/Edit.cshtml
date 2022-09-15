@@ -11,7 +11,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal col-md-6 rental_history-edit--form" style="background-color: #db1a11;margin-left: auto;margin-right: auto;padding: 10px;border-radius: 10px;">
+    <div class="form-horizontal col-md-6 rental_history-edit--form" style="background-color: var(--main-color); margin-left: auto; margin-right: auto; padding: 10px; border-radius: 10px;">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
         <div class="row">
@@ -32,7 +32,7 @@
         </div>
         <div class="row">
             <div class="col-md-10">
-                <p class="col-md-offset-2" id="rental_history-edit--alert"></p>
+                <p class="col-md-offset-2" id="rental_history-edit--alert">Notes</p>
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.DamageIncurred, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.DamageIncurred, "", new { @class = "text-danger" })
@@ -40,10 +40,10 @@
             </div>
         </div>
         <div class="row justify-content-center" style="padding-top: .5rem;">
-            <div class="col-md-2 rental_history-edit--back_btn" style="border-radius: 5px;color: #f8f9fa;background-color: #343a40;">
+            <div class="col-md-2 rental_history-edit--back_btn" style="border-radius: 5px; color: var(--light-color); background-color: var(--dark-color); ">
                 @Html.ActionLink("Back to List", "Index")
             </div>
-            <div class="rental_history-edit--create_btn" style="background-color: #28a745;border-radius: 5px;color: #fffbfb;">
+            <div class="rental_history-edit--create_btn" style="background-color: var(--green); border-radius: 5px; color: var(--light-color); ">
                 <div class="col-md-5">
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>
@@ -55,9 +55,9 @@
 <script>
     function myFunction() {
         // Get the checkbox
-        var checkbox = document.getElementById("RentalDamaged");
+        var checkbox = document.getElementById("RentalDamaged")
         // Get the output text
-        var text = document.getElementById("rental_history-create--alert");
+        var text = document.getElementById("rental_history-edit--alert")
         if (checkbox.checked == true) {
             text.innerHTML = "DamageIncurred"
         } if (checkbox.checked != true) { text.innerHTML = "Notes" }
@@ -67,6 +67,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Styles.Render("~/Content/Areas/Rent.css")
-    <script src="~/Scripts/Areas/Rent.js"></script>
     
     }
