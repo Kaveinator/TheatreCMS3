@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -39,17 +40,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
         // GET: Prod/CastMembers/Create
         public ActionResult Create()
-        {
+        { 
             return View();
         }
 
+        
         // POST: Prod/CastMembers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,CurrentMember,Character,CastYearLeft,DebutYear,Photo")] CastMember castMember, HttpPostedFileBase PostedFile)
         {
+            castMember.Photo = Convert(PostedFile);
             if (ModelState.IsValid)
             {
                 db.CastMembers.Add(castMember);
@@ -59,7 +62,16 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
             return View(castMember);
         }
-
+        [HttpPost]
+        public byte[] Convert(HttpPostedFileBase PostedFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(PostedFile.InputStream))
+            {
+                bytes = br.ReadBytes(PostedFile.ContentLength);
+            }
+            return bytes;
+        }
         // GET: Prod/CastMembers/Edit/5
         public ActionResult Edit(int? id)
         {

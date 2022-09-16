@@ -19,7 +19,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Name { get; set; }
         public int? YearJoined { get; set; }
         public PositionEnum MainRole { get; set; }
-        //public Byte[] Photo { get; set; }
+        public byte[] Photo { get; set; }
         public bool CurrentMember { get; set; }
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
