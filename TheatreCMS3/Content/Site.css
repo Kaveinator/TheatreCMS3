@@ -70,7 +70,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
