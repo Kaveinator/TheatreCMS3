@@ -5,51 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
-    h4, h2 {
-        text-align: center
-    }
-    .btn {
-        display: inline;
-        text-align: center;
-        background-color: var(--dark-color);
-        color: white;
-        padding: 7px;
-        border-radius: 20px 20px 20px 20px;
-    }
-    .btn:hover {
-        box-shadow: 0px 0px 10px var(--main-color);
-        color: var(--main-color--light)
-     }
-    .btn1 {
-        display: block;
-        text-align: center;
-        background-color: var(--secondary-color);
-        color: black;
-        padding: 7px;
-        border-radius: 20px 20px 20px 20px;
-        justify-content:center;
-    }
-    .btn1:hover {
-        box-shadow: 0px 0px 10px white;
-        color: black
-    }
-    .formContainerRent {
-        margin: 10% auto;
-        width: 750px;
-        background-color: var(--secondary-color--dark);
-        border: ridge 10px;
-        border-color: var(--secondary-color);
-        box-shadow: inset var(--main-color--light) 1px 2px 20px;
-    }
-    .form-group {
-        width: 880px;
-    }
-    .form-control:focus {
-        border-color: var(--light-color);
-        box-shadow: none;
-        background: var(--main-color);
-        color: white;
-
+    h4, h2 {text-align: center}
 </style>
 
 <h2>Create Rental</h2>
@@ -57,21 +13,21 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<div class="formContainerRent">
-    <div class="form-horizontal">
+<div class="Rent-Rentals--formContainerRent">
+    <div class="Rent-Rentals--form-horizontal">
         <h4>Rentals</h4>
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
+        <div class="Rent-Rentals--form-group">
             @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2"})
-            <div class="col-md-10" placeholder="Hi">
-                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control",  @placeholder = "Enter rental item" } })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter rental item" } })
                 @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="Rent-Rentals--form-group">
             @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter a price" } })
@@ -79,7 +35,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="Rent-Rentals--form-group">
             @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter any damages occured" } })
@@ -87,12 +43,12 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="Rent-Rentals--form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default btn-block" />
+                <input type="submit" value="Create" class="Rent-Rentals--btn btn-default btn-block" />
             </div>
             <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn1" })
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "Rent-Rentals--btn1" })
             </div>
                 
         </div>
