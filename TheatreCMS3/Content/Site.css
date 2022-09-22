@@ -72,10 +72,72 @@ body {
   flex-direction: column;
 }
 
+
+/* HomePage styling*/
+
+.Home-Index--Rightcol { /*Spotlight Column*/
+    float: left;
+    width: 75%;
+    padding:10px;
+   
+}
+
+.Home-Index--Leftcol { /*Sponsors Column*/
+   float:left;
+   width:25%;
+   padding:10px;
+   
+}
+
+.Home-Index--LandColRight { /*Land Ackowledgment Column1 */
+    float: left;
+    width: 75%;
+    padding: 10px;
+    
+}
+
+.Home-Index--LandColLeft { /*Land Ackowledgement Column2 */
+    float: left;
+    width: 25%;
+    padding: 10px;
+   
+}
+
+.Home-Index--LandContainer {
+    float:left;
+    padding:10px;
+    bottom:0;
+}
+
+.Home_Index--Headers {
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+}
+
+.Home-Index--Button { /*Sponsors button*/
+    border:none;
+    color: var(--secondary-color);
+    padding:15px 32px;
+    text-align:center;
+    display:inline-block;
+    font-size:16px;
+    margin: 4px 2px;
+    cursor:pointer;
+}
+
+.Home-Index--Button:hover {
+    background-color:var(--main-color);
+    color:var(--dark-color);
+    
+}
+
+/*End HomePage Styling*/
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
-  padding-left: 15px;
-  padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists
