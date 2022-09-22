@@ -50,6 +50,8 @@ namespace TheatreCMS3.Models
 
         public DbSet<TheatreCMS3.Areas.Rent.Models.RentalHistory> RentalHistories { get; set; }
 
+        public DbSet<TheatreCMS3.Areas.Rent.Models.RentalRequest> RentalRequest{ get; set; }
+
 
 
     }
