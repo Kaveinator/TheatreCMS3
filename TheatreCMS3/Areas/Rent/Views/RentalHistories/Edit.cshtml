@@ -48,11 +48,16 @@
         </div>
 
         @* Buttons *@
-        <div class="RentalHistory-Create--form-btn-container">
-            <div>
-                <input type="submit" value="Save" class="RentalHistory-Create--form-btn bg-success" />
-            </div>
+    <div class="RentalHistory-Create--form-btn-container">
+        @* Back To List Button *@
+        <div class="RentalHistory-Create--form-btn bg-dark">
+            @Html.ActionLink("Back to List", "Index")
         </div>
+        @* Save Button *@
+        <div>
+            <input type="submit" value="Save" class="RentalHistory-Create--form-btn bg-success" />
+        </div>
+    </div>
     </div>
 </div>
 }
