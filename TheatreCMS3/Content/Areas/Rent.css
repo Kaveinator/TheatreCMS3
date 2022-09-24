@@ -17,6 +17,58 @@
     text-align: center
 }
 
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
 .Rentals-CreateEdit--btn {
     display: inline;
     text-align: center;
@@ -69,6 +121,69 @@
     box-shadow: none;
     background: var(--main-color);
     color: white;
+}
+>>>>>>> b03e80ad4e376d8cec61b46e2e747cde60d207c1
+.RentalHistory-Create--header {
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.RentalHistory-Create--form-container {
+    position: relative;
+    max-width: 600px;
+    padding: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.RentalHistory-Create--form {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--main-color--light);
+    border-radius: 5px;
+    height: 250px;
+    padding: 20px;
+}
+
+.RentalHistory-Create--form-col-quarter {
+    width: 25%;
+    margin-left: 20px;
+}
+
+.RentalHistory-Create--form-col-half {
+    width: 50%;
+}
+
+.RentalHistory-Create--form-col-full {
+    width: 100%;
+}
+
+.RentalHistory-Create--form-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.RentalHistory-Create--form-btn {
+    position: relative;
+    border: none;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 5px;
+}
+.RentalHistory-Create--form-btn > a {
+    display: block;
+    text-align: center;
+    padding-top: 7.5%;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+}
 }
 
 
