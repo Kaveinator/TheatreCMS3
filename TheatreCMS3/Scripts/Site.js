@@ -11,3 +11,9 @@ $('#RentalDamaged').change(function () {
         $('.damages-incurred').html('Damages Incurred') :
         $('.damages-incurred').html('Notes')
 });
+
+// handles link menu pop-up on Rental History Index page
+function showLinksMenu(id) {
+    menu = '#link-menu-' + id;
+    $(menu).css('display', 'block');
+};
