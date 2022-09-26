@@ -6,7 +6,11 @@
 }
 <script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script>
 
-@{ var sortOptions = new List<string> { "No Extra Sorting...", "Damaged Rentals", "Undamaged Rentals", "Rentals A - Z", "Rentals Z - A" };}
+@{ var sortOptions = new List<string> { "No Extra Sorting...", 
+                                        "Damaged Rentals", 
+                                        "Undamaged Rentals", 
+                                        "Rentals A - Z", 
+                                        "Rentals Z - A" };}
 
 <h2>Index</h2>
 
@@ -17,11 +21,14 @@
 <div class="RentalHistory-Index--table-container">
     <div class="RentalHistory-Index--thead d-flex align-items-center">
         <span class="flex-fill">Most Recent Rental Histories</span>
+
+        @* Sort Selection | Creates a url to RentalHistorySortAjax 
+            controller method and adds sortOption as a parameter *@
         <label for="rh-sort-options" class="mr-2 pt-2">Sorted By:</label>
         <select name="rh-sort-options" id="rh-sort-options">
             @foreach (string s in sortOptions)
             {
-                <option value="@s" data-url="@Url.Action("RentalHistorySortAjax", new { sortOption = s })" >@s</option>
+                <option data-url="@Url.Action("RentalHistorySortAjax", new { sortOption = s })" >@s</option>
             }
         </select>
     </div>
