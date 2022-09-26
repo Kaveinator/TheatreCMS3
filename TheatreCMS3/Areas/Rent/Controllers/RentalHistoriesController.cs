@@ -124,5 +124,41 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+        /* Ajax controller method https://www.youtube.com/watch?v=ZzrLfBkGppI */
+        public ActionResult SortRentalHistoryTable()
+        {
+            return View(db.RentalHistories.ToList());
+        }
+
+        /* Sorting method */
+        public ActionResult RentalHistorySortAjax(string sortOption)
+        {
+            List<RentalHistory> rentalHistories = null;
+            switch (sortOption)
+            {
+                case "No Extra Sorting...":
+                    rentalHistories = db.RentalHistories.OrderBy(rh => rh.RentalHistoryId).ToList();
+                    break;
+                case "Damaged Rentals":
+                    rentalHistories = db.RentalHistories.OrderByDescending(rh => rh.RentalDamaged).ToList();
+                    break;
+                case "Undamaged Rentals":
+                    rentalHistories = db.RentalHistories.OrderBy(rh => rh.RentalDamaged).ToList();
+                    break;
+                case "Rentals A - Z":
+                    rentalHistories = db.RentalHistories.OrderBy(rh => rh.Rental).ToList();
+                    break;
+                case "Rentals Z - A":
+                    rentalHistories = db.RentalHistories.OrderByDescending(rh => rh.Rental).ToList();
+                    break;
+                default:
+                    rentalHistories = db.RentalHistories.OrderBy(rh => rh.RentalHistoryId).ToList();
+                    break;
+
+            }
+
+            return PartialView("_table", rentalHistories);
+        }
+    }   
 }
