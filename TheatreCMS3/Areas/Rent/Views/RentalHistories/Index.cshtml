@@ -6,6 +6,7 @@
 }
 <script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script>
 
+@{ var sortOptions = new List<string> { "No Extra Sorting...", "Damaged Rentals", "Undamaged Rentals", "Rentals A - Z", "Rentals Z - A" };}
 
 <h2>Index</h2>
 
@@ -14,74 +15,17 @@
 </p>
 
 <div class="RentalHistory-Index--table-container">
-    <div class="RentalHistory-Index--thead">Most Recent Rental Histories</div>
-    <table class="table table-sm w-100">
-        @foreach (var item in Model)
-        {
-        <tr class="d-flex RentalHistory-Index--tr">
-
-            @* Damaged? Icon *@
-            <td class="d-flex align-items-center">
-                @if (item.RentalDamaged)
-                {
-                    <i class="fa-solid fa-exclamation-circle text-danger"></i>
-                }
-                else
-                {
-                    <i class="fa-solid fa-check-circle text-success"></i>
-                }
-            </td>
-
-            @* Rental Item Badge *@
-            <td class="d-flex align-items-center">
-                <h4>
-                    <span class="badge text-white bg-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
-                </h4>
-            </td>
-
-            @* Rental Notes/Damages *@
-            @if (item.RentalDamaged)
+    <div class="RentalHistory-Index--thead d-flex align-items-center">
+        <span class="flex-fill">Most Recent Rental Histories</span>
+        <label for="rh-sort-options" class="mr-2 pt-2">Sorted By:</label>
+        <select name="rh-sort-options" id="rh-sort-options">
+            @foreach (string s in sortOptions)
             {
-                <td class="d-block flex-fill text-black-100 RentalHistory-Index--notes">
-                   @Html.DisplayFor(modelItem => item.DamagesIncurred)
-                </td>
+                <option value="@s" data-url="@Url.Action("RentalHistorySortAjax", new { sortOption = s })" >@s</option>
             }
-            else
-            {
-                <td class="d-block flex-fill text-secondary RentalHistory-Index--notes">
-                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
-                </td>
-            }
+        </select>
+    </div>
 
-
-            @* Link Menu *@
-            <td class="RentalHistory-Index--link-menu align-items-center position-relative" id="@item.RentalHistoryId" onclick="showLinksMenu(this.id)">
-                <div class="RentalHistory-Index--kebab d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-ellipsis-v fa-lg"></i>
-                </div>
-                @* will probably need to dynamically set id for pop up for jquery to grab correct one *@
-                <div class="RentalHistory-Index-links-pop-up" id="link-menu-@item.RentalHistoryId">
-                    <div class="position-relative">
-                        @* Edit Link *@
-                        <div class="p-2">
-                            <i class="fa-solid fa-edit"></i>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new { @style = "text-decoration: none; color: var(--dark)" })
-                        </div>
-                        @* Details Link *@
-                        <div  class="p-2">
-                            <i class="fa-solid fa-info-circle"></i>
-                            @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @style = "text-decoration: none; color: var(--dark)" })
-                        </div>
-                        @* Delete Link *@
-                        <div  class="text-danger border-top p-2">
-                            <i class="fa-solid fa-trash"></i>
-                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId }, new { @style = "text-decoration: none; color: var(--danger)" })
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        }
-
-    </table>
+    @* render table as partial and pass Model so we can refresh using ajax *@
+    @Html.Partial("_table", Model)
 </div>
