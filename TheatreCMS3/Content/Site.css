@@ -497,7 +497,27 @@ footer {
         background: var(--light-color) !important;
 }
 
+/*  Sign-In Page Styling Begins */
+.home-signin--container {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 225px 225px 225px 225px;
+    gap: 0px 15px;
+    grid-auto-rows: minmax(20px, auto);
+}
 
+.home-signin--container > p {
+    background-color: var(--main-color);
+    border: 0px;
+    border-radius: 25px;
+    color: var(--light-color);
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    white-space: nowrap;
+}
+
+/*  Sign-In Page Styling Ends   */
 
 
 
