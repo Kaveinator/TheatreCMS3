@@ -17,3 +17,4 @@ $('#rh-sort-options').change(function () {
     var url = $('#rh-sort-options').find(":selected").data('url');
     $('#rh-sort-table').load(url);
 });
+
