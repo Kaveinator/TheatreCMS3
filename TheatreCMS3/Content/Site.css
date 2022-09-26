@@ -497,7 +497,96 @@ footer {
         background: var(--light-color) !important;
 }
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* About Page Styling */
 .Home-About--Row1 {
     display: inline-block;
@@ -533,9 +622,9 @@ footer {
     border-bottom: var(--secondary-color--dark);
 }
 
-.Home-About--Row3 img{
-    border-radius: 60%;
-}
+    .Home-About--Row3 img {
+        border-radius: 60%;
+    }
 
 .Home-About--Body {
     background-color: black;
@@ -546,3 +635,17 @@ footer {
     padding: 0;
     max-width: 100vw;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
