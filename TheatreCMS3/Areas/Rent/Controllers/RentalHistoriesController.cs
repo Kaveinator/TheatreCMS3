@@ -125,12 +125,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             base.Dispose(disposing);
         }
 
-        /* Ajax controller method https://www.youtube.com/watch?v=ZzrLfBkGppI */
-        public ActionResult SortRentalHistoryTable()
-        {
-            return View(db.RentalHistories.ToList());
-        }
-
         /* Sorting method */
         public ActionResult RentalHistorySortAjax(string sortOption)
         {

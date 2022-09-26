@@ -12,10 +12,8 @@ function showLinksMenu(id) {
     $(menu).css('display', 'block');
 };
 
+// ajax method for reloading rental history table data
 $('#rh-sort-options').change(function () {
-    $.ajax({
-        type: "GET",
-        url: "/RentalHistorySortAjax",
-        data: { sortOption: this.value }
-    });
+    var url = $('#rh-sort-options').find(":selected").data('url');
+    $('#rh-sort-table').load(url);
 });

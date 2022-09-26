@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
 
-<table class="table table-sm w-100">
+<table class="table table-sm w-100" id="rh-sort-table">
     @foreach (var item in Model)
     {
         <tr class="d-flex RentalHistory-Index--tr">
@@ -44,7 +44,7 @@
                 <div class="RentalHistory-Index--kebab d-flex align-items-center justify-content-center">
                     <i class="fa-solid fa-ellipsis-v fa-lg"></i>
                 </div>
-                @* will probably need to dynamically set id for pop up for jquery to grab correct one *@
+                @* id set dynamically so jQuery can grab correct list item *@
                 <div class="RentalHistory-Index-links-pop-up" id="link-menu-@item.RentalHistoryId">
                     <div class="position-relative">
                         @* Edit Link *@

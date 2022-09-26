@@ -21,7 +21,7 @@
         <select name="rh-sort-options" id="rh-sort-options">
             @foreach (string s in sortOptions)
             {
-                <option value="@s">@s</option>
+                <option value="@s" data-url="@Url.Action("RentalHistorySortAjax", new { sortOption = s })" >@s</option>
             }
         </select>
     </div>
