@@ -497,96 +497,116 @@ footer {
         background: var(--light-color) !important;
 }
 
+/*  Sign-In Page Styling Begins */
+.home-signin--container {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 225px 225px 225px 225px;
+    gap: 0px 15px;
+    grid-auto-rows: minmax(20px, auto);
+}
 
- /* Contact page styling*/
-
-.Home-Contact--submitbtn {
+.home-signin--container > p {
     background-color: var(--main-color);
-    border-right: 333px;
-    padding-right:333px;
-    border-color: var(--light-color);
-}
-
-.Home-Contact--Card {
-    background-color: var(--main-color--light);
-    display:inline-block;
-    border:solid 1px var(--light-color);
-}
-
-.Home-Contact--cardh5 {
-    text-decoration-color: var(--light-color)
-}
-
-.Home-Contact--Cardp {
-    text-decoration-color: var(--light-color)
-}
-
-.Home-Contact--Cardbtn {
-    background-color: var(--main-color);
-    border-color: var(--light-color);
-}
-
-.Home-Contact--Cards {
-    background-color: var(--main-color--light);
-    margin-left:50%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-}
-
-.Home-Contact--cardh6 {
-    text-decoration-color: var(--light-color)
-}
-
-.Home-Contact--Cardp1 {
-    text-decoration-color: var(--light-color)
-}
-
-.Home-Contact--Cardbtn1{
-    background-color: var(--main-color);
-    border-color: var(--light-color);
-}
-
-.Home-Contact--title {
-    background-color: var(--dark-color);
-}
-
-.Home-Contact--h1 {
+    border: 0px;
+    border-radius: 25px;
+    color: var(--light-color);
     text-align: center;
-    font-family:Broadway;
-}
-
-
-.Home-Contact--Form {
-    background-color: var(--main-color--light);
-}
-
-.Home-Contact--h2 {
-    text-align: center;
-    font-family: Broadway;
-}
-
-.Home-Contact--CardParent {
-    display: flex;
-    width: 50%;
-    margin-top:2em;
-}
-
-.home-signin--container p {
-    display: inline-block;
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 180px;
-    background-color: var(--main-color--light);
-    border: 2px solid var(--main-color--light);
-    padding: 10px;
-    border-radius: 35px;
-    text-overflow: ellipsis;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
     white-space: nowrap;
-    overflow: hidden;
-    text-align: center;
 }
+
+/*  Sign-In Page Styling Ends   */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* About Page Styling */
 .Home-About--Row1 {
     display: inline-block;
@@ -622,9 +642,9 @@ footer {
     border-bottom: var(--secondary-color--dark);
 }
 
-.Home-About--Row3 img{
-    border-radius: 60%;
-}
+    .Home-About--Row3 img {
+        border-radius: 60%;
+    }
 
 .Home-About--Body {
     background-color: black;
@@ -635,3 +655,17 @@ footer {
     padding: 0;
     max-width: 100vw;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

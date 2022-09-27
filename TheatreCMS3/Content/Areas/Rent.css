@@ -17,58 +17,6 @@
     text-align: center
 }
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 .Rentals-CreateEdit--btn {
     display: inline;
     text-align: center;
@@ -122,7 +70,9 @@
     background: var(--main-color);
     color: white;
 }
->>>>>>> b03e80ad4e376d8cec61b46e2e747cde60d207c1
+
+
+/* RENTAL HISTORY CREATE/EDIT PAGE STYLING */
 .RentalHistory-Create--header {
     color: white;
     width: 100%;
@@ -183,6 +133,64 @@
     height: 100%;
     color: white;
     text-decoration: none;
+}
+
+
+/* RENTAL HISTORY INDEX PAGE STYLING */
+.RentalHistory-Index--table-container {
+    border: 3px solid var(--main-color);
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}
+
+.RentalHistory-Index--thead {
+    padding: 10px;
+}
+
+.RentalHistory-Index--link-menu {
+    display: none;
+}
+
+.RentalHistory-Index--tr:hover > .RentalHistory-Index--link-menu {
+    display: flex;
+}
+
+.RentalHistory-Index--kebab {
+  width: 20px;
+  height:30px;
+  border-radius: 2px;
+}
+
+.RentalHistory-Index--kebab:hover {
+    cursor: pointer;
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.RentalHistory-Index-links-pop-up {
+    display: none;
+    position: absolute;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    background-color: white;
+    top: 45px;
+    right: 0px;
+    width: 150px;
+}
+
+.RentalHistory-Index--notes {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    line-height: 35px;
+    
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
 }
 }
 
