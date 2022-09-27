@@ -189,7 +189,7 @@
 
 /*Rental Request index accordian*/
 
-.accordion { /*Style buttons used to open accordion panel*/
+.RentalRequest-Index--AccordionContainter { /*Style buttons used to open accordion panel*/
     background-color: var(--main-color);
     color: var(--main-color);
     cursor: pointer;
@@ -203,16 +203,16 @@
 
 .card-body {
    background-color: black;
+   border: solid;
 }
 
-.Index-RentalRequestButton--column {
-     float:left;
-     width: 50%;
-   
+.Index-RentalRequest--InitialRentalInfo {
+    float: left;
+    width: 50%;
 }
 
-.card-row:after {
+.RentalRequest-Index--FirstAccordionRow:after {
     display: table;
-    clear:both;
+    clear: both;
 }
 

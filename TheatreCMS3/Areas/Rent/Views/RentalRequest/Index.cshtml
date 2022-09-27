@@ -12,26 +12,26 @@
 </p>
 
 
-<div class="accordion" id="accordionExample">
+<div class="accordion RentalRequest-Index--AccordionContainter" id="accordionExample">
     
     @foreach (var item in Model)
 
     {
         
 
-        <div class="card">
-            <div class="card-header" id="headingOne">
+        <div class="card RentalRequest-Index--RentalAccordionCard">
+            <div class="card-header RentalRequest-Index--RentalAccordionHeader" id="headingOne">
                 <h2 class="mb-0">
                     <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#@item.ContactPerson" aria-expanded="true" aria-controls="collapseOne">
 
-                        <div class="card-row">
-                            <div class="Index-RentalRequestButton--column ">
+                        <div class="card-row RentalRequest-Index--FirstAccordionRow">
+                            <div class="Index-RentalRequest--InitialRentalInfo ">
                                 Contact: @Html.DisplayFor(modelItem => item.ContactPerson)
                                 <br />
                                 Company: @Html.DisplayFor(modelItem => item.Company)
                             </div>
                            
-                            <div class="Index-RentalRequestButton--column">
+                            <div class="Index-RentalRequest--InitialRentalInfo">
                                 @if (item.StartTime >= DateTime.Now)
                                 {
                                     var TimeRemaining = item.EndTime - item.StartTime;
@@ -49,7 +49,7 @@
             </div>
   
             <div id="@item.ContactPerson" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
+                <div class="card-body RentalRequest-Index--MoreRentalDetails">
                     <div>
                         <h4>Start Time:</h4> @Html.DisplayFor(modelItem => item.StartTime)
                        <h4> End Time: </h4> @Html.DisplayFor(modelItem => item.EndTime)
