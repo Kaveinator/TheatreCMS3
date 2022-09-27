@@ -12,3 +12,94 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
  
+
+.prod-form > .container { 
+    background-color: #DB1A11;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 14px 14px 20px #F04D44, -14px -14px 20px #FFFBFB;
+}
+
+.form-container .form-icon {
+    color: #FFFBFB;
+    font-size: 55px;
+    text-align: center;
+    line-height: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50px;
+    box-shadow: 7px 7px 10px #000000, -7px -7px 10px #FFFBFB;
+}
+
+.form-container .title { 
+    color: #FFFBFB;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.form-container .form-horizontal .form-group {
+    margin: 0 0 25px 50px;
+}
+
+.form-container .form-horizontal .form-group label {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-container .form-horizontal .form-control {
+    font-size: 15px; 
+    height: 50px;
+    padding: 10px 0px 10px 25px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #000;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+
+.form-container .form-horizontal .form-control:focus {
+    border: 5px solid #D6972A;
+}
+
+.form-container .form-horizontal .btn {
+    color: #FFFBFB;
+    background-color: #9D7C39;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 12px 15px 11px;
+    border-radius: 20px;
+    box-shadow: 6px 6px 6px #000000;
+    transition: all 0.5s ease 0s;
+}
+.form-container .form-horizontal .btn:hover,
+.form-container .form-horizontal .btn:focus {
+    color: #FFFBFB;
+    background-color: #D6972A;
+    letter-spacing: 4px;
+    font-size: 20px;
+    border: 1px dotted #FFFBFB;
+    box-shadow: 6px 6px 6px #FFFBFB;
+    outline: none;
+}
+
+.back-button{
+    color: #FFFBFB;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.back-button:hover,
+.back-button:focus {
+    letter-spacing: 2px;
+    box-shadow: 6px 6px 6px #000;
+    outline: double;
+}
