@@ -192,3 +192,35 @@ table {
     table-layout: fixed;
     width: 100%;
 }
+
+
+
+/*Rental Request index accordian*/
+
+.RentalRequest-Index--AccordionContainter { /*Style buttons used to open accordion panel*/
+    background-color: var(--main-color);
+    color: var(--main-color);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.RentalRequest-Index--MoreRentalDetails {
+    background-color: black;
+    border: solid;
+}
+
+.RentalRequest-Index--InitialRentalInfo {
+    float: left;
+    width: 50%;
+}
+
+.RentalRequest-Index--FirstAccordionRow:after {
+    display: table;
+    clear: both;
+}
+
