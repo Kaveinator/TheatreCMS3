@@ -18,3 +18,4 @@ $('#rh-sort-options').change(function () {
     $('#rh-sort-table').load(url);
 });
 
+$('.collapse').collapse()
