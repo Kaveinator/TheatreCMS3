@@ -209,12 +209,12 @@ table {
     transition: 0.4s;
 }
 
-.card-body {
-   background-color: black;
-   border: solid;
+.RentalRequest-Index--MoreRentalDetails {
+    background-color: black;
+    border: solid;
 }
 
-.Index-RentalRequest--InitialRentalInfo {
+.RentalRequest-Index--InitialRentalInfo {
     float: left;
     width: 50%;
 }

@@ -25,13 +25,13 @@
                     <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#@item.ContactPerson" aria-expanded="true" aria-controls="collapseOne">
 
                         <div class="card-row RentalRequest-Index--FirstAccordionRow">
-                            <div class="Index-RentalRequest--InitialRentalInfo ">
+                            <div class="RentalRequest-Index--InitialRentalInfo ">
                                 Contact: @Html.DisplayFor(modelItem => item.ContactPerson)
                                 <br />
                                 Company: @Html.DisplayFor(modelItem => item.Company)
                             </div>
                            
-                            <div class="Index-RentalRequest--InitialRentalInfo">
+                            <div class="RentalRequest-Index--InitialRentalInfo">
                                 @if (item.StartTime >= DateTime.Now)
                                 {
                                     var TimeRemaining = item.EndTime - item.StartTime;
