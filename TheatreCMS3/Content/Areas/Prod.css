@@ -68,6 +68,11 @@
     border: 5px solid #D6972A;
 }
 
+.form-container .form-horizontal .form-control::placeholder {
+    color: #000;
+    font-size: 14px;
+}
+
 .form-container .form-horizontal .btn {
     color: #FFFBFB;
     background-color: #9D7C39;
