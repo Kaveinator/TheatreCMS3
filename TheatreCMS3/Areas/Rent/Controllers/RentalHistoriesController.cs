@@ -37,6 +37,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Create
+        [RentalManagerAuthorize(Roles = "RentalManager")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RentalManagerAuthorize(Roles = "RentalManager")]
         public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
@@ -60,6 +62,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Edit/5
+        [RentalManagerAuthorize(Roles = "RentalManager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +82,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RentalManagerAuthorize(Roles = "RentalManager")]
         public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
@@ -91,6 +95,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Delete/5
+        [RentalManagerAuthorize(Roles = "RentalManager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +113,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // POST: Rent/RentalHistories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [RentalManagerAuthorize(Roles = "RentalManager")]
         public ActionResult DeleteConfirmed(int id)
         {
             RentalHistory rentalHistory = db.RentalHistories.Find(id);
@@ -153,6 +159,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
 
             return PartialView("_table", rentalHistories);
+        }
+
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
     }   
 }
