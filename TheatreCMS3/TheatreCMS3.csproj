@@ -209,6 +209,7 @@
     <Compile Include="Areas\Rent\Controllers\RentalRequestController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\Models\RentalManager.cs" />
+    <Compile Include="Areas\Rent\Models\RentalManagerAuthorize.cs" />
     <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -336,6 +337,7 @@
     <Content Include="Areas\Prod\Views\Productions\Details.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\AccessDenied.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
