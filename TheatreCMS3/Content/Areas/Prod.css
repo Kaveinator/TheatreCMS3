@@ -176,4 +176,8 @@ Production model CRUD
     color: var(--dark-color);
 }
 
+.production-createEdit--formContainer .form-group .control-label {
+    padding-left: 12px;
+}
+
 /*End Create + Edit*/

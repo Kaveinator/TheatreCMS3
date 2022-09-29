@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OpeningDay, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OpeningDay, "Opening Day", htmlAttributes: new { @class = "control-label col-md-2", @name = "Opening Day"})
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @placeholder = "Opening Day", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ClosingDay, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ClosingDay, "Closing Day", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @placeholder = "Closing Day", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-danger" })
@@ -64,7 +64,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ShowTimeEve, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ShowTimeEve, "Evening Show time", htmlAttributes: new { @class = "control-label" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @placeholder = "Evening Show Time", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-danger" })
@@ -72,7 +72,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ShowTimeMat, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ShowTimeMat, "Morning Show time", htmlAttributes: new { @class = "control-label" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @placeholder = "Morning Show Time", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-danger" })
@@ -88,7 +88,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TicketLink, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TicketLink, "Ticket Link", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @placeholder = "Ticket Link", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
@@ -96,7 +96,7 @@
         </div>
 
         <div class="form-group production-createEdit--checkbox1">
-            @Html.LabelFor(model => model.IsWorldPremiere, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IsWorldPremiere, "Is World Premiere", htmlAttributes: new { @class = "control-label" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.IsWorldPremiere)
@@ -106,7 +106,7 @@
         </div>
 
         <div class="form-group production-createEdit--checkbox2">
-            @Html.LabelFor(model => model.IsCurrentlyShowing, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IsCurrentlyShowing, "Is Currently Showing", htmlAttributes: new { @class = "control-label" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.IsCurrentlyShowing)
