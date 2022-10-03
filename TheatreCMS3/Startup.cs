@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
-using TheatreCMS3.Areas.Rent.Models;
+
 
 
 [assembly: OwinStartupAttribute(typeof(TheatreCMS3.Startup))]
