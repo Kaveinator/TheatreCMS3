@@ -7,94 +7,37 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Playwright)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Runtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpeningDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClosingDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeEve)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeMat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsWorldPremiere)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsCurrentlyShowing)
-        </th>
-        <th></th>
-    </tr>
+@Html.ActionLink("Create New", "Create", null, new { @class = "btn production-index--create" })
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Playwright)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Runtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OpeningDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClosingDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeEve)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeMat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsWorldPremiere)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsCurrentlyShowing)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductionId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductionId })
-        </td>
-    </tr>
+@if (Model.Count() == 0)
+{
+    <h5 class="production-index--noProductionsMsg">There are currently no productions in the database.</h5>
 }
 
-</table>
+else
+{
+    @*bootstrap classes are set so that cards are laid out in rows of 5 columns*@
+     <div class="row row-cols-1 row-cols-md-5 production-index--cardContainer">
+         @foreach (var item in Model) { 
+             <div class="col-mb-4">
+                 <div class="card production-index--card">
+                    <a href="@Url.Action("Details", "Productions", new { id = item.ProductionId })">
+                        @*placeholder img until production photos model is linked*@
+                        <img src="~/Content/images/theater.jpg" class="card-img-top production-index--image" alt="@Html.DisplayFor(modelItem => item.Title)">
+                    </a>
+                    <div class="production-index--badgeLayer">
+                         <a class="badge badge-pill production-index--badge production-index--badgeDetails" href="@Url.Action("Details", "Productions", new { id = item.ProductionId })">
+                             Details
+                         </a>
+                         <a class="badge badge-pill production-index--badge production-index--badgeEdit" href="@Url.Action("Edit", "Productions", new { id = item.ProductionId })">
+                             Edit
+                         </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h4>
+                    </div>
+                </div>
+             </div>
+          }
+     </div>
+}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -14,7 +15,9 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int Runtime { get; set; }
         public DateTime OpeningDay { get; set; }
         public DateTime ClosingDay { get; set; }
+        [DataType(DataType.Time)] //added so that form would accept time only format instead of date AND time
         public DateTime ShowTimeEve { get; set; }
+        [DataType(DataType.Time)]
         public DateTime? ShowTimeMat { get; set; }
         public int Season { get; set; }
         public bool IsWorldPremiere { get; set; }
