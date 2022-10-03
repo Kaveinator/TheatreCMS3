@@ -237,20 +237,21 @@ Production model CRUD
 }
 
 .production-index--badge {
-    background-color: var(--secondary-color);
     font-size: 16px;
     color: var(--dark-color);
     position: absolute;
     top: 57%;
 }
 
-.production-index--badgeDetails {
-    float: left;
-    left: 2%;
+.production-index--badgeDelete {
+    background-color: var(--main-color);
+    float: right;
+    right: 2%;
 }
 
 .production-index--badgeEdit {
-    float: right;
-    right: 2%;
+    background-color: var(--secondary-color);
+    float: left;
+    left: 2%;
 }
 /*End Index*/

@@ -26,8 +26,8 @@ else
                         <img src="~/Content/images/theater.jpg" class="card-img-top production-index--image" alt="@Html.DisplayFor(modelItem => item.Title)">
                     </a>
                     <div class="production-index--badgeLayer">
-                         <a class="badge badge-pill production-index--badge production-index--badgeDetails" href="@Url.Action("Details", "Productions", new { id = item.ProductionId })">
-                             Details
+                         <a class="badge badge-pill production-index--badge production-index--badgeDelete" href="@Url.Action("Delete", "Productions", new { id = item.ProductionId })">
+                             Delete
                          </a>
                          <a class="badge badge-pill production-index--badge production-index--badgeEdit" href="@Url.Action("Edit", "Productions", new { id = item.ProductionId })">
                              Edit
