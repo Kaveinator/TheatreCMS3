@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using PagedList;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -16,9 +17,52 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/Productions
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    return View(db.Productions.ToList());
+        //}
+
+        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Productions.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "title" : ""; //sorts alphabetically by default
+            ViewBag.DateSortParm = sortOrder == "date" ? "date_desc" : "date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var productions = from p in db.Productions
+                              select p;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                productions = productions.Where(p => p.Title.Contains(searchString)
+                                       || p.Description.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "title":
+                    productions = productions.OrderByDescending(p => p.Title);
+                    break;
+                case "date":
+                    productions = productions.OrderBy(p => p.OpeningDay);
+                    break;
+                case "date_desc":
+                    productions = productions.OrderByDescending(p => p.OpeningDay);
+                    break;
+                default:
+                    productions = productions.OrderBy(p => p.Title);
+                    break;
+            }
+            int pageSize = 10; // 10 productions per page, 2 rows of 5
+            int pageNumber = (page ?? 1);
+            return View(productions.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Prod/Productions/Details/5
