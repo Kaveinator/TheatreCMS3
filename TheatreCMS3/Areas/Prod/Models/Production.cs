@@ -13,7 +13,9 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Description { get; set; }
         public string Playwright { get; set; }
         public int Runtime { get; set; }
+        [DataType(DataType.Date)] //will only display date instead of date AND time
         public DateTime OpeningDay { get; set; }
+        [DataType(DataType.Date)]
         public DateTime ClosingDay { get; set; }
         [DataType(DataType.Time)] //added so that form would accept time only format instead of date AND time
         public DateTime ShowTimeEve { get; set; }
