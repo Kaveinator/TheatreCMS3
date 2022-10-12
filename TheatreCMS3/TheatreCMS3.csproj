@@ -213,6 +213,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -455,6 +456,8 @@
     <Content Include="UIUX\Wireframes\TheatreHomePageWireframe.psd" />
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="webfonts\Broadway Normal.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

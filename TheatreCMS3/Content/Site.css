@@ -11,6 +11,7 @@
 
 /*Use these classes to easily assign one of the variable colors to an element*/
 /*Text color classes*/
+
 .cms-text-main {
   color: var(--main-color);
 }
@@ -436,3 +437,42 @@ footer {
         background: var(--light-color) !important;
 }
 
+    /*Home-Contact styling*/
+
+.Home-Contact--btn {
+    background-color: var(--main-color);
+    border: solid 2px var(--light-color);
+    color: var(--light-color);
+    font-weight: lighter;
+    margin: 3px;
+    height: 40px;
+}
+.Home-Contact--textarea{
+   resize: none;
+
+}
+
+.Home-Contact--body {
+    background-color: var(--main-color--light);
+}
+
+.Home-Contact--underline {
+    display: block;
+    content: "";
+    height: 4px;
+    width: 100px;
+    background: var(--main-color);
+    margin: -2px auto 40px;
+}
+
+.Home-Contact--container1 {
+    background-color: var(--dark-color);
+    height: 300px;
+    width: 100%;
+    text-align: center;
+    font-size: 65px;
+    font-family: Broadway;
+    border-bottom-left-radius: 100px;
+    text-underline-position: below;
+}
+/*End Home-Contact styling*/
