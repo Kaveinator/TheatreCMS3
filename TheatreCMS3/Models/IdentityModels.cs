@@ -48,5 +48,6 @@ namespace TheatreCMS3.Models
      
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<ProductionPhoto> ProductionPhotos { get; set; }
+        public DbSet<CastMember> CastMembers { get; set; }
     }
 }  
