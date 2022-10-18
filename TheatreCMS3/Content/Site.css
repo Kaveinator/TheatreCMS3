@@ -564,6 +564,7 @@ footer {
     height: 60%;
 }
 
+/*Signup-Body styling*/
 .home-signin--container {
     column-count: 4;
     column-fill: balance;
@@ -577,3 +578,4 @@ footer {
         padding: 5px;
         border-radius: 25px;
     }
+/*End Signup-Body styling*/
