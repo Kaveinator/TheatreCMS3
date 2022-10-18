@@ -476,3 +476,90 @@ footer {
     text-underline-position: below;
 }
 /*End Home-Contact styling*/
+
+/*Home-Body styling*/
+
+.Home-index-logo_top {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 120px 40px 120px 40px;
+}
+
+.Home-index-content_top {
+    padding-top: 20px;
+}
+
+.Home-index-section_title {
+    font-family: Oswald;
+    font-size: 22px;
+    padding-bottom: 18px;
+    font-weight: 600;
+    position: relative;
+}
+
+.Home-index-section_title::before {
+    display: block;
+    content: '';
+    width: 60px;
+    height: 2px;
+    background: #bd1a11;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.Home-index-spotlight_imgs {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+}
+
+
+.Home-index-spotlight_img {
+    width: 100%;
+    padding-bottom: 20px;
+    height: auto;
+}
+
+
+.Home-index-donation_btn {
+    padding: 10px 25px 10px 25px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #bd1a11;
+    color: white;
+}
+
+.Home-index-donations {
+    padding-bottom: 30px;
+}
+
+.Home-index-donations_content {
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+.Home-index-sponsor_logo {
+    padding-top: 20px;
+    height: 100px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+.Home-index-sponsor_logo_racc, .Home-index-sponsor_logo_ocf {
+    width: 180px;
+    height: auto
+}
+
+.Home-index-land_text {
+    padding-top: 20px;
+}
+
+.Home-index-naya {
+    padding-top: 75px;
+}
+
+.Home-index-naya_logo {
+    height: 60%;
+}
