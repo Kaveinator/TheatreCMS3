@@ -479,18 +479,18 @@ footer {
 
 /*Home-Body styling*/
 
-.Home-body-content-top{
-    padding-top: 20px;
-}
-
-.Home-body-logo-top {
+.Home-index-logo_top {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 120px 40px  120px 40px;
+    padding: 120px 40px 120px 40px;
 }
 
-.Home-body-section-title {
+.Home-index-content_top {
+    padding-top: 20px;
+}
+
+.Home-index-section_title {
     font-family: Oswald;
     font-size: 22px;
     padding-bottom: 18px;
@@ -498,32 +498,32 @@ footer {
     position: relative;
 }
 
-    .Home-body-section-title::before {
-        display: block;
-        content: '';
-        width: 60px;
-        height: 2px;
-        background: #bd1a11;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
+.Home-index-section_title::before {
+    display: block;
+    content: '';
+    width: 60px;
+    height: 2px;
+    background: #bd1a11;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
-.Home-body-spotlight-imgs {
+.Home-index-spotlight_imgs {
     padding-top: 20px;
     padding-bottom: 20px;
     display: block;
 }
 
 
-.Home-body-spotlight-img{
+.Home-index-spotlight_img {
     width: 100%;
     padding-bottom: 20px;
     height: auto;
 }
 
 
-.Home-body-donation-btn {
+.Home-index-donation_btn {
     padding: 10px 25px 10px 25px;
     margin-left: auto;
     margin-right: auto;
@@ -531,35 +531,35 @@ footer {
     color: white;
 }
 
-.Home-body-donations {
+.Home-index-donations {
     padding-bottom: 30px;
 }
 
-.Home-body-donations-content {
+.Home-index-donations_content {
     padding-top: 60px;
     padding-bottom: 50px;
 }
 
-.Home-sponsor-logo {
+.Home-index-sponsor_logo {
     padding-top: 20px;
     height: 100px;
     padding-right: 15px;
     padding-bottom: 10px;
 }
 
-.Home-sponsor-logo-racc, .Home-sponsor-logo-ocf {
+.Home-index-sponsor_logo_racc, .Home-index-sponsor_logo_ocf {
     width: 180px;
     height: auto
 }
 
-.Home-body-land-text {
+.Home-index-land_text {
     padding-top: 20px;
 }
 
-.Home-body-naya {
+.Home-index-naya {
     padding-top: 75px;
 }
 
-.Home-body-naya-logo {
+.Home-index-naya_logo {
     height: 60%;
 }
