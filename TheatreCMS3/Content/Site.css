@@ -563,3 +563,19 @@ footer {
 .Home-index-naya_logo {
     height: 60%;
 }
+
+/*Signup-Body styling*/
+.home-signin--container {
+    column-count: 4;
+    column-fill: balance;
+    column width:100px;
+    position: static;
+    display: inline-block;
+}
+
+    .home-signin--container p {
+        background-color: #bd1a11;
+        padding: 5px;
+        border-radius: 25px;
+    }
+/*End Signup-Body styling*/
