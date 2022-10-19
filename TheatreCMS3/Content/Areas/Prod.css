@@ -12,3 +12,55 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
  
+/*== Cast Members Styling ==*/
+.CastMembers-CreateEdit--Container {
+    border-radius: .25rem;
+    background-color: var(--main-color);
+}
+
+.CastMembers-CreateEdit--header {
+    text-align: center;
+    margin-top: 9px;
+}
+
+.CastMembers-CreateEdit--label {
+    color: var(--dark-color);
+    font-weight: 700;
+    max-width: 100%;
+    text-shadow: -.2px 1px 0px var(--light-color);
+}
+
+.CastMembers-CreateEdit--form {
+    background-color: var(--secondary-color);
+    border-color: var(--main-color);
+    color: white;
+}
+
+.CastMembers-CreateEdit--form:focus{
+    color: var(--secondary-color);
+    border-color: var(--dark-color);
+    background-color: var(--light-color);
+    box-shadow: 10px 5px 5px var(--secondary-color);
+}
+
+.CastMembers-CreateEdit--form::placeholder {
+    color: var(--light-color);
+    opacity: 1; /* Firefox */
+}
+
+.CastMembers-CreateEdit--form:focus::placeholder {
+    color: var(--secondary-color);
+    opacity: 1; /* Firefox */
+}
+
+.CastMembers-CreateEdit--btnBack {
+    background-color: #6c757d;
+    color: var(--light-color);
+    margin-bottom: 10px;
+    border-radius: .25rem;
+}
+
+    .CastMembers-CreateEdit--btnBack:hover {
+        background-color: #565e64;
+        color: white;
+    }
