@@ -477,7 +477,7 @@ footer {
 }
 /*End Home-Contact styling*/
 
-/*Home-Body styling*/
+/*Home-Index styling*/
 
 .Home-index-logo_top {
     display: block;
@@ -563,6 +563,7 @@ footer {
 .Home-index-naya_logo {
     height: 60%;
 }
+/*End of Home-Index styling*/
 
 /*Signup-Body styling*/
 .home-signin--container {
