@@ -64,3 +64,45 @@
         background-color: #565e64;
         color: white;
     }
+.production_photo-create--main_container,
+.production_photo-edit--main_container {
+    background-color: var(--main-color--light);
+    border-radius: 0.5rem;
+}
+
+.production_photo-create--form_header,
+.production_photo-edit--form_header {
+    padding: 1rem;
+}
+
+.production_photo-create--btns,
+.production_photo-edit--btns {
+    border-radius: 0.3rem;
+    margin: 0.5rem 0.3rem;
+    text-align: center;
+}
+
+.production_photo-create--btns:hover,
+.production_photo-edit--btns:hover {
+    background-image: linear-gradient(rgb(0 0 0/20%) 0 0);
+}
+
+.production_photo-create--btns a,
+.production_photo-edit--btns a {
+    color: white;
+}
+
+.production_photo-create--btns a:hover,
+.production_photo-edit--btns a:hover {
+    text-decoration: none;
+}
+
+.production_photo-create--file_upload,
+.production_photo-edit--file_upload {
+    background-color: var(--main-color--light);
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 1rem;
+    color: white;
+}
