@@ -50,5 +50,7 @@ namespace TheatreCMS3.Models
         public DbSet<ProductionPhoto> ProductionPhotos { get; set; }
         public DbSet<CastMember> CastMembers { get; set; }
         public DbSet<Production> Productions { get; set; }
+        public DbSet<CalendarEvents> CalendarEvents { get; set; }
+
     }
 }  
