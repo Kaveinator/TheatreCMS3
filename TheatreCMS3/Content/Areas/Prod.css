@@ -106,3 +106,67 @@
     margin-left: 1rem;
     color: white;
 }
+    }
+
+/* Start of Production Create & Edit pages styling */
+.Production-Create_Edit-Header {
+    text-align: center;
+    padding-top: 17px;
+}
+
+.Production-Create_Edit-Container {
+    background-color: var(--main-color);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.Production-Create_Edit-SubmitBtn {
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: var(--light-color);
+    padding: 3px 6px 3px 6px;
+    font-weight: bold;
+}
+
+    .Production-Create_Edit-SubmitBtn:hover {
+        background-color: var(--dark-color);
+        color: var(--secondary-color--dark);
+    }
+
+.Production-Create_Edit-BackToListBtn {
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    padding: 3px 6px 3px 6px;
+    font-weight: bold;
+}
+
+    .Production-Create_Edit-BackToListBtn:hover {
+        background-color: var(--dark-color);
+        color: var(--secondary-color--dark);
+    }
+
+.Production-Create-ButtonSpace {
+    padding-top: 15px;
+}
+
+.Production-Create_Edit-FormInputBox::placeholder {
+        background-color: var(--secondary-color-dark);
+        color: var(--light-color);
+    }
+.Production-Create_Edit-FormInputBox {
+    background-color: var(--secondary-color--dark);
+    border-radius: 8px;
+    color: var(--light-color);
+}
+
+    .Production-Create_Edit-FormInputBox:focus {
+        background-color: var(--light-color);
+        border: 3px solid var(--secondary-color);
+        border-radius: 8px;
+        color color: var(--dark-color);
+    }
+
+    
