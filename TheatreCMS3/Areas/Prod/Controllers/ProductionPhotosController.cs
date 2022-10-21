@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
@@ -47,8 +48,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionPhotoId,PhotoFile,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProductionPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photoUpload)
         {
+            productionPhoto.PhotoFile = imageToByteArray(photoUpload);
             if (ModelState.IsValid)
             {
                 db.ProductionPhotos.Add(productionPhoto);
@@ -79,8 +81,9 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionPhotoId,PhotoFile,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "ProductionPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photoUpload)
         {
+            productionPhoto.PhotoFile = imageToByteArray(photoUpload);
             if (ModelState.IsValid)
             {
                 db.Entry(productionPhoto).State = EntityState.Modified;
@@ -123,6 +126,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // Convert photo file into byte[]
+        public byte[] imageToByteArray(HttpPostedFileBase photoUpload)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(photoUpload.InputStream))
+            {
+                bytes = br.ReadBytes(photoUpload.ContentLength);
+            }
+            return bytes;
         }
     }
 }

@@ -27,7 +27,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PhotoFile)
+            <img src="data:image/jpg;base64,@Convert.ToBase64String(item.PhotoFile)" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
