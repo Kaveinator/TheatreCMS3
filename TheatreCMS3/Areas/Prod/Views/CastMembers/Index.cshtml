@@ -43,40 +43,49 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearJoined)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearLeft)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainRole)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssociateArtist)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnsembleMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DebutYear)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CastMemberId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Bio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.YearJoined)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.YearLeft)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MainRole)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CurrentMember)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AssociateArtist)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EnsembleMember)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DebutYear)
+    </td>
+    <td>
+        @*@Html.DisplayFor(modelItem => item.Photo)*@
+        @if (item.Photo != null)
+        {<img alt="@item.CastMemberId"
+              src="data:image/jpg;base64, @Convert.ToBase64String(item.Photo)" />
+        }
+        else { <p>No Photo</p> } 
+
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.CastMemberId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
+    </td>
+</tr>
 }
 
 </table>

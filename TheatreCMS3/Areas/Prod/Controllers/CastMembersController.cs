@@ -47,10 +47,18 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,Bio,YearJoined,YearLeft,MainRole,CurrentMember,AssociateArtist,EnsembleMember,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,Bio,YearJoined,YearLeft,MainRole,CurrentMember,AssociateArtist,EnsembleMember,DebutYear,Photo")] CastMember castMember, HttpPostedFileBase photo1)
         {
             if (ModelState.IsValid)
             {
+                if (photo1 == null)
+                {
+                    castMember.Photo = null;
+                }
+                else { 
+                castMember.Photo = new byte[photo1.ContentLength];
+                photo1.InputStream.Read(castMember.Photo, 0, photo1.ContentLength);
+                }
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -114,6 +122,14 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             db.CastMembers.Remove(castMember);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public FileContentResult getImg(int id)
+        {
+            byte[] byteArray = db.CastMembers.Find(id).Photo;
+            return byteArray != null
+                ? new FileContentResult(byteArray, "image/jpg")
+                : null;
         }
 
         protected override void Dispose(bool disposing)

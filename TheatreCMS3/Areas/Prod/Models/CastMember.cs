@@ -10,7 +10,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int CastMemberId { get; set; }
         public string Name { get; set; }
         public string Bio { get; set; }
-        //public byte[] Photo { get; set; }
+        public byte[] Photo { get; set; }
         public int? YearJoined { get; set; }
         public int? YearLeft { get; set; }
         public PositionEnum MainRole { get; set; }
