@@ -6,7 +6,7 @@
 }
 
 <div class="container production_photo-create--main_container">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "ProductionPhotos", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
@@ -37,7 +37,7 @@
         <div class="form-group col-md ml-2">
             <div class="row">
                 @Html.LabelFor(model => model.PhotoFile, "Photo", htmlAttributes: new { @class = "control-label col-sm-2" })
-                @Html.TextBoxFor(model => model.PhotoFile, new { @class = "form-control col-sm col-sm-offset-1 production_photo-create--file_upload", type = "file"})
+                @Html.TextBoxFor(model => model.PhotoFile, new { @class = "form-control col-sm col-sm-offset-1 production_photo-create--file_upload", type = "file", Name = "photoUpload"})
             </div>
             <div class="row">
                 <img src="~/Content/images/BlogPostRobot.jpg" class="img-fluid" />
