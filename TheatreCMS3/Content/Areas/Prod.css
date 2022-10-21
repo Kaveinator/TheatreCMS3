@@ -152,10 +152,13 @@
     padding-top: 15px;
 }
 
+.Production-Create_Edit-FormInputBox::placeholder {
+        background-color: var(--secondary-color-dark);
+        color: var(--light-color);
+    }
 .Production-Create_Edit-FormInputBox {
-    border: 2px solid var(--light-color);
-    border-radius: 8px;
     background-color: var(--secondary-color--dark);
+    border-radius: 8px;
     color: var(--light-color);
 }
 
@@ -163,10 +166,7 @@
         background-color: var(--light-color);
         border: 3px solid var(--secondary-color);
         border-radius: 8px;
+        color color: var(--dark-color);
     }
 
-    .Production-Create_Edit-FormInputBox::placeholder /* Chrome, Firefox, Opera, Safari 10.1+ */,
-    .Production-Create_Edit-FormInputBox:-ms-input-placeholder /* Internet Explorer 10-11 */ {
-        color: var(--dark-color);
-        opacity: 1; /* Firefox */
-    }
+    

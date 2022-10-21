@@ -73,7 +73,7 @@
                 @Html.LabelFor(model => model.ShowTimeEve, "Evening Showtime", htmlAttributes: new { @class = "control-label col-md-6" })
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "form-control Production-Create_Edit-FormInputBox",
-                    @placeholder = "Enter the evening showtime as HH:MM:SS" } })
+                    @placeholder = "Enter the evening showtime as YYYY-MM-DD HH:MM:SS" } })
                     @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-white bg-dark" })
                 </div>
             </div>
@@ -82,7 +82,8 @@
                 @Html.LabelFor(model => model.ShowTimeMat, "Matinee Showtime", htmlAttributes: new { @class = "control-label col-md-6" })
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "form-control Production-Create_Edit-FormInputBox",
-                    @placeholder = "Enter the matinee(daytime) showtime as HH:MM:SS" } })
+                    @placeholder = "Enter the matinee(daytime) showtime as YYYY-MM-DD HH:MM:SS"
+               } })
                     @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-white bg-dark" })
                 </div>
             </div>
