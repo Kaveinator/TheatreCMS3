@@ -11,7 +11,85 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
- 
+
+/* Styling for all pages */
+
+.Prod-All-container /*.CastMembers-CreateEdit--Container*/ {
+    border-radius: .25rem;
+    background-color: var(--main-color);
+    padding-bottom: 1rem;
+}
+
+.Prod-All-header /*.CastMembers-CreateEdit--header*/ {
+    text-align: center;
+    margin-top: 9px;
+}
+
+.Prod-All-label /*Form Labels (was CastMembers-CreateEdit--label)*/ {
+    color: var(--dark-color);
+    font-weight: 700;
+    max-width: 100%;
+    text-shadow: -.2px 1px 0px var(--light-color);
+}
+
+.Prod-All-form /* (Form Input boxes (was CastMembers-CreateEdit--label)*/ {
+    background-color: var(--secondary-color);
+    border-color: var(--main-color);
+    color: white;
+}
+
+    .Prod-All-form:focus {
+        color: var(--secondary-color);
+        border-color: var(--dark-color);
+        background-color: var(--light-color);
+        box-shadow: 10px 5px 5px var(--secondary-color);
+    }
+
+    .Prod-All-form::placeholder {
+        color: var(--light-color);
+        opacity: 1; /* Firefox */
+    }
+
+    .Prod-All-form:focus::placeholder {
+        color: var(--secondary-color);
+        opacity: 1; /* Firefox */
+    }
+
+.Prod-All-MainBtn {
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    padding: 3px 6px 3px 6px;
+    font-weight: bold;
+}
+
+    .Prod-All-MainBtn:hover {
+        background-color: var(--dark-color);
+        color: var(--secondary-color--dark);
+    }
+
+.Prod-All-SecondaryBtn {
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: var(--light-color);
+    padding: 3px 6px 3px 6px;
+    font-weight: bold;
+}
+
+    .Prod-All-SecondaryBtn:hover {
+        background-color: var(--dark-color);
+        color: var(--secondary-color--dark);
+    }
+
+.Prod-All-PillBadgeColor {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+    .Prod-All-PillBadgeColor:hover {
+        background-color: var(--dark-color);
+        color: var(--secondary-color--dark);
+    }
 /*== Cast Members Styling ==*/
 .CastMembers-CreateEdit--Container {
     border-radius: .25rem;
@@ -106,67 +184,84 @@
     margin-left: 1rem;
     color: white;
 }
-    }
 
-/* Start of Production Create & Edit pages styling */
-.Production-Create_Edit-Header {
-    text-align: center;
-    padding-top: 17px;
-}
-
-.Production-Create_Edit-Container {
-    background-color: var(--main-color);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: var(--dark-color);
-    font-weight: 600;
-}
-
-.Production-Create_Edit-SubmitBtn {
-    font-size: 16px;
-    border-radius: 5px;
-    background-color: var(--light-color);
-    padding: 3px 6px 3px 6px;
-    font-weight: bold;
-}
-
-    .Production-Create_Edit-SubmitBtn:hover {
-        background-color: var(--dark-color);
-        color: var(--secondary-color--dark);
-    }
-
-.Production-Create_Edit-BackToListBtn {
-    font-size: 16px;
-    border-radius: 5px;
-    background-color: var(--secondary-color);
-    padding: 3px 6px 3px 6px;
-    font-weight: bold;
-}
-
-    .Production-Create_Edit-BackToListBtn:hover {
-        background-color: var(--dark-color);
-        color: var(--secondary-color--dark);
-    }
+/* Start of Production Create/Edit Pages*/
 
 .Production-Create-ButtonSpace {
     padding-top: 15px;
 }
 
-.Production-Create_Edit-FormInputBox::placeholder {
-        background-color: var(--secondary-color-dark);
-        color: var(--light-color);
-    }
-.Production-Create_Edit-FormInputBox {
-    background-color: var(--secondary-color--dark);
-    border-radius: 8px;
-    color: var(--light-color);
+/* End of Productions Create/Edit Pages*/
+
+/* Start of Productions Index Page */
+
+.Productions-Index-ButtonSpace {
+    padding: 15px 0px 20px 0px;
 }
 
-    .Production-Create_Edit-FormInputBox:focus {
-        background-color: var(--light-color);
-        border: 3px solid var(--secondary-color);
-        border-radius: 8px;
-        color color: var(--dark-color);
+.Productions-Index-Cards {
+    display: inline-grid;
+    padding: 10px 5px 5px 0px;
+}
+
+.Productions-Index-Card_Body {
+    background-color: #212121;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    height: 50px;
+    padding-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+    .Productions-Index-Card_Body:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0);
     }
 
-    
+    .Productions-Index-Card_Body:hover::before {
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .Productions-Index-Card_Body p {
+        display: inline-block;
+    }
+
+    .Productions-Index-Card_Body a {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    .Productions-Index-Card_Body:hover a {
+        display: block;
+        opacity: 1;
+    }
+
+.Productions-Index-EditDelete_PillBadges {
+    display: flex;
+}
+
+.Productions-Index-Card_Image {
+    cursor: pointer;
+}
+
+.Production-Index-PillContainer {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+    top: 0%;
+    transform: translate(7.5%, -180%);
+}
+
+/* End of Productions Index Page */

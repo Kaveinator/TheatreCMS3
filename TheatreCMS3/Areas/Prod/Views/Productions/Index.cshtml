@@ -1,100 +1,38 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class=".Prod-All-header text-center">Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Playwright)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Runtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpeningDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClosingDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeEve)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeMat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsWorldPremiere)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isCurrentlyShowing)
-        </th>
-        <th></th>
-    </tr>
+<div class="col-md-offset-2 col-md-12 Productions-Index-ButtonSpace">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "Prod-All-MainBtn btn btn-default" })
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Playwright)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Runtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OpeningDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClosingDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeEve)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeMat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsWorldPremiere)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isCurrentlyShowing)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductionID })
-        </td>
-    </tr>
+@using (Html.BeginForm("index", null, FormMethod.Get))
+{
+    foreach (var item in Model)
+    {
+        <div class="Productions-Index-Cards">
+            <div class="card" style="width: 18rem;">
+                <a href="@Url.Action("Details", "Productions", new { id = item.ProductionID })">
+                    <img src="~/Content/images/ProductionPhotos/Hamilton/05.jpg" class="card-img-top Productions-Index-Card_Image" alt="production image">
+                </a>
+                <div class="card-body Productions-Index-Card_Body">
+                    <p>@Html.DisplayFor(modelItem => item.Title, new { @class = "Production-Card-Body_Text" })</p>
+                    <p class="Productions-Index-EditDelete_PillBadges">
+                        <div class="Production-Index-PillContainer">
+                            <a href="@Url.Action("Edit", "Productions", new { id = item.ProductionID })" class="badge badge-pill Prod-All-PillBadgeColor">
+                                Edit
+                            </a>
+                            <a href="@Url.Action("Delete", "Productions", new { id = item.ProductionID })" class="badge badge-pill Prod-All-PillBadgeColor">
+                                Delete</a>
+                        </div>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    }
 }
-
-</table>

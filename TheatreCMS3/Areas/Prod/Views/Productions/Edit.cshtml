@@ -4,166 +4,165 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/Areas/Prod.css" rel="stylesheet" />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h3 class="Production-Create_Edit-Header">Edit Production Details</h3>
+    <h2 class="Prod-All-header text-center">Edit Production Details</h2>
     <hr />
-    <div class="Production-Create_Edit-Container container col-md-9 justify-content-center">
+    <div class="Prod-All-container container col-md-9 justify-content-center">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ProductionID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Title, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                    @placeholder = "Enter the title of the play"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Description, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                 @placeholder = "Enter a description of the play"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Playwright, htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.Playwright, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Playwright, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                 @placeholder = "Enter the Playwright"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.Playwright, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.Playwright, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Runtime, htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.Runtime, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Runtime, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                 @placeholder = "Enter the runtime as number of minutes"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.Runtime, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.Runtime, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OpeningDay, "Opening Day", htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.OpeningDay, "Opening Day", htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.OpeningDay, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                 @placeholder = "Enter the opening day as YYYY-MM-DD"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ClosingDay, "Closing Day", htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.ClosingDay, "Closing Day", htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.ClosingDay, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                 @placeholder = "Enter the closing day as YYYY-MM-DD"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ShowTimeEve, "Evening Showtime", htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.ShowTimeEve, "Evening Showtime", htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.ShowTimeEve, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                 @placeholder = "Enter the evening showtime as YYYY-mm-DD HH:MM:SS"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ShowTimeMat, "Matinee Showtime", htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.ShowTimeMat, "Matinee Showtime", htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.ShowTimeMat, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                 @placeholder = "Enter the matinee(daytime) showtime as YYYY-mm-DD HH:MM:SS"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Season, new
                 {
                     htmlAttributes = new
                     {
-                        @class = "form-control Production-Create_Edit-FormInputBox",
+                        @class = "form-control Prod-All-form",
                 @placeholder = "Enter which season the play is on"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IsWorldPremiere, "World Premiere?", htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.IsWorldPremiere, "World Premiere?", htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.IsWorldPremiere)
-                    @Html.ValidationMessageFor(model => model.IsWorldPremiere, "", new { @class = "text-white bg-dark" })
+                    @Html.ValidationMessageFor(model => model.IsWorldPremiere, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TicketLink, "Ticket Link", htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.TicketLink, "Ticket Link", htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.TicketLink, new
                 {
@@ -173,16 +172,16 @@
                 @placeholder = "Enter a link for where to purchase tickets"
                     }
                 })
-                @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-white bg-dark" })
+                @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.isCurrentlyShowing, "Is Currently Showing?", htmlAttributes: new { @class = "control-label col-md-6" })
+            @Html.LabelFor(model => model.isCurrentlyShowing, "Is Currently Showing?", htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
             <div class="col-md-12">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.isCurrentlyShowing)
-                    @Html.ValidationMessageFor(model => model.isCurrentlyShowing, "", new { @class = "text-white bg-dark" })
+                    @Html.ValidationMessageFor(model => model.isCurrentlyShowing, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -191,7 +190,7 @@
                 <input type="submit" value="Save" class="Production-Create_Edit-SubmitBtn btn btn-default" />
             </div>
             <div class="col-md-offset-2 col-md-12 Production-Create-ButtonSpace text-center">
-                @Html.ActionLink("Back to List", "Index", null, new { @class = "Production-Create_Edit-BackToListBtn btn btn-default" })
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "Production-All-BackToListBtn btn btn-default" })
             </div>
         </div>
     </div>
