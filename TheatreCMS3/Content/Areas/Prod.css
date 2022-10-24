@@ -193,7 +193,7 @@
 
 /* End of Productions Create/Edit Pages*/
 
-/* Start of Productions Index Page*/
+/* Start of Productions Index Page */
 
 .Productions-Index-ButtonSpace {
     padding: 15px 0px 20px 0px;
@@ -235,7 +235,6 @@
     }
 
     .Productions-Index-Card_Body a {
-        position: absolute;
         top: 60%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -244,11 +243,12 @@
     }
 
     .Productions-Index-Card_Body:hover a {
+        display: block;
         opacity: 1;
     }
 
 .Productions-Index-EditDelete_PillBadges {
-    display: grid;
+    display: flex;
 }
 
 .Productions-Index-Card_Image {
@@ -256,5 +256,12 @@
 }
 
 .Production-Index-PillContainer {
-    display:flex;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+    top: 0%;
+    transform: translate(7.5%, -180%);
 }
+
+/* End of Productions Index Page */
