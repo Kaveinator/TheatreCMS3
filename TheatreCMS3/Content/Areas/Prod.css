@@ -265,3 +265,18 @@
 }
 
 /* End of Productions Index Page */
+
+/* Start of Calendar Create/Edit Pages*/
+
+
+.CalendarEvent-CreateEdit--header {
+    text-align: center;
+    margin-top: 9px;
+}
+
+.CalendarEvent-CreateEdit--background {
+    background-color: #bd1a11;
+    padding-bottom: 20px;
+    position: relative;
+    width: 100%;
+}

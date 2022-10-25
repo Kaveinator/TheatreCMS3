@@ -23,13 +23,13 @@
                 @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.StartDate, new
-                    {
-                        htmlAttributes = new
-                        {
-                            @class = "form-control Prod-All-form",
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control Prod-All-form",
                        @placeholder = "Enter the start day as YYYY - MM - DD"
-                        }
-                    })
+                   }
+               })
                     @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -38,13 +38,13 @@
                 @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.EndDate, new
-                    {
-                        htmlAttributes = new
-                        {
-                            @class = "form-control Prod-All-form",
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control Prod-All-form",
                        @placeholder = "Enter the end day as YYYY - MM - DD"
-                        }
-                    })
+                   }
+               })
                     @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -53,13 +53,13 @@
                 @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.StartTime, new
-                    {
-                        htmlAttributes = new
-                        {
-                            @class = "form-control Prod-All-form",
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control Prod-All-form",
                        @placeholder = "Enter a start time and include hours and minutes!"
-                        }
-                    })
+                   }
+               })
                     @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -68,13 +68,13 @@
                 @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.EndTime, new
-                    {
-                        htmlAttributes = new
-                        {
-                            @class = "form-control Prod-All-form",
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control Prod-All-form",
                        @placeholder = "Enter an end time and include hours and minutes!"
-                        }
-                    })
+                   }
+               })
                     @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -83,13 +83,13 @@
                 @Html.LabelFor(model => model.TicketsAvailable, htmlAttributes: new { @class = "control-label col-md-6 Prod-All-label" })
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.TicketsAvailable, new
-                    {
-                        htmlAttributes = new
-                        {
-                            @class = "form-control Prod-All-form",
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control Prod-All-form",
                        @placeholder = "Available Tickets"
-                        }
-                    })
+                   }
+               })
                     @Html.ValidationMessageFor(model => model.TicketsAvailable, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -128,7 +128,7 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-
+}  
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }
