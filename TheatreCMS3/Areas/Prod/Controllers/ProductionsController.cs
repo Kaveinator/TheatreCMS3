@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using PagedList;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -16,9 +17,47 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/Productions
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Productions.ToList());
+            /* Providing views with a sort order or a parameter (defined further down) via ViewBag */
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_ascen" : "";
+            /* For  */
+            if (searchString != null)
+            {
+                /* Reset page to 1 incase search string changed during paging */
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            /* Providing view with current filter string.
+            * VALUE INCLUDED IN PAGING LINK TO MAINTAIN FILTER SETTING DURING PAGING */
+            ViewBag.CurrentFilter = searchString;
+
+            var productions = from s in db.Productions
+                              select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                
+                productions = productions.Where(s => s.Title.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "title_ascen":
+                    productions = productions.OrderBy(s => s.Title);
+                    break;
+                default:
+                    productions = productions.OrderBy(s => s.ProductionID);
+                    break;
+            }
+
+            int pageSize = 2;
+            int pageNumber = (page ?? 1);
+            return View(productions.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Prod/Productions/Details/5
