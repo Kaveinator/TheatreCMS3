@@ -53,15 +53,17 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Save" class="btn Blog-Views--btn Blog-Views--btn-red" />
+                        @Html.ActionLink("Back to List", "Index", "BlogPost", null, new { @class = "btn Blog-Views--btn Blog-Views--btn-gold mx-2" })
                     </div>
+               
                 </div>
             </div>
         }
     </div>
 </div>
-        <div>
+        @*<div>
             @Html.ActionLink("Back to List", "Index")
-        </div>
+        </div>*@
 
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
