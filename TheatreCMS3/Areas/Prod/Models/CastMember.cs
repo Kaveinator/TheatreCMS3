@@ -18,6 +18,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public bool AssociateArtist { get; set; }
         public bool EnsembleMember { get; set; }
         public int? DebutYear { get; set; }
+        public string ProductionTitle { get; set; }
     }
 
     public enum PositionEnum
