@@ -71,3 +71,24 @@
         outline-style: none;
         box-shadow: none;
     }
+
+.Blog-Views--blogTitle {
+    font-size: large;
+    color: var(--dark-color);
+}
+
+.Blog-Views--blogInfo {
+    font-size: small;
+    text-wrap: normal;
+    color: var(--dark-color);
+}
+
+.Blog-Views--multiline-ellipsis {
+    display: block;
+    display: -webkit-box;
+    margin: 0 auto;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
