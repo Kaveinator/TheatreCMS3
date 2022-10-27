@@ -3,89 +3,44 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var GroupByProdTitle = Model.GroupBy(Model => Model.ProductionTitle);
 }
 
-<h2>Index</h2>
+<div class="Prod-All-header">
+    <h1>@ViewBag.Title</h1>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearLeft)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssociateArtist)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EnsembleMember)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </th>
-        <th></th>
-    </tr>
+<div class="col-md-offset-2 col-md-12">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn Prod-All-MainBtn" })
+</div>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Bio)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.YearJoined)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.YearLeft)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MainRole)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CurrentMember)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AssociateArtist)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EnsembleMember)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DebutYear)
-    </td>
-    <td>
-        @*@Html.DisplayFor(modelItem => item.Photo)*@
-        @if (item.Photo != null)
-        {<img alt="@item.CastMemberId"
-              src="data:image/jpg;base64, @Convert.ToBase64String(item.Photo)" />
-        }
-        else { <p>No Photo</p> } 
-
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.CastMemberId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
-    </td>
-</tr>
-}
-
-</table>
+<div class="">
+    @foreach (var group in GroupByProdTitle)
+    { 
+        <h2 class="CastMember-Index-ProdTitles">@group.Key</h2>
+        <hr style="background-color:var(--main-color);"/>
+        <div class="row">
+            @foreach (var member in group)
+            {
+                <a href="@Url.Action("Details", "CastMembers", new { id = member.CastMemberId })">
+                    <div class="card border-danger ml-3 CastMember-Index-Container">
+                            @if (member.Photo != null)
+                            {<img class="image"
+                                  alt="@member.CastMemberId"
+                                  src="data:image/jpg;base64, @Convert.ToBase64String(member.Photo)" />
+                            }
+                            else
+                            { <img src="~/Content/images/Cast_Img_1.jpg" />}
+                        <div class="card-img-overlay CastMember-Index-Overlay">
+                            <div class="CastMember-Index-InnerBadges">
+                                <h5 class="CastMember-Index-h5">@Html.DisplayFor(Model => member.Name, new { @class = "" })</h5>
+                                @Html.ActionLink("Edit", "Edit", new { id = member.CastMemberId }, new { @class = "badge Prod-All-PillBadgeColor" })
+                                @Html.ActionLink("Delete", "Delete", new { id = member.CastMemberId }, new { @class = "badge Prod-All-PillBadgeColor" })
+                            </div>
+                        </div>
+                    </div>
+                </a>
+             }
+        </div>
+    }
+</div>

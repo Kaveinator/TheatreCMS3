@@ -10,54 +10,54 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4 class="CastMembers-CreateEdit--header">Edit Cast Member</h4>
-        <div class="container col-md-10 justify-content-center CastMembers-CreateEdit--Container">
+        <h4 class="Prod-All-header">Edit Cast Member</h4>
+        <div class="container col-md-10 justify-content-center Prod-All-container">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.CastMemberId)
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12 text-center">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control CastMembers-CreateEdit--form", placeholder = "Enter your name" } })
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control Prod-All-form", placeholder = "Enter your name" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12">
-                    @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control CastMembers-CreateEdit--form", @placeholder = "Enter your bio" } })
+                    @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control Prod-All-form", @placeholder = "Enter your bio" } })
                     @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.YearJoined, "Year Joined", htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.YearJoined, "Year Joined", htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12">
-                    @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { @class = "form-control CastMembers-CreateEdit--form", @placeholder = "Enter year joined" } })
+                    @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { @class = "form-control Prod-All-form", @placeholder = "Enter year joined" } })
                     @Html.ValidationMessageFor(model => model.YearJoined, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.YearLeft, "Year Left", htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.YearLeft, "Year Left", htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12">
-                    @Html.EditorFor(model => model.YearLeft, new { htmlAttributes = new { @class = "form-control CastMembers-CreateEdit--form", @placeholder = "Enter year left" } })
+                    @Html.EditorFor(model => model.YearLeft, new { htmlAttributes = new { @class = "form-control Prod-All-form", @placeholder = "Enter year left" } })
                     @Html.ValidationMessageFor(model => model.YearLeft, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.MainRole, "Main Role", htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.MainRole, "Main Role", htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12">
-                    @Html.EnumDropDownListFor(model => model.MainRole, htmlAttributes: new { @class = "form-control CastMembers-CreateEdit--form", @placeholder = "What is your role" })
+                    @Html.EnumDropDownListFor(model => model.MainRole, htmlAttributes: new { @class = "form-control Prod-All-form", @placeholder = "What is your role" })
                     @Html.ValidationMessageFor(model => model.MainRole, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.CurrentMember, "Current Member", htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.CurrentMember, "Current Member", htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12">
                     <div class="checkbox">
                         @Html.EditorFor(model => model.CurrentMember)
@@ -67,7 +67,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.AssociateArtist, "Associate Artist", htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.AssociateArtist, "Associate Artist", htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12">
                     <div class="checkbox">
                         @Html.EditorFor(model => model.AssociateArtist)
@@ -77,7 +77,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.EnsembleMember, "Ensemble Member", htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.EnsembleMember, "Ensemble Member", htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12">
                     <div class="checkbox">
                         @Html.EditorFor(model => model.EnsembleMember)
@@ -87,21 +87,27 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.DebutYear, "Debut Year", htmlAttributes: new { @class = "control-label col-md-2 CastMembers-CreateEdit--label" })
+                @Html.LabelFor(model => model.DebutYear, "Debut Year", htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
                 <div class="col-md-12">
-                    @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { @class = "form-control CastMembers-CreateEdit--form", @placeholder = "Enter Year debuted" } })
+                    @Html.EditorFor(model => model.DebutYear, new { htmlAttributes = new { @class = "form-control Prod-All-form", @placeholder = "Enter Year debuted" } })
                     @Html.ValidationMessageFor(model => model.DebutYear, " ", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-12">
-                    <input type="submit" value="Save" class="btn btn-success col-md-12" />
+                @Html.LabelFor(model => model.ProductionTitle, "Production Title", htmlAttributes: new { @class = "control-label col-md-2 Prod-All-label" })
+                <div class="col-md-12 text-center">
+                    @Html.EditorFor(model => model.ProductionTitle, new { htmlAttributes = new { @class = "form-control Prod-All-form ", placeholder = "Enter Production Participating" } })
+                    @Html.ValidationMessageFor(model => model.ProductionTitle, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-md-12">
-                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn CastMembers-CreateEdit--btnBack col-md-12" })
+
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-12 text-center">
+                    <input type="submit" value="Save" class="Prod-All-MainBtn btn-default" />
+                </div>
+                <div class="col-md-offset-2 col-md-12 Production-Create-ButtonSpace text-center">
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "Prod-All-SecondaryBtn btn btn-default" })
                 </div>
             </div>
         </div>
