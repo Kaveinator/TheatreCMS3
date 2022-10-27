@@ -1,4 +1,6 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+﻿@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Production>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,8 +12,18 @@
     @Html.ActionLink("Create New", "Create", null, new { @class = "Prod-All-MainBtn btn btn-default" })
 </div>
 
-@using (Html.BeginForm("index", null, FormMethod.Get))
+@using (Html.BeginForm("Index", "Productions", FormMethod.Get))
 {
+    {
+    <p>
+    Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "Prod-All-form Prod-All-textsearchbox_spacing Prod-All-topsearchbox_width" })
+    <input type="submit" value="Search" class="Prod-All-SecondaryBtn Prod-All-textsearchbox_spacing" />
+    <span class="Prod-All-PagingLinkPos">
+        Sort by:
+        <button class="Prod-All-SecondaryBtn Prod-All-textsearchbox_spacing">@Html.ActionLink("Title", "index", new { sortOrder = ViewBag.TitleSortParm, currentFilter = ViewBag.CurrentFilter}, new { @class = "Prod-All-PagingLinkButton" })</button>
+    </span>
+    </p>
+    }
     foreach (var item in Model)
     {
         <div class="Productions-Index-Cards">
@@ -27,7 +39,8 @@
                                 Edit
                             </a>
                             <a href="@Url.Action("Delete", "Productions", new { id = item.ProductionID })" class="badge badge-pill Prod-All-PillBadgeColor">
-                                Delete</a>
+                                Delete
+                            </a>
                         </div>
                     </p>
                 </div>
@@ -36,3 +49,12 @@
         </div>
     }
 }
+
+<div class="Prod-All-PagingPageContainer">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount <br />
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions()
+            {
+                LiElementClasses = new List<string> { "Prod-All-PagingPageNum" }
+            })
+</div>

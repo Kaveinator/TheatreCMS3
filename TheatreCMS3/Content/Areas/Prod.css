@@ -74,6 +74,8 @@
     background-color: var(--light-color);
     padding: 3px 6px 3px 6px;
     font-weight: bold;
+    text-decoration: none;
+    color: var(--dark-color);
 }
 
     .Prod-All-SecondaryBtn:hover {
@@ -90,6 +92,50 @@
         background-color: var(--dark-color);
         color: var(--secondary-color--dark);
     }
+
+.Prod-All-textsearchbox_spacing {
+    margin-left: .5rem;
+}
+
+.Prod-All-topsearchbox_width {
+    width: 25%;
+}
+
+.Prod-All-PagingLinkPos {
+    float: right;
+}
+
+.Prod-All-PagingPageContainer {
+    padding-top: 2.5rem;
+    text-align: center;
+}
+
+.Prod-All-PagingPageNum {
+    font-weight: bold;
+}
+
+.Prod-All-PagingLinkButton {
+    text-decoration: none;
+    color: var(--dark-color)
+}
+
+    .Prod-All-PagingLinkButton:hover {
+        background-color: var(--dark-color);
+        color: var(--secondary-color--dark);
+        text-decoration: none;
+    }
+
+    /* End of Styling for all pages*/
+    /*== Cast Members Styling ==*/
+    .CastMembers-CreateEdit--Container {
+        border-radius: .25rem;
+        background-color: var(--main-color);
+    }
+
+.CastMembers-CreateEdit--header {
+    text-align: center;
+    margin-top: 9px;
+}
 
 .production_photo-create--main_container,
 .production_photo-edit--main_container {
@@ -181,6 +227,7 @@
 
     .Productions-Index-Card_Body p {
         display: inline-block;
+        transform: translate(0, -10px);
     }
 
     .Productions-Index-Card_Body a {
@@ -206,11 +253,11 @@
 
 .Production-Index-PillContainer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: relative;
     width: 100%;
     top: 0%;
-    transform: translate(7.5%, -180%);
+    transform: translate(10%, -200%);
 }
 
 /* End of Productions Index Page */
