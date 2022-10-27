@@ -25,7 +25,7 @@
                 <a href="@Url.Action("Details", "CastMembers", new { id = member.CastMemberId })">
                     <div class="card border-danger ml-3 CastMember-Index-Container">
                             @if (member.Photo != null)
-                            {<img class="image"
+                            {<img class="CastMember-Index-Image"
                                   alt="@member.CastMemberId"
                                   src="data:image/jpg;base64, @Convert.ToBase64String(member.Photo)" />
                             }

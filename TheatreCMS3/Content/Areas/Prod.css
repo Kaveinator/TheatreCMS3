@@ -285,7 +285,7 @@
         opacity: 1;
     }
 
-    .CastMember-Index-Container:hover .image {
+    .CastMember-Index-Container:hover CastMember-Index-Image {
         opacity: 0.8;
     }
 
