@@ -10,43 +10,35 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Posted)
-        </td>
-        <td>
+
+
+    @foreach (var item in Model)
+    {
+<div class="row my-2">
+    <div class="col-12 col-md-3 p-0 bg-light">
+        <img class="img-fluid" src="~/Content/images/BlogPlaceholder.png" />
+    </div>
+    <div class="col-12 col-md-4 pb-2 bg-light">
+        <div class="col-12  font-weight-bold Blog-Views--blogInfo">
             @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPostId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPostId })
-        </td>
-    </tr>
-}
+        </div>
+        <div class="col-12  Blog-Views--blogInfo">
+            @Html.DisplayFor(modelItem => item.Posted)
+        </div>
+        <div class="col-12  font-weight-bold mt-2 Blog-Views--blogTitle">
+            @Html.DisplayFor(modelItem => item.Title)
+        </div>
+        <div class="col-12 mt-1 Blog-Views--blogInfo Blog-Views--multiline-ellipsis">
+            @Html.DisplayFor(modelItem => item.Content)
+        </div>
 
-</table>
+        
+        <div class="col-12 mt-2">
+            @Html.ActionLink(" Edit", "Edit", new { id = item.BlogPostId }, new{ @class = "btn Blog-Views--btn-gold fa fa-edit py-2" }) |
+            @Html.ActionLink(" Details", "Details", new { id = item.BlogPostId }, new { @class = "btn Blog-Views--btn-gold fa fa-info-circle py-2" }) |
+            @Html.ActionLink(" Delete", "Delete", new { id = item.BlogPostId }, new { @class = "btn Blog-Views--btn-red fa fa-trash py-2" })
+        </div>
+    </div>
+</div>
+    }
