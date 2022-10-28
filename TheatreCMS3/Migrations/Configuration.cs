@@ -19,14 +19,9 @@
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        public void RunSeed(ProductionManager productionManager)
+        protected override void Seed(ApplicationDbContext context)
         {
-            Seed(productionManager);
-        }
-
-        private void Seed(ProductionManager productionManager)
-        {
-            throw new NotImplementedException();
+            ProductionManager.Seed(context);
         }
     }
 }

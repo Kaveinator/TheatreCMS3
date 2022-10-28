@@ -14,12 +14,6 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Title { get; set; }
         public DateTime ManagerStartDate { get; set; }
 
-        public class ProductionManagerContext : IdentityDbContext
-        {
-            public DbSet<ProductionManager> ProductionManagers { get; set; }
-            public DbSet<IdentityDbContext> IdentityDbContexts { get; set; }
-        }
-
         public static void Seed(ApplicationDbContext context)
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
@@ -33,12 +27,15 @@ namespace TheatreCMS3.Areas.Prod.Models
                 roleManager.Create(role);
 
                 //Create a user with ProductionManager as Role
-                int newdate = 20221020;
+                int newdate = 02022022;
                 DateTime datetostring = DateTime.Parse(newdate.ToString());
                 var user = new ProductionManager
                 {
+                    UserName = "ProductionManager1",
+                    Email = "admin@theatre.com",
                     Title = "Costume Designer",
                     ManagerStartDate = datetostring
+
                 };
 
                 string userPWD = "TheatreCM";
@@ -51,7 +48,7 @@ namespace TheatreCMS3.Areas.Prod.Models
                     UserManager.AddToRole(user.Id, "ProductionManager");
                 }
             }
-            
+
         }
     }
 }
