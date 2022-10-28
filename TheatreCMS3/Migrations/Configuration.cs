@@ -8,6 +8,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using TheatreCMS3.Models;
+    using TheatreCMS3.Areas.Prod.Models;
 
 
     internal sealed class Configuration : DbMigrationsConfiguration<TheatreCMS3.Models.ApplicationDbContext>
@@ -15,7 +16,17 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;  
+            AutomaticMigrationDataLossAllowed = true;
+        }
+
+        public void RunSeed(ProductionManager productionManager)
+        {
+            Seed(productionManager);
+        }
+
+        private void Seed(ProductionManager productionManager)
+        {
+            throw new NotImplementedException();
         }
     }
 }
