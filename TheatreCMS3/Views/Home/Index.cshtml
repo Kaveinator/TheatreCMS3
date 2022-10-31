@@ -1,63 +1,10 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/Site.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
 
-<div class="text-center Home-index-logo_top">
-    <img class="Home-theatre-logo-top" src="~/Content/images/TheatreLogo.png" />
-
-</div>
-
-<div class="Home-index-content_top row">
-    <div class="col-sm-8">
-        <div class="Home-index-section_title">SPOTLIGHT</div>
-        <div class="Home-index-spotlight_imgs">
-            <img class="Home-index-spotlight_img" src="~/Content/images/DollsHouse.png" alt="dollhouse poster" />
-            <img class="Home-index-spotlight_img" src="~/Content/images/Tempest.png" alt="tempest poster" />
-
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="Home-index-donations">
-            <div class="Home-index-section_title">DONATIONS</div>
-            <div class="Home-index-donations_content text-center">
-                <button type="button" class="btn text-center Home-index-donation_btn" href="">Click to Support</button>
-            </div>
-        </div>
-        <div class="Home-index-sponsors">
-            <div class="Home-index-section_title">SPONSORS</div>
-            <div class="Home-index-sponsor_logos">
-                <img class="Home-index-sponsor_logo" src="~/Content/images/Sponsors/LogoRoundColor.png" />
-                <img class="Home-index-sponsor_logo" src="~/Content/images/Sponsors/Ninkasi-white-text.png" />
-                <img class="Home-index-sponsor_logo" src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" />
-                <img class="Home-index-sponsor_logo Home-index-sponsor_logo_ocf" src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" /><br />
-                <img class="Home-index-sponsor_logo Home-index-sponsor_logo_racc" src="~/Content/images/Sponsors/RACC.png" />
-            </div>
-        </div>
-    </div>
-</div>
-<div class="Home-index-content_bottom row">
-    <div class="Home-index-land col-sm-8">
-        <div class="Home-index-section_title">LAND ACKNOWLEDGEMENT</div>
-        <div class="Home-index-land_text">
-            <p>
-                Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional tribal lands of the Multnomah, Wasco,
-                Clackamas, Chinook bands, Kathlamet, Tualatin, Kalapuya, Cowlitz, Mollala, Cascades, Oregon City Tumwater, Confederated
-                Tribes of the Grand Ronde and other indigenous people.
-            </p>
-            <strong>We are on stolen land.</strong><br /><br />
-            <p>
-                Theatre Vertigo has been and continues to examine our community relationships to ensure our collaborators, partners and
-                sponsors support the our regions Indigneous Nations and communities.<br /><br />
-                One of the ways Theatre Vertigo is working to act on our commitment to being of service to the lands that we now share
-                is to build bridges between our arts community and local Nations
-            </p>
-        </div>
-    </div>
-    <div class="Home-index-naya col-sm-4 text-center">
-        <a href="https://nayapdx.org/"><img class="Home-body-naya_logo" src="~/Content/images/NAYAFamilyCenter.jpg" /></a>
-        <p>Click to visit the NAYA Family Center to learn more about supporting our local indigenous communities.</p>
-    </div>
+<div>
+  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
+  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
+  @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
+  @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
