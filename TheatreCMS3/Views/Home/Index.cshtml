@@ -2,9 +2,78 @@
     ViewBag.Title = "Home Page";
 }
 
-<div>
-  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
-  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
-  @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
-  @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+
+<!--LOGO IMAGE-->
+<div class="home-index--toplogo">
+    <img src="~/Content/images/TheatreLogo.png" />
+</div>
+
+<!--TWO COLUMNS BELOW LOGO-->
+<div class="container-fluid home-index--column-one"> <!--container-fluid allows percent based width instead of px-->
+    <div class="row">
+        <div class="col-8">
+            <!--col-8 is 2/3 of total 12 columns available. setting this column to 2/3rd width-->
+            <h5 class="home-index--col1heading">
+                SPOTLIGHT<br />
+            </h5>
+            <div class="home-index--spotlightimages">
+                <img src="~/Content/images/DollsHouse.png" /><br />
+                <img src="~/Content/images/Tempest.png" /><br />
+            </div>
+
+
+
+
+
+            <!--LAND ACKNOWLEDGEMENT-->
+            <h5 class="home-index--landacknowledgementheading">
+                LAND ACKNOWLEDGEMENT<br />
+            </h5>
+            <p class="home-index--landacknowledgementtext">
+                Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional tribal lands
+                of the Multnomah, Wasco, Clackamas, Chinook bands, Kathlamet, Tualatin Kalapuya, Cowlitz, Mollala,
+                Cascades, Oregon City Tumwater, Confederated Tribes of the Grand Ronde and other indigenous peoples.
+                <br />
+                <div class="index-home--boldedptext">
+                    We are on stolen land.
+                </div>
+                <br />
+                Theatre Vertigo has been and continues to examine our community relationships to ensure our collaborators,
+                partners and sponsors support our regions Indigenous Nations and communities.
+                <br />
+                <br />
+                One of the ways Theatre Vertigo is working to act on our commitment to being of service to the lands
+                that we now share is to build bridges between our arts community and local Nations.
+
+            </p>
+        </div>
+        
+        <!---------------------------COLUMN 2---------------------------->
+        <div class="col-4"> <!--col-4 is 2/3 of total 12 columns available. setting this column to 1/3rd width-->
+            <h5 class="home-index--col2heading">
+                DONATIONS<br />
+                <button class="btn-lg home-index--donation-button">Click to Support</button><br />
+            </h5>
+                <!--Sponsors-->
+            <h5 class="home-index--sponsorsheading">
+                SPONSORS
+            </h5>
+                <div class="home-index--sponsorimagescontainer">
+                    <img src="~/Content/images/Sponsors/LogoRoundColor.png" class="home-index--sponsorimages"/>
+                    <img src="~/Content/images/Sponsors/Ninkasi-white-text.png" class="home-index--sponsorimages"/>
+                    <img src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" class="home-index--sponsorimages"/>
+                    <br />
+                    <img src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" class="home-index--sponsorimages"/>
+                    <br />
+                    <img src="~/Content/images/Sponsors/RACC.png" class="home-index--sponsorimages"/>
+                </div>
+            
+            <a href="https://nayapdx.org/"  target="_blank"> <img src="~/Content/images/NAYAFamilyCenter.jpg" alt="Naya Logo" class="home-index--nayalogo"/></a> 
+            <br />
+            <div class="home-index--nayatext">
+                Click to visit the NAYA Family Center to learn more about supporting our local
+                indigenous communities.
+            </div>     
+        </div>
+    </div>
 </div>
