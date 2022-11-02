@@ -553,8 +553,8 @@ footer {
 /*------------------------------------------END STORY: STYLE HOME PAGE---------------------------------------*/
 
 /*--------------------------Styling Contact Page------------------------------------------------------ */
-.home-contact--heading {
-    background-color: blue;
+.home-contact--border {
+    background-color:black;
     text-decoration-color: white;
     border-radius: 0% 0% 0% 30%;
     text-align: center;
@@ -563,10 +563,10 @@ footer {
     height: 290px;
     display: block;
     width: 100%;
-    position: absolute;
+ 
 }
 .home-contact--form {
-    margin-top: 100vh;
+    /*margin-top: 100vh;*/
     
     background-color: var(--main-color);
     text-decoration-color: var(--light-color);
@@ -599,7 +599,7 @@ footer {
     margin: 80px;
 }
 .home-contact--row{
-    margin-top: -100px;
+    margin-top: -60px;
     content: "";
     display: table;
     clear: both;
