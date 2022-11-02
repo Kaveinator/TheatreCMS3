@@ -3,22 +3,63 @@
 }
 
 <!DOCTYPE html>
+<div class="home-contact--border">
+<style>
+   /* As suggested, internal styles to make sections touch the left and right side of the screen/*/
+    .body-content {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+       
+    }
+</style>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Contact Us</title>
-</head>
-<body>
-    <header style="color:darkred;">Contact Us!</header>
-    <div>
-        <form >
-        <label for="fname">First name:</label><br />
-        <input type="text" id="fname" name="fname" /><br />
-        <label for="lname">Last Name</label><br />
-        <input type="text" id="lname" name="lname" /><br />
-        <input type="submit" value="Submit" />
-        </form>    
-    </div>
-</body>
-</html>
+    <h1 class="home-contact--heading">Contact Us</h1>
+</div>
+<div class="home-contact--body">
+
+    
+    <column>
+        <div class="home-contact--row">
+
+            
+            <column>
+                <div>
+                    <div class="home-contact--column" style="background-color: red;">
+                        <form class="home-contact--form">
+                            <label class="home-contact--text" for="fnameLname">First name:</label><br />
+                            <input class="home-contact--text2" type="text" id="fnameLname" name="fnameLname" /><br />
+                            <label class="home-contact--text" for="Email">Email</label><br />
+                            <input class="home-contact--text2" type="text" id="Email" name="Email" /><br />
+                            <label class="home-contact--text" for="Subject">Subject</label><br />
+                            <input class="home-contact--text2" type="text" id="Subject" name="Subject" /><br />
+                            <label class="home-contact--text" for="Message">Message</label><br />
+                            <input class="home-contact--text2" type="text" id="Message" name="Message" /><br />
+                            <input class="home-contact--text3" type="submit" value="Submit" />
+                        </form>
+                    </div>
+                    <div class="home-contact--column" style="background-color:red;">
+                        <h2 class="home-contact--header3">Donate</h2>
+                        <p>
+                            We've got a patreon account!<br />
+                            help support live theater in<br />
+                            Portland, Or, by becoming a<br />
+                            patron today!
+                        </p>
+                        <input class="home-contact--text3" type="submit" value="Donate" />
+                        <br />
+                        <h3 class="home-contact--header3">Volunteer</h3>
+                        <p>
+                            To volunteer for potential events<br />
+                            please contact us below!
+                        </p>
+                        <input class="home-contact--text3" type="submit" value-="Volunteer" />
+                    </div>
+                  
+                </div>
+        </div>
+</div>
+
+
+
