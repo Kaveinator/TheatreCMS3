@@ -568,7 +568,7 @@ footer {
 .home-contact--form {
     /*margin-top: 100vh;*/
     
-    background-color: var(--main-color);
+    
     text-decoration-color: var(--light-color);
     text-align: left;
     padding-inline: auto;
@@ -577,7 +577,7 @@ footer {
 .home-contact--text {
   
     color: white;
-    background-color: var(--main-color);
+   
 }
 .home-contact--text2 {
     color: var(--dark-color);
@@ -586,10 +586,9 @@ footer {
 .home-contact--text3 {
     color: var(--light-color);
     background-color: var(--main-color);
+    width:20em;
 }
-.home-contact--ColumnStyling {
-    background-color: var(--main-color);
-}
+
 
 .home-contact--column {
     float: left;
@@ -606,7 +605,7 @@ footer {
    z-index: -1;
 }
 .home-contact--header3 {
-    background-color: var(--main-color);
+    
     color: var(--light-color);
     font-size: 20px;
 }
