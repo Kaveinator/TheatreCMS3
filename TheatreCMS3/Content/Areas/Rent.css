@@ -11,3 +11,154 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+
+
+
+/*-------------------------------------CREATE PAGE (RENTAL)--------------------------------*/
+
+
+/*---------BUTTONS------------*/
+.rental-create--submitbutton {
+    background-color: var(--main-color);
+    margin-right: 50%;
+    margin-left: 53%;
+    margin-top: 20px;
+}
+
+.rental-create--backbutton {
+    background-color:var(--light-color);
+    margin-right:410px;
+    margin-left:475px;
+    margin-bottom:20px;
+    color:var(--dark-color);
+}
+
+
+
+/*-------FORM STYLING-------*/
+.rental-create--formcontrols {
+    border-color: var(--secondary-color); /*gives input field a default border*/
+    border-width: 3px;
+}
+
+.rental-create--formcontrols:focus {
+    box-shadow:none; 
+}
+
+.rental-create--formhorizontal {
+    border-color: var(--secondary-color);
+    border-width:3px;
+}
+input[type=text]:focus {
+    border: 2px solid var(--main-color); /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
+
+}
+
+input[type=number]:focus {
+    border:2px solid var(--main-color);   /*"" for numbers*/
+}
+
+.rental-create--formlabel1:focus {
+    border-color:var(--main-color);
+    outline:3px solid var(--main-color);
+}
+
+.rental-form--container {
+    color:var(--main-color);
+    border: double;
+    margin-top: 100px;
+}
+
+.rental-create--formheading {
+    margin-top: 20px;
+    font-size: xx-large;
+    padding-left: 44%;
+    color: var(--main-color);
+}
+
+.rental-create--formgroupheading1 {
+    padding-left:120px;
+}
+
+.rental-create--formgroupheading2 {
+    padding-left:120px;
+}
+
+.rental-create--formgroupheading3 {
+    padding-left:120px;
+}
+
+
+.rental-create-flawslabel {
+    max-width:100%;   /*this keeps the label flaws /damages from being broken into two lines*/
+}
+
+/*---------------------------------END CREATE PAGE (RENTAL)--------------------------------*/
+
+
+
+
+/*----------------------------------EDIT PAGE (RENTAL)-------------------------------------*/
+/*---------BUTTONS------------*/
+.rental-edit--savebutton {
+    background-color: var(--main-color);
+    margin-right: 50%;
+    margin-left: 53%;
+    margin-top: 20px;
+}
+
+.rental-edit--backbutton {
+    background-color: var(--light-color);
+    margin-right: 410px;
+    margin-left: 466px;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+
+/*-------FORM STYLING-------*/
+.rental-edit--formcontrols {
+    border-color: var(--secondary-color); /*gives input field a default yellow/gold border*/
+    border-width: 3px;
+}
+
+.rental-edit--formcontrols:focus {
+    border-color: var(--secondary-color); /*gives input field a default border*/
+    border-width: 3px;
+    box-shadow:none;
+}
+
+.rental-edit--formhorizontal {    
+    border-color: var(--secondary-color);
+    border-width: 3px;
+}
+
+.rental-edit--formcontainer {
+    color: var(--main-color);
+    border: double;
+    margin-top: 100px;
+}
+
+.rental-edit--formheading {
+    margin-top:20px;
+    font-size:xx-large;
+    padding-left: 44%;
+    color: var(--main-color);
+}
+
+.rental-edit--formgroupheading1 {
+    padding-left: 120px;
+}
+
+.rental-edit--formgroupheading2 {
+    padding-left: 120px;
+}
+
+.rental-edit--formgroupheading3 {
+    padding-left: 120px;
+}
+
+.rental-edit--flawslabel {
+    max-width:100%;
+}
