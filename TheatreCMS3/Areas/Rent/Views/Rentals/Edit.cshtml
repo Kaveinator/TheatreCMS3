@@ -11,48 +11,52 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
+    <div class="rental-edit--formcontainer">
+        <div class="form-horizontal rental-edit--formhorizontal">
+            <h4 class="rental-edit--formheading">Rental</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.RentalId)
+
+            <div class="form-group rental-edit--formgroupheading1">
+                @Html.LabelFor(model => model.RentalName, "Rental Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control rental-edit--formcontrols", placeholder = "Enter rental name" } })
+                    @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group rental-edit--formgroupheading2">
+                @Html.LabelFor(model => model.RentalCost, "Rental Cost", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control rental-edit--formcontrols", placeholder = "Enter rental cost" } })
+                    @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group rental-edit--formgroupheading3">
+                @Html.LabelFor(model => model.FlawsAndDamages, "Flaws And Damages", htmlAttributes: new { @class = "control-label col-md-2 rental-edit--flawslabel" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control rental-edit--formcontrols", placeholder = "Enter flaws and damages" } })
+                    @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default rental-edit--savebutton" />
+                </div>
+            </div>
+        </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn rental-edit--backbutton" })   <!--apply bootstrap class when you create new class-->
+        </div>
     
-    <div class="form-horizontal">
-        <h4 class="rental-edit--formheading">Rental</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.RentalId)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalName, "Rental Name", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control rental-edit--formcontrols", placeholder = "Enter rental name" } })
-                @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalCost, "Rental Cost", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control rental-edit--formcontrols", placeholder = "Enter rental cost" } })
-                @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FlawsAndDamages, "Flaws And Damages", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control rental-edit--formcontrols", placeholder = "Enter flaws and damages" } })
-                @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")   <!--apply bootstrap class when you create new class-->
-</div>
+    
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -28,9 +28,9 @@
 
 .rental-create--backbutton {
     background-color:var(--light-color);
-    margin-top:20px;
-    margin-right:565px;
-    margin-left:460px;
+    margin-right:410px;
+    margin-left:475px;
+    margin-bottom:20px;
     color:var(--dark-color);
 }
 
@@ -40,16 +40,23 @@
 .rental-create--formcontrols {
     border-color: var(--secondary-color); /*gives input field a default border*/
     border-width: 3px;
-    box-shadow:none;
 }
 
+.rental-create--formcontrols:focus {
+    box-shadow:none; 
+}
+
+.rental-create--formhorizontal {
+    border-color: var(--secondary-color);
+    border-width:3px;
+}
 input[type=text]:focus {
-    outline: 1px solid var(--main-color); /*sets outline color when input field clicked in (for text fields)*/
+    border: 2px solid var(--main-color); /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
 
 }
 
 input[type=number]:focus {
-    outline:1px solid var(--main-color);   /*"" for numbers*/
+    border:2px solid var(--main-color);   /*"" for numbers*/
 }
 
 .rental-create--formlabel1:focus {
@@ -58,14 +65,16 @@ input[type=number]:focus {
 }
 
 .rental-form--container {
-    border-color:var(--main-color);
+    color:var(--main-color);
     border: double;
     margin-top: 100px;
 }
 
 .rental-create--formheading {
-    padding-left:44%;
-    color:var(--main-color);
+    margin-top: 20px;
+    font-size: xx-large;
+    padding-left: 44%;
+    color: var(--main-color);
 }
 
 .rental-create--formgroupheading1 {
@@ -81,4 +90,75 @@ input[type=number]:focus {
 }
 
 
+.rental-create-flawslabel {
+    max-width:100%;   /*this keeps the label flaws /damages from being broken into two lines*/
+}
+
 /*---------------------------------END CREATE PAGE (RENTAL)--------------------------------*/
+
+
+
+
+/*----------------------------------EDIT PAGE (RENTAL)-------------------------------------*/
+/*---------BUTTONS------------*/
+.rental-edit--savebutton {
+    background-color: var(--main-color);
+    margin-right: 50%;
+    margin-left: 53%;
+    margin-top: 20px;
+}
+
+.rental-edit--backbutton {
+    background-color: var(--light-color);
+    margin-right: 410px;
+    margin-left: 466px;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+
+/*-------FORM STYLING-------*/
+.rental-edit--formcontrols {
+    border-color: var(--secondary-color); /*gives input field a default yellow/gold border*/
+    border-width: 3px;
+}
+
+.rental-edit--formcontrols:focus {
+    border-color: var(--secondary-color); /*gives input field a default border*/
+    border-width: 3px;
+    box-shadow:none;
+}
+
+.rental-edit--formhorizontal {    
+    border-color: var(--secondary-color);
+    border-width: 3px;
+}
+
+.rental-edit--formcontainer {
+    color: var(--main-color);
+    border: double;
+    margin-top: 100px;
+}
+
+.rental-edit--formheading {
+    margin-top:20px;
+    font-size:xx-large;
+    padding-left: 44%;
+    color: var(--main-color);
+}
+
+.rental-edit--formgroupheading1 {
+    padding-left: 120px;
+}
+
+.rental-edit--formgroupheading2 {
+    padding-left: 120px;
+}
+
+.rental-edit--formgroupheading3 {
+    padding-left: 120px;
+}
+
+.rental-edit--flawslabel {
+    max-width:100%;
+}
