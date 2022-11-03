@@ -11,3 +11,74 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+
+
+
+/*-------------------------------------CREATE PAGE (RENTAL)--------------------------------*/
+
+
+/*---------BUTTONS------------*/
+.rental-create--submitbutton {
+    background-color: var(--main-color);
+    margin-right: 50%;
+    margin-left: 53%;
+    margin-top: 20px;
+}
+
+.rental-create--backbutton {
+    background-color:var(--light-color);
+    margin-top:20px;
+    margin-right:565px;
+    margin-left:460px;
+    color:var(--dark-color);
+}
+
+
+
+/*-------FORM STYLING-------*/
+.rental-create--formcontrols {
+    border-color: var(--secondary-color); /*gives input field a default border*/
+    border-width: 3px;
+    box-shadow:none;
+}
+
+input[type=text]:focus {
+    outline: 1px solid var(--main-color); /*sets outline color when input field clicked in (for text fields)*/
+
+}
+
+input[type=number]:focus {
+    outline:1px solid var(--main-color);   /*"" for numbers*/
+}
+
+.rental-create--formlabel1:focus {
+    border-color:var(--main-color);
+    outline:3px solid var(--main-color);
+}
+
+.rental-form--container {
+    border-color:var(--main-color);
+    border: double;
+    margin-top: 100px;
+}
+
+.rental-create--formheading {
+    padding-left:44%;
+    color:var(--main-color);
+}
+
+.rental-create--formgroupheading1 {
+    padding-left:120px;
+}
+
+.rental-create--formgroupheading2 {
+    padding-left:120px;
+}
+
+.rental-create--formgroupheading3 {
+    padding-left:120px;
+}
+
+
+/*---------------------------------END CREATE PAGE (RENTAL)--------------------------------*/
