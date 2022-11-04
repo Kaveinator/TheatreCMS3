@@ -5,7 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2 class="rental-edit--editrentalheading">Edit</h2>
+
+<!--DROPDOWN-->
+<div class="dropdown rental-edit--dropdowncontainer">
+    <button class="btn btn-secondary dropdown-toggle rental-edit--dropdownbutton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select Rental Type
+    </button>
+    <div class="dropdown-menu rental-edit--dropdownMenu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item rental-edit--choice1" href="#">Rental</a>
+        <a class="dropdown-item rental-edit--choice2" href="#">Rental Equipment</a>
+        <a class="dropdown-item rental-edit--choice3" href="#">Rental Room</a>
+    </div>
+</div>
 
 
 @using (Html.BeginForm())
@@ -52,11 +64,11 @@
         <div>
             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn rental-edit--backbutton" })   <!--apply bootstrap class when you create new class-->
         </div>
-    
-    </div>
-    }
 
-    
+    </div>
+}
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
