@@ -16,37 +16,35 @@
     var SquareFootage = RentalRoom.SquareFootage;
     var MaxOccupancy = RentalRoom.MaxOccupancy;
 
-    <!--heading vars that change to match selected choice-->
-    var RentalHeadingChange = "Rental";
-    var RentalEquipmentHeadingChange = "Rental Equipment";
-    var RentalRoomHeadingChange = "Rental Room";
 }
 
 <h2 class="rental-create--createrentalheading">Create Rental</h2>
 <meta name="viewport" content="width=device-width, initial-scale=1" />   <!--import for button hover effect-->
+
+
 <!--DROPDOWN-->
 <div class="dropdown rental-create--dropdowncontainer">
     <button class="btn btn-secondary dropdown-toggle rental-create--dropdownbutton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select Rental Type
     </button>
     <div class="dropdown-menu rental-create--dropdownMenu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item rental-create--choice1" onclick="showRental(), changeRentalHeading()" href="#">Rental</a>
+        <a class="dropdown-item rental-create--choice1" onclick="showRental(), changeRentalHeading1()" href="#">Rental</a>
         <!-- onclick = function you created in js that says x is hidden-->
         <!-- if doesn't work try html.dropdown list razor'-->
-        <a class="dropdown-item rental-create--choice2" onclick="showRentalEquipment()" href="#">Rental Equipment</a>
-        <a class="dropdown-item rental-create--choice3" onclick="showRentalRoom()" href="#">Rental Room</a>
+        <a class="dropdown-item rental-create--choice2" onclick="showRentalEquipment(), changeRentalHeading2()" href="#">Rental Equipment</a>
+        <a class="dropdown-item rental-create--choice3" onclick="showRentalRoom(), changeRentalHeading3()" href="#">Rental Room</a>
     </div>
 </div>
 
 
-
+<!-------------------------------------------3 FORM COMPONENTS---------------------------------------------------------->
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     <div class="rental-form--container">
 
         <div class="form-horizontal rental-create--rentalForm">
-            <h4 id="rental-create--formheading">this should change</h4>
+            <h4 id="rental-create--formheading">Rentals</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -80,7 +78,6 @@
                     </div>
                 </div>
             </div>
-            <!--END RENTAL FORM-->
             <!--======================================================================================================-->
             <!--RENTAL EQUIPMENT FORM-->
             <div class="rental-create--rentalequipmentformcomponent">
@@ -110,10 +107,8 @@
                     </div>
                 </div>
             </div>
-            <!--END EQUIPMENT RENTAL FORM-->
             <!--======================================================================================================-->
             <!--RENTAL ROOM FORM-->
-            <!--======================================================================================================-->
             <div class="rental-create--rentalroomformcomponent">
                 <div class="form-group rental-create--formgroupheading1">
                     @Html.LabelFor(model => RoomNumber, "Room Number", htmlAttributes: new { @class = "control-label col-md-2 rental-create--formlabel1" })
@@ -141,8 +136,10 @@
                     </div>
                 </div>
             </div>
-            <!--END RENTAL ROOM FORM-->
             <!--======================================================================================================-->
+            <!---------------------------------------END 3 FORM COMPONENTS---------------------------------------------------------->
+            
+    
             <!--SUBMIT BUTTON-->
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -153,7 +150,6 @@
 
         <!--back to list button-->
         <div>
-            <!--"btn btn-default rental-create--backbuttoncontainer" for previous line 53-->
             <!--by adding btn btn-default to parent container we apply that to referenced
             'back to list' button-->
             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn rental-create--backbutton" }) <!--right click-peek definition to see details-->

@@ -90,6 +90,15 @@ input[type=number]:focus {
     color: var(--main-color);
 }
 
+#rental-create--formheading {   /*for the ID version of above class*/
+    margin-top: 20px;
+    font-size: xx-large;
+    display:flex;
+    justify-content:center;
+    color: var(--main-color);
+}
+
+
 .rental-create--formgroupheading1 {
     padding-left:120px;
 }
