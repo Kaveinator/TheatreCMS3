@@ -481,6 +481,7 @@ footer {
 
 
 
+
 /*------------------------------------------STORY: STYLE HOME PAGE-------------------------------------------*/
 .home-index--toplogo {
     display:flex;
@@ -615,3 +616,31 @@ footer {
 .home-contact--border {
       border-radius: 0% 0% 0% 30%;
 }
+/*------------------------------------------END STORY: STYLE HOME PAGE---------------------------------------*/
+
+
+
+
+/*Start Style for Sign In Page*/
+.home-signin--container p {
+    background-color: var(--main-color--light);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 8px;
+    width: 140px;
+    font-size: large;
+    flex: 20%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.home-signin--container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+/*End Style for Sign In Page*/
