@@ -17,6 +17,8 @@
     <!--Looping through our Rental Request items-->
     @foreach (var item in Model)
     {
+        <!--call method to create new sorted list and expiration checked-->
+
         <div>
             <input type="checkbox" name="RentalRequest_accordion" id = @Html.DisplayFor(modelItem => item.RentalRequestID)  class="rentalRequests-Index--accordionInput" />
             <label for= @Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionLabel">
@@ -25,7 +27,7 @@
                 @Html.DisplayNameFor(model => model.ContactPerson): @Html.DisplayFor(modelItem => item.ContactPerson) 
                 <br />
                 <span class="rentalRequests-Index--accordionLabelRT">
-                    <!--Logic to include time remaining/time till start-->
+                    <!--Calculate and display time remaining/time till start/expired time-->
                     @if (item.StartTime > DateTime.Now)
                     {
                         // Calculating time difference
@@ -42,7 +44,17 @@
                         // Converting to string and rounding to 2 decimal places
                         string tRemaining = $"{timeRemaining:0.00}";
                         // Display results
-                        <span>@Html.DisplayName("Time Remaining: ")<br /> @tRemaining days</span>
+                        <span>@Html.DisplayName("Time remaining: ")<br /> @tRemaining days</span>
+                    }
+                    else if(item.Expired)
+                    {
+                        // Calculating time difference
+                        var timeRemaining = (item.EndTime - DateTime.Now).TotalDays;
+                        // Converting to string and rounding to 2 decimal places
+                        string tRemaining = $"{timeRemaining:0.00}";
+                        // Display results
+                        <span>@Html.DisplayName("Expired! ")<br /> @tRemaining days</span>
+
                     }
                     else
                     {
@@ -51,7 +63,7 @@
                         // Converting to string and rounding to 2 decimal places
                         string tRemaining = $"{timeRemaining:0.00}";
                         // Display results
-                        <span>@Html.DisplayName("Overdue Rental: ")<br /> @tRemaining days</span>
+                        <span>@Html.DisplayName("Expires on Day 7")<br /> @tRemaining days</span>
                     }
                 </span>
 

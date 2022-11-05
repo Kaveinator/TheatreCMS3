@@ -15,13 +15,47 @@ namespace TheatreCMS3.Areas.Rent.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Rent/RentalRequest
+        // GET: Rent/RentalRequests
         public ActionResult Index()
         {
-            return View(db.RentalRequests.ToList());
+            // code to sort rental requests (sorted by start date in ascending order)             
+            // 1.  create a list<T>
+            var sortedRequests = db.RentalRequests.ToList();
+
+            // 2. Iterate through the model and sort(startdate ascending order)
+            sortedRequests.Sort((x, y) => DateTime.Compare(y.StartTime, x.StartTime));
+            // 3. update expiration status
+            foreach (var item in sortedRequests)
+            {
+                // A week after its last date, a rental request is considered to have expired.  
+                if (item.EndTime < DateTime.Now)
+                {
+                    // Calculating time difference
+                    int daysExpired = Convert.ToInt32((DateTime.Now - item.EndTime).TotalDays);
+                    if (daysExpired >= 7)
+                    {
+                        item.Expired = true;
+                        //update database
+                        db.SaveChanges();
+                        // continue the iteration
+                        continue;
+                    }
+                    item.Expired = false;
+                    db.SaveChanges();
+                }
+            }
+
+            // 3. Return result
+            return View(sortedRequests);
         }
 
-        // GET: Rent/RentalRequest/Details/5
+        // method for rentalRequestTimeRemaining
+        public ActionResult RentalRequestTimeRemaining(int id)
+        {
+            return View();
+        }
+
+        // GET: Rent/RentalRequests/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,18 +70,18 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalRequest);
         }
 
-        // GET: Rent/RentalRequest/Create
+        // GET: Rent/RentalRequests/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Rent/RentalRequest/Create
+        // POST: Rent/RentalRequests/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
+        public ActionResult Create([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned,Expired")] RentalRequest rentalRequest)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +93,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalRequest);
         }
 
-        // GET: Rent/RentalRequest/Edit/5
+        // GET: Rent/RentalRequests/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,12 +108,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalRequest);
         }
 
-        // POST: Rent/RentalRequest/Edit/5
+        // POST: Rent/RentalRequests/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned")] RentalRequest rentalRequest)
+        public ActionResult Edit([Bind(Include = "RentalRequestID,ContactPerson,Company,RequestedTime,StartTime,EndTime,ProjectInfo,RentalCode,Accepted,ContractSigned,Expired")] RentalRequest rentalRequest)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +124,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalRequest);
         }
 
-        // GET: Rent/RentalRequest/Delete/5
+        // GET: Rent/RentalRequests/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +139,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalRequest);
         }
 
-        // POST: Rent/RentalRequest/Delete/5
+        // POST: Rent/RentalRequests/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -124,5 +158,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
