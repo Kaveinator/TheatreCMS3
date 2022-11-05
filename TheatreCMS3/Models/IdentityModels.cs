@@ -50,5 +50,6 @@ namespace TheatreCMS3.Models
         // Linking DbSet for RentalRequests
         public DbSet<TheatreCMS3.Areas.Rent.Models.RentalRequest> RentalRequests { get; set; }
         
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalSurvey> RentalSurvey { get; set; }
     }
 }
