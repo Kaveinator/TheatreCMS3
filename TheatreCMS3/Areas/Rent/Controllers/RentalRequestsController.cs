@@ -31,8 +31,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 if (item.EndTime < DateTime.Now)
                 {
                     // Calculating time difference
-                    int daysExpired = Convert.ToInt32((DateTime.Now - item.EndTime).TotalDays);
-                    if (daysExpired >= 7)
+                    double daysExpired = Convert.ToDouble((DateTime.Now - item.EndTime).TotalDays);
+                    if (daysExpired >= 7.00)
                     {
                         item.Expired = true;
                         //update database
