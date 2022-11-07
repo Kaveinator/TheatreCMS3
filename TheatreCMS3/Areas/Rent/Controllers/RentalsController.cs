@@ -52,7 +52,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         { 
            
             //Logic for RentalEquipment
-            if (PurchasePrice != null)  //if PurchasePrice has value then we know we're dealing with RentalEquipment
+            if (PurchasePrice > 0)  //if PurchasePrice has value then we know we're dealing with RentalEquipment
             {
                 RentalEquipment rentalequipment = new RentalEquipment();  //instantiate new instance of object rentalequipment named 'rentalequipment'
                 rentalequipment.RentalName = rental.RentalName; //explicitly telling program that the RentalName field is = to the current rentals.RentalName
@@ -117,7 +117,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental, int? PurchasePrice, bool SuffocationHazard, bool ChokingHazard, int RoomNumber
             , int MaxOccupancy, int SquareFootage)
         {
-            if (PurchasePrice != null)
+            if (PurchasePrice > 0)
             {
                 RentalEquipment rentalequipment = new RentalEquipment();  //instantiate new instance of object rentalequipment named 'rentalequipment'
                 rentalequipment.RentalId = rental.RentalId;
