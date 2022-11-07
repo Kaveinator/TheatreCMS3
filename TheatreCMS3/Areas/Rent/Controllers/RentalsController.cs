@@ -59,6 +59,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
+
+
         // GET: Rent/Rentals/Edit/5
         public ActionResult Edit(int? id)
         {

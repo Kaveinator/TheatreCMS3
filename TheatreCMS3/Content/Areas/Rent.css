@@ -162,12 +162,69 @@ input[type=number]:focus {
 .rental-edit--flawslabel {
     max-width:100%;
 }
+/*------------------------------END EDIT PAGE (RENTAL)-------------------------------------*/
+/*----------------------------BEGIN INDEX PAGE (RENTAL)-------------------------------------*/
+.rental-index--rentalsectionheading {
+    margin-top: 20px;
+    font-size: xx-large;
+    color: var(--light-color);
+}
+
+.rental-index--rentalsectionghosttextA { /*this is our red line under the Rental heading*/
+    color: var(--main-color);
+    font-size:xx-large;
+    margin-top:-27px;  /*keeps red line close to above heading*/
+}
+
+/* Outer Row that holds all columns/items*/
+.rental-index--outerrow {
+    padding-left:50px;
+    padding-right:50px;
+}
+
+
+/*-------RENTAL CARD CONTAINER 1A---------*/
+
+.rental-index--card1A {
+    border:5px solid var(--light-color);
+    max-width:300px;
+}
+.rental-index--innerphotocontainer1A {
+    background-color: var(--dark-color);
+}
+.rental-index--rentalsectionimage1 {
+    height: 150px;
+    width: 200px;
+    margin-left: 16%; /*keeps image centered in container/card*/
+    margin-top: 20px;
+}
+
+.rental-index--rentalsectiontext1A {
+    margin-bottom: -25px;
+    margin-top:20px;
+    color:var(--dark-color);
+}
+
+.rental-index--buttoncontainer1A {
+    margin-top:-20px;
+    margin-bottom:20px;
+}
+
+.rental-index--deletebutton1A {
+    margin-left:44px;
+}
+
+.rental-index--rentalsectionghosttextB {
+    color: var(--dark-color);
+}
+/*----------------------------END INDEX PAGE (RENTAL)-------------------------------------*/
+
 
 
 /*-------------RentalRequest Index------------------*/
 .rentalRequests-Index--accordionContainer {
     /*Control the size*/
-    min-width:500px;
+    min-width: 500px;
     box-shadow: 0 0 30px var(--light-color);
     border-radius: 5px;
     overflow: hidden;

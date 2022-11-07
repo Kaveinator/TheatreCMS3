@@ -10,37 +10,90 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FlawsAndDamages)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalId })
-        </td>
-    </tr>
-}
 
-</table>
+<!------------------------------------NEW GRID LAYOUT REPLACING TABLE-------------------------------->
+<!-------------------RENTAL COLUMNS--------------------->
+<h3 class="rental-index--rentalsectionheading">Rental</h3>
+<p class="rental-index--rentalsectionghosttextA">___________________________________________________________________________________________________</p> <!--red line under heading-->
+<div class="row rental-index--outerrow">
+    <div class="col">
+        <div class="card rental-index--card1A">
+            <div class="rental-index--innerphotocontainer1A">
+                <img src="~/Content/images/theater.jpg" alt="theatre photo" class="card-img-top rental-index--rentalsectionimage1" />
+                <br />
+            </div>
+            <p class="rental-index--rentalsectiontext1A">
+                @Html.DisplayNameFor(model => model.RentalName)
+                <br />$@Html.DisplayNameFor(model => model.RentalCost)/day
+            </p>
+            <br />
+            <p class="rental-index--rentalsectionghosttextB">
+                ____________________________
+            </p>
+            <br />
+            <div class="rental-index--buttoncontainer1A">
+                <!--Edit button-->
+                <!--ask if ok to use this link for icons (bootstrap)-->
+                <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+                <button type="button" class="btn-sm btn-dark" href="link here">
+                    Edit <span class="badge badge-light">Icon</span>
+                    <span class="sr-only">Edit Button</span>
+                </button>
+                <!--Details button-->
+                <button type="button" class="btn-sm btn-dark" href="link here">
+                    Details <span class="badge badge-light">Icon</span>
+                    <span class="sr-only">Details Button</span>
+                </button>
+                <!--Delete button-->
+                <button type="button" class="btn-sm btn-danger rental-index--deletebutton1A" href="link here">
+                    T <span class="badge badge-light">I</span>
+                    <span class="sr-only">Delete Button</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col">col</div>
+    <div class="w-100"></div>   <!--enter "w-100" wherever you want to break into new row of columns-->
+    <div class="col">col</div>
+    <div class="col">col</div>
+</div>
+
+
+
+
+<!--OLD VERSION OF TABLE-->
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlawsAndDamages)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlawsAndDamages)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.RentalId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.RentalId })
+            </td>
+        </tr>
+    }
+
+    </table>*@
