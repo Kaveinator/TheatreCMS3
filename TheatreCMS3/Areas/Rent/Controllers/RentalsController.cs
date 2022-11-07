@@ -47,9 +47,44 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
-        {
-            if (ModelState.IsValid)
+        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental, int? PurchasePrice, bool SuffocationHazard, bool ChokingHazard, int RoomNumber
+            , int MaxOccupancy, int SquareFootage)
+        { 
+           
+            //Logic for RentalEquipment
+            if (PurchasePrice != null)  //if PurchasePrice has value then we know we're dealing with RentalEquipment
+            {
+                RentalEquipment rentalequipment = new RentalEquipment();  //instantiate new instance of object rentalequipment named 'rentalequipment'
+                rentalequipment.RentalName = rental.RentalName; //explicitly telling program that the RentalName field is = to the current rentals.RentalName
+                rentalequipment.RentalCost = rental.RentalCost;
+                rentalequipment.FlawsAndDamages = rental.FlawsAndDamages;
+                rentalequipment.PurchasePrice = Convert.ToInt32(PurchasePrice); //same as above but include which class object (rentalequipment instead of rental)
+                rentalequipment.SuffocationHazard = Convert.ToBoolean(SuffocationHazard);
+                rentalequipment.ChokingHazard = Convert.ToBoolean(ChokingHazard); //anytime its boolean or int use convert statement define this way
+
+                db.Rentals.Add(rentalequipment); //add new object rentalequipment to database
+                db.SaveChanges();                  //save to db
+                return RedirectToAction("Index");  //send user to Index page once saved
+
+
+            }
+            //Logic for RentalRoom
+            else if (RoomNumber > 0) //if RoomNumber has value we know its a RentalRoom
+            {
+                RentalRoom rentalroom = new RentalRoom(); //instantiate
+                rentalroom.RentalName = rental.RentalName;
+                rentalroom.RentalCost = rental.RentalCost;
+                rentalroom.FlawsAndDamages = rental.FlawsAndDamages;
+                rentalroom.RoomNumber = Convert.ToInt32(RoomNumber);
+                rentalroom.MaxOccupancy = Convert.ToInt32(MaxOccupancy);
+                rentalroom.SquareFootage = Convert.ToInt32(SquareFootage);
+
+                db.Rentals.Add(rentalroom);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            //Logic for Rental
+            else if (ModelState.IsValid)  //might need indentation
             {
                 db.Rentals.Add(rental);
                 db.SaveChanges();
@@ -81,9 +116,48 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental, int? PurchasePrice, bool SuffocationHazard, bool ChokingHazard, int RoomNumber
+            , int MaxOccupancy, int SquareFootage)
         {
-            if (ModelState.IsValid)
+            if (PurchasePrice != null)
+            {
+                RentalEquipment rentalequipment = new RentalEquipment();  //instantiate new instance of object rentalequipment named 'rentalequipment'
+                rentalequipment.RentalId = rental.RentalId;
+                rentalequipment.RentalName = rental.RentalName; //explicitly telling program that the RentalName field is = to the current rentals.RentalName
+                rentalequipment.RentalCost = rental.RentalCost;
+                rentalequipment.FlawsAndDamages = rental.FlawsAndDamages;
+                rentalequipment.PurchasePrice = Convert.ToInt32(PurchasePrice); //same as above but include which class object (rentalequipment instead of rental)
+                rentalequipment.SuffocationHazard = Convert.ToBoolean(SuffocationHazard);
+                rentalequipment.ChokingHazard = Convert.ToBoolean(ChokingHazard); //anytime its boolean or int use convert statement define this way
+
+                //TRIED putting rentalequipment.Propname in above convert statements
+                //TRIED using rental.RentalName in top of statement
+                //TRIED eliminating top section of this entirely
+                
+
+                db.Entry(rentalequipment).State = EntityState.Modified;
+                db.SaveChanges();                  //save to db
+                return RedirectToAction("Index");  //send user to Index page once saved
+            }
+            else if (RoomNumber > 0)
+            {
+                RentalRoom rentalroom = new RentalRoom(); //instantiate
+                rentalroom.RentalId = rental.RentalId;
+                rentalroom.RentalName = rental.RentalName;
+                rentalroom.RentalCost = rental.RentalCost;
+                rentalroom.FlawsAndDamages = rental.FlawsAndDamages;
+                rentalroom.RoomNumber = Convert.ToInt32(RoomNumber);
+                rentalroom.MaxOccupancy = Convert.ToInt32(MaxOccupancy);
+                rentalroom.SquareFootage = Convert.ToInt32(SquareFootage);
+
+                //RentalRoom rentalroom = db.Rentals.Find(id);
+
+                db.Entry(rentalroom).State = EntityState.Modified;
+                db.SaveChanges();                  //save to db
+                return RedirectToAction("Index");  //send user to Index page once saved
+            }
+        
+            else if (ModelState.IsValid)
             {
                 db.Entry(rental).State = EntityState.Modified;
                 db.SaveChanges();
