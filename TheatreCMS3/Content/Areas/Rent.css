@@ -16,9 +16,22 @@
 
 
 /*-------------------------------------CREATE PAGE (RENTAL)--------------------------------*/
+.rental-create--createrentalheading{
+    display:flex;
+    justify-content:center;
+    margin-top:70px;
+}
 
 
 /*---------BUTTONS------------*/
+.rental-create--dropdownbutton {
+    margin-right:50%;
+    margin-left:42%;
+    background-color:var(--light-color);
+    color:var(--dark-color);
+
+}
+
 .rental-create--submitbutton {
     background-color: var(--main-color);
     margin-right: 50%;
@@ -28,8 +41,8 @@
 
 .rental-create--backbutton {
     background-color:var(--light-color);
-    margin-right:410px;
-    margin-left:475px;
+    margin-right:44%;
+    margin-left:43%;
     margin-bottom:20px;
     color:var(--dark-color);
 }
@@ -77,6 +90,15 @@ input[type=number]:focus {
     color: var(--main-color);
 }
 
+#rental-create--formheading {   /*for the ID version of above class*/
+    margin-top: 20px;
+    font-size: xx-large;
+    display:flex;
+    justify-content:center;
+    color: var(--main-color);
+}
+
+
 .rental-create--formgroupheading1 {
     padding-left:120px;
 }
@@ -100,18 +122,39 @@ input[type=number]:focus {
 
 
 /*----------------------------------EDIT PAGE (RENTAL)-------------------------------------*/
+.rental-edit--editrentalheading {
+    display:flex;
+    justify-content:center;
+    margin-top:70px;
+}
+
+#rental-edit--formheading { /*for the ID version of above class*/
+    margin-top: 20px;
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    color: var(--main-color);
+}
+
+.rental-edit--dropdownbutton {
+    margin-right: 50%;
+    margin-left: 42%;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
 /*---------BUTTONS------------*/
 .rental-edit--savebutton {
     background-color: var(--main-color);
     margin-right: 50%;
-    margin-left: 53%;
+    margin-left: 54%;
     margin-top: 20px;
 }
 
 .rental-edit--backbutton {
     background-color: var(--light-color);
-    margin-right: 410px;
-    margin-left: 466px;
+    margin-right: 44%;
+    margin-left: 43%;
     margin-bottom: 20px;
     color: var(--dark-color);
 }
@@ -162,6 +205,10 @@ input[type=number]:focus {
 .rental-edit--flawslabel {
     max-width:100%;
 }
+
+/*------------------------------END EDIT PAGE (RENTAL)-------------------------------------*/
+
+
 
 
 /*-------------RentalRequest Index------------------*/
