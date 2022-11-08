@@ -50,14 +50,14 @@
     border-color: var(--secondary-color);
     border-width:3px;
 }
-input[type=text]:focus {
-    border: 2px solid var(--main-color); /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
+/*input[type=text]:focus {
+    border: 2px solid var(--main-color);*/ /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
 
-}
+/*}
 
 input[type=number]:focus {
-    border:2px solid var(--main-color);   /*"" for numbers*/
-}
+    border:2px solid var(--main-color);*/   /*"" for numbers*/
+/*}*/
 
 .rental-create--formlabel1:focus {
     border-color:var(--main-color);
@@ -242,4 +242,29 @@ input[type=number]:focus {
     position:absolute;
     top:15px;
     right:50px;
+}
+/*                                     */
+.rentalSurvey-Form--Styling{
+
+}
+.rentalSurvery-Form--InputStyling:focus {
+    border: 2px solid var(--secondary-color);
+    
+
+}
+.rentalSurvey-Create--Styling {
+    background: var(--secondary-color);
+    font: var(--light-color);
+    transition: ease-in;
+    position: absolute;
+    
+   
+}
+.rentalSurvey-ActionLink-Styling{
+   position:center;
+   text-align:center;
+   
+}
+.rentalSurvey-FormBackground-Styling {
+    background: var(--main-color--light);
 }
