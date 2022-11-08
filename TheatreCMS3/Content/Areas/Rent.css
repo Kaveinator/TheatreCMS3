@@ -63,18 +63,22 @@
     border-color: var(--secondary-color);
     border-width:3px;
 }
-input[type=text]:focus {
+.rental-create--submitbutton:focus-within {
     border: 2px solid var(--main-color); /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
-
 }
 
-input[type=number]:focus {
-    border:2px solid var(--main-color);   /*"" for numbers*/
+.rental-create--submitbutton[type=number]:focus {
+    border: 2px solid var(--main-color); /*"" for numbers*/
+}
+
+/*fix attempt*/
+.rental-create--rentalForm:focus {
+    border:2px solid var(--main-color);
 }
 
 .rental-create--formlabel1:focus {
-    border-color:var(--main-color);
-    outline:3px solid var(--main-color);
+    border-color: var(--main-color);
+    outline: 3px solid var(--main-color);
 }
 
 .rental-form--container {
