@@ -247,24 +247,31 @@ input[type=number]:focus {
 .rentalSurvey-Form--Styling{
 
 }
-.rentalSurvery-Form--InputStyling:focus {
+.rentalSurvey-Form--InputStyling:focus {
     border: 2px solid var(--secondary-color);
-    
+    box-shadow:none;
 
 }
 .rentalSurvey-Create--Styling {
     background: var(--secondary-color);
-    font: var(--light-color);
-    transition: ease-in;
-    position: absolute;
-    
-   
+    color: var(--light-color);
+ 
+}
+.rentalSurvey-Create--Styling2 {
+    background: var(--dark-color);
+    color: var(--light-color);
 }
 .rentalSurvey-ActionLink-Styling{
-   position:center;
+   
    text-align:center;
    
 }
 .rentalSurvey-FormBackground-Styling {
     background: var(--main-color--light);
 }
+.rentalSurvey- {
+   
+}
+
+placeholders text form general feedback 
+edit 
