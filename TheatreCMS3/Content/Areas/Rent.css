@@ -237,9 +237,18 @@ input[type=number]:focus {
     transform: translateY(-50%) rotate(0.5turn);
 }
 
-/*move to right side of label*/
+/* Move label item to the right side of label section*/
 .rentalRequests-Index--accordionLabelRT{
     position:absolute;
     top:15px;
     right:50px;
+}
+
+/*Button to toggle between Expired and Current rental requests*/
+.rentalRequests-Index--toggleButton {
+    background-color: var(--secondary-color--dark);
+    align-content:flex-end;
+}
+.rentalRequests-Index--toggleButton:hover {
+    background: var(--secondary-color);
 }

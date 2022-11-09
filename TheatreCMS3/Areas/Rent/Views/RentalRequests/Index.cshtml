@@ -8,8 +8,18 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*This button takes the user to Create New Request page*@
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="../RentalRequests/Create" class="btn btn-sm pull-left rentalRequests-Index--toggleButton">Create New</a>
+
+    <!--Adding button to toggle between Current and Expired rental requests-->
+    <!--Using JS code for this button-->
+    <button id="rentReqToggleBtn"type="button" class="btn fa-pull-right rentalRequests-Index--toggleButton" onclick="RentRequestCurrentExpire()">
+        Expired
+    </button>
+
 </p>
+
 
 <!--Part1: Create an accordion to display all the rental requests-->
 <!--Main accordion container-->
@@ -17,14 +27,14 @@
     <!--Looping through our Rental Request items-->
     @foreach (var item in Model)
     {
+        
         <!--call method to create new sorted list and expiration checked-->
-
-        <div>
-            <input type="checkbox" name="RentalRequest_accordion" id = @Html.DisplayFor(modelItem => item.RentalRequestID)  class="rentalRequests-Index--accordionInput" />
-            <label for= @Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionLabel">
-                @Html.DisplayNameFor(model => model.Company): @Html.DisplayFor(modelItem => item.Company) 
+        <div id="displayRentalRequestDiv">
+            <input type="checkbox" name="RentalRequest_accordion" id=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionInput" />
+            <label for=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionLabel">
+                @Html.DisplayNameFor(model => model.Company): @Html.DisplayFor(modelItem => item.Company)
                 <br />
-                @Html.DisplayNameFor(model => model.ContactPerson): @Html.DisplayFor(modelItem => item.ContactPerson) 
+                @Html.DisplayNameFor(model => model.ContactPerson): @Html.DisplayFor(modelItem => item.ContactPerson)
                 <br />
                 <span class="rentalRequests-Index--accordionLabelRT">
                     <!--Calculate and display time remaining/time till start/expired time-->
@@ -46,14 +56,14 @@
                         // Display results
                         <span>@Html.DisplayName("Time remaining: ")<br /> @tRemaining days</span>
                     }
-                    else if(item.Expired)
+                    else if (item.Expired)
                     {
                         // Calculating time difference
                         var timeRemaining = (item.EndTime - DateTime.Now).TotalDays;
                         // Converting to string and rounding to 2 decimal places
                         string tRemaining = $"{timeRemaining:0.00}";
                         // Display results
-                        <span>@Html.DisplayName("Expired! ")<br /> @tRemaining days</span>
+                        <span><span id="expiredOrNot">@Html.DisplayName("Expired!")</span><br /> @tRemaining days</span>
 
                     }
                     else
@@ -66,7 +76,6 @@
                         <span>@Html.DisplayName("Expires on Day 7")<br /> @tRemaining days</span>
                     }
                 </span>
-
             </label>
 
             <div class="rentalRequests-Index--accordionContent">
@@ -96,9 +105,12 @@
                     @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
                 </p>
             </div>
-              
+
         </div>
+
+        
+
     }
-   
+
 </div>
 

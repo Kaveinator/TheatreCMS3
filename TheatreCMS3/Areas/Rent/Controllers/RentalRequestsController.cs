@@ -6,6 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 
@@ -49,11 +52,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(sortedRequests);
         }
 
-        // method for rentalRequestTimeRemaining
-        public ActionResult RentalRequestTimeRemaining(int id)
-        {
-            return View();
-        }
 
         // GET: Rent/RentalRequests/Details/5
         public ActionResult Details(int? id)
