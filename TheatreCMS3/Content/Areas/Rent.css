@@ -56,25 +56,15 @@
 }
 
 .rental-create--formcontrols:focus {
-    box-shadow:none; 
-}
+        box-shadow: none;  /*eliminates default blue outline color when user clicks inside form label*/
+        border: 2px solid var(--main-color); /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
+    }
 
 .rental-create--formhorizontal {
     border-color: var(--secondary-color);
     border-width:3px;
 }
-.rental-create--submitbutton:focus-within {
-    border: 2px solid var(--main-color); /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
-}
 
-.rental-create--submitbutton[type=number]:focus {
-    border: 2px solid var(--main-color); /*"" for numbers*/
-}
-
-/*fix attempt*/
-.rental-create--rentalForm:focus {
-    border:2px solid var(--main-color);
-}
 
 .rental-create--formlabel1:focus {
     border-color: var(--main-color);
@@ -235,13 +225,14 @@
 .rental-index--card1A {
     border:5px solid var(--light-color);
     max-width:300px;
+    margin-bottom:20px;
 }
 .rental-index--innerphotocontainer1A {
     background-color: var(--dark-color);
 }
 .rental-index--rentalsectionimage1 {
-    height: 150px;
-    width: 200px;
+    height: 100px;
+    width: 150px;
     margin-left: 16%; /*keeps image centered in container/card*/
     margin-top: 20px;
 }
@@ -250,6 +241,7 @@
     margin-bottom: -25px;
     margin-top:20px;
     color:var(--dark-color);
+    font-weight:bold;
 }
 
 .rental-index--buttoncontainer1A {
@@ -258,7 +250,11 @@
 }
 
 .rental-index--deletebutton1A {
-    margin-left:44px;
+    margin-left:26px;
+}
+
+.rental-index--trashicon { /*use to target trash icon if needed currently unused*/
+    
 }
 
 .rental-index--rentalsectionghosttextB {
