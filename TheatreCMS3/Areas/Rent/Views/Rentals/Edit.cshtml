@@ -75,7 +75,7 @@
             <div class="rental-edit--rentalequipmentformcomponent">
                 <div class="form-group rental-edit--formgroupheading1">
                     @Html.LabelFor(model => ChokingHazard, "Choking Hazard", htmlAttributes: new { @class = "control-label col-md-2 rental-edit--formlabel1" })
-                    <!--above line "Rental Name" is the label adjusted heading/how to change that field-->
+                    <!--above line "Choking Hazard" is the label adjusted heading/how to change that field-->
                     <div class="col-md-10">
                         @Html.EditorFor(model => ChokingHazard, new { htmlAttributes = new { @class = "form-control rental-edit--formcontrols", placeholder = "Choking Hazard?" } })
                         @Html.ValidationMessageFor(model => ChokingHazard, "", new { @class = "text-danger" })
