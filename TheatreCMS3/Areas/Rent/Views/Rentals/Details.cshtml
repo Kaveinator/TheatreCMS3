@@ -1,16 +1,35 @@
-﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+﻿@using TheatreCMS3.Areas.Rent.Models
+@model TheatreCMS3.Areas.Rent.Models.Rental
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var rental = new Rental();
+    <!--vars for RentalEquipment form component (otherwise we aren't able to call their properties)-->
+    var RentalEquipment = new RentalEquipment();
+    var ChokingHazard = RentalEquipment.ChokingHazard;
+    var SuffocationHazard = RentalEquipment.SuffocationHazard;
+    var PurchasePrice = RentalEquipment.PurchasePrice;
+    <!--vars for RentalRoom form component-->
+    var RentalRoom = new RentalRoom();
+    var RoomNumber = RentalRoom.RoomNumber;
+    var SquareFootage = RentalRoom.SquareFootage;
+    var MaxOccupancy = RentalRoom.MaxOccupancy;
 }
 
-<h2>Details</h2>
+<h2 class="rental-details--topheading">Details</h2>
+<p class="rental-details--rentalsectionghosttextA">_____________________________________________________________</p>
 
-<div>
-    <h4>Rental</h4>
+<div class="rental-details--itemresultcontainer">
+    <h4 class="rental-details--innerresultheading">Rental</h4>
     <hr />
+
+
     <dl class="dl-horizontal">
+        <!--DisplayNameFor acts as our field label here-->
+        <!--DisplayFor acts as our value field-->
+        <!--RENTAL/ALL SPECIFIC-->
         <dt>
             @Html.DisplayNameFor(model => model.RentalName)
         </dt>
@@ -35,9 +54,93 @@
             @Html.DisplayFor(model => model.FlawsAndDamages)
         </dd>
 
+        <!--RENTAL EQUIPMENT SPECIFIC-->
+        @if (Model.GetType() == typeof(RentalEquipment))     
+        {
+            <!--by creating vars that represent the prop values we can then run our boolean statements on it below-->
+            var suffHazard = ((RentalEquipment)Model).SuffocationHazard;
+            var chokHazard = ((RentalEquipment)Model).ChokingHazard;
+            <dt>
+                @Html.DisplayNameFor(model => RentalEquipment.ChokingHazard)
+            </dt>
+
+            if (chokHazard == true)
+            {
+
+                <dd>
+                    <span class="badge badge-pill badge-warning">Choking Hazard: YES</span>
+                </dd>
+            }
+            if (chokHazard == false)
+            {
+                <dd>
+                    <span class="badge badge-pill badge-warning">Choking Hazard: NO</span>
+                </dd>
+            }
+
+            <dt>
+                @Html.DisplayNameFor(model => RentalEquipment.SuffocationHazard)
+            </dt>
+            if (suffHazard == true)
+            {
+
+                <dd>
+                    <span class="badge badge-pill badge-warning">Suffocation Hazard: YES</span>
+                </dd>
+            }
+            if (suffHazard == false)
+            {
+                <dd>
+                    <span class="badge badge-pill badge-warning">Suffocation Hazard: NO</span>
+                </dd>
+            }
+
+            <dt>
+                @Html.DisplayNameFor(model => RentalEquipment.PurchasePrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => RentalEquipment.PurchasePrice)
+            </dd>
+        }
+        <!--RENTAL ROOM SPECIFIC-->
+        @if (Model.GetType() == typeof(RentalRoom))
+        {
+            var squareFootageValue = ((RentalRoom)Model).SquareFootage;
+            var roomOccupancy = ((RentalRoom)Model).MaxOccupancy;
+            var roomNumber = ((RentalRoom)Model).RoomNumber;
+            
+            
+            <dt>
+                @Html.DisplayNameFor(model => RentalRoom.RoomNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => roomNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => RentalRoom.SquareFootage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => squareFootageValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => RentalRoom.MaxOccupancy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => roomOccupancy)
+            </dd>
+        }
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.RentalId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
     </dl>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RentalId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
