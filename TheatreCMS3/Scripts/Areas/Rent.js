@@ -1,44 +1,15 @@
-﻿// For Rent Request Toggle button
+﻿
+// Change display of Current and Expired Rental Request Cards
 function RentRequestCurrentExpire() {
-    var btnName = document.getElementById("rentReqToggleBtn").textContent.replace(/\s/g, "");
-    if (btnName == "Expired") {
-        document.getElementById("rentReqToggleBtn").textContent = "Current";
-
-
+    // Change the name of the button
+    var btnName = document.getElementById("rentReqToggleBtn").textContent.trim();
+    if (btnName === "Expired rentals") {
+        document.getElementById("rentReqToggleBtn").textContent = "Current rentals";
     } else {
-        document.getElementById("rentReqToggleBtn").textContent="Expired";
-       
+        document.getElementById("rentReqToggleBtn").textContent="Expired rentals";      
     }
 
-    
-
-    //$("#rentReqToggleBtn").click(function (e) {
-    //document.getElementById("rentReqToggleBtn").addEventListener("click", function (e) {
-    //    const tgt = e.target;
-    //    const text = tgt.textContent.replace(/\s/g, "");
-    //    //tgt.textContent = text === "Expired" ? "Current" : "Expired"
-    //    if (text == "Expired") {
-    //        tgt.textContent = "Current";
-    //        var expiredOrNot = document.getElementById("expiredOrNot").textContext;
-    //        if ( expiredOrNot == "Expired!") {
-    //            document.getElementById('displayRentalRequestDiv').style.display = "none";
-    //        }
-
-    //    }else {
-    //        tgt.textContent = "Expired";
-    //        document.getElementById('displayRentalRequestDiv').hidden = true;   
-    //    }
-
-    //});
-}
-
-
-// Function to change style of expired rentals to hidden
-function hideMeFunction(){
-    var x = document.getElementById("displayRentalRequestDiv");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
+    // Toggle the cards from hidden to show and vis versa
+    $(".RRCurrentCard").toggle();
+    $(".RRExpiredCard").toggle();
 }

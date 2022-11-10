@@ -7,110 +7,205 @@
 
 <h2>Index</h2>
 
+@*Rental Request Buttons*@
 <p>
     @*This button takes the user to Create New Request page*@
-    @*@Html.ActionLink("Create New", "Create")*@
     <a href="../RentalRequests/Create" class="btn btn-sm pull-left rentalRequests-Index--toggleButton">Create New</a>
 
-    <!--Adding button to toggle between Current and Expired rental requests-->
-    <!--Using JS code for this button-->
-    <button id="rentReqToggleBtn"type="button" class="btn fa-pull-right rentalRequests-Index--toggleButton" onclick="RentRequestCurrentExpire()">
-        Expired
+    @*This button toggles between Current and Expired rental requests*@
+    <button id="rentReqToggleBtn" type="button" class="btn fa-pull-right rentalRequests-Index--toggleButton" onclick="RentRequestCurrentExpire()">
+        Expired rentals
     </button>
-
 </p>
 
-
-<!--Part1: Create an accordion to display all the rental requests-->
-<!--Main accordion container-->
+@* Main accordion container for rental request cards*@
 <div class="rentalRequests-Index--accordionContainer">
-    <!--Looping through our Rental Request items-->
+    @*Looping through the Rental Request items*@
     @foreach (var item in Model)
     {
-        
-        <!--call method to create new sorted list and expiration checked-->
-        <div id="displayRentalRequestDiv">
-            <input type="checkbox" name="RentalRequest_accordion" id=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionInput" />
-            <label for=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionLabel">
-                @Html.DisplayNameFor(model => model.Company): @Html.DisplayFor(modelItem => item.Company)
-                <br />
-                @Html.DisplayNameFor(model => model.ContactPerson): @Html.DisplayFor(modelItem => item.ContactPerson)
-                <br />
-                <span class="rentalRequests-Index--accordionLabelRT">
-                    <!--Calculate and display time remaining/time till start/expired time-->
-                    @if (item.StartTime > DateTime.Now)
-                    {
-                        // Calculating time difference
-                        var timeTilRentStarts = (item.StartTime - DateTime.Now).TotalDays;
-                        // Converting to string and rounding to 2 decimal places
-                        string tStart = $"{timeTilRentStarts:0.00}";
-                        // Display results
-                        <span>@Html.DisplayName("Time till start: ") <br /> @tStart days</span>
-                    }
-                    else if (item.StartTime < DateTime.Now && item.EndTime > DateTime.Now)
-                    {
-                        // Calculating time difference
-                        var timeRemaining = (item.EndTime - DateTime.Now).TotalDays;
-                        // Converting to string and rounding to 2 decimal places
-                        string tRemaining = $"{timeRemaining:0.00}";
-                        // Display results
-                        <span>@Html.DisplayName("Time remaining: ")<br /> @tRemaining days</span>
-                    }
-                    else if (item.Expired)
-                    {
-                        // Calculating time difference
-                        var timeRemaining = (item.EndTime - DateTime.Now).TotalDays;
-                        // Converting to string and rounding to 2 decimal places
-                        string tRemaining = $"{timeRemaining:0.00}";
-                        // Display results
-                        <span><span id="expiredOrNot">@Html.DisplayName("Expired!")</span><br /> @tRemaining days</span>
-
-                    }
-                    else
-                    {
-                        // Calculating time difference
-                        var timeRemaining = (item.EndTime - DateTime.Now).TotalDays;
-                        // Converting to string and rounding to 2 decimal places
-                        string tRemaining = $"{timeRemaining:0.00}";
-                        // Display results
-                        <span>@Html.DisplayName("Expires on Day 7")<br /> @tRemaining days</span>
-                    }
-                </span>
-            </label>
-
-            <div class="rentalRequests-Index--accordionContent">
-                <p>
-                    @Html.DisplayNameFor(model => model.StartTime): @Html.DisplayFor(modelItem => item.StartTime)
+        @*Situation 1: Time till rental starts *@
+        if (item.StartTime > DateTime.Now)
+        {
+            <div class="RRCurrentCard">
+                @*Card Heading Section*@
+                <input type="checkbox" name="RentalRequest_accordion" id=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionInput" />
+                <label for=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionLabel">
+                    @Html.DisplayNameFor(model => model.Company): @Html.DisplayFor(modelItem => item.Company)
                     <br />
-                    @Html.DisplayNameFor(model => model.EndTime): @Html.DisplayFor(modelItem => item.EndTime)
+                    @Html.DisplayNameFor(model => model.ContactPerson): @Html.DisplayFor(modelItem => item.ContactPerson)
                     <br />
-                    @Html.DisplayNameFor(model => model.RentalCode): @Html.DisplayFor(modelItem => item.RentalCode)
-                    <br />
-                    @Html.DisplayNameFor(model => model.ProjectInfo): @Html.DisplayFor(modelItem => item.ProjectInfo)
-                    <br />
-
-                    <!--Need to Include Rentals-->
-
-                    @Html.DisplayNameFor(model => model.Accepted): @Html.DisplayFor(modelItem => item.Accepted)
-                    <br />
-
-                    @Html.DisplayNameFor(model => model.ContractSigned): @Html.DisplayFor(modelItem => item.ContractSigned)
-                    <br />
-
-                    <!--Need to Include Survey-->
-
-                    <hr />
-                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
-                </p>
+                    <span class="rentalRequests-Index--accordionLabelRT">
+                        @{
+                            // Calculating time difference
+                            var timeTilRentStarts = (item.StartTime - DateTime.Now).TotalDays;
+                            // Converting to string and rounding to 2 decimal places
+                            string tStart = $"{timeTilRentStarts:0.00}";
+                            // Display results
+                            <span>@Html.DisplayName("Time till start: ") <br /> @tStart days</span>
+                        }
+                    </span>
+                </label>
+                @*Card Body/Content Section*@
+                <div class="rentalRequests-Index--accordionContent">
+                    <p>
+                        @Html.DisplayNameFor(model => model.StartTime): @Html.DisplayFor(modelItem => item.StartTime)
+                        <br />
+                        @Html.DisplayNameFor(model => model.EndTime): @Html.DisplayFor(modelItem => item.EndTime)
+                        <br />
+                        @Html.DisplayNameFor(model => model.RentalCode): @Html.DisplayFor(modelItem => item.RentalCode)
+                        <br />
+                        @Html.DisplayNameFor(model => model.ProjectInfo): @Html.DisplayFor(modelItem => item.ProjectInfo)
+                        <br />
+                        @Html.DisplayNameFor(model => model.Accepted): @Html.DisplayFor(modelItem => item.Accepted)
+                        <br />
+                        @Html.DisplayNameFor(model => model.ContractSigned): @Html.DisplayFor(modelItem => item.ContractSigned)
+                        <br />
+                        <hr />
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+                    </p>
+                </div>
             </div>
+        }
 
-        </div>
+        @*Situation 2: Rental time still remaining *@
+        else if (item.StartTime < DateTime.Now && item.EndTime > DateTime.Now)
+        {
+            <div class="RRCurrentCard">
+                @*Card Heading Section*@
+                <input type="checkbox" name="RentalRequest_accordion" id=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionInput" />
+                <label for=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionLabel">
+                    @Html.DisplayNameFor(model => model.Company): @Html.DisplayFor(modelItem => item.Company)
+                    <br />
+                    @Html.DisplayNameFor(model => model.ContactPerson): @Html.DisplayFor(modelItem => item.ContactPerson)
+                    <br />
+                    <span class="rentalRequests-Index--accordionLabelRT">
+                        @{
+                            // Calculating time difference
+                            var timeRemaining = (item.EndTime - DateTime.Now).TotalDays;
+                            // Converting to string and rounding to 2 decimal places
+                            string tRemaining = $"{timeRemaining:0.00}";
+                            // Display results
+                            <span>@Html.DisplayName("Time remaining: ")<br /> @tRemaining days</span>
+                        }
+                    </span>
+                </label>
+                @*Card Body/Content Section*@
+                <div class="rentalRequests-Index--accordionContent">
+                    <p>
+                        @Html.DisplayNameFor(model => model.StartTime): @Html.DisplayFor(modelItem => item.StartTime)
+                        <br />
+                        @Html.DisplayNameFor(model => model.EndTime): @Html.DisplayFor(modelItem => item.EndTime)
+                        <br />
+                        @Html.DisplayNameFor(model => model.RentalCode): @Html.DisplayFor(modelItem => item.RentalCode)
+                        <br />
+                        @Html.DisplayNameFor(model => model.ProjectInfo): @Html.DisplayFor(modelItem => item.ProjectInfo)
+                        <br />
+                        @Html.DisplayNameFor(model => model.Accepted): @Html.DisplayFor(modelItem => item.Accepted)
+                        <br />
+                        @Html.DisplayNameFor(model => model.ContractSigned): @Html.DisplayFor(modelItem => item.ContractSigned)
+                        <br />
+                        <hr />
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+                    </p>
+                </div>
+            </div>
+        }
 
-        
+        @*Situation 3: Rental time has expired*@
+        else if (item.Expired)
+        {
+            <div class="RRExpiredCard">
+                @*Card Heading Section*@
+                <input type="checkbox" name="RentalRequest_accordion" id=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionInput" />
+                <label for=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionLabel">
+                    @Html.DisplayNameFor(model => model.Company): @Html.DisplayFor(modelItem => item.Company)
+                    <br />
+                    @Html.DisplayNameFor(model => model.ContactPerson): @Html.DisplayFor(modelItem => item.ContactPerson)
+                    <br />
+                    <span class="rentalRequests-Index--accordionLabelRT">
+                        @{
+                            // Calculating time difference
+                            var timeRemaining = (item.EndTime - DateTime.Now).TotalDays;
+                            // Converting to string and rounding to 2 decimal places
+                            string tRemaining = $"{timeRemaining:0.00}";
+                            // Display results
+                            <span>@Html.DisplayName("Expired!")<br /> @tRemaining days</span>
+                        }
+                    </span>
+                </label>
+                @*Card Body/Content Section*@
+                <div class="rentalRequests-Index--accordionContent">
+                    <p>
+                        @Html.DisplayNameFor(model => model.StartTime): @Html.DisplayFor(modelItem => item.StartTime)
+                        <br />
+                        @Html.DisplayNameFor(model => model.EndTime): @Html.DisplayFor(modelItem => item.EndTime)
+                        <br />
+                        @Html.DisplayNameFor(model => model.RentalCode): @Html.DisplayFor(modelItem => item.RentalCode)
+                        <br />
+                        @Html.DisplayNameFor(model => model.ProjectInfo): @Html.DisplayFor(modelItem => item.ProjectInfo)
+                        <br />
+                        @Html.DisplayNameFor(model => model.Accepted): @Html.DisplayFor(modelItem => item.Accepted)
+                        <br />
 
+                        @Html.DisplayNameFor(model => model.ContractSigned): @Html.DisplayFor(modelItem => item.ContractSigned)
+                        <br />
+                        <hr />
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+                    </p>
+                </div>
+            </div>
+        }
+
+        @*Situation 4: Rental request is about to be expired *@
+        else
+        {
+            <div class="RRCurrentCard">
+                @*Card Heading Section*@
+                <input type="checkbox" name="RentalRequest_accordion" id=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionInput" />
+                <label for=@Html.DisplayFor(modelItem => item.RentalRequestID) class="rentalRequests-Index--accordionLabel">
+                    @Html.DisplayNameFor(model => model.Company): @Html.DisplayFor(modelItem => item.Company)
+                    <br />
+                    @Html.DisplayNameFor(model => model.ContactPerson): @Html.DisplayFor(modelItem => item.ContactPerson)
+                    <br />
+                    <span class="rentalRequests-Index--accordionLabelRT">
+                        @{
+                            // Calculating time difference
+                            var timeRemaining = (item.EndTime - DateTime.Now).TotalDays;
+                            // Converting to string and rounding to 2 decimal places
+                            string tRemaining = $"{timeRemaining:0.00}";
+                            // Display results
+                            <span>@Html.DisplayName("Expires on Day 7")<br /> @tRemaining days</span>
+                        }
+                    </span>
+                </label>
+                @*Card Body/Content Section*@
+                <div class="rentalRequests-Index--accordionContent">
+                    <p>
+                        @Html.DisplayNameFor(model => model.StartTime): @Html.DisplayFor(modelItem => item.StartTime)
+                        <br />
+                        @Html.DisplayNameFor(model => model.EndTime): @Html.DisplayFor(modelItem => item.EndTime)
+                        <br />
+                        @Html.DisplayNameFor(model => model.RentalCode): @Html.DisplayFor(modelItem => item.RentalCode)
+                        <br />
+                        @Html.DisplayNameFor(model => model.ProjectInfo): @Html.DisplayFor(modelItem => item.ProjectInfo)
+                        <br />
+                        @Html.DisplayNameFor(model => model.Accepted): @Html.DisplayFor(modelItem => item.Accepted)
+                        <br />
+                        @Html.DisplayNameFor(model => model.ContractSigned): @Html.DisplayFor(modelItem => item.ContractSigned)
+                        <br />
+                        <hr />
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+                    </p>
+                </div>
+            </div>
+        }
     }
-
 </div>
-
