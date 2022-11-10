@@ -63,14 +63,14 @@
     border-color: var(--secondary-color);
     border-width:3px;
 }
-input[type=text]:focus {
-    border: 2px solid var(--main-color); /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
+/*input[type=text]:focus {
+    border: 2px solid var(--main-color);*/ /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
 
-}
+/*}
 
 input[type=number]:focus {
-    border:2px solid var(--main-color);   /*"" for numbers*/
-}
+    border:2px solid var(--main-color);*/   /*"" for numbers*/
+/*}*/
 
 .rental-create--formlabel1:focus {
     border-color:var(--main-color);
@@ -290,3 +290,35 @@ input[type=number]:focus {
     top:15px;
     right:50px;
 }
+/*                                     */
+.rentalSurvey-Form--Styling{
+
+}
+.rentalSurvey-Form--InputStyling:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow:none;
+
+}
+.rentalSurvey-Create--Styling {
+    background: var(--secondary-color);
+    color: var(--light-color);
+ 
+}
+.rentalSurvey-Create--Styling2 {
+    background: var(--dark-color);
+    color: var(--light-color);
+}
+.rentalSurvey-ActionLink-Styling{
+   
+   text-align:center;
+   
+}
+.rentalSurvey-FormBackground-Styling {
+    background: var(--main-color--light);
+}
+.rentalSurvey- {
+   
+}
+
+placeholders text form general feedback 
+edit 
