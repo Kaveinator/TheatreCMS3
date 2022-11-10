@@ -1,8 +1,20 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.Rental>
+﻿@using TheatreCMS3.Areas.Rent.Models
+@model IEnumerable<TheatreCMS3.Areas.Rent.Models.Rental>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var RentalEquipment = new RentalEquipment();
+    var ChokingHazard = RentalEquipment.ChokingHazard;
+    var SuffocationHazard = RentalEquipment.SuffocationHazard;
+    var PurchasePrice = RentalEquipment.PurchasePrice;
+
+    var RentalRoom = new RentalRoom();
+    var RoomNumber = RentalRoom.RoomNumber;
+    var SquareFootage = RentalRoom.SquareFootage;
+    var MaxOccupancy = RentalRoom.MaxOccupancy;
+
 }
 
 <h2>Index</h2>
@@ -20,59 +32,197 @@
 <div class="row rental-index--outerrow">
     @foreach (var item in Model)
     {
-        <div class="col">
-            <div class="card rental-index--card1A">
-                <div class="rental-index--innerphotocontainer1A">
-                    <img src="~/Content/images/theater.jpg" alt="theatre photo" class="card-img-top rental-index--rentalsectionimage1" />
-                    <br />
-                </div>
-                <p class="rental-index--rentalsectiontext1A"> 
-                    @Html.DisplayFor(model => item.RentalName)
-                    <br />$@Html.DisplayFor(model => item.RentalCost)/day
-                </p>
+     if (item.GetType() == typeof(Rental))
+        {
+    <div class="col rental-index--rentalcolumns">
+        <div class="card rental-index--card1A">
+            <div class="rental-index--innerphotocontainer1A">
+                <img src="~/Content/images/theater.jpg" alt="theatre photo" class="card-img-top rental-index--rentalsectionimage1" />
                 <br />
-                <p class="rental-index--rentalsectionghosttextB">
-                    ____________________________
-                </p>
-                <br />
+            </div>
+            <p class="rental-index--rentalsectiontext1A">
+                @Html.DisplayFor(model => item.RentalName)
+                <br />$@Html.DisplayFor(model => item.RentalCost)/day
+            </p>
+            <br />
+            <p class="rental-index--rentalsectionghosttextB">
+                ____________________________
+            </p>
+            <br />
 
 
-                <!--BUTTONS-->
-                <div class="rental-index--buttoncontainer1A">
-                    <!--Link for Icons: https://fontawesome.com/v4/icons/-->
+            <!--BUTTONS-->
+            <div class="rental-index--buttoncontainer1A">
+                <!--Link for Icons: https://fontawesome.com/v4/icons/-->
+                <!-----------------------IMPORTANT see line 46 this is how we need to have the syntax to apply btn class/classes to our actionlink-->
+                <!--Edit button-->
+                @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-dark btn-sm rental-index--editbutton1A fa fa-paint-brush" })>
+                <!--dont include controller name or null in this case, seems like since our controller is creating this Index View and "Edit" is
+                also contained in same controller we don't need it specified here-->
+                <!--TRY putting all class specifiers on the Razor syntax part of statement where adding class to apply previous styling-->
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Edit Button</span>
 
+                <!--Details button-->
+                @Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-dark btn-sm rental-index--detailsbutton1A fa fa-info" })>
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Details Button</span>
 
-                    <!-----------------------IMPORTANT see line 46 this is how we need to have the syntax to apply btn class/classes to our actionlink-->
-                    <!--Edit button-->
-                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn" })>
-                    <!--dont include controller name or null in this case, seems like since our controller is creating this Index View and "Edit" is
-                    also contained in same controller we don't need it specified here-->
-                    <!--TRY putting all class specifiers on the Razor syntax part of statement where adding class to apply previous styling-->
-                    Edit<span class="badge badge-light"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
-                    <span class="sr-only">Edit Button</span>
-
-                    <!--Details button-->
-                    @Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn" })>
-                    Details <span class="badge badge-light"><i class="fa fa-info" aria-hidden="true"></i></span>
-                    <span class="sr-only">Details Button</span>
-
-                    <!--Delete button-->
-                    @Html.ActionLink("Delete", "Delete", new { id=item.RentalId }, new { @class = "btn" })>
-                        <span class="badge badge-light"><i class="fa fa-trash rental-index--trashicon" aria-hidden="true"></i></span>
-                        <span class="sr-only">Delete Button</span>
-                </div>
+                <!--Delete button-->
+                @Html.ActionLink(" ", "Delete", new { id=item.RentalId }, new { @class = "btn btn-danger btn-sm rental-index--deletebutton1A fa fa-trash rental-index--trashicon" })>
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Delete Button</span>
             </div>
         </div>
+    </div>
     }
+}
+    <!--below col's prob need to be deleted once next sections are done'-->
     <div class="col">col</div>
     <div class="w-100"></div>   <!--enter "w-100" wherever you want to break into new row of columns-->
     <div class="col">col</div>
     <div class="col">col</div>
 </div>
 
+<!-------------------RENTALEQUIPMENT COLUMNS--------------------->
+<h3 class="rental-index--rentalsectionheading">Rental Equipment</h3>
+<p class="rental-index--rentalsectionghosttextA">___________________________________________________________________________________________________</p> <!--red line under heading-->
+<div class="row rental-index--outerrow">
+
+
+    @foreach (var item in Model)
+        {
+        if (item.GetType() == typeof(RentalEquipment))
+        {
+       
+
+        <!--untab below part leaving this way while working-->
+    <div class="col rental-index--rentalcolumns">
+        <div class="card rental-index--card1A">
+            <div class="rental-index--innerphotocontainer1A">
+                <img src="~/Content/images/theater.jpg" alt="theatre photo" class="card-img-top rental-index--rentalsectionimage1" />
+                <br />
+            </div>
+            <p class="rental-index--rentalsectiontext1A">
+                @Html.DisplayFor(model => item.RentalName)
+                <br />$@Html.DisplayFor(model => item.RentalCost)/day
+                <br />
+                <span class="badge badge-pill badge-warning">Suffocation Hazard</span>
+                <span class="badge badge-pill badge-warning">Choking Hazard</span>
+
+
+                <!--trying to get suffocation/choking hazards displayed-->
+                @*@if (item.SuffocationHazard != null)
+                    {
+                    <br />
+                    <span class="badge badge-pill badge-warning">Suffocation Hazard</span>
+                    }*@
+
+            </p>
+            <br />
+            <p class="rental-index--rentalsectionghosttextB">
+                ____________________________
+            </p>
+            <br />
+
+
+            <!--BUTTONS-->
+            <div class="rental-index--buttoncontainer1A">
+                <!--Link for Icons: https://fontawesome.com/v4/icons/-->
+                <!-----------------------IMPORTANT see line 46 this is how we need to have the syntax to apply btn class/classes to our actionlink-->
+                <!--Edit button-->
+                @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-dark btn-sm rental-index--editbutton1A fa fa-paint-brush" })>
+                <!--dont include controller name or null in this case, seems like since our controller is creating this Index View and "Edit" is
+                also contained in same controller we don't need it specified here-->
+                <!--TRY putting all class specifiers on the Razor syntax part of statement where adding class to apply previous styling-->
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Edit Button</span>
+
+                <!--Details button-->
+                @Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-dark btn-sm rental-index--detailsbutton1A fa fa-info" })>
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Details Button</span>
+
+                <!--Delete button-->
+                @Html.ActionLink(" ", "Delete", new { id=item.RentalId }, new { @class = "btn btn-danger btn-sm rental-index--deletebutton1A fa fa-trash rental-index--trashicon" })>
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Delete Button</span>
+            </div>
+        </div>
+    </div>
+ <!--end untab section-->
+        }
+    }
 
 
 
+
+
+
+
+
+</div>
+<!----------------END RENTALEQUIPMENT COLUMNS--------------------->
+<!-------------------RENTALROOM COLUMNS--------------------->
+<h3 class="rental-index--rentalsectionheading">Rental Room</h3>
+<p class="rental-index--rentalsectionghosttextA">___________________________________________________________________________________________________</p> <!--red line under heading-->
+<div class="row rental-index--outerrow">
+    @foreach (var item in Model)
+    {
+    if (item.GetType() == typeof(RentalRoom))
+        {
+    <div class="col rental-index--rentalcolumns">
+        <div class="card rental-index--card1A">
+            <div class="rental-index--innerphotocontainer1A">
+                <img src="~/Content/images/theater.jpg" alt="theatre photo" class="card-img-top rental-index--rentalsectionimage1" />
+                <br />
+            </div>
+            <p class="rental-index--rentalsectiontext1A">
+                @Html.DisplayFor(model => item.RentalName)
+                <br />$@Html.DisplayFor(model => item.RentalCost)/day
+                <span class="badge badge-secondary rental-index--squarefootagebadge">@Html.DisplayFor(model => RentalRoom.SquareFootage) ft<sup>2</sup></span>
+                <!--the <sup> tag specifies the contained text should be superscript (looks like exponent)-->
+            </p>
+            <br />
+            <p class="rental-index--rentalsectionghosttextB">
+                ____________________________
+            </p>
+            <br />
+
+
+            <!--BUTTONS-->
+            <div class="rental-index--buttoncontainer1A">
+                <!--Link for Icons: https://fontawesome.com/v4/icons/-->
+                <!-----------------------IMPORTANT see line 46 this is how we need to have the syntax to apply btn class/classes to our actionlink-->
+                <!--Edit button-->
+                @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }, new { @class = "btn btn-dark btn-sm rental-index--editbutton1A fa fa-paint-brush" })>
+                <!--dont include controller name or null in this case, seems like since our controller is creating this Index View and "Edit" is
+                also contained in same controller we don't need it specified here-->
+                <!--TRY putting all class specifiers on the Razor syntax part of statement where adding class to apply previous styling-->
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Edit Button</span>
+
+                <!--Details button-->
+                @Html.ActionLink("Details", "Details", new { id = item.RentalId }, new { @class = "btn btn-dark btn-sm rental-index--detailsbutton1A fa fa-info" })>
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Details Button</span>
+
+                <!--Delete button-->
+                @Html.ActionLink(" ", "Delete", new { id=item.RentalId }, new { @class = "btn btn-danger btn-sm rental-index--deletebutton1A fa fa-trash rental-index--trashicon" })>
+                <span class="badge badge-light"></span>
+                <span class="sr-only">Delete Button</span>
+            </div>
+        </div>
+    </div>
+    }
+}
+
+
+
+
+
+</div>
+<!----------------END RENTALROOM COLUMNS--------------------->
 <!--OLD VERSION OF TABLE-->
 @*<table class="table">
         <tr>

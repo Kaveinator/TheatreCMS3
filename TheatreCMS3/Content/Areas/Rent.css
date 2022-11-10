@@ -221,11 +221,15 @@
 
 
 /*-------RENTAL CARD CONTAINER 1A---------*/
+.rental-index--rentalcolumns {
+    min-width:260px; /*keeps each card as same size even if there aren't enough items to fill the row*/
+    max-width:260px; /*""*/
+}
 
 .rental-index--card1A {
-    border:5px solid var(--light-color);
-    max-width:300px;
-    margin-bottom:20px;
+    border: 5px solid var(--light-color);
+    max-width: 300px;
+    margin-bottom: 20px;
 }
 .rental-index--innerphotocontainer1A {
     background-color: var(--dark-color);
@@ -246,28 +250,37 @@
 
 .rental-index--buttoncontainer1A {
     margin-top:-20px;
-    margin-bottom:20px;
-}
-
-.rental-index--deletebutton1A {
-    margin-left:26px;
-}
-
-.rental-index--trashicon { /*use to target trash icon if needed currently unused*/
-    
+    margin-bottom:10px;
 }
 
 .rental-index--rentalsectionghosttextB {
     color: var(--dark-color);
 }
+
+/*INDEX PAGE BUTTONS ON EACH CARD*/
+
+.rental-index--deletebutton1A {
+    margin-left:35px;
+}
+
+.rental-index--detailsbutton1A {
+    margin-left:-10px;   /*keeps buttons at a size where they fit on one line without adding additional margins on edit button*/
+}
+
+.rental-index--editbutton1A {
+
+}
+
+/*2nd section of cards for RENTALEQUIPMENT*/
+
+
+/*3rd section of cards for RENTALROOM*/
+.rental-index--squarefootagebadge {
+    margin-left:90px;
+}
+
+
 /*----------------------------END INDEX PAGE (RENTAL)-------------------------------------*/
-
-
-/*------------------------------END EDIT PAGE (RENTAL)-------------------------------------*/
-
-
-
-
 /*-------------RentalRequest Index------------------*/
 .rentalRequests-Index--accordionContainer {
     /*Control the size*/
