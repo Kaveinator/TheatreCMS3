@@ -48,6 +48,7 @@ namespace TheatreCMS3.Models
         //above line is what instructs program to actually create table for Rentals
 
         
+        // Linking DbSet for RentalRequests
         public DbSet<TheatreCMS3.Areas.Rent.Models.RentalRequest> RentalRequests { get; set; }
         
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalSurvey> RentalSurvey { get; set; }
