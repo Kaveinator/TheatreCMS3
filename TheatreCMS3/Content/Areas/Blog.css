@@ -10,3 +10,111 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+
+/****************************BLOG Create Page***********************************/
+
+.blogpostCreate-Header {
+    text-align: center;
+    margin-top: 50px;
+   
+}
+
+.blogpostCreate-Container {
+    height: 750px;
+    position: relative;
+    border: 8px solid var(--main-color--light);
+    padding: 10px;
+    margin-top: 100px;
+    margin-bottom: 500px;
+    color: var(--secondary-color);
+    width: auto;
+}
+
+.blogpostCreate-FormHeader {
+    text-align: center;
+    margin-top: 10px;
+   
+}
+
+.blogpostCreate-Form {
+   padding: 10px;
+   margin: 5px;
+  
+}
+
+/*customizations for text boxes in form*/
+.blogpostCreate-Form input[type=text], .blogpostCreate-Form input[type=datetime] {
+    background-color: whitesmoke;
+    margin: 5px 0 22px 0;
+    padding: 15px;
+    display: inline-block;
+    color: var(--secondary-color--dark);
+}
+
+/*customizations for text boxes in form when clicked*/
+.blogpostCreate-Form input[type=text]:focus, .blogpostCreate-Form input[type=datetime]:focus {
+    background-color: white;
+    border: 2px solid var(--main-color--light);
+    color: var(--secondary-color--dark);
+}
+
+/****buttons****/
+/*customized bootstrap buttons, all buttons with this class in the blog area will be affected by this styling*/
+.btn-default {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    color: white;
+    width: 125px;
+}
+
+.btn-light {
+    border-radius: 8px;
+    width: 125px;
+    color: var(--secondary-color--dark);
+}
+/****************************End of BLOG Create Page***********************************/
+
+/****************************BLOG Edit Page*****************************************/
+
+.blogpostEdit-Header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.blogpostEdit-Container {
+    height: 750px;
+    position: relative;
+    border: 8px solid var(--main-color--light);
+    padding: 10px;
+    margin-top: 100px;
+    margin-bottom: 500px;
+    color: var(--secondary-color);
+    width: auto;
+}
+
+.blogpostEdit-FormHeader {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.blogpostEdit-Form {
+    padding: 10px;
+    margin: 5px;
+}
+
+/*customizations for text boxes in form*/
+.blogpostEdit-Form input[type=text], .blogpostEdit-Form input[type=datetime] {
+    background-color: whitesmoke;
+    margin: 5px 0 22px 0;
+    padding: 15px;
+    display: inline-block;
+    color: var(--secondary-color--dark);
+}
+
+/*customizations for text boxes in form when clicked*/
+.blogpostEdit-Form input[type=text]:focus, .blogpostEdit-Form input[type=datetime]:focus {
+    background-color: white;
+    border: 2px solid var(--main-color--light);
+    color: var(--secondary-color--dark);
+}

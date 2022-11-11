@@ -56,25 +56,19 @@
 }
 
 .rental-create--formcontrols:focus {
-    box-shadow:none; 
-}
+        box-shadow: none;  /*eliminates default blue outline color when user clicks inside form label*/
+        border: 2px solid var(--main-color); /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
+    }
 
 .rental-create--formhorizontal {
     border-color: var(--secondary-color);
     border-width:3px;
 }
-/*input[type=text]:focus {
-    border: 2px solid var(--main-color);*/ /*sets outline color when input field clicked in (for text fields) this overrides bootstrap blue outline when focused*/
 
-/*}
-
-input[type=number]:focus {
-    border:2px solid var(--main-color);*/   /*"" for numbers*/
-/*}*/
 
 .rental-create--formlabel1:focus {
-    border-color:var(--main-color);
-    outline:3px solid var(--main-color);
+    border-color: var(--main-color);
+    outline: 3px solid var(--main-color);
 }
 
 .rental-form--container {
@@ -205,16 +199,92 @@ input[type=number]:focus {
 .rental-edit--flawslabel {
     max-width:100%;
 }
-
 /*------------------------------END EDIT PAGE (RENTAL)-------------------------------------*/
+/*----------------------------BEGIN INDEX PAGE (RENTAL)-------------------------------------*/
+.rental-index--rentalsectionheading {
+    margin-top: 20px;
+    font-size: xx-large;
+    color: var(--light-color);
+}
+
+.rental-index--rentalsectionghosttextA { /*this is our red line under the Rental heading*/
+    color: var(--main-color);
+    font-size:xx-large;
+    margin-top:-27px;  /*keeps red line close to above heading*/
+}
+
+/* Outer Row that holds all columns/items*/
+.rental-index--outerrow {
+    padding-left:50px;
+    padding-right:50px;
+}
 
 
+/*-------RENTAL CARD CONTAINER 1A---------*/
+.rental-index--rentalcolumns {
+    min-width:260px; /*keeps each card as same size even if there aren't enough items to fill the row*/
+    max-width:260px; /*""*/
+}
+
+.rental-index--card1A {
+    border: 5px solid var(--light-color);
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+.rental-index--innerphotocontainer1A {
+    background-color: var(--dark-color);
+}
+.rental-index--rentalsectionimage1 {
+    height: 100px;
+    width: 150px;
+    margin-left: 16%; /*keeps image centered in container/card*/
+    margin-top: 20px;
+}
+
+.rental-index--rentalsectiontext1A {
+    margin-bottom: -25px;
+    margin-top:20px;
+    color:var(--dark-color);
+    font-weight:bold;
+}
+
+.rental-index--buttoncontainer1A {
+    margin-top:-20px;
+    margin-bottom:10px;
+}
+
+.rental-index--rentalsectionghosttextB {
+    color: var(--dark-color);
+}
+
+/*INDEX PAGE BUTTONS ON EACH CARD*/
+
+.rental-index--deletebutton1A {
+    margin-left:35px;
+}
+
+.rental-index--detailsbutton1A {
+    margin-left:-10px;   /*keeps buttons at a size where they fit on one line without adding additional margins on edit button*/
+}
+
+.rental-index--editbutton1A {
+
+}
+
+/*2nd section of cards for RENTALEQUIPMENT*/
 
 
+/*3rd section of cards for RENTALROOM*/
+.rental-index--squarefootagebadge {
+    margin-left:90px;
+}
+
+
+/*----------------------------END INDEX PAGE (RENTAL)-------------------------------------*/
 /*-------------RentalRequest Index------------------*/
 .rentalRequests-Index--accordionContainer {
     /*Control the size*/
-    min-width:500px;
+    min-width: 500px;
     box-shadow: 0 0 30px var(--light-color);
     border-radius: 5px;
     overflow: hidden;
@@ -260,7 +330,7 @@ input[type=number]:focus {
     background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
     /*image is to be contained within our specified width and height */
     background-size: contain;
-    /*For rotation anime*/
+    /*For rotation animation*/
     transition: transform 0.4s;
 }
 
@@ -268,13 +338,15 @@ input[type=number]:focus {
     background: var(--secondary-color);
     line-height:1.6;
     font-size: 0.85em;
+    /*Content is hidden*/
     display:none;
 }
 
 .rentalRequests-Index--accordionInput{
+    /*Hide the input checkbox*/
     display:none;
 }
-/*Logic: when input is checked target the content*/
+/*CSS LOGIC: when input is checked target the content*/
 .rentalRequests-Index--accordionInput:checked ~ .rentalRequests-Index--accordionContent{
     display:block;
 }
@@ -284,7 +356,7 @@ input[type=number]:focus {
     transform: translateY(-50%) rotate(0.5turn);
 }
 
-/*move to right side of label*/
+/* Move label item to the right side of label section*/
 .rentalRequests-Index--accordionLabelRT{
     position:absolute;
     top:15px;
@@ -322,3 +394,17 @@ input[type=number]:focus {
 
 placeholders text form general feedback 
 edit 
+
+/*Button to toggle between Expired and Current rental requests*/
+.rentalRequests-Index--toggleButton {
+    background-color: var(--secondary-color--dark);
+    align-content:flex-end;
+}
+.rentalRequests-Index--toggleButton:hover {
+    background: var(--secondary-color);
+}
+
+/*Starts the display with Expired Rental Request Cards as hidden*/
+.RRExpiredCard{
+    display:none;
+}

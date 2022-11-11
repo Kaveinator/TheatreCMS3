@@ -18,6 +18,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         public int RentalCode { get; set; }
         public bool Accepted { get; set; }
         public bool ContractSigned { get; set; }
+        public bool Expired { get; set; }
 
     }
 }
