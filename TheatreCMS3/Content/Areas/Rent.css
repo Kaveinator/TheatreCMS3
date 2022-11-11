@@ -305,6 +305,26 @@
 
 /*-----------------------------END DETAILS PAGE (RENTAL)--------------------------------*/
 
+/*----------------------------BEGIN DELETE PAGE (RENTAL)--------------------------------*/
+.rental-delete--topheading {
+    margin-top:50px;
+}
+
+.rental-delete--rentalsectionghosttextA {
+    color: var(--main-color);
+}
+
+.rental-delete--innerresultheading {
+    color:var(--main-color);
+}
+
+.rental-delete--itemresultcontainer {
+    border:2px solid var(--light-color);
+    margin-right:80%;
+    padding-left:20px;
+}
+
+
 /*-------------RentalRequest Index------------------*/
 .rentalRequests-Index--accordionContainer {
     /*Control the size*/
