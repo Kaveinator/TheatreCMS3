@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalSurvey>
-
 @{
-    ViewBag.Title = "Index";
+  
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,37 +9,5 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ReccomendedRentingRating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OverallExperienceRenting)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GeneralFeedback)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReccomendedRentingRating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OverallExperienceRenting)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GeneralFeedback)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SurveyId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SurveyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SurveyId })
-        </td>
-    </tr>
-}
-
-</table>
+@Html.Partial("_Surveys")
