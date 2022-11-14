@@ -61,14 +61,14 @@
 
 /****buttons****/
 /*customized bootstrap buttons, all buttons with this class in the blog area will be affected by this styling*/
-.btn-default {
+.blogpostCreate-Container .btn-default {
     background-color: var(--main-color);
     border-radius: 8px;
     color: white;
     width: 125px;
 }
 
-.btn-light {
+.blogpostCreate-Container .btn-light {
     border-radius: 8px;
     width: 125px;
     color: var(--secondary-color--dark);
@@ -118,3 +118,63 @@
     border: 2px solid var(--main-color--light);
     color: var(--secondary-color--dark);
 }
+
+/****buttons****/
+/*customized bootstrap buttons, all buttons with this class in the blog area will be affected by this styling*/
+.blogpostEdit-Container .btn-default {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    color: white;
+    width: 125px;
+}
+
+.blogpostEdit-Container .btn-light {
+    border-radius: 8px;
+    width: 125px;
+    color: var(--secondary-color--dark);
+}
+/****************************End of BLOG Edit Page*****************************************/
+
+/****************************BLOG Index Page*****************************************/
+
+.blogpostIndex-Container {
+    color: black;
+}
+
+.text-truncate-container {
+    max-width: 500px;
+}
+
+.text-truncate-container p {
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-edit {
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: medium;
+    margin: 5px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.btn-details {
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: medium;
+    margin: 5px;
+    padding: 15px;
+}   
+
+.btn-delete {
+    background-color: var(--main-color);
+    color: white;
+    font-size: medium;
+    margin: 5px;
+    padding: 15px;
+}
+
+
