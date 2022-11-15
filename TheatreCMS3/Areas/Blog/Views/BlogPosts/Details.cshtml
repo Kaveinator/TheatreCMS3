@@ -5,47 +5,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="container blogpostDetails-Container">
+    <div class="row">
+        <div class="col-sm-12 blogpostDetails-Header">
+            <h2>Blog Post Details</h2>
+        </div>
+    </div>
 
-<div>
-    <h4>BlogPost</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
+    <div class="row text-center">
+        <div class="col-sm-12 h4">
             @Html.DisplayFor(model => model.Title)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <img class="img-fluid mt-4 mb-4" style="max-height: 500px" <img src="~/Content/images/BlogPostDefault.jpg" alt="default image" />
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Posted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Posted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-
-        <dd>
+    <div class="row">
+        <div class="col align-self-start">
             @Html.DisplayFor(model => model.Author)
-        </dd>
+        </div>
+    </div>
 
-    </dl>
+    <div class="row">
+        <div class="col align-self-start">
+            @Html.DisplayFor(model => model.Posted)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 blogpostDetails-Content">
+            <p class="fs-1 lh-base"> @Html.DisplayFor(model => model.Content) </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            @Html.ActionLink(" Back to List", "Index", null, new { @class = "btn btn-backtolist fas fa-arrow-left" })
+            @Html.ActionLink(" Edit", "Edit", new { id = Model.BlogPostId }, new { @class = "btn btn-edit fas fa-edit" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

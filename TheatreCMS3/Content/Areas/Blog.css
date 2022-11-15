@@ -60,7 +60,7 @@
 }
 
 /****buttons****/
-/*customized bootstrap buttons, all buttons with this class in the blog area will be affected by this styling*/
+/*customized bootstrap buttons, all buttons in this class in blogpostCreate-Container will be affected by this styling*/
 .blogpostCreate-Container .btn-default {
     background-color: var(--main-color);
     border-radius: 8px;
@@ -120,7 +120,7 @@
 }
 
 /****buttons****/
-/*customized bootstrap buttons, all buttons with this class in the blog area will be affected by this styling*/
+/*customized bootstrap buttons that are within the blogpostEdit container only*/
 .blogpostEdit-Container .btn-default {
     background-color: var(--main-color);
     border-radius: 8px;
@@ -145,6 +145,7 @@
     max-width: 500px;
 }
 
+/****use to only display the first 4 lines of blog followed by an ellipsis************/
 .text-truncate-container p {
     -webkit-line-clamp: 4;
     display: -webkit-box;
@@ -152,29 +153,72 @@
     overflow: hidden;
 }
 
+/*******buttons**********/
 .btn-edit {
     background-color: var(--secondary-color);
     color: white;
-    font-size: medium;
     margin: 5px;
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
 }
 
 .btn-details {
     background-color: var(--secondary-color);
     color: white;
-    font-size: medium;
     margin: 5px;
-    padding: 15px;
-}   
+    padding: 10px;
+    border-radius: 8px;
+}
 
 .btn-delete {
     background-color: var(--main-color);
     color: white;
-    font-size: medium;
     margin: 5px;
-    padding: 15px;
+    padding: 10px;
+    border-radius: 8px;
 }
 
+/****************************End of BLOG Index Page*****************************************/
 
+/****************************BLOG Delete Page*****************************************/
+
+.blogpostDelete-Header {
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.blogpostDelete-Container {
+    margin: 20px;
+}
+
+.blogpostDelete-Content {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.btn-backtolist {
+    background-color: var(--secondary-color);
+    color: white;
+   
+    margin: 5px;
+    padding: 10px;
+}
+
+/****************************End of BLOG Delete Page*****************************************/
+
+/****************************BLOG Details Page*****************************************/
+
+.blogpostDetails-Header {
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.blogpostDetails-Container {
+    margin: 20px;
+}
+
+.blogpostDetails-Content {
+    font-size: 20px;
+    margin-top: 15px;
+}
+/****************************End of BLOG Details Page*****************************************/
