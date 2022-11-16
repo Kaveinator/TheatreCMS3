@@ -1,7 +1,7 @@
 ﻿/* CSS color variables */
 :root {
     /* Color palette for css */
-    --main-color: #db1a11; /* Red */
+    --main-color: #bd1a11; /* Red */
     --main-color--light: #f04d44; /* Red, a shade lighter */
     --secondary-color: #d6972a; /* Yellow gold */
     --secondary-color--dark: #9d7c39; /* Dark Gold */

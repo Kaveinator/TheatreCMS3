@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-
+using TheatreCMS3.Areas.Prod.Models;
 
 namespace TheatreCMS3.Models
 {
@@ -47,6 +47,9 @@ namespace TheatreCMS3.Models
  
         //following line instructs program to create table for BlogPosts
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogPost> BlogPosts { get; set; }
+
+        public DbSet<CastMember> CastMembers { get; set; }
+
 
     }
 }
