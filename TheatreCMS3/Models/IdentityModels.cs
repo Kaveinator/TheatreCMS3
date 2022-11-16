@@ -48,5 +48,6 @@ namespace TheatreCMS3.Models
         //following line instructs program to create table for BlogPosts
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogPost> BlogPosts { get; set; }
 
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.CalendarEvent> CalendarEvents { get; set; }
     }
 }
