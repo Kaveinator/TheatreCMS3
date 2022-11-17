@@ -201,3 +201,168 @@
     color: var(--dark-color);
 }
 
+
+/*****************************CALENDAREVENTS CREATE PAGE*********************************/
+
+
+
+.CalendarEvents-Create--Header{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.CalendarEvents-Create--Form{
+    padding: 10px;
+    margin: 5px;
+    
+}
+
+.CalendarEvents-Create--FormHeader {
+    text-align: center;
+}
+
+.CalendarEvents-Create--Container { /*Main Container*/
+    position: relative;
+    width: auto;
+    display: block;
+    border: 8px solid var(--main-color);
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 2rem;
+}
+
+.CalendarEvents-Create--Margin { /*Adds margin spacing for the text input containers*/
+    margin-left: 9rem;
+}
+
+
+
+
+/***Form Text Boxes Customization*/
+
+.CalendarEvent-Create--Input { /*targets the input text*/
+    background-color: whitesmoke;
+    border: 2px solid var(--secondary-color--dark);
+    color: var(--dark-color);
+    outline: none;
+    box-shadow: none;
+}
+/*** Form Text Boxes When Selected Customization***/
+
+.CalendarEvent-Create--Input:focus { /*Targets the input text on focus*/
+    box-shadow: none;
+    background-color: white;
+    border: 3px solid var(--main-color);
+}
+
+/****** Buttons ******/
+.CalendarEvents-Create--Container .CalendarEvent-Create--ButtonTwo {
+    border-radius: 8px;
+    width: 150px;
+    background-color: white;
+    color: var(--dark-color);
+}
+
+.CalendarEvents-Create--Container .CalendarEvent-Create--ButtonTwo:hover {
+    font-weight: bold;
+}
+
+.CalendarEvents-Create--Container .CalendarEvent-Create--ButtonOne {
+    border-radius: 8px;
+    width: 150px;
+    background-color: var(--secondary-color--dark);
+    color: var(--dark-color);
+    box-shadow: none;
+}
+
+.CalendarEvents-Create--Container .CalendarEvent-Create--ButtonOne:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-weight: bold;
+    box-shadow: none;
+}
+
+
+/*****************************END OF CALENDAREVENTS CREATE PAGE*********************************/
+
+
+/*****************************START OF CALENDAREVENTS EDIT PAGE*********************************/
+
+.CalendarEvents-Edit--Header {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.CalendarEvent-Edit--Form {
+    padding: 10px;
+    margin: 5px;
+}
+
+.CalendarEvent-Edit--FormHeader {
+    text-align: center;
+}
+
+.CalendarEvent-Edit--Container { /*Main Container*/
+    position: relative;
+    width: auto;
+    display: block;
+    border: 8px solid var(--main-color);
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 2rem;
+}
+
+.CalendarEvents-Edit--Margin { /*Adds margin spacing for the text input containers*/
+    margin-left: 9rem;
+}
+
+
+
+
+/***Form Text Boxes Customization*/
+
+.CalendarEvent-Edit--Input { /*targets the input text*/
+    background-color: whitesmoke;
+    border: 2px solid var(--secondary-color--dark);
+    color: var(--dark-color);
+    outline: none;
+    box-shadow: none;
+}
+    /*** Form Text Boxes When Selected Customization***/
+
+.CalendarEvent-Edit--Input:focus { /*Targets the input text on focus*/
+    box-shadow: none;
+    background-color: white;
+    border: 3px solid var(--main-color);
+}
+
+/****** Buttons ******/
+.CalendarEvent-Edit--Container .CalendarEvent-Edit--ButtonTwo {
+    border-radius: 8px;
+    width: 150px;
+    background-color: white;
+    color: var(--dark-color);
+}
+
+.CalendarEvent-Edit--Container .CalendarEvent-Edit--ButtonTwo:hover {
+    font-weight: bold;
+}
+
+.CalendarEvent-Edit--Container .CalendarEvent-Edit--ButtonOne {
+    border-radius: 8px;
+    width: 150px;
+    background-color: var(--secondary-color--dark);
+    color: var(--dark-color);
+    box-shadow: none;
+}
+
+.CalendarEvent-Edit--Container .CalendarEvent-Edit--ButtonOne:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-weight: bold;
+    box-shadow: none;
+}
