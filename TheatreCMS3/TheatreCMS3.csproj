@@ -201,6 +201,7 @@
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogPostsController.cs" />
     <Compile Include="Areas\Blog\Models\BlogPost.cs" />
+    <Compile Include="Areas\Blog\Models\PostMaster.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
