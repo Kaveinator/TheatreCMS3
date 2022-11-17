@@ -113,6 +113,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             BlogPost blogPost = db.BlogPosts.Find(id);
             db.BlogPosts.Remove(blogPost);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
@@ -123,6 +124,22 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// Takes in the id of the BlogPost to be deleted and deletes it
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult AsyncDeleteBlog(int id)
+        {
+            BlogPost blogPost = db.BlogPosts.Find(id);  //Find the blogpost by the ID that needs to be deleted from datatbase          
+            db.BlogPosts.Remove(blogPost); //Removes the BlogPost identified (delete the blogpost)
+            db.SaveChanges(); //saves the changes to the database
+
+            var result = new JsonResult(); //creates a JsonResult
+            return Json(result); //returns the result
         }
     }
 }
