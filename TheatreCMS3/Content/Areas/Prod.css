@@ -100,7 +100,7 @@
         background-color: var(--secondary-color--dark);
     }
 
-.CastMember-Create--Form.control-label, .col-md-2 {
+.CastMember-Create--LabelName {
     color: var(--dark-color) !important;
     font-weight: bold;
 }
@@ -191,7 +191,7 @@
     background-color: var(--secondary-color--dark);
 }
 
-.CastMember-Edit--Form.control-label, .col-md-2 {
+.CastMember-Edit--LabelName {
     color: var(--dark-color) !important;
     font-weight: bold;
 }

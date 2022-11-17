@@ -50,6 +50,7 @@ namespace TheatreCMS3.Areas.Prod.Models
             Actor,
             Director,
             Technician,
+            [Display(Name = "Stage Manager")]
             StageManager,
             Other
         }
