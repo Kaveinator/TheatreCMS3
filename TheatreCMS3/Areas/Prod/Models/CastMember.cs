@@ -1,6 +1,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace TheatreCMS3.Areas.Prod.Models
 {
@@ -16,14 +17,29 @@ namespace TheatreCMS3.Areas.Prod.Models
         // connection string in the application configuration file.
        
         public int CastMemberId { get; set; }
+
+        [Display(Name = "First Name")]
         public string Name { get; set; }
+
+        [Display(Name = "Year Joined")]
         public int? YearJoined { get; set; }
+
+        [Display(Name = "Main Role")]
         public Position MainRole { get; set; }
+
         public string Bio { get; set; }
+
        // public byte[] Photo { get; set; }
+
+        [Display(Name = "Current Member")]
         public bool CurrentMember { get; set; }
+
         public string Character { get; set; }
+
+        [Display(Name = "Cast Year Left" )]
         public int? CastYearLeft { get; set; }
+
+        [Display(Name = "Debut Year")]
         public int? DebutYear { get; set; }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
@@ -34,6 +50,7 @@ namespace TheatreCMS3.Areas.Prod.Models
             Actor,
             Director,
             Technician,
+            [Display(Name = "Stage Manager")]
             StageManager,
             Other
         }
