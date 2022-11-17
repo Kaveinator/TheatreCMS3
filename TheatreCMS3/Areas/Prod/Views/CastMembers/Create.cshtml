@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 id="CastMember-Create--Title">Create Cast Member</h2>
+<h2 class="CastMember-Create--Title">Create Cast Member</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
-        <h4 id="CastMember-Create--Title">Please enter all your information below:</h4>
+        <h4 class="CastMember-Create--Title">Please enter all your information below:</h4>
         <hr />
-       <div class="no-gutters" id="CastMember-Create--Form">
+       <div class="no-gutters CastMember-Create--Form">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group" id="create-form">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
