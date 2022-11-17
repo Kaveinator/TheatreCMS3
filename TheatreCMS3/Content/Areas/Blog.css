@@ -3,7 +3,7 @@
 
 /* CSS color variables */
 /*:root { /* Color palette for css */
-/* --main-color: #DB1A11;  Red */
+/* --main-color: #BD1A11;  Red */
 /*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
 /*--secondary-color: #D6972A;*/ /* Yellow gold */
 /*--light-color: #FFFBFB;*/ /* White */
@@ -178,11 +178,34 @@
     border-radius: 8px;
 }
 
-/****************************End of BLOG Index Page*****************************************/
+/*****Delete Modal on Index Page**********/
 
-/****************************BLOG Delete Page*****************************************/
+.modalContent {
+    background-color: white;
+    color: var(--secondary-color--dark);
+}
 
-.blogpostDelete-Header {
+.btn-cancel {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    border: none;
+    margin: 10px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.btn-confirm {
+    background-color: var(--main-color);
+    color: white;
+    margin: 5px;
+    padding: 7px;
+    border-radius: 8px;
+}
+
+    /****************************End of BLOG Index Page*****************************************/
+    /****************************BLOG Delete Page*****************************************/
+
+    .blogpostDelete-Header {
     color: var(--secondary-color);
     text-align: center;
 }
