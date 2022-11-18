@@ -124,5 +124,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //BEGIN PHOTO STORAGE CODE//
+        [HttpPost]
+        public byte[] Upload(HttpPostedFileBase photoUpload)
+        {
+            byte[] bytes;
+            using (System.IO.BinaryReader br = new System.IO.BinaryReader(photoUpload.InputStream))
+            {
+                bytes = br.ReadBytes(photoUpload.ContentLength);
+            }
+                //takes parameter for uploaded photo and converts the photo into a byte[]
+               
+        }
+
     }
 }
