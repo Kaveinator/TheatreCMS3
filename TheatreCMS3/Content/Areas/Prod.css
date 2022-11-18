@@ -12,4 +12,357 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
- 
+
+/*CSS for Prod CastMember Create views*/
+
+/*CAST MEMBER CREATE PAGE*/
+
+/*making the title centered on both Create and Edit form*/
+.CastMember-Create--Title,
+.CastMember-Edit--Title {
+    text-align: center;
+}
+
+/*STYLIZING FORM CONTAINER FOR CREATE PAGE*/
+
+.CastMember-Create--Form {
+    background-color: var(--secondary-color);
+    border: 5px solid var(--main-color);
+    padding-block: 50px 5px;
+    border-radius: 50px;
+}
+
+    .CastMember-Create--Form input {
+        background-color: var(--secondary-color--dark);
+        border: var(--dark-color);
+    }
+
+/*Create and Back to List buttons stylings*/
+.CastMember-Create--CreateButton,
+.CastMember-Create--BackToListBtn {
+    width: 300px;
+    margin: auto;
+    display: inline-flex;
+    justify-content: center;
+    color: var(--dark-color);
+    font-weight: bold;
+    border: 2px solid var(--dark-color) !important;
+}
+
+.CastMember-Create--CreateButton {
+    background-color: var(--main-color) !important;
+}
+
+.CastMember-Create--CreateButton:hover {
+    background-color: var(--main-color--light) !important;
+    color: var(--dark-color);
+}
+
+    .CastMember-Create--BackToListBtn,
+    .CastMember-Create--BackToListBtn:hover {
+        background-color: var(--light-color);
+        border: 2px solid var(--dark-color);
+        color: var(--dark-color);
+        font-weight: bold;
+        padding-block: 3px;
+    }
+
+    .CastMember-Create--BackToListBtn:hover {
+       background-color: var(--secondary-color--dark);
+    }
+
+/*Changing styling of the Create button in create view*/
+.CastMember-Create--Input input[type=submit],
+.CastMember-Create--Input input[type=submit]:hover,
+.CastMember-Create--MainRole {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: 2px solid var(--dark-color);
+    color: var(--dark-color);
+    font-weight: bold;
+    padding-block: 3px;
+}
+
+/*.CastMember-Create--Input input[type=submit]:hover,
+.CastMember-Create--MainRole {
+    background-color: var(--light-color);
+}*/
+
+    /*creating focus inputs*/
+    .CastMember-Create--Form input:focus,
+    .CastMember-Create--Form textarea:focus,
+    .CastMember-Create--Input:focus {
+        outline: var(--main-color--light) !important;
+        border: 3px var(--dark-color) !important;
+        box-shadow: 2px 2px 2px 2px var(--main-color) !important;
+        -moz-box-shadow: 3px 3px 3px var(--main-color) !important;
+        -webkit-box-shadow: 3px 3px 3px var(--main-color) !important;
+        background-color: var(--secondary-color--dark);
+    }
+
+.CastMember-Create--LabelName {
+    color: var(--dark-color) !important;
+    font-weight: bold;
+}
+
+.CastMember-Create--Input::placeholder {
+    color: var(--dark-color);
+}
+
+/**************************************************/
+
+
+
+/*CAST MEMBER EDIT PAGE*/
+
+/*STYLIZING FORM FOR EDIT PAGE*/
+.CastMember-Edit--Form {
+    background-color: var(--secondary-color);
+    border: 5px solid var(--main-color);
+    padding-block: 50px 5px;
+    border-radius: 50px;
+}
+
+    .CastMember-Edit--Form input {
+        background-color: var(--secondary-color--dark);
+        border: var(--dark-color);
+    }
+
+.CastMember-Edit--SaveBtn,
+.CastMember-Edit--BackToListBtn {
+    width: 300px;
+    margin: auto;
+    display: inline-flex;
+    justify-content: center;
+    color: var(--dark-color);
+    font-weight: bold;
+    border: 2px solid var(--dark-color) !important;
+}
+
+.CastMember-Edit--SaveBtn {
+    background-color: var(--main-color) !important;
+}
+
+    .CastMember-Edit--SaveBtn:hover {
+        background-color: var(--main-color--light) !important;
+        color: var(--dark-color);
+    }
+
+.CastMember-Edit--BackToListBtn,
+.CastMember-Edit--BackToListBtn:hover {
+    background-color: var(--light-color);
+    border: 2px solid var(--dark-color);
+    color: var(--dark-color);
+    font-weight: bold;
+    padding-block: 3px;
+}
+
+    .CastMember-Edit--BackToListBtn:hover {
+        background-color: var(--secondary-color--dark);
+    }
+
+/*Changing styling of the buttons in Edit view*/
+.CastMember-Edit--Input input[type=submit],
+.CastMember-Edit--Input input[type=submit]:hover,
+.CastMember-Edit--MainRole {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: 2px solid var(--dark-color);
+    color: var(--dark-color);
+    font-weight: bold;
+    padding-block: 3px;
+}
+
+/*    .CastMember-Edit--Input input[type=submit]:hover,
+    .CastMember-Edit--MainRole {
+        background-color: var(--light-color);
+    }*/
+
+
+/*creating focus inputs*/
+.CastMember-Edit--Form input:focus,
+.CastMember-Edit--Form textarea:focus,
+.CastMember-Edit--Input:focus {
+    outline: var(--main-color--light) !important;
+    border: 3px var(--dark-color) !important;
+    box-shadow: 2px 2px 2px 2px var(--main-color) !important;
+    -moz-box-shadow: 3px 3px 3px var(--main-color) !important;
+    -webkit-box-shadow: 3px 3px 3px var(--main-color) !important;
+    background-color: var(--secondary-color--dark);
+}
+
+.CastMember-Edit--LabelName {
+    color: var(--dark-color) !important;
+    font-weight: bold;
+}
+
+.CastMember-Edit--Input,
+.CastMember-Edit--Input:focus {
+    color: var(--dark-color);
+}
+
+
+/*****************************CALENDAREVENTS CREATE PAGE*********************************/
+
+
+
+.CalendarEvents-Create--Header{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.CalendarEvents-Create--Form{
+    padding: 10px;
+    margin: 5px;
+    
+}
+
+.CalendarEvents-Create--FormHeader {
+    text-align: center;
+}
+
+.CalendarEvents-Create--Container { /*Main Container*/
+    position: relative;
+    width: auto;
+    display: block;
+    border: 8px solid var(--main-color);
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 2rem;
+}
+
+.CalendarEvents-Create--Margin { /*Adds margin spacing for the text input containers*/
+    margin-left: 9rem;
+}
+
+
+
+
+/***Form Text Boxes Customization*/
+
+.CalendarEvent-Create--Input { /*targets the input text*/
+    background-color: whitesmoke;
+    border: 2px solid var(--secondary-color--dark);
+    color: var(--dark-color);
+    outline: none;
+    box-shadow: none;
+}
+/*** Form Text Boxes When Selected Customization***/
+
+.CalendarEvent-Create--Input:focus { /*Targets the input text on focus*/
+    box-shadow: none;
+    background-color: white;
+    border: 3px solid var(--main-color);
+}
+
+/****** Buttons ******/
+.CalendarEvents-Create--Container .CalendarEvent-Create--ButtonTwo {
+    border-radius: 8px;
+    width: 150px;
+    background-color: white;
+    color: var(--dark-color);
+}
+
+.CalendarEvents-Create--Container .CalendarEvent-Create--ButtonTwo:hover {
+    font-weight: bold;
+}
+
+.CalendarEvents-Create--Container .CalendarEvent-Create--ButtonOne {
+    border-radius: 8px;
+    width: 150px;
+    background-color: var(--secondary-color--dark);
+    color: var(--dark-color);
+    box-shadow: none;
+}
+
+.CalendarEvents-Create--Container .CalendarEvent-Create--ButtonOne:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-weight: bold;
+    box-shadow: none;
+}
+
+
+/*****************************END OF CALENDAREVENTS CREATE PAGE*********************************/
+
+
+/*****************************START OF CALENDAREVENTS EDIT PAGE*********************************/
+
+.CalendarEvents-Edit--Header {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.CalendarEvent-Edit--Form {
+    padding: 10px;
+    margin: 5px;
+}
+
+.CalendarEvent-Edit--FormHeader {
+    text-align: center;
+}
+
+.CalendarEvent-Edit--Container { /*Main Container*/
+    position: relative;
+    width: auto;
+    display: block;
+    border: 8px solid var(--main-color);
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 2rem;
+}
+
+.CalendarEvents-Edit--Margin { /*Adds margin spacing for the text input containers*/
+    margin-left: 9rem;
+}
+
+
+
+
+/***Form Text Boxes Customization*/
+
+.CalendarEvent-Edit--Input { /*targets the input text*/
+    background-color: whitesmoke;
+    border: 2px solid var(--secondary-color--dark);
+    color: var(--dark-color);
+    outline: none;
+    box-shadow: none;
+}
+    /*** Form Text Boxes When Selected Customization***/
+
+.CalendarEvent-Edit--Input:focus { /*Targets the input text on focus*/
+    box-shadow: none;
+    background-color: white;
+    border: 3px solid var(--main-color);
+}
+
+/****** Buttons ******/
+.CalendarEvent-Edit--Container .CalendarEvent-Edit--ButtonTwo {
+    border-radius: 8px;
+    width: 150px;
+    background-color: white;
+    color: var(--dark-color);
+}
+
+.CalendarEvent-Edit--Container .CalendarEvent-Edit--ButtonTwo:hover {
+    font-weight: bold;
+}
+
+.CalendarEvent-Edit--Container .CalendarEvent-Edit--ButtonOne {
+    border-radius: 8px;
+    width: 150px;
+    background-color: var(--secondary-color--dark);
+    color: var(--dark-color);
+    box-shadow: none;
+}
+
+.CalendarEvent-Edit--Container .CalendarEvent-Edit--ButtonOne:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-weight: bold;
+    box-shadow: none;
+}
