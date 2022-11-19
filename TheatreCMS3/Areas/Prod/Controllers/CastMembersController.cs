@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -47,10 +49,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase photoUpload)
         {
             if (ModelState.IsValid)
             {
+                castMember.Photo = Upload(photoUpload);
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,11 +82,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase photoUpload)
         {
             if (ModelState.IsValid)
             {
+                
                 db.Entry(castMember).State = EntityState.Modified;
+                castMember.Photo = Upload(photoUpload);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -126,16 +131,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         //BEGIN PHOTO STORAGE CODE//
-        [HttpPost]
+
         public byte[] Upload(HttpPostedFileBase photoUpload)
-        {
+        { 
+            //this using statement makes a byte array out of what is being read from the uploaded photo's content length
             byte[] bytes;
-            using (System.IO.BinaryReader br = new System.IO.BinaryReader(photoUpload.InputStream))
+            using (BinaryReader br = new BinaryReader(photoUpload.InputStream)) //InputStream points to an uploaded file to prepare for reading
             {
-                bytes = br.ReadBytes(photoUpload.ContentLength);
+                bytes = br.ReadBytes(photoUpload.ContentLength); //byte array "bytes" reads and gets size of bytes in photoUpload
             }
-                //takes parameter for uploaded photo and converts the photo into a byte[]
-               
+
+            return bytes;
         }
 
     }
