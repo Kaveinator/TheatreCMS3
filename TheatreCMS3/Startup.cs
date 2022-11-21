@@ -4,7 +4,6 @@ using Microsoft.Owin;
 using Owin;
 
 
-
 [assembly: OwinStartupAttribute(typeof(TheatreCMS3.Startup))]
 namespace TheatreCMS3
 {
