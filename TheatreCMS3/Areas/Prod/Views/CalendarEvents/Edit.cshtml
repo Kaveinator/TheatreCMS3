@@ -4,11 +4,11 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="CalendarEvents-Edit--Header"
+<div class="CalendarEvents-Edit--Header">
     <h2>Edit</h2>
  </div>
 
-<div class="CalendarEvent-Edit--Container"
+<div class="CalendarEvent-Edit--Container">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -102,9 +102,9 @@
             </div>
         </div>
 
-        
-}
 
+    }
+</div>
 
 
 @section Scripts {

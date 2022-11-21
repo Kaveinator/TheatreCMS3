@@ -25,5 +25,6 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int TicketsAvailable { get; set; }
         [Display(Name = "Is Production")]
         public bool IsProduction { get; set; }
+        public string Description { get; set; }
     }
 }

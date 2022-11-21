@@ -5,72 +5,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="CalendarEvent-Index--Header">
+    <h2>Index</h2>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col align-self-center CalendarEvent-Index--CenterButtonTwo">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn CalendarEvent-Index--ButtonTwo" })
+    </div>
+</div>
+<div class="CalendarEvent-Index--Container">
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="row row-striped">
+                <div class="col-2 text-right">
+                    <h1 class="display-4"><span class="badge badge-secondary">@Html.DisplayFor(modelItem => item.StartDate.Day)</span></h1>
+                    <h2 class=" = CalendarEvent-Index--DateCenter CalendarEvent-Index--MonthUnderLine">@Html.ValueFor(modelItem => item.StartDate, "{0:MMM}")</h2>
+                </div>
+                <div class="col-10">
+                    <h3 class="text-uppercase"><strong>@Html.DisplayFor(modelItem => item.Title)</strong></h3>
+                    <ul class="list-inline">
+                        @if (item.StartTime == null && item.EndTime == null)
+                        {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AllDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProduction)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
-        </td>
-    </tr>
-}
-
-</table>
+                        }
+                        else if (item.StartDate == item.EndDate)
+                        {                 
+                            <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.StartDate, "{0:ddd}" + ",")</li>
+                            <li class="list-inline-item CalendarEvent-Index-StartDateMargin"><i class="fa fa-clock-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.StartTime, "{0:t}" + " -")</li>
+                            <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.EndTime, "{0:t}")</li>
+                        }
+                        else
+                        {
+                            <li class="list-inline-item CalendarEvent-Index-StartDateMargin"><i class="fa fa-calendar-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.StartDate, "{0:ddd, MMM d}" + " -")</li>
+                            <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.EndDate, "{0:ddd, MMM d}")</li>
+                        }
+                    </ul>
+                    <div class="form-group CalendarEvent-Index--DivideLine">
+                        <label for="exampleFormControlTextarea1">Description:</label>
+                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    </div>
+                </div>                
+            </div>
+            
+        </div>
+    }
+</div>

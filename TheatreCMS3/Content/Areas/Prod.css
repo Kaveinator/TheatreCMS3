@@ -366,3 +366,81 @@
     font-weight: bold;
     box-shadow: none;
 }
+
+/*****************************END OF CALENDAREVENTS EDIT PAGE*********************************/
+
+
+/*****************************START OF CALENDAREVENTS INDEX PAGE*********************************/
+
+.CalendarEvent-Index--Header{
+    text-align:center;
+}
+
+.CalendarEvent-Index--DateCenter {
+    text-align: center;
+    margin-left: 4rem;
+}
+.CalendarEvent-Index--Container { /*Main Container*/
+    position: relative;
+    width: auto;
+    display: block;
+    border: 8px solid var(--main-color);
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 2rem;
+}
+
+.CalendarEvent-Index-StartDateMargin:not(:last-child){
+    margin-right: 0rem;
+}
+/***** Description Container Styling*****/
+.CalendarEvent-Index--DescriptionContainer {
+    border: none;
+    width: 700px;
+    color: black;
+    background-color: var(--secondary-color);
+}
+
+.CalendarEvent-Index--DescriptionContainer:focus {
+    border: 3px solid;
+    border-color: var(--main-color);
+    width: 700px;
+    color: black;
+    background-color: var(--secondary-color);
+    box-shadow: none;
+}
+
+/*****Line Under Button*****/
+.CalendarEvent-Index--DivideLine{
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.CalendarEvent-Index--MonthUnderLine {
+    border-bottom: 2px solid var(--secondary-color);
+}
+/*****Button Styling*****/
+.CalendarEvent-Index--ButtonTwo {
+    border-radius: 8px;
+    width: 150px;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.CalendarEvent-Index--ButtonTwo:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-weight: bold;
+    box-shadow: none;
+}
+
+.CalendarEvent-Index--CenterButtonTwo{
+    margin:auto;
+    flex-grow: 0;
+}
+
+
+
+/*******END CALENDAREVENTS INDEX PAGE*******/
