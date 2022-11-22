@@ -391,11 +391,12 @@
     border-radius: 2rem;
 }
 
+/******Space Between "-" and Month *****/
 .CalendarEvent-Index-StartDateMargin:not(:last-child){
     margin-right: 0rem;
 }
 /***** Description Container Styling*****/
-.CalendarEvent-Index--DescriptionContainer {
+/*.CalendarEvent-Index--DescriptionContainer {
     border: none;
     width: 700px;
     color: black;
@@ -410,7 +411,7 @@
     background-color: var(--secondary-color);
     box-shadow: none;
 }
-
+*/
 /*****Line Under Button*****/
 .CalendarEvent-Index--DivideLine{
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -442,6 +443,20 @@
     flex-grow: 0;
 }
 
+/*******FontAwesomeClock Styling*******/
 
+.CalendarEvent-Index--ClockContainer {
+    margin-left: 5rem;
+}
+
+.CalendarEvent-Index-Clock {
+    padding-left: 1rem;
+}
+
+.CalendarEvent-Index-ClockDays {
+    padding-left: 0.2rem;
+}
 
 /*******END CALENDAREVENTS INDEX PAGE*******/
+
+
