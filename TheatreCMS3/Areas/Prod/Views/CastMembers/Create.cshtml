@@ -7,7 +7,7 @@
 
 <h2 class="CastMember-Create--Title">Create Cast Member</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { enctype = "multipart/form-data" } ))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
@@ -44,6 +44,13 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control CastMember-Create--Input", @placeholder = "Please add a little info about yourself (optional)" } })
                 @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="CastMember-Create--Form">
+            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2 CastMember-Create--LabelName" })
+            <div class="col-md-10">
+                <input type="file" name="photoUpload" value="Upload" class="CastMember-Create--Upload" />
             </div>
         </div>
 

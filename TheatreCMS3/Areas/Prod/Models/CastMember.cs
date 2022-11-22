@@ -29,7 +29,7 @@ namespace TheatreCMS3.Areas.Prod.Models
 
         public string Bio { get; set; }
 
-       // public byte[] Photo { get; set; }
+        public byte[] Photo { get; set; }
 
         [Display(Name = "Current Member")]
         public bool CurrentMember { get; set; }
