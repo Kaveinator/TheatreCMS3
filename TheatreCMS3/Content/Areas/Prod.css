@@ -201,12 +201,13 @@
     color: var(--dark-color);
 }
 
-
+/*Profile photo CSS*/
+.CastMembers-Details--ProfilePhoto{
+    width: 60%;
+    height: 60%;
+}
 /*****************************CALENDAREVENTS CREATE PAGE*********************************/
-
-
-
-.CalendarEvents-Create--Header{
+.CalendarEvents-Create--Header {
     text-align: center;
     margin-top: 30px;
     font-weight: bolder;
