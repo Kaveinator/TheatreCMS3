@@ -18,6 +18,7 @@
     @foreach (var item in Model)
     {
         var endingdate = item.EndDate.Day - item.StartDate.Day;
+        var daysremaining = item.EndDate.Day - DateTime.Now.Day;
         var allDay = "All";
         var endingdateday = "Day";
 
@@ -29,7 +30,6 @@
                     <div class="row text-right CalendarEvent-Index--ClockContainer">
                         @if (item.AllDay == true && item.StartDate == item.EndDate)
                         {
-
                             <p data-toggle="popover" data-trigger="click" data-content="This is an All Day event.">All Day</p>
                             <p><i class="fa fa-clock-o CalendarEvent-Index-Clock"></i></p>
                         }
@@ -50,7 +50,21 @@
                     </div>
                 </div>
                 <div class="col-10">
-                    <h3 class="text-uppercase"><strong>@Html.DisplayFor(modelItem => item.Title)</strong></h3>
+                    <div class="row">
+                        <h3 class="text-uppercase"><strong>@Html.DisplayFor(modelItem => item.Title)</strong></h3>
+                        @if (daysremaining > 1)
+                            {
+                                <span class="badge badge-pill badge-warning CalendarEvent-Index--BadgeMargin">@daysremaining days remaining!</span>
+                            }
+                        else if(daysremaining <= 1 && daysremaining > 0)
+                            {
+                                <span class="badge badge-pill badge-danger CalendarEvent-Index--BadgeMargin">Last Day!</span>
+                            }
+                        else
+                            {
+
+                            }
+                    </div>
                     <ul class="list-inline">
                         @if (item.StartTime == null && item.EndTime == null)
                         {
