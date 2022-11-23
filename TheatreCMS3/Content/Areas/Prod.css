@@ -457,6 +457,17 @@
     padding-left: 0.2rem;
 }
 
+/*******Badge Styling*******/
+
+.CalendarEvent-Index--BadgeMargin
+{
+    margin-bottom: 1.5rem;
+    margin-left: .2rem;
+    font-size: inherit;
+    font-weight: bold;
+}
+
+
 /*******END CALENDAREVENTS INDEX PAGE*******/
 
 
