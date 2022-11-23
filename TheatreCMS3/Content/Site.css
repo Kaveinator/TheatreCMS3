@@ -448,13 +448,13 @@ footer {
 
 /*DONATE PAGE*/
 
-.Donate--heading {
+.Home-Donate--heading {
     text-align: center;
     font-family: Broadway;
     margin: 0 0 30px 0;
 }
 
-.Donate--form {
+.Home-Donate--form {
     margin: 0 auto;
     padding: 30px 0px;
     width: 80%;
@@ -462,23 +462,23 @@ footer {
     border-radius: 15px;
 }
 
-.Donate--div {
+.Home-Donate--div {
     margin: 0 auto;
     padding: 0.5rem;
 }
 
-.Donate--button {
+.Home-Donate--button {
     background-color: var(--secondary-color);
 }
 
-.Donate--image {
+.Home-Donate--image {
     position: absolute;
     z-index: -1;
     height: auto;
     max-width: 100%;
 }
 
-.Donate--container {
+.Home-Donate--container {
     background-image: url(images/theater.jpg);
     background-size: 100% 100%;
     background-position-x: center;
