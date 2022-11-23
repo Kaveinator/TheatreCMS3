@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CalendarEvent>
-
+<script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,44 +11,90 @@
 
 <div class="row">
     <div class="col align-self-center CalendarEvent-Index--CenterButtonTwo">
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn CalendarEvent-Index--ButtonTwo" })
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn CalendarEvent-Index--ButtonTwo" })  
     </div>
 </div>
 <div class="CalendarEvent-Index--Container">
     @foreach (var item in Model)
     {
+        var endingdate = item.EndDate.Day - item.StartDate.Day;
+        var daysremaining = item.EndDate.Day - DateTime.Now.Day;
+        var allDay = "All";
+        var endingdateday = "Day";
+
         <div class="container">
             <div class="row row-striped">
                 <div class="col-2 text-right">
                     <h1 class="display-4"><span class="badge badge-secondary">@Html.DisplayFor(modelItem => item.StartDate.Day)</span></h1>
                     <h2 class=" = CalendarEvent-Index--DateCenter CalendarEvent-Index--MonthUnderLine">@Html.ValueFor(modelItem => item.StartDate, "{0:MMM}")</h2>
+                    <div class="row text-right CalendarEvent-Index--ClockContainer">
+                        @if (item.AllDay == true && item.StartDate == item.EndDate)
+                        {
+                            <p data-toggle="popover" data-trigger="click" data-content="This is an All Day event.">All Day</p>
+                            <p><i class="fa fa-clock-o CalendarEvent-Index-Clock"></i></p>
+                        }
+                        else if (item.AllDay == true && item.StartDate != item.EndDate)
+                        {
+                            <p data-toggle="popover" data-trigger="click" data-content="This is an All Day event.">@allDay @endingdateday</p>
+                            <p><i class="fa fa-clock-o CalendarEvent-Index-ClockDays"></i></p>
+                        }
+                        else if (item.StartDate != item.EndDate && item.AllDay != true)
+                        {
+                            <p data-toggle="popover" data-trigger="click" data-content="This is a @endingdate @endingdateday event.">@endingdate @endingdateday</p>
+                            <p><i class="fa fa-clock-o CalendarEvent-Index-ClockDays"></i></p>
+                        }
+                        else
+                        {
+                            <p><i class="fa fa-clock-o CalendarEvent-Index-Clock"></i></p>
+                        }
+                    </div>
                 </div>
                 <div class="col-10">
-                    <h3 class="text-uppercase"><strong>@Html.DisplayFor(modelItem => item.Title)</strong></h3>
+                    <div class="row">
+                        <h3 class="text-uppercase"><strong>@Html.DisplayFor(modelItem => item.Title)</strong></h3>
+                        @if (daysremaining > 1)
+                            {
+                                <span class="badge badge-pill badge-warning CalendarEvent-Index--BadgeMargin">@daysremaining days remaining!</span>
+                            }
+                        else if(daysremaining <= 1 && daysremaining > 0)
+                            {
+                                <span class="badge badge-pill badge-danger CalendarEvent-Index--BadgeMargin">Last Day!</span>
+                            }
+                        else
+                            {
+
+                            }
+                    </div>
                     <ul class="list-inline">
                         @if (item.StartTime == null && item.EndTime == null)
                         {
 
                         }
                         else if (item.StartDate == item.EndDate)
-                        {                 
-                            <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.StartDate, "{0:ddd}" + ",")</li>
-                            <li class="list-inline-item CalendarEvent-Index-StartDateMargin"><i class="fa fa-clock-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.StartTime, "{0:t}" + " -")</li>
-                            <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.EndTime, "{0:t}")</li>
+                        {
+                            <li class="list-inline-item CalendarEvent-Index-StartDateMargin"><i class="fa fa-calendar-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.StartDate, "{0:ddd}" + ",")</li>
+                            <li class="list-inline-item CalendarEvent-Index-StartDateMargin">@*<i class="fa fa-clock-o" aria-hidden="true"></i>*@ @Html.ValueFor(modelItem => item.StartTime, "{0:t}" + " -")</li>
+                            <li class="list-inline-item">@*<i class="fa fa-clock-o" aria-hidden="true"></i>*@ @Html.ValueFor(modelItem => item.EndTime, "{0:t}")</li>
                         }
                         else
                         {
                             <li class="list-inline-item CalendarEvent-Index-StartDateMargin"><i class="fa fa-calendar-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.StartDate, "{0:ddd, MMM d}" + " -")</li>
-                            <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> @Html.ValueFor(modelItem => item.EndDate, "{0:ddd, MMM d}")</li>
+                            <li class="list-inline-item">@*<i class="fa fa-calendar-o" aria-hidden="true"></i>*@ @Html.ValueFor(modelItem => item.EndDate, "{0:ddd, MMM d}")</li>
                         }
                     </ul>
                     <div class="form-group CalendarEvent-Index--DivideLine">
                         <label for="exampleFormControlTextarea1">Description:</label>
                         <p>@Html.DisplayFor(modelItem => item.Description)</p>
                     </div>
-                </div>                
+                </div>
             </div>
-            
         </div>
     }
 </div>
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+</script>
