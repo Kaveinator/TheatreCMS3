@@ -55,6 +55,59 @@
     }
 
 
+/*RENTAL REQUEST INDEX PAGE ACCORDION*/
+
+.RentalRequest-Index--accordion {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    cursor: pointer;
+    padding: 12px 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 1px;
+}
+
+.RentalRequest-Index--panel {
+    color: var(--dark-color);
+    padding: 0 18px;
+    background-color: var(--light-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-bottom: 20px;
+    border-radius: 1px;
+}
+
+.RentalRequest-Index--accordion:active, .RentalRequest-Index--accordion:hover {
+    background-color: var(--secondary-color--dark);
+}
+
+.RentalRequest-Index--container {
+    padding: 20px 0;
+    display: flex;
+}
+
+.RentalRequest-Index--startDiv {
+    text-align: center;
+    flex: 1;
+    margin-right: -30rem;
+}
+
+.RentalRequest-Index--endDiv {
+    text-align: center;
+    flex: 1;
+}
+
+.RentalRequest-Index--infoDiv {
+    text-align: left;
+    padding: 0 0 20px 0;
+}
+
+/*END OF RENTAL REQUEST INDEX PAGE ACCORDION*/
+
 
 
 
