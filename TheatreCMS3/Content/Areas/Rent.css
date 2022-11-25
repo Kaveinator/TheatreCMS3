@@ -85,7 +85,25 @@
     background-color: var(--secondary-color--dark);
 }
 
-.RentalRequest-Index--container {
+/*Using flexbox to position divs properly*/
+.RentalRequest-Index--container1 {
+    display: flex;
+}
+
+.RentalRequest-Index--accordionDiv1 {
+    flex: 1;
+}
+
+.RentalRequest-Index--accordionDiv2 {
+    flex: 1;
+    margin-left: 23rem;
+}
+
+.RentalRequest-Index--accordionDiv2 > p {
+    margin-bottom: 0;
+}
+
+.RentalRequest-Index--container2 {
     padding: 20px 0;
     display: flex;
 }
