@@ -1,5 +1,18 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+@using TheatreCMS3.Areas.Rent.Models
+@{
+    var RentalEquipment = new RentalEquipment();
+    var ChokingHazard = RentalEquipment.ChokingHazard;
+    var SuffocationHazard = RentalEquipment.SuffocationHazard;
+    var PurchasePrice = RentalEquipment.PurchasePrice;
 
+    var RentalRoom = new RentalRoom();
+    var RoomNumber = RentalRoom.RoomNumber;
+    var SquareFootage = RentalRoom.SquareFootage;
+    var MaxOccupancy = RentalRoom.MaxOccupancy;
+
+ }
+    
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,10 +23,26 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal Rental-Create--FormContainer">
-        <h2 class="text-center">Create Rental</h2>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div class="form-horizontal Rental-Create--FormContainer">
+    <h2 class="text-center">Create Rental</h2>
+    <hr />
+
+
+    @* Dropdown *@
+    <div class="form-group">
+        @Html.DropDownListFor(model => model.RentalOptions,
+                        new SelectList(Enum.GetValues(typeof(ERentalType))),
+                        "Select rental type:"
+                        )
+    </div>
+
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @* Rental *@
+    <div class="Rental-Create--RentalView">
         <div class="form-group">
             @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col">
@@ -21,7 +50,6 @@
                 @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col">
@@ -29,7 +57,6 @@
                 @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col">
@@ -37,19 +64,73 @@
                 @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
 
+    @* Rental Equipment *@
+    <div class="Rental-Create--RentalEquipmentView">
         <div class="form-group">
-            <div class="text-center">
-                <button type="submit" class="Rental-Create--CreateButton">Create</button>
+            @Html.LabelFor(model => RentalEquipment.ChokingHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col">
+                @Html.EditorFor(model => RentalEquipment.ChokingHazard, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => RentalEquipment.ChokingHazard, "", new { @class = "text-danger" })
             </div>
-            <div class="text-center">
-                <button class="Rental-Create--BackToListButton">@Html.ActionLink("Back to List", "Index")</button>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => RentalEquipment.SuffocationHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col">
+                @Html.EditorFor(model => RentalEquipment.SuffocationHazard, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => RentalEquipment.SuffocationHazard, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => RentalEquipment.PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col">
+                @Html.EditorFor(model => RentalEquipment.PurchasePrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => RentalEquipment.PurchasePrice, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
+
+    @* Rental Rooms *@
+    <div class="Rental-Create--RentalRoomView">
+        <div class="form-group">
+            @Html.LabelFor(model => RentalRoom.RoomNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col">
+                @Html.EditorFor(model => RentalRoom.RoomNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => RentalRoom.RoomNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => RentalRoom.SquareFootage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col">
+                @Html.EditorFor(model => RentalRoom.SquareFootage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => RentalRoom.SquareFootage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => RentalRoom.MaxOccupancy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col">
+                @Html.EditorFor(model => RentalRoom.MaxOccupancy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => RentalRoom.MaxOccupancy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="form-group">
+        <div class="text-center">
+            <button type="submit" class="Rental-Create--CreateButton">Create</button>
+        </div>
+        <div class="text-center">
+            <button class="Rental-Create--BackToListButton">@Html.ActionLink("Back to List", "Index")</button>
+        </div>
+    </div>
+</div>
 }
-
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

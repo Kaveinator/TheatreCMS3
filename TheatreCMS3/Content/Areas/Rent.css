@@ -55,6 +55,8 @@
     }
 
 
-
+.Rental-Create--RentalView, .Rental-Create--RentalEquipmentView, .Rental-Create--RentalRoomView {
+    display: none;
+}
 
 

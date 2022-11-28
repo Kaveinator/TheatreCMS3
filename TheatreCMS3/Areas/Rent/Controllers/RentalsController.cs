@@ -13,6 +13,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 {
     public class RentalsController : Controller
     {
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/Rentals
@@ -36,28 +37,64 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
+
+
+
+
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
             return View();
         }
 
+
+
+
+
+
         // POST: Rent/Rentals/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SufocationHazard,PurchasePrice,RoomNumber,SquareFootage,MaxOccupancy")] Rental rental, RentalEquipment rentalEquipment, RentalRoom rentalRoom)
         {
             if (ModelState.IsValid)
             {
                 db.Rentals.Add(rental);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
+
+                var r = new Rental();
+                var re = new RentalEquipment();
+                var rr = new RentalRoom();
+
+                if (re.PurchasePrice < 0 && rr.SquareFootage < 0)
+                {
+                    db.Rentals.Add(r);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else if (r.RentalCost < 0 && rr.SquareFootage < 0)
+                {
+                    db.Rentals.Add(re);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else if (r.RentalCost < 0 && re.PurchasePrice < 0)
+                {
+                    db.Rentals.Add(rr);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                return RedirectToAction("Index");
             }
 
             return View(rental);
         }
+
 
         // GET: Rent/Rentals/Edit/5
         public ActionResult Edit(int? id)
@@ -79,7 +116,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SufocationHazard,PurchasePrice,RoomNumber,SquareFootage,MaxOccupancy")] Rental rental, RentalEquipment rentalEquipment, RentalRoom rentalRoom)
         {
             if (ModelState.IsValid)
             {
