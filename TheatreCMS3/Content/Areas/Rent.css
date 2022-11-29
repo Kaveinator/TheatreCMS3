@@ -70,6 +70,17 @@
     border-radius: 1px;
 }
 
+#RentalRequest-Index--button {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    border-radius: 1px;
+    transition: 0.4s;
+}
+
+#RentalRequest-Index--button:active, #RentalRequest-Index--button:hover {
+    background-color: var(--secondary-color--dark);
+}
+
 .RentalRequest-Index--panel {
     color: var(--dark-color);
     padding: 0 18px;
@@ -122,6 +133,10 @@
 .RentalRequest-Index--infoDiv {
     text-align: left;
     padding: 0 0 20px 0;
+}
+
+#RentalRequest-Index--buttonDiv {
+    text-align: right;
 }
 
 /*END OF RENTAL REQUEST INDEX PAGE ACCORDION*/
