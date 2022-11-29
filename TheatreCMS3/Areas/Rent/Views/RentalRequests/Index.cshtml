@@ -99,7 +99,7 @@
 
 <div id="RentalRequest-Index--expiredDiv">
     <h3>Expired Rentals</h3><br />
-    @foreach (var item in expired.OrderByDescending(x => x.EndTime))
+    @foreach (var item in expired.OrderBy(x => x.StartTime))
     {
     <button class="RentalRequest-Index--accordion">
 

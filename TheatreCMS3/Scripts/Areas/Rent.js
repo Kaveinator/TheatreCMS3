@@ -16,6 +16,7 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 
+// Hides expired rental requests when page loads
 function loadDisplay() {
     var expiredDiv = document.getElementById("RentalRequest-Index--expiredDiv");
     expiredDiv.style.display = "none"
@@ -25,6 +26,7 @@ var btn = document.getElementById("RentalRequest-Index--button")
 
 var current = true;
 
+// Functionality for button to toggle between current and expired rental requests
 function toggleRentals() {
     if (current) {
         btn.innerText = "Current Rentals";
