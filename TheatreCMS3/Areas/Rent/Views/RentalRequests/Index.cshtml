@@ -11,12 +11,16 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+<div id="RentalRequest-Index--buttonDiv">
+    <button id="RentalRequest-Index--button" onclick="toggleRentals()">Expired Rentals</button>
+</div>
+
 @{ var expired = Model.Where(i => ((i.EndTime.AddDays(7)) <= (DateTime.Now))); }
 
-<p>Expired</p>
-
-@foreach (var item in expired.OrderByDescending(x => x.EndTime))
-{
+<div id="RentalRequest-Index--currentDiv">
+    <h3>Current Rentals</h3><br />
+    @foreach (var item in Model.Where(i => ((i.EndTime.AddDays(7)) > (DateTime.Now))).OrderBy(i => i.StartTime))
+    {
     <button class="RentalRequest-Index--accordion">
 
         <div class="RentalRequest-Index--container1">
@@ -39,24 +43,24 @@
 
                 @if (timeUntilStart >= TimeSpan.Zero)
                 {
-                    <p>Time Until Start: @timeUntilStart.Days Days, @timeUntilStart.Hours Hours, @timeUntilStart.Minutes Minutes</p>
+                <p>Time Until Start: @timeUntilStart.Days Days, @timeUntilStart.Hours Hours, @timeUntilStart.Minutes Minutes</p>
                 }
                 else
                 {
-                    <p>Time Until Start: N/A</p>
+                <p>Time Until Start: N/A</p>
                 }
 
                 @if (timeRemaining >= TimeSpan.Zero && timeUntilStart >= TimeSpan.Zero)
                 {
-                    <p>Time Remaining: N/A</p>
+                <p>Time Remaining: N/A</p>
                 }
                 else if (timeRemaining >= TimeSpan.Zero && timeUntilStart < TimeSpan.Zero)
                 {
-                    <p>Time Remaining: @timeRemaining.Days Days, @timeRemaining.Hours Hours, @timeRemaining.Minutes Minutes</p>
+                <p>Time Remaining: @timeRemaining.Days Days, @timeRemaining.Hours Hours, @timeRemaining.Minutes Minutes</p>
                 }
                 else
                 {
-                    <p>Time Remaining: None!</p>
+                <p>Time Remaining: None!</p>
                 }
 
             </div>
@@ -90,15 +94,13 @@
         </div>
 
     </div>
-}
+    }
+</div>
 
-<p>------------------------------------------------------------</p>
-<p>------------------------------------------------------------</p>
-
-<p>Current</p>
-
-@foreach (var item in Model.Where(i => ((i.EndTime.AddDays(7)) > (DateTime.Now))).OrderBy(i => i.StartTime))
-{
+<div id="RentalRequest-Index--expiredDiv">
+    <h3>Expired Rentals</h3><br />
+    @foreach (var item in expired.OrderByDescending(x => x.EndTime))
+    {
     <button class="RentalRequest-Index--accordion">
 
         <div class="RentalRequest-Index--container1">
@@ -109,37 +111,37 @@
 
             <!--Using .Ticks to properly convert to DateTime-->
             @{
-                DateTime startTime = new DateTime(item.StartTime.Ticks);
-                var timeUntilStart = startTime - DateTime.Now;
+                    DateTime startTime = new DateTime(item.StartTime.Ticks);
+                    var timeUntilStart = startTime - DateTime.Now;
 
-                DateTime endTime = new DateTime(item.EndTime.Ticks);
-                var timeRemaining = endTime - DateTime.Now;
+                    DateTime endTime = new DateTime(item.EndTime.Ticks);
+                    var timeRemaining = endTime - DateTime.Now;
             }
 
             <!--Using if/else statements to ensure no negative values are shown, and only display relevant information-->
             <div class="RentalRequest-Index--accordionDiv2">
 
                 @if (timeUntilStart >= TimeSpan.Zero)
-                {
-                    <p>Time Until Start: @timeUntilStart.Days Days, @timeUntilStart.Hours Hours, @timeUntilStart.Minutes Minutes</p>
-                }
-                else
-                {
-                    <p>Time Until Start: N/A</p>
-                }
+                    {
+                <p>Time Until Start: @timeUntilStart.Days Days, @timeUntilStart.Hours Hours, @timeUntilStart.Minutes Minutes</p>
+                    }
+                    else
+                    {
+                <p>Time Until Start: N/A</p>
+                    }
 
                 @if (timeRemaining >= TimeSpan.Zero && timeUntilStart >= TimeSpan.Zero)
-                {
-                    <p>Time Remaining: N/A</p>
-                }
-                else if (timeRemaining >= TimeSpan.Zero && timeUntilStart < TimeSpan.Zero)
-                {
-                    <p>Time Remaining: @timeRemaining.Days Days, @timeRemaining.Hours Hours, @timeRemaining.Minutes Minutes</p>
-                }
-                else
-                {
-                    <p>Time Remaining: None!</p>
-                }
+                    {
+                <p>Time Remaining: N/A</p>
+                    }
+                    else if (timeRemaining >= TimeSpan.Zero && timeUntilStart < TimeSpan.Zero)
+                    {
+                <p>Time Remaining: @timeRemaining.Days Days, @timeRemaining.Hours Hours, @timeRemaining.Minutes Minutes</p>
+                    }
+                    else
+                    {
+                <p>Time Remaining: None!</p>
+                    }
 
             </div>
         </div>
@@ -172,4 +174,7 @@
         </div>
 
     </div>
-}
+    }
+</div>
+
+
