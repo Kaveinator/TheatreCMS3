@@ -38,9 +38,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
 
-
-
-
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
@@ -48,50 +45,61 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
 
-
-
-
-
         // POST: Rent/Rentals/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SufocationHazard,PurchasePrice,RoomNumber,SquareFootage,MaxOccupancy")] Rental rental, RentalEquipment rentalEquipment, RentalRoom rentalRoom)
+        public ActionResult Create(
+            [Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental,
+            bool? ChokingHazard,
+            bool? SufocationHazard,
+            int? PurchasePrice,
+            int? RoomNumber,
+            int? SquareFootage,
+            int? MaxOccupancy)
         {
-            if (ModelState.IsValid)
+            if (PurchasePrice > 0)
+            {
+                var rentalEquipment = new RentalEquipment
+                {
+                    RentalName = rental.RentalName,
+                    RentalCost = rental.RentalCost,
+                    FlawsAndDamages = rental.FlawsAndDamages,
+                    ChokingHazard = Convert.ToBoolean(ChokingHazard),
+                    SuffocationHazard = Convert.ToBoolean(SufocationHazard),
+                    PurchasePrice = Convert.ToInt32(PurchasePrice)
+            };
+
+                db.Rentals.Add(rentalEquipment);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            else if (MaxOccupancy > 0)
+            {
+                var rentalRoom = new RentalRoom
+                {
+                    RentalName = rental.RentalName,
+                    RentalCost = rental.RentalCost,
+                    FlawsAndDamages = rental.FlawsAndDamages,
+                    RoomNumber = Convert.ToInt32(RoomNumber),
+                    SquareFootage = Convert.ToInt32(SquareFootage),
+                    MaxOccupancy = Convert.ToInt32(MaxOccupancy)
+                };
+
+                db.Rentals.Add(rentalRoom);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            else if (ModelState.IsValid)
             {
                 db.Rentals.Add(rental);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-
-
-                var r = new Rental();
-                var re = new RentalEquipment();
-                var rr = new RentalRoom();
-
-                if (re.PurchasePrice < 0 && rr.SquareFootage < 0)
-                {
-                    db.Rentals.Add(r);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                else if (r.RentalCost < 0 && rr.SquareFootage < 0)
-                {
-                    db.Rentals.Add(re);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                else if (r.RentalCost < 0 && re.PurchasePrice < 0)
-                {
-                    db.Rentals.Add(rr);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-
-                return RedirectToAction("Index");
             }
-
+            
             return View(rental);
         }
 

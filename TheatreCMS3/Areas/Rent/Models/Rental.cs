@@ -18,9 +18,6 @@ namespace TheatreCMS3.Areas.Rent.Models
         [Display(Name = "Current flaws or damages")]
         public string FlawsAndDamages { get; set; }
 
-        //public virtual ICollection<RentalEquipment> RentalEquipment { get; set; }
-        //public virtual ICollection<RentalRoom> RentalRooms { get; set; }
-
         public ERentalType RentalOptions { get; set; }
     }
 
@@ -31,17 +28,17 @@ namespace TheatreCMS3.Areas.Rent.Models
         [Display(Name = "Sufocation hazard")]
         public bool SuffocationHazard { get; set; }
         [Display(Name = "Purchase price")]
-        public int PurchasePrice { get; set; }
+        public int? PurchasePrice { get; set; }
     }
 
     public class RentalRoom : Rental
     {
         [Display(Name = "Room number")]
-        public int RoomNumber { get; set; }
+        public int? RoomNumber { get; set; }
         [Display(Name = "Square footage of room")]
-        public int SquareFootage { get; set; }
+        public int? SquareFootage { get; set; }
         [Display(Name = "Maximum occupancy of room")]
-        public int MaxOccupancy { get; set; }
+        public int? MaxOccupancy { get; set; }
     }
 
     public enum ERentalType

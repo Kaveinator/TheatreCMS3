@@ -318,7 +318,6 @@
     <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <Content Include="Areas\Blog\Views\web.config" />
-    <Content Include="Areas\Rent\Views\Rentals\Create.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Details.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Edit.cshtml" />
@@ -328,6 +327,7 @@
     <Content Include="Areas\Rent\Views\RentalRequests\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\Create.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
