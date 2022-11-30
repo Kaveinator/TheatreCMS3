@@ -141,6 +141,15 @@
 
 /*END OF RENTAL REQUEST INDEX PAGE ACCORDION*/
 
+/*RENTAL HISTORY CREATE AND EDIT PAGES*/
 
+.RentalHistory-Create--form {
+    width: 600px;
+    background-color: var(--main-color--light);
+    border-radius: 15px;
+}
 
-
+.RentalHistory-Create--heading {
+    text-align: center;
+    margin: 30px 0 30px 0;
+}
