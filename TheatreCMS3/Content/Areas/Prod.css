@@ -45,10 +45,12 @@
 
 .production-create-backbtn:hover {
     transform: scale(0.95);
+
 }
 
 .production-create-formcontainer{
     background-color: #9d7c39;
+    
 }
 
 .production-create-inputs:focus {
@@ -59,7 +61,7 @@
 }
 
 .production-create-inputs{
-    left: 50%;
-    right: 50%;
+    margin-right: auto;
+    margin-left:auto;
 }
 
