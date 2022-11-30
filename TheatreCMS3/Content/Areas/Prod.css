@@ -12,6 +12,8 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*Edit and Create Page Stlying*/
+
 .production-create-createbtn{
     min-width: 110px;
     border-radius: 12px;
@@ -63,5 +65,63 @@
 .production-create-inputs{
     margin-right: auto;
     margin-left:auto;
+}
+
+/*Index Page Styling*/
+
+.production-index-createbtn {
+    min-width: 110px;
+    border-radius: 12px;
+    background-color: #d6972a;
+    transition: transform .5s;
+}
+
+.production-index-createbtn:hover {
+        transform: scale(0.95);
+}
+
+.production-index-editbtn{
+    background-color: var(--secondary-color);
+    cursor:pointer;
+    position:absolute;
+    left: 25%;
+    top: 70%;
+    padding: 5px;
+    opacity: 0;
+}
+
+.production-index-deletebtn {
+    background-color: var(--main-color--light);
+    cursor: pointer;
+    position:absolute;
+    left: 65%;
+    top: 70%;
+    padding: 5px;
+    opacity: 0;
+}
+
+.production-index-btnhover:hover span{
+    opacity: 1;
+}
+
+.production-index-cardbody {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: .1rem;
+    background-color: var(--main-color);
+}
+
+.production-index-card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--main-color);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
 }
 

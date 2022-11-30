@@ -4,12 +4,28 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link rel="stylesheet" href="~/Content/Areas/Prod.css" />
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default production-index-createbtn" })
 </p>
+@foreach (var item in Model)
+{
+    <div class="production-index-card" style="width: 18rem;">
+        <div class="production-index-btnhover">
+            <img src="~/Content/images/macbeth.png" class="card-img-top" alt="...">
+            <span>
+            @Html.ActionLink("Details", "Details", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-deletebtn" })
+            </span>        
+            <span class="badge badge-pill production-index-editbtn">Edit</span>
+        </div>
+        <div class="production-index-cardbody">
+            <h3 class="card-title text-center">Macbeth</h3>
+        </div>
+    </div>
+}
+
 <table class="table">
     <tr>
         <th>
