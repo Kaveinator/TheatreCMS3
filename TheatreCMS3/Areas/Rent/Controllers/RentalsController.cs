@@ -51,49 +51,47 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(
-            [Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental,
-            bool? ChokingHazard,
-            bool? SufocationHazard,
-            int? PurchasePrice,
-            int? RoomNumber,
-            int? SquareFootage,
-            int? MaxOccupancy)
+            [Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SuffocationHazard,PurchasePrice,RoomNumber,SquareFootage,MaxOccupancy")] Rental rental,
+            RentalEquipment rentalEquipment,
+            RentalRoom rentalRoom)
         {
-            if (PurchasePrice > 0)
+            if (rentalEquipment.PurchasePrice != null)
             {
-                var rentalEquipment = new RentalEquipment
+                var rentalEquipments = new RentalEquipment
                 {
+                    //RentalId = rental.RentalId,
                     RentalName = rental.RentalName,
                     RentalCost = rental.RentalCost,
                     FlawsAndDamages = rental.FlawsAndDamages,
-                    ChokingHazard = Convert.ToBoolean(ChokingHazard),
-                    SuffocationHazard = Convert.ToBoolean(SufocationHazard),
-                    PurchasePrice = Convert.ToInt32(PurchasePrice)
+                    ChokingHazard = rentalEquipment.ChokingHazard,
+                    SuffocationHazard = rentalEquipment.SuffocationHazard,
+                    PurchasePrice = rentalEquipment.PurchasePrice
             };
 
-                db.Rentals.Add(rentalEquipment);
+                db.Rentals.Add(rentalEquipments);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            else if (MaxOccupancy > 0)
+            if (rentalRoom.RoomNumber != null)
             {
-                var rentalRoom = new RentalRoom
+                var rentalRooms = new RentalRoom
                 {
+                    //RentalId = rental.RentalId,
                     RentalName = rental.RentalName,
                     RentalCost = rental.RentalCost,
                     FlawsAndDamages = rental.FlawsAndDamages,
-                    RoomNumber = Convert.ToInt32(RoomNumber),
-                    SquareFootage = Convert.ToInt32(SquareFootage),
-                    MaxOccupancy = Convert.ToInt32(MaxOccupancy)
+                    RoomNumber = rentalRoom.RoomNumber,
+                    SquareFootage = rentalRoom.SquareFootage,
+                    MaxOccupancy = rentalRoom.MaxOccupancy
                 };
 
-                db.Rentals.Add(rentalRoom);
+                db.Rentals.Add(rentalRooms);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            else if (ModelState.IsValid)
+            if (rentalRoom.RoomNumber == null && rentalEquipment.PurchasePrice == null)
             {
                 db.Rentals.Add(rental);
                 db.SaveChanges();
@@ -116,23 +114,91 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["previous"] = rental;
             return View(rental);
+
+
         }
+
 
         // POST: Rent/Rentals/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChokingHazard,SufocationHazard,PurchasePrice,RoomNumber,SquareFootage,MaxOccupancy")] Rental rental, RentalEquipment rentalEquipment, RentalRoom rentalRoom)
+        public ActionResult Edit(
+            [Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental, bool? chokingHazard, bool? suffocationHazard, int? purchasePrice, int? roomNumber, int? squareFootage, int? maxOccupancy)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rental).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                RentalEquipment previousEntryEq = (RentalEquipment)(TempData["previous"] == null ? db.Rentals.Find(rental.RentalId) :
+                    (RentalEquipment)TempData["previous"]);
+
+                RentalRoom previousEntryRm = (RentalRoom)(TempData["previous"] == null ? db.Rentals.Find(rental.RentalId) :
+                    (RentalEquipment)TempData["previous"]);
+
+                Rental previousEntryR = (Rental)(TempData["previous"] == null ? db.Rentals.Find(rental.RentalId) :
+                    (RentalEquipment)TempData["previous"]);
+
+                //,ChokingHazard,SuffocationHazard,PurchasePrice,RoomNumber,SquareFootage,MaxOccupancy"
+                //while(Convert.ToBoolean(ERentalType.RentalEquipment))
+
+
+                if (purchasePrice != null)
+                {
+                    var rentalEquipments = new RentalEquipment
+                    {
+                        RentalId = rental.RentalId,
+                        RentalName = rental.RentalName,
+                        RentalCost = rental.RentalCost,
+                        FlawsAndDamages = rental.FlawsAndDamages,
+                        ChokingHazard = Convert.ToBoolean(chokingHazard),
+                        SuffocationHazard = Convert.ToBoolean(suffocationHazard),
+                        PurchasePrice = Convert.ToInt32(purchasePrice)
+                        //SuffocationHazard = rentalEquipment.SuffocationHazard,
+                        //PurchasePrice = rentalEquipment.PurchasePrice
+                    };
+
+                    
+
+                    db.Entry(rentalEquipments).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+
+
+                }
+
+                if (roomNumber != null)
+                //while(Convert.ToBoolean(ERentalType.RentalRoom))
+                {
+                    var rentalRooms = new RentalRoom
+                    {
+                        RentalId = rental.RentalId,
+                        RentalName = rental.RentalName,
+                        RentalCost = rental.RentalCost,
+                        FlawsAndDamages = rental.FlawsAndDamages,
+                        RoomNumber = Convert.ToInt32(roomNumber),
+                        SquareFootage = Convert.ToInt32(squareFootage),
+                        MaxOccupancy = Convert.ToInt32(maxOccupancy)
+                    };
+
+                    db.Entry(rentalRooms).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                if (roomNumber == null && purchasePrice == null)
+                {
+                    db.Entry(rental).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                return View(rental);
+
             }
-            return View(rental);
+
+
         }
 
         // GET: Rent/Rentals/Delete/5
