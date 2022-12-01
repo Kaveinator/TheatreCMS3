@@ -12,6 +12,19 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.production-create-createbtn{
+    min-width: 110px;
+    border-radius: 12px;
+    background-color: #d6972a;
+    transition: transform .5s;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    -ms-transform: translate(-50% -50%);
+    transform: translate(-50% -50%);
+
+}
 /* CAST MEMBERS CREATE/EDIT STYLING START */
 
 .CastMembers-Create--submitBtn {
@@ -22,6 +35,44 @@
     color: var(--light-color);
 }
 
+.production-create-createbtn:hover{
+    transform: scale(0.95);
+}
+
+.production-create-backbtn {
+    min-width: 110px;
+    border-radius: 12px;
+    background-color: #f04d44;
+    transition: transform .5s;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    -ms-transform: translate(-50% -50%);
+    transform: translate(-50% -50%);
+}
+
+.production-create-backbtn:hover {
+    transform: scale(0.95);
+
+}
+
+.production-create-formcontainer{
+    background-color: #9d7c39;
+    
+}
+
+.production-create-inputs:focus {
+    border: 4px solid #f04d44;
+    outline: none;
+    box-shadow: none;
+    background-color: antiquewhite;
+}
+
+.production-create-inputs{
+    margin-right: auto;
+    margin-left:auto;
+}
 .CastMembers-Create--submitBtn:hover {
     color: var(--light-color);
     background-color: var(--secondary-color);
