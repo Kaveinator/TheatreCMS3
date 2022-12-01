@@ -76,7 +76,7 @@
     transition: transform .5s;
 }
 
-.production-index-createbtn:hover {
+.production-index-createbtn:hover { 
         transform: scale(0.95);
 }
 
@@ -100,7 +100,7 @@
     opacity: 0;
 }
 
-.production-index-btnhover:hover span{
+.production-index-btnhover:hover a{
     opacity: 1;
 }
 
@@ -112,6 +112,7 @@
 }
 
 .production-index-card {
+    margin:auto;
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -123,5 +124,9 @@
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
+}
+
+.production-index-imagesizing img {
+    width: 285px;
 }
 
