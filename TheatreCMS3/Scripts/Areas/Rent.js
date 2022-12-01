@@ -73,7 +73,7 @@ function toggleRentals() {
     }
 }
 
-// Create Rental History page
+// Create/Edit Rental History page
 
 function toggleNotes() {
     var label = document.getElementById("RentalHistory-Create--label");
