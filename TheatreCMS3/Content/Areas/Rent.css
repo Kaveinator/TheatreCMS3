@@ -142,14 +142,45 @@
 /*END OF RENTAL REQUEST INDEX PAGE ACCORDION*/
 
 /*RENTAL HISTORY CREATE AND EDIT PAGES*/
-
 .RentalHistory-Create--form {
     width: 600px;
     background-color: var(--main-color--light);
     border-radius: 15px;
+    margin: 0 auto;
 }
 
 .RentalHistory-Create--heading {
     text-align: center;
     margin: 30px 0 30px 0;
+}
+
+.RentalHistory-Create--checkboxDiv {
+    margin-left: 27px;
+}
+
+.RentalHistory-Create--createButton {
+    background-color: green;
+    color: var(--light-color);
+}
+
+.RentalHistory-Create--backButton {
+    background-color: dimgrey;
+    color: var(--light-color);
+}
+
+.RentalHistory-Create--flexContainer {
+    display: flex;
+}
+
+.RentalHistory-Create--backContainer {
+    flex: 1;
+    margin-left: 10rem;
+}
+
+.RentalHistory-Create--createContainer {
+    flex: 1;
+}
+
+.RentalHistory-Create--formRow {
+    padding-top: 12px;
 }
