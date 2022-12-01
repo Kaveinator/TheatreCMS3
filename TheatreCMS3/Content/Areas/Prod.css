@@ -14,10 +14,10 @@
 
 /*Edit and Create Page Stlying*/
 
-.production-create-createbtn{
+.production-create-createbtn {
     min-width: 110px;
     border-radius: 12px;
-    background-color: #d6972a;
+    background-color: var(--secondary-color);
     transition: transform .5s;
     margin: 0;
     position: absolute;
@@ -25,7 +25,6 @@
     left: 60%;
     -ms-transform: translate(-50% -50%);
     transform: translate(-50% -50%);
-
 }
 
 .production-create-createbtn:hover{
@@ -35,7 +34,7 @@
 .production-create-backbtn {
     min-width: 110px;
     border-radius: 12px;
-    background-color: #f04d44;
+    background-color: var(--main-color--light);
     transition: transform .5s;
     margin: 0;
     position: absolute;
@@ -50,13 +49,12 @@
 
 }
 
-.production-create-formcontainer{
-    background-color: #9d7c39;
-    
+.production-create-formcontainer {
+    background-color: var(--secondary-color--dark);
 }
 
 .production-create-inputs:focus {
-    border: 4px solid #f04d44;
+    border: 4px solid var(--main-color--light);
     outline: none;
     box-shadow: none;
     background-color: antiquewhite;
@@ -72,7 +70,7 @@
 .production-index-createbtn {
     min-width: 110px;
     border-radius: 12px;
-    background-color: #d6972a;
+    background-color: var(--secondary-color);
     transition: transform .5s;
 }
 
@@ -126,7 +124,8 @@
     border-radius: 0.25rem;
 }
 
-.production-index-imagesizing img {
+.production-index-imagesizing{
     width: 285px;
+    height: 285px;
 }
 
