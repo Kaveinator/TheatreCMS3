@@ -1,100 +1,41 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+@using TheatreCMS3.Helpers;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link rel="stylesheet" href="~/Content/Areas/Prod.css" />
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*this creates a btn in place of the old ugly link to create a new production*@
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default production-index-createbtn" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Playwright)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Runtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpeningDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClosingDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeEve)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeMat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsWorldPremiere)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsCurrentlyShowing)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Playwright)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Runtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OpeningDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClosingDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeEve)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeMat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsWorldPremiere)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsCurrentlyShowing)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductionID })
-        </td>
-    </tr>
-}
+@*for each entry in the production database there will be a card displaying a photo and data when requested*@
 
-</table>
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+            <div class="production-index-card" style="width: 18rem;">
+                <div class="production-index-btnhover">
+                    <a href="@Url.Action("Details", "Productions", new { id = item.ProductionID})">
+                        <img src="~/Content/images/ProductionPhotos/Hamilton/02.jpg" class="production-index-imagesizing"/>
+                    </a>
+                    <span>
+                        @*this creates a pill badge/btn that links to the specific production details*@
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-deletebtn" })
+                    </span>
+                    <span>
+                        @*this creates a pill badge/btn that links to the specific production edit page*@
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-editbtn" })
+                    </span>
+                </div>
+                <div class="production-index-cardbody">
+                    <h3 class="card-title text-center">@item.Title</h3>
+                </div>
+            </div>
+     }
+</div>
+
