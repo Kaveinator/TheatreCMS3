@@ -25,44 +25,22 @@
     </tr>
 
 @foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.RentalName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.RentalCost)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-    </td>
-
-@*@foreach (var item in TheatreCMS3.Areas.Rent.Models.RentalEquipment)*@
-    @*<td>
-        @Html.DisplayFor(modelItem => item.ChokingHazard)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-    </td>
-
-    <td>
-        @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-    </td>*@
-
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.RentalId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.RentalId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.RentalId })
-    </td>
-</tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RentalId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RentalId })
+        </td>
+    </tr>
 }
 
 </table>
