@@ -1,6 +1,5 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
-@using TheatreCMS3.Helpers;
-
+﻿@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Production>
+@using PagedList.Mvc;
 @{
   ViewBag.Title = "Index";
   Layout = "~/Views/Shared/_Layout.cshtml";
