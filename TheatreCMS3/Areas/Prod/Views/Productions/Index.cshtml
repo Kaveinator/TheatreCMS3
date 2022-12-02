@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+@using TheatreCMS3.Helpers;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/Areas/Prod.css" />
+<h2>Index</h2>
+
+<p>
+    @*this creates a btn in place of the old ugly link to create a new production*@
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default production-index-createbtn" })
+</p>
+
+@*for each entry in the production database there will be a card displaying a photo and data when requested*@
+
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+            <div class="production-index-card" style="width: 18rem;">
+                <div class="production-index-btnhover">
+                    <a href="@Url.Action("Details", "Productions", new { id = item.ProductionID})">
+                        <img src="~/Content/images/ProductionPhotos/Hamilton/02.jpg" class="production-index-imagesizing"/>
+                    </a>
+                    <span>
+                        @*this creates a pill badge/btn that links to the specific production details*@
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-deletebtn" })
+                    </span>
+                    <span>
+                        @*this creates a pill badge/btn that links to the specific production edit page*@
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-editbtn" })
+                    </span>
+                </div>
+                <div class="production-index-cardbody">
+                    <h3 class="card-title text-center">@item.Title</h3>
+                </div>
+            </div>
+     }
+</div>
+
