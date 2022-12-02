@@ -446,8 +446,44 @@ footer {
     border: 4px solid #d6972a;
 }
 
-/*DONATE PAGE*/
+.Home-Index--LogoImg {
+    display: flex;
+    justify-content: center;
+}
 
+.Home-Index--spotlightImg {
+    padding: 2px 2px 2px 2px;
+}
+
+.Home-Index--clmHeadlines {
+    text-align: left;
+}
+
+.Home-Index--btnDonate {
+    color: #bd1a11;
+    margin: 0;
+    position: center;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.Home-Index--containerDonate {
+    height: 20px;
+    position: relative;
+}
+
+.Home-Index--sponsorImg {
+    height: 65px;
+    width: 65px;
+}
+
+.Home-Index--nayaImg {
+    height: 200px;
+    width: 150px;
+}
+
+/*DONATE PAGE*/
 .Home-Donate--heading {
     text-align: center;
     font-family: Broadway;

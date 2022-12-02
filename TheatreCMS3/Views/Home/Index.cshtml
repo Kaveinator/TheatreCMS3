@@ -1,10 +1,81 @@
 ﻿@{
   ViewBag.Title = "Home Page";
 }
-
+  
 <div>
-  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
-  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
-  @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
-  @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
-</div>
+    <img class="Home-Index--LogoImg" src="~/Content/images/TheatreLogo.png" alt="Theatre Vertigo" />
+    <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
+    <div class="row">
+
+
+        <div class="col-lg-8" style="background-color: black;">
+            <h4 class="Home-Index--clmHeadlines">SPOTLIGHT</h4>
+            <img class="Home-Index--spotlightImg" src="~/Content/images/macbeth.png" alt="Theatre Vertigo" />
+            <img class="Home-Index--spotlightImg" src="~/Content/images/MidsummerNightDream.png" alt="Theatre Vertigo" />
+
+        </div>
+
+
+
+        <div class="col-lg-4" style="background-color: black; ">
+            <h4 class="Home-Index--clmHeadlines">DONATIONS</h4>
+            <div class="Home-Index--containerDonate">
+                <a class="Home-Index--btnDonate" href="~/Home/Donate">
+                    <button>Click to Support</button>
+                </a>
+            </div>
+
+
+
+
+            <br />
+            <h4 class="Home-Index--clmHeadlines">SPONSORS</h4>
+            <img class="Home-Index--sponsorImg" src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" alt="Sponsor Image" />
+            <img class="Home-Index--sponsorImg" src="~/Content/images/Sponsors/LogoRoundColor.png" alt="Sponsor Image" />
+            <img class="Home-Index--sponsorImg" src="~/Content/images/Sponsors/Ninkasi-white-text.png" alt="Sponsor Image" />
+            <img class="Home-Index--sponsorImg" src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" alt="Sponsor Image" />
+            <img class="Home-Index--sponsorImg" src="~/Content/images/Sponsors/RACC.png" alt="Sponsor Image" />
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8" style="background-color: black;">
+            <h4 class="Home-Index--clmHeadlines">LAND ACKNOWLEDGEMENT</h4>
+            <p>
+                Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional<br>
+                tribal lands of the Multnomah, Wasco, Clackamas, Chinook bands, Kathlamet, Tualatin<br>
+                Kalapuya, Cowlitz, Moliala, Cascades, Oregon City Turnwater, Confederated Tribes of <br>
+                the Grand Ronde and other indigenous peoples.
+            </p>
+            <p>
+                <b>We are on stolen land.</b>
+            </p>
+            <p>
+                Theatre Vertigo has been and continues to examine our community relationships to<br>
+                ensure our collaborators, partners and sponsors support our region's indigenous<br>
+                Nations and communities.
+            </p>
+            <p>
+                One of the ways Theatre Vertigo is working to act on our commitment to being of<br>
+                service to the lands that we now share is to build bridges between our arts<br>
+                community and local Nations.
+            </p>
+        </div>
+
+
+
+        <div class="col-lg-4" style="background-color: black; ">
+            <a href="https://nayapdx.org/" target="_blank"><img class="Home-Index--nayaImg" src="~/Content/images/NAYAFamilyCenter.jpg" alt="Sponsor Image" /></a>
+            <p>
+                Click to visit the NAYA Family Center<br> to learn more
+                about supporting our <br>local indigenous communities.
+            </p>
+
+        </div>
+    </div>
+
+            <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
+            @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
+            @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+        </div>
