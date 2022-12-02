@@ -5,18 +5,43 @@ using System.Web;
 
 namespace TheatreCMS3.Helpers
 {
-    public static class TextHelpers
+    public class TextHelpers
     {
-        public static string TruncateWord(this string yourString, int maxLength)
+        public static string CharacterLimit(string content, int numOfCharacters)
         {
-            if (yourString == null || yourString.Length < maxLength)
+            if (content.Length <= numOfCharacters)
             {
-                return yourString;
+                return content;
             }
             else
             {
-                return yourString.Substring(0, Math.Min(maxLength, yourString.Length)) + "...";
+                return content.Substring(0, numOfCharacters) + ("...");
             }
+        }
+        /// <summary>
+        /// Limits the number of words that are displayed. Takes in a string from user and an int.
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="numOfWords"></param>
+        /// <returns>Returns a string cutoff at int.</returns>
+        public static string LimitWords(string content, int numOfWords) // Creatign a new method
+        {
+            string[] word = content.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries); //Created a new array using Split Method. 
+
+            if (numOfWords <= 0)
+            {
+                return content;
+            }
+            else if (word.Length > numOfWords)
+            {
+                var result = word.Take(numOfWords); //Taking string array word and returning specific number of entries. 
+                return $"{string.Join(" ", result)}..."; //turning the string array into a string using $. (" ") specifies space. 
+            }
+            else
+            {
+                return content;
+            }
+
         }
     }
 }
