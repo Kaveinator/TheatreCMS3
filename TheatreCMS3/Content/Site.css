@@ -520,20 +520,3 @@ footer {
     background-position-x: center;
     background-repeat: no-repeat;
 }
-
-/*------ STYLING FOR SIGN-IN PAGE ------*/
-
-.home-signin--container {
-    text-align: center;
-}
-
-.home-signin--container p {
-    display: inline-block;
-    width: 200px;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 7px;
-    background-color: var(--main-color);
-    text-overflow: ellipsis;
-    text-align: center;
-}
