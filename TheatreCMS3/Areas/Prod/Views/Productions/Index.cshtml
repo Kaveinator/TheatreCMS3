@@ -5,6 +5,7 @@
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/Content/Areas/Prod.css" />
+<script src="~/Scripts/Areas/Prod.js" defer></script>
 <h2>Index</h2>
 
 <p>
@@ -31,33 +32,155 @@
   <div class="card-deck">
     @foreach (var item in Model)
     {
-      <div class="production-index-card" style="width: 18rem;">
-        <div class="production-index-btnhover">
-          <a href="@Url.Action("Details", "Productions", new { id = item.ProductionID, sortOrder = ViewBag.NameSortParm })">
-            <img src="~/Content/images/ProductionPhotos/Hamilton/02.jpg" class="production-index-imagesizing" />
-          </a>
-          <span>
-            @*this creates a pill badge/btn that links to the specific production details*@
-            @Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-deletebtn" })
-          </span>
-          <span>
-            @*this creates a pill badge/btn that links to the specific production edit page*@
-            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-editbtn" })
-          </span>
-        </div>
-        <div class="production-index-cardbody">
-          <h3 class="card-title text-center">@item.Title</h3>
-        </div>
-      </div>
-    }
-  </div>
-}
+        <div class="production-index-card" style="width: 18rem;">
+            <div class="production-index-btnhover">
 
-<div>
-  Page @(Model.PageCount < Model.PageNumber) of @Model.PageCount <br />
-  @Html.PagedListPager(Model, page => Url.Action("Index",
-      new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions()
-      {
-          LiElementClasses = new List<string> { "" }
-      })
+                @*<div class="production-index-modal" id="modal-@item.ProductionID">
+                    <div class="production-index-modalcontent">
+                        <span class="production-index-modalCloseBtn" id="closeModal">&times;</span>*@
+
+                @*</div>
+                    </div>*@
+
+                <a @*href="@Url.Action("Details", "Productions", new { id = item.ProductionID})"*@>
+                    <img src="~/Content/images/ProductionPhotos/Hamilton/02.jpg" class="production-index-imagesizing" data-toggle="modal" data-target="#openModal-@item.ProductionID" />
+                </a>
+                <span>
+                    @*this creates a pill badge/btn that links to the specific production details*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-deletebtn" })
+                </span>
+                <span>
+                    @*this creates a pill badge/btn that links to the specific production edit page*@
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill production-index-editbtn" })
+                </span>
+            </div>
+            <div class="production-index-cardbody">
+                <h3 class="card-title text-center">@item.Title</h3>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="openModal-@item.ProductionID" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <h4>Production</h4>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.Title)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.Title)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.Description)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.Description)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.Playwright)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.Playwright)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.Runtime)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.Runtime)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.OpeningDay)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.OpeningDay)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.ClosingDay)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.ClosingDay)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.ShowTimeEve)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.ShowTimeEve)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.ShowTimeMat)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.ShowTimeMat)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.Season)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.Season)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.IsWorldPremiere)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.IsWorldPremiere)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.TicketLink)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.TicketLink)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => item.IsCurrentlyShowing)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.IsCurrentlyShowing)
+                                </dd>
+
+                            </dl>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
 </div>
+}
