@@ -55,8 +55,134 @@
     }
 
 
-.Rental-Create--RentalEquipmentView, .Rental-Create--RentalRoomView {
-    display: none;
+/*RENTAL REQUEST INDEX PAGE ACCORDION*/
+
+.RentalRequest-Index--accordion {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    cursor: pointer;
+    padding: 12px 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 1px;
 }
 
+#RentalRequest-Index--button {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    border-radius: 1px;
+    transition: 0.4s;
+}
 
+#RentalRequest-Index--button:active, #RentalRequest-Index--button:hover {
+    background-color: var(--secondary-color--dark);
+}
+
+.RentalRequest-Index--panel {
+    color: var(--dark-color);
+    padding: 0 18px;
+    background-color: var(--light-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-bottom: 20px;
+    border-radius: 1px;
+}
+
+.RentalRequest-Index--accordion:active, .RentalRequest-Index--accordion:hover {
+    background-color: var(--secondary-color--dark);
+}
+
+/*Using flexbox to position divs properly*/
+.RentalRequest-Index--container1 {
+    display: flex;
+}
+
+.RentalRequest-Index--accordionDiv1 {
+    flex: 1;
+}
+
+.RentalRequest-Index--accordionDiv2 {
+    flex: 1;
+    margin-left: 23rem;
+}
+
+.RentalRequest-Index--accordionDiv2 > p {
+    margin-bottom: 0;
+}
+
+.RentalRequest-Index--container2 {
+    padding: 20px 0;
+    display: flex;
+}
+
+.RentalRequest-Index--startDiv {
+    text-align: center;
+    flex: 1;
+    margin-right: -30rem;
+}
+
+.RentalRequest-Index--endDiv {
+    text-align: center;
+    flex: 1;
+}
+
+.RentalRequest-Index--infoDiv {
+    text-align: left;
+    padding: 0 0 20px 0;
+}
+
+#RentalRequest-Index--buttonDiv {
+    text-align: right;
+}
+
+/*END OF RENTAL REQUEST INDEX PAGE ACCORDION*/
+
+/*RENTAL HISTORY CREATE AND EDIT PAGES*/
+.RentalHistory-Create--form {
+    width: 600px;
+    background-color: var(--main-color--light);
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.RentalHistory-Create--heading {
+    text-align: center;
+    margin: 30px 0 30px 0;
+}
+
+.RentalHistory-Create--checkboxDiv {
+    margin-left: 27px;
+}
+
+.RentalHistory-Create--createButton {
+    background-color: green;
+    color: var(--light-color);
+}
+
+.RentalHistory-Create--backButton {
+    background-color: dimgrey;
+    color: var(--light-color);
+}
+
+.RentalHistory-Create--flexContainer {
+    display: flex;
+}
+
+.RentalHistory-Create--backContainer {
+    flex: 1;
+    margin-left: 10rem;
+}
+
+.RentalHistory-Create--createContainer {
+    flex: 1;
+}
+
+.RentalHistory-Create--formRow {
+    padding-top: 12px;
+}
+
+/*END OF RENTAL HISTORY CREATE AND EDIT PAGES*/
