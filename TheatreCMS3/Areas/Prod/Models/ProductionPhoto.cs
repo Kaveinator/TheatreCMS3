@@ -11,7 +11,7 @@ namespace TheatreCMS3.Areas.Prod.Models
     {
         [Key]
         public int ProPhotoID { get; set; }
-        //public Byte[] PhotoFile { get; set; }
+        public Byte[] PhotoFile { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }

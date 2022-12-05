@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,14 +49,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoID,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProPhotoID,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
-            {
+                {
+                if (postedFile != null)//if the postedFile is not null then the PhotoFile will be set = to postedFile turned into a byte[]
+                {
+                    productionPhoto.PhotoFile = ConvertImage(postedFile);
+                }
+                else { }//if the posted file is null then nothing will be done
                 db.ProductionPhotos.Add(productionPhoto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
             return View(productionPhoto);
         }
@@ -114,6 +121,21 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             db.ProductionPhotos.Remove(productionPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        //this method is used in the Create() post method above, its use is to turn an uploaded image from a user into a byte[] and then stored in the database
+        public byte[] ConvertImage(HttpPostedFileBase postedFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            {
+                bytes = br.ReadBytes(postedFile.ContentLength);
+                var ms = new MemoryStream();
+                bytes = ms.ToArray();
+                var imgMemoryStream = new MemoryStream(bytes);
+                Image imgFromStream = Image.FromStream(imgMemoryStream);
+            }
+            return bytes;
         }
 
         protected override void Dispose(bool disposing)
