@@ -1,4 +1,4 @@
-﻿@model TheatreCMS3.Areas.Rent.Models.RentalRequest
+﻿@model TheatreCMS3.Areas.Prod.Models.CalendarEvent
 
 @{
     ViewBag.Title = "Delete";
@@ -9,31 +9,31 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>RentalRequest</h4>
+    <h4>CalendarEvent</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ContactPerson)
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ContactPerson)
+            @Html.DisplayFor(model => model.Title)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Company)
+            @Html.DisplayNameFor(model => model.StartDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Company)
+            @Html.DisplayFor(model => model.StartDate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RequestedTime)
+            @Html.DisplayNameFor(model => model.EndDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RequestedTime)
+            @Html.DisplayFor(model => model.EndDate)
         </dd>
 
         <dt>
@@ -53,35 +53,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ProjectInfo)
+            @Html.DisplayNameFor(model => model.AllDay)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ProjectInfo)
+            @Html.DisplayFor(model => model.AllDay)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RentalCode)
+            @Html.DisplayNameFor(model => model.TicketsAvailable)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RentalCode)
+            @Html.DisplayFor(model => model.TicketsAvailable)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Accepted)
+            @Html.DisplayNameFor(model => model.IsProduction)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Accepted)
+            @Html.DisplayFor(model => model.IsProduction)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ContractSigned)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ContractSigned)
+            @Html.DisplayFor(model => model.Description)
         </dd>
 
     </dl>

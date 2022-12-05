@@ -6,112 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Rent.Controllers
+namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class RentalHistoriesController : Controller
+    public class CalendarEventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Rent/RentalHistories
+        // GET: Prod/CalendarEvents
         public ActionResult Index()
         {
-            return View(db.RentalHistory.ToList());
+            return View(db.CalendarEvent.ToList());
         }
 
-        // GET: Rent/RentalHistories/Details/5
+        // GET: Prod/CalendarEvents/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalHistory rentalHistory = db.RentalHistory.Find(id);
-            if (rentalHistory == null)
+            CalendarEvent calendarEvent = db.CalendarEvent.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalHistory);
+            return View(calendarEvent);
         }
 
-        // GET: Rent/RentalHistories/Create
+        // GET: Prod/CalendarEvents/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Rent/RentalHistories/Create
+        // POST: Prod/CalendarEvents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Create([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction,Description")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
             {
-                db.RentalHistory.Add(rentalHistory);
+                db.CalendarEvent.Add(calendarEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rentalHistory);
+            return View(calendarEvent);
         }
 
-        // GET: Rent/RentalHistories/Edit/5
+        // GET: Prod/CalendarEvents/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalHistory rentalHistory = db.RentalHistory.Find(id);
-            if (rentalHistory == null)
+            CalendarEvent calendarEvent = db.CalendarEvent.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalHistory);
+            return View(calendarEvent);
         }
 
-        // POST: Rent/RentalHistories/Edit/5
+        // POST: Prod/CalendarEvents/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Edit([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction,Description")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rentalHistory).State = EntityState.Modified;
+                db.Entry(calendarEvent).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rentalHistory);
+            return View(calendarEvent);
         }
 
-        // GET: Rent/RentalHistories/Delete/5
+        // GET: Prod/CalendarEvents/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RentalHistory rentalHistory = db.RentalHistory.Find(id);
-            if (rentalHistory == null)
+            CalendarEvent calendarEvent = db.CalendarEvent.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(rentalHistory);
+            return View(calendarEvent);
         }
 
-        // POST: Rent/RentalHistories/Delete/5
+        // POST: Prod/CalendarEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RentalHistory rentalHistory = db.RentalHistory.Find(id);
-            db.RentalHistory.Remove(rentalHistory);
+            CalendarEvent calendarEvent = db.CalendarEvent.Find(id);
+            db.CalendarEvent.Remove(calendarEvent);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
