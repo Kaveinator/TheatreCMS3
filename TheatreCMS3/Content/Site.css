@@ -454,7 +454,7 @@ footer {
 }
 
 .Home-Index--btnDonate {
-    color: #bd1a11;
+    color: var(--main-color);
     margin: 0;
     position: center;
     top: 50%;
