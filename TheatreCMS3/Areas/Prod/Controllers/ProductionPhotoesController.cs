@@ -130,10 +130,6 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             using (BinaryReader br = new BinaryReader(postedFile.InputStream))
             {
                 bytes = br.ReadBytes(postedFile.ContentLength);
-                var ms = new MemoryStream();
-                bytes = ms.ToArray();
-                var imgMemoryStream = new MemoryStream(bytes);
-                Image imgFromStream = Image.FromStream(imgMemoryStream);
             }
             return bytes;
         }
