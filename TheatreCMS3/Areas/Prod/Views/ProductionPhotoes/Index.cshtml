@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>
+@using System.Drawing;
 
 @{
     ViewBag.Title = "Index";
@@ -21,20 +22,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProPhotoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProPhotoID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @if (item.PhotoFile != null)//this displays the image that the user uploaded if the given photoFile is not null
+                {
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.PhotoFile)" />//converts the byte[] into an image
+                }
+                else { 
+                    <p>Your image would go here</p>//if the user doesnt upload an image this will be displayed in its place
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProPhotoID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoID })
+            </td>
+        </tr>
+    }
 
 </table>
