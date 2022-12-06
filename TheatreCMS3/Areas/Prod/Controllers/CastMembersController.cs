@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,14 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MyProperty,MainRole,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MyProperty,MainRole,CurrentMember,Character,CastYearLeft,DebutYear,vs")] CastMember castMember,  HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+                if (image != null)
+                {
+                    castMember.Photo = imageToByteArray(image);
+                }
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -124,5 +129,18 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // this method converts image to byte[] and returns said byte[], is called in above /create method
+        public byte[] imageToByteArray(HttpPostedFileBase image)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(image.InputStream))
+            {
+                bytes = br.ReadBytes(image.ContentLength);
+            }
+            return bytes;
+        } 
+       // return bytes
+        //METHOD with parameter for uploaded photo, that converts the photo into a byte[]
     }
 }
