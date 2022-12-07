@@ -2,121 +2,116 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Prod.Models;
+using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Prod.Controllers
+namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class CastMembersController : Controller
+    public class BlogAuthorsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/CastMembers
+        // GET: Blog/BlogAuthors
         public ActionResult Index()
         {
-            return View(db.CastMembers.ToList());
+            return View(db.BlogAuthors.ToList());
         }
 
-        // GET: Prod/CastMembers/Details/5
+        // GET: Blog/BlogAuthors/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // GET: Prod/CastMembers/Create
+        // GET: Blog/BlogAuthors/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/CastMembers/Create
+        // POST: Blog/BlogAuthors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MyProperty,MainRole,CurrentMember,Character,CastYearLeft,DebutYear,vs")] CastMember castMember,  HttpPostedFileBase image)
+        public ActionResult Create([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
         {
             if (ModelState.IsValid)
             {
-                if (image != null)
-                {
-                    castMember.Photo = imageToByteArray(image);
-                }
-                db.CastMembers.Add(castMember);
+                db.BlogAuthors.Add(blogAuthor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // GET: Prod/CastMembers/Edit/5
+        // GET: Blog/BlogAuthors/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // POST: Prod/CastMembers/Edit/5
+        // POST: Blog/BlogAuthors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MyProperty,MainRole,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(castMember).State = EntityState.Modified;
+                db.Entry(blogAuthor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // GET: Prod/CastMembers/Delete/5
+        // GET: Blog/BlogAuthors/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // POST: Prod/CastMembers/Delete/5
+        // POST: Blog/BlogAuthors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CastMember castMember = db.CastMembers.Find(id);
-            db.CastMembers.Remove(castMember);
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            db.BlogAuthors.Remove(blogAuthor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -129,18 +124,5 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
-
-        // this method converts image to byte[] and returns said byte[], is called in above /create method
-        public byte[] imageToByteArray(HttpPostedFileBase image)
-        {
-            byte[] bytes;
-            using (BinaryReader br = new BinaryReader(image.InputStream))
-            {
-                bytes = br.ReadBytes(image.ContentLength);
-            }
-            return bytes;
-        } 
-       // return bytes
-        //METHOD with parameter for uploaded photo, that converts the photo into a byte[]
     }
 }
