@@ -231,3 +231,76 @@
     cursor: pointer;
     text-decoration: none;
 }
+/*Styling for ProductionPhotos Index*/
+
+.productionPhotos-index-imageSizing {
+    cursor: pointer;
+    width: 285px;
+    height: 285px;
+}
+
+.productionPhotos-index-card {
+    margin: auto;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--light-color);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.productionPhotos-index-btnhover:hover a {
+    opacity: 1;
+}
+
+.productionPhotos-index-deletebtn {
+    background-color: var(--main-color--light);
+    cursor: pointer;
+    position: absolute;
+    left: 80%;
+    top: 92%;
+    padding: 5px;
+    opacity: 0;
+    z-index: 10;
+}
+
+.productionPhotos-index-deletebtn:hover {
+    background-color: var(--main-color);
+}
+
+.productionPhotos-index-editbtn {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    position: absolute;
+    left: 60%;
+    top: 92%;
+    padding: 5px;
+    opacity: 0;
+    z-index: 10;
+}
+
+.productionPhotos-index-editbtn:hover {
+    background-color: var(--secondary-color--dark);
+}
+
+.productionPhotos-index-cardBody {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: .8rem;
+    background-color: var(--light-color);
+}
+
+.productionPhotos-index-TitleText {
+    color: var(--main-color--light);
+    padding: 5px 0px 5px 0px;
+}
+
+.productionPhotos-index-BodyText {
+    color: var(--dark-color);
+    padding: 5px 0px 5px 0px;
+}
