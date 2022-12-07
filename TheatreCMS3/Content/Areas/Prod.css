@@ -291,7 +291,6 @@
 .productionPhotos-index-cardBody {
     flex: 1 1 auto;
     min-height: 1px;
-    padding: .8rem;
     background-color: var(--light-color);
 }
 

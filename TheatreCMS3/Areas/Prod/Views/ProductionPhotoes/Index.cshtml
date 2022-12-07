@@ -15,7 +15,7 @@
 {
 
 
-foreach (var group in Model.OrderBy(x => x.Title))
+foreach (var group in Model.GroupBy(x => x.Title).Select(y => y.First()).ToList().OrderBy(z => z.Title))
 {
      
     <h2>@group.Title</h2>
@@ -29,7 +29,7 @@ foreach (var group in Model.OrderBy(x => x.Title))
                         <a>
                             @if (item.PhotoFile != null)//this displays the image that the user uploaded if the given photoFile is not null
                             {
-                                <img src="data:image;base64,@System.Convert.ToBase64String(item.PhotoFile)" class="productionPhotos-index-imageSizing" />//converts the byte[] into an image
+                                <img src="data:image;base64,@System.Convert.ToBase64String(item.PhotoFile)" class="productionPhotos-index-imageSizing" data-toggle="modal" data-target="#openModal-@item.ProPhotoID" />//converts the byte[] into an image
                             }
                             else
                             {
@@ -53,7 +53,7 @@ foreach (var group in Model.OrderBy(x => x.Title))
             }
 
         <!-- Modal -->
-        @*<div class="modal fade" id="openModal-@item.ProductionID" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="openModal-@item.ProPhotoID" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -64,11 +64,11 @@ foreach (var group in Model.OrderBy(x => x.Title))
                     </div>
                     <div class="modal-body">
                         <div>
-                            <h4>Production</h4>
+                            <h4>Production Photo</h4>
                             <hr />
                             <dl class="dl-horizontal">
                                 <dt>
-                                    @Html.DisplayNameFor(model => item.Title)
+                                    @Html.DisplayNameFor(model => model.Title)
                                 </dt>
 
                                 <dd>
@@ -76,103 +76,22 @@ foreach (var group in Model.OrderBy(x => x.Title))
                                 </dd>
 
                                 <dt>
-                                    @Html.DisplayNameFor(model => item.Description)
+                                    @Html.DisplayNameFor(model => model.Description)
                                 </dt>
 
                                 <dd>
                                     @Html.DisplayFor(model => item.Description)
                                 </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.Playwright)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.Playwright)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.Runtime)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.Runtime)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.OpeningDay)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.OpeningDay)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.ClosingDay)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.ClosingDay)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.ShowTimeEve)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.ShowTimeEve)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.ShowTimeMat)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.ShowTimeMat)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.Season)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.Season)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.IsWorldPremiere)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.IsWorldPremiere)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.TicketLink)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.TicketLink)
-                                </dd>
-
-                                <dt>
-                                    @Html.DisplayNameFor(model => item.IsCurrentlyShowing)
-                                </dt>
-
-                                <dd>
-                                    @Html.DisplayFor(model => item.IsCurrentlyShowing)
-                                </dd>
-
                             </dl>
                         </div>
                         <p>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }) |
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoID }) |
                             @Html.ActionLink("Back to List", "Index")
                         </p>
                     </div>
                 </div>
             </div>
-        </div>*@
+        </div>
         }
 
     </div>
