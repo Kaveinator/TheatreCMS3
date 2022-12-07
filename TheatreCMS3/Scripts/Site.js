@@ -1,7 +1,51 @@
-﻿//jQuery | Get and display total number of developers
+﻿//--------- SignIn Page ----------
+
+//jQuery | Get and display total number of developers
 
 //Gets the total number of p elements within the 'home-signin-container' class
 var count_elements = $('.home-signin--container p').length;
 
 //Updates the text of the element with 'NumPersons' id
 $("#NumPersons").text(count_elements);
+
+
+//--------- Blog Author Pages ----------
+
+//jQuery | Blog Author Details/Delete Buttons script
+let currentSection = '#detailsButton'
+
+$("#detailsButton").click(() => {
+    location.reload();
+    $('#detailsButton').removeClass('btn-dark');
+    $("#detailsButton").addClass('btn-success');
+    $(currentSection).removeClass('btn-success');
+    $(currentSection).addClass('btn-dark');
+    currentSection = '#detailsButton'
+})
+
+$("#blogPostsButton").click(() => {
+    $(".blog_author-details-delete--authorTextContainer").text('For future stories');
+    $('#blogPostsButton').removeClass('btn-dark');
+    $("#blogPostsButton").addClass('btn-success');
+    $(currentSection).removeClass('btn-success');
+    $(currentSection).addClass('btn-dark');
+    currentSection = '#blogPostsButton'
+})
+
+$("#contactButton").click(() => {
+    $(".blog_author-details-delete--authorTextContainer").text('For future stories');
+    $('#contactButton').removeClass('btn-dark');
+    $("#contactButton").addClass('btn-success');
+    $(currentSection).removeClass('btn-success');
+    $(currentSection).addClass('btn-dark');
+    currentSection = '#contactButton'
+})
+
+$("#twitterButton").click(() => {
+    $(".blog_author-details-delete--authorTextContainer").text('For future stories');
+    $('#twitterButton').removeClass('btn-dark');
+    $("#twitterButton").addClass('btn-success');
+    $(currentSection).removeClass('btn-success');
+    $(currentSection).addClass('btn-dark');
+    currentSection = '#twitterButton'
+})
