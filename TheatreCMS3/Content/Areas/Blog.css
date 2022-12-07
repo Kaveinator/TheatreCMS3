@@ -11,3 +11,52 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+.blog_author-create-edit--title {
+    margin: 1rem;
+    text-align: center;
+}
+
+/* Form container */
+.blog_author-create-edit--formContainer {
+    background-color: var(--main-color--light);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+/* Form Content */
+.blog_author-create-edit--form {
+    margin: 1rem;
+}
+
+/* Input Field Containers */
+.blog_author-create-edit--generalFieldContainer {
+    margin: 1rem;
+}
+
+.blog_author-create-edit--textFieldContainer {
+    min-width: 100px;
+}
+
+.blog_author-create-edit--dateTimeFieldContainer {
+    display: flex;
+    margin: 1rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+
+/* Input Fields */
+
+.blog_author-create-edit--bioTextInputField {
+    height: 7rem;
+}
+
+.blog_author-create-edit--dateTimeInputField {
+    width: 10rem;
+    margin-right: 1rem;
+}
