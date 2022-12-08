@@ -1,0 +1,68 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogPost
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        <h3 class="text-lg-center">Create Blog Post</h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="BlogPosts-Create--FormContainer">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @placeholder = "Title", @class = "form-control BlogPosts-Create--inputs" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @placeholder = "Content", @class = "form-control BlogPosts-Create--inputs" } })
+                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Posted, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Posted, new { htmlAttributes = new { @placeholder = "DD/MM/YYYY", @class = "form-control BlogPosts-Create--inputs" } })
+                    @Html.ValidationMessageFor(model => model.Posted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @placeholder = "Author", @class = "form-control BlogPosts-Create--inputs" } })
+                    @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div>
+                        <input type="submit" value="Create" class="btn btn-default BlogPosts-Create--backtolistBtn" />
+                        @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-default BlogPosts-Create--submitBtn" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

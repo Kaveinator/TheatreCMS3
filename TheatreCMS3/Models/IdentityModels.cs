@@ -52,5 +52,8 @@ namespace TheatreCMS3.Models
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.ProductionPhoto> ProductionPhotos { get; set; }
 
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.CalendarEvent> CalendarEvent { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogPost> BlogPosts { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogAuthor> BlogAuthors { get; set; }
+
     }
 }
