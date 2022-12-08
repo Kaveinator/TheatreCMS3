@@ -134,8 +134,44 @@
 }
 
 /* CAST MEMBERS CREATE/EDIT STYLING END */
-/*Index Page Styling*/
 
+/* Calendar Events Create/Edit Styling Starting Point */
+
+.CalendarEvents-create--createbtn {
+    min-width: 110px;
+    border-radius: 12px;
+    background-color: var(--secondary-color);
+    transition: transform .5s;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    -ms-transform: translate(-50% -50%);
+    transform: translate(-50% -50%);
+}
+
+.CalendarEvents-create--backbtn {
+    min-width: 110px;
+    border-radius: 12px;
+    background-color: var(--main-color--light);
+    transition: transform .5s;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    -ms-transform: translate(-50% -50%);
+    transform: translate(-50% -50%);
+}
+
+.CalendarEvents-Create--formBorder {
+    border: 2px solid var(--secondary-color);
+    border-radius: 6px;
+}
+
+
+/* Calendar Events Create/Edit Styling Ending Point */
+
+/*Index Page Styling*/
 .production-index-createbtn {
     min-width: 110px;
     border-radius: 12px;
@@ -198,6 +234,8 @@
     width: 285px;
     height: 285px;
 }
+
+
 
 /*Styling for the modal*/
 .production-index-modal{
