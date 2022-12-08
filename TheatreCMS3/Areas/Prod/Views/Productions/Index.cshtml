@@ -13,8 +13,6 @@
   @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default production-index-createbtn" })
 </p>
 
-@*for each entry in the production database there will be a card displaying a photo and data when requested*@
-
 @using (Html.BeginForm("Index", "Productions", FormMethod.Get))
 {
 
@@ -34,13 +32,6 @@
     {
         <div class="production-index-card" style="width: 18rem;">
             <div class="production-index-btnhover">
-
-                @*<div class="production-index-modal" id="modal-@item.ProductionID">
-                    <div class="production-index-modalcontent">
-                        <span class="production-index-modalCloseBtn" id="closeModal">&times;</span>*@
-
-                @*</div>
-                    </div>*@
 
                 <a @*href="@Url.Action("Details", "Productions", new { id = item.ProductionID})"*@>
                     <img src="~/Content/images/ProductionPhotos/Hamilton/02.jpg" class="production-index-imagesizing" data-toggle="modal" data-target="#openModal-@item.ProductionID" />
