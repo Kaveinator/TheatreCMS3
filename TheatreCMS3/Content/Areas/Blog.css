@@ -129,3 +129,128 @@
     width: 10rem;
     margin-right: 1rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Details/Delete Pages*/
+.blog_author-details-delete--title {
+    margin: 1rem;
+    text-align: center;
+}
+
+.blog_author-details-delete--topButtonsContainer {
+    background-color: white;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    width: min-content;
+    margin: auto;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 0.5rem;
+}
+
+.blog_author-details-delete--mainContainer {
+    background-color: white;
+    color: black;
+    display: flex;
+    width: min-content;
+    margin: auto;
+    border-radius: 0.3rem;
+}
+
+.blog_author-details-delete--authorTextContainer {
+    display: flex;
+    flex-direction: column;
+    width: 44.5rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.blog_author-details-delete--authorImage {
+    margin: 1rem;
+    background-color: blue;
+    width: 20rem;
+    height: 20rem;
+    margin-right: 0;
+    border-radius: 0.5rem;
+}
+
+.blog_author-details-delete--mainContainerTopRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+.blog_author-details-delete--DatesContainer {
+    display: flex;
+}
+
+.blog_author-details-delete--DatesColumn {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.blog_author-details-delete--mainBottomButtonsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog_author-details-delete--buttons {
+    margin: 0.2rem;
+    width: max-content;
+}
+
+
+.blog_author-details-delete--bottomButtonsContainer {
+    margin: 1rem;
+}
