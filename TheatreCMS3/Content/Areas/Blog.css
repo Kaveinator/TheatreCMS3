@@ -11,6 +11,124 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*BlogPosts Edit and Create Page Styling*/
+
+.BlogPosts-Create--submitBtn {
+    min-width: 110px;
+    border-radius: 12px;
+    background-color: var(--secondary-color);
+    transition: transform .5s;
+    margin: 0;
+    position: absolute;
+    top: 0%;
+    left: 60%;
+    -ms-transform: translate(-50% -50%);
+    transform: translate(-50% -50%);
+}
+
+.BlogPosts-Create--submitBtn:hover {
+    transform: scale(0.95);
+}
+
+.BlogPosts-Create--backtolistBtn {
+    min-width: 110px;
+    border-radius: 12px;
+    background-color: var(--main-color--light);
+    transition: transform .5s;
+    margin: 0;
+    position: absolute;
+    top: 0%;
+    left: 40%;
+    -ms-transform: translate(-50% -50%);
+    transform: translate(-50% -50%);
+}
+
+.BlogPosts-Create--backtolistBtn a {
+    text-decoration: none;
+    color: var(--light-color);
+    text-align: center;
+}
+
+.BlogPosts-Create--backtolistBtn:hover {
+    transform: scale(0.95);
+}
+
+.BlogPosts-Create--inputs:focus {
+    border: 4px solid var(--main-color--light);
+    outline: none;
+    box-shadow: none;
+    background-color: antiquewhite;
+}
+
+.BlogPosts-Create--inputs {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.BlogPosts-Create--FormContainer {
+
+    padding-bottom: 50px ;
+    background-color: var(--secondary-color--dark); 
+}
+
+.BlogPosts-Create--btnContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/*BlogPosts Edit and Create Page Styling End*/
+
+
+.blog_author-create-edit--title {
+    margin: 1rem;
+    text-align: center;
+}
+
+/* Form container */
+.blog_author-create-edit--formContainer {
+    background-color: var(--main-color--light);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+/* Form Content */
+.blog_author-create-edit--form {
+    margin: 1rem;
+}
+
+/* Input Field Containers */
+.blog_author-create-edit--generalFieldContainer {
+    margin: 1rem;
+}
+
+.blog_author-create-edit--textFieldContainer {
+    min-width: 100px;
+}
+
+.blog_author-create-edit--dateTimeFieldContainer {
+    display: flex;
+    margin: 1rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+
+/* Input Fields */
+
+.blog_author-create-edit--bioTextInputField {
+    height: 7rem;
+}
+
+.blog_author-create-edit--dateTimeInputField {
+    width: 10rem;
+    margin-right: 1rem;
+}
 
 
 
