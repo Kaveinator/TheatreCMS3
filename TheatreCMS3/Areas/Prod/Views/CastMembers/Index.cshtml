@@ -5,11 +5,94 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h1>Cast Members</h1>
+<h6>   Click on image for details</h6>
 
-<p>
+<div class="btn btn-default CastMembers-Index--CreateNewBtn">
     @Html.ActionLink("Create New", "Create")
-</p>
+</div>
+
+@*Div with header of Production Title*@
+
+<div class="CastMembers-Index--Headers">
+    <h1>Lion King</h1>
+    <hr style="border-top: 1px solid var(--secondary-color);" />
+</div>
+
+@foreach (var item in Model)
+{
+    if (item.ProductionTitle == "Lion King")
+    {
+        <div class="card-deck CastMembers-Index--card-deck">
+            <div class="card CastMembers-Index--Card">
+                <a href="~/Prod/CastMembers/Details/@item.CastMemberId">
+                    <img src="~/Content/images/Cast_Img_1.jpg" class="card-img-top" />
+                </a>
+                <div class="card-body CastMembers-Index--cardbody">
+                    <p class="card-text CastMembers-Index--cardtext">@item.Name</p>
+
+                    <a class="CastMembers-Index--CardEditBtn" href="~/Prod/CastMembers/Edit/@item.CastMemberId">Edit</a>
+                    <a class="CastMembers-Index--CardDeleteBtn" href="~/Prod/CastMembers/Delete/@item.CastMemberId">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+<div class="CastMembers-Index--Headers">
+    <h1 class="CastMembers-Index--Hamlet">Hamlet</h1>
+    <hr style="border-top: 1px solid var(--secondary-color);" />
+</div>
+
+
+@foreach (var item in Model)
+{
+    if (item.ProductionTitle == "Hamlet")
+    {
+        <div class="card CastMembers-Index--Card">
+            <div class="CastMembers-Index--CardHover">
+                <a href="~/Prod/CastMembers/Details/@item.CastMemberId">
+                    <img src="~/Content/images/Cast_Img_3.jpg" class="card-img-top" @* data-toggle="modal" data-target="#modelPropertiesModal"*@ />
+                </a>
+                <div class="card-body CastMembers-Index--cardbody">
+                    @*cm-index--cardbody:hover? for edit and delete options, or maybe in the div below.*@
+                    <p class="card-text CastMembers-Index--cardtext">@item.Name</p>
+                    <a class="CastMembers-Index--CardEditBtn" href="~/Prod/CastMembers/Edit/@item.CastMemberId">Edit</a>
+                    <a class="CastMembers-Index--CardDeleteBtn" href="~/Prod/CastMembers/Delete/@item.CastMemberId" >Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+
+}
+
+
+@* MODAL WITH DATA INSIDE *@
+
+<div class="modal fade" id="modelPropertiesModal" tabindex="-1" role="dialog" aria-labelledby="modelPropertiesModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modelPropertiesModalLabel">Model Properties</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @foreach (var item in Model@*.GroupBy(x => x.Name).Select(y => y.First()).ToList().OrderBy(z => z.Name*@)
+{
+if (item.ProductionTitle == "Lion King" || item.ProductionTitle == "Hamlet")
+{
+<a href="@Html.ActionLink("Details", "Details", new { id = item.CastMemberId })"></a>
+@*Link to details page*@
+}
+}
+            </div>
+        </div>
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -20,6 +103,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MainRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionTitle)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CurrentMember)
@@ -39,47 +125,52 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.YearJoined)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MainRole)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CurrentMember)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Character)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CastYearLeft)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DebutYear)
-    </td>
-    <td>
-        @if (item.Photo != null)
-        {
-            <img src="data:image;base64,@System.Convert.ToBase64String(item.Photo)" width="100" height="100" />
-        }
-        else
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearJoined)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductionTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Character)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CastYearLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DebutYear)
+            </td>
+            <td>
+                @if (item.Photo != null)
+                {
+                    <img src="data:image;base64,@System.Convert.ToBase64String(item.Photo)" width="100" height="100" />
+                }
+                else
                 {
                     <p>No photo found!</p>
                 }
 
 
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.CastMemberId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
-    </td>
-</tr>
-}
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CastMemberId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
+            </td>
+        </tr>
+    }
 
 </table>
