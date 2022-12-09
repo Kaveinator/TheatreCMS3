@@ -1,51 +1,99 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>
-@using System.Drawing;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link rel="stylesheet" href="~/Content/Areas/Prod.css" />
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default production-index-createbtn" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @if (item.PhotoFile != null)//this displays the image that the user uploaded if the given photoFile is not null
-                {
-                <img src="data:image;base64,@System.Convert.ToBase64String(item.PhotoFile)" />//converts the byte[] into an image
-                }
-                else { 
-                    <p>Your image would go here</p>//if the user doesnt upload an image this will be displayed in its place
-                }
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProPhotoID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoID })
-            </td>
-        </tr>
+@using (Html.BeginForm("Index", "Productions", FormMethod.Get))
+{
+
+
+foreach (var group in Model.GroupBy(x => x.Title).Select(y => y.First()).ToList().OrderBy(z => z.Title))
+{
+     
+    <h2>@group.Title</h2>
+    <div class="card-deck">
+        @foreach (var item in Model)
+        {
+            if (item.Title == group.Title)
+            {
+                <div class="productionPhotos-index-card" style="width: 18rem;">
+                    <div class="productionPhotos-index-btnhover">
+                        <a>
+                            @if (item.PhotoFile != null)//this displays the image that the user uploaded if the given photoFile is not null
+                            {
+                                <img src="data:image;base64,@System.Convert.ToBase64String(item.PhotoFile)" class="productionPhotos-index-imageSizing" data-toggle="modal" data-target="#openModal-@item.ProPhotoID" />//converts the byte[] into an image
+                            }
+                            else
+                            {
+                                <img src="~/Content/images/ProductionPhotos/Hamilton/01.jpg" class="productionPhotos-index-imageSizing"/>//if the user doesnt upload an image this will be displayed in its place
+                            }
+                        </a>
+                    </div>
+                    <div class="productionPhotos-index-cardBody productionPhotos-index-btnhover">
+                        <h3 class="card-title text-center productionPhotos-index-TitleText">@item.Title</h3>
+                        <p class="card-text productionPhotos-index-BodyText">@item.Description</p>
+                        <span>
+                            this creates a pill badge/btn that links to the specific production details
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoID }, new { @class = "badge badge-pill productionPhotos-index-deletebtn" })
+                        </span>
+                        <span>
+                            this creates a pill badge/btn that links to the specific production edit page
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoID }, new { @class = "badge badge-pill productionPhotos-index-editbtn" })
+                        </span>
+                    </div>
+                </div>
+            }
+
+        <!-- Modal -->
+        <div class="modal fade" id="openModal-@item.ProPhotoID" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <h4>Production Photo</h4>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.Title)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.Description)
+                                </dd>
+                            </dl>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoID }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+
+    </div>
     }
-
-</table>
+}
