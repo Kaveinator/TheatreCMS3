@@ -230,7 +230,7 @@
     background-color: var(--secondary-color);
     transition: transform .5s;
     margin: 0;
-    position: absolute;
+    position: inherit;
     top: 50%;
     left: 60%;
     -ms-transform: translate(-50% -50%);
@@ -255,9 +255,25 @@
     border-radius: 6px;
 }
 
+.CalendarEvents-Index-btn {
+    min-width: 110px;
+    border-radius: 12px;
+    background-color: var(--secondary-color);
+    transition: transform .5s;
+}
+
+.CalendarEvents-Index--line {
+    border-top: 3px solid #bbb;
+    
+}
+
+CalendarEvents-Index--TableContainer {
+    color: var(--light-color);
+    z-index:5;
+}
+
 
 /* Calendar Events Create/Edit Styling Ending Point */
-
 /*Index Page Styling*/
 .production-index-createbtn {
     min-width: 110px;
