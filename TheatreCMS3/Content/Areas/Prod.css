@@ -101,8 +101,15 @@
     color: var(--light-color);
 }
 
+.CastMembers-Index--card-deck {
+    display: inline-block;
+    margin-left: 0.1rem;
+}
+
 .CastMembers-Index--Card {
-    display: flex;
+    display: inline-block;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
     width: 16rem;
     border: 2px solid var(--secondary-color);
     text-align: center;
@@ -115,6 +122,40 @@
 
 .CastMembers-Index--cardbody {
     background-color: var(--dark-color);
+}
+
+.CastMembers-Index--CardEditBtn {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    padding: .15rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+    color: var(--light-color);
+    background-color: var(--dark-color);
+}
+
+.CastMembers-Index--CardDeleteBtn {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    padding: .15rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+    color: var(--light-color);
+    background-color: var(--dark-color);
+}
+
+.CastMembers-Index--CardEditBtn:hover {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    color: var(--light-color);
+}
+
+.CastMembers-Index--CardDeleteBtn:hover {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    color: var(--light-color);
 }
 
 .CastMembers-Index--cardtext {
