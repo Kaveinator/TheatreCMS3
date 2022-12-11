@@ -18,6 +18,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/CalendarEvents
         public ActionResult Index()
         {
+           
             return View(db.CalendarEvent.ToList());
         }
 
