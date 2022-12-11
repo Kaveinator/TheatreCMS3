@@ -5,72 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <h2>Index</h2>
+    <div class="BlogPosts-Index--bottomSpace">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn BlogPosts-Index--creatNewBtn" })
+    </div>
+@foreach (var item in Model)
+{
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <div class="card">
-                <div class="BlogPosts-Index--cardHorizontal">
-                    <div class="img-square-wrapper">
-                        <img class="img-fluid" src="~/Content/images/BlogPostImages/thumbnail_8.jpg" alt="Cigar img">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
+    <div class="mx-auto card BlogPosts-Index--card BlogPosts-Index--cardSpace" style="width: 45rem; height: 15rem;">
+        <img src="~/Content/images/BlogPostImages/thumbnail_8.jpg" class="card-img-top BlogPosts-Index--cardImg" alt="Cigar Picture">
+        <div class="card-body">
+            <p class="card-text  text-body BlogPosts-Index--cardTextAuthor">@Html.DisplayFor(modelItem => item.Author)</p>
+            <p class="card-text  text-body BlogPosts-Index--cardTextPosted">@Html.DisplayFor(modelItem => item.Posted)</p>
+            <h5 class="card-title text-body">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <p class="card-text  text-body">@Html.DisplayFor(modelItem => item.Content)</p>
+            <div>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa-edit" })
+                @Html.ActionLink("Details", "Details", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--deleteBtn fa-trash" })
             </div>
         </div>
     </div>
-</div> @*rework this later, find bootstrap card 4.6 possibly resize image (this seems like what i'm looking for https://youtu.be/Iru3XhQvhnY'*@
 
-
-
-@*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Posted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Posted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.BlogPostID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.BlogPostID })
-            </td>
-        </tr>
-    }
-
-    </table>*@
+}
