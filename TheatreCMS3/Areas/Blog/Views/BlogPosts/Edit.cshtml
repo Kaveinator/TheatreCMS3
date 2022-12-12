@@ -18,7 +18,7 @@
         <div class="BlogPosts-Create--FormContainer">
             <div class="form-group">
                 @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @placeholder = "Title", @class = "form-control BlogPosts-Create--inputs" } })
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
@@ -26,7 +26,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @placeholder = "Content", @class = "form-control BlogPosts-Create--inputs" } })
                     @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                 </div>
@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Posted, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Posted, new { htmlAttributes = new { @placeholder = "DD/MM/YYYY", @class = "form-control BlogPosts-Create--inputs" } })
                     @Html.ValidationMessageFor(model => model.Posted, "", new { @class = "text-danger" })
                 </div>
@@ -42,7 +42,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @placeholder = "Author", @class = "form-control BlogPosts-Create--inputs" } })
                     @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
                 </div>

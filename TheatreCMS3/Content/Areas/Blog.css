@@ -21,7 +21,7 @@
     margin: 0;
     position: absolute;
     top: 0%;
-    left: 60%;
+    margin-left: 125px;
     -ms-transform: translate(-50% -50%);
     transform: translate(-50% -50%);
 }
@@ -38,7 +38,7 @@
     margin: 0;
     position: absolute;
     top: 0%;
-    left: 40%;
+    margin-right: 300px;
     -ms-transform: translate(-50% -50%);
     transform: translate(-50% -50%);
 }
@@ -78,9 +78,70 @@
 }
 
 
-/*BlogPosts Edit and Create Page Styling End*/
 
 
+/*End BlogPosts Edit and Create Page Styling*/
+/*BlogPosts Index Page Styling*/
+
+.BlogPosts-Index--card {
+    flex-direction: row;
+}
+
+.BlogPosts-Index--cardSpace {
+    margin: 25px;
+}
+
+.BlogPosts-Index--cardImg {
+    width: 50%;
+}
+
+.BlogPosts-Index--cardTextAuthor {
+    font-weight: 700;
+    font-size: 10px;
+    margin: -4px;
+    margin-left: -2px;
+}
+
+.BlogPosts-Index--cardTextPosted {
+    font-size: 10px;
+    margin-left: -2px;
+  
+}
+.BlogPosts-Index--Btn {
+    font-weight: 600;
+    color: var(--light-color);
+    background-color: grey;
+}
+
+.BlogPosts-Index--Btn:hover {
+    background-color: dimgrey;
+}
+
+.BlogPosts-Index--creatNewBtn {
+    font-weight: 600;
+    color: var(--light-color);
+    background-color: var(--main-color--light);
+}
+
+.BlogPosts-Index--creatNewBtn:hover {
+    background-color: var(--main-color);     
+}
+
+.BlogPosts-Index--deleteBtn {
+    font-weight: 600;
+    color: var(--light-color);
+    background-color: var(--main-color--light);
+    margin-left: 20px;
+}
+
+.BlogPosts-Index--deleteBtn:hover {
+    background-color: var(--main-color);
+}
+
+.BlogPosts-Index--bottomSpace {
+    margin-bottom: -10px;
+}
+/*End BlogPosts Index Page Styling*/
 .blog_author-create-edit--title {
     margin: 1rem;
     text-align: center;

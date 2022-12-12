@@ -2313,9 +2313,13 @@
 .fa-wpexplorer:before {
   content: "\f2de";
 }
+.fa-trash:before {
+    content: "\f014";
+}
 .fa-meetup:before {
   content: "\f2e0";
 }
+
 .sr-only {
   position: absolute;
   width: 1px;
