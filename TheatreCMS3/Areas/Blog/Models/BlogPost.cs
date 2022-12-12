@@ -11,6 +11,7 @@ namespace TheatreCMS3.Areas.Blog.Models
         [Key]
         public int BlogPostID { get; set; }
         public string Title { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Content { get; set; }
         public DateTime Posted { get; set; }
         public string Author { get; set; }

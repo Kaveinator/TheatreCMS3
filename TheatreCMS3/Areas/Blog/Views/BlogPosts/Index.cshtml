@@ -5,48 +5,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Index</h2>
+<div class="BlogPosts-Index--bottomSpace">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn BlogPosts-Index--creatNewBtn" })
+</div>
+@foreach (var item in Model)
+{
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Posted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPostID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPostID })
-        </td>
-    </tr>
+    <div class="mx-auto card BlogPosts-Index--card BlogPosts-Index--cardSpace" style="width: 45rem; height: 15rem;">
+        <img src="~/Content/images/BlogPostImages/thumbnail_8.jpg" class="card-img-top BlogPosts-Index--cardImg" alt="Cigar Picture">
+        <div class="card-body">
+            <p class="card-text  text-body BlogPosts-Index--cardTextAuthor">@Html.DisplayFor(modelItem => item.Author)</p>
+            <p class="card-text  text-body BlogPosts-Index--cardTextPosted">@Html.DisplayFor(modelItem => item.Posted)</p>
+            <h5 class="card-title text-body">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <p class="card-text  text-body">@Html.DisplayFor(modelItem => item.Content)</p>
+            <div>
+                @Html.ActionLink(" Edit", "Edit", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-edit" })
+                @Html.ActionLink(" Details", "Details", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-info" })
+                @Html.ActionLink(" Delete", "Delete", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--deleteBtn fa fa-trash" })
+            </div>
+        </div>
+    </div>
 }
-
-</table>
