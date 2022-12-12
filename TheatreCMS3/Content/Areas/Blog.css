@@ -177,8 +177,6 @@
 
 
 
-
-
 /*Details/Delete Pages*/
 .blog_author-details-delete--title {
     margin: 1rem;
@@ -253,4 +251,8 @@
 
 .blog_author-details-delete--bottomButtonsContainer {
     margin: 1rem;
+}
+
+.blog_author-index-authorCardContainer {
+    margin-bottom: 2rem;
 }
