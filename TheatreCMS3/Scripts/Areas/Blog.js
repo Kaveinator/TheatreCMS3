@@ -1,40 +1,36 @@
 //--------- Blog Author Pages ----------
 
-//jQuery | Blog Author Details/Delete Buttons script
-let currentSection = '#detailsButton'
+function viewAuthorInfo(authorId, buttonName) {
 
-$("#detailsButton").click(() => {
-    location.reload();
-    $('#detailsButton').removeClass('btn-dark');
-    $("#detailsButton").addClass('btn-success');
-    $(currentSection).removeClass('btn-success');
-    $(currentSection).addClass('btn-dark');
-    currentSection = '#detailsButton'
-})
+    //Define buttons
+    let detailsButton = '#' + authorId + '-detailsButton'
+    let blogPostsButton = '#' + authorId + '-blogPostsButton'
+    let contactButton = '#' + authorId + '-contactButton'
+    let twitterButton = '#' + authorId + '-twitterButton'
+    let buttonClicked = '#' + authorId + '-' + buttonName
 
-$("#blogPostsButton").click(() => {
-    $(".blog_author-details-delete--authorTextContainer").text('For future stories');
-    $('#blogPostsButton').removeClass('btn-dark');
-    $("#blogPostsButton").addClass('btn-success');
-    $(currentSection).removeClass('btn-success');
-    $(currentSection).addClass('btn-dark');
-    currentSection = '#blogPostsButton'
-})
+    //Clear all button colors
+    $(detailsButton).removeClass('btn-success')
+    $(detailsButton).addClass('btn-dark')
 
-$("#contactButton").click(() => {
-    $(".blog_author-details-delete--authorTextContainer").text('For future stories');
-    $('#contactButton').removeClass('btn-dark');
-    $("#contactButton").addClass('btn-success');
-    $(currentSection).removeClass('btn-success');
-    $(currentSection).addClass('btn-dark');
-    currentSection = '#contactButton'
-})
+    $(blogPostsButton).removeClass('btn-success')
+    $(blogPostsButton).addClass('btn-dark')
 
-$("#twitterButton").click(() => {
-    $(".blog_author-details-delete--authorTextContainer").text('For future stories');
-    $('#twitterButton').removeClass('btn-dark');
-    $("#twitterButton").addClass('btn-success');
-    $(currentSection).removeClass('btn-success');
-    $(currentSection).addClass('btn-dark');
-    currentSection = '#twitterButton'
-})
+    $(contactButton).removeClass('btn-success')
+    $(contactButton).addClass('btn-dark')
+
+    $(twitterButton).removeClass('btn-success')
+    $(twitterButton).addClass('btn-dark')
+
+    //Update clicked button color
+    $(buttonClicked).removeClass('btn-dark')
+    $(buttonClicked).addClass('btn-success')
+
+    //Update author text
+    if (buttonName == 'detailsButton') {
+        location.reload();
+    } else {
+        $('.' + authorId + " .blog_author-details-delete--authorTextContainer").text('For future stories');
+    }
+
+}
