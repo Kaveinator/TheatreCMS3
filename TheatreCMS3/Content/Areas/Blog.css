@@ -142,10 +142,66 @@
     margin-bottom: -10px;
 }
 /*End BlogPosts Index Page Styling*/
+/*BlogPosts Delete and Edit Page Styling*/
+
+.BlogPosts-Delete--center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.BlogPosts-Delete--img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    
+}
+
+.BlogPosts-Delete--noWrap {
+    white-space: nowrap;
+}
+
+.BlogPosts-Delete--deleteBtn {
+    font-weight: 600;
+    color: var(--light-color);
+    background-color: var(--main-color--light);
+    
+}
+
+.BlogPosts-Delete--deleteBtn:hover {
+    background-color: var(--main-color);
+}
+
+.BlogPosts-Delete--FormContainer {
+    outline: solid;
+    padding-bottom: 50px;
+    background-color: var(--dark-color);
+}
+
+.BlogPosts-Delete--imgWithText {
+    text-align: justify;
+    width: auto;
+}
+
+.BlogPosts-Delete--imgWithText img {
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.BlogPosts-Delete--container {
+    margin: 0 auto;
+    width: 600px;
+}
+/*End BlogPosts Delete and Edit Page Styling*/
 .blog_author-create-edit--title {
     margin: 1rem;
     text-align: center;
 }
+
+
 
 /* Form container */
 .blog_author-create-edit--formContainer {
@@ -190,8 +246,6 @@
     width: 10rem;
     margin-right: 1rem;
 }
-
-
 
 
 
@@ -314,4 +368,8 @@
 
 .blog_author-details-delete--bottomButtonsContainer {
     margin: 1rem;
+}
+
+.blog_author-index-authorCardContainer {
+    margin-bottom: 2rem;
 }

@@ -5,53 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BlogPost</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Posted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Posted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<div class="">
+    <div>
+        <h3 class="text-center BlogPosts-Delete--noWrap mt-4">Delete This BlogPost?</h3>
+        
+        <div class="mt-4 p-2 BlogPosts-Delete--container BlogPosts-Delete--imgWithText position-static border border-white">
+            <h4 class="text-center BlogPosts-Delete--noWrap mt-1 mb-3">@Html.DisplayFor(model => model.Title)</h4>
+            <img src="~/Content/images/BlogPostImages/thumbnail_8.jpg" class="p-0 BlogPosts-Delete--img" alt="Cigar Picture">
+            <p class="mt-4 BlogPosts-Delete--authorTextRight">@Html.DisplayFor(model => model.Author)</p>
+            <p class="BlogPosts-Delete--noWrap BlogPosts-Delete--postedTextRight">@Html.DisplayFor(model => model.Posted)</p>
+            <p class="w-50 h-50 BlogPosts-Delete--contentTextRight">@Html.DisplayFor(model => model.Content)</p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color mt-4 w-100 h-100">
+                    @Html.ActionLink(" Back to List", "Index", null, new { @class = "btn BlogPosts-Index--Btn fa fa-arrow-left" })
+                    @Html.ActionLink(" Edit", "Edit", new { id = Model.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-edit" })
+                    @Html.ActionLink(" Delete", "Delete", new { id = Model.BlogPostID }, new { @class = "btn BlogPosts-Delete--deleteBtn float-right fa fa-trash" })
+                </div>
+            }
         </div>
-    }
+
+        
+    </div>
 </div>
