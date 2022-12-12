@@ -6,10 +6,10 @@
 }
 
 
-    <h2>Index</h2>
-    <div class="BlogPosts-Index--bottomSpace">
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn BlogPosts-Index--creatNewBtn" })
-    </div>
+<h2>Index</h2>
+<div class="BlogPosts-Index--bottomSpace">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn BlogPosts-Index--creatNewBtn" })
+</div>
 @foreach (var item in Model)
 {
 
@@ -21,11 +21,10 @@
             <h5 class="card-title text-body">@Html.DisplayFor(modelItem => item.Title)</h5>
             <p class="card-text  text-body">@Html.DisplayFor(modelItem => item.Content)</p>
             <div>
-                @Html.ActionLink("Edit", "Edit", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa-edit" })
-                @Html.ActionLink("Details", "Details", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa-info" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--deleteBtn fa-trash" })
+                @Html.ActionLink(" Edit", "Edit", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-edit" })
+                @Html.ActionLink(" Details", "Details", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-info" })
+                @Html.ActionLink(" Delete", "Delete", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--deleteBtn fa fa-trash" })
             </div>
         </div>
     </div>
-
 }

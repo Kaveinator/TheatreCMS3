@@ -21,7 +21,7 @@
     margin: 0;
     position: absolute;
     top: 0%;
-    left: 60%;
+    margin-left: 125px;
     -ms-transform: translate(-50% -50%);
     transform: translate(-50% -50%);
 }
@@ -38,7 +38,7 @@
     margin: 0;
     position: absolute;
     top: 0%;
-    left: 40%;
+    margin-right: 300px;
     -ms-transform: translate(-50% -50%);
     transform: translate(-50% -50%);
 }
@@ -108,8 +108,7 @@
   
 }
 .BlogPosts-Index--Btn {
-    font-weight: 900;
-    font-family: FontAwesome;
+    font-weight: 600;
     color: var(--light-color);
     background-color: grey;
 }
@@ -119,8 +118,7 @@
 }
 
 .BlogPosts-Index--creatNewBtn {
-    font-weight: 900;
-    font-family: FontAwesome;
+    font-weight: 600;
     color: var(--light-color);
     background-color: var(--main-color--light);
 }
@@ -130,10 +128,10 @@
 }
 
 .BlogPosts-Index--deleteBtn {
-    font-weight: 900;
-    font-family: FontAwesome;
+    font-weight: 600;
     color: var(--light-color);
     background-color: var(--main-color--light);
+    margin-left: 20px;
 }
 
 .BlogPosts-Index--deleteBtn:hover {
