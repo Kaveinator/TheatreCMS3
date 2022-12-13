@@ -393,23 +393,6 @@
     z-index: 100;
 }
 
-.blog_author-index--deleteModalContainerDisplay {
-    color: black;
-    background-color: white;
-    border-radius: 3rem;
-    width: 40vw;
-    height: max-content;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    z-index: 100;
-}
 
 .blog_author-index--deleteModalTopRow {
     display: flex;

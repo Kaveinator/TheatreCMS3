@@ -6,7 +6,7 @@ function deleteAuthor(authorId) {
     //Define delete modal id
     let deleteModal = '#' + authorId + '-deleteModal'
     //Open delete modal css
-    $(deleteModal).removeClass(".blog_author-index--deleteModalContainer").addClass(".blog_author-index--deleteModalContainerDisplay");
+    $(deleteModal).show();
     $("body").css("overflow-y", "hidden");
     $(".blog_author-index-authorCardContainer, #createNewButton").css("opacity", "0.5");
 }
@@ -16,7 +16,7 @@ function closeModal(authorId, buttonName) {
     //Define delete modal id
     let deleteModal = '#' + authorId + '-deleteModal'
     //Close delete modal - css
-    $(deleteModal).removeClass('.blog_author-index--deleteModalContainerDisplay').addClass('.blog_author-index--deleteModalContainer')
+    $(deleteModal).hide();
     $("body").css("overflow-y", "visible");
     $(".blog_author-index-authorCardContainer, #createNewButton").css("opacity", "1");
 
