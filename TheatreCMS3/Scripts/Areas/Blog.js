@@ -1,5 +1,40 @@
 //--------- Blog Author Pages ----------
 
+
+//Call upon clicking delete button
+function deleteAuthor(authorId) {
+    //Define delete modal id
+    let deleteModal = '#' + authorId + '-deleteModal'
+    //Open delete modal css
+    $(deleteModal).removeClass(".blog_author-index--deleteModalContainer").addClass(".blog_author-index--deleteModalContainerDisplay");
+    $("body").css("overflow-y", "hidden");
+    $(".blog_author-index-authorCardContainer, #createNewButton").css("opacity", "0.5");
+}
+
+//Call upon clicking x button in modal
+function closeModal(authorId, buttonName) {
+    //Define delete modal id
+    let deleteModal = '#' + authorId + '-deleteModal'
+    //Close delete modal - css
+    $(deleteModal).removeClass('.blog_author-index--deleteModalContainerDisplay').addClass('.blog_author-index--deleteModalContainer')
+    $("body").css("overflow-y", "visible");
+    $(".blog_author-index-authorCardContainer, #createNewButton").css("opacity", "1");
+
+    //Upon clicking the deleteButton removes author from page and database
+    if (buttonName == 'deleteButton') {
+        //Fade out animation
+        $('.' + authorId).fadeOut(500);
+
+        $.ajax({
+            type: "POST",
+            url: "/BlogAuthors/AsyncDelete",
+            data: { id: authorId },
+        })
+    }
+    
+}
+
+//Author info buttons
 function viewAuthorInfo(authorId, buttonName) {
 
     //Define buttons
@@ -9,7 +44,7 @@ function viewAuthorInfo(authorId, buttonName) {
     let twitterButton = '#' + authorId + '-twitterButton'
     let buttonClicked = '#' + authorId + '-' + buttonName
 
-    //Clear all button colors
+    //Reset colors of each button
     $(detailsButton).removeClass('btn-success')
     $(detailsButton).addClass('btn-dark')
 
@@ -22,15 +57,16 @@ function viewAuthorInfo(authorId, buttonName) {
     $(twitterButton).removeClass('btn-success')
     $(twitterButton).addClass('btn-dark')
 
-    //Update clicked button color
+    //Update the clicked button's color
     $(buttonClicked).removeClass('btn-dark')
     $(buttonClicked).addClass('btn-success')
 
-    //Update author text
+    //Run upon clicking 'author details', resets the author section text
     if (buttonName == 'detailsButton') {
         location.reload();
-    } else {
+    }
+    //Will run upon clicking any other button 
+    else {
         $('.' + authorId + " .blog_author-details-delete--authorTextContainer").text('For future stories');
     }
-
 }
