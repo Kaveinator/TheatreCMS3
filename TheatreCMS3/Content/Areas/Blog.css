@@ -373,3 +373,28 @@
 .blog_author-index-authorCardContainer {
     margin-bottom: 2rem;
 }
+
+
+.blog_author-index--deleteModalContainer {
+    color: black;
+    background-color: white;
+    border-radius: 3rem;
+    width: 40vw;
+    height: max-content;
+    padding: 2rem;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 100;
+}
+
+
+.blog_author-index--deleteModalTopRow {
+    display: flex;
+    justify-content: space-between
+}
