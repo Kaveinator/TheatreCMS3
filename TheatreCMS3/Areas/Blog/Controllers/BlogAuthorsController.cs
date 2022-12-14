@@ -112,8 +112,23 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         {
             BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
             db.BlogAuthors.Remove(blogAuthor);
+            //blogAuthor.Left = DateTime.Now;
+
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        
+        public ActionResult AsyncDelete(int id)
+        {
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+
+            blogAuthor.Left = DateTime.Now;
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+
         }
 
         protected override void Dispose(bool disposing)
