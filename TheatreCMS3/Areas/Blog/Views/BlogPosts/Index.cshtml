@@ -13,7 +13,7 @@
 @foreach (var item in Model)
 {
 
-    <div class="mx-auto card BlogPosts-Index--card BlogPosts-Index--cardSpace" style="width: 45rem; height: 15rem;">
+    <div class="mx-auto card BlogPosts-Index--card BlogPosts-Index--cardSpace" id ="BlogPost-@item.BlogPostID" style="width: 45rem; height: 15rem;">
         <img src="~/Content/images/BlogPostImages/thumbnail_8.jpg" class="card-img-top BlogPosts-Index--cardImg" alt="Cigar Picture">
         <div class="card-body">
             <p class="card-text  text-body BlogPosts-Index--cardTextAuthor">@Html.DisplayFor(modelItem => item.Author)</p>
@@ -24,7 +24,7 @@
                 @Html.ActionLink(" Edit", "Edit", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-edit" })
                 @Html.ActionLink(" Details", "Details", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-info" })
                 <!-- Button trigger modal -->
-                <button type="button" class="btn BlogPosts-Index--deleteBtn fa fa-trash" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn BlogPosts-Index--deleteBtn fa fa-trash" data-toggle="modal" data-target="#exampleModal-@item.BlogPostID">
                     Delete
                 </button>
                 @*@Html.ActionLink(" Delete", "Delete", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--deleteBtn fa fa-trash" })*@
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal-@item.BlogPostID" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -43,13 +43,17 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                   @item.Author
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="DeletePost" onclick="DeleteBlogPost(id)">Delete</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="DeletePost" onclick="DeleteBlogPost(@item.BlogPostID)">Delete</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="@item.BlogPostID" class="" style="display:none;">
+      <p>The Blog Post was deleted sucessfully<i class="fas fa-check"></i></p>
     </div>
 }

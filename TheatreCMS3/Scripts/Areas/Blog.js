@@ -78,10 +78,12 @@ function viewAuthorInfo(authorId, buttonName) {
 function DeleteBlogPost(id) {
     $.ajax({
         type: "POST",
-        url: "/BlogPosts/DeleteConfirmed",
+        url: "/BlogPosts/DeletePostAsync",
         data: { id: id },
     })
-        .done(function (result) {
-            $("#DeletePost") //Not sure what to do here
+        .done(function () {
+            $("#BlogPost-" + id).remove();
+            $("#" + id).fadeIn(500).delay(3000).fadeOut(500);
+        
          })
 }
