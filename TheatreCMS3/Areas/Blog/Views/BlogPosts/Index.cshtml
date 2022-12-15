@@ -13,6 +13,29 @@
 @foreach (var item in Model)
 {
 
+   
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please Confirm Delete.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="DeleteBlogPost(@item.BlogPostID)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="mx-auto card BlogPosts-Index--card BlogPosts-Index--cardSpace" style="width: 45rem; height: 15rem;">
         <img src="~/Content/images/BlogPostImages/thumbnail_8.jpg" class="card-img-top BlogPosts-Index--cardImg" alt="Cigar Picture">
         <div class="card-body">
@@ -23,7 +46,11 @@
             <div>
                 @Html.ActionLink(" Edit", "Edit", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-edit" })
                 @Html.ActionLink(" Details", "Details", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-info" })
-                @Html.ActionLink(" Delete", "Delete", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--deleteBtn fa fa-trash" })
+                <!-- Button trigger modal -->
+                <button type="button" class="btn BlogPosts-Index--deleteBtn fa fa-trash" data-toggle="modal" data-target="#exampleModal">
+                    Delete
+                </button>
+                @*@Html.ActionLink(" Delete", "Delete", new { id = item.BlogPostID }, new { @class = "btn BlogPosts-Index--deleteBtn fa fa-trash" })*@
             </div>
         </div>
     </div>

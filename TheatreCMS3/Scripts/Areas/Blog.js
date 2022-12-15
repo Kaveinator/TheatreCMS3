@@ -70,3 +70,15 @@ function viewAuthorInfo(authorId, buttonName) {
         $('.' + authorId + " .blog_author-details-delete--authorTextContainer").text('For future stories');
     }
 }
+
+
+
+//--------- BlogPost Pages ----------
+
+function DeleteBlogPost(id) {
+    $.ajax({
+        type: "POST",
+        url: "/BlogPosts/Delete",
+        data: { id: id },
+    })
+}
