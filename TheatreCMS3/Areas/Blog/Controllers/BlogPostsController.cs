@@ -120,10 +120,10 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         public JsonResult DeletePostAsync(int id)
         {
             BlogPost blogPost = db.BlogPosts.Find(id);
-            var result = new JsonResult();
-            db.BlogPosts.Remove(blogPost);
-            db.SaveChanges();
-            return Json(result);
+            var result = new JsonResult(); //saitsfies method requirements
+            db.BlogPosts.Remove(blogPost); //removes records from database table
+            db.SaveChanges();// saves changes
+            return Json(result); //satisfies method requirements and returns back to javascript method 
         }
 
         protected override void Dispose(bool disposing)
