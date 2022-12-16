@@ -70,3 +70,22 @@ function viewAuthorInfo(authorId, buttonName) {
         $('.' + authorId + " .blog_author-details-delete--authorTextContainer").text('For future stories');
     }
 }
+
+
+
+//--------- BlogPost Pages ----------
+
+
+// this function gets a the unique id passed to, communicates with the controller through ajax and calls the DeletePostAsync JSONRESULT method
+function DeleteBlogPost(id) {
+    $.ajax({
+        type: "POST",
+        url: "/BlogPosts/DeletePostAsync", //sends unique id and calls controller method
+        data: { id: id },
+    })
+        .done(function () { 
+            $("#BlogPost-" + id).remove();//once this gets hit the post is removed from the users view
+            $("#" + id).fadeIn(500).delay(3000).fadeOut(500); // targets div on index and fades in a message letting the user know a post has been successfully deleted and then fades out.
+        
+         })
+}

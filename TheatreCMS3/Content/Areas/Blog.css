@@ -141,9 +141,25 @@
 .BlogPosts-Index--bottomSpace {
     margin-bottom: -10px;
 }
+
+.BlogPosts-Index--deleteSuccessMsgContainer {
+    background-color: black;
+}
+
+.BlogPosts-Index--deleteSuccessMsgBox {
+    background-color: palegreen;
+    border-radius: 25px;
+
+}
+
+.BlogPosts-Index--deleteSuccessMsg {
+    color: darkgreen;
+}
+
+
+
 /*End BlogPosts Index Page Styling*/
 /*BlogPosts Delete and Edit Page Styling*/
-
 .BlogPosts-Delete--center {
     display: block;
     margin-left: auto;

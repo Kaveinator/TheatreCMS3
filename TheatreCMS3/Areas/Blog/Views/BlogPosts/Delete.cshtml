@@ -18,11 +18,11 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-                <div class="form-actions no-color mt-4 w-100 h-100">
-                    @Html.ActionLink(" Back to List", "Index", null, new { @class = "btn BlogPosts-Index--Btn fa fa-arrow-left" })
-                    @Html.ActionLink(" Edit", "Edit", new { id = Model.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-edit" })
-                    @Html.ActionLink(" Delete", "Delete", new { id = Model.BlogPostID }, new { @class = "btn BlogPosts-Delete--deleteBtn float-right fa fa-trash" })
-                </div>
+        <div class="form-actions no-color mt-4 w-100 h-100">
+            @Html.ActionLink(" Back to List", "Index", null, new { @class = "btn BlogPosts-Index--Btn fa fa-arrow-left" })
+            @Html.ActionLink(" Edit", "Edit", new { id = Model.BlogPostID }, new { @class = "btn BlogPosts-Index--Btn fa fa-edit" })
+            <input type="submit" value="Delete" class="btn BlogPosts-Delete--deleteBtn float-right fa fa-trash" />
+        </div>
             }
         </div>
 
