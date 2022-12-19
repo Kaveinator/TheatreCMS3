@@ -491,3 +491,54 @@ footer {
     color: var(--light-color);
 }
 
+.Home-About-header {
+    font-family: Broadway;
+    text-align: center;
+    margin-top: 50px;
+    
+}
+.Home-Header-Centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.Home-About-Mission {
+    margin-top: 150px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px 30px 50px 5px;
+    background-color: black;
+}
+.Home-About-underline {
+    text-decoration-color: var(--main-color);
+    color: white;
+}
+.Home-About-History {
+    text-align: center;
+    margin-top: 150px;
+    background-color: var(--main-color);
+    border-radius: 15px 50px 30px 5px;
+}
+.Home-About-background-footer {
+    text-align:center;
+    margin-top: 150px;
+}
+.Home-About-Ensemble {
+    text-align:center;
+    margin-top: 150px;
+}
+.Home-About-Board {
+    text-align:center;
+    margin-top: 150px;
+}
+.Home-About-background-image {
+    background-image: url(images/theater.jpg);
+    background-repeat: no-repeat;
+}
+.Home-About-circle {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+
+}
