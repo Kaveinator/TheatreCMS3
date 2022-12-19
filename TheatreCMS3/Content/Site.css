@@ -438,63 +438,6 @@ footer {
 }
 
 
-/* HOME PAGE */
-
-.Home-Index--LogoImg {
-    display: flex;
-    justify-content: center;
-}
-
-.Home-Index--spotlightImg {
-    padding: 2px 2px 2px 2px;
-}
-
-.Home-Index--clmHeadlines {
-    text-align: left;
-}
-
-.Home-Index--btnDonate {
-    color: var(--main-color);
-    margin: 0;
-    position: center;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.Home-Index--containerDonate {
-    height: 20px;
-    position: relative;
-}
-
-.Home-Index--sponsorImg {
-    height: 65px;
-    width: 65px;
-}
-
-.Home-Index--nayaImg {
-    height: 200px;
-    width: 150px;
-}
-
-
-/*------ STYLING FOR SIGN-IN PAGE ------*/
-
-.home-signin--container {
-    text-align: center;
-}
-
-.home-signin--container p {
-    display: inline-block;
-    width: 200px;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 7px;
-    background-color: var(--main-color);
-    text-overflow: ellipsis;
-    text-align: center;
-}
-
 /*------ STYLING FOR CONTACT PAGE ------*/
 
 .home-contact-formContainer {
