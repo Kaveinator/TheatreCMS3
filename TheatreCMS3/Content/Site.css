@@ -542,3 +542,27 @@ footer {
     -webkit-border-radius: 50%;
 
 }
+
+#PersonList p {
+    list-style: upper-alpha;
+    width: 5em;
+    text-align:center;
+    padding-top:2.5px;
+    background-color: var(--main-color--light);               
+    border:solid;
+    border-color:var(--main-color--light);
+    border-radius:25px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    width:200px;
+    height:40px;
+    font-weight: bold;
+}
+
+#PersonList{
+    column-count:4;
+}
+
+
+
