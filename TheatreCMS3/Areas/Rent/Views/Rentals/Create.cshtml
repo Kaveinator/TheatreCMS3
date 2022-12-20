@@ -16,19 +16,19 @@
 </style>
 
 
-<h2 class="rentals-create-header">RENTAL</h2>
+<h2 class="rentals-createEdit--header">RENTAL</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
  
-<div class="rentals-create-formContainer">
+<div class="rentals-createEdit--formContainer">
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
             <!--Form Section-->
-            <section class="rentals-create-Form">
+            <section class="rentals-createEdit--Form">
 
                 <h4>CREATE RENTAL</h4>
 
@@ -59,13 +59,13 @@
 
                 <div class="form-group">    
                     <div class="col-md-12">
-                        <input type="submit" value="Create" class="rentals-create-buttons btn btn-block" />
+                        <input type="submit" value="Create" class="rentals-createEdit--buttons btn btn-block" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="rentals-create-back col-md-12">
-                        @Html.ActionLink("Back to List", "Index", null, new { @class = "backButton btn btn-block" })
+                    <div class="col-md-12">
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "rentals-createEdit--backButton btn btn-block" })
                     </div>                    
                 </div>
 
