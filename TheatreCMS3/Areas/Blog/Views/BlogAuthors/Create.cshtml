@@ -12,20 +12,23 @@
         padding: 5px;
         border-color: #BD1A11;
         background-color: #BD1A11;
-        width: 650px;
+        width: 600px;
         height: 500px;
+        text-align: center;
+        
+        
        
     }
 </style>
 
-<h2 class="blogauthors-create--header">Create</h2>
+<h2 class="blogauthors-createEdit--header">Create</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <h4 class="blogauthors-create--header">BlogAuthor</h4>
+    <h4 class="blogauthors-createEdit--header">BlogAuthor</h4>
     <div class="form-horizontal">
 
         <hr />
@@ -48,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="blogauthors-create--datepicker">
+        <div class="blogauthors-createEdit--datepicker">
             <div class="form-group">
                 @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -60,19 +63,19 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.Left, new { @type = "date", @class = "form-control datepicker"})
+                    @Html.TextBoxFor(model => model.Left, new { @type = "date", @class = "form-control datepicker" })
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="blogauthors-createEdit--createbutton">
                 <input type="submit" value="Create" class="btn btn-default" style="background-color: green" />
+
+
+                @Html.ActionLink("Back to List", "Index", "BlogAuthors", null, new { @class = "btn btn-dark" })
             </div>
         </div>
-        
-            @Html.ActionLink("Back to List", "Index", "BlogAuthors", null, new { @class = "btn btn-warning" })
-         
     </div>
         }
 

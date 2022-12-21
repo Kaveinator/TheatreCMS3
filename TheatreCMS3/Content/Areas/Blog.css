@@ -12,27 +12,23 @@
 /*}*/
 
 /*Style for Create and Edit Pages*/
-.form-horizontal {
-    border-radius: 12px;
-    padding: 5px;
-    border: 2px solid #BD1A11;
-    float: left;
-}
-.blogauthors-create--header {
+
+.blogauthors-createEdit--header {
     text-align:center;
 }
-.blogauthors-create-bio {
+.blogauthors-createEdit-bio {
     width: 100px;
     height: 150px;
+    text-align: center;
+    padding-left: 50px;
 }
-.blogauthors-create-bio {
 
-    width: 100px;
-}
-.blogauthors-create--datepicker {
+.blogauthors-createEdit--datepicker {
     
     display: flex;
+    justify-content: space-around;
 }
-.blogauthors-create--createbutton{
-    float: left;
+.blogauthors-createEdit--createbutton{
+    
+    display: flex;
 }
