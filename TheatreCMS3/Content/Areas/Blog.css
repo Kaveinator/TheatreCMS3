@@ -30,8 +30,8 @@
     width: 100px;
 }
 .blogauthors-create--datepicker {
-    float: left;
-    display: inline-block;
+    
+    display: flex;
 }
 .blogauthors-create--createbutton{
     float: left;
