@@ -11,3 +11,24 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*Style for Create and Edit Pages*/
+
+.blogauthors-createEdit--header {
+    text-align:center;
+}
+.blogauthors-createEdit-bio {
+    width: 100px;
+    height: 150px;
+    text-align: center;
+    padding-left: 50px;
+}
+
+.blogauthors-createEdit--datepicker {
+    
+    display: flex;
+    justify-content: space-around;
+}
+.blogauthors-createEdit--createbutton{
+    
+    display: flex;
+}
