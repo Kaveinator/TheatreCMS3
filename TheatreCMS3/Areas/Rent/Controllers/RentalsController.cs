@@ -47,9 +47,42 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental, int? PurchasePrice, bool ChokingHazard, bool SuffocationHazard,
+            int? RoomNumber, int? SquareFootage, int? MaxOccupancy)
         {
-            if (ModelState.IsValid)
+            if (PurchasePrice > 0)
+            {
+                RentalEquipment rentalEquipment = new RentalEquipment();
+                rentalEquipment.RentalName = rental.RentalName;
+                rentalEquipment.RentalCost = rental.RentalCost;
+                rentalEquipment.FlawsAndDamages = rental.FlawsAndDamages;
+                rentalEquipment.ChokingHazard = Convert.ToBoolean(ChokingHazard);
+                rentalEquipment.SuffocationHazard = Convert.ToBoolean(SuffocationHazard);
+                rentalEquipment.PurchasePrice = Convert.ToInt32(PurchasePrice);
+
+                db.Rentals.Add(rentalEquipment);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            else if (RoomNumber > 0)
+            {
+                RentalRoom rentalRoom = new RentalRoom();
+                rentalRoom.RentalName = rental.RentalName;
+                rentalRoom.RentalCost = rental.RentalCost;
+                rentalRoom.FlawsAndDamages = rental.FlawsAndDamages;
+                rentalRoom.RoomNumber= Convert.ToInt32(RoomNumber);
+                rentalRoom.SquareFootage = Convert.ToInt32(SquareFootage);
+                rentalRoom.MaxOccupancy = Convert.ToInt32(MaxOccupancy);
+
+                db.Rentals.Add(rentalRoom);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+
+            
+            else if (ModelState.IsValid)
             {
                 db.Rentals.Add(rental);
                 db.SaveChanges();
@@ -79,8 +112,44 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental, int? PurchasePrice, bool ChokingHazard, bool SuffocationHazard,
+            int? RoomNumber, int? SquareFootage, int? MaxOccupancy)
         {
+            if (PurchasePrice > 0)
+            {
+                RentalEquipment rentalEquipment = new RentalEquipment();
+                rentalEquipment.RentalId = rental.RentalId;
+
+                rentalEquipment.RentalName = rental.RentalName;
+                rentalEquipment.RentalCost = rental.RentalCost;
+                rentalEquipment.FlawsAndDamages = rental.FlawsAndDamages;
+                rentalEquipment.ChokingHazard = Convert.ToBoolean(ChokingHazard);
+                rentalEquipment.SuffocationHazard = Convert.ToBoolean(SuffocationHazard);
+                rentalEquipment.PurchasePrice = Convert.ToInt32(PurchasePrice);
+
+                db.Entry(rentalEquipment).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            if (RoomNumber > 0)
+            {
+                RentalRoom rentalRoom = new RentalRoom();
+                rentalRoom.RentalId = rental.RentalId;
+
+                rentalRoom.RentalName = rental.RentalName;
+                rentalRoom.RentalCost = rental.RentalCost;
+                rentalRoom.FlawsAndDamages = rental.FlawsAndDamages;
+                rentalRoom.RoomNumber = Convert.ToInt32(RoomNumber);
+                rentalRoom.SquareFootage = Convert.ToInt32(SquareFootage);
+                rentalRoom.MaxOccupancy = Convert.ToInt32(MaxOccupancy);
+
+                db.Entry(rentalRoom).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(rental).State = EntityState.Modified;

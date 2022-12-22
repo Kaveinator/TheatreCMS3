@@ -71,3 +71,8 @@
     margin: 2vh auto 2vh auto;
 }
 
+/*#rentals-createEdit--RentalsForm,*/ 
+#rentals-createEdit--RentalEquipmentForm, 
+#rentals-createEdit--RentalRoomForm {
+    display: none;
+}
