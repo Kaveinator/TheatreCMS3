@@ -34,6 +34,7 @@
 }
 .blogauthors-detailsDelete--dateInfo {
     display: flex;
+    columns:2;
 
 }
 .blogauthors-detailsDelete--dateInfoJ {
@@ -59,4 +60,16 @@
 .blogauthors-detailsDelete--img {
     width: 425px;
     
+}
+
+.blogauthors-detailsDelete--column1 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.blogauthors-detailsDelete--column2 {
+    float: left;
+    width: 50%;
+    padding: 10px;
 }
