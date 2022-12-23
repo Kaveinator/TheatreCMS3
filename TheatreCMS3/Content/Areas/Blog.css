@@ -33,12 +33,30 @@
     display: flex;
 }
 .blogauthors-detailsDelete--dateInfo {
+    display: flex;
 
+}
+.blogauthors-detailsDelete--dateInfoJ {
+    display: flex;
 }
 .blogauthors-detailsDelete--authorDetails {
-
+    margin-left: 100px;
+    display: flex;
+    align-items: stretch;
+    color: black;
 }
 
-.lizardguy{
-    background-color:red;
+.blogauthors-detailsDelete--navbtn {
+    background-color: darkslategrey;
+    color: #ffffff;
+    border-color: white;
+    border-radius: 10px;
+}
+.blogauthors-detailsDelete--navbtn :hover{
+    background-color: green;
+    transition: 0.2s;
+}
+.blogauthors-detailsDelete--img {
+    width: 425px;
+    
 }
