@@ -4,48 +4,86 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .dl-horizontal{
+        color: black;
 
-<h2>Details</h2>
+    }
+    .blogauthors-detailsDelete--card-header {
+        margin: auto;
+        text-align: center;
+        display: inline-block;
+        float: left;
+        color: white;
+    }
+</style>
 
-<div>
-    <h4>BlogAuthor</h4>
+
+<div class="blogauthors-detailsDelete--card">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+   
+    <div class="card text-center">
+        <div class="blogauthors-detailsDelete--card-header">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Author Details</a>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Twitter</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row ">
+                <div class="col-md-4">
+                    <img src="~/Content/images/BlogPostDefault.jpg" alt="BlogPostDefault" style="width:100%">
+                </div>
+                <div class="blogauthors-detailsDelete--authorDetails">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            <h2>
+                                @Html.DisplayFor(model => model.Name)
+                            </h2>
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Bio)
+                        </dd>
+                        <div class=" blogauthors-detailsDelete--dateInfo">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Joined)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Joined)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Left)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Left)
+                        </dd>
+                </div>
+                </dl>
+            </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+       
+        
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
