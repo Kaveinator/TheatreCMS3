@@ -5,58 +5,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="Blogpost-heading1">Create a new Blog Post</h2>
+<h2 class="Blogpost-createandedit-heading1">Create a new <br/> Blog Post</h2>
 
 
-@using (Html.BeginForm("New", "Post", FormMethod.Post, new { @class = "Blogpost-form", role = "form" })) 
+@using (Html.BeginForm("Create", "Post", FormMethod.Post, new { @class = "Blogpost-createandedit-form", role = "form" })) 
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "col-md-2 Blogpost-labels" })
-            <div class="col-md-10 Blogpost-div">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control Blogpost-input", placeholder="Enter Title: " } })
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "col-md-2 Blogpost-createandedit-labels" })
+            <div class="col-md-10 Blogpost-createandedit-div">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control Blogpost-createandedit-input", placeholder="Enter Title: " } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "col-md-2 Blogpost-labels" })
-            <div class="col-md-10 Blogpost-div">
-                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control Blogpost-input", placeholder="Enter content here:" } })
+            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "col-md-2 Blogpost-createandedit-labels" })
+            <div class="col-md-10 Blogpost-createandedit-div">
+                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control Blogpost-createandedit-input", placeholder="Enter content here:" } })
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Posted, htmlAttributes: new { @class = "col-md-2 Blogpost-labels" })
-            <div class="col-md-10 Blogpost-div">
-                @Html.EditorFor(model => model.Posted, new { htmlAttributes = new { @class = "form-control Blogpost-input", placeholder="Enter today's date: "} })
+            @Html.LabelFor(model => model.Posted, htmlAttributes: new { @class = "col-md-2 Blogpost-createandedit-labels" })
+            <div class="col-md-10 Blogpost-createandedit-div">
+                @Html.EditorFor(model => model.Posted, new { htmlAttributes = new { @class = "form-control Blogpost-createandedit-input", placeholder="Enter today's date: "} })
                 @Html.ValidationMessageFor(model => model.Posted, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "col-md-2 Blogpost-labels" })
-            <div class="col-md-10 Blogpost-div">
-                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control Blogpost-input", placeholder="Enter your name: " } })
+            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "col-md-2 Blogpost-createandedit-labels" })
+            <div class="col-md-10 Blogpost-createandedit-div">
+                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control Blogpost-createandedit-input", placeholder="Enter your name: " } })
                 @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10 Blogpost-div">
-                <input type="submit" value="Create" class="btn btn-default Create-button" />
+            <div class="col-md-offset-2 col-md-10 Blogpost-createandedit-div">
+                <input type="submit" value="Create" class="btn btn-default BlogPost-create-button" />
             </div>
         </div>
     </div>
 }
 
 <div class=" form-group">
-    <div class="col-md-offset-2 col-md-10 Blogpost-div">
-        <a class="btn btn-default back-to-list-button" href="/Blog/BlogPost"> Back To List </a>
+    <div class="col-md-offset-2 col-md-10 Blogpost-createandedit-div">
+        <a class="btn btn-default BlogPost-back-to-list-button" href="/Blog/BlogPost"> Back To List </a>
     </div>
 </div>
 
