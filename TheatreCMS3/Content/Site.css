@@ -543,6 +543,7 @@ footer {
 
 }
 
+/*Styling for Sign-In Page: Developers*/
 #PersonList p {
     list-style: upper-alpha;
     width: 5em;
@@ -563,6 +564,3 @@ footer {
 #PersonList{
     column-count:4;
 }
-
-
-
