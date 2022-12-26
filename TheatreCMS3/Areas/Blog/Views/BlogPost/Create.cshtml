@@ -8,7 +8,7 @@
 <h2 class="Blogpost-createandedit-heading1">Create a new <br/> Blog Post</h2>
 
 
-@using (Html.BeginForm("Create", "Post", FormMethod.Post, new { @class = "Blogpost-createandedit-form", role = "form" })) 
+@using (Html.BeginForm("Create", "BlogPost", FormMethod.Post, new { @class = "Blogpost-createandedit-form", role = "form" })) 
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
