@@ -15,10 +15,10 @@
         width: 500px;
         height: 40px;   
     }
-    .blogauthors-detailsDelete--navbtn :hover {
+/*    .blogauthors-detailsDelete--navbtn :hover {
         background-color: green;
         transition: 0.2s;
-    }
+    }*/
 </style>
 
 
@@ -63,10 +63,10 @@
         <div class="card mb-3" style="max-width: 1500px; height: 350px">
             <div class="blogauthors-detailsDelete--authorDetails">
                 <div class="blogauthors-detailsDelete--img">
-                    <img src="~/Content/images/BlogPostDefault.jpg" alt="BlogPostDefault" style="width:100%; height: 100%">
+                    <img src="~/Content/images/BlogPostDefault.jpg" alt="BlogPostDefault" style="width:100%; height: 102%">
                 </div>
                 <div id="showDetails">
-                    <dl class="dl-horizontal">
+                    <dl class="dl-horizontal blogauthors-detailsDelete--textFormat">
                         <dt>
                             <h2>
                                 @Html.DisplayFor(model => model.Name)
