@@ -4,8 +4,9 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-  
+
     .blogauthors-detailsDelete--card-header {
         margin: auto;
         color: white;
@@ -13,50 +14,45 @@
         display: flex;
         justify-content: center;
         width: 500px;
-        height: 40px;   
+        height: 40px;
     }
-/*    .blogauthors-detailsDelete--navbtn :hover {
-        background-color: green;
-        transition: 0.2s;
-    }*/
 </style>
 
 
 <div class="blogauthors-detailsDelete--card">
     <hr />
-   
+
     <div class="blogauthors-detailsDelete--card">
         <div class="blogauthors-detailsDelete--card-header">
             <ul class="nav nav-pills card-header-pills">
                 <li class="nav-item">
-                    <button onlclick="authorDetails()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Author Details</button>
+                    <button onclick="showDetails()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" >Author Details</button>
                     <script>
-                        function showDetails(id) {
-                            $("showDetails" + id).show();
+                        function showDetails() {
+                            $("#showDetails").show();
+                            $("#blogPosts").hide();
                         }
-                        function hideDetails(id) {
-                            $("showDetails" + id).hide();
-                        }
+                    
+                       
                     </script>
                 </li>
                 <li class="nav-item">
-                    <button onclick="blogPosts" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Blog Posts</button>
+                    <button onclick="showPosts()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Blog Posts</button>
 
                     <script>
-                        function showPosts(id) {
-                            $("blogPosts" + id).show();
+                        function showPosts() {
+                            $("#blogPosts").show();
+                            $("#showDetails").hide();
                         }
-                        function hidePosts(id) {
-                            $("blogPosts" + id).hide();
-                        }
+                        
                     </script>
-               
+
                 </li>
                 <li class="nav-item">
-                    <button onclick="blogContact" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Contact</button>
+                    <button onclick="blogContact()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Contact</button>
                 </li>
                 <li class="nav-item">
-                    <button onclick="blogTwitter" class="nav-link blogauthors-detailsDelete--navbtn" style="color:white; text-align:center" href="#">Twitter</button>
+                    <button onclick="blogTwitter()" class="nav-link blogauthors-detailsDelete--navbtn" style="color:white; text-align:center" href="#">Twitter</button>
                 </li>
             </ul>
         </div>
@@ -70,6 +66,8 @@
                         <dt>
                             <h2>
                                 @Html.DisplayFor(model => model.Name)
+                                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+                                <i class="fa fa-instagram" style="font-size:24px"></i>
                             </h2>
                         </dt>
 
@@ -77,39 +75,44 @@
                             <p>Author Details to be added later.</p>
                         </dd>
                         <div class="row blogauthors-detailsDelete--dateInfo">
-                          <div class="blogauthors-detailsDelete--column1">
-                            <p> @Html.DisplayNameFor(model => model.Joined) Date</p>
-                            <p>@Html.DisplayFor(model => model.Joined)</p>
-                          </div>
+                            <div class="blogauthors-detailsDelete--column1">
+                                <p> @Html.DisplayNameFor(model => model.Joined) Date</p>
+                                <p>@Html.DisplayFor(model => model.Joined)</p>
+                            </div>
 
-                          <div class="blogauthors-detailsDelete--column2">
-                            <p> @Html.DisplayNameFor(model => model.Left) Date</p>  
-                            <p>@Html.DisplayFor(model => model.Left)</p>
-                          </div>
+                            <div class="blogauthors-detailsDelete--column2">
+                                <p> @Html.DisplayNameFor(model => model.Left) Date</p>
+                                <p>@Html.DisplayFor(model => model.Left)</p>
+                            </div>
 
 
                         </div>
-                            
-                        
-
-                            
-                        
-                        
-                            
-                        
+                    </dl>
                 </div>
+                <div id="blogPosts">
+                    <p>Blog to be added soon...</p>
+
+                </div>
+
+
+
+
+
+
             </div>
-                </dl>
             </div>
-            </div>
+            
         </div>
-
-
-
-       
-        
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+</div>
+
+
+
+
+
+    </div>
+<p>
+    @Html.ActionLink("Back to List", "Index", "BlogAuthors", null, new { @class = "btn btn-dark  btn-def fa fa-arrow-circle-left" }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn btn-success btn-def fa fa-edit" })
+</p>
+ 
