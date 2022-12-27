@@ -15,6 +15,10 @@
         width: 500px;
         height: 40px;   
     }
+    .blogauthors-detailsDelete--navbtn :hover {
+        background-color: green;
+        transition: 0.2s;
+    }
 </style>
 
 
@@ -25,17 +29,34 @@
         <div class="blogauthors-detailsDelete--card-header">
             <ul class="nav nav-pills card-header-pills">
                 <li class="nav-item">
-                    <a class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Author Details</a>
+                    <button onlclick="authorDetails()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Author Details</button>
+                    <script>
+                        function showDetails(id) {
+                            $("showDetails" + id).show();
+                        }
+                        function hideDetails(id) {
+                            $("showDetails" + id).hide();
+                        }
+                    </script>
+                </li>
+                <li class="nav-item">
+                    <button onclick="blogPosts" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Blog Posts</button>
 
+                    <script>
+                        function showPosts(id) {
+                            $("blogPosts" + id).show();
+                        }
+                        function hidePosts(id) {
+                            $("blogPosts" + id).hide();
+                        }
+                    </script>
+               
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Blog Posts</a>
+                    <button onclick="blogContact" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Contact</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link blogauthors-detailsDelete--navbtn" style="color:white; text-align:center" href="#">Twitter</a>
+                    <button onclick="blogTwitter" class="nav-link blogauthors-detailsDelete--navbtn" style="color:white; text-align:center" href="#">Twitter</button>
                 </li>
             </ul>
         </div>
@@ -44,7 +65,7 @@
                 <div class="blogauthors-detailsDelete--img">
                     <img src="~/Content/images/BlogPostDefault.jpg" alt="BlogPostDefault" style="width:100%; height: 100%">
                 </div>
-                <div class="blogauthors-detailsDelete--authorDetails">
+                <div id="showDetails">
                     <dl class="dl-horizontal">
                         <dt>
                             <h2>
@@ -53,7 +74,7 @@
                         </dt>
 
                         <dd>
-                            <p>Blog to be added later.</p>
+                            <p>Author Details to be added later.</p>
                         </dd>
                         <div class="row blogauthors-detailsDelete--dateInfo">
                           <div class="blogauthors-detailsDelete--column1">
