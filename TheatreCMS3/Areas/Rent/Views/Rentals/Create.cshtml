@@ -1,8 +1,21 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.Rental
 
+@using TheatreCMS3.Areas.Rent.Models
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var RentalEquipment = new RentalEquipment();
+    var ChokingHazard = RentalEquipment.ChokingHazard;
+    var SuffocationHazard = RentalEquipment.SuffocationHazard;
+    var PurchasePrice = RentalEquipment.PurchasePrice;
+
+    var RentalRoom = new RentalRoom();
+    var RoomNumber = RentalRoom.RoomNumber;
+    var SquareFootage = RentalRoom.SquareFootage;
+    var MaxOccupancy = RentalRoom.MaxOccupancy;
+
 }
 
 <style>
@@ -18,6 +31,7 @@
 
 <h2 class="rentals-createEdit--header">RENTAL</h2>
 
+@Html.DropDownListFor(model => model.RentalOptions, new SelectList(Enum.GetValues(typeof(RentalEnum))), "Rental Options")
 
 @using (Html.BeginForm()) 
 {
@@ -32,43 +46,99 @@
 
                 <h4>CREATE RENTAL</h4>
 
+                @* -----Rentals Form Fields----- *@
+
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", placeholder = "John Smith" } })
-                        @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+
+                <div id="rentals-createEdit--RentalsForm">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control", placeholder = "John Smith" } })
+                            @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", placeholder = "100" } })
+                            @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", placeholder = "None" } })
+                            @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
+                @* -----Rental Equipment Form Fields----- *@
+                <div id="rentals-createEdit--RentalEquipmentForm">
+                    <div class="form-group">
+                        @Html.LabelFor(model => ChokingHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => ChokingHazard, new { htmlAttributes = new { @class = "form-control", placeholder = "None" } })
+                            @Html.ValidationMessageFor(model => ChokingHazard, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control", placeholder = "100" } })
-                        @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => SuffocationHazard, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => SuffocationHazard, new { htmlAttributes = new { @class = "form-control", placeholder = "None" } })
+                            @Html.ValidationMessageFor(model => SuffocationHazard, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => PurchasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => PurchasePrice, new { htmlAttributes = new { @class = "form-control", placeholder = "None" } })
+                            @Html.ValidationMessageFor(model => PurchasePrice, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control", placeholder = "None" } })
-                        @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+                @* -----Rental Room Form Fields----- *@
+                <div id="rentals-createEdit--RentalRoomForm">
+                    <div class="form-group">
+                        @Html.LabelFor(model => RoomNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => RoomNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "None" } })
+                            @Html.ValidationMessageFor(model => RoomNumber, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">    
-                    <div class="col-md-12">
-                        <input type="submit" value="Create" class="rentals-createEdit--buttons btn btn-block" />
+                    <div class="form-group">
+                        @Html.LabelFor(model => SquareFootage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => SquareFootage, new { htmlAttributes = new { @class = "form-control", placeholder = "None" } })
+                            @Html.ValidationMessageFor(model => SquareFootage, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.ActionLink("Back to List", "Index", null, new { @class = "rentals-createEdit--backButton btn btn-block" })
-                    </div>                    
-                </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => MaxOccupancy, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => MaxOccupancy, new { htmlAttributes = new { @class = "form-control", placeholder = "None" } })
+                            @Html.ValidationMessageFor(model => MaxOccupancy, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                 </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Create" class="rentals-createEdit--buttons btn btn-block" />
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "rentals-createEdit--backButton btn btn-block" })
+                        </div>
+                    </div>
+                  
             </section>
         </div>
     </div>
@@ -77,4 +147,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/scripts/Areas/Rent.js")
 }

@@ -32,6 +32,80 @@
     
     display: flex;
 }
+
+/* BLOG POST CREATE & EDIT PAGES */
+
+.Blogpost-createandedit-form {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--main-color), -1px -1px 0px var(--light-color);
+    text-align: center
+}
+
+.Blogpost-createandedit-label {
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Blogpost-createandedit-heading1 {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+
+.Blogpost-createandedit-div {
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Blogpost-createandedit-input {
+    background-color: white;
+    border: 2px solid black;
+}
+
+    .Blogpost-createandedit-input:focus {
+        background-color: var(--light-color);
+        border: 2px solid var(--secondary-color--dark);
+        box-shadow: 0px 0px 10px var(--secondary-color--dark);
+    }
+
+    .Blogpost-createandedit-input:hover {
+        box-shadow: 0px 0px 10px var(--secondary-color--dark);
+    }
+
+/* Style create button */
+.BlogPost-create-button {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+    /* Button hover effect */
+    .BlogPost-create-button:hover {
+        box-shadow: 0px 0px 5px var(--light-color);
+    }
+
+/* Style back to list button */
+.BlogPost-back-to-list-button {
+    background-color: var(--light-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--main-color), -1px -1px 0px var(--light-color);
+}
+
+/* Button hover effect */
+.BlogPost-back-to-list-button {
+    box-shadow: 0px 0px 5px var(--secondary-color--dark);
+}
 .blogauthors-detailsDelete--dateInfo {
     display: flex;
     columns:2;
