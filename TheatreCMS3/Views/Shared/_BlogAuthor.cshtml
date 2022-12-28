@@ -1,0 +1,119 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogAuthor>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<p>Working</p>
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+    .blogauthors-detailsDelete--card-header {
+        margin: auto;
+        color: white;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        width: 500px;
+        height: 40px;
+    }
+
+    #blogPosts {
+        display: none;
+    }
+
+    .blogauthors-detailsDelete--btnPosition {
+        text-align: center;
+    }
+</style>
+
+
+<div class="blogauthors-detailsDelete--card">
+    <hr />
+
+    <div class="blogauthors-detailsDelete--card">
+        <div class="blogauthors-detailsDelete--card-header">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                    <button onclick="showDetails()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center">Author Details</button>
+
+                </li>
+                <li class="nav-item">
+                    <button onclick="showPosts()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Blog Posts</button>
+
+
+
+                </li>
+                <li class="nav-item">
+                    <button onclick="blogContact()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Contact</button>
+                </li>
+                <li class="nav-item">
+                    <button onclick="blogTwitter()" class="nav-link blogauthors-detailsDelete--navbtn" style="color:white; text-align:center" href="#">Twitter</button>
+                </li>
+            </ul>
+        </div>
+        <div class="card mb-3" style="max-width: 1500px; height: 350px">
+            <div class="blogauthors-detailsDelete--authorDetails">
+                <div class="blogauthors-detailsDelete--img">
+                    <img src="~/Content/images/BlogPostDefault.jpg" alt="BlogPostDefault" style="width:100%; height: 102%">
+                </div>
+                <div id="showDetails">
+                    <dl class="dl-horizontal blogauthors-detailsDelete--textFormat">
+                        <dt>
+                            <h2>
+                                @Html.DisplayFor(model => model.Name)
+                                <i class="fa fa-facebook-square" style="font-size:24px"></i>
+                                <i class="fa fa-instagram" style="font-size:24px"></i>
+                            </h2>
+                        </dt>
+
+                        <dd>
+                            <p>Author Details to be added later.</p>
+                        </dd>
+                        <div class="row blogauthors-detailsDelete--dateInfo">
+                            <div class="blogauthors-detailsDelete--column1">
+                                <p> @Html.DisplayNameFor(model => model.Joined) Date</p>
+                                <p>@Html.DisplayFor(model => model.Joined)</p>
+                            </div>
+
+                            <div class="blogauthors-detailsDelete--column2">
+                                <p> @Html.DisplayNameFor(model => model.Left) Date</p>
+                                <p>@Html.DisplayFor(model => model.Left)</p>
+                            </div>
+
+
+                        </div>
+                    </dl>
+                </div>
+                <div class="blogauthors-detailsDelete--blogPost">
+                    <div id="blogPosts">
+                        <p>Blog to be added soon...</p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<td>
+    @Html.ActionLink("Edit", "Edit", new { id = item.BlogAuthorId }) |
+    @Html.ActionLink("Details", "Details", new { id = item.BlogAuthorId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.BlogAuthorId })
+</td>
+
+}*@
+
