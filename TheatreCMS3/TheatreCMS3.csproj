@@ -310,6 +310,7 @@
     <Content Include="Areas\Blog\Views\BlogPost\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPost\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\_BlogAuthor.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -470,7 +471,6 @@
     <Content Include="webfonts\Broadway Normal.ttf" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Shared\_BlogAuthor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
