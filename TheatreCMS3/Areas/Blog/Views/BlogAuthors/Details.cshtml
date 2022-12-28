@@ -16,6 +16,12 @@
         width: 500px;
         height: 40px;
     }
+    #blogPosts {
+        display: none;
+    }
+    .blogauthors-detailsDelete--btnPosition {
+        text-align:center;
+    }
 </style>
 
 
@@ -27,25 +33,12 @@
             <ul class="nav nav-pills card-header-pills">
                 <li class="nav-item">
                     <button onclick="showDetails()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" >Author Details</button>
-                    <script>
-                        function showDetails() {
-                            $("#showDetails").show();
-                            $("#blogPosts").hide();
-                        }
-                    
-                       
-                    </script>
+                   
                 </li>
                 <li class="nav-item">
                     <button onclick="showPosts()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Blog Posts</button>
 
-                    <script>
-                        function showPosts() {
-                            $("#blogPosts").show();
-                            $("#showDetails").hide();
-                        }
-                        
-                    </script>
+                   
 
                 </li>
                 <li class="nav-item">
@@ -89,15 +82,12 @@
                         </div>
                     </dl>
                 </div>
+                <div class="blogauthors-detailsDelete--blogPost">
                 <div id="blogPosts">
                     <p>Blog to be added soon...</p>
 
                 </div>
-
-
-
-
-
+                </div>
 
             </div>
             </div>
@@ -111,8 +101,9 @@
 
 
     </div>
-<p>
-    @Html.ActionLink("Back to List", "Index", "BlogAuthors", null, new { @class = "btn btn-dark  btn-def fa fa-arrow-circle-left" }) |
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn btn-success btn-def fa fa-edit" })
-</p>
- 
+<div class="blogauthors-detailsDelete--btnPosition">
+   
+        @Html.ActionLink("Back to List", "Index", "BlogAuthors", null, new { @class = "btn btn-dark  btn-def fa fa-arrow-circle-left" }) |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn btn-success btn-def fa fa-edit" })
+    
+</div>
