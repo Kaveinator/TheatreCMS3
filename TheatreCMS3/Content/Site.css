@@ -564,3 +564,46 @@ footer {
 #PersonList{
     column-count:4;
 }
+
+.Home-Index-Logo {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.Home-Index-AllContent {
+    padding-top: 50px;
+}
+
+.Home-Index-Button {
+    background-color: var(--main-color);
+    color: white;
+}
+
+
+.Home-Index-SponsorImage {
+    height: 67px;
+    width: 67px;
+}
+
+.Home-Index-SponsorImageWide {
+    height: 67px;
+    width: fit-content;
+}
+
+.Home-Index-UnderlineText {
+    text-decoration: underline;
+}
+
+.Home-Index-Sponsor {
+    padding-top: 40px;
+}
+
+.Home-Index-NAYA {
+    height: 256px;
+    width: 256px;
+}
+
+.Home-Index-LandAcknowledgement {
+    padding-top: 500px;
+}
