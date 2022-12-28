@@ -106,3 +106,55 @@
 .BlogPost-back-to-list-button {
     box-shadow: 0px 0px 5px var(--secondary-color--dark);
 }
+.blogauthors-detailsDelete--dateInfo {
+    display: flex;
+    columns:2;
+
+}
+.blogauthors-detailsDelete--dateInfoJ {
+    display: flex;
+}
+.blogauthors-detailsDelete--authorDetails {
+ 
+    display: flex;
+    align-items: stretch;
+    color: black;
+}
+
+.blogauthors-detailsDelete--navbtn {
+    background-color: darkslategrey;
+    color: #ffffff;
+    border-color: white;
+    border-radius: 10px;
+}
+.blogauthors-detailsDelete--navbtn:hover{
+    background-color: green;
+    transition: 0.2s;
+}
+
+.blogauthors-detailsDelete--navbtn:focus {
+    background-color: darkgreen;
+
+}
+
+.blogauthors-detailsDelete--img {
+    width: 425px;
+    
+}
+
+.blogauthors-detailsDelete--column1 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.blogauthors-detailsDelete--column2 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.blogauthors-detailsDelete--textFormat {
+    margin-left:9em;
+}
+
