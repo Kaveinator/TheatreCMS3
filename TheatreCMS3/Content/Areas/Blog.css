@@ -119,6 +119,7 @@
     display: flex;
     align-items: stretch;
     color: black;
+    
 }
 
 .blogauthors-detailsDelete--navbtn {
@@ -140,6 +141,7 @@
 .blogauthors-detailsDelete--img {
     width: 425px;
     
+    
 }
 
 .blogauthors-detailsDelete--column1 {
@@ -152,9 +154,16 @@
     float: left;
     width: 50%;
     padding: 10px;
+
 }
 
 .blogauthors-detailsDelete--textFormat {
     margin-left:9em;
 }
-
+.blogauthor-index--editDeletebtns {
+    display:flex;
+    text-align:end;
+}
+.blogauthors-index--bio{
+    position:center;
+}
