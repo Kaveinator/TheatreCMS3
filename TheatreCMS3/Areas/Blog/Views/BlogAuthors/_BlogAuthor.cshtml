@@ -22,7 +22,7 @@
         height: 40px;
     }
 
-    #blogPosts {
+    .blogauthors-detailsDelete--blogPost {
         display: none;
     }
 
@@ -41,11 +41,11 @@
             <div class="blogauthors-detailsDelete--card-header">
                 <ul class="nav nav-pills card-header-pills">
                     <li class="nav-item">
-                        <button onclick="showDetails()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center">Author Details</button>
+                        <button onclick="showDetails(@item.BlogAuthorId)" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center">Author Details</button>
 
                     </li>
                     <li class="nav-item">
-                        <button onclick="showPosts()" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Blog Posts</button>
+                        <button onclick="showPosts(@item.BlogAuthorId)" class="nav-link blogauthors-detailsDelete--navbtn" style="color: white; text-align: center" href="#">Blog Posts</button>
 
 
 
@@ -63,7 +63,7 @@
                     <div class="blogauthors-detailsDelete--img">
                         <img src="~/Content/images/BlogPostDefault.jpg" alt="BlogPostDefault" style="width:100%; height: 102%">
                     </div>
-                    <div id="showDetails">
+                    <div id="showDetails-@item.BlogAuthorId">
                         <dl class="dl-horizontal blogauthors-detailsDelete--textFormat">
                             <dt>
                                 <h2>
@@ -91,12 +91,12 @@
                             </div>
                         </dl>
                     </div>
-                    <div class="blogauthors-detailsDelete--blogPost">
-                        <div id="blogPosts">
+
+                        <div id="blogPosts-@item.BlogAuthorId" class="blogauthors-detailsDelete--blogPost">
                             <p>Blog to be added soon...</p>
 
                         </div>
-                    </div>
+                   
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()

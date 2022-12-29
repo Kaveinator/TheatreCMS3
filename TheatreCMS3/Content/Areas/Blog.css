@@ -108,11 +108,12 @@
 }
 .blogauthors-detailsDelete--dateInfo {
     display: flex;
-    columns:2;
-
+    columns: 2;
+    position: absolute;
 }
 .blogauthors-detailsDelete--dateInfoJ {
     display: flex;
+    
 }
 .blogauthors-detailsDelete--authorDetails {
  
@@ -148,17 +149,20 @@
     float: left;
     width: 50%;
     padding: 10px;
+    position: relative;
 }
 
 .blogauthors-detailsDelete--column2 {
     float: left;
     width: 50%;
     padding: 10px;
+    position: relative;
 
 }
 
 .blogauthors-detailsDelete--textFormat {
     margin-left:9em;
+
 }
 .blogauthor-index--editDeletebtns {
     display:flex;
@@ -167,3 +171,4 @@
 .blogauthors-index--bio{
     position:center;
 }
+

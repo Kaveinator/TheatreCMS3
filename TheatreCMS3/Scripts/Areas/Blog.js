@@ -1,8 +1,8 @@
-function showDetails() {
-    $("#showDetails").show();
-    $("#blogPosts").hide();
+function showDetails(id) {
+    $("#showDetails-" + id).show();
+    $("#blogPosts-" + id).hide();
 }
-function showPosts() {
-    $("#blogPosts").show();
-    $("#showDetails").hide();
+function showPosts(id) {
+    $("#blogPosts-" + id).show();
+    $("#showDetails-" + id).hide();
 }
