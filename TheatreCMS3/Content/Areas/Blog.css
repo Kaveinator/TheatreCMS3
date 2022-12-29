@@ -158,3 +158,34 @@
     margin-left:9em;
 }
 
+/* BLOG POST INDEX PAGE */
+.BlogPost-Index-DisplayNames{
+   display:none; 
+}
+
+.BlogPost-Index-Form {
+    font-family:'Franklin Gothic';
+    text-align: left;
+}
+
+.BlogPost-Index-Title {
+    color: #9D7C39;
+}
+
+.BlogPost-Index-Author {
+    color: #9D7C39;
+    font-weight:bold;
+}
+
+.BlogPost-Index-Content {
+    color: #000000;
+}
+
+.BlogPost-Index-Posted {
+    color: #D6972A;
+}
+
+.BlogPost-Index-Button {
+    text-decoration:none;
+    color: inherit;
+}
