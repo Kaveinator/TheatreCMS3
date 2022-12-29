@@ -108,17 +108,20 @@
 }
 .blogauthors-detailsDelete--dateInfo {
     display: flex;
-    columns:2;
-
+    columns: 2;
+    position: absolute;
+    bottom:0;
 }
 .blogauthors-detailsDelete--dateInfoJ {
     display: flex;
+    
 }
 .blogauthors-detailsDelete--authorDetails {
  
     display: flex;
     align-items: stretch;
     color: black;
+    
 }
 
 .blogauthors-detailsDelete--navbtn {
@@ -140,21 +143,36 @@
 .blogauthors-detailsDelete--img {
     width: 425px;
     
+    
 }
 
 .blogauthors-detailsDelete--column1 {
     float: left;
     width: 50%;
     padding: 10px;
+     
 }
 
 .blogauthors-detailsDelete--column2 {
     float: left;
     width: 50%;
     padding: 10px;
+     
+
 }
 
 .blogauthors-detailsDelete--textFormat {
     margin-left:9em;
+
+}
+.blogauthor-index--editDeletebtns {
+    display: flex;
+    text-align: end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.blogauthors-index--bio{
+    position:absolute;
 }
 
