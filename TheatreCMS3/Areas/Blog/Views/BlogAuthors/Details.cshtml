@@ -65,16 +65,16 @@
                         </dt>
 
                         <dd>
-                            <h5 class="blogauthors-index--bio">@Html.DisplayFor(modelItem => item.Bio)</h5>
+                            <h5 class="blogauthors-index--bio">@Html.DisplayFor(model => model.Bio)</h5>
                         </dd>
                         <div class="row blogauthors-detailsDelete--dateInfo">
                             <div class="blogauthors-detailsDelete--column1">
-                                <p> @Html.DisplayNameFor(model => model.Joined) Date</p>
+                                <p style="font-weight:bold"> @Html.DisplayNameFor(model => model.Joined) Date</p>
                                 <p>@Html.DisplayFor(model => model.Joined)</p>
                             </div>
 
                             <div class="blogauthors-detailsDelete--column2">
-                                <p> @Html.DisplayNameFor(model => model.Left) Date</p>
+                                <p style="font-weight:bold"> @Html.DisplayNameFor(model => model.Left) Date</p>
                                 <p>@Html.DisplayFor(model => model.Left)</p>
                             </div>
 
