@@ -110,6 +110,7 @@
     display: flex;
     columns: 2;
     position: absolute;
+    bottom:0;
 }
 .blogauthors-detailsDelete--dateInfoJ {
     display: flex;
@@ -149,14 +150,14 @@
     float: left;
     width: 50%;
     padding: 10px;
-    position: relative;
+     
 }
 
 .blogauthors-detailsDelete--column2 {
     float: left;
     width: 50%;
     padding: 10px;
-    position: relative;
+     
 
 }
 
@@ -165,10 +166,13 @@
 
 }
 .blogauthor-index--editDeletebtns {
-    display:flex;
-    text-align:end;
+    display: flex;
+    text-align: end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 .blogauthors-index--bio{
-    position:center;
+    position:absolute;
 }
 
