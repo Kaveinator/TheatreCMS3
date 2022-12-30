@@ -187,35 +187,35 @@
 }
 
 .BlogPost-Index-Title {
-    color: #9D7C39;
+    color: var(--secondary-color--dark);
 }
 
 .BlogPost-Index-Author {
-    color: #9D7C39;
-    font-weight:bold;
+    color: var(--secondary-color--dark);
+    font-weight: bold;
 }
 
 .BlogPost-Index-Content {
-    color: #000000;
+    color: var(--dark-color);
 }
 
 .BlogPost-Index-Posted {
-    color: #D6972A;
+    color: var(--secondary-color);
 }
 
 .BlogPost-Index-CreateButton {
-    color: #D6972A;
+    color: var(--secondary-color);
 }
 
 .BlogPost-Index-EditButton {
-    color: #FFFBFB;
+    color: var(--light-color);
 }
 
 .BlogPost-Index-DetailsButton {
-    color: #FFFBFB;
+    color: var(--light-color);
 }
 
 .BlogPost-Index-DeleteButton {
-    color: #FFFBFB;
+    color: var(--light-color);
 }
 
