@@ -176,3 +176,46 @@
     position:absolute;
 }
 
+/* BLOG POST INDEX PAGE */
+.BlogPost-Index-DisplayNames{
+   display:none; 
+}
+
+.BlogPost-Index-Form {
+    font-family:'Franklin Gothic';
+    text-align: left;
+}
+
+.BlogPost-Index-Title {
+    color: var(--secondary-color--dark);
+}
+
+.BlogPost-Index-Author {
+    color: var(--secondary-color--dark);
+    font-weight: bold;
+}
+
+.BlogPost-Index-Content {
+    color: var(--dark-color);
+}
+
+.BlogPost-Index-Posted {
+    color: var(--secondary-color);
+}
+
+.BlogPost-Index-CreateButton {
+    color: var(--secondary-color);
+}
+
+.BlogPost-Index-EditButton {
+    color: var(--light-color);
+}
+
+.BlogPost-Index-DetailsButton {
+    color: var(--light-color);
+}
+
+.BlogPost-Index-DeleteButton {
+    color: var(--light-color);
+}
+
