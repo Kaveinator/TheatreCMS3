@@ -5,48 +5,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Blog Posts</h2>
+ <br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <div class="BlogPost-Index-CreateButton">
+        <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color: var(--light-color); color: var(--secondary-color-dark);"><i class="fa-solid fa-plus"> <a href="@Url.Action("Create")" class="btn btn-default BlogPost-Index-CreateButton"> Create New Post </a></i></span>
+    </div>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th></th>
-    </tr>
+<div class="BlogPost-Index-DisplayNames">
+    @Html.DisplayNameFor(model => model.Title)
+    @Html.DisplayNameFor(model => model.Content)
+    @Html.DisplayNameFor(model => model.Posted)
+    @Html.DisplayNameFor(model => model.Author)
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Posted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPostId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPostId })
-        </td>
-    </tr>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-3 BlogPost-Index-Card" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4 BlogPost-Index-Image">
+                <svg class="bd-placeholder-img img-fluid rounded-start" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--secondary-color)"></rect><text x="50%" y="50%" fill="#000000" dy=".3em">Image</text></svg>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body BlogPost-Index-Form">
+                    <h4 class="card-title BlogPost-Index-Title">@Html.DisplayFor(modelItem => item.Title) </h4>
+                    <p class="card-text BlogPost-Index-Author"> Author:  @Html.DisplayFor(modelItem => item.Author)</p>
+                    <p class="card-text BlogPost-Index-Content">@Html.DisplayFor(modelItem => item.Content)</p>
+                    <p class="card-text BlogPost-Index-Posted"><small class="text-muted"> @Html.DisplayFor(modelItem => item.Posted)</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/0bc8be049e.js" crossorigin="anonymous"></script>
+    <td>
+        <div class="BlogPost-Index-Button">
+            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color:darkgrey; color:white;"><i class="fa-solid fa-pen-to-square"> <a href="@Url.Action("Edit", new { id = item.BlogPostId })" class="btn btn-default BlogPost-Index-EditButton"> Edit </a></i></span>
+            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color:darkgrey; color:white;"><i class="fa-solid fa-circle-info"> <a href="@Url.Action("Details", new { id = item.BlogPostId })" class="btn btn-default BlogPost-Index-DetailsButton"> Details </a></i></span>
+            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color: #F04D44; color: white;"><i class="fa-solid fa-trash"> <a href="@Url.Action("Delete", new { id = item.BlogPostId })" class="btn btn-default BlogPost-Index-DeleteButton"> Delete </a></i></span>
+        </div>
+    </td>
 }
 
-</table>
