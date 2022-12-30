@@ -8,8 +8,8 @@
 <h2>Blog Posts</h2>
  <br />
 <p>
-    <div class="BlogPost-Index-Button">
-        <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color: #FFFBFB; color: #9D7C39 ;"><i class="fa-solid fa-plus"> @Html.ActionLink("Create New", "Create")</i></span>
+    <div class="BlogPost-Index-CreateButton">
+        <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color: #FFFBFB; color: #9D7C39 ;"><i class="fa-solid fa-plus"> <a href="@Url.Action("Create")" class="btn btn-default BlogPost-Index-CreateButton"> Create New Post </a></i></span>
     </div>
 </p>
 <div class="BlogPost-Index-DisplayNames">
@@ -41,9 +41,9 @@
     <script src="https://kit.fontawesome.com/0bc8be049e.js" crossorigin="anonymous"></script>
     <td>
         <div class="BlogPost-Index-Button">
-            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color:lightgrey; color:white;"><i class="fa-solid fa-pen-to-square">  @Html.ActionLink("Edit", "Edit", new { id = item.BlogPostId }) </i></span>
-            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color:lightgrey; color:white;"><i class="fa-solid fa-circle-info"> @Html.ActionLink("Details", "Details", new { id = item.BlogPostId })</i></span>
-            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color: #F04D44; color: white;"><i class="fa-solid fa-trash"> @Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId })</i></span>
+            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color:darkgrey; color:white;"><i class="fa-solid fa-pen-to-square"> <a href="@Url.Action("Edit", new { id = item.BlogPostId })" class="btn btn-default BlogPost-Index-EditButton"> Edit </a></i></span>
+            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color:darkgrey; color:white;"><i class="fa-solid fa-circle-info"> <a href="@Url.Action("Details", new { id = item.BlogPostId })" class="btn btn-default BlogPost-Index-DetailsButton"> Details </a></i></span>
+            <span style="border: 1px solid silver; border-radius: 0.25em; padding: 0.5em; background-color: #F04D44; color: white;"><i class="fa-solid fa-trash"> <a href="@Url.Action("Delete", new { id = item.BlogPostId })" class="btn btn-default BlogPost-Index-DeleteButton"> Delete </a></i></span>
         </div>
     </td>
 }

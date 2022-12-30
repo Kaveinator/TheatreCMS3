@@ -202,3 +202,20 @@
 .BlogPost-Index-Posted {
     color: #D6972A;
 }
+
+.BlogPost-Index-CreateButton {
+    color: #D6972A;
+}
+
+.BlogPost-Index-EditButton {
+    color: #FFFBFB;
+}
+
+.BlogPost-Index-DetailsButton {
+    color: #FFFBFB;
+}
+
+.BlogPost-Index-DeleteButton {
+    color: #FFFBFB;
+}
+
