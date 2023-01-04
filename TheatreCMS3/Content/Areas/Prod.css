@@ -14,3 +14,52 @@
 
 
 
+.CastMember-CreateEdit-FormStyle {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--main-color), -1px -1px 0px var(--light-color);
+    text-align: center
+}
+
+.col-md-2 CastMember-CreateEdit-Labels {
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.CastMember-CreateEdit-Div {
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.CastMember-CreateEdit-Placeholder {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.CastMember-CreateEdit-Header {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+
+.CastMember-CreateEdit-BackButton {
+    background-color: var(--light-color);
+    font-weight: bold;
+    margin-bottom: 7px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 3px var(--main-color), -1px -1px 0px var(--light-color);
+}
+
+.CastMember-CreateEdit-CreateButton {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 7px;
+}
