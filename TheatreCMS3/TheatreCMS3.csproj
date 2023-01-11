@@ -292,11 +292,6 @@
     <Content Include="Areas\Rent\Views\web.config" />
     <Content Include="Areas\Prod\Views\web.config" />
     <Content Include="Areas\Blog\Views\web.config" />
-    <Content Include="Areas\Rent\Views\RentalHistory\Create.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistory\Delete.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistory\Details.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistory\Edit.cshtml" />
-    <Content Include="Areas\Rent\Views\RentalHistory\Index.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
