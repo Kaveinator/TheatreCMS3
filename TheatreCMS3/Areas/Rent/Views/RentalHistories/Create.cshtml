@@ -8,16 +8,23 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>RentalHistory</h4>
+
+    <h2 class="RentalHistory-Create--Header2">Create Rental History</h2>
+    <div class="RentalHistory-Create--FormContainer">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="RentalHistory-Create--FormGroup1">
+        @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>
+        <div class="RentalHistory-Create--FormGroup2">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
+            </div>
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.RentalDamaged)
@@ -27,32 +34,23 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DamagesIncurred, "Notes",  htmlAttributes: new { @class = "control-label col-md-2 RentalHistory-Create--Label", id="SpotTheChange"})
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10 RentalHistory-Create--FormGroup3">
+                @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-default RentalHistory-Create--BackBtn" })
+                <input type="submit" value="Create" class="btn btn-default RentalHistory-Create--SubmitBtn" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
