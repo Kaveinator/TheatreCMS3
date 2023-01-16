@@ -62,5 +62,42 @@
     margin: 10px;
 }
 
+.RentalHistory-Index--Header {
+    text-align: center;
+}
+
+.RentalHistory-Index--Table {
+    background-color: white;
+    max-width: 1200px;
+    border: 2px solid var(--main-color--light);
+    border-radius: 16px;
+}
+
+.RentalHistory-Index--Dropdown {
+     opacity: 0;
+}
+
+.RentalHistory-Index--Dropdown:hover {
+    opacity: 1;
+}
+
+.RentalHistory-Index--Ellipsis {
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    color: white;
+}
+
+.RentalHistory-Index--CheckMark {
+    background-color: white;
+    color: green;
+}
+
+.RentalHistory-Index--RedX {
+    background-color: white;
+    color: red;
+}
+
+
 
 
