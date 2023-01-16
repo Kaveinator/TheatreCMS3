@@ -6,7 +6,7 @@
 }
 
 <div class="rental-create--header">
-    <h1>Rental Class</h1>
+    <h1>Rental Page</h1>
 </div>
 
 
@@ -32,7 +32,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.RentalCost, "Rental Cost", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="rental-create--vertical-center ">
+        <div class="rental-create--vertical-center rental-create--border ">
             @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control rental-create--border", @placeholder = "Please use arrows to the right" } })
             @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
         </div>
@@ -40,7 +40,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.FlawsAndDamages, "Flaws And Damages", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="rental-create--vertical-center">
+        <div class="rental-create--vertical-center rental-create--border">
             @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control rental-create--border", @placeholder = "Describe in detail" } })
             @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
         </div>
