@@ -1,46 +1,53 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
+<script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script> 
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="RentalHistory-Index--Header">Index</h2>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table RentalHistory-Index--Table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
+        <th scope="col">@Html.DisplayNameFor(model => model.RentalDamaged)</th>
+        <th scope="col">@Html.DisplayNameFor(model => model.Rental)</th>
+        <th scope="col">@Html.DisplayNameFor(model => model.DamagesIncurred)</th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row"><i id="Check">
+            @if (item.RentalDamaged == true)
+            {
+                <i class="fa-solid fa-circle-xmark RentalHistory-Index--RedX"></i>
+            }
+            else
+            {
+                <i class="fa-solid fa-circle-check RentalHistory-Index--CheckMark"></i>
+            }
+            </th>
+            <th scope="row" class="RentalHistory-Index--Label"> @Html.DisplayFor(modelItem => item.Rental)</th>
+            <th scope="row">
+            @{TheatreCMS3.Helpers.TextHelpers TextHelp = new TheatreCMS3.Helpers.TextHelpers(); }
+            @{string DamagesIncurredText = Html.DisplayFor(modelItem => item.DamagesIncurred).ToString(); }
+            @{string FinalText = TheatreCMS3.Helpers.TextHelpers.Truncate(DamagesIncurredText, 100); }
+            @FinalText
+            </th>
+            <th scope="row" class="RentalHistory-Index--Dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-ellipsis-vertical RentalHistory-Index--Ellipsis"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })</a>
+                    <a class="dropdown-item" href="#">@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })</a>
+                    <a class="dropdown-item" href="#">@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })</a>
+                </div>
+            </th>
+        </tr>
+    }
 </table>
