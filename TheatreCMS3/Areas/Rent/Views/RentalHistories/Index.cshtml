@@ -31,7 +31,7 @@
                 <i class="fa-solid fa-circle-check RentalHistory-Index--CheckMark"></i>
             }
             </th>
-            <th scope="row" class="RentalHistory-Index--Label"> @Html.DisplayFor(modelItem => item.Rental)</th>
+            <th scope="row"><span class="badge badge-dark"> @Html.DisplayFor(modelItem => item.Rental)</span></th>
             <th scope="row">
             @{TheatreCMS3.Helpers.TextHelpers TextHelp = new TheatreCMS3.Helpers.TextHelpers(); }
             @{string DamagesIncurredText = Html.DisplayFor(modelItem => item.DamagesIncurred).ToString(); }
