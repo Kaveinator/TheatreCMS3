@@ -12,6 +12,58 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+.RentalHistory-Create--Label {
+    max-width: 47%;
+}
+
+.RentalHistory-Create--FormContainer {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+    max-width: 600px;
+}
+
+.RentalHistory-Create--Header2 {
+    color: var(--light-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+
+.RentalHistory-Create--FormGroup1 {
+    display: flex;
+    gap: 250px;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.RentalHistory-Create--FormGroup2 {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.RentalHistory-Create--FormGroup3 {
+    display: flex;
+    justify-content: center;
+}
+
+.RentalHistory-Create--BackBtn {
+    background-color: darkslategray;
+    color: var(--light-color);
+    margin: 10px;
+}
+
+.RentalHistory-Create--SubmitBtn {
+    background-color: green;
+    color: var(--light-color);
+    margin: 10px;
+}
+
+
+
 
 /* Form Header */
 .rental-create--header {
