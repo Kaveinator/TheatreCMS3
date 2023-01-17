@@ -445,8 +445,14 @@ footer {
     margin-right: auto;
     width: 50%;
 }
-/*Style 3 columns under Theatre Vertigo Logo*/
-.column {
+/*Style 2 columns under Theatre Vertigo Logo*/
+.column1 {
+    float: left;
+    width: 66.66%;
+    padding: 10px;
+    height: 300px;
+}
+.column2 {
     float: left;
     width: 33.33%;
     padding: 10px;
