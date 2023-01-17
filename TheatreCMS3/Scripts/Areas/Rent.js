@@ -6,3 +6,4 @@
         document.getElementById("SpotTheChange").innerHTML = "Notes";
     }
 });
+
