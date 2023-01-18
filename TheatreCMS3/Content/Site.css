@@ -467,6 +467,9 @@ clear: both;
 }
 button {
     background-color: var(--main-color--light);
+    color: white;
+    border-radius: 15px;
+    padding: 25px;
 }
 
 h2 {
@@ -483,4 +486,12 @@ div.sponsors{
 p.underscore{
     color: var(--main-color--light);
 }
-
+img.vertigologo{
+    padding-top: 100px;
+}
+h2.sponsors{
+    padding-top: 75px;
+}
+h2.landagree{
+    padding-top: 100px;
+}
