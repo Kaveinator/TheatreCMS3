@@ -460,7 +460,7 @@ footer {
     padding-top: 150px;
 }
 /* Clear floats after the columns */
-.row1:after {
+.home-index--row1:after {
 content: "";
 display: table;
 clear: both;
