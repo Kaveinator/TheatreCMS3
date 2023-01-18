@@ -439,8 +439,8 @@ footer {
 
 /*Contact Page Styling Section*/
 
-.donation {
-    /*put text to right side of screen*/
+.home-contact--donation {
+   
 
     float: right;
     margin: 0 0 0 1em;
@@ -448,7 +448,7 @@ footer {
     text-align: right;
 }
 
-.Contact-donate {
+.home-contact--Contact-donate {
     position: absolute;
     top: 420px;
     right: 325px;
@@ -457,17 +457,17 @@ footer {
     text-align: left;
 }
 
-    .Contact-donate button {
+    .home-contact--Contact-donate button {
         background-color: var(--main-color);
     }
 
 
-.Contact-volunteer button {
+.home-contact--Contact-volunteer button {
     background-color: var(--main-color);
 }
 
 
-.Contact-main {
+.home-contact--Contact-main {
     background-color: var(--main-color--light);
     padding: 50px;
     margin-top: 5px;
@@ -475,16 +475,16 @@ footer {
     border-radius: 10px;
 }
 
-    .Contact-main h2 {
+    .home-contact--Contact-main h2 {
         text-align: center;
         text-decoration: underline var(--main-color);
     }
 
-    .Contact-main button {
+    .home-contact--Contact-main button {
         background-color: var(--main-color);
     }
 
-.Contact-volunteer {
+.home-contact--Contact-volunteer {
     position: absolute;
     top: 625px;
     right: 270px;
@@ -518,13 +518,6 @@ footer {
         font-size: 13px;
     }
 
-fieldset {
-    border: medium none !important;
-    margin: 0 0 10px;
-    min-width: 100%;
-    padding: 0;
-    width: 100%;
-}
 
 #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
     width: 100%;
@@ -574,23 +567,6 @@ fieldset {
     border: 1px solid #999;
 }
 
-::-webkit-input-placeholder {
-    color: #888;
-}
-
-:-moz-placeholder {
-    color: #888;
-}
-
-::-moz-placeholder {
-    color: #888;
-}
-
-:-ms-input-placeholder {
-    color: #888;
-}
-
-}
 
 
 /*End Contact Page Styling Section*/
