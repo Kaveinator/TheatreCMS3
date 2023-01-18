@@ -14,6 +14,21 @@
 </p>
 <table class="table RentalHistory-Index--Table">
     <tr>
+        <th>
+            <div class="dropdown RentalHistory-Index--SortOptions">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    No Extra Sorting...
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Damaged Rentals" })">Damaged Rentals</a>
+                    <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Undamaged Rentals" })">Undamaged Rentals</a>
+                    <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Rentals A-Z" })">Rentals A-Z</a>
+                    <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Rentals Z-A" })">Rentals Z-A</a>
+                </div>
+            </div>
+        </th>
+    </tr>
+    <tr>
         <th scope="col">@Html.DisplayNameFor(model => model.RentalDamaged)</th>
         <th scope="col">@Html.DisplayNameFor(model => model.Rental)</th>
         <th scope="col">@Html.DisplayNameFor(model => model.DamagesIncurred)</th>
