@@ -227,6 +227,7 @@
     <Content Include="Content\all.css" />
     <Content Include="Content\Areas\Blog.css" />
     <Content Include="Content\images\BlogPostDefault.jpg" />
+    <Content Include="Content\images\ensemble.jpg" />
     <Content Include="Content\images\Sponsors\Ellyn-Bye-Logo.png" />
     <Content Include="Content\Areas\Prod.css" />
     <Content Include="Content\Areas\Rent.css" />

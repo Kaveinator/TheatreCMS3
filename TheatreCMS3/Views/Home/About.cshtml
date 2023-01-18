@@ -1,0 +1,107 @@
+﻿@{
+  ViewBag.Title = "About Page";
+}
+
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<style>
+    .body-content {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+    }
+    .textoverlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .aboutpageheader {
+        font-family: 'Oswald', sans-serif;
+        text-decoration: underline;
+        padding-bottom: 25px;
+    }
+
+</style>
+<body>
+    <!-- Curtain image with "about" on top-->    
+    <div style="padding-bottom: 25px;">
+        <div class="row">
+            <div>
+                <img style="left:0%;" class="body-content"src="../../Content/images/theater.jpg" alt="curtain" />
+                <div class="textoverlay">
+                    <h1 style="font-family: Broadway" class="text-center">About Us</h1>
+                </div>
+            </div>   
+        </div>
+    </div>
+
+    <!-- Mission Statement div-->
+    <div style="padding-bottom: 25px; padding-top: 10px;">
+        <h3 style="text-decoration-color: var(--main-color);" class="text-center aboutpageheader">Who We Are</h3>
+        <div>
+            <p class="text-center">To engage audiences through ensemble-driven productions with a focus on developing new works</p>
+        </div>
+    </div>
+
+    <!-- Company History div-->
+    <div style="background-color: var(--main-color--light); padding-bottom: 25px; padding-top: 10px;">
+        <h3 style="text-decoration-color: var(--main-color);" class="text-center aboutpageheader">Company History</h3>
+        <div>
+            <p class="text-center"><span>In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers. 
+                                         &nbsp;Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater,
+                                        The Electric Company, Theater!Theatre!, and The Shoebox Theater.</span></pclass="text-center">
+            <p class="text-center"><span>From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser 
+                      in collaboration with The Anonymous Theatre Company. &nbsp;Other past collaborations
+                      include defunkt theatre, Stark Raving Theater, and Tears of Joy Theatre.</span></p>
+            <p class="text-center"><span>Theatre Vertigo has worked on world premieres including&nbsp;<i>Faust.Us</i>&nbsp;by JosephFisher,&nbsp;
+                     <i>Ways to Fuck a Swan</i>&nbsp; by Kim Rosenstock, and&nbsp;<i>End of Sex</i>&nbsp; by Craig Jessen</span></p>
+        </div>
+    </div>
+    
+    <!-- Ensemble div-->
+    
+    <div style="padding-bottom: 25px; padding-top:20px;" class="container" >
+        <h3 style="text-decoration-color: var(--main-color);" class="text-center aboutpageheader">Ensemble</h3>
+        <div class="row row-col-5">
+            <div class="col">
+                <img style="height:200px;width:400px;" src="../../Content/images/Cast_Img_7.jpg" class="rounded-circle img-fluid" alt="Tom Mounsey" />
+                <p style="font-family: 'Oswald', sans-serif;" class="text-center"><span>TOM MOUNSEY</span></p>
+            </div>
+            <div class="col">
+                <img style="height:200px;width:400px;" src="../../Content/images/Cast_Img_1.jpg" class="rounded-circle img-fluid" alt="Kala Maarja Hiller" />
+                <p style="font-family: 'Oswald', sans-serif;" class="text-center"><span>KALA MAARJA HILLER</span></p>
+            </div>
+            <div class="col">
+                <img style="height:200px;width:400px;" src="../../Content/images/Cast_Img_3.jpg" class="rounded-circle img-fluid" alt="Heath Hyun Houghton" />
+                <p style="font-family: 'Oswald', sans-serif;" class="text-center"><span>HEATH HYUN HOUGHTON</span></p>
+            </div>
+            <div class="col">
+                <img style="height:200px;width:400px;" src="../../Content/images/Cast_Img_4.jpg" class="rounded-circle img-fluid" alt="Jacquelle Davis" />
+                <p style="font-family: 'Oswald', sans-serif;" class="text-center"><span>JACQUELLE DAVIS</span></p>
+            </div>
+            <div class="col">
+                <img style="height:200px;width:400px;" src="../../Content/images/Cast_Img_6.jpg" class="rounded-circle img-fluid" alt="Victoria Alarez-Chacon" />
+                <p style="font-family: 'Oswald', sans-serif;" class="text-center"><span>VICTORIA ALAREZ-CHACON</span></p>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <!-- Board Names Div-->
+    <div style="padding-bottom: 25px; padding-top: 10px;">
+        <hr style="background-color: var(--light-color); color: var(--light-color); margin-right:10vw; margin-left:10vw; padding-bottom:3px;" />
+        <h3 style="text-decoration-color: var(--main-color); padding-top:10px;" class="text-center aboutpageheader">Members of the Board</h3>
+        <p class="text-center"><span>Jamie Floyd (President)</span></p>
+        <p class="text-center"<span>Tom Mounsey</span></p>
+        <p class="text-center"<span>Marcia Reyes</span></p>
+        <p class="text-center"<span>Lena-Liis-Kiesel</span></p>
+    </div>
+
+</body>
+</html>
