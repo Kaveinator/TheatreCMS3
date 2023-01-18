@@ -465,37 +465,34 @@ content: "";
 display: table;
 clear: both;
 }
-button.home-index--button {
+.home-index--button {
     background-color: var(--main-color--light);
     color: white;
     border-radius: 15px;
     padding: 25px;
 }
 
-home-index--h2 {
+.home-index--h2 {
     font-family: "Oswald";
 }
 
-img.home-index--naya {
+.home-index--naya {
     padding-top:2400px;
 }
 
-div.home-index--sponsors{
-    height: 100%;
+.home-index--sponsors {
+    padding-top: 75px;
 }
-p.home-index--underscore{
+.home-index--underscore{
     color: var(--main-color--light);
 }
-img.home-index--vertigologo {
+.home-index--vertigologo {
     padding-top: 100px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
 }
-h2.home-index--sponsors{
-    padding-top: 75px;
-}
-h2.home-index--landagree{
+.home-index--landagree{
     padding-top: 100px;
 }
