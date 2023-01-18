@@ -462,7 +462,6 @@ footer {
     }
 
 
-
 .Contact-volunteer button {
     background-color: var(--main-color);
 }
@@ -494,38 +493,7 @@ footer {
     text-align: left;
 }
 
-body {
-    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
-    *
 
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-
-body {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 30px;
-    color: #777;
-    background: #0CF;
-}
-
-.container {
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-}
 
 #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] {
     font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
