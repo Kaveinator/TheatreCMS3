@@ -446,13 +446,13 @@ footer {
     width: 50%;
 }
 /*Style 2 columns under Theatre Vertigo Logo*/
-.column1 {
+.home-index--column1 {
     float: left;
     width: 66.66%;
     padding: 10px;
     padding-top: 150px;
 }
-.column2 {
+.home-index--column2 {
     float: left;
     width: 33.33%;
     height: 3320px;
@@ -465,33 +465,37 @@ content: "";
 display: table;
 clear: both;
 }
-button {
+button.home-index--button {
     background-color: var(--main-color--light);
     color: white;
     border-radius: 15px;
     padding: 25px;
 }
 
-h2 {
+home-index--h2 {
     font-family: "Oswald";
 }
 
-img.naya {
+img.home-index--naya {
     padding-top:2400px;
 }
 
-div.sponsors{
+div.home-index--sponsors{
     height: 100%;
 }
-p.underscore{
+p.home-index--underscore{
     color: var(--main-color--light);
 }
-img.vertigologo{
+img.home-index--vertigologo {
     padding-top: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
-h2.sponsors{
+h2.home-index--sponsors{
     padding-top: 75px;
 }
-h2.landagree{
+h2.home-index--landagree{
     padding-top: 100px;
 }
