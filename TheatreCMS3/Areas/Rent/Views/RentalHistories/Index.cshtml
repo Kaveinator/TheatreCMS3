@@ -31,38 +31,45 @@
     <tr>
         <th scope="col">@Html.DisplayNameFor(model => model.RentalDamaged)</th>
         <th scope="col">@Html.DisplayNameFor(model => model.Rental)</th>
-        <th scope="col">@Html.DisplayNameFor(model => model.DamagesIncurred)</th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <th scope="row"><i id="Check">
-            @if (item.RentalDamaged == true)
-            {
-                <i class="fa-solid fa-circle-xmark RentalHistory-Index--RedX"></i>
-            }
-            else
-            {
-                <i class="fa-solid fa-circle-check RentalHistory-Index--CheckMark"></i>
-            }
-            </th>
-            <th scope="row"><span class="badge badge-dark"> @Html.DisplayFor(modelItem => item.Rental)</span></th>
-            <th scope="row">
-            @{TheatreCMS3.Helpers.TextHelpers TextHelp = new TheatreCMS3.Helpers.TextHelpers(); }
-            @{string DamagesIncurredText = Html.DisplayFor(modelItem => item.DamagesIncurred).ToString(); }
-            @{string FinalText = TheatreCMS3.Helpers.TextHelpers.Truncate(DamagesIncurredText, 100); }
-            @FinalText
-            </th>
-            <th scope="row" class="RentalHistory-Index--Dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis-vertical RentalHistory-Index--Ellipsis"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })</a>
-                    <a class="dropdown-item" href="#">@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })</a>
-                    <a class="dropdown-item" href="#">@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })</a>
+<tr>
+    <th scope="row">
+        <i id="Check"></i>
+        @if (item.RentalDamaged == true)
+        {
+            <i class="fa-solid fa-circle-xmark RentalHistory-Index--RedX"></i>
+        }
+        else
+        {
+            <i class="fa-solid fa-circle-check RentalHistory-Index--CheckMark"></i>
+        }
+    </th>
+    <th scope="row"><div class="accordion">
+        <div class="card">
+            <div class="card-header" id="heading">
+                <button type="button" class="badge badge-dark" data-toggle="collapse" data-target="#@item.RentalHistoryId" aria-expanded="false" aria-controls="@item.RentalHistoryId">
+                    @Html.DisplayFor(modelItem => item.Rental)
+                </button> 
+            </div>
+            <div id="@item.RentalHistoryId" class="collapse" aria-labelledby="heading" data-parent="#accordion">
+                <div class="card-body">
+                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
                 </div>
-            </th>
-        </tr>
+            </div>
+        </div>
+     </div></th>
+    <th scope="row" class="RentalHistory-Index--Dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-ellipsis-vertical RentalHistory-Index--Ellipsis"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })</a>
+            <a class="dropdown-item" href="#">@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })</a>
+            <a class="dropdown-item" href="#">@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })</a>
+        </div>
+    </th>
+</tr>
     }
 </table>

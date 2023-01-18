@@ -11,4 +11,3 @@ $("#RentalDamaged").click(function () {
     }
 });
 
-
