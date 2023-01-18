@@ -467,5 +467,8 @@ clear: both;
 button {
     background-color: var(--secondary-color);
 }
+h2{
+    font-family: oswald;
+}
 
 
