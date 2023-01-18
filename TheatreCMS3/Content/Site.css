@@ -384,10 +384,10 @@ footer {
 
 /* Allow elements to fill entire form and be centered */
 .Register-div {
-  padding: 10px;
-  max-width: 80%;
-  margin: 0 auto;
-  text-align: center;
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* Change background color of input fields */
@@ -437,6 +437,65 @@ footer {
         background: var(--light-color) !important;
 }
 
+/*Centers Theatre Vertigo Logo*/
+.home-index--vertigologo {
+    align-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+/*Style 2 columns under Theatre Vertigo Logo*/
+.home-index--column1 {
+    float: left;
+    width: 66.66%;
+    padding: 10px;
+    padding-top: 150px;
+}
+.home-index--column2 {
+    float: left;
+    width: 33.33%;
+    height: 3320px;
+    padding: 10px;
+    padding-top: 150px;
+}
+/* Clear floats after the columns */
+.home-index--row1:after {
+content: "";
+display: table;
+clear: both;
+}
+.home-index--button {
+    background-color: var(--main-color--light);
+    color: white;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.home-index--h2 {
+    font-family: "Oswald";
+}
+
+.home-index--naya {
+    padding-top:2400px;
+}
+
+.home-index--sponsors {
+    padding-top: 75px;
+}
+.home-index--underscore{
+    color: var(--main-color--light);
+}
+.home-index--vertigologo {
+    padding-top: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.home-index--landagree{
+    padding-top: 100px;
+}
 /*Contact Page Styling Section*/
 
 .home-contact--donation {

@@ -1,32 +1,100 @@
 ﻿@{
-  ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Page";
 }
 
+<!--add theatre vertigo logo under navbar-->
+<img src="~/content/images/theatrelogo.png" alt="theatre vertigo logo" class="home-index--vertigologo" />
+
 <div>
-  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
-  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
-  @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
-  @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
-</div>
+    @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+
+    <!--Add columns under Theatre Vertigo Logo-->
+    <div class="home-index--column1">
+        <h2 class="home-index--h2">SPOTLIGHT</h2>
+        <p class="home-index--underscore">________</p>
+        <img src="~/Content/images/DollsHouse.png" alt="Dolls House"
+             width="740" />
+        <img src="~/Content/images/macbeth.png" alt="Macbeth"
+             width="740" />
+        <img src="~/Content/images/MidsummerNightDream.png" alt="A Midsummer Night's' Dream"
+             width="740" />
+        <img src="~/Content/images/Tempest.png" alt="Temptest"
+             width="740" />
+        <div class="home-index--LandAgreement">
+            <h2 class="home-index--landagree">LAND AGREEMENT</h2>
+            <p class="home-index--underscore">________</p>
+            <p>
+                Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional
+                tribal lands of the Multnomah, Wasco, Clackamas, Chinook bands, Kathlamet, Tualitin
+                Kalapuya, Cowlitz, Mollala, Cascades, Oregon City Tumwater, Confederated Tribes of
+                the Grand Ronde and other indigenous peoples.
+            </p>
+            <p><strong>We are on stolen land.</strong></p>
+            <p>
+                Theatre Vertigo has been and continues to examine our community relationships to
+                ensure our collaborators, partners, and sponsors support the our regions Indigenous
+                Nations and communities.
+            </p>
+            <p>
+                One of the ways Theatre Vertigo is working to act on our commitent to being of
+                service to the lands that we now share is to build bridges betwwen our arts
+                community and local Nations.
+            </p>
+        </div>
+    </div>
+            
+        <div class="home-index--column2">
+            <h2 class="home-index--h2">DONATIONS</h2>
+            <p class="home-index--underscore">________</p>
+            <button class="home-index--button" onclick="">Click to Support!</button>
+
+
+            <h2 class="home-index--sponsors">SPONSORS</h2>
+            <p class="home-index--underscore">________</p>
+            <img src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" alt="Ellyn Bye"
+                 width="133" />
+            <img src="~/Content/images/Sponsors/LogoRoundColor.png" alt="Logo Round Color"
+                 width="60" />
+            <img src="~/Content/images/Sponsors/Ninkasi-white-text.png" alt="Ninkasi"
+                 width="60" />
+
+            <img src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" alt="OFC"
+                 width="350" />
+
+            <img src="~/Content/images/Sponsors/RACC.png" alt="RACC"
+                 width="350" />
+
+            <a href="https://nayapdx.org/">
+                <img class="home-index--naya" src="~/Content/images/NAYAFamilyCenter.jpg" alt="NAYA Family Center" />
+            </a>
+
+
+                <br />Click to visit the NAYA Family Center to learn more
+                about supporting our local indigenous communities.
+            
+        </div>
+    </div>
+
 
 @*<div class="row">
-      <div class="col-md-4">
-          <h2>Getting started</h2>
-          <p>
-              ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-              enables a clean separation of concerns and gives you full control over markup
-              for enjoyable, agile development.
-          </p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-          <h2>Get more libraries</h2>
-          <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-          <h2>Web Hosting</h2>
-          <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-      </div>
-  </div>*@
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
