@@ -450,13 +450,14 @@ footer {
     float: left;
     width: 66.66%;
     padding: 10px;
-    height: 300px;
+    padding-top: 150px;
 }
 .column2 {
     float: left;
     width: 33.33%;
+    height: 3320px;
     padding: 10px;
-    height: 300px;
+    padding-top: 150px;
 }
 /* Clear floats after the columns */
 .row1:after {
@@ -467,8 +468,19 @@ clear: both;
 button {
     background-color: var(--main-color--light);
 }
-h2{
-    font-family: oswald;
+
+h2 {
+    font-family: "Oswald";
 }
 
+img.naya {
+    padding-top:2400px;
+}
+
+div.sponsors{
+    height: 100%;
+}
+p.underscore{
+    color: var(--main-color--light);
+}
 
