@@ -62,5 +62,175 @@
     margin: 10px;
 }
 
+.RentalHistory-Index--Header {
+    text-align: center;
+}
+
+.RentalHistory-Index--Table {
+    background-color: white;
+    max-width: 1200px;
+    border: 2px solid var(--main-color--light);
+    border-radius: 16px;
+}
+
+.RentalHistory-Index--Dropdown {
+     opacity: 0;
+}
+
+.RentalHistory-Index--Dropdown:hover {
+    opacity: 1;
+}
+
+.RentalHistory-Index--Ellipsis {
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    color: white;
+}
+
+.RentalHistory-Index--CheckMark {
+    background-color: white;
+    color: green;
+}
+
+.RentalHistory-Index--RedX {
+    background-color: white;
+    color: red;
+}
+
+.RentalHistory-Index--SortOptions {
+    right: -900px;
+}
+
+
+
+
+
+/* Form Header */
+.rental-create--header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 0;
+}
+
+
+.rental-edit--header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 0;
+}
+
+
+
+.rental-create--form {
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.rental-edit--form {
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+
+/* Submit button */
+.rental-create--submitbutton {
+    background-color: var(--light-color );
+    margin-bottom: 20px;
+}
+/* Back to List button */
+.rental-create--BackToListButton {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    margin-bottom: .5%;
+}
+
+/* Hover effect for create */
+.rental-create--submitbutton:hover {
+    background-color: var(--main-color);
+}
+
+.rental-create--BackToListButton:hover {
+    background-color: var(--main-color);
+}
+
+/* Edit Save button */
+.rental-edit--savebutton {
+    background-color: var(--light-color );
+    margin-bottom: 20px;
+}
+/* Edit Back to List button */
+.rental-edit--BackToListButton {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    margin-bottom: .5%;
+}
+/* Hover effect for edit */
+.rental-edit--savebutton:hover {
+    background-color: var(--main-color);
+}
+
+.rental-edit--BackToListButton:hover {
+    background-color: var(--main-color);
+}
+
+.rental-create--vertical-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.rental-edit--vertical-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+
+
+.rental-create--border {
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--light-color);
+    outline-width: 0;
+    
+}
+
+.rental-create--border:focus {
+    outline: none;
+    color: var(--light-color);
+    box-shadow: 0 0 0 2px var(--main-color);
+    border-color: var(--main-color--light);
+    border: 3px solid var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+
+.rental-edit--border {
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--light-color);
+    outline-width: 0;
+}
+
+.rental-edit--border:focus {
+    outline: none;
+    color: var(--light-color);
+    box-shadow: 0 0 0 2px var(--main-color);
+    border-color: var(--main-color--light);
+    border: 3px solid var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+
+
+
+
 
 
