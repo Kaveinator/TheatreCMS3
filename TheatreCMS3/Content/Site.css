@@ -465,7 +465,7 @@ display: table;
 clear: both;
 }
 button {
-    background-color: var(--secondary-color);
+    background-color: var(--main-color--light);
 }
 h2{
     font-family: oswald;
