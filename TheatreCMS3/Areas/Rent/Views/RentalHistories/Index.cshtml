@@ -1,75 +1,77 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
-<script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script> 
+<script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2 class="RentalHistory-Index--Header">Index</h2>
 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table RentalHistory-Index--Table">
+  <tr>
+    <th>
+      <div class="dropdown RentalHistory-Index--SortOptions">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          No Extra Sorting...
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Damaged Rentals" })">Damaged Rentals</a>
+          <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Undamaged Rentals" })">Undamaged Rentals</a>
+          <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Rentals A-Z" })">Rentals A-Z</a>
+          <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Rentals Z-A" })">Rentals Z-A</a>
+        </div>
+      </div>
+    </th>
+  </tr>
+  <tr>
+    <th scope="col">@Html.DisplayNameFor(model => model.RentalDamaged)</th>
+    <th scope="col">@Html.DisplayNameFor(model => model.Rental)</th>
+  </tr>
+  @foreach (var item in Model)
+  {
     <tr>
-        <th>
-            <div class="dropdown RentalHistory-Index--SortOptions">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    No Extra Sorting...
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Damaged Rentals" })">Damaged Rentals</a>
-                    <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Undamaged Rentals" })">Undamaged Rentals</a>
-                    <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Rentals A-Z" })">Rentals A-Z</a>
-                    <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortName = "Rentals Z-A" })">Rentals Z-A</a>
-                </div>
-            </div>
-        </th>
-    </tr>
-    <tr>
-        <th scope="col">@Html.DisplayNameFor(model => model.RentalDamaged)</th>
-        <th scope="col">@Html.DisplayNameFor(model => model.Rental)</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-<tr>
-    <th scope="row">
+      <th scope="row"  data-toggle="collapse" data-target="#collapse-@item.RentalHistoryId" aria-expanded="true" aria-controls="collapse-@item.RentalHistoryId">
         <i id="Check"></i>
         @if (item.RentalDamaged == true)
         {
-            <i class="fa-solid fa-circle-xmark RentalHistory-Index--RedX"></i>
+          <i class="fa-solid fa-circle-xmark RentalHistory-Index--RedX"></i>
         }
         else
         {
-            <i class="fa-solid fa-circle-check RentalHistory-Index--CheckMark"></i>
+          <i class="fa-solid fa-circle-check RentalHistory-Index--CheckMark"></i>
         }
-    </th>
-    <th scope="row"><div class="accordion">
-        <div class="card">
+      </th>
+      <th scope="row">
+        <div class="accordion" id="accordion">
+          <div class="card">
             <div class="card-header" id="heading">
-                <button type="button" class="badge badge-dark" data-toggle="collapse" data-target="#@item.RentalHistoryId" aria-expanded="false" aria-controls="@item.RentalHistoryId">
-                    @Html.DisplayFor(modelItem => item.Rental)
-                </button> 
+              <button type="button" class="badge badge-dark">
+                @Html.DisplayFor(modelItem => item.Rental)
+              </button>
             </div>
-            <div id="@item.RentalHistoryId" class="collapse" aria-labelledby="heading" data-parent="#accordion">
-                <div class="card-body">
-                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
-                </div>
+            <div id="collapse-@item.RentalHistoryId" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                @Html.DisplayFor(modelItem => item.DamagesIncurred)
+              </div>
             </div>
+          </div>
         </div>
-     </div></th>
-    <th scope="row" class="RentalHistory-Index--Dropdown">
+      </th>
+      <th scope="row" class="RentalHistory-Index--Dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa-solid fa-ellipsis-vertical RentalHistory-Index--Ellipsis"></i>
+          <i class="fa-solid fa-ellipsis-vertical RentalHistory-Index--Ellipsis"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })</a>
-            <a class="dropdown-item" href="#">@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })</a>
-            <a class="dropdown-item" href="#">@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })</a>
+          <a class="dropdown-item" href="#">@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })</a>
+          <a class="dropdown-item" href="#">@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })</a>
+          <a class="dropdown-item" href="#">@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })</a>
         </div>
-    </th>
-</tr>
-    }
+      </th>
+    </tr>
+  }
 </table>
