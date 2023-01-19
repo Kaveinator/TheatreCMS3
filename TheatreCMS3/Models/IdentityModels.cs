@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Prod.Models;
 
 namespace TheatreCMS3.Models
 {
@@ -46,7 +47,8 @@ namespace TheatreCMS3.Models
         /* ▼ Put DbSet's for your models below ▼ */
 
         public DbSet<RentalHistory> RentalHistory { get; set; }
-        public DbSet<Rental> Rental { get; set; }
+        public DbSet<Rental> Rental { get; set; } 
+        public DbSet<Production> Productions { get; set; }
 
 }
 
