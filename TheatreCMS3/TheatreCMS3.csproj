@@ -199,6 +199,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
+    <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
@@ -307,6 +309,11 @@
     <Content Include="Areas\Rent\Views\Rentals\Details.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Index.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoes\Create.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoes\Delete.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoes\Details.cshtml" />
