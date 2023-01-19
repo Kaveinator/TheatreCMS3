@@ -21,7 +21,7 @@
         @Html.HiddenFor(model => model.ProductionId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Title,"Title", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="prod-edit--vertical-center prod-edit-border">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control prod-edit-border" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
@@ -53,7 +53,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OpeningDay, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OpeningDay,"Opening Day", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="prod-edit--vertical-center prod-edit-border">
                 @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "form-control prod-edit-border" } })
                 @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
@@ -61,7 +61,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ClosingDay, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ClosingDay, "Closing Day", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="prod-edit--vertical-center prod-edit-border">
                 @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "form-control prod-edit-border" } })
                 @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-danger" })
@@ -69,7 +69,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ShowTimeEve, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ShowTimeEve, "Evening Showtime", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="prod-edit--vertical-center prod-edit-border">
                 @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "form-control prod-edit-border" } })
                 @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-danger" })
@@ -77,7 +77,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ShowTimeMat, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ShowTimeMat, "Morning Showtime", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="prod-edit--vertical-center prod-edit-border">
                 @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "form-control prod-edit-border" } })
                 @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-danger" })
@@ -93,7 +93,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.isWorldPremier, htmlAttributes: new { @class = "control-label col-md-2 prod-edit-border" })
+            @Html.LabelFor(model => model.isWorldPremier, "World Premier?", htmlAttributes: new { @class = "control-label col-md-2 prod-edit-border" })
             <div class="prod-edit--vertical-center prod-edit-border">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.isWorldPremier)
@@ -103,7 +103,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TicketLink, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TicketLink, "Ticket Link", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="prod-edit--vertical-center prod-edit-border">
                 @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "form-control prod-edit-border" } })
                 @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
@@ -111,7 +111,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.isCurrentlyShowing, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.isCurrentlyShowing, "Currnetly Showing?", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="prod-edit--vertical-center prod-edit-border">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.isCurrentlyShowing)
