@@ -13,3 +13,89 @@
 /*}*/
 
 
+.prod-create-header
+{
+    text-align: center;
+    padding: 20px 0;
+
+
+}
+
+.prod-create-form{
+
+    text-align: center;
+}
+
+
+.prod-create-border{
+    font-size: 1.1rem;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    color: var(--main-color);
+    border-radius: 5px;
+    outline-width: 0;
+}
+
+.prod-create-border:focus {
+    outline: none;
+    color: var(--main-color);
+    box-shadow: 0 0 0 1.2px var(--main-color--light);
+    border-color: var(--main-color-light);
+    border: 1.1px solid var(--main-color);
+    background-color: var(--secondary-color);
+    transition: 0.4s;
+}
+
+
+
+.prod-create--vertical-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.prod-create-submitButton{
+    background-color: var(--secondary-color--dark);
+    color: var(--dark-color);
+    font-size: 1.15em;
+    font-weight: 750;
+    padding: 8px 25px;
+    border: 1.5px solid var(--dark-color);
+    outline: none;
+    transition: 0.3s;
+    justify-content:center;
+    border-radius: 6px;
+    width: 110px;
+
+}
+
+.prod-create-submitButton:active{
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+}
+
+.prod-create-submitButton:hover{
+    letter-spacing: 0.7px;
+}
+
+.prod-create-BackToListButton {
+    background-color: var(--main-color--light);
+    color: var(--dark-color);
+    font-size: 1.15em;
+    font-weight: 750;
+    padding: 8px 25px;
+    border: 1.5px solid var(--dark-color);
+    outline: none;
+    transition: 0.4s;
+    text-align:center;
+    border-radius: 6px;
+    width: 160px;
+}
+
+.prod-create-BackToListButton:active {
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+}
+
+.prod-create-BackToListButton:hover {
+    letter-spacing: 0.5px;
+}
