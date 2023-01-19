@@ -49,7 +49,7 @@ namespace TheatreCMS3.Models
         public DbSet<RentalHistory> RentalHistory { get; set; }
         public DbSet<Rental> Rental { get; set; } 
         public DbSet<Production> Productions { get; set; }
-
+        public DbSet<ProductionPhoto> ProdcutionPhotoes { get; set; }
 }
 
 
