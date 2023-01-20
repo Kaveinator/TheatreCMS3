@@ -13,7 +13,7 @@ namespace TheatreCMS3.Areas.Prod
         // If you wish to target a different database and/or database provider, modify the 'CastMember' 
         // connection string in the application configuration file.
         public CastMemberContext()
-            : base("name=CastMember")
+            : base("DefaultConnection")
         {
         }
 
