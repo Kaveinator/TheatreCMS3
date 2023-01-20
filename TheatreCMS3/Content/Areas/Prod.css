@@ -1,15 +1,138 @@
-﻿
-/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
 /* Do not uncomment these color variables */
 
 /* CSS color variables */
-/*:root { /* Color palette for css */
-/*--main-color: #BD1A11;  Red */
+/*:root {*/ /* Color palette for css */
+/*--main-color: #BD1A11;*/ /* Red */
 /*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
 /*--secondary-color: #D6972A;*/ /* Yellow gold */
 /*--light-color: #FFFBFB;*/ /* White */
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/*-------------------START EDIT PAGE-----------------*/
 
+
+.prod-calendar-edit-container-form-horizontal {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color--dark), -1px -1px 0px var(--secondary-color--dark);
+    max-width: 600px;
+}
+
+
+
+.prod-calendar-edit-form-control {
+    width: 122%;
+}
+
+
+.prod-calendar-edit-header {
+    text-align: center;
+    color: white;
+}
+
+
+.prod-calendar-edit-button-form-group {
+    margin-inline: 0%;
+    padding-bottom: 4%;
+}
+
+
+.prod-calendar-edit-button {
+    background-color: #FFFBFB;
+    border-block-color: black;
+    border: 2px black;
+    padding: 3px;
+    width: 122%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: inherit;
+}
+
+.prod-calendar-edit-button-BackToList {
+    margin-bottom: 5%;
+    background-color: #FFFBFB;
+    background-color: #FFFBFB;
+    border: 2px black;
+    color: black;
+    width: 122%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: inherit;
+    text-align: center;
+    padding: 3px;
+}
+
+
+/*-------------------END EDIT PAGE-----------------*/
+
+/*-------------------START  CREATE PAGE-----------------*/
+
+
+.prod-calendar-container-form-horizontal {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color--dark), -1px -1px 0px var(--secondary-color--dark);
+    max-width: 600px;
+}
+
+
+
+.prod-calendar-create-form-control {
+    width: 122%;
+}
+
+
+.prod-calendar-create-header {
+    text-align: center;
+    color: white;
+}
+
+.prod-calendar-create-button-form-group {
+    margin-inline: 0%;
+    padding-bottom: 4%;
+}
+
+.prod-calendar-create-button {
+    background-color: #FFFBFB;
+    border-block-color: black;
+    border: 2px black;
+    padding: 3px;
+    width: 122%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: inherit;
+}
+
+.buttoncalendarcreateBackToListButton {
+    margin-bottom: 5%;
+    background-color: #FFFBFB;
+    background-color: #FFFBFB;
+    border: 2px black;
+    color: black;
+    width: 122%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: inherit;
+    text-align:center;
+    padding: 3px;
+}
+
+/*-------------------END CREATE PAGE-----------------*/
