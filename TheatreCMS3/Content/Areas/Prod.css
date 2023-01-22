@@ -192,12 +192,18 @@
 
 /*Start Create Styling*/
 
-input.btn-default {
+input.prod-create-createButton {
     background-color: var(--main-color--light);
     padding: 10px 24px;
     border-radius: 8px;
     text-align: center;
     color: white;
+    margin: 0;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    /*-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
 }
 .prod-create--backToList {
     background-color: var(--main-color--light);
@@ -205,6 +211,12 @@ input.btn-default {
     border-radius: 8px;
     text-align: center;
     color: white;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 46%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 /*End Create Styling */
