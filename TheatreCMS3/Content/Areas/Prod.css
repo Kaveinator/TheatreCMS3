@@ -196,11 +196,15 @@ input.btn-default {
     background-color: var(--main-color--light);
     padding: 10px 24px;
     border-radius: 8px;
+    text-align: center;
+    color: white;
 }
 .prod-create--backToList {
     background-color: var(--main-color--light);
     padding: 10px 24px;
     border-radius: 8px;
+    text-align: center;
+    color: white;
 }
 
 /*End Create Styling */
