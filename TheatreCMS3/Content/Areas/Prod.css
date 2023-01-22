@@ -193,7 +193,7 @@
 /*Start Create Styling*/
 
 input.prod-create-createButton {
-    background-color: var(--main-color--light);
+    background-color: var(--main-color);
     padding: 10px 24px;
     border-radius: 8px;
     text-align: center;
@@ -202,8 +202,9 @@ input.prod-create-createButton {
     position: absolute;
     top: 95%;
     left: 50%;
-    /*-ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);*/
+}
+input.prod-create-createButton:hover{
+    background-color: var(--main-color--light)
 }
 .prod-create--backToList {
     background-color: var(--main-color--light);
@@ -218,5 +219,12 @@ input.prod-create-createButton {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
+.prod-create--backToList:hover{
+    background-color: var(--main-color)
+}
+.prod-create-heading {
+    color: var(--main-color); 
+    text-shadow: 1px 1px 2px white;
+    text-align: center;
+}
 /*End Create Styling */
