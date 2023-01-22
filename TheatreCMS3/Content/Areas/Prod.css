@@ -189,3 +189,18 @@
     letter-spacing: 0.5px;
 }
 /*end of Edit*/
+
+/*Start Create Styling*/
+
+input.btn-default {
+    background-color: var(--main-color--light);
+    padding: 10px 24px;
+    border-radius: 8px;
+}
+.prod-create--backToList {
+    background-color: var(--main-color--light);
+    padding: 10px 24px;
+    border-radius: 8px;
+}
+
+/*End Create Styling */
