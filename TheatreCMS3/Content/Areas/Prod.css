@@ -198,33 +198,41 @@ input.prod-create-createButton {
     border-radius: 8px;
     text-align: center;
     color: white;
-    margin: 0;
-    position: absolute;
-    top: 95%;
-    left: 50%;
 }
-input.prod-create-createButton:hover{
-    background-color: var(--main-color--light)
-}
+    input.prod-create-createButton:hover {
+        background-color: var(--main-color--light)
+    }
 .prod-create--backToList {
     background-color: var(--main-color--light);
     padding: 10px 24px;
     border-radius: 8px;
     text-align: center;
     color: white;
-    margin: 0;
-    position: absolute;
-    top: 100%;
-    left: 46%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+
 }
 .prod-create--backToList:hover{
     background-color: var(--main-color)
 }
 .prod-create-heading {
     color: var(--main-color); 
-    text-shadow: 1px 1px 2px white;
+    text-shadow: 1px 1px 2px var(--light-color);
     text-align: center;
 }
-/*End Create Styling */
+div.form-horizontal {
+    display: block;
+    margin: auto;
+}
+div.prod-create-container {
+    display: block;
+    margin: auto;
+    background-color: var(--secondary-color);
+    padding-bottom: 20px;
+}
+.prod-create--centered  {
+    margin: auto;
+}
+.form-control:focus {
+    box-shadow: 5px 5px 5px 5px var(--main-color);
+}
+
+/*End Create Styling*/
