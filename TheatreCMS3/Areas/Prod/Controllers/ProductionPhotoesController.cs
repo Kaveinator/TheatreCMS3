@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -45,12 +46,18 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // POST: Prod/ProductionPhotoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+        //Check if Photofile is sent through.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProductionPhotoId,Title,Description,PhotoFile")] ProductionPhoto productionPhoto, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
+                byte[] myBytes;
+                myBytes = ToByteArray(postedFile);
+                productionPhoto.PhotoFile = myBytes;
                 db.ProdcutionPhotoes.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -58,6 +65,36 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
             return View(productionPhoto);
         }
+        
+        public byte[] ToByteArray(HttpPostedFileBase postedFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            {
+                bytes = br.ReadBytes(postedFile.ContentLength);
+            }
+            return bytes;
+        }
+
+        //public HttpPostedFileBase ToHttpPostedFileBase (int id)
+        //{
+            
+        //    byte[] bytes;
+        //    ProductionPhoto productionPhoto = db.ProdcutionPhotoes.Find(id);
+        //    bytes = productionPhoto.PhotoFile;
+        //    using (var ms = new MemoryStream(byteArrayIn))
+        //    {
+               
+        //    }
+
+
+        //    BinaryReader br = new BinaryReader(bytes.InputStream);
+        //    HttpPostedFileBase postedFile = (HttpPostedFileBase) new Memory
+
+        //    return postedFile;
+        //}
+
+
 
         // GET: Prod/ProductionPhotoes/Edit/5
         public ActionResult Edit(int? id)
@@ -124,5 +161,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
     }
 }

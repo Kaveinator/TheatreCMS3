@@ -7,11 +7,11 @@
 
 <br />
 <br />
-
-@using (Html.BeginForm()) 
+<!-- Something goes int the Begin Form-->
+@using (Html.BeginForm("Create", "ProductionPhotoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    
+@Html.AntiForgeryToken()
+
 <div class="form-horizontal rounded" style="background-color: var(--main-color--light); padding: 10px;">
     <h3 style="padding: 15px;">Create a Production Photo</h3>
 
@@ -36,7 +36,10 @@
                     </div>
                 </div>
             </div>
-            <img src="../../../../Content/images/DollsHouse.png" alt="Production Image" style="min-height:300px; padding: 15px;" class="rounded" />
+            <div>
+                @Html.TextBoxFor(model => model.PhotoFile, new { Name = "postedFile", type = "file", style = "padding:15px;" }) <br />
+                <img src="../../../../Content/images/DollsHouse.png" alt="Production Image" style="min-height:300px; padding: 15px;" class="rounded" />
+            </div>
         </div>
     </div>
 

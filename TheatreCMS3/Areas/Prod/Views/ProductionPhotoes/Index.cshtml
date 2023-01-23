@@ -18,23 +18,34 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhotoFile)
+        </th>
+        <th>
+            <p>Options</p>
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductionPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductionPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductionPhotoId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.PhotoFile)" alt="Production Image" style="max-height:100px; padding: 15px;" class="rounded" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductionPhotoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductionPhotoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductionPhotoId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
