@@ -89,19 +89,24 @@
                     @Html.ValidationMessageFor(model => model.DebutYear, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="prod-create-createButton" />
+            <div class="prod-create--buttonContainer">
+                
+                      <div>
+                        <input type="submit" value="Create" class="prod-create-createButton" />
+                    </div>
+                    
+            </div>
+            <div class="prod-create-buttonContainer2">
+                <div>
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "prod-create--backToList" })
                 </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "prod-create--backToList" })
-</div>
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

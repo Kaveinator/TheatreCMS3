@@ -219,12 +219,12 @@ input.prod-create-createButton {
     text-align: center;
 }
 div.form-horizontal {
-    display: block;
-    margin: auto;
+    /*display: flex;
+    justify-content: center;*/
 }
 div.prod-create-container {
-    display: block;
-    margin: auto;
+    /*display: flex;
+    justify-content: center;*/
     background-color: var(--secondary-color);
     padding-bottom: 20px;
 }
@@ -233,6 +233,15 @@ div.prod-create-container {
 }
 .form-control:focus {
     box-shadow: 5px 5px 5px 5px var(--main-color);
+}
+.prod-create--buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+.prod-create-buttonContainer2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
 }
 
 /*End Create Styling*/
