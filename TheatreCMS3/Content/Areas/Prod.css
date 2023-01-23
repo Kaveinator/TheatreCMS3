@@ -355,9 +355,12 @@ div.prod-create-container {
 .prod-create--centered  {
     margin: auto;
 }
-.form-control:focus {
+.prod-create--formcontrol:focus {
     box-shadow: 5px 5px 5px 5px var(--main-color);
 }
+/*.form-control:focus {
+    box-shadow: 5px 5px 5px 5px var(--main-color);
+}*/
 .prod-create--buttonContainer {
     display: flex;
     justify-content: center;
