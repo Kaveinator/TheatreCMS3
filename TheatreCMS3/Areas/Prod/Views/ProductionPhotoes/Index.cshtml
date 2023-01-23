@@ -5,11 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<br />
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2 class="text-center">Production Photoes @Html.ActionLink("+", "Create", null, new { @class = "btn btn-primary", @style = "background-color:var(--main-color); border-radius:50%;" })</h2>
+
+<br />
+<br />
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -38,3 +43,4 @@
 }
 
 </table>
+
