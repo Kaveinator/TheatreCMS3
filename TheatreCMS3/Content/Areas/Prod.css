@@ -1,15 +1,314 @@
-﻿
-/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
 /* Do not uncomment these color variables */
 
 /* CSS color variables */
-/*:root { /* Color palette for css */
-/*--main-color: #BD1A11;  Red */
+/*:root {*/ /* Color palette for css */
+/*--main-color: #BD1A11;*/ /* Red */
 /*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
 /*--secondary-color: #D6972A;*/ /* Yellow gold */
 /*--light-color: #FFFBFB;*/ /* White */
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/*Begining of Create*/
+.prod-create-header
+{
+    text-align: center;
+    padding: 20px 0;
+}
 
+
+.prod-create-form{
+
+    text-align: center;
+}
+
+
+.prod-create-border{
+    font-size: 1.1rem;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    color: var(--main-color);
+    border-radius: 5px;
+    outline-width: 0;
+}
+
+.prod-create-border:focus {
+    outline: none;
+    color: var(--main-color);
+    box-shadow: 0 0 0 1.2px var(--main-color--light);
+    border-color: var(--main-color-light);
+    border: 1.1px solid var(--main-color);
+    background-color: var(--secondary-color);
+    transition: 0.4s;
+}
+
+
+
+.prod-create--vertical-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.prod-create-submitButton{
+    background-color: var(--secondary-color--dark);
+    color: var(--dark-color);
+    font-size: 1.15em;
+    font-weight: 750;
+    padding: 8px 25px;
+    border: 1.5px solid var(--dark-color);
+    outline: none;
+    transition: 0.3s;
+    justify-content:center;
+    border-radius: 6px;
+    width: 110px;
+
+}
+
+.prod-create-submitButton:active{
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+}
+
+.prod-create-submitButton:hover{
+    letter-spacing: 0.7px;
+}
+
+.prod-create-BackToListButton {
+    background-color: var(--main-color--light);
+    color: var(--dark-color);
+    font-size: 1.15em;
+    font-weight: 750;
+    padding: 8px 25px;
+    border: 1.5px solid var(--dark-color);
+    outline: none;
+    transition: 0.4s;
+    text-align:center;
+    border-radius: 6px;
+    width: 160px;
+}
+
+.prod-create-BackToListButton:active {
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+}
+
+.prod-create-BackToListButton:hover {
+    letter-spacing: 0.5px;
+}
+/*End Of Create*/
+
+/*-------------------START EDIT PAGE-----------------*/
+
+
+
+/*Edit*/
+
+
+
+.prod-edit-header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+.prod-edit-form {
+    text-align: center;
+}
+
+.prod-edit-border {
+    font-size: 1.1rem;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    color: var(--main-color);
+    border-radius: 5px;
+    outline-width: 0;
+}
+
+.prod-edit-border:focus {
+    outline: none;
+    color: var(--main-color);
+    box-shadow: 0 0 0 1.2px var(--main-color--light);
+    border-color: var(--main-color-light);
+    border: 1.1px solid var(--main-color);
+    background-color: var(--secondary-color);
+    transition: 0.4s;
+}
+
+
+.prod-edit--vertical-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+
+.prod-edit-saveButton {
+    background-color: var(--secondary-color--dark);
+    color: var(--dark-color);
+    font-size: 1.15em;
+    font-weight: 750;
+    padding: 8px 25px;
+    border: 1.5px solid var(--dark-color);
+    outline: none;
+    transition: 0.3s;
+    justify-content: center;
+    border-radius: 6px;
+    width: 110px;
+}
+
+.prod-edit-saveButton:active {
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+}
+
+.prod-edit-saveButton:hover {
+    letter-spacing: 0.7px;
+}
+
+.prod-edit-BackToListButton {
+    background-color: var(--main-color--light);
+    color: var(--dark-color);
+    font-size: 1.15em;
+    font-weight: 750;
+    padding: 8px 25px;
+    border: 1.5px solid var(--dark-color);
+    outline: none;
+    transition: 0.4s;
+    text-align: center;
+    border-radius: 6px;
+    width: 160px;
+}
+
+.prod-edit-BackToListButton:active {
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+}
+
+.prod-edit-BackToListButton:hover {
+    letter-spacing: 0.5px;
+}
+/*end of Edit*/
+
+.prod-calendar-edit-container-form-horizontal {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color--dark), -1px -1px 0px var(--secondary-color--dark);
+    max-width: 600px;
+}
+
+
+
+.prod-calendar-edit-form-control {
+    width: 122%;
+}
+
+
+.prod-calendar-edit-header {
+    text-align: center;
+    color: white;
+}
+
+
+.prod-calendar-edit-button-form-group {
+    margin-inline: 0%;
+    padding-bottom: 4%;
+}
+
+
+.prod-calendar-edit-button {
+    background-color: #FFFBFB;
+    border-block-color: black;
+    border: 2px black;
+    padding: 3px;
+    width: 122%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: inherit;
+}
+
+.prod-calendar-edit-button-BackToList {
+    margin-bottom: 5%;
+    background-color: #FFFBFB;
+    background-color: #FFFBFB;
+    border: 2px black;
+    color: black;
+    width: 122%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: inherit;
+    text-align: center;
+    padding: 3px;
+}
+
+
+/*-------------------END EDIT PAGE-----------------*/
+
+/*-------------------START  CREATE PAGE-----------------*/
+
+
+.prod-calendar-container-form-horizontal {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color--dark), -1px -1px 0px var(--secondary-color--dark);
+    max-width: 600px;
+}
+
+
+
+.prod-calendar-create-form-control {
+    width: 122%;
+}
+
+
+.prod-calendar-create-header {
+    text-align: center;
+    color: white;
+}
+
+.prod-calendar-create-button-form-group {
+    margin-inline: 0%;
+    padding-bottom: 4%;
+}
+
+.prod-calendar-create-button {
+    background-color: #FFFBFB;
+    border-block-color: black;
+    border: 2px black;
+    padding: 3px;
+    width: 122%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: inherit;
+}
+
+.buttoncalendarcreateBackToListButton {
+    margin-bottom: 5%;
+    background-color: #FFFBFB;
+    background-color: #FFFBFB;
+    border: 2px black;
+    color: black;
+    width: 122%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: inherit;
+    text-align:center;
+    padding: 3px;
+}
+
+/*-------------------END CREATE PAGE-----------------*/
