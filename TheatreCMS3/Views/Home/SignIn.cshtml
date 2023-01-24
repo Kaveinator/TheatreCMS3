@@ -6,8 +6,6 @@
 
 }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
 <div class="py-5 text-center">
     @*Centered text and padded bottom*@
 
@@ -222,16 +220,3 @@
     <p>Mohammad Nejad</p>
 
 </div>
-
-@* using javascript
-    <script>
-        var count = document.getElementById("PersonList");
-        var count1 = document.getElementsByTagName("p");
-        document.getElementById("NumPersons").innerHTML = count1.length;
-    </script>*@
-
-@*using jquery*@
-<script>
-    var count = $("#PersonList p");
-    document.getElementById("NumPersons").innerHTML = count.length;
-</script>
