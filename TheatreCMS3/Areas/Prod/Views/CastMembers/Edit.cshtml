@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.YearJoined, htmlAttributes: new { @class = "form-control" })
+                @Html.LabelFor(model => model.YearJoined, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.YearJoined, new { htmlAttributes = new { @class = "form-control prod-create--formcontrol", placeholder = "Enter the Year Joined" } })
                     @Html.ValidationMessageFor(model => model.YearJoined, "", new { @class = "text-danger" })
@@ -84,20 +84,25 @@
                     @Html.ValidationMessageFor(model => model.DebutYear, "", new { @class = "text-danger" })
                 </div>
             </div>
+            <div class="prod-create--buttonContainer">
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="prod-create-createButton" />
+                <div>
+                    <input type="submit" value="Create" class="prod-create-createButton" />
+                </div>
+
+            </div>
+            <div class="prod-create-buttonContainer2">
+                <div>
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "prod-create--backToList" })
                 </div>
             </div>
         </div>
-        </div>
-        }
+    </div>
+}
 
-        <div>
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "prod-create--backToList" })
-        </div>
 
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
