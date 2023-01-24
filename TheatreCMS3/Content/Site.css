@@ -629,3 +629,22 @@ clear: both;
 
 
 /*End Contact Page Styling Section*/
+
+/*Sign in page styling*/
+
+.home-signin--container {
+    column-count: 4;    /*creates 4 columns of names on the page*/
+}
+
+    .home-signin--container > p { /*gives <p> specific stylings, any overflow is */
+    background-color: red;        /* hidden and ellipses are shown instead */
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+/*End Sign in page styling*/
