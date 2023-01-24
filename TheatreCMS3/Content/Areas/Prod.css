@@ -322,6 +322,8 @@ input.prod-create-createButton {
     border-radius: 8px;
     text-align: center;
     color: white;
+    /*display: flex;
+    justify-content: center;*/
 }
     input.prod-create-createButton:hover {
         background-color: var(--main-color--light)
