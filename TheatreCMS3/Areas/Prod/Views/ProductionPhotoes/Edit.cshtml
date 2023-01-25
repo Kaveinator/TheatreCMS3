@@ -38,7 +38,10 @@
                     </div>
                 </div>
             </div>
-            <img src="../../../../Content/images/DollsHouse.png" alt="Production Image" style="min-height:300px; padding: 15px;" class="rounded" />
+            <div>
+                @Html.TextBoxFor(model => model.PhotoFile, new { Name = "postedFile", type = "file", style = "padding:15px;" }) <br />
+                <img src="data:image;base64,@System.Convert.ToBase64String(Model.PhotoFile)" alt="Production Image" style="min-height:300px; padding: 15px;" class="rounded" />
+            </div>
         </div>
     </div>
 

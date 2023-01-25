@@ -312,6 +312,69 @@
 }
 
 /*-------------------END CREATE PAGE-----------------*/
+/*end of Edit*/
+
+/*Start Create Styling*/
+
+input.prod-create-createButton {
+    background-color: var(--main-color);
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    /*display: flex;
+    justify-content: center;*/
+}
+    input.prod-create-createButton:hover {
+        background-color: var(--main-color--light)
+    }
+.prod-create--backToList {
+    background-color: var(--main-color--light);
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+
+}
+.prod-create--backToList:hover{
+    background-color: var(--main-color)
+}
+.prod-create-heading {
+    color: var(--main-color); 
+    text-shadow: 1px 1px 2px var(--light-color);
+    text-align: center;
+}
+div.form-horizontal {
+    /*display: flex;
+    justify-content: center;*/
+}
+div.prod-create-container {
+    /*display: flex;
+    justify-content: center;*/
+    background-color: var(--secondary-color);
+    padding-bottom: 20px;
+}
+.prod-create--centered  {
+    margin: auto;
+}
+.prod-create--formcontrol:focus {
+    box-shadow: 5px 5px 5px 5px var(--main-color);
+}
+/*.form-control:focus {
+    box-shadow: 5px 5px 5px 5px var(--main-color);
+}*/
+.prod-create--buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+.prod-create-buttonContainer2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+/*End Create Styling*/
+/*-------------------END CREATE PAGE-----------------*/
 
 
 /* prod-index*/
