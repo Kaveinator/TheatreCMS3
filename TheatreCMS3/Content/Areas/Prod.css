@@ -374,3 +374,25 @@ div.prod-create-container {
 }
 
 /*End Create Styling*/
+
+/*-------------------Start Production Photoes Style-----------------*/
+
+.prod-photoes-button-primary {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+}
+.prod-photoes-button-primary:hover {
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+
+.prod-photoes-button-secondary {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+.prod-photoes-button-secondary:hover {
+    background-color: var(--secondary-color--dark);
+    color: var(--light-color);
+}
+
+/*------------------End Production Photes Styling---------------------*/
