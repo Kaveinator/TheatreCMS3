@@ -8,93 +8,34 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn prod-index--CreateNewButton" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Playwrite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Runtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpeningDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClosingDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeEve)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShowTimeMat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Seasons)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isWorldPremier)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isCurrentlyShowing)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Playwrite)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Runtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OpeningDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClosingDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeEve)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowTimeMat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seasons)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isWorldPremier)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isCurrentlyShowing)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductionId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductionId })
-        </td>
-    </tr>
-}
+<div class="prod-index-direction">
+    @foreach (var item in Model)
+    {
+        <div class="card prod-index--card" style="width: 10rem;">
 
-</table>
+            <img src="~/Content/images/Tempest.png" class="card-img-top prod-index-image" alt="...">
+            <div class="prod-index-overlay">
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "btn prod-index-btn" })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "btn prod-index-btn" })
+            </div>
+
+            <a href="@Url.Action("Details", "Productions", new { id = item.ProductionId })">
+                <div class="card-body">
+                    <p class="card-text text-dark text-center">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </p>
+                </div>
+            </a>
+
+        </div>
+    }
+</div>
+   
+
+
+
+
+

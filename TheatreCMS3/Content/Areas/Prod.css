@@ -374,25 +374,76 @@ div.prod-create-container {
 }
 
 /*End Create Styling*/
+/*-------------------END CREATE PAGE-----------------*/
 
-/*-------------------Start Production Photoes Style-----------------*/
 
-.prod-photoes-button-primary {
-    background-color: var(--main-color--light);
-    color: var(--light-color);
-}
-.prod-photoes-button-primary:hover {
-    background-color: var(--main-color);
-    color: var(--light-color);
+/* prod-index*/
+
+.prod-index-direction {
+    display: flex;
+
 }
 
-.prod-photoes-button-secondary {
+.prod-index--card {
+    display: flex;
+    margin: 10px;
+}
+
+.prod-index--CreateNewButton{
+    outline: none;
+    text-decoration:none;
+    padding: 6px 20px;
     background-color: var(--secondary-color);
-    color: var(--light-color);
-}
-.prod-photoes-button-secondary:hover {
-    background-color: var(--secondary-color--dark);
-    color: var(--light-color);
+    color: var(--dark-color);
+    font-weight: 750;
+
 }
 
-/*------------------End Production Photes Styling---------------------*/
+
+.prod-index--DetailsButton {
+    outline: none;
+    text-decoration: none;
+    padding: 6px 20px;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-weight: 750;
+}
+
+.prod-index-overlay {
+    display: flex;
+    flex-direction: column;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.prod-index-btn {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    font-size: 16px;
+    padding: 5px 20px;
+}
+
+
+.prod-index-image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+
+..prod-index-overlay:hover .prod-index-btn {
+    opacity: 1;
+}
+
+.prod-index-overlay:hover{
+    opacity: 1;
+}
