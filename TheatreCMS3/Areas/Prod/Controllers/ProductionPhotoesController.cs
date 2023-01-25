@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 using System.IO;
+using PagedList;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -17,9 +18,32 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/ProductionPhotoes
-        public ActionResult Index()
+        public ActionResult Index(string searchString, string currentFilter, int? page)
         {
-            return View(db.ProdcutionPhotoes.ToList());
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+
+            var photoes = from x in db.ProdcutionPhotoes
+                          select x;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                photoes = photoes.Where(x => x.Title.Contains(searchString));
+            }
+            
+            int pageSize = 12;
+            int pageNumber = (page ?? 1);
+
+            photoes = photoes.OrderBy(x => x.Title);
+            return View(photoes.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Prod/ProductionPhotoes/Details/5

@@ -1,51 +1,63 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>
+﻿@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>
+    @using PagedList.Mvc;
+<link href="../../../Content/Areas/Prod.css" rel="stylesheet" type="text/css" />
+
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<br />
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhotoFile)
-        </th>
-        <th>
-            <p>Options</p>
-        </th>
-    </tr>
+<h2 class="text-center">Production Photoes</h2>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <img src="data:image;base64,@System.Convert.ToBase64String(item.PhotoFile)" alt="Production Image" style="max-height:100px; padding: 15px;" class="rounded" />
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProductionPhotoId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProductionPhotoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProductionPhotoId })
-            </td>
-        </tr>
-    }
+@using (Html.BeginForm("Index", "ProductionPhotoes", FormMethod.Get))
+{
+<div class="text-center">
+    <p style="font-size:15pt;padding-top:5pt;">
+        Find by Title: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input class="btn prod-photoes-button-primary" type="submit" value="Search" />
+        @Html.ActionLink("Add New Photo", "Create", null, new { @class = "btn prod-photoes-button-secondary" })
+    </p>
+    
+</div>
 
-</table>
+}
 
+<br />
+<br />
+
+@foreach (var title in Model.Select(x => x.Title).Distinct())
+{
+<div style="padding-bottom: 25pt;">
+    <div style="background-color: var(--main-color); padding-right: 15pt; padding-left: 15pt;" class="rounded">
+        <h3 style="padding-top:15pt; padding-bottom:5pt;" class="text-center">@Html.DisplayFor(x => title)</h3>
+        <div style="padding:15pt;" class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var item in Model.Where(x => x.Title == title))
+            {
+            <div class="card" style="width: 18rem; background-color: var(--light-color)">
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.PhotoFile)" alt="Production Image" style="padding: 15px;" class="rounded card-img-top" />
+                <div class="card-body">
+                    <p class="card-text" style="color: var(--dark-color)">@Html.DisplayFor(modelItem => item.Description)</p>
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Edit", "Edit", null, new { id = item.ProductionPhotoId, @class = "btn prod-photoes-button-primary"}) |
+                    @Html.ActionLink("Details", "Details", null, new { id = item.ProductionPhotoId, @class = "btn prod-photoes-button-secondary"}) |
+                    @Html.ActionLink("Delete", "Delete", null, new { id = item.ProductionPhotoId, @class = "btn prod-photoes-button-secondary",})
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+}
+
+<br />
+<div class="float-right">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+</div>
 
