@@ -8,7 +8,7 @@
 <h2 class="prod-create-heading">Create Cast Member</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -89,12 +89,21 @@
                     @Html.ValidationMessageFor(model => model.DebutYear, "", new { @class = "text-danger" })
                 </div>
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" }) <br />
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Photo, new { Name = "postedFile", type = "file" })
+
+                </div>
+            </div>
+
             <div class="prod-create--buttonContainer">
-                
-                      <div>
-                        <input type="submit" value="Create" class="prod-create-createButton" />
-                    </div>
-                    
+
+                <div>
+                    <input type="submit" value="Create" class="prod-create-createButton" />
+                </div>
+
             </div>
             <div class="prod-create-buttonContainer2">
                 <div>
