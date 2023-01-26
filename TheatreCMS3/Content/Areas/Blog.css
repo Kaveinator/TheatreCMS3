@@ -36,3 +36,6 @@
     background-color: var(--secondary-color);
     margin-right: .5em;
 }
+.comment-index--box {
+     color: var(--main-color);
+}
