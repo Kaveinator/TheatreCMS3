@@ -11,10 +11,6 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-* {
-    box-sizing: border-box;
-}
-
 .blogauthor-create_edit-title {
     text-align: center;
     font-family: Jazz LET, fantasy, sans-serif;
@@ -34,11 +30,6 @@
 
 .blogauthor-create_edit-inputlabel {
      padding: 4em;
-}
-
-textarea {
-    width: 100%;
-    height: 10em;
 }
 
 .blogauthor-create_edit-button {
