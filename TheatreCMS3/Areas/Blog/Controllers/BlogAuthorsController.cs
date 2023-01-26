@@ -47,7 +47,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Name,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Create([Bind(Include = "id,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Name,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Edit([Bind(Include = "id,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
         {
             if (ModelState.IsValid)
             {
@@ -124,5 +124,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+        
+        // datetimepicker
     }
 }
