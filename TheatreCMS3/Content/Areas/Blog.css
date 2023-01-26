@@ -11,3 +11,6 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.comment-index--box {
+     color: var(--main-color);
+}
