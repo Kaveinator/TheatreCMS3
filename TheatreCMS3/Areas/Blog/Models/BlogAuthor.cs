@@ -9,7 +9,8 @@ namespace TheatreCMS3.Areas.Blog.Models
     {
         public int id { get; set; }
         public string Name { get; set; }
+        public string Bio { get; set; }
         public DateTime Joined { get; set; }
-        public DateTime Left { get; set; }
+        public DateTime? Left { get; set; }
     }
 }
