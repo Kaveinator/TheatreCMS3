@@ -41,11 +41,7 @@ textarea {
     height: 10em;
 }
 
-.blogauthor-create_edit-submitbutton {
+.blogauthor-create_edit-button {
     background-color: var(--secondary-color);
-    float: right;
-}
-
-.blogauthor-create_edit-backbutton {
-    background-color: var(--secondary-color);
+    margin-right: .5em;
 }
