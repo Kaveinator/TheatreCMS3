@@ -11,31 +11,31 @@
         @Html.DisplayNameFor(model => model.Dislikes)*@
 
 
-<div class="comment-index--container">
+<div>
     @foreach (var item in Model)
     {
-        <div class="list-group comment-index--box">
-            <div @*class="d-flex w-100 justify-content-between"*@>
-                <p class="mb-1"> @Html.DisplayFor(modelItem => item.Author)</p>
-                <small>@Html.DisplayFor(modelItem => item.CommentDate)</small>
-            </div>
-            <h5 class="mb-1">@Html.DisplayFor(modelItem => item.Message)</h5>
+    <div class="card comment-index--container">
+        <div class="card-body">
+            <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Author)</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.CommentDate)</h6>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
             <small>
                 <button type="submit" class="btn btn-primary">Like</button>
                 <button type="submit" class="btn btn-primary">Dislike</button>
                 <button type="submit" class="btn btn-primary">Reply</button>
                 @Html.ActionLink("Delete", "Delete", new { id = item.CommentId }, new { @class = "btn btn-primary comment-index-btn" })
             </small>
+
+
+            <div>@Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) </div>
+            <div>@Html.ActionLink("Details", "Details", new { id = item.CommentId })  </div>
+
         </div>
-
-        <div>@Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) </div>
-        <div>@Html.ActionLink("Details", "Details", new { id = item.CommentId })  </div>
-
         @*@Html.DisplayFor(modelItem => item.Message)
             @Html.DisplayFor(modelItem => item.CommentDate)
             @Html.DisplayFor(modelItem => item.Likes)
             @Html.DisplayFor(modelItem => item.Dislikes)*@
-
+    </div>
     }
 </div>
 
