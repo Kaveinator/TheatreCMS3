@@ -50,6 +50,7 @@ namespace TheatreCMS3.Models
         public DbSet<CastMember> CastMembers { get; set; }
         public DbSet<BlogAuthor> BlogAuthors { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<BlogPost> BlogPosts { get; set; }
 
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.EventCalendar> EventCalendars { get; set; }
     }

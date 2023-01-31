@@ -11,13 +11,15 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-.blogauthor-create_edit-title {
+/*All Blog Author pages*/
+.blogauthor-index_all-title {
     text-align: center;
     font-family: Jazz LET, fantasy, sans-serif;
     font-size: 4em;
-    padding: 1.62em;
+    padding: 1.25em;
 }
 
+/* Blog Author Create and Edit Page Styling*/
 .blogauthor-create_edit-form {
     background-color: var(--main-color--light);
     padding: 1.75em;
@@ -36,6 +38,57 @@
     background-color: var(--secondary-color);
     margin-right: .5em;
 }
+
+
+/* Blog Author Details and Delete Page Styling*/
+.blogauthor-details-container {
+    background-color: var(--secondary-color);
+    border-radius: 15px 50px 30px;
+}
+
+.blogauthor-details-containerbutton {
+    margin:.5em;
+}
+
+.blogauthor-details-tab {
+    display: inline;
+}
+
+.blogauthor-details-authorname{
+    font-size: 2vw;
+    font-weight: bold;
+    color: black;
+}
+
+.blogauthor-details-icon {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    color: aqua;
+}
+
+.blogauthor-details-icon2 {
+    position: absolute;
+    top: 8px;
+    right: 40px;
+}
+
+.blogauthor-details-button {
+    background-color: var(--main-color--light);
+}
+
+.blogauthor-delete-containertitle {
+    text-align: center;
+    padding: 1em;
+}
+
+.blogauthor-delete-container {
+    padding: 1em;
+}
+
+/*Comment Page Styling*/
+.comment-index--box {
+    color: var(--main-color);
 .comment-index--container {
     width: 50%;
     background-color: var(--secondary-color);
