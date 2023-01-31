@@ -22,9 +22,9 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddLikes(int Id)
+        public JsonResult AddLikes(int id)
         {
-            var comment = db.Comments.Find(Id);
+            var comment = db.Comments.Find(id);
             comment.Likes += 1;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
@@ -32,6 +32,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return Json(result);
         }
 
+        [HttpPost]
         public JsonResult AddDislikes(int Id)
         {
             var comment = db.Comments.Find(Id);
