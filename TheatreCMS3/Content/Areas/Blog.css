@@ -87,6 +87,9 @@
 }
 
 /*Comment Page Styling*/
-.comment-index--box {
-    color: var(--main-color);
+
+.comment-index--container {
+    width: 50%;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
 }
