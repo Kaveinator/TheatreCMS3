@@ -5,53 +5,54 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2 class="blogauthor-index_all-title">Delete Blog Author</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="blogauthor-details-container">
+    <h3 class="blogauthor-delete-containertitle">Are you sure you want to delete this author?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal blogauthor-delete-container">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Bio)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Bio)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Joined)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Joined)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Left)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Left)
+            </dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default cms-text-dark cms-bg-main-light" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default blogauthor-details-button" /> |
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default blogauthor-details-button" })
+            </div>
+        }
+    </div>
 </div>
