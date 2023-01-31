@@ -10,22 +10,26 @@
         @Html.DisplayNameFor(model => model.Likes)
         @Html.DisplayNameFor(model => model.Dislikes)*@
 
+@{
+    
+}
 
 <div>
     @foreach (var item in Model)
     {
     <div class="card comment-index--container">
         <div class="card-body">
-            <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Author)</h5>
+            <h5 class="card-text"> @Html.DisplayFor(modelItem => item.Author)</h5>
             <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.CommentDate)</h6>
-            <p class="card-text">@Html.DisplayFor(modelItem => item.Message)</p>
-            <small>
-                <button type="submit" class="btn btn-primary">Like</button>
-                <button type="submit" class="btn btn-primary">Dislike</button>
-                <button type="submit" class="btn btn-primary">Reply</button>
-                @Html.ActionLink("Delete", "Delete", new { id = item.CommentId }, new { @class = "btn btn-primary comment-index-btn" })
-            </small>
+            <h4 class="card-title">@Html.DisplayFor(modelItem => item.Message)</h4>
+          
+            <button type="submit" class="btn btn-primary btn-sm"  id="like" onclick="Likes(@item.CommentId)">Like)</button>
+      
+            <button type="submit" class="btn btn-primary btn-sm" id="dislike" onclick="Dislike(@item.CommentId)">Dislike @Html.DisplayFor(modelItem => item.Dislikes)</button>
 
+            <button type="submit" class="btn btn-primary btn-sm">Reply</button>
+            @Html.ActionLink("Delete", "Delete", new { id = item.CommentId }, new { @class = "btn btn-primary btn-sm comment-index-btn" })
+           
 
             <div>@Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) </div>
             <div>@Html.ActionLink("Details", "Details", new { id = item.CommentId })  </div>

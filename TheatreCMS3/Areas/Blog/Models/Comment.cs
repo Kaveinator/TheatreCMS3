@@ -26,5 +26,6 @@ namespace TheatreCMS3.Areas.Blog.Models
             double percentage = Likes / (Likes + Dislikes);
             return percentage;
         }
+
     }
 }
