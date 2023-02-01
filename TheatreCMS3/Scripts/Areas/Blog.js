@@ -6,6 +6,9 @@ function Likes(id) {
         url: "/Comments/AddLikes",
         data: {id: id},
     })
+        .done(function (result) {
+            $("#Like")
+        })
 }
 
 function Dislikes(id) {
