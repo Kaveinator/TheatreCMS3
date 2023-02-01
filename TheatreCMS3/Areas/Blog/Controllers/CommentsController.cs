@@ -43,6 +43,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return Json(result);
         }
 
+
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
         {
