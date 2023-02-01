@@ -19,13 +19,13 @@ function Dislikes(id) {
 
 //Comments progress bar
 
-function LikeRatio(id) {
-    $.ajax({
-        type: "POST",
-        url: "/Comments/LikesRatio",
-        data: {id: id},
-    })
-}
+//function LikeRatio(id) {
+//    $.ajax({
+//        type: "POST",
+//        url: "/Comments/LikesRatio",
+//        data: {id: id},
+//    })
+//}
 
 //function updateProgress(percentage) {
 //    document.getElementById('progressBar').style.width = percentage + '%';
