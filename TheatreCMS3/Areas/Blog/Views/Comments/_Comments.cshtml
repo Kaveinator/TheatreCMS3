@@ -15,7 +15,7 @@
             <h4 class="card-title">@Html.DisplayFor(modelItem => item.Message)</h4>
 
             <div class="comment-index--buttons">
-                <button type="submit" class="btn btn-primary btn-sm" id="like" onclick="Likes(@item.CommentId)">Likes @Html.DisplayFor(modelItem => item.Likes)</button>
+                <button type="submit" class="btn btn-primary btn-sm" onclick="Likes(@item.CommentId)">Likes</button>  <p id="like">@Html.DisplayFor(modelItem => item.Likes)</p>
                 <button type="submit" class="btn btn-primary btn-sm" id="dislike" onclick="Dislikes(@item.CommentId)">Dislikes @Html.DisplayFor(modelItem => item.Dislikes)</button>
                 <button type="submit" class="btn btn-primary btn-sm">Reply</button>
                 @Html.ActionLink("Delete", "Delete", new { id = item.CommentId }, new { @class = "btn btn-primary btn-sm comment-index-btn" })

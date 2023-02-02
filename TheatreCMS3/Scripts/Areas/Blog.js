@@ -7,7 +7,8 @@ function Likes(id) {
         data: {id: id},
     })
         .done(function (result) {
-            $("#Like")
+            $("#like").text(result.Data[0]);
+        //    $('#progressBar').css('width', completedPercentage + '%');
         })
 }
 
@@ -17,6 +18,9 @@ function Dislikes(id) {
         url: "/Comments/AddDislikes",
         data: {id: id},
     })
+        .done(function (result) {
+            $("#dislike").text('Dislikes ', result.Data[0]);
+        })
 }
 //End Comment likes and dislikes
 
@@ -30,9 +34,9 @@ function Dislikes(id) {
 //    })
 //}
 
-//function updateProgress(percentage) {
-//    document.getElementById('progressBar').style.width = percentage + '%';
-//    $('#progressText').html(percentage + '%');
+function updateProgress(percentage) {
+    document.getElementById('progressBar').style.width = percentage + '%';
+    $('#progressText').html(percentage + '%');
 
 //.done(function (msg) {
 //    updateProgress(100 / host);
