@@ -9,6 +9,7 @@ function Likes(id) {
             var numLikes = result.Data[0];
             var ratio = result.Data[1];
             $("#like").text(numLikes);
+            /*document.getElementById("progress").style.width = ratio;*/
             $("#progress").text(ratio);
             /*alert(ratio);*/
         })
