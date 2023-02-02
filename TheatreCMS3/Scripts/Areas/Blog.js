@@ -1,5 +1,4 @@
 
-//Comment likes and dislikes
 function Likes(id) {
     $.ajax({
         type: "POST",
@@ -7,8 +6,10 @@ function Likes(id) {
         data: {id: id},
     })
         .done(function (result) {
-            $("#like").text(result.Data[0]);
-        //    $('#progressBar').css('width', completedPercentage + '%');
+            var numLikes = result.Data[0];
+            var ratio = result.Data[1];
+            $("#like").text(numLikes);
+            alert(ratio);
         })
 }
 
