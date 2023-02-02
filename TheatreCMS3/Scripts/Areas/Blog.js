@@ -9,9 +9,8 @@ function Likes(id) {
             var numLikes = result.Data[0];
             var ratio = result.Data[1];
             $("#like-" + id).text(numLikes);
-            $("#ratio-" + id).css("width", ratio.toPrecision(4) + "% Likes");
-            /*document.getElementById("progress" + id).style.width = ratio;*/
-            /*alert(ratio);*/
+            $("#ratio-" + id).css("width", ratio.toPrecision(4) + "%");
+            $("#ratio-" + id).text(ratio.toPrecision(4) + "% Likes");
         })
 }
 
@@ -25,7 +24,7 @@ function Dislikes(id) {
             var numDislikes = result.Data[0];
             var ratio = result.Data[1];
             $("#dislike-" + id).text(numDislikes);
-            $("#ratio-" + id).css("width", ratio.toPrecision(4) + "% Likes");
-            /*alert(ratio);*/
+            $("#ratio-" + id).css("width", ratio.toPrecision(4) + "%");
+            $("#ratio-" + id).text(ratio.toPrecision(4) + "% Likes");
         })
 }
