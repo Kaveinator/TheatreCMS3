@@ -639,6 +639,7 @@ clear: both;
     .home-signin--container > p { /*gives <p> specific stylings, any overflow is */
         background-color: var(--main-color);        /* hidden and ellipses are shown instead */
         text-align: center;
+        ;
         padding-top: 5px;
         padding-bottom: 5px;
         border-radius: 20px;
