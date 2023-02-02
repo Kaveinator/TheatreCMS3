@@ -9,7 +9,8 @@ function Likes(id) {
             var numLikes = result.Data[0];
             var ratio = result.Data[1];
             $("#like").text(numLikes);
-            alert(ratio);
+            $("#progress").text(ratio);
+            /*alert(ratio);*/
         })
 }
 
@@ -20,6 +21,10 @@ function Dislikes(id) {
         data: {id: id},
     })
         .done(function (result) {
-            $("#dislike").text('Dislikes ', result.Data[0]);
+            var numDislikes = result.Data[0];
+            var ratio = result.Data[1];
+            $("#dislike").text(numDislikes);
+            $("#progress").text(ratio);
+            /*alert(ratio);*/
         })
 }
