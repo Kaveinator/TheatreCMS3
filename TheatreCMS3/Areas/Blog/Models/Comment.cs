@@ -23,8 +23,12 @@ namespace TheatreCMS3.Areas.Blog.Models
 
         public double LikeRatio()
         {
-            double percentage = Likes / (Likes + Dislikes);
-            return percentage;
+            double ratio = Convert.ToDouble(Likes) / (Likes + Dislikes) * 100;
+            if ((Likes + Dislikes) == 0)
+            {
+                ratio = 0;
+            }
+            return ratio;
         }
 
     }

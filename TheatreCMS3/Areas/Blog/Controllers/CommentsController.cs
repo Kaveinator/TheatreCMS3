@@ -29,6 +29,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
             var result = new JsonResult();
+            result.Data = new List<double>() { comment.Likes, comment.LikeRatio() };
             return Json(result);
         }
 
@@ -40,8 +41,10 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
             var result = new JsonResult();
+            result.Data = new List<double>() { comment.Dislikes, comment.LikeRatio() };
             return Json(result);
         }
+
 
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
