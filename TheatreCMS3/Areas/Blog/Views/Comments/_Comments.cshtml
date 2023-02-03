@@ -10,17 +10,20 @@
     {
     <div class="card comment-index--container">
         <div class="card-body">
-            <h5 class="card-text"> @Html.DisplayFor(modelItem => item.Author)</h5>
+            <h5 class="card-text">@Html.DisplayFor(modelItem => item.Author)</h5>
             <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.CommentDate)</h6>
             <h4 class="card-title">@Html.DisplayFor(modelItem => item.Message)</h4>
-          
-            <button type="submit" class="btn btn-primary btn-sm"  id="like" onclick="Likes(@item.CommentId)">Like</button>
-      
-            <button type="submit" class="btn btn-primary btn-sm" id="dislike" onclick="Dislikes(@item.CommentId)">Dislike</button>
 
-            <button type="submit" class="btn btn-primary btn-sm">Reply</button>
-            @Html.ActionLink("Delete", "Delete", new { id = item.CommentId }, new { @class = "btn btn-primary btn-sm comment-index-btn" })
-           
+            <div class="comment-index--buttons">
+                <button type="submit" class="btn btn-primary btn-sm" onclick="Likes(@Html.DisplayFor(modelItem => item.CommentId))">Likes</button>  <p id="like-@item.CommentId">@Html.DisplayFor(modelItem => item.Likes)</p>
+                <button type="submit" class="btn btn-primary btn-sm" onclick="Dislikes(@Html.DisplayFor(modelItem => item.CommentId))">Dislikes</button> <p id="dislike-@item.CommentId">@Html.DisplayFor(modelItem => item.Dislikes)</p>
+                <button type="submit" class="btn btn-primary btn-sm">Reply</button>
+                @Html.ActionLink("Delete", "Delete", new { id = item.CommentId }, new { @class = "btn btn-primary btn-sm comment-index-btn" })
+            </div>
+            
+            <div class="progress comment-index-progress-bar">
+                <div class="progress-bar bg-success" role="progressbar" id="ratio-@item.CommentId" style="width:@Math.Round(item.LikeRatio(), 2)%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">@Math.Round(item.LikeRatio(), 2)% Likes</div>
+            </div>                                           
 
             <div>@Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) </div>
             <div>@Html.ActionLink("Details", "Details", new { id = item.CommentId })  </div>

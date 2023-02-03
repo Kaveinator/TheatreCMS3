@@ -89,7 +89,17 @@
 /*Comment Page Styling*/
 
 .comment-index--container {
+    color: var(--dark-color);
     width: 50%;
-    background-color: var(--secondary-color);
+    background-color: var(--light-color);
     border-radius: 20px;
+}
+
+.comment-index--buttons *{
+    width: 80px;     
+    margin-right: 8px;            
+}
+
+.comment-index-progress-bar{
+    margin: 10px 0 7px 0;
 }
