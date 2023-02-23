@@ -11,17 +11,17 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    public class RentalHistoryController : Controller
+    public class RentalHistoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Rent/RentalHistory
+        // GET: Rent/RentalHistories
         public ActionResult Index()
         {
             return View(db.RentalHistories.ToList());
         }
 
-        // GET: Rent/RentalHistory/Details/5
+        // GET: Rent/RentalHistories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalHistory);
         }
 
-        // GET: Rent/RentalHistory/Create
+        // GET: Rent/RentalHistories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Rent/RentalHistory/Create
+        // POST: Rent/RentalHistories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +59,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalHistory);
         }
 
-        // GET: Rent/RentalHistory/Edit/5
+        // GET: Rent/RentalHistories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalHistory);
         }
 
-        // POST: Rent/RentalHistory/Edit/5
+        // POST: Rent/RentalHistories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +90,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalHistory);
         }
 
-        // GET: Rent/RentalHistory/Delete/5
+        // GET: Rent/RentalHistories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +105,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalHistory);
         }
 
-        // POST: Rent/RentalHistory/Delete/5
+        // POST: Rent/RentalHistories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
