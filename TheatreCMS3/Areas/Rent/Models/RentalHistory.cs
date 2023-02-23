@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Models
 {
@@ -12,4 +14,5 @@ namespace TheatreCMS3.Areas.Rent.Models
         public string DamagesIncurred { get; set; }
         public string Rental { get; set; }
     }
+
 }
