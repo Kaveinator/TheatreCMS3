@@ -13,12 +13,14 @@
 /*}*/
 
 
+
+
+/* Style Rental History CREATE form */
+
 /* Style heading */
-h2{
+h2 {
     text-align: center;
 }
-
-/* Style Rental History create form */
 
 .rental-create--form-horizontal {
     display: flex;
@@ -55,7 +57,6 @@ h2{
 .rental-create--btnback {
     text-align: center;
     color: var(--light-color);
-    
     border: none;
     display: inline-block;
     border-radius: 5px;
@@ -72,3 +73,51 @@ h2{
 }
 
 
+/* Style Rental History EDIT form */
+
+/* Style heading */
+h2 {
+    text-align: center;
+}
+
+.rental-edit--form-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: var(--main-color--light);
+    border-radius: 5px;
+    margin: auto;
+    max-width: 600px;
+}
+
+/* Separate styling container for buttons */
+.rental-edit--form-group-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+
+/* Individual button styling */
+.rental-edit--btnedit {
+    text-align: center;
+    color: var(--light-color);
+    border: none;
+    display: inline-block;
+    border-radius: 5px;
+    width: 150px;
+    padding: 5px;
+}
+
+.rental-create--btnback {
+    text-align: center;
+    color: var(--light-color);
+    border: none;
+    display: inline-block;
+    border-radius: 5px;
+    width: 150px;
+    padding: 10px;
+}
