@@ -67,4 +67,8 @@ h2{
      max-width: 600px;
 }
 
+#damages-incurred{
+    display: none;
+}
+
 
