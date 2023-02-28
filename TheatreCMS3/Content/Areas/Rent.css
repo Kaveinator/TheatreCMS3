@@ -121,3 +121,27 @@ h2 {
     width: 150px;
     padding: 10px;
 }
+
+/* Style Rental History INDEX form */
+
+.rental-index--form-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    border: solid;
+    border-color: var(--main-color);
+    margin: auto;
+    color: var(--dark-color);
+}
+
+#rental-index--redicon{
+    color: red;
+}
+
+#rental-index--greenicon{
+    color: green;
+}

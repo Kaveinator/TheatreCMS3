@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿//Function for Rental History Create Page
+
+$(document).ready(function () {
     // When checkbox is checked, show damages incurred section instead
     $('#damaged-checkbox').change(function () {
         if ($(this).is(':checked')) {
@@ -11,3 +13,5 @@
         }                            
     });
 });
+
+// Function for Rental History Index Page
