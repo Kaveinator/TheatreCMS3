@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TheatreCMS3.Areas.Prod.Models
 {
-    public class ProductionPhoto
+    public class ProductionPhotos
     {
         [Key]
         public int ProPhotoId { get; set; }
