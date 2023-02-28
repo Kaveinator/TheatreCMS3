@@ -5,42 +5,75 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Styles.Render("~/Content/fontawesome")
+
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
+<div class="rental-index--form-horizontal">
+    <table class="rental-index--table table">
+        <tr>
+            Most recent Rental Histories
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.RentalDamaged)
+                    {
+                        <i class="fa fa-times-circle" id="rental-index--redicon"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-check-circle" id="rental-index--greenicon"></i>
+                    }
+                </td>
+                
+                <td>
+                    <div class="badge badge-dark rental-index--rental">
+                        @Html.DisplayFor(modelItem => item.Rental)
+                    </div>
+                </td>
+                <td>
+                    @if (item.RentalDamaged)
+                    {
+                        <div class="text-dark rental-index-rentaldamages">
+                            @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-muted rental-index-rentalnotes">
+                            @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                        </div>
+                    }
+                </td>
+                <td>
+                    <div class="dropdown rental-index--cruddropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu rental-index--dropdownmenu">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                        </div>
+                    </div>
+                 </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Areas/Rent.js")
+
 }
-
-</table>
