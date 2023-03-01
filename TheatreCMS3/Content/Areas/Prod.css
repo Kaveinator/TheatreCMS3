@@ -48,6 +48,12 @@
         border-color: rgb(50, 50, 50);
     }
 
+.castMember-Create--buttonoutline:focus {
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
 .castMember-Create--outline:focus {
     color: var(--light-color);
     background-color: var(--dark-color);
@@ -57,5 +63,59 @@
 }
 
 .castMember-Create--outline:hover {
+    border-color: var(--main-color);
+}
+
+/**************************************************
+    CAST MEMBER EDIT PAGE FORMATTING
+**************************************************/
+
+.castMember-Edit--form {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--secondary-color--dark);
+    border-radius: 10px;
+    width: 75%;
+}
+
+.castMember-Edit--save-btn {
+    color: var(--light-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+    .castMember-Edit--save-btn:hover {
+        color: var(--light-color);
+        background-color: var(--main-color--light);
+        border-color: var(--main-color--light);
+    }
+
+.castMember-Edit--back-btn {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    border-color: var(--dark-color);
+}
+
+    .castMember-Edit--back-btn:hover {
+        color: var(--light-color);
+        background-color: rgb(50, 50, 50);
+        border-color: rgb(50, 50, 50);
+    }
+
+.castMember-Edit--buttonoutline:focus {
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+.castMember-Edit--outline:focus {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+.castMember-Edit--outline:hover {
     border-color: var(--main-color);
 }

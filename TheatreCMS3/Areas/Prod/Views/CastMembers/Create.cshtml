@@ -49,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-12">
-                <div class="checkbox">
+                <div class="checkbox castMember-Create--outline">
                     @Html.EditorFor(model => model.CurrentMember)
                     @Html.ValidationMessageFor(model => model.CurrentMember, "", new { @class = "text-danger" })
                 </div>
@@ -82,8 +82,8 @@
 
         <div class="form-group text-center">
             <div class="col-md-12">
-                <input type="submit" value="Create" class="btn castMember-Create--create-btn" />
-                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn castMember-Create--back-btn" } )
+                <input type="submit" value="Create" class="btn castMember-Create--create-btn castMember-Create--buttonoutline" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn castMember-Create--back-btn castMember-Create--buttonoutline" } )
             </div>
         </div>
     </div>
