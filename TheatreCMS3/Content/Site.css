@@ -500,10 +500,8 @@ footer {
 
 /* Bottom Area */
 .home-about-bottom-area {
-    position: absolute;
     background-color: var(--dark-color);
     height: 1000px;
-    
     width: 100%;
     border-radius: 0px 100px 0px 0px;
 }
