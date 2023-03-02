@@ -8,7 +8,7 @@
 <h2 class="text-center p-2">Create Cast Member</h2>
 
 
-@using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { @class = "castMember-Create--form container-fluid", role = "form" }))
+@using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { @class = "castMember-Create--form container-fluid", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -41,8 +41,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-12">
-                @Html.TextAreaFor(model => model.Bio, new { @class = "form-control castMember-Create--outline", @placeholder = "Enter cast member's biography...", @rows = 3 } )
+                @Html.TextAreaFor(model => model.Bio, new { @class = "form-control castMember-Create--outline", @placeholder = "Enter cast member's biography...", @rows = 3 })
                 @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @*@Html.TextBoxFor(model => model.Photo, new { @type = "file", @class="form-control-file", @name="photoUpload", @id="photoUpload"})*@
+                <input type="file" class="form-control-file" name="photoUpload" id="photoUpload" />
             </div>
         </div>
 
@@ -83,7 +91,7 @@
         <div class="form-group text-center">
             <div class="col-md-12">
                 <input type="submit" value="Create" class="btn castMember-Create--create-btn castMember-Create--buttonoutline" />
-                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn castMember-Create--back-btn castMember-Create--buttonoutline" } )
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn castMember-Create--back-btn castMember-Create--buttonoutline" })
             </div>
         </div>
     </div>
