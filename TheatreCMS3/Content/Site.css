@@ -455,6 +455,78 @@ footer {
     
 }
 
+/* Contact form styling - VP */
+.home-contact--contactContainer
+{
+    background: var(--main-color--light);
+    margin-bottom: 50px;
+}
+
+.home-contact--heading1 
+{
+    padding-top:75px;
+    font-family: Broadway;
+    text-align: center;
+}
+
+.home-contact--h4 
+{
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+    text-decoration: underline var(--main-color);
+}
+
+.home-contact--donate 
+{
+    align-items: flex-end;
+}
+
+
+.home-contact--form, label
+{
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+
+.home-contact--form , input, textarea
+{
+    border-radius: 10px;
+    border-color: Background;
+}
+
+.home-contact--column , button
+{
+    background: var(--main-color);
+    border-radius: 7px;
+    border-color: var(--light-color);
+    width: 100px;
+    color: var(--light-color);
+    text-shadow:none;
+}
+
+
+/*column css*/
+/* Create two equal columns that floats next to each other */
+.home-contact--column {
+    margin-top: 50px;
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 100vh;
+    background: var(--main-color--light);
+}
+
+/* Clear floats after the columns */
+.home-contact--row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+}
+
 /* About page styling */
 
 
