@@ -41,7 +41,6 @@
 
     <table class="rental-index--table table">
 
-
         @foreach (var item in Model)
         {
             <tr>
@@ -57,24 +56,33 @@
                 </td>
 
                 <td>
-                    <div class="badge badge-dark rental-index--rental">
-                        @Html.DisplayFor(modelItem => item.Rental)
+                    <div>
+                        <div class="badge badge-dark rental-index--rental" id="rentalhistory-index--collapseheading-@item.RentalHistoryId"
+                             data-toggle="collapse" data-target="#rentalhistory-index--collapsecontent-@item.RentalHistoryId"
+                             aria-expanded="false" aria-controls="rentalhistory-index--collapsecontent-@item.RentalHistoryId">
+                            @Html.DisplayFor(modelItem => item.Rental)
+                        </div>
                     </div>
-                </td>
-                <td>
-                    @if (item.RentalDamaged)
-                    {
-                        <div class="text-dark rental-index-rentaldamages">
-                            @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                    <div id="rentalhistory-index--collapsecontent-@item.RentalHistoryId" class="collapse">
+                        <div class="card-body">
+                            @if (item.RentalDamaged)
+                            {
+                                <div class="text-dark rental-index-rentaldamages">
+                                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-muted rental-index-rentalnotes">
+                                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                                </div>
+                            }
                         </div>
-                    }
-                    else
-                    {
-                        <div class="text-muted rental-index-rentalnotes">
-                            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-                        </div>
-                    }
+                    </div>
+                    
                 </td>
+
+
                 <td>
                     <div class="dropdown rental-index--cruddropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
