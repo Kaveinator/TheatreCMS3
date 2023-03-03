@@ -12,3 +12,52 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+.ProductionPhotos-Back {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    border-radius: 7px;
+    display: inline-block;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    transition-duration: .4s;
+    padding-top: 7px;
+    margin-top: 10px;
+}
+
+.ProductionPhotos-Back:hover {
+    background-color: var(--light-color);
+    color: var(--main-color);
+}
+
+.ProductionPhotos-Create {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    border-radius: 7px;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    transition-duration: .4s;
+    display: inline-block;
+}
+
+.ProductionPhotos-Create:hover {
+    background-color: var(--light-color);
+    color: var(--secondary-color)
+}
+
+.ProdPhotoFile {
+    flex-direction: column;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background-color: var(--main-color);
+}
+
+@media screen and (max-width: 550px){
+    .ProdPhotoFile {
+        flex-direction: column;
+        background-color: black;
+    }
+}
