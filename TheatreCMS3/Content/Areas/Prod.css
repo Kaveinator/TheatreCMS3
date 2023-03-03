@@ -12,8 +12,8 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
-.ProductionPhotos-Back {
-    background-color: var(--main-color);
+.ProductionPhotos-Create-BackBtn {
+    background-color: var(--dark-color);
     color: var(--light-color);
     border-radius: 7px;
     display: inline-block;
@@ -25,12 +25,12 @@
     margin-top: 10px;
 }
 
-.ProductionPhotos-Back:hover {
+.ProductionPhotos-Create-BackBtn:hover {
     background-color: var(--light-color);
     color: var(--main-color);
 }
 
-.ProductionPhotos-Create {
+.ProductionPhotos-Create-SubmitBtn {
     background-color: var(--secondary-color);
     color: var(--light-color);
     border-radius: 7px;
@@ -41,12 +41,12 @@
     display: inline-block;
 }
 
-.ProductionPhotos-Create:hover {
+.ProductionPhotos-Create-SubmitBtn:hover {
     background-color: var(--light-color);
     color: var(--secondary-color)
 }
 
-.ProdPhotoFile {
+.ProdPhotos-Create-File {
     flex-direction: column;
     display: flex;
     align-content: flex-start;
@@ -56,11 +56,15 @@
 }
 
 @media screen and (max-width: 550px){
-    .ProdPhotoFile {
+    .ProdPhotos-Create-File {
         flex-direction: column;
         background-color: black;
     }
 }
+
+.ProductionPhotos-Create-Container {
+    background-color: var(--main-color);
+} 
 /**************************************************
     CAST MEMBER CREATE PAGE FORMATTING
 **************************************************/
