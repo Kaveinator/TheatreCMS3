@@ -119,3 +119,25 @@
 .castMember-Edit--outline:hover {
     border-color: var(--main-color);
 }
+
+/**************************************************
+    CAST MEMBER INDEX PAGE FORMATTING
+**************************************************/
+
+.castMember-Index--create-btn {
+    color: var(--light-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+    .castMember-Index--create-btn:hover {
+        color: var(--light-color);
+        background-color: var(--main-color--light);
+        border-color: var(--main-color--light);
+    }
+
+.castMember-Index--buttonoutline:focus {
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
