@@ -12,7 +12,7 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
-.ProductionPhotos-Create-BackBtn {
+.ProductionPhotos-CreateEdit-BackBtn {
     background-color: var(--dark-color);
     color: var(--light-color);
     border-radius: 7px;
@@ -25,12 +25,12 @@
     margin-top: 10px;
 }
 
-.ProductionPhotos-Create-BackBtn:hover {
+.ProductionPhotos-CreateEdit-BackBtn:hover {
     background-color: var(--light-color);
     color: var(--main-color);
 }
 
-.ProductionPhotos-Create-SubmitBtn {
+.ProductionPhotos-CreateEdit-SubmitBtn {
     background-color: var(--secondary-color);
     color: var(--light-color);
     border-radius: 7px;
@@ -41,12 +41,12 @@
     display: inline-block;
 }
 
-.ProductionPhotos-Create-SubmitBtn:hover {
+.ProductionPhotos-CreateEdit-SubmitBtn:hover {
     background-color: var(--light-color);
     color: var(--secondary-color)
 }
 
-.ProdPhotos-Create-File {
+.ProdPhotos-CreateEdit-File {
     flex-direction: column;
     display: flex;
     align-content: flex-start;
@@ -56,13 +56,13 @@
 }
 
 @media screen and (max-width: 550px){
-    .ProdPhotos-Create-File {
+    .ProdPhotos-CreateEdit-File {
         flex-direction: column;
         background-color: black;
     }
 }
 
-.ProductionPhotos-Create-Container {
+.ProductionPhotos-CreateEdit-Container {
     background-color: var(--main-color);
 } 
 /**************************************************
