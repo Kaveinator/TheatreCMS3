@@ -12,76 +12,14 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<!-- Setting to table-dark temporarily so it can be read -->
-<table class="table table-dark">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Character)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </th>
-        <th></th>
-    </tr>
-
+<div class="card-deck">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.YearJoined)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MainRole)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bio)
-            </td>
-            <td>
-                <img alt="@item.CastMemberID" src="@CastMembersController.ImageSource(item.Photo)" class="img-thumbnail" />
-                @*<img alt="@item.CastMemberID" src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" />*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentMember)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Character)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CastYearLeft)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DebutYear)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CastMemberID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberID })
-            </td>
-        </tr>
+        <div class="card">
+            <img src="@CastMembersController.ImageSource(item.Photo)" class="card-img-top" alt="@item.CastMemberID">
+            <div class="card-body bg-dark" onclick="location.href='@Url.Action("Details", "CastMembers", new { id = item.CastMemberID })'">
+                <h5 class="card-title text-center">@item.Name</h5>
+            </div>
+        </div>
     }
-
-</table>
+</div>
