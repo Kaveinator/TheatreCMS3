@@ -14,4 +14,7 @@ $(document).ready(function () {
     });
 });
 
-// Function for Rental History Index Page
+// Function for Rental History Index Page sorting
+function submitForm() {
+    document.getElementById("rental-index--sorting").submit();
+}
