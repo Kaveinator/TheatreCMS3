@@ -4,22 +4,38 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var productions = Model.GroupBy(x => x.ProductionTitle).OrderBy(x => x.Key);
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn castMember-Index--create-btn castMember-Index--buttonoutline" })
 </p>
 
-<div class="card-deck">
-    @foreach (var item in Model)
-    {
-        <div class="card">
-            <img src="@CastMembersController.ImageSource(item.Photo)" class="card-img-top" alt="@item.CastMemberID">
-            <div class="card-body bg-dark" onclick="location.href='@Url.Action("Details", "CastMembers", new { id = item.CastMemberID })'">
-                <h5 class="card-title text-center">@item.Name</h5>
-            </div>
+
+@foreach (var prod in productions)
+{
+    <div>
+        <h3 class="mt-5">
+            @Html.DisplayFor(modelItem => prod.Key)
+        </h3>
+        <hr class="bg-light" />
+        <div class="card-deck">
+            @foreach (var member in Model.Where(m => m.ProductionTitle == prod.Key))
+            {
+                <div class="card castMember-Index--card" onclick="location.href='@Url.Action("Details", "CastMembers", new { id = member.CastMemberID })'">
+
+                    <img src="@CastMembersController.ImageSource(member.Photo)" class="card-img-top" style="width: 100%; height:16rem; object-fit: cover;" alt="@member.CastMemberID">
+                    <div class="card-body castMember-Index--cardText bg-dark">
+                        <h5 class="card-title text-center font-weight-bold">@member.Name</h5>
+                    </div>
+
+                </div>
+            }
         </div>
-    }
-</div>
+    </div>
+}
+
+
+
