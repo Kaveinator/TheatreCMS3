@@ -4,84 +4,38 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var productions = Model.GroupBy(x => x.ProductionTitle).OrderBy(x => x.Key);
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn castMember-Index--create-btn castMember-Index--buttonoutline" })
 </p>
 
-<!-- Setting to table-dark temporarily so it can be read -->
-<table class="table table-dark">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Character)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.YearJoined)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MainRole)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bio)
-            </td>
-            <td>
-                <img alt="@item.CastMemberID" src="@CastMembersController.ImageSource(item.Photo)" class="img-thumbnail" />
-                @*<img alt="@item.CastMemberID" src="data:image/jpg;base64,@Convert.ToBase64String(item.Photo)" />*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentMember)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Character)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CastYearLeft)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DebutYear)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CastMemberID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberID })
-            </td>
-        </tr>
-    }
+@foreach (var prod in productions)
+{
+    <div>
+        <h3 class="mt-5">
+            @Html.DisplayFor(modelItem => prod.Key)
+        </h3>
+        <hr class="bg-light" />
+        <div class="card-deck">
+            @foreach (var member in Model.Where(m => m.ProductionTitle == prod.Key))
+            {
+                <div class="card castMember-Index--card" onclick="location.href='@Url.Action("Details", "CastMembers", new { id = member.CastMemberID })'">
 
-</table>
+                    <img src="@CastMembersController.ImageSource(member.Photo)" class="card-img-top" style="width: 100%; height:16rem; object-fit: cover;" alt="@member.CastMemberID">
+                    <div class="card-body castMember-Index--cardText bg-dark">
+                        <h5 class="card-title text-center font-weight-bold">@member.Name</h5>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+}
+
+
+
