@@ -172,3 +172,104 @@
 .castMember-Edit--outline:hover {
     border-color: var(--main-color);
 }
+
+/**************************************************
+    PRODUCTION CREATE STYLING
+**************************************************/
+
+.Production-Create--btn-default {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    border-radius: 20px;
+    border-color: var(--main-color);
+    padding: 10px 20px;
+    transition: all .5s ease;
+}
+
+.Production-Create--btn-default:hover {
+    background-color: var(--main-color);
+}
+
+
+.Production-Create--container {
+    display: flex;
+    justify-content: center;
+}
+
+.Production-Create--form-container {
+    background-color: var(--light-color);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 3000px;
+}
+
+
+.Production-Create--label {
+    color: var(--main-color);
+    text-align: left;
+}
+
+/**************************************************
+    PRODUCTION CREATE&EDIT STYLING
+**************************************************/
+
+.Production-CreateEdit--input-box {
+    background-color: var(--main-color--light);
+}
+
+.Production-CreateEdit--input-box:focus {
+    border-color: var(--main-color);
+    box-shadow: none;
+}
+
+.Production-CreateEdit--btn-default {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    border-radius: 20px;
+    border-color: var(--main-color);
+    padding: 10px 20px;
+    transition: all .5s ease;
+}
+
+
+.Production-CreateEdit--btn-default:hover {
+    background-color: var(--main-color);
+}
+
+.Production-CreateEdit--btn-container {
+    display: flex;
+    justify-content: center;
+}
+.Production-CreateEdit--btn-container .btn:not(:last-child) {
+    margin-right: 10px;
+    justify-content: center;
+}
+
+
+/**************************************************
+    PRODUCTION EDIT STYLING
+**************************************************/
+
+.Production-Edit--container {
+    display: flex;
+    justify-content: center;
+}
+
+.Production-Edit--form-container {
+    background-color: var(--light-color);
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    width: 3000px;
+}
+
+
+.Production-Edit--label {
+    color: var(--main-color);
+    text-align: left;
+}
+
+.Production-Edit--input-orange:focus {
+    border-color: var(--secondary-color);
+}
