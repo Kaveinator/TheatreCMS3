@@ -378,6 +378,7 @@ footer {
 @media only screen and (min-width: 500px) {
   .footer-icons {
     display: none;
+    
   }
 
   .footer-lcopyright {
@@ -694,3 +695,102 @@ footer {
     font-size: 24px;
     margin-bottom: 10px;
 }
+
+.Home_Donation_Body {
+    background-color: black;
+}
+
+.Donation_Header {
+    
+
+
+    padding-top: 10px;
+    font-family: Broadway;
+    text-align: center;
+    color: white;
+    width: auto;
+    
+    
+
+}
+
+.Home_Donation_Form {
+    
+    padding: 50px;
+    display: inline-block;
+    width: 1110px;
+    height: 600px;
+    text-align: right;
+    background-color: var(--main-color--light);
+    border-radius: 25px;
+    
+}
+
+.Home_Donation_Name {
+    padding: 10px;
+    margin-right: 350px;
+
+}
+
+.Home_Donation_Email {
+    padding: 10px;
+    margin-right: 350px;
+}
+
+.Home_Donation_Address {
+    padding: 10px;
+    margin-right: 350px;
+}
+
+.Home_Donation_Amount {
+    padding: 10px;
+    margin-right: 350px;
+}
+
+.Home_Donation_Comments {
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    margin-left: 300px;
+}
+
+.Home_Donation_Button {
+    padding: 10px;
+    margin-top: 100px;
+    margin-left: 15px;
+    margin-right:450px;
+}
+
+.Home_Donation_Container {
+    background-color: var(--dark-color);
+    
+    margin-bottom: 50px;
+}
+
+.Home_Donation_Label  {
+    text-align: right;
+}
+
+.Home_Donation_LabelComments{
+    text-align: right;
+    margin-left: 75px;
+}
+
+#email{
+    width: 300px;
+}
+
+#name {
+    width: 300px;
+}
+
+#address {
+    width: 300px;
+}
+
+#amount {
+    width: 300px;
+}
+
+
+
