@@ -189,6 +189,20 @@
         border-color: var(--main-color--light);
     }
 
+.castMember-Index--search-btn {
+    color: var(--light-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+    .castMember-Index--search-btn:hover {
+        color: var(--light-color);
+        background-color: var(--main-color--light);
+        border-color: var(--main-color--light);
+    }
+
+
+
 .castMember-Index--buttonoutline:focus {
     border-color: var(--main-color);
     outline: 0;
