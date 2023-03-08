@@ -359,7 +359,6 @@ footer {
 .footer-address {
   padding-top: 8px;
   line-height: 20px;
-  color: white;
 }
 
 /*copyright when it appears on left for small devices*/
@@ -373,7 +372,6 @@ footer {
 .footer-lcopyright {
   width: 115px;
   position: relative;
-  color: white;
 }
 
 /*icons and copyright on left disappear on large devices*/
