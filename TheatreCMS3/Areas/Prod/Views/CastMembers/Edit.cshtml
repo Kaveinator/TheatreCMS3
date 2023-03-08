@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CurrentMember, htmlAttributes: new { @class = "control-label col-md-4" })
             <div class="col-md-12">
                 <div class="checkbox castMember-Edit--outline">
                     @Html.EditorFor(model => model.CurrentMember)
@@ -74,7 +74,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductionTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ProductionTitle, htmlAttributes: new { @class = "control-label col-md-4" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.ProductionTitle, new { htmlAttributes = new { @class = "form-control castMember-Edit--outline", @placeholder = "Enter the production cast member is in..." } })
                 @Html.ValidationMessageFor(model => model.ProductionTitle, "", new { @class = "text-danger" })

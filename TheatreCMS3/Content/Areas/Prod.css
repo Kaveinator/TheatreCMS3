@@ -249,6 +249,108 @@
     .castMember-Index--btn:hover {
         color: var(--main-color);
     }
+
+/**************************************************
+    CAST MEMBER DETAILS PAGE FORMATTING
+**************************************************/
+
+.castMember-Details--form {
+    padding: 10px 40px 20px 40px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    width: 75%;
+}
+
+.castMember-Details--image {
+    height: 25rem;
+    border-radius: 15px;
+}
+
+.castMember-Details--bio {
+    font-size: 1.1rem;
+}
+
+.castMember-Details-btn-container {
+    width: 75%;
+}
+
+.castMember-Details--btn {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+    .castMember-Details--btn:hover {
+        color: var(--dark-color);
+        background-color: var(--light-color);
+        border-color: var(--light-color);
+    }
+
+.castMember-Details--buttonoutline:focus {
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+/**************************************************
+    CAST MEMBER DELETE PAGE FORMATTING
+**************************************************/
+
+.castMember-Delete--form {
+    padding: 10px 40px 20px 40px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    width: 75%;
+}
+
+.castMember-Delete--image {
+    height: 25rem;
+    border-radius: 15px;
+}
+
+.castMember-Delete--bio {
+    font-size: 1.1rem;
+}
+
+.castMember-Delete-btn-container {
+    width: 75%;
+}
+
+.castMember-Delete--btn {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+    .castMember-Delete--btn:hover {
+        color: var(--dark-color);
+        background-color: var(--light-color);
+        border-color: var(--light-color);
+    }
+
+.castMember-Delete--delete-btn {
+    color: var(--light-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+    .castMember-Delete--delete-btn:hover {
+        color: var(--light-color);
+        background-color: var(--main-color--light);
+        border-color: var(--main-color--light);
+    }
+
+.castMember-Delete--buttonoutline:focus {
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+.castMember-Delete--input {
+    all: unset;
+    cursor: pointer;
+}
+
 }
 
 /**************************************************
