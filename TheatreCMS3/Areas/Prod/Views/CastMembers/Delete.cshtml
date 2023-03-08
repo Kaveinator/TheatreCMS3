@@ -1,99 +1,107 @@
-﻿@model TheatreCMS3.Areas.Prod.Models.CastMember
+﻿@using TheatreCMS3.Areas.Prod.Controllers
+@model TheatreCMS3.Areas.Prod.Models.CastMember
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2 class="text-center p-2">Delete this Cast Member?</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>CastMember</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="castMember-Details--form container-fluid">
+    <h2 class="text-center font-weight-bold p-2">@Html.DisplayFor(model => model.Name)</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <img src="@CastMembersController.ImageSource(Model.Photo)" class="img-fluid mx-auto m-2 d-block castMember-Details--image" alt="@Model.CastMemberID">
 
-        <dt>
+    <h4 class="pt-2">
+        @Html.DisplayNameFor(model => model.Bio)
+    </h4>
+    <p class="text-justify castMember-Details--bio">
+        @Html.DisplayFor(model => model.Bio)
+    </p>
+
+    <dl class="row">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.YearJoined)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.YearJoined)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.MainRole)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.MainRole)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentMember)
-        </dd>
-
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Character)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Character)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.ProductionTitle)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.ProductionTitle)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CurrentMember)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CastYearLeft)
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CurrentMember)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.DebutYear)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.DebutYear)
         </dd>
 
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CastYearLeft)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CastYearLeft)
+        </dd>
     </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <!-- Temporarily set to btn-dark so it can be easily seen -->
-            <input type="submit" value="Delete" class="btn btn-dark" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
 </div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="castMember-Details-btn-container pt-3 container-fluid">
+        <div class="row">
+            <div class="col-sm text-left pl-0">
+                <a href="@Url.Action("Index", "CastMembers")" class="btn castMember-Details--btn castMember-Details--buttonoutline">
+                    <span class="fas fa-arrow-alt-circle-left" aria-hidden="true"></span>
+                    Back to List
+                </a>
+                <a href="@Url.Action("Edit", "CastMembers", new { id = Model.CastMemberID })" class="btn castMember-Details--btn castMember-Details--buttonoutline">
+                    <span class="fas fa-edit" aria-hidden="true"></span>
+                    Edit
+                </a>
+            </div>
+
+            <div class="col-sm text-right pr-0">
+                <span class="btn castMember-Delete--delete-btn castMember-Delete--buttonoutline">
+                    <i class="fas fa-trash-alt"></i>
+                    <input type="submit" value="Delete" class="castMember-Delete--input" />
+                </span>
+            </div>
+        </div>
+    </div>
+}
+
