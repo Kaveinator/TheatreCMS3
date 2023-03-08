@@ -201,8 +201,6 @@
         border-color: var(--main-color--light);
     }
 
-
-
 .castMember-Index--buttonoutline:focus {
     border-color: var(--main-color);
     outline: 0;
@@ -363,8 +361,6 @@
 .castMember-Delete--input {
     all: unset;
     cursor: pointer;
-}
-
 }
 
 /**************************************************
