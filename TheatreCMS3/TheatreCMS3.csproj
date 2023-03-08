@@ -487,11 +487,6 @@
     <Content Include="webfonts\Broadway Normal.ttf" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Productions\Create.cshtml" />
-    <Content Include="Views\Productions\Delete.cshtml" />
-    <Content Include="Views\Productions\Details.cshtml" />
-    <Content Include="Views\Productions\Edit.cshtml" />
-    <Content Include="Views\Productions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
