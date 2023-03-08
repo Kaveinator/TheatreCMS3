@@ -252,6 +252,86 @@ a.CMS-text-bigger {
 
 /*----- End Styling for Navbar -------*/
 
+/*----- Styling for Home Page index.cshtml*/
+
+.home-index-page {
+    position: center;
+}
+
+.home-index-row {
+    position: center;
+    display: inline-flex;
+    
+}
+
+.home-index-banner {
+    text-align: center;
+    
+}
+
+.home-index-banner-photo {
+    padding: 150px;
+}
+
+.home-index-page h2 {
+    text-transform: uppercase;
+    font-family: Oswald Light;
+}
+
+.home-index-page h3 {
+    font-weight: bold;
+    font-size: inherit;
+}
+
+.home-index-page h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    padding-top: 10px;
+    border-bottom: 4px solid var(--main-color--light);
+}
+
+.spotlight-photo img {
+    height: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.sponsors-img img {
+    width: 100px;
+}
+
+.acknowledgement {
+    float: left;
+    margin-top: 20px;
+}
+
+.naya-photo {
+    float: right;
+    margin-left: 50px;
+}
+
+
+.donations-button {
+    position: center;
+    display: inline-block;
+    background-color: var(--main-color--light);
+    padding: 20px;
+    margin: 50px;
+    width: 200px;
+    text-align: center;
+
+    border-radius: 10px;
+    font-family: Oswald;
+    text-decoration: none;
+    color: white;
+    box-shadow: var(--dark-color) 0.8px 0.8px 5px;
+}
+
+
+
+
 
 /*-----Styling for _Footer.cshtml-----*/
 
@@ -487,7 +567,7 @@ footer {
 }
 
 
-.home-contact--form, label
+.home-contact--form > label
 {
     display: inline-block;
     width: 150px;
