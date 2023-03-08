@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TheatreCMS3.Areas.Prod.Models
@@ -31,5 +32,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
         public int? DebutYear { get; set; }
+
+        public string ProductionTitle { get; set; }
     }
 }
