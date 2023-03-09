@@ -207,6 +207,7 @@
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotosController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
+    <Compile Include="Areas\Prod\Models\CastDirector.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhotos.cs" />
