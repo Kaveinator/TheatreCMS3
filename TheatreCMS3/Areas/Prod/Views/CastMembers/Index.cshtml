@@ -16,6 +16,18 @@
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn castMember-Index--create-btn castMember-Index--buttonoutline" })
 </p>
 
+@using (Html.BeginForm())
+{
+    <div class="pt-3">
+        <p class="lead font-weight-bold mb-1">Find cast member:</p>
+        <div class="input-group">
+            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+            <div class="input-group-append">
+                <input type="submit" value="Search" class="btn castMember-Index--search-btn castMember-Create--buttonoutline" />
+            </div>
+        </div>
+    </div>
+}
 
 @foreach (var prod in productions)
 {

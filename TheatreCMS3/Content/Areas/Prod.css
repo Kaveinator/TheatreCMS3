@@ -189,6 +189,18 @@
         border-color: var(--main-color--light);
     }
 
+.castMember-Index--search-btn {
+    color: var(--light-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+    .castMember-Index--search-btn:hover {
+        color: var(--light-color);
+        background-color: var(--main-color--light);
+        border-color: var(--main-color--light);
+    }
+
 .castMember-Index--buttonoutline:focus {
     border-color: var(--main-color);
     outline: 0;
@@ -249,3 +261,205 @@
     .castMember-Index--btn:hover {
         color: var(--main-color);
     }
+
+/**************************************************
+    CAST MEMBER DETAILS PAGE FORMATTING
+**************************************************/
+
+.castMember-Details--form {
+    padding: 10px 40px 20px 40px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    width: 75%;
+}
+
+.castMember-Details--image {
+    height: 25rem;
+    border-radius: 15px;
+}
+
+.castMember-Details--bio {
+    font-size: 1.1rem;
+}
+
+.castMember-Details-btn-container {
+    width: 75%;
+}
+
+.castMember-Details--btn {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+    .castMember-Details--btn:hover {
+        color: var(--dark-color);
+        background-color: var(--light-color);
+        border-color: var(--light-color);
+    }
+
+.castMember-Details--buttonoutline:focus {
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+/**************************************************
+    CAST MEMBER DELETE PAGE FORMATTING
+**************************************************/
+
+.castMember-Delete--form {
+    padding: 10px 40px 20px 40px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    width: 75%;
+}
+
+.castMember-Delete--image {
+    height: 25rem;
+    border-radius: 15px;
+}
+
+.castMember-Delete--bio {
+    font-size: 1.1rem;
+}
+
+.castMember-Delete-btn-container {
+    width: 75%;
+}
+
+.castMember-Delete--btn {
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+    .castMember-Delete--btn:hover {
+        color: var(--dark-color);
+        background-color: var(--light-color);
+        border-color: var(--light-color);
+    }
+
+.castMember-Delete--delete-btn {
+    color: var(--light-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+    .castMember-Delete--delete-btn:hover {
+        color: var(--light-color);
+        background-color: var(--main-color--light);
+        border-color: var(--main-color--light);
+    }
+
+.castMember-Delete--buttonoutline:focus {
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+.castMember-Delete--input {
+    all: unset;
+    cursor: pointer;
+}
+
+/**************************************************
+    PRODUCTION CREATE STYLING
+**************************************************/
+
+.Production-Create--btn-default {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    border-radius: 20px;
+    border-color: var(--main-color);
+    padding: 10px 20px;
+    transition: all .5s ease;
+}
+
+.Production-Create--btn-default:hover {
+    background-color: var(--main-color);
+}
+
+
+.Production-Create--container {
+    display: flex;
+    justify-content: center;
+}
+
+.Production-Create--form-container {
+    background-color: var(--light-color);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 3000px;
+}
+
+
+.Production-Create--label {
+    color: var(--main-color);
+    text-align: left;
+}
+
+/**************************************************
+    PRODUCTION CREATE&EDIT STYLING
+**************************************************/
+
+.Production-CreateEdit--input-box {
+    background-color: var(--main-color--light);
+}
+
+.Production-CreateEdit--input-box:focus {
+    border-color: var(--main-color);
+    box-shadow: none;
+}
+
+.Production-CreateEdit--btn-default {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    border-radius: 20px;
+    border-color: var(--main-color);
+    padding: 10px 20px;
+    transition: all .5s ease;
+}
+
+
+.Production-CreateEdit--btn-default:hover {
+    background-color: var(--main-color);
+}
+
+.Production-CreateEdit--btn-container {
+    display: flex;
+    justify-content: center;
+}
+.Production-CreateEdit--btn-container .btn:not(:last-child) {
+    margin-right: 10px;
+    justify-content: center;
+}
+
+
+/**************************************************
+    PRODUCTION EDIT STYLING
+**************************************************/
+
+.Production-Edit--container {
+    display: flex;
+    justify-content: center;
+}
+
+.Production-Edit--form-container {
+    background-color: var(--light-color);
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    width: 3000px;
+}
+
+
+.Production-Edit--label {
+    color: var(--main-color);
+    text-align: left;
+}
+
+.Production-Edit--input-orange:focus {
+    border-color: var(--secondary-color);
+}
