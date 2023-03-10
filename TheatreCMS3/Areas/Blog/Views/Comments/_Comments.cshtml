@@ -1,45 +1,51 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
 
+@{ 
+    ViewBag.Title = "Comments";
+}
+<style>
+    .table {
+        color: white;
+    }
+</style>
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Message)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Likes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dislikes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CommentDate)
-        </th>
-        <th></th>
-    </tr>
 
+
+
+<div class="comment-container">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Message)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Likes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dislikes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
-            </td>
-        </tr>
+    <div class="comment">
+
+        <div class="comment-time" style="background-color: var(--main-color--light);">
+            <span>@item.CommentDate</span>
+
+        </div>
+        <div class="comment-text" style="background-color: var(--main-color--light);">
+            <p>@item.Message</p>
+        </div>
+        <div class="comment-author">
+            <span>@item.Author</span>
+        </div>
+        <div class="comment-actions">
+            <button class="like-button">
+                <i class="fa fa-thumbs-up"></i>
+                <span>@item.Likes</span>
+            </button>
+            <button class="dislike-button">
+                <i class="fa fa-thumbs-down"></i>
+                <span>@item.Dislikes</span>
+            </button>
+            <br><button class="reply-button">
+                <i class="fa fa-reply"></i>
+                <span>Reply</span>
+            </button>
+            <button class="delete-button">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div><br>
+    </div>
     }
 
-</table>
+
