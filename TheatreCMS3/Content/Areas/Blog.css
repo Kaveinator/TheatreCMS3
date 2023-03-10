@@ -67,11 +67,8 @@
     position: center;
 }
 
-
-
-
-.col-md-10:after{
-    content: "";
-    display: table;
-    clear: both;
+.BlogAuthor-CreateEdit--DateContainer {
+    display: flex;
+    justify-content: space-around;
 }
+
