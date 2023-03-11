@@ -15,60 +15,88 @@
     FORM STYLING
  -------------------------------------*/
 
-#blog-author-form {
-    background-color: var(--main-color--light); 
+.BlogAuthor-CreateEdit--Title  {
+    text-align: center;
+    margin-top: 20px;
+}
 
+#BlogAuthor--CreateEdit--Form {
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 
 
-#bio-field input[type=text] {
-    
+
+
+.BlogAuthor-CreateEdit--NameContainer {
+    padding: 15px;
+
+}
+
+input#Name {
+    padding: 0px;
+}
+
+.BlogAuthor-CreateEdit--BioContainer {
+    padding: 15px;
+}
+
+textarea#Bio {
+    min-width: 100%;
     height: 100px;
-    
-}
 
-#joined-field {
-    float: left;
-    display: inline-block;
-    width: 50%;
-
-}
-
-#joined-field-container {
-    vertical-align: middle;
-
-}
-
-#left-field {
-    float: right;
-    display: inline-block;
-    width: 50%;
-}
-
-#left-field-container {
-
-}
-
-#joined-field input[type=datetime-local] {
-
-    display: inline-block;
-    width: 50%;
-    text-align: center;
-    justify-content: center;
-    position: center;
-}
-
-#left-field input[type=datetime-local] {
-    display: inline-block;
-    width: 50%;
-    text-align: center;
-    justify-content: center;
-    position: center;
 }
 
 .BlogAuthor-CreateEdit--DateContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+
+
+.BlogAuthor-CreateEdit--JoinedDate {
+    display: inline-block;
+    
+}
+
+.BlogAuthor-CreateEdit--LeftDate {
+    display: inline-block;
+}
+
+.BlogAuthor-CreateEdit--Buttons {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 15px;
+    margin-top: 50px;
+    padding-bottom: 15px;
+}
+
+.BlogAuthor-CreateEdit--BackToList {
+
+    background-color: #5a3a3a;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+    .BlogAuthor-CreateEdit--BackToList a {
+        text-decoration: none;
+        color: var(--light-color);
+    }
+
+.BlogAuthor-CreateEdit--Create {
+    background-color: #29a329;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+    .BlogAuthor-CreateEdit--Create input.btn {
+        padding: 0px;
+        margin: 9px;
+        color: var(--light-color);
+    }
