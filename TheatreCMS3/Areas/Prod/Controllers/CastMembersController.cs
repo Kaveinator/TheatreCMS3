@@ -50,6 +50,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CastMembers/Create
+        [CastDirectorAuthorize(Roles = "CastDirector")]
         public ActionResult Create()
         {
             return View();
@@ -77,6 +78,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CastMembers/Edit/5
+        [CastDirectorAuthorize(Roles = "CastDirector")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -112,6 +114,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CastMembers/Delete/5
+        [CastDirectorAuthorize(Roles = "CastDirector")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -135,6 +138,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             db.CastMembers.Remove(castMember);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)
