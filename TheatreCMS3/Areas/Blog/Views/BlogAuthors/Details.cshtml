@@ -7,45 +7,122 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="BlogAuthor-DetailsDelete--Container">
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <div class="BlogAuthor-DetailsDelete--TabContainerWrapper">
+        <div class="BlogAuthor-DetailsDelete--TabButtonWrapper">
+            <button class="BlogAuthor-DetailsDelete--TabButton active" data-id="AuthorDetails">Author Details</button>
+            <button class="BlogAuthor-DetailsDelete--TabButton" data-id="BlogPosts">Blog Posts</button>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+        <div class="BlogAuthor-DetailsDelete--ContentWrapper">
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+            <!--Blog Photos Model-->
+            <div class="BlogAuthor-DetailsDelete--PlaceHolder">
+                <img src="~/Content/images/Sample Image.jpg" class="BlogAuthor-Details--PlaceHolderImg" />
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+            <div class="BlogAuthor-DetailsDelete--ContentContainer">
+                
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+                <div class="BlogAuthor-DetailsDelete--content active" id="AuthorDetails">
+                    <div class="BlogAuthor-DetailsDelete--NameBioSocialContainer">
+                        
+                        <div class="BlogAuthor-DetailsDelete--NameEntry">
+                            @Html.DisplayFor(model => model.Name)
+                        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
+                        <div class="BlogAuthor-DetailsDelete--Socials">
+                            <div class="BlogAuthor-DetailsDelete--Facebook">
+                                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
+                            <div class="BlogAuthor-DetailsDelete--Instagram">
+                                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
 
-    </dl>
+                    <div class="BlogAuthor-DetailsDelete--BioEntry">
+                        @Html.DisplayFor(model => model.Bio)
+                    </div>
+
+
+                    @*<div class="BlogAuthor-Details--NameBioSocialContainer">
+            <div class="BlogAuthor-Details--NameBioContainer">
+                <div class="BlogAuthor-Details--NameEntry">
+                    @Html.DisplayFor(model => model.Name)
+                </div>
+
+                <div class="BlogAuthor-Details--BioEntry">
+                    @Html.DisplayFor(model => model.Bio)
+                </div>
+            </div>
+
+            <div class="BlogAuthor-Details--Socials">
+                <div class="BlogAuthor-Details--Facebook">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                </div>
+
+                <div class="BlogAuthor-Details--Instagram">
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+
+
+        </div>*@
+
+
+                    <div class="BlogAuthor-DetailsDelete--DateTimesContainer">
+                        <div class="BlogAuthor-DetailsDelete--DateTime">
+                            <div class="BlogAuthor-DetailsDelete--Heading">
+                                @Html.DisplayNameFor(model => model.Joined)
+                            </div>
+
+                            <div class="BlogAuthor-DetailsDelete--JoinedDateEntry">
+                                @Html.DisplayFor(model => model.Joined)
+                            </div>
+
+
+                        </div>
+
+                        <div class="BlogAuthor-DetailsDelete--DateTime">
+                            <div class="BlogAuthor-DetailsDelete--Heading">
+                                @Html.DisplayNameFor(model => model.Left)
+                            </div>
+
+                            <div class="BlogAuthor-DetailsDelete--Entry">
+                                @Html.DisplayFor(model => model.Left)
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="BlogAuthor-DetailsDelete--content" id="BlogPosts">
+
+            </div>
+
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="BlogAuthor-DetailsDelete--Buttons">
+    <div class="BlogAuthor-DetailsDelete--ListEditButtons">
+        <div class="BlogAuthor-DetailsDelete--BackToList">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        <div class="BlogAuthor-DetailsDelete--Edit">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId })
+        </div>
+    </div>
+
+    <div class="BlogAuthor-DetailsDelete--TrashButton">
+        <i class="fa fa-trash"></i>
+    </div>
+
+</div>
