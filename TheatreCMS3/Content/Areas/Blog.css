@@ -12,7 +12,7 @@
 /*}*/
 
 /*------------------------------------
-    FORM STYLING
+    CREATE / EDIT FORM STYLING
  -------------------------------------*/
 
 .BlogAuthor-CreateEdit--Title  {
@@ -26,9 +26,6 @@
     margin-left: 20%;
     margin-right: 20%;
 }
-
-
-
 
 
 .BlogAuthor-CreateEdit--NameContainer {
@@ -55,7 +52,6 @@ textarea#Bio {
     justify-content: center;
     flex-wrap: wrap;
 }
-
 
 
 .BlogAuthor-CreateEdit--JoinedDate {
@@ -100,3 +96,225 @@ textarea#Bio {
         margin: 9px;
         color: var(--light-color);
     }
+
+/*------------------------------------
+    DETAILS / DELETE STYLING
+ -------------------------------------*/
+
+.BlogAuthor-DetailsDelete--Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BlogAuthor-DetailsDelete--TabContainerWrapper {
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.BlogAuthor-DetailsDelete--TabButtonWrapper {
+    display: inherit;
+    background-color: var(--light-color);
+    padding: 10px;
+    margin-bottom: -3px;
+    border-radius: 5px;
+}
+
+button.BlogAuthor-DetailsDelete--TabButton {
+    background-color: #5a3a3a;
+}
+
+    button.BlogAuthor-DetailsDelete--TabButton.active {
+        background-color: #29a329;
+        border-radius: 5px;
+    }
+
+
+
+
+.BlogAuthor-DetailsDelete--ContentWrapper {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 43.5vw;
+    background-color: var(--light-color);
+    border-radius: 5px;
+    padding: 1.5vw;
+}
+.BlogAuthor-DetailsDelete--PlaceHolder {
+}
+
+    .BlogAuthor-DetailsDelete--PlaceHolder img {
+        max-height: 250px;
+        max-width: 250px;
+        border-radius: 5px;
+    }
+
+.BlogAuthor-DetailsDelete--ContentContainer {
+    min-height: 250px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    /*align-items: flex-end;*/
+}
+
+
+.BlogAuthor-DetailsDelete--content {
+    display: none;
+    padding-left: 20px;
+}
+
+    .BlogAuthor-DetailsDelete--content.active {
+        display: inline-flex;
+        flex-direction: column;
+        color: var(--dark-color);
+    }
+
+        .BlogAuthor-DetailsDelete--content.active dl {
+        }
+
+.BlogAuthor-DetailsDelete--NameBioSocialContainer {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.BlogAuthor-DetailsDelete--NameBioContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.BlogAuthor-DetailsDelete--NameEntry {
+    font-weight: bold;
+    font-size: 2rem
+}
+
+.BlogAuthor-DetailsDelete--BioEntry {
+    margin-top: 12px;
+}
+
+.BlogAuthor-DetailsDelete--Socials {
+    display: inline-flex;
+}
+
+.BlogAuthor-DetailsDelete--Facebook {
+    content: "\f082";
+}
+
+    .BlogAuthor-DetailsDelete--Facebook a {
+        text-decoration: none;
+        color: var(--dark-color);
+        font-size: 1.5rem;
+        margin-right: 5px;
+    }
+
+.BlogAuthor-DetailsDelete--Instagram {
+    content: "\f082";
+}
+
+    .BlogAuthor-DetailsDelete--Instagram a {
+        text-decoration: none;
+        color: var(--dark-color);
+        font-size: 1.5rem;
+    }
+
+.BlogAuthor-DetailsDelete--Heading {
+    display: flex;
+    font-weight: bold;
+    font-size: 1rem
+}
+
+.BlogAuthor-DetailsDelete--DateTimesContainer {
+    display: flex;
+    margin-top: 1.6vh;
+}
+
+.BlogAuthor-DetailsDelete--DateTime {
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.BlogAuthor-DetailsDelete--AuthorDetails {
+    border-radius: 5px;
+}
+
+.BlogAuthor-DetailsDelete--Buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5vh;
+    justify-content: space-between;
+}
+
+.BlogAuthor-DetailsDelete--BackToList {
+    background-color: #5a3a3a;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+    .BlogAuthor-DetailsDelete--BackToList a {
+        text-decoration: none;
+        color: var(--light-color);
+    }
+
+.BlogAuthor-DetailsDelete--Edit {
+    background-color: #29a329;
+    border-radius: 5px;
+    margin-left: 5px;
+    color: var(--light-color);
+    padding: 10px;
+    text-decoration: none;
+}
+
+    .BlogAuthor-DetailsDelete--Edit a {
+        text-decoration: none;
+        color: var(--light-color);
+    }
+
+
+.BlogAuthor-DetailsDelete--Buttons {
+}
+
+.BlogAuthor-DetailsDelete--ListEditButtons {
+    display: flex;
+}
+
+.BlogAuthor-DetailsDelete--TrashButton {
+    
+
+}
+
+    .BlogAuthor-DetailsDelete--TrashButton i {
+        font-family: 'FontAwesome';
+        color: var(--light-color);
+        background-color: var(--main-color--light);
+        font-size: 1.5rem;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .BlogAuthor-DetailsDelete--TrashButton a {
+        font-family: 'FontAwesome';
+        text-decoration: none;
+        color: var(--light-color);
+        content: "\f1f8";
+        background-color: var(--main-color--light);
+        font-size: 1.5rem;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+.BlogAuthor-DetailsDelete--TrashButton a {
+    font-family: 'FontAwesome';
+    text-decoration: none;
+    color: var(--light-color);
+    content: "\f1f8";
+    background-color: var(--main-color--light);
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 10px;
+}
+
