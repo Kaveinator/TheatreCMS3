@@ -122,8 +122,20 @@
         </div>
     </div>
 
-    <div class="BlogAuthor-DetailsDelete--TrashButton">
-        <i class="fa fa-trash"></i>
-    </div>
+
+    @*<div class="BlogAuthor-DetailsDelete--TrashButton">
+        <input type="submit"/>
+        <a class="fa fa-trash" href="@Url.Action("Delete", new { id = Model.BlogAuthorId})"></a>
+    </div>*@
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="BlogAuthor-Details-Delete--TrashButton">
+            <i class="fa fa-trash"><input type="submit" value="" class="fa fa-trash" style="background-color: red;" /> </i>
+
+        </div>
+    }
 
 </div>

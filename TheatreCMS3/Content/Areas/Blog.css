@@ -283,15 +283,26 @@ button.BlogAuthor-DetailsDelete--TabButton {
 }
 
 .BlogAuthor-DetailsDelete--TrashButton {
-    content: "\f082";
+    
+
 }
 
     .BlogAuthor-DetailsDelete--TrashButton i {
-        text-decoration: none;
+        font-family: 'FontAwesome';
         color: var(--light-color);
         background-color: var(--main-color--light);
         font-size: 1.5rem;
- 
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .BlogAuthor-DetailsDelete--TrashButton a {
+        font-family: 'FontAwesome';
+        text-decoration: none;
+        color: var(--light-color);
+        content: "\f1f8";
+        background-color: var(--main-color--light);
+        font-size: 1.5rem;
         border-radius: 5px;
         padding: 10px;
     }
