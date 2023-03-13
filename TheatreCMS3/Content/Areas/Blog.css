@@ -307,3 +307,14 @@ button.BlogAuthor-DetailsDelete--TabButton {
         padding: 10px;
     }
 
+.BlogAuthor-DetailsDelete--TrashButton a {
+    font-family: 'FontAwesome';
+    text-decoration: none;
+    color: var(--light-color);
+    content: "\f1f8";
+    background-color: var(--main-color--light);
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 10px;
+}
+
