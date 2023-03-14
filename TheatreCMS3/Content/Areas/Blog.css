@@ -165,6 +165,7 @@ button.BlogAuthor-DetailsDelete--TabButton {
     min-height: 250px;
     display: inline-flex;
     flex-wrap: wrap;
+    min-width: 43.5vw;
     /*align-items: flex-end;*/
 }
 
@@ -389,7 +390,7 @@ button.BlogAuthor-Index--TabButton {
 
 .BlogAuthor-Index--ContentContainer {
     min-height: 250px;
-
+    min-width: 68%;
     display: inline-flex;
     flex-wrap: wrap;
     /*align-items: flex-end;*/
@@ -557,4 +558,13 @@ button.BlogAuthor-Index--TabButton {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    position: static;
+}
+
+.BlogAuthor-Index--BlankContent {
+    display: none;
+}
+
+.BlogAuthor-Index--BlankContent p {
+    color: var(--dark-color);
 }

@@ -43,15 +43,15 @@ tabs.onclick = e => {
 //}
 
 function showDetails(id) {
-
-    $("#content").show();
-    $("#blank-content").hide();   
+    //alert(id);
+    $("#content-" + id).show();
+    $("#blank-content-" + id).hide();   
 
 }
 
 function showPosts(id) {
-    $("#content").hide();
-    $("#blank-content").show();
+    $("#content-" + id).hide();
+    $("#blank-content-" + id).show();
 
 }
 
