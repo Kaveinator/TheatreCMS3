@@ -308,6 +308,7 @@
     <Content Include="Areas\Blog\Views\Comments\_Comments.cshtml" />
     <Content Include="Areas\Rent\Views\web.config" />
     <Content Include="Areas\Prod\Views\web.config" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\_BlogAuthor.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
