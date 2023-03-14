@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogAuthor>
 
-
 <h4>BlogAuthor</h4>
 
 
 @foreach (var item in Model)
 {
-
-
+    <!--Blog Author Container-->
     <div class="BlogAuthor-Index--Container">
 
+        <!-- Tab Container Wrapper-->
         <div class="BlogAuthor-Index--TabContainerWrapper">
+
+            <!-- Tab Button Wrapper-->
             <div class="BlogAuthor-Index--TabButtonWrapper">
-                <button class="BlogAuthor-Index--TabButton active" data-id="AuthorDetails">Author Details</button>
-                <button class="BlogAuthor-Index--TabButton" data-id="BlogPosts">Blog Posts</button>
+                <button class="BlogAuthor-Index--TabButton active" onclick="showDetails(@item.BlogAuthorId)" data-id="AuthorDetails" id="AuthorDetails">Author Details</button>
+                <button class="BlogAuthor-Index--TabButton" onclick="showPosts(@item.BlogAuthorId)" data-id="BlogPosts" id="BlogPost">Blog Posts</button>
             </div>
 
+            <!-- Content Wrapper -->
             <div class="BlogAuthor-Index--ContentWrapper">
 
                 <!--Blog Photos Model-->
@@ -23,56 +25,66 @@
                     <img src="~/Content/images/Sample Image.jpg" class="BlogAuthor-Details--PlaceHolderImg" />
                 </div>
 
-                <div class="BlogAuthor-Index--ContentContainer">
+                <!--Content Container for Hide/Show -->
+                <div class="BlogAuthor-Index--ContentContainer" id="ContentContainer">
 
+                    <!-- Blank Content for Hide/Show-->
+                    <div class="BlogAuthor-Index--BlankContent" id="blank-content-@item.BlogAuthorId">
+                    <p>
+                        Blog post not available
+                    </p>
+                    </div>
+                    <!-- Blank Content for Hide/Show-->
 
-                    <div class="BlogAuthor-Index--content active" id="AuthorDetails">
-                        <div class="BlogAuthor-Index--NameBioSocialContainer">
+                    <!-- Author Details Content for Hide/Show-->
+                    <div class="BlogAuthor-Index--AuthorContent" id="content-@item.BlogAuthorId">
+                        <div class="BlogAuthor-Index--content active" id="AuthorDetails">
+                            <div class="BlogAuthor-Index--NameBioSocialContainer">
 
-                            <div class="BlogAuthor-Index--NameEntry">
+                                <div class="BlogAuthor-Index--NameEntry">
 
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </div>
-
-
-                        </div>
-
-                        <div class="BlogAuthor-Index--BioEntry">
-                            @Html.DisplayFor(modelItem => item.Bio)
-                        </div>
-
-                        <div class="BlogAuthor-Index--DateTimesContainer">
-                            <div class="BlogAuthor-Index--DateTime">
-                                <div class="BlogAuthor-Index--Heading">
-                                    @Html.DisplayNameFor(model => model.Joined)
-                                </div>
-
-                                <div class="BlogAuthor-Index--JoinedDateEntry">
-                                    @Html.DisplayFor(modelItem => item.Joined)
+                                    @Html.DisplayFor(modelItem => item.Name)
                                 </div>
 
 
                             </div>
 
-                            <div class="BlogAuthor-Index--DateTime">
-                                <div class="BlogAuthor-Index--Heading">
-                                    @Html.DisplayNameFor(model => model.Left)
+                            <div class="BlogAuthor-Index--BioEntry">
+                                @Html.DisplayFor(modelItem => item.Bio)
+                            </div>
+
+                            <div class="BlogAuthor-Index--DateTimesContainer">
+                                <div class="BlogAuthor-Index--DateTime">
+                                    <div class="BlogAuthor-Index--Heading">
+                                        @Html.DisplayNameFor(model => model.Joined)
+                                    </div>
+
+                                    <div class="BlogAuthor-Index--JoinedDateEntry">
+                                        @Html.DisplayFor(modelItem => item.Joined)
+                                    </div>
+
+
                                 </div>
 
-                                <div class="BlogAuthor-Index--Entry">
-                                    @Html.DisplayFor(modelItem => item.Left)
+                                <div class="BlogAuthor-Index--DateTime">
+                                    <div class="BlogAuthor-Index--Heading">
+                                        @Html.DisplayNameFor(model => model.Left)
+                                    </div>
+
+                                    <div class="BlogAuthor-Index--Entry">
+                                        @Html.DisplayFor(modelItem => item.Left)
+                                    </div>
+
                                 </div>
 
                             </div>
-
                         </div>
                     </div>
-                </div>
-
-                <div class="BlogAuthor-Index--content" id="BlogPosts">
+                    <!-- End of Author Details Content for Hide/Show-->
 
                 </div>
-
+                <!-- End of Content Container for Hide/Show -->
+                <!-- FontAwesome Icons -->
                 <div class="BlogAuthor-Index--ButtonsContainer">
                     <div class="BlogAuthor-Index--Socials">
                         <div class="BlogAuthor-Index--Facebook">
@@ -99,13 +111,14 @@
 
                     </div>
                 </div>
-                
+                <!-- End of FontAwesome Icons -->
+
             </div>
         </div>
-
+        <!-- End of Tab Container Wrapper-->
 
     </div>
-
+    <!-- End of Blog Author Container-->
 
 }
 
