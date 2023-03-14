@@ -42,50 +42,50 @@ tabs.onclick = e => {
 //    }
 //}
 
-//function showDetails(id) {
-    
-//    $("#content").show();
-//    $("#blank-content").hide();   
-
-//}
-
-//function showPosts(id) {
-//    $("#content").hide();
-//    $("#blank-content").show();
-
-//}
-
 function showDetails(id) {
-    var id = '#AuthorDetails';
-    $(id).attr("#id", "-1");
-    $(id).change(function () {
-        $(id + 'button').each(function () {
-            $('#' + this.id).hide();
-        });
 
-    })
-    $(id).each(function () {
-        $("#blank-content" + this.id).hide();
-    });
-    $("#BlogPosts").each(function () {
-        $("#content" + this.id).show();
-    });
-
-
+    $("#content").show();
+    $("#blank-content").hide();   
 
 }
 
 function showPosts(id) {
-    $(document).ready(function () {
-        $("#AuthorDetails").click(function () {
-            $("#blank-content").show();
-        });
-        $("#BlogPosts").click(function () {
-            $("#content").hide();
-        });
-    });
+    $("#content").hide();
+    $("#blank-content").show();
 
 }
+
+//function showDetails(id) {
+//    var id = '#AuthorDetails';
+//    $(id).attr("#id", "-1");
+//    $(id).change(function () {
+//        $(id + 'button').each(function () {
+//            $('#' + this.id).hide();
+//        });
+
+//    })
+//    $(id).each(function () {
+//        $("#blank-content" + this.id).hide();
+//    });
+//    $("#BlogPosts").each(function () {
+//        $("#content" + this.id).show();
+//    });
+
+
+
+//}
+
+//function showPosts(id) {
+//    $(document).ready(function () {
+//        $("#AuthorDetails").click(function () {
+//            $("#blank-content").show();
+//        });
+//        $("#BlogPosts").click(function () {
+//            $("#content").hide();
+//        });
+//    });
+
+//}
 
 //$(document).ready(function () {
 //    var 
