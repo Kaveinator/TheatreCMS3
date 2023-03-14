@@ -1,0 +1,113 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogAuthor>
+
+
+<h4>BlogAuthor</h4>
+
+
+@foreach (var item in Model)
+{
+
+
+    <div class="BlogAuthor-Index--Container">
+
+        <div class="BlogAuthor-Index--TabContainerWrapper">
+            <div class="BlogAuthor-Index--TabButtonWrapper">
+                <button class="BlogAuthor-Index--TabButton active" data-id="AuthorDetails">Author Details</button>
+                <button class="BlogAuthor-Index--TabButton" data-id="BlogPosts">Blog Posts</button>
+            </div>
+
+            <div class="BlogAuthor-Index--ContentWrapper">
+
+                <!--Blog Photos Model-->
+                <div class="BlogAuthor-Index--PlaceHolder">
+                    <img src="~/Content/images/Sample Image.jpg" class="BlogAuthor-Details--PlaceHolderImg" />
+                </div>
+
+                <div class="BlogAuthor-Index--ContentContainer">
+
+
+                    <div class="BlogAuthor-Index--content active" id="AuthorDetails">
+                        <div class="BlogAuthor-Index--NameBioSocialContainer">
+
+                            <div class="BlogAuthor-Index--NameEntry">
+
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </div>
+
+
+                        </div>
+
+                        <div class="BlogAuthor-Index--BioEntry">
+                            @Html.DisplayFor(modelItem => item.Bio)
+                        </div>
+
+                        <div class="BlogAuthor-Index--DateTimesContainer">
+                            <div class="BlogAuthor-Index--DateTime">
+                                <div class="BlogAuthor-Index--Heading">
+                                    @Html.DisplayNameFor(model => model.Joined)
+                                </div>
+
+                                <div class="BlogAuthor-Index--JoinedDateEntry">
+                                    @Html.DisplayFor(modelItem => item.Joined)
+                                </div>
+
+
+                            </div>
+
+                            <div class="BlogAuthor-Index--DateTime">
+                                <div class="BlogAuthor-Index--Heading">
+                                    @Html.DisplayNameFor(model => model.Left)
+                                </div>
+
+                                <div class="BlogAuthor-Index--Entry">
+                                    @Html.DisplayFor(modelItem => item.Left)
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="BlogAuthor-Index--content" id="BlogPosts">
+
+                </div>
+
+                <div class="BlogAuthor-Index--ButtonsContainer">
+                    <div class="BlogAuthor-Index--Socials">
+                        <div class="BlogAuthor-Index--Facebook">
+                            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        </div>
+
+                        <div class="BlogAuthor-Index--Instagram">
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="BlogAuthor-Index--Buttons">
+                        <div class="BlogAuthor-Index--ListEditButtons">
+
+                            <div class="BlogAuthor-Index--Edit">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.BlogAuthorId })
+                            </div>
+                        </div>
+
+
+                        <div class="BlogAuthor-Index--TrashButton">
+                            <a class="fa fa-trash" href="@Url.Action("Delete", new { id = item.BlogAuthorId})"></a>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+    </div>
+
+
+}
+
+
+

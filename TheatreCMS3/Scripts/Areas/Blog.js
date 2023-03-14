@@ -1,6 +1,6 @@
-const tabs = document.querySelector(".BlogAuthor-Details--TabContainerWrapper");
-const tabButton = document.querySelectorAll(".BlogAuthor-Details--TabButton");
-const contents = document.querySelectorAll(".BlogAuthor-Details--content");
+const tabs = document.querySelector(".BlogAuthor-DetailsDelete--TabContainerWrapper");
+const tabButton = document.querySelectorAll(".BlogAuthor-DetailsDelete--TabButton");
+const contents = document.querySelectorAll(".BlogAuthor-DetailsDelete--content");
 
 tabs.onclick = e => {
     const id = e.target.dataset.id;
@@ -19,3 +19,6 @@ tabs.onclick = e => {
         element.classList.add("active");
     }
 }
+
+
+                                                                                   
