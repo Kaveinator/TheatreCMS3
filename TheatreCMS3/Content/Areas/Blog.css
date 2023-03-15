@@ -15,7 +15,7 @@
     CREATE / EDIT FORM STYLING
  -------------------------------------*/
 
-.BlogAuthor-CreateEdit--Title  {
+.BlogAuthor-CreateEdit--Title {
     text-align: center;
     margin-top: 20px;
 }
@@ -30,7 +30,6 @@
 
 .BlogAuthor-CreateEdit--NameContainer {
     padding: 15px;
-
 }
 
 input#Name {
@@ -44,7 +43,6 @@ input#Name {
 textarea#Bio {
     min-width: 100%;
     height: 100px;
-
 }
 
 .BlogAuthor-CreateEdit--DateContainer {
@@ -56,7 +54,6 @@ textarea#Bio {
 
 .BlogAuthor-CreateEdit--JoinedDate {
     display: inline-block;
-    
 }
 
 .BlogAuthor-CreateEdit--LeftDate {
@@ -73,11 +70,9 @@ textarea#Bio {
 }
 
 .BlogAuthor-CreateEdit--BackToList {
-
     background-color: #5a3a3a;
     border-radius: 5px;
     padding: 10px;
-
 }
 
     .BlogAuthor-CreateEdit--BackToList a {
@@ -131,7 +126,6 @@ button.BlogAuthor-DetailsDelete--TabButton {
     border-radius: 5px;
     color: white;
     margin: 5px;
-   
 }
 
     button.BlogAuthor-DetailsDelete--TabButton.active {
@@ -152,6 +146,7 @@ button.BlogAuthor-DetailsDelete--TabButton {
     border-radius: 5px;
     padding: 1.5vw;
 }
+
 .BlogAuthor-DetailsDelete--PlaceHolder {
 }
 
@@ -291,8 +286,6 @@ button.BlogAuthor-DetailsDelete--TabButton {
 }
 
 .BlogAuthor-DetailsDelete--TrashButton {
-    
-
 }
 
     .BlogAuthor-DetailsDelete--TrashButton i {
@@ -315,16 +308,16 @@ button.BlogAuthor-DetailsDelete--TabButton {
         padding: 10px;
     }
 
-.BlogAuthor-DetailsDelete--TrashButton a {
-    font-family: 'FontAwesome';
-    text-decoration: none;
-    color: var(--light-color);
-    content: "\f1f8";
-    background-color: var(--main-color--light);
-    font-size: 1.5rem;
-    border-radius: 5px;
-    padding: 10px;
-}
+    .BlogAuthor-DetailsDelete--TrashButton a {
+        font-family: 'FontAwesome';
+        text-decoration: none;
+        color: var(--light-color);
+        content: "\f1f8";
+        background-color: var(--main-color--light);
+        font-size: 1.5rem;
+        border-radius: 5px;
+        padding: 10px;
+    }
 
 /*------------------------------------
     INDEX STYLING
@@ -375,7 +368,6 @@ button.BlogAuthor-Index--TabButton {
     background-color: var(--light-color);
     border-radius: 5px;
     padding: 1.5vw;
-
     align-items: flex-end;
 }
 
@@ -565,6 +557,119 @@ button.BlogAuthor-Index--TabButton {
     display: none;
 }
 
-.BlogAuthor-Index--BlankContent p {
-    color: var(--dark-color);
+    .BlogAuthor-Index--BlankContent p {
+        color: var(--dark-color);
+    }
+
+/*--------------------------------------------
+    INDEX DELETE CONFIRMATION MODAL STYLING
+ --------------------------------------------*/
+.BlogAuthor-AsyncDelete modal-confirm {
+    color: #636363;
+    width: 400px;
+    align-items: center;
+}
+
+.BlogAuthor-AsyncDelete .modal-content {
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    background-color: #663836;
+    margin-top: 26vh;
+}
+
+    .BlogAuthor-AsyncDelete modal-confirm .modal-header {
+        border-bottom: none;
+        position: relative;
+    }
+
+    .BlogAuthor-AsyncDelete h4 {
+        text-align: center;
+        font-size: 26px;
+        margin: 30px 0 -10px;
+    }
+
+    .BlogAuthor-AsyncDelete .close {
+        position: absolute;
+        top: 0px;
+        right: 8px;
+    }
+
+    .BlogAuthor-AsyncDelete .modal-body {
+        color: white;
+
+        text-align: center;
+    }
+
+    .BlogAuthor-AsyncDelete modal-confirm .modal-footer {
+        border: none;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 13px;
+        padding: 10px 15px 25px;
+
+    }
+
+    .BlogAuthor-AsyncDelete .modal-footer a {
+        color: white;
+        text-decoration: none;
+        
+    }
+
+    .BlogAuthor-AsyncDelete .icon-box {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        border-radius: 50%;
+        z-index: 9;
+        text-align: center;
+        border: 3px solid white;
+    }
+
+        .BlogAuthor-AsyncDelete .icon-box i {
+            color: white;
+            font-size: 46px;
+            display: inline-block;
+            margin-top: 13px;
+
+        }
+
+    .BlogAuthor-AsyncDelete modal-confirm .btn, .modal-confirm .btn:active {
+        color: #fff;
+        border-radius: 4px;
+        border-color: black;
+        background: #60c7c1;
+        text-decoration: none;
+        transition: all 0.4s;
+        line-height: normal;
+
+        
+        min-height: 40px;
+        border-radius: 3px;
+        margin: 0 5px;
+    }
+
+    .BlogAuthor-AsyncDelete modal-confirm .btn-secondary {
+        background: #c1c1c1;
+    }
+
+        .BlogAuthor-AsyncDelete modal-confirm .btn-secondary:hover, .modal-confirm .btn-secondary:focus {
+            background: #a8a8a8;
+        }
+
+    .BlogAuthor-AsyncDelete .btn-danger {
+        background: #ee3535;
+        text-decoration: none;
+
+    }
+
+        .BlogAuthor-AsyncDelete .btn-danger:hover, .modal-confirm .btn-danger:focus {
+            background: #ee3535;
+        }
+
+.trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
 }

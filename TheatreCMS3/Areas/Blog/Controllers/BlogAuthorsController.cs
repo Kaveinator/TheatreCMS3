@@ -93,16 +93,10 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // GET: Blog/BlogAuthors/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(blogAuthor);
+            db.BlogAuthors.Remove(blogAuthor);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: Blog/BlogAuthors/Delete/5
@@ -125,9 +119,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             base.Dispose(disposing);
         }
 
-        //public ActionResult BlogAuthorsPartial()
-        //{
-        //    return PartialView("_BlogAuthor", db.BlogAuthors);
-        //}
+        
     }
 }
