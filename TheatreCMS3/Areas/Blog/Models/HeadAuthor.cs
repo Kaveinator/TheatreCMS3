@@ -4,10 +4,9 @@ namespace TheatreCMS3.Areas.Blog.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    
+    using TheatreCMS3.Models;
 
-
-    public class HeadAuthor : TheatreCMS3.Models.ApplicationUser
+    public class HeadAuthor : ApplicationUser
     {
         public int ViewsPerMonth { get; set; }
         public int AuthorsHired { get; set; }
