@@ -55,41 +55,8 @@ function showPosts(id) {
 
 }
 
-//function showDetails(id) {
-//    var id = '#AuthorDetails';
-//    $(id).attr("#id", "-1");
-//    $(id).change(function () {
-//        $(id + 'button').each(function () {
-//            $('#' + this.id).hide();
-//        });
-
-//    })
-//    $(id).each(function () {
-//        $("#blank-content" + this.id).hide();
-//    });
-//    $("#BlogPosts").each(function () {
-//        $("#content" + this.id).show();
-//    });
-
-
-
-//}
-
-//function showPosts(id) {
-//    $(document).ready(function () {
-//        $("#AuthorDetails").click(function () {
-//            $("#blank-content").show();
-//        });
-//        $("#BlogPosts").click(function () {
-//            $("#content").hide();
-//        });
-//    });
-
-//}
-
-//$(document).ready(function () {
-//    var 
-    
-
-
-//});
+function fadeRemove(id) {
+    $("#BlogAuthor-AsyncDelete--Entree-" + id).fadeOut(300, function () {
+        $("#BlogAuthor-AsyncDelete--Entree-" + id).remove();
+    });
+}
