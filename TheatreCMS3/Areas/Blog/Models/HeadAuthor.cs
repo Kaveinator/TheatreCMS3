@@ -42,8 +42,9 @@ namespace TheatreCMS3.Areas.Blog.Models
             
 
 
-            var authorUser = new HeadAuthor{ UserName = "Broman", Email = "broman@hmail.com", PasswordHash = "notmypassword", ViewsPerMonth = 1, AuthorsHired = 2, AuthorsLetGo = 3 };
-            userResult = UserManager.Create(authorUser, "Broman@hmail.com");
+            var authorUser = new HeadAuthor{ UserName = "Broman", Email = "broman@hmail.com", ViewsPerMonth = 1, AuthorsHired = 2, AuthorsLetGo = 3 };
+            string password = "password123";
+            userResult = UserManager.Create(authorUser, password);
         }
     }
 
