@@ -37,6 +37,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // GET: Blog/BlogAuthors/Create
+        [HeadAuthorAuthorize(Roles = "HeadAuthor")]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +61,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // GET: Blog/BlogAuthors/Edit/5
+        [HeadAuthorAuthorize(Roles = "HeadAuthor")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +93,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // GET: Blog/BlogAuthors/Delete/5
+        [HeadAuthorAuthorize(Roles = "HeadAuthor")]
         public ActionResult Delete(int? id)
         {
             BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
@@ -119,6 +122,10 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             base.Dispose(disposing);
         }
 
-        
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
     }
+
 }
