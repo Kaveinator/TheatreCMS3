@@ -12,9 +12,76 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
-/*======================================
-           Table Styling
-======================================*/
+/*================================================================
+          Rental History Create/Edit Form Styling
+================================================================*/
+.RentalHistory-Create-Title {
+    text-align: center;
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+#RentalHistory--Create--Form {
+    max-width: 600px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+    #RentalHistory--Create--Form label {
+        font-weight: bolder;
+    }
+
+.RentalHistory--Create--formGroupSplit:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.RentalHistory--Create--column {
+    float: left;
+    width: 50%;
+}
+
+.RentalHistory--Create--checkbox {
+    margin-top: 7px;
+}
+
+    .RentalHistory--Create--checkbox input {
+        height: 15px;
+        width: 15px;
+    }
+
+.RentalHistory--Create--colmd2 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.RentalHistory--Create--colmd10 {
+    max-width: 100%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#RentalHistory--Create--Form a {
+    color: white;
+    text-decoration: none;
+}
+
+.RentalHistory--Create--dflex {
+    padding-top: 8px;
+    padding-bottom: 18px;
+    gap: 5px;
+    display: flex;
+}
+
+
+/*================================================================
+            Rental History Index Table Styling
+================================================================*/
 .RentalHistory-Index--TableContainer {
     background-color: var(--light-color);
     border: 2px solid var(--main-color);
