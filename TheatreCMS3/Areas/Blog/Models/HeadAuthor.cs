@@ -49,7 +49,7 @@ namespace TheatreCMS3.Areas.Blog.Models
             if (HeadA.Succeeded)
             {
                 // If yes, adds user to role
-                RoleUserManager.AddToRole(headAuth.Id, "HeadAuthor";)
+                RoleUserManager.AddToRole(headAuth.Id, "HeadAuthor");
             }
 
         }
