@@ -673,3 +673,34 @@ button.BlogAuthor-Index--TabButton {
     display: inline-block;
     margin: 100px auto;
 }
+
+/*--------------------------------------------
+    ACCESS DENIED PAGE STYLING
+ --------------------------------------------*/
+
+.BlogAuthor-RestrictCRUD--AccessDeniedPage {
+    display: grid;
+    margin: 10vh;
+}
+
+.BlogAuthor-RestrictCRUD--DeniedImgContainer {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BlogAuthor-RestrictCRUD--DeniedImg {
+    max-height: 50vh;
+}
+
+.BlogAuthor-RestrictCRUD--Heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+    .BlogAuthor-RestrictCRUD--Heading h1 {
+        font-size: 4.5rem;
+    }
+

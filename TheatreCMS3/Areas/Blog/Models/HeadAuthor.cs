@@ -22,33 +22,54 @@ namespace TheatreCMS3.Areas.Blog.Models
 
         public static void Seed(ApplicationDbContext context)
         {
-            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var RoleUserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             // Create HeadAuthor Role
-            string roleName = "HeadAuthor";
-            IdentityResult roleResult;
-            IdentityResult userResult;
+            var modRole = new IdentityRole();
+            modRole.Name = "HeadAuthor";
+            RoleManager.Create(modRole);
 
-            if (!RoleManager.RoleExists(roleName))
+            // Creating HeadAuthor
+            var headAuth = new HeadAuthor
             {
-                roleResult = RoleManager.Create(new IdentityRole(roleName));
+                UserName = "Broman",
+                Email = "broman@hmail.com",
+                ViewsPerMonth = 1,
+                AuthorsHired = 2,
+                AuthorsLetGo = 3
+            };
+
+            string password = "password123";
+
+            //Creating user so it can have role added
+            var HeadA = RoleUserManager.Create(headAuth, password);
+
+            // Checks if creating user succeeded
+            if (HeadA.Succeeded)
+            {
+                // If yes, adds user to role
+                RoleUserManager.AddToRole(headAuth.Id, "HeadAuthor");
             }
 
-            var author = new List<HeadAuthor>
-            {
-                new HeadAuthor { ViewsPerMonth = 1, AuthorsHired = 2, AuthorsLetGo = 3 }
-            };
-            
-
-
-            var authorUser = new HeadAuthor{ UserName = "Broman", Email = "broman@hmail.com", ViewsPerMonth = 1, AuthorsHired = 2, AuthorsLetGo = 3 };
-            string password = "password123";
-            userResult = UserManager.Create(authorUser, password);
         }
     }
 
+    public class HeadAuthorAuthorize : AuthorizeAttribute
+    {
 
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            base.OnAuthorization(filterContext);
+
+            if (filterContext.Result is HttpUnauthorizedResult)
+            {
+
+                filterContext.Result = new RedirectResult("~/Blog/BlogAuthors/AccessDenied");
+            }
+
+        }
+    }
 
 }
 
