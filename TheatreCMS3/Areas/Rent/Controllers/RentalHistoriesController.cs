@@ -16,9 +16,38 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Rent/RentalHistories
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.RentalHistories.ToList());
+            ViewBag.IdSortParm = String.IsNullOrEmpty(sortOrder) ? "Id" : "";
+            ViewBag.DamagedSortParm = sortOrder == "Damaged Rentals" ? "" : "Damaged Rentals";
+            ViewBag.UndamagedSortParm = sortOrder == "Undamaged Rentals" ? "" : "Undamaged Rentals";
+            ViewBag.AzSortParm = sortOrder == "Rentals A-Z" ? "" : "Rentals A-Z";
+            ViewBag.ZaSortParm = sortOrder == "Rentals Z-A" ? "" : "Rentals Z-A"; 
+            
+            var rentals = from r in db.RentalHistories
+                         select r;
+            switch (sortOrder)
+            {
+                case "Id":
+                    rentals = rentals.OrderByDescending(r => r.RentalHistoryId);
+                    break;
+                case "Damaged Rentals":
+                    rentals = rentals.OrderBy(r => r.RentalDamaged == false);
+                    break;
+                case "Undamaged Rentals":
+                    rentals = rentals.OrderBy(r => r.RentalDamaged == true);
+                    break;
+                case "Rentals A-Z":
+                    rentals = rentals.OrderBy(r => r.Rental);
+                    break;
+                case "Rentals Z-A":
+                    rentals = rentals.OrderByDescending(r => r.Rental);
+                    break;
+                default:
+                    rentals = rentals.OrderByDescending(r => r.RentalHistoryId);
+                    break;
+            }
+            return View(rentals.ToList());
         }
 
         // GET: Rent/RentalHistories/Details/5
