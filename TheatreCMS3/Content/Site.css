@@ -518,24 +518,6 @@ footer {
         background: var(--light-color) !important;
 }
 
-/* Sign-In page styling */
-
-.home-signin--container p{
-    background: var(--main-color);
-    color: var(--light-color);
-    border-radius: 30px 30px;
-    height: 50px;
-    text-align: center;
-    font-weight: bold;
-    padding-top: 10px;
-    text-overflow: ellipsis;
-}
-
-.home-signin--container {
-    columns: 30px 4;
-    
-}
-
 .Home_Donation_Body {
     background-color: black;
 }
