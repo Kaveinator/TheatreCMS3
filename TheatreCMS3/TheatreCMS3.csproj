@@ -204,6 +204,8 @@
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Blog\Models\HeadAuthor.cs" />
+    <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
+    <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
@@ -319,6 +321,11 @@
     <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\AccessDenied.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\Index.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Create.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Delete.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
