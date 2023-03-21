@@ -615,4 +615,16 @@ footer {
 }
 
 
+.home-contact-banner {
+    background-color: var(--dark-color);
+    border-radius: 0 0 0 100px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-family: Broadway;
+}
 
+.home-contact-btn {
+    background-color: var(--main-color);
+    border-color: var(--light-color);
+    color: var(--light-color);
+}
