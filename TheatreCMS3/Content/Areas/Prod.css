@@ -89,6 +89,7 @@ a.calendarevent-create--btn {
         border-radius: 0.25rem;
         color: var(--dark-color);
     }
+
 /* Production Create/Edit Pages Styling*/
 .Production-createedit--header {
     padding: 2em;
@@ -146,7 +147,7 @@ a.calendarevent-create--btn {
     background-color: var(--secondary-color--dark);
 }
 
-.Production-createedit--btnback a {
+.Production-createedit--btnback a, .Production-createedit--btnsave a {
     color: white;
     text-decoration: none;
 }
@@ -156,6 +157,13 @@ a.calendarevent-create--btn {
     box-shadow: 0 0 0 0.1rem var(--main-color);
 }
 /*End Production Create/Edit Pages Styling*/
+
+/* Production Index Page Styling*/
+.Production-index--header {
+    padding: 2em;
+}
+
+/* End Production Index Page Styling*/
 
 /* Calendar Event Index Styling */
 
