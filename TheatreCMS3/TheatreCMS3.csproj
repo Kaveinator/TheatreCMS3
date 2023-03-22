@@ -210,6 +210,7 @@
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
+    <Compile Include="Areas\Rent\Models\HistoryManager.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
