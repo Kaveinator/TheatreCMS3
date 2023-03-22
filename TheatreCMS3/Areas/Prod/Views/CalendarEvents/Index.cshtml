@@ -5,78 +5,49 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Calendar Events</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+@Html.ActionLink("Create New", "Create", "CalendarEvents", null, new { @class = "btn btn-primary" })
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AllDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProduction)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventID })
-        </td>
-    </tr>
-}
+<hr />
 
+<table class="calendarevent-index--table">
+    <thead class="calendarevent-index--thead">
+        <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Time</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody class="calendarevent-index--tbody">
+        @foreach (var item in Model)
+        {
+            <tr class="calendarevent-index--row">
+                <td class="calendarevent-index--date">
+                    <div class="calendarevent-index--datecontainer">
+                        <span class="day">@item.StartDate.Day</span>
+                        <span class="month">@item.StartDate.ToString("MMM")</span>
+                    </div>
+                </td>
+                <td class="calendarevent-index--detailcontainer">
+                    <div class="calendarevent-index--title">@Html.DisplayFor(modelItem => item.Title)</div>
+                    <div class="calendarevent-index--time">
+                        @if (!item.AllDay && item.StartTime.HasValue)
+                        {
+                            <span>@item.StartDate.ToString("ddd, ")@item.StartTime.Value.ToString("h:mm tt")</span>
+                        }
+                        @if (item.EndTime.HasValue)
+                        {
+                            <span> - @item.EndTime.Value.ToString("h:mm tt")</span>
+                        }
+                    </div>
+                    <div class="calendarevent-index--description">
+                        <textarea readonly class="calendarevent-index--description-textbox">@Html.DisplayFor(modelItem => item.Description)</textarea>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
