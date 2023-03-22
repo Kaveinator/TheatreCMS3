@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CalendarEvent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Calendar Events</h2>
+
+@Html.ActionLink("Create New", "Create", "CalendarEvents", null, new { @class = "btn btn-primary" })
+
+<hr />
+
+<table class="calendarevent-index--table">
+    <thead class="calendarevent-index--thead">
+        <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Time</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody class="calendarevent-index--tbody">
+        @foreach (var item in Model)
+        {
+            int duration = (item.EndDate - item.StartDate).Days + 1;
+        <tr class="calendarevent-index--row">
+            <td class="calendarevent-index--date">
+                <div class="calendarevent-index--datecontainer">
+                    <span class="day">@item.StartDate.Day</span>
+                    <span class="month">@item.StartDate.ToString("MMM")</span>
+                    @if (item.AllDay)
+                        {
+                    <div>All Day</div>
+                        }
+                        else if (duration > 1)
+                        {
+                    <div data-toggle="popover" title="Event Duration" data-content="This is a @duration day event.">
+                        <i class="fas fa-clock"></i> @duration day@(duration > 1 ? "s" : "")
+                    </div>
+                        }
+                </div>
+            </td>
+            <td class="calendarevent-index--detailcontainer">
+                <div class="calendarevent-index--title">@Html.DisplayFor(modelItem => item.Title)</div>
+                <div class="calendarevent-index--time">
+                    @if (!item.AllDay && item.StartTime.HasValue)
+                        {
+                    <span>@item.StartDate.ToString("ddd, ")@item.StartTime.Value.ToString("h:mm tt")</span>
+                        }
+                    @if (item.EndTime.HasValue)
+                        {
+                    <span> - @item.EndTime.Value.ToString("h:mm tt")</span>
+                        }
+                </div>
+                <div class="calendarevent-index--description">
+                    <textarea readonly class="calendarevent-index--description-textbox">@Html.DisplayFor(modelItem => item.Description)</textarea>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+                trigger: 'click focus'
+            });
+        });
+    </script>
+}
+
+

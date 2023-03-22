@@ -12,3 +12,211 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/* Calender Event Create Page Styling */
+
+.calendarevent-create--formcontainer {
+    margin-left: 100px;
+    padding-bottom: 50px;
+}
+
+.calendarevent-create--input input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: var(--secondary-color);
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color--dark);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .calendarevent-create--input input:focus {
+        color: var(--dark-color);
+        background-color: var(--light-color);
+        border-color: var(--secondary-color);
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem var(--secondary-color);
+    }
+
+.calendarevent-create--btn input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color--dark);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+    .calendarevent-create--btn input:focus,
+    .calendarevent-create--btn input:active,
+    .calendarevent-create--btn input:hover {
+        background-color: var(--light-color);
+        border-color: var(--secondary-color);
+        border-radius: 0.25rem;
+        color: var(--dark-color);
+    }
+
+a.calendarevent-create--btn {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color--dark);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+    a.calendarevent-create--btn:active,
+    a.calendarevent-create--btn:focus,
+    a.calendarevent-create--btn:hover {
+        background-color: var(--light-color);
+        border-radius: 0.25rem;
+        color: var(--dark-color);
+    }
+/* Production Create/Edit Pages Styling*/
+.Production-createedit--header {
+    padding: 2em;
+}
+
+.Production-createedit--formcontainer {
+    margin: auto;
+    border-radius: 0.5em;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+    padding: 2em;
+    background-color: var(--light-color);
+}
+
+.Production-createedit--form {
+    border: 2px solid var(--dark-color);
+    border-radius: 0.25rem;
+}
+
+.Production-createedit--form:focus {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem var(--main-color);
+}
+
+.Production-createedit-btncontainer {
+    justify-content: center;
+}
+
+.Production-createedit--btnback, .Production-createedit--btnsave {
+    display: flex;
+    width: 100%;
+    font-weight: bold;
+    color: var(--light-color);
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--main-color--light);
+    border: 1px solid var(--dark-color);
+    padding: 0.65em;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.Production-createedit--btnback {
+    background-color: var(--secondary-color--dark);
+}
+
+.Production-createedit--btnback a {
+    color: white;
+    text-decoration: none;
+}
+
+.Production-createedit--btnback:hover, .Production-createedit--btnsave:hover {
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 0 0.1rem var(--main-color);
+}
+/*End Production Create/Edit Pages Styling*/
+
+/* Calendar Event Index Styling */
+
+table.calendarevent-index--table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead.calendarevent-index--thead {
+    display: none;
+}
+
+/* Styling for Day and Month */
+.calendarevent-index--date {
+    width: 10%;
+}
+
+.calendarevent-index--datecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.calendarevent-index--date .day {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.calendarevent-index--date .month {
+    font-size: 16px;
+}
+/* End Styling for Day and Month */
+
+/* Styling for Title, Time, and Description */
+.calendarevent-index--row {
+    display: flex;
+    border-bottom: 1px solid #fff9;
+}
+
+.calendarevent-index--detailcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.calendarevent-index--title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.calendarevent-index--time {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.calendarevent-index--description-textbox {
+    width: 100%;
+    border: 1px solid lightgrey;
+    resize: none;
+    font-size: 14px;
+}
+/* End Styling for Title, Time, and Description */
+/* End Styling for Calendar Event Index Page*/
