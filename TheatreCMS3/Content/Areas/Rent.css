@@ -98,47 +98,46 @@
 }
 
     .RentalHistory-Index--Table th {
-        font-weight: bold; /*Test*/
+        font-weight: bold;
+        text-align:left;
         height: 65px;
-        padding: 5px;
+        padding-top: 5px;
         border-bottom: 2px solid;
     }
 
-        .RentalHistory-Index--Table th:last-child {
-            text-align: right;
-            height: 65px;
-            padding: 1px;
-        }
-
     .RentalHistory-Index--Table tr {
-        border-bottom: 1px solid;
         vertical-align: middle;
     }
 
         .RentalHistory-Index--Table tr:last-child {
             border-bottom: none;
+            padding: 0px 5px 0px 5px;
         }
 
     .RentalHistory-Index--Table td {
         height: 50px;
-        padding: 5px;
+        max-height: min-content;
+        padding: 0px 5px 0px 5px;
     }
 
+        .RentalHistory-Index--Table td:first-child {
+            width: 3%;
+        }
         .RentalHistory-Index--Table td:nth-child(2) {
-            width: max-content;
+            width: 10%;
+            max-width: max-content;
             text-align: left;
         }
 
-        .RentalHistory-Index--Table td:last-child {
-            width: 50px;
+        .RentalHistory-Index--Table td:nth-child(3) {
+            max-width: 900px;
+            text-align: left;
+            padding: 0px 5px 0px 5px;
         }
 
-    .RentalHistory-Index--Table .ellipsis {
-        width: 800px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
+        .RentalHistory-Index--Table td:last-child {
+            width: 40px;
+        }
 
     .RentalHistory-Index--Table input[type="checkbox"] {
         display: none;
@@ -190,3 +189,18 @@
         .RentalHistory-Index--Table .dropdown-item:hover a {
             color: white;
         }
+
+.RentalHistory-Index--HiddenCell {
+    max-width: 1080px;
+    max-width: 900px;
+    height: 10px;
+    padding: 0;
+    margin-top: 0;
+}
+
+.RentalHistory-Index--textTruncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 35px;
+}
