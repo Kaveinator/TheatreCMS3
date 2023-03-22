@@ -12,6 +12,83 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/* Calender Event Create Page Styling */
+
+.calendarevent-create--formcontainer {
+    margin-left: 100px;
+    padding-bottom: 50px;
+}
+
+.calendarevent-create--input input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: var(--secondary-color);
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color--dark);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .calendarevent-create--input input:focus {
+        color: var(--dark-color);
+        background-color: var(--light-color);
+        border-color: var(--secondary-color);
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem var(--secondary-color);
+    }
+
+.calendarevent-create--btn input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color--dark);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+    .calendarevent-create--btn input:focus,
+    .calendarevent-create--btn input:active,
+    .calendarevent-create--btn input:hover {
+        background-color: var(--light-color);
+        border-color: var(--secondary-color);
+        border-radius: 0.25rem;
+        color: var(--dark-color);
+    }
+
+a.calendarevent-create--btn {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    background-clip: padding-box;
+    border: 1px solid var(--secondary-color--dark);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+    a.calendarevent-create--btn:active,
+    a.calendarevent-create--btn:focus,
+    a.calendarevent-create--btn:hover {
+        background-color: var(--light-color);
+        border-radius: 0.25rem;
+        color: var(--dark-color);
+    }
 /* Production Create/Edit Pages Styling*/
 .Production-createedit--header {
     padding: 2em;
