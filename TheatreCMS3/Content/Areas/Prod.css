@@ -156,7 +156,6 @@ a.calendarevent-create--btn {
     box-shadow: 0 0 0 0.1rem var(--main-color);
 }
 /*End Production Create/Edit Pages Styling*/
-    }
 
 /* Calendar Event Index Styling */
 
@@ -221,3 +220,4 @@ thead.calendarevent-index--thead {
     font-size: 14px;
 }
 /* End Styling for Title, Time, and Description */
+/* End Styling for Calendar Event Index Page*/
