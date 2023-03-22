@@ -491,6 +491,7 @@
     <Content Include="webfonts\Broadway Normal.ttf" />
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
