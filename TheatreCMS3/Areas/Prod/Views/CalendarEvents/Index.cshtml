@@ -23,31 +23,53 @@
     <tbody class="calendarevent-index--tbody">
         @foreach (var item in Model)
         {
-            <tr class="calendarevent-index--row">
-                <td class="calendarevent-index--date">
-                    <div class="calendarevent-index--datecontainer">
-                        <span class="day">@item.StartDate.Day</span>
-                        <span class="month">@item.StartDate.ToString("MMM")</span>
-                    </div>
-                </td>
-                <td class="calendarevent-index--detailcontainer">
-                    <div class="calendarevent-index--title">@Html.DisplayFor(modelItem => item.Title)</div>
-                    <div class="calendarevent-index--time">
-                        @if (!item.AllDay && item.StartTime.HasValue)
+            int duration = (item.EndDate - item.StartDate).Days + 1;
+        <tr class="calendarevent-index--row">
+            <td class="calendarevent-index--date">
+                <div class="calendarevent-index--datecontainer">
+                    <span class="day">@item.StartDate.Day</span>
+                    <span class="month">@item.StartDate.ToString("MMM")</span>
+                    @if (item.AllDay)
                         {
-                            <span>@item.StartDate.ToString("ddd, ")@item.StartTime.Value.ToString("h:mm tt")</span>
+                    <div>All Day</div>
                         }
-                        @if (item.EndTime.HasValue)
+                        else if (duration > 1)
                         {
-                            <span> - @item.EndTime.Value.ToString("h:mm tt")</span>
+                    <div data-toggle="popover" title="Event Duration" data-content="This is a @duration day event.">
+                        <i class="fas fa-clock"></i> @duration day@(duration > 1 ? "s" : "")
+                    </div>
                         }
-                    </div>
-                    <div class="calendarevent-index--description">
-                        <textarea readonly class="calendarevent-index--description-textbox">@Html.DisplayFor(modelItem => item.Description)</textarea>
-                    </div>
-                </td>
-            </tr>
+                </div>
+            </td>
+            <td class="calendarevent-index--detailcontainer">
+                <div class="calendarevent-index--title">@Html.DisplayFor(modelItem => item.Title)</div>
+                <div class="calendarevent-index--time">
+                    @if (!item.AllDay && item.StartTime.HasValue)
+                        {
+                    <span>@item.StartDate.ToString("ddd, ")@item.StartTime.Value.ToString("h:mm tt")</span>
+                        }
+                    @if (item.EndTime.HasValue)
+                        {
+                    <span> - @item.EndTime.Value.ToString("h:mm tt")</span>
+                        }
+                </div>
+                <div class="calendarevent-index--description">
+                    <textarea readonly class="calendarevent-index--description-textbox">@Html.DisplayFor(modelItem => item.Description)</textarea>
+                </div>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+                trigger: 'click focus'
+            });
+        });
+    </script>
+}
+
 

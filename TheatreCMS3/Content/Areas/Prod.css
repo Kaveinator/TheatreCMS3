@@ -178,8 +178,7 @@ thead.calendarevent-index--thead {
 
 /* Styling for Day and Month */
 .calendarevent-index--date {
-    display: flex;
-    width: 5%;
+    width: 10%;
 }
 
 .calendarevent-index--datecontainer {
