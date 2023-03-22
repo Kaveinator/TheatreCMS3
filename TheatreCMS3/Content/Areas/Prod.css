@@ -89,3 +89,67 @@ a.calendarevent-create--btn {
         border-radius: 0.25rem;
         color: var(--dark-color);
     }
+
+/* Calendar Event Index Styling */
+
+table.calendarevent-index--table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead.calendarevent-index--thead {
+    display: none;
+}
+
+/* Styling for Day and Month */
+.calendarevent-index--date {
+    display: flex;
+    width: 5%;
+}
+
+.calendarevent-index--datecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.calendarevent-index--date .day {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.calendarevent-index--date .month {
+    font-size: 16px;
+}
+/* End Styling for Day and Month */
+
+/* Styling for Title, Time, and Description */
+.calendarevent-index--row {
+    display: flex;
+    border-bottom: 1px solid #fff9;
+}
+
+.calendarevent-index--detailcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.calendarevent-index--title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.calendarevent-index--time {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.calendarevent-index--description-textbox {
+    width: 100%;
+    border: 1px solid lightgrey;
+    resize: none;
+    font-size: 14px;
+}
+/* End Styling for Title, Time, and Description */
