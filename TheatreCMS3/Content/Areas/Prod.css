@@ -163,6 +163,26 @@ a.calendarevent-create--btn {
     padding: 2em;
 }
 
+.Production-card--image {
+    position: relative;
+}
+
+.Production-card--overlay {
+    position: absolute;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.Production-card:hover .Production-card--overlay {
+    opacity: 1;
+}
+
 /* End Production Index Page Styling*/
 
 /* Calendar Event Index Styling */
