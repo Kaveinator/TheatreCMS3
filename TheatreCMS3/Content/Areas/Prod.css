@@ -12,3 +12,70 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/* Production Create/Edit Pages Styling*/
+.Production-createedit--header {
+    padding: 2em;
+}
+
+.Production-createedit--formcontainer {
+    margin: auto;
+    border-radius: 0.5em;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+    padding: 2em;
+    background-color: var(--light-color);
+}
+
+.Production-createedit--form {
+    border: 2px solid var(--dark-color);
+    border-radius: 0.25rem;
+}
+
+.Production-createedit--form:focus {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    border-color: var(--main-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem var(--main-color);
+}
+
+.Production-createedit-btncontainer {
+    justify-content: center;
+}
+
+.Production-createedit--btnback, .Production-createedit--btnsave {
+    display: flex;
+    width: 100%;
+    font-weight: bold;
+    color: var(--light-color);
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--main-color--light);
+    border: 1px solid var(--dark-color);
+    padding: 0.65em;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.Production-createedit--btnback {
+    background-color: var(--secondary-color--dark);
+}
+
+.Production-createedit--btnback a {
+    color: white;
+    text-decoration: none;
+}
+
+.Production-createedit--btnback:hover, .Production-createedit--btnsave:hover {
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 0 0.1rem var(--main-color);
+}
+/*End Production Create/Edit Pages Styling*/
