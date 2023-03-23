@@ -8,130 +8,110 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
-using PagedList;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class ProductionsController : Controller
+    public class ProductionPhotoesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/Productions
-        public ViewResult Index(string searchString, string currentFilter, int? page)
+        // GET: Prod/ProductionPhotoes
+        public ActionResult Index()
         {
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-
-            ViewBag.CurrentFilter = searchString;
-
-            var productions = from p in db.Productions
-                              select p;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                productions = productions.Where(p => p.Title.Contains(searchString));
-            }
-            int pageSize = 4;
-            int pageNumber = (page ?? 1);
-            return View(productions.OrderBy(p => p.Title).ToPagedList(pageNumber, pageSize));
+            return View(db.ProductionPhotos.ToList());
         }
 
-        // GET: Prod/Productions/Details/5
+        // GET: Prod/ProductionPhotoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
+            if (productionPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(productionPhoto);
         }
 
-        // GET: Prod/Productions/Create
+        // GET: Prod/ProductionPhotoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/Productions/Create
+        // POST: Prod/ProductionPhotoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductionId,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink,IsCurrentlyShowing")] Production production)
+        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Productions.Add(production);
+                db.ProductionPhotos.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(production);
+            return View(productionPhoto);
         }
 
-        // GET: Prod/Productions/Edit/5
+        // GET: Prod/ProductionPhotoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
+            if (productionPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(productionPhoto);
         }
 
-        // POST: Prod/Productions/Edit/5
+        // POST: Prod/ProductionPhotoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductionId,Title,Description,Playwright,Runtime,OpeningDay,ClosingDay,ShowTimeEve,ShowTimeMat,Season,IsWorldPremiere,TicketLink,IsCurrentlyShowing")] Production production)
+        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(production).State = EntityState.Modified;
+                db.Entry(productionPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(production);
+            return View(productionPhoto);
         }
 
-        // GET: Prod/Productions/Delete/5
+        // GET: Prod/ProductionPhotoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Production production = db.Productions.Find(id);
-            if (production == null)
+            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
+            if (productionPhoto == null)
             {
                 return HttpNotFound();
             }
-            return View(production);
+            return View(productionPhoto);
         }
 
-        // POST: Prod/Productions/Delete/5
+        // POST: Prod/ProductionPhotoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Production production = db.Productions.Find(id);
-            db.Productions.Remove(production);
+            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
+            db.ProductionPhotos.Remove(productionPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
