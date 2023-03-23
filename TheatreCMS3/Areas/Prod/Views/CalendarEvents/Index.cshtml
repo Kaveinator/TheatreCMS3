@@ -24,40 +24,53 @@
         @foreach (var item in Model)
         {
             int duration = (item.EndDate - item.StartDate).Days + 1;
-        <tr class="calendarevent-index--row">
-            <td class="calendarevent-index--date">
-                <div class="calendarevent-index--datecontainer">
-                    <span class="day">@item.StartDate.Day</span>
-                    <span class="month">@item.StartDate.ToString("MMM")</span>
-                    @if (item.AllDay)
+            int daysRemaining = (item.EndDate - DateTime.Today).Days;
+            <tr class="calendarevent-index--row">
+                <td class="calendarevent-index--date">
+                    <div class="calendarevent-index--datecontainer">
+                        <span class="day">@item.StartDate.Day</span>
+                        <span class="month">@item.StartDate.ToString("MMM")</span>
+                        @if (item.AllDay)
                         {
-                    <div>All Day</div>
+                            <div>All Day</div>
                         }
                         else if (duration > 1)
                         {
-                    <div data-toggle="popover" title="Event Duration" data-content="This is a @duration day event.">
-                        <i class="fas fa-clock"></i> @duration day@(duration > 1 ? "s" : "")
+                            <div data-toggle="popover" title="Event Duration" data-content="This is a @duration day event.">
+                                <i class="fas fa-clock"></i> @duration day@(duration > 1 ? "s" : "")
+                            </div>
+                        }
                     </div>
-                        }
-                </div>
-            </td>
-            <td class="calendarevent-index--detailcontainer">
-                <div class="calendarevent-index--title">@Html.DisplayFor(modelItem => item.Title)</div>
-                <div class="calendarevent-index--time">
-                    @if (!item.AllDay && item.StartTime.HasValue)
+                </td>
+                <td class="calendarevent-index--detailcontainer">
+                    <div class="calendarevent-index--title">
+                        @Html.DisplayFor(modelItem => item.Title)
+                        <span class="badge badge-pill @(daysRemaining == 0 ? "calendarevent-index--last-day" : "calendarevent-index--days-remaining") ml-2">
+                            @if (daysRemaining == 0)
+                            {
+                                <text>Last Day!</text>
+                            }
+                            else
+                            {
+                                <text>@daysRemaining days remaining!</text>
+                            }
+                        </span>
+                    </div>
+                    <div class="calendarevent-index--time">
+                        @if (!item.AllDay && item.StartTime.HasValue)
                         {
-                    <span>@item.StartDate.ToString("ddd, ")@item.StartTime.Value.ToString("h:mm tt")</span>
+                            <span>@item.StartDate.ToString("ddd, ")@item.StartTime.Value.ToString("h:mm tt")</span>
                         }
-                    @if (item.EndTime.HasValue)
+                        @if (item.EndTime.HasValue)
                         {
-                    <span> - @item.EndTime.Value.ToString("h:mm tt")</span>
+                            <span> - @item.EndTime.Value.ToString("h:mm tt")</span>
                         }
-                </div>
-                <div class="calendarevent-index--description">
-                    <textarea readonly class="calendarevent-index--description-textbox">@Html.DisplayFor(modelItem => item.Description)</textarea>
-                </div>
-            </td>
-        </tr>
+                    </div>
+                    <div class="calendarevent-index--description">
+                        <textarea readonly class="calendarevent-index--description-textbox">@Html.DisplayFor(modelItem => item.Description)</textarea>
+                    </div>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
@@ -71,5 +84,6 @@
         });
     </script>
 }
+
 
 
