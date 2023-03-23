@@ -5,36 +5,48 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Production Photos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@Html.ActionLink("Create New", "Create", "ProductionPhotoes", null, new { @class = "btn btn-primary" })
+
+<hr />
+
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProPhotoId })
-        </td>
-    </tr>
-}
-
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.PhotoFile != null)
+                    {
+                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.PhotoFile))" alt="@item.Title" width="100" height="100" />
+                    }
+                    else
+                    {
+                        <p>No image available</p>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
