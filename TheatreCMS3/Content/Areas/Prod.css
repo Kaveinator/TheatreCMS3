@@ -89,6 +89,7 @@ a.calendarevent-create--btn {
         border-radius: 0.25rem;
         color: var(--dark-color);
     }
+
 /* Production Create/Edit Pages Styling*/
 .Production-createedit--header {
     padding: 2em;
@@ -146,7 +147,7 @@ a.calendarevent-create--btn {
     background-color: var(--secondary-color--dark);
 }
 
-.Production-createedit--btnback a {
+.Production-createedit--btnback a, .Production-createedit--btnsave a {
     color: white;
     text-decoration: none;
 }
@@ -157,8 +158,71 @@ a.calendarevent-create--btn {
 }
 /*End Production Create/Edit Pages Styling*/
 
-/* Calendar Event Index Styling */
+/* Production Index Page Styling*/
+.Production-index--header {
+    padding: 2em;
+}
 
+.Production-indexcard--image {
+    position: relative;
+}
+
+.Production-indexcard--overlay {
+    position: absolute;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.Production-indexcard--image:hover .Production-indexcard--overlay {
+    opacity: 1;
+}
+
+.Production-indexcard--center {
+    text-align: center;
+    margin-top: 6%;
+}
+
+.Production-indexcard--linkoverlay {
+    position: absolute;
+    content: box;
+    left: 0;
+    right: 0;
+    height: 4.75em;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.Production-indexcard--body:hover .Production-indexcard--linkoverlay {
+    opacity: 1;
+}
+
+.Production-indexdetails--badge {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+}
+
+.Production-indexcard--title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/* End Production Index Page Styling*/
+
+/* Calendar Event Index Styling */
 table.calendarevent-index--table {
     width: 100%;
     border-collapse: collapse;
