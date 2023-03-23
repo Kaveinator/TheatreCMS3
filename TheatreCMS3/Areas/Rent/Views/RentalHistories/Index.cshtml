@@ -12,54 +12,57 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<div class="RentalHistory-Index--TableContainer">
+<div id="myAccordion" class="RentalHistory-Index--TableContainer">
     <table id="indexTable" class="RentalHistory-Index--Table">
         <tr>
-            <th colspan="2">
+            <th colspan="4">
                 Most recent Rental Histories
-            </th>
-            <th colspan="2">
-                <label>Sorted By:</label>
-                <button class="btnMargin btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                No Extra Sorting...
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class="dropdown-item">@Html.ActionLink("No Extra Sorting...", "Index", new { sortOrder = ViewBag.IdSortParm })</div>
-                    <div class="dropdown-item">@Html.ActionLink("Damaged Rentals", "Index", new { sortOrder = ViewBag.DamagedSortParm })</div>
-                    <div class="dropdown-item">@Html.ActionLink("Undamaged Rentals", "Index", new { sortOrder = ViewBag.UndamagedSortParm })</div>
-                    <div class="dropdown-item">@Html.ActionLink("Rentals A-Z", "Index", new { sortOrder = ViewBag.AzSortParm })</div>
-                    <div class="dropdown-item">@Html.ActionLink("Rentals Z-A", "Index", new { sortOrder = ViewBag.ZaSortParm })</div>
+                <div class="float-right">
+                    <label>Sorted By:</label>
+                    <button class="btnMargin btn btn-dark dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        No Extra Sorting...
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-item">@Html.ActionLink("No Extra Sorting...", "Index", new { sortOrder = ViewBag.IdSortParm })</div>
+                        <div class="dropdown-item">@Html.ActionLink("Damaged Rentals", "Index", new { sortOrder = ViewBag.DamagedSortParm })</div>
+                        <div class="dropdown-item">@Html.ActionLink("Undamaged Rentals", "Index", new { sortOrder = ViewBag.UndamagedSortParm })</div>
+                        <div class="dropdown-item">@Html.ActionLink("Rentals A-Z", "Index", new { sortOrder = ViewBag.AzSortParm })</div>
+                        <div class="dropdown-item">@Html.ActionLink("Rentals Z-A", "Index", new { sortOrder = ViewBag.ZaSortParm })</div>
+                    </div>
                 </div>
             </th>
         </tr>
 
         @foreach (var item in Model)
-         {
+        {
             <tr>
                 <td>
-                    @{var itemType = item.RentalDamaged;}
+                    @{ var itemType = item.RentalDamaged; }
                     @if (itemType == true)
-                    {
-                        <i class="fa fa-times-circle">@Html.DisplayFor(modelItem => item.RentalDamaged)</i>
-                    }
-                    else
-                    {
-                        <i class="fa fa-check-circle">@Html.DisplayFor(modelItem => item.RentalDamaged)</i>
-                    }
+                            {
+                    <i class="fa fa-times-circle">@Html.DisplayFor(modelItem => item.RentalDamaged)</i>
+                            }
+                            else
+                            {
+                    <i class="fa fa-check-circle">@Html.DisplayFor(modelItem => item.RentalDamaged)</i>
+                            }
                 </td>
                 <td>
                     <div class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</div>
                 </td>
                 <td>
-                    @{ var description = item.DamageIncurred;}
-                    @if (description == null)
+                    @{ var description = item.DamageIncurred; }
+                    @{ var damage = item.RentalDamaged; }
+                    @if (damage == false)
                     {
-                        <div>---</div>
-                    }
-                    else
-                    {
-                        <div class="ellipsis">@Html.DisplayFor(modelItem => item.DamageIncurred)</div>
-                    }
+                        <div id="heading-@item.RentalHistoryId">
+                            <div data-toggle="collapse" data-target="#collapse-@item.RentalHistoryId" aria-expanded="false" aria-controls="collapse-@item.RentalHistoryId">None.</div>
+                        </div>
+                     }
+                     else
+                     {
+                        <div class="text-truncate">@Html.DisplayFor(modelItem => item.DamageIncurred)</div>
+                     }
                 </td>
                 <td>
                     <div class="dropdown">
@@ -81,7 +84,14 @@
                     </div>
                 </td>
             </tr>
-         }
+            <tr id="collapse-@item.RentalHistoryId" class="collapse" aria-labelledby="heading-@item.RentalHistoryId" data-parent="#myAccordion">
+                <td class="RentalHistory-Index--HiddenCell" colspan="4">
+                    <div class="RentalHistory-Index--textTruncate">
+                        @Html.DisplayFor(modelItem => item.DamageIncurred)
+                    </div>  
+                </td>
+            </tr>
+        }
 
     </table>
 </div>
