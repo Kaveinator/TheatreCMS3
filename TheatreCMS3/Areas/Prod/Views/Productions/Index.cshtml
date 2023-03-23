@@ -1,4 +1,6 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.Production>
+﻿@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Production>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -8,32 +10,47 @@
 <div class="container-fluid text-center Production-index--header">
     <h2>Index of Productions</h2>
 </div>
-
-<div class="col-sm-3 mb-3">
-    <button type="button" class="btn btn-dark Production-createedit--btnsave">
-        @Html.ActionLink("Create New", "Create")
-    </button>
+<div class="row">
+    <div class="col-sm-3 mb-3">
+        <button type="button" class="btn btn-dark Production-createedit--btnsave">
+            @Html.ActionLink("Create New", "Create")
+        </button>
+    </div>
+    @*Search Feature*@
+    <div class="col-md-9 mb-3">
+        @using (Html.BeginForm())
+        {
+            <h5>
+                Find by title: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" value="Search" class="btn btn-dark Production-indexsearch--button col-sm-3" />
+            </h5>
+        }
+    </div>
 </div>
 <div class="row row-cols-1 row-cols-md-4">
     @foreach (var item in Model)
     {
-    <div class="col mb-4">
-        <div class="card Production-indexcard text-white bg-dark">
-            <div class="Production-indexcard--image">
-                @*Placeholder photo until the ProductionPhoto model is created*@
-                <img src="~/Content/images/DollsHouse.png" class="card-img-top" alt="No Image" />
-                <div class="Production-indexcard--overlay">
-                    <h2 class="Production-indexcard--center">@Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })</h2>
-                    <h2 class="Production-indexcard--center">@Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-danger" })</h2>
+        <div class="col mb-4">
+            <div class="card Production-indexcard text-white bg-dark">
+                <div class="Production-indexcard--image">
+                    @*Placeholder photo until the ProductionPhoto model is created*@
+                    <img src="~/Content/images/DollsHouse.png" class="card-img-top" alt="No Image" />
+                    <div class="Production-indexcard--overlay">
+                        <h2 class="Production-indexcard--center">@Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })</h2>
+                        <h2 class="Production-indexcard--center">@Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-danger" })</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body Production-indexcard--body">
-                <h5 class="card-title Production-indexcard--title">@Html.DisplayFor(modelItem => item.Title)</h5>
-                <div class="Production-indexcard--linkoverlay"> 
+                <div class="card-body Production-indexcard--body">
+                    <h5 class="card-title Production-indexcard--title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                    <div class="Production-indexcard--linkoverlay">
                         @Html.ActionLink("Details", "Details", new { id = item.ProductionId }, new { @class = "badge Production-indexdetails--badge" })
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     }
-    </div>
+</div>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
