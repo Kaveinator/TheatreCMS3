@@ -271,6 +271,14 @@ thead.calendarevent-index--thead {
     margin-bottom: 4px;
 }
 
+.calendarevent-index--last-day {
+    background-color: var(--main-color);
+}
+
+.calendarevent-index--days-remaining {
+    background-color: var(--secondary-color);
+}
+
 .calendarevent-index--time {
     font-size: 14px;
     margin-bottom: 4px;
