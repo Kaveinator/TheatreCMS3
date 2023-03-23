@@ -163,11 +163,11 @@ a.calendarevent-create--btn {
     padding: 2em;
 }
 
-.Production-card--image {
+.Production-indexcard--image {
     position: relative;
 }
 
-.Production-card--overlay {
+.Production-indexcard--overlay {
     position: absolute;
     justify-content: center;
     top: 0;
@@ -179,14 +179,50 @@ a.calendarevent-create--btn {
     background: rgba(0, 0, 0, 0.8);
 }
 
-.Production-card:hover .Production-card--overlay {
+.Production-indexcard--image:hover .Production-indexcard--overlay {
     opacity: 1;
 }
 
+.Production-indexcard--center {
+    text-align: center;
+    margin-top: 6%;
+}
+
+.Production-indexcard--linkoverlay {
+    position: absolute;
+    content: box;
+    left: 0;
+    right: 0;
+    height: 4.75em;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.Production-indexcard--body:hover .Production-indexcard--linkoverlay {
+    opacity: 1;
+}
+
+.Production-indexdetails--badge {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+}
+
+.Production-indexcard--title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 /* End Production Index Page Styling*/
 
 /* Calendar Event Index Styling */
-
 table.calendarevent-index--table {
     width: 100%;
     border-collapse: collapse;
