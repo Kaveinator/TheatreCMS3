@@ -204,7 +204,9 @@
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Blog\Models\HeadAuthor.cs" />
+    <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
@@ -332,6 +334,11 @@
     <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
