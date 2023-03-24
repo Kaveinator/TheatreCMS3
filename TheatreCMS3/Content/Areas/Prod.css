@@ -246,6 +246,10 @@ a.calendarevent-create--btn {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.Production-modal--background {
+    background-color: var(--main-color);
+}
 /* End Production Index Page Styling*/
 
 /* Calendar Event Index Styling */
