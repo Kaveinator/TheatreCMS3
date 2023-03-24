@@ -66,6 +66,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Create
+        [RentalHistoryAuthorization(Roles = "HistoryManager")]
         public ActionResult Create()
         {
             return View();
@@ -89,6 +90,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Edit/5
+        [RentalHistoryAuthorization(Roles = "HistoryManager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -120,6 +122,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Delete/5
+        [RentalHistoryAuthorization(Roles = "HistoryManager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -152,6 +155,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AccessDenied()
+        {
+            Response.StatusCode = 403;
+            return View();
         }
     }
 }

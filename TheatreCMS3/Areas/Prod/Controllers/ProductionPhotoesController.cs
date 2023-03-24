@@ -38,15 +38,18 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionPhotoes/Create
         public ActionResult Create()
         {
+            ViewData["ProductionId"] = new SelectList(db.Productions, "ProductionId", "Title");
             return View();
         }
+
+
 
         // POST: Prod/ProductionPhotoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase uploadedImage)
+        public ActionResult Create([Bind(Include = "ProPhotoId,ProductionId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase uploadedImage)
         {
             if (ModelState.IsValid)
             {
@@ -78,15 +81,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ProductionId = new SelectList(db.Productions, "ProductionId", "Title", productionPhoto.ProductionId);
             return View(productionPhoto);
         }
+
 
         // POST: Prod/ProductionPhotoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase uploadedImage)
+        public ActionResult Edit(int id, [Bind(Include = "ProPhotoId,ProductionId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase uploadedImage)
         {
             if (id != productionPhoto.ProPhotoId)
             {
