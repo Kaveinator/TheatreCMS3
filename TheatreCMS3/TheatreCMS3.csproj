@@ -199,11 +199,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
-    <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
-    <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
-    <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
-    <Compile Include="Areas\Blog\Models\Comment.cs" />
-    <Compile Include="Areas\Blog\Models\HeadAuthor.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
@@ -307,27 +302,13 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
-    <Content Include="Areas\Blog\Views\web.config" />
-    <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\Comments\_Comments.cshtml" />
     <Content Include="Areas\Rent\Views\web.config" />
     <Content Include="Areas\Prod\Views\web.config" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\_BlogAuthor.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\AccessDenied.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Create.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Delete.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Details.cshtml" />
@@ -349,6 +330,7 @@
     <Content Include="Areas\Prod\Views\CastMembers\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CastMembers\Index.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\AccessDenied.cshtml" />
+    <Content Include="Areas\Blog\Views\web.config" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -507,14 +489,15 @@
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
     <Content Include="webfonts\Broadway Normal.ttf" />
-    <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
+    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
+    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
