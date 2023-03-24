@@ -21,5 +21,8 @@ namespace TheatreCMS3.Areas.Prod.Models
         public string TicketLink { get; set; }
         public bool IsCurrentlyShowing { get; set; }
 
+        // Add a navigation property for the related ProductionPhotos\
+        public virtual ICollection<ProductionPhoto> ProductionPhotos { get; set; }
+
     }
 }
