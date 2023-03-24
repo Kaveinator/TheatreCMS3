@@ -322,3 +322,51 @@ thead.calendarevent-index--thead {
 }
 /* End Styling for Title, Time, and Description */
 /* End Styling for Calendar Event Index Page*/
+
+/* Styling for Production Photo Index Page */
+.productionphoto-index--pageheader {
+    text-align: center;
+    margin-top: 10px;
+}
+h2.productionphoto-index--pageheader {
+    margin-right: 5px;
+}
+.productionphoto-index--card {
+    border: none;
+}
+
+.productionphoto-index--image {
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.productionphoto-index--badge-main-color {
+    background-color: var(--main-color--light);
+}
+
+.productionphoto-index--badge-main-color:hover {
+    background-color: var(--main-color);
+}
+
+.productionphoto-index--create-new-btn {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    color: var(--light-color);
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.productionphoto-index--create-new-btn:hover {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    text-decoration: none;
+}
+
