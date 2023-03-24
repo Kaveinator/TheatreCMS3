@@ -5,48 +5,68 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Production Photos</h2>
+<div class="row">
+    <div class="col-md-9 productionphoto-index--pageheader">
+        <h2>Production Photos</h2>
+    </div>
+</div>
 
-@Html.ActionLink("Create New", "Create", "ProductionPhotoes", null, new { @class = "btn btn-primary" })
+@{
+    var groupedPhotos = Model.GroupBy(p => p.ProductionId);
+}
 
-<hr />
+@foreach (var productionGroup in groupedPhotos)
+{
+    <div class="row">
+        <div class="col-md-12 productionphoto-index--prodheader">
+            @{
+                var firstProductionPhoto = productionGroup.FirstOrDefault();
+                if (firstProductionPhoto != null && firstProductionPhoto.Production != null)
+                {
+                    <h3>@firstProductionPhoto.Production.Title</h3>
+                }
+                else
+                {
+                    <h3>No production title available</h3>
+                }
+            }
+        </div>
+    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Photo</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+    <div class="row">
+        @foreach (var photo in productionGroup)
         {
-            <tr>
-                <td>
-                    @if (item.PhotoFile != null)
-                    {
-                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.PhotoFile))" alt="@item.Title" width="100" height="100" />
-                    }
-                    else
-                    {
-                        <p>No image available</p>
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
-                </td>
-            </tr>
+            <div class="col-md-4">
+                <div class="card mb-4 productionphoto-index--card">
+                    <a href="@Url.Action("Details", "Productions", new { id = photo.ProductionId })">
+                        @if (photo.PhotoFile != null)
+                        {
+                            <img src="data:image;base64,@Convert.ToBase64String(photo.PhotoFile)" class="card-img-top productionphoto-index--image" alt="Production Photo">
+                        }
+                        else
+                        {
+                            <div class="card-img-top productionphoto-index--image d-flex align-items-center justify-content-center" style="background-color: #ccc; color: #000;">
+                                <span>No Image Available</span>
+                            </div>
+                        }
+                    </a>
+                    <div class="card-body" style="background-color: var(--secondary-color); color: var(--dark-color);">
+                        <h5 class="card-title">@photo.Title</h5>
+                        <p class="card-text">@photo.Description</p>
+                        <a href="@Url.Action("Edit", "ProductionPhotoes", new { id = photo.ProPhotoId })" class="badge badge-pill productionphoto-index--badge-main-color" style="color: var(--dark-color);">Edit</a>
+                        <a href="@Url.Action("Delete", "ProductionPhotoes", new { id = photo.ProPhotoId })" class="badge badge-pill productionphoto-index--badge-main-color" style="color: var(--dark-color);">Delete</a>
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+
+        <div class="col-md-4">
+            <a href="@Url.Action("Create", "ProductionPhotoes", new { ProductionId = productionGroup.Key })" class="productionphoto-index--create-new-btn">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+    </div>
+}
+
+
 
