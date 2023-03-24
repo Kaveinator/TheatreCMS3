@@ -20,36 +20,160 @@
     <div class="col-md-9 mb-3">
         @using (Html.BeginForm())
         {
-            <h5>
-                Find by title: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-                <input type="submit" value="Search" class="btn btn-dark Production-indexsearch--button col-sm-3" />
-            </h5>
+        <h5>
+            Find by title: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" class="btn btn-dark Production-indexsearch--button col-sm-3" />
+        </h5>
         }
     </div>
 </div>
 <div class="row row-cols-1 row-cols-md-4">
     @foreach (var item in Model)
     {
-        <div class="col mb-4">
-            <div class="card Production-indexcard text-white bg-dark">
-                <div class="Production-indexcard--image">
-                    @*Placeholder photo until the ProductionPhoto model is created*@
-                    <img src="~/Content/images/DollsHouse.png" class="card-img-top" alt="No Image" />
-                    <div class="Production-indexcard--overlay">
-                        <h2 class="Production-indexcard--center">@Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })</h2>
-                        <h2 class="Production-indexcard--center">@Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-danger" })</h2>
-                    </div>
+    <div class="col mb-4">
+        <div class="card Production-indexcard text-white bg-dark">
+            <div class="Production-indexcard--image">
+                @*Placeholder photo until the ProductionPhoto model is created*@
+                <img src="~/Content/images/DollsHouse.png" class="card-img-top" alt="No Image" />
+                <div class="Production-indexcard--overlay">
+                    <h2 class="Production-indexcard--center">@Html.ActionLink("Edit", "Edit", new { id = item.ProductionId }, new { @class = "badge badge-dark" })</h2>
+                    <h2 class="Production-indexcard--center">@Html.ActionLink("Delete", "Delete", new { id = item.ProductionId }, new { @class = "badge badge-danger" })</h2>
                 </div>
-                <div class="card-body Production-indexcard--body">
-                    <h5 class="card-title Production-indexcard--title">@Html.DisplayFor(modelItem => item.Title)</h5>
-                    <div class="Production-indexcard--linkoverlay">
-                        @Html.ActionLink("Details", "Details", new { id = item.ProductionId }, new { @class = "badge Production-indexdetails--badge" })
-                    </div>
+            </div>
+            <div class="card-body Production-indexcard--body">
+                <h5 class="card-title Production-indexcard--title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                <div class="Production-indexcard--linkoverlay">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary Production-indexdetails--badge" data-toggle="modal" data-target="@("#DetailsModal-"+item.ProductionId)">
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
     }
 </div>
+
+
+@foreach (var item in Model)
+{
+<!-- Modal -->
+<div class="modal fade" id="DetailsModal-@item.ProductionId" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content Production-modal--background">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Production Details: @Html.DisplayFor(modelItem => item.Title)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.Title)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.Playwright)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Playwright)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.Runtime)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Runtime)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.OpeningDay)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.OpeningDay)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.ClosingDay)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.ClosingDay)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.ShowTimeEve)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.ShowTimeEve)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.ShowTimeMat)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.ShowTimeMat)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.Season)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Season)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.IsWorldPremiere)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.IsWorldPremiere)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.TicketLink)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.TicketLink)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.IsCurrentlyShowing)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.IsCurrentlyShowing)
+                    </dd>
+
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
 <br />
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
