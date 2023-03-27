@@ -26,13 +26,13 @@ namespace TheatreCMS3.Areas.Prod.Models
             // Instantiating an object of ProductionManager / Seeding object
             var productionManager = new ProductionManager
             {
-                UserName = "username",
-                Email = "email@email.com",
+                UserName = "PMTest",
+                Email = "PM@email.com",
                 Title = "ProductionManagerTestSeed",
                 ManagerStartDate = DateTime.Now
             };
 
-            var productionManagerPassword = "password";
+            var productionManagerPassword = "PMPassword";
             var manager = userManager.Create(productionManager, productionManagerPassword);
             if (manager.Succeeded)
             {
