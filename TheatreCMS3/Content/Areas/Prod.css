@@ -252,6 +252,51 @@ a.calendarevent-create--btn {
 }
 /* End Production Index Page Styling*/
 
+/*Production Access Denied Styling*/
+
+.Production-denied--container {
+    justify-content: center;
+    text-align: center;
+    background-color: var(--main-color);
+    border-radius: 2em;
+    margin-top: 5em;
+}
+
+.Production-denied--photo {
+    max-width: 15em;
+}
+
+.Production-denied--padding {
+    padding: 4em;
+}
+
+.Production-denied--button {
+    background-color: var(--secondary-color--dark);
+    display: inline;
+    width: 8em;
+    font-weight: bold;
+    color: var(--light-color);
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid var(--dark-color);
+    padding: 0.65em;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.Production-denied--button a {
+    color: white;
+    text-decoration: none;
+}
+/*End Production Access Denied Styling*/
+
 /* Calendar Event Index Styling */
 table.calendarevent-index--table {
     width: 100%;

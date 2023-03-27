@@ -204,6 +204,7 @@
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\EventAuthorize.cs" />
     <Compile Include="Areas\Prod\Models\EventPlanner.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionAuthorize.cs" />
     <Compile Include="Areas\Prod\Models\ProductionManager.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\Models\CastMember.cs" />
@@ -335,6 +336,7 @@
     <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Prod\Views\CalendarEvents\AccessDenied.cshtml" />
     <Content Include="Views\Shared\_LoginBtnEventPlanner.cshtml" />
+    <Content Include="Areas\Prod\Views\Productions\AccessDenied.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

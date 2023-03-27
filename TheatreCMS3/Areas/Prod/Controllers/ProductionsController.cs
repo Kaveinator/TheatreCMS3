@@ -57,6 +57,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/Productions/Create
+        [ProductionAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -80,6 +81,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/Productions/Edit/5
+        [ProductionAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -111,6 +113,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/Productions/Delete/5
+        [ProductionAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -134,6 +137,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             db.Productions.Remove(production);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // GET: Prod/Productions/AccessDenied
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)
