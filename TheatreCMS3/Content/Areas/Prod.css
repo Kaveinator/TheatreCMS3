@@ -370,3 +370,63 @@ h2.productionphoto-index--pageheader {
     text-decoration: none;
 }
 
+/* End Styling for Calendar Event Index Page*/
+
+/* Styling for Cast Member CRUD pages*/
+
+.castmember-create_edit--heading {
+    padding: 5vw;
+    text-align: center;
+}
+
+.castmember-create_edit--back_btn {
+    background-color: var(--secondary-color);
+    padding: 1vw;
+    width: 15vw;
+    border-radius: 7px;
+    border: 1px solid var(--secondary-color);
+    transition: .3s;
+}
+
+.castmember-create_edit--back_btn:hover {
+    box-shadow: 5px 5px var(--secondary-color--dark);
+    transition: .3s;
+}
+
+.castmember-create_edit--create_save_btn {
+    background-color: var(--secondary-color--dark);
+    padding: 1vw;
+    width: 15vw;
+    border-radius: 7px;
+    border: 1px solid var(--secondary-color--dark);
+    transition: .3s;
+}
+
+.castmember-create_edit--create_save_btn:hover {
+    box-shadow: 5px 5px var(--secondary-color);
+    transition: .3s;
+}
+
+.castmember-create_edit--btn_group {
+    padding: 2vw;
+    display: block;
+    align-content: center;
+    text-align: center;
+}
+
+.castmember-create_edit--form_container {
+    background-color: var(--main-color);
+    padding: 2vw;
+}
+
+.castmember-create_edit--form_input input, option, option:checked {
+    background-color: var(--secondary-color);
+    border: 0px solid;
+}
+
+
+.castmember-create_edit--form_input input:focus {
+    background-color: white;
+    border: 0px solid;
+    outline: 3px solid var(--secondary-color);
+}

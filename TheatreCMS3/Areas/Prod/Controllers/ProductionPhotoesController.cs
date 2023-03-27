@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Web;
+using System;
+using System.Diagnostics;
+
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
     public class ProductionPhotoesController : Controller
@@ -49,24 +52,25 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,ProductionId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase uploadedImage)
+        public ActionResult Create([Bind(Include = "PhotoFile,ProductionId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase uploadedImage)
         {
             if (ModelState.IsValid)
             {
-                
-                if (uploadedImage != null)
+                if (uploadedImage != null && uploadedImage.ContentLength > 0)
                 {
-                    // Convert the uploaded image to a byte array and assign it to the ProductionPhoto Instance
-                    productionPhoto.PhotoFile = ConvertImageToByteArray(uploadedImage);
+                    productionPhoto.PhotoFile = new byte[uploadedImage.ContentLength];
+                    uploadedImage.InputStream.Read(productionPhoto.PhotoFile, 0, uploadedImage.ContentLength);
                 }
-                
+
                 db.ProductionPhotos.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ProductionId = new SelectList(db.Productions, "ProductionId", "Title", productionPhoto.ProductionId);
             return View(productionPhoto);
         }
+
 
 
         // GET: Prod/ProductionPhotoes/Edit/5
@@ -81,9 +85,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductionId = new SelectList(db.Productions, "ProductionId", "Title", productionPhoto.ProductionId);
+            ViewData["Productions"] = db.Productions.ToList();
             return View(productionPhoto);
         }
+
 
 
         // POST: Prod/ProductionPhotoes/Edit/5
@@ -99,14 +104,29 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             if (ModelState.IsValid)
             {
+                ProductionPhoto originalProductionPhoto = null;
+
                 try
                 {
+                    // Get the original ProductionPhoto from the database
+                    originalProductionPhoto = db.ProductionPhotos.Find(id);
+
                     if (uploadedImage != null)
                     {
                         // Convert the uploaded image to a byte array and assign it to the ProductionPhoto instance
                         productionPhoto.PhotoFile = ConvertImageToByteArray(uploadedImage);
                     }
-                    
+                    else
+                    {
+                        // Keep the original PhotoFile if no new file is uploaded
+                        productionPhoto.PhotoFile = originalProductionPhoto.PhotoFile;
+                    }
+
+                    // Update the originalProductionPhoto properties with the new values from productionPhoto
+                    originalProductionPhoto.ProductionId = productionPhoto.ProductionId;
+                    originalProductionPhoto.Title = productionPhoto.Title;
+                    originalProductionPhoto.Description = productionPhoto.Description;
+                    originalProductionPhoto.PhotoFile = productionPhoto.PhotoFile;
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -119,13 +139,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                         throw;
                     }
                 }
-                db.Entry(productionPhoto).State = EntityState.Modified;
+                db.Entry(originalProductionPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ProductionId = new SelectList(db.Productions, "ProductionId", "Title", productionPhoto.ProductionId);
             return View(productionPhoto);
         }
-
 
         // GET: Prod/ProductionPhotoes/Delete/5
         public ActionResult Delete(int? id)
@@ -162,19 +182,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             base.Dispose(disposing);
         }
 
-        private byte[] ConvertImageToByteArray(HttpPostedFileBase uploadedImage)
+        private byte[] ConvertImageToByteArray(HttpPostedFileBase image)
         {
-            if (uploadedImage != null && uploadedImage.ContentLength > 0)
+            byte[] imageBytes = null;
+
+            // Read the uploaded image into a byte array
+            using (var binaryReader = new BinaryReader(image.InputStream))
             {
-                using (var memoryStream = new MemoryStream())
-                {
-                    uploadedImage.InputStream.CopyTo(memoryStream);
-                    return memoryStream.ToArray();
-                }
+                imageBytes = binaryReader.ReadBytes(image.ContentLength);
             }
 
-            return null;
+            return imageBytes;
         }
+
 
         private bool ProductionPhotoExists(int id)
         {
