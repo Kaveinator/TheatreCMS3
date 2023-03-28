@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,16 +49,34 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear,Photo")] CastMember castMember, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
+                // converts uploaded image
+                if (postedFile != null && postedFile.ContentLength > 0)
+                {
+                    using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+                    {
+                        castMember.Photo = CastPhoto(br, postedFile);
+                    }
+                }
+                
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(castMember);
+        }
+
+        // converts cast member photo from photo to byte[] for saving in the database 
+
+        private byte[] CastPhoto (BinaryReader br, HttpPostedFileBase postedFile)
+        {
+            byte[] castBytes;
+            castBytes = br.ReadBytes(postedFile.ContentLength);
+            return castBytes;
         }
 
         // GET: Prod/CastMembers/Edit/5
@@ -79,7 +99,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear, Photo")] CastMember castMember, HttpPostedFileBase postedFile)
         {
             if (ModelState.IsValid)
             {
