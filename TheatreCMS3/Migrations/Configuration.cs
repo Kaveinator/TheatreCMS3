@@ -27,6 +27,8 @@
             EventPlanner.SeedEventPlanners(userManager, roleManager);
 
             HistoryManager.Seed(context);
+
+            ProductionManager.SeedProductionManager(context);
         }
     }
 

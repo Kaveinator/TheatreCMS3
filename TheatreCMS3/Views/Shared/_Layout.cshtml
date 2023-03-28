@@ -21,6 +21,7 @@
     @Html.Partial("_DevNavbar")
     <div class="container body-content">
         @RenderBody()
+
     </div>
     @Html.Partial("_Footer")
 
@@ -31,5 +32,6 @@
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/Site.js")
+    @Html.Partial("_LoginBtnEventPlanner")
 </body>
 </html>
