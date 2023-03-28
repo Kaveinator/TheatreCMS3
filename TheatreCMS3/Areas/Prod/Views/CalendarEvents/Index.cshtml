@@ -1,17 +1,18 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CalendarEvent>
 
 @{
-    // Set the title and layout for the view
+    // Set the title and layout for the view          s
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Calendar Events</h2>
+<div class="calendarevent-index--header">
+    <h2>Calendar Events</h2>
+    <!-- Render a link to create a new CalendarEvent -->
+    @Html.ActionLink("Create New", "Create", "CalendarEvents", null, new { @class = "calendarevent-index--createnewbtn" })
 
-<!-- Render a link to create a new CalendarEvent -->
-@Html.ActionLink("Create New", "Create", "CalendarEvents", null, new { @class = "btn btn-primary" })
-
-<hr />
+    <hr />
+</div>
 
 <!-- Begin the table structure for displaying CalendarEvents -->
 <table class="calendarevent-index--table">
