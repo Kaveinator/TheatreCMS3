@@ -24,6 +24,7 @@
 
     </div>
     @Html.Partial("_Footer")
+    @Html.Partial("_LoginBtnProductionManager")
 
     @if (ViewContext.RouteData.DataTokens["area"] != null)
     {
@@ -33,5 +34,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/Site.js")
     @Html.Partial("_LoginBtnEventPlanner")
+
 </body>
 </html>

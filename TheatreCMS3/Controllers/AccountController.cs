@@ -553,5 +553,19 @@ namespace TheatreCMS3.Controllers
             // Redirect to the Index page of CalendarEvents
             return RedirectToAction("Index", "CalendarEvents", new { area = "Prod" });
         }
+
+        [AllowAnonymous]
+        public async Task<ActionResult> LoginAsProductionManager()
+        {
+            var productionManager = await UserManager.Users.OfType<ProductionManager>().FirstOrDefaultAsync();
+
+            if (productionManager != null)
+            {
+                AuthenticationManager.SignOut();
+                await SignInManager.SignInAsync(productionManager, isPersistent: false, rememberBrowser: false);
+            }
+
+            return RedirectToAction("Index", "Productions", new { area = "Prod" });
+        }
     }
 }
