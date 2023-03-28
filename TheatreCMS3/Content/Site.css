@@ -73,6 +73,22 @@ body {
   flex-direction: column;
 }
 
+/* Set home page section title font */
+body h3 {
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Set btn-primary to main color */
+.btn-primary {
+    background-color: var(--main-color);
+}
+
+/* Add hover effect to btn-primary class */
+.btn-primary:hover {
+    cursor: pointer;
+    background-color: var(--main-color--light);
+    transition: 0.75s ease-in;
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -555,4 +571,17 @@ footer {
 
 .home-about--board_text {
     padding-top: 2vw;
+}
+
+/* Adds color to horizontal line breaks */
+.horizonal-break {
+    margin-left: 0;
+    background-color: var(--main-color--light);
+    width: 6em;
+    height: 3px;
+}
+
+/* Sizes sponsor logos */
+.sponsors img {
+    max-width: 30%;
 }
