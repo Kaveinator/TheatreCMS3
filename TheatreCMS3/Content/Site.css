@@ -73,6 +73,10 @@ body {
   flex-direction: column;
 }
 
+/* Set home page section title font */
+.home-index-section-title {
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -603,4 +607,31 @@ footer {
     line-height: 1.5;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Adds color to horizontal line breaks */
+.home-index-break {
+    margin-left: 0;
+    background-color: var(--main-color--light);
+    width: 6em;
+    height: 3px;
+}
+
+/* Size sponsor logos */
+.home-index-sponsors img {
+    max-width: 30%;
+}
+
+
+/* Set button to main color */
+.home-index-btn {
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+
+/* Add main-color--light hover effect to button */
+.home-index-btn:hover {
+    cursor: pointer;
+    background-color: var(--main-color--light);
+    transition: 0.75s ease-in;
 }
