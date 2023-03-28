@@ -557,6 +557,30 @@ footer {
     padding-top: 2vw;
 }
 
+/* donation form styling */
+
+.home-donate--header {
+    text-align: center;
+    padding: 2vw;
+    font-family: Broadway;
+    font-weight: bold;
+}
+
+.home-donate-headerImage{
+    margin: 2vw;
+}
+
+.home-donate--form {
+    background-color: var(--main-color--light);
+    border-radius: 0.5rem;
+    padding: 2vw;
+}
+
+.home-donate--submitBtn {
+    background-color: var(--light-color);
+}
+}
+
 /*Production Manager Login Button Partial View Styling*/
 
 .Production-managerlogin--button {
