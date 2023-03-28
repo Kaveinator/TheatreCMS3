@@ -74,17 +74,18 @@ body {
 }
 
 /* Set home page section title font */
-body h3 {
+.section-title {
     font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Set btn-primary to main color */
-.btn-primary {
+/* Set button to main color */
+.main-color-btn{
     background-color: var(--main-color);
+    color: var(--light-color);
 }
 
-/* Add hover effect to btn-primary class */
-.btn-primary:hover {
+/* Add main-color--light hover effect to button */
+.main-color-btn:hover {
     cursor: pointer;
     background-color: var(--main-color--light);
     transition: 0.75s ease-in;
