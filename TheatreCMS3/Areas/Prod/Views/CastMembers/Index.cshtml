@@ -36,7 +36,9 @@
         <th>
             @Html.DisplayNameFor(model => model.DebutYear)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -64,6 +66,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DebutYear)
+        </td>
+        <td>
+            @if (item.Photo != null)
+            {
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.Photo)" width="80" height="80" />
+            }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberId }) |
