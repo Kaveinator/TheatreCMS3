@@ -10,73 +10,106 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactPerson)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Company)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequestedTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectInfo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Accepted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContractSigned)
-        </th>
-        <th></th>
-    </tr>
+<!-- Loop through each RentalRequest in the Model and display its data in the form of a Bootstrap Accordion -->
+@{int i = 0;}
+@foreach (var item in Model)
+{
+    // Run a calculation to determine time remaining on the rental
+    var rentaltimeremainingdays = (item.EndTime - DateTime.Now).Days;
+    var rentaltimeremaininghours = (item.EndTime - DateTime.Now).Hours;
+    var rentaltimeremainingmin = (item.EndTime - DateTime.Now).Minutes;
+    var timeuntilrentaldays = (item.StartTime - DateTime.Now).Days;
+    var timeuntilrentalhours = (item.StartTime - DateTime.Now).Hours;
+    var timeuntilrentalmin = (item.StartTime - DateTime.Now).Minutes;
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactPerson)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Company)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RequestedTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectInfo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Accepted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContractSigned)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalRequestID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalRequestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalRequestID })
-        </td>
-    </tr>
+<div class="accordion" id="accordionExample_@i">
+    <div class="card">
+        <div class="card-header RentalRequest-card--header" id="headingOne_@i">
+            <h2 class="mb-0">
+                <button class="btn btn-block btn-dark text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne_@i" aria-expanded="false" aria-controls="collapseOne_@i">
+                    <div class="row">
+                        <!-- Render Company and Contact Person on left side of accordion button -->
+                        <div class="col">
+                            @Html.DisplayNameFor(model => model.Company) <strong>@Html.DisplayFor(modelItem => item.Company)</strong>
+                            <br />
+                            @Html.DisplayNameFor(model => model.ContactPerson) <strong>@Html.DisplayFor(modelItem => item.ContactPerson)</strong>
+                        </div>
+                        <!-- Render Time Remaining/Time Until/or Rental Over on right side of accordion button -->
+                        <div class="col">
+                            @if (DateTime.Now > item.StartTime && DateTime.Now < item.EndTime)
+                            {
+                                <div>
+                                    @rentaltimeremainingdays Day(s), @rentaltimeremaininghours Hours, and @rentaltimeremainingmin Minutes Remaining in Rental
+                                </div>
+                            }
+                            else if (DateTime.Now < item.StartTime)
+                            {
+                                <div>
+                                    @timeuntilrentaldays Day(s), @timeuntilrentalhours Hours, and @timeuntilrentalmin Minutes Until Rental Begins
+                                </div>
+                            }
+                            else
+                            {
+                                <div>
+                                    Rental is Over
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </button>
+            </h2>
+        </div>
+        <!-- Body for each accordion for each item -->
+        <div id="collapseOne_@i" class="collapse" aria-labelledby="headingOne_@i" data-parent="#accordionExample_@i">
+            <div class="card-body text-light bg-dark">
+                <div class="row">
+                    <div class="col">
+                        <h5>Start Time</h5>
+                        <p>@Html.DisplayFor(modelItem => item.StartTime)</p>
+                    </div>
+                    <div class="col">
+                        <h5>End Time</h5>
+                        <p>@Html.DisplayFor(modelItem => item.EndTime)</p>
+                    </div>
+                </div>
+                <table class="table-sm">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RentalCode)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RentalCode)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProjectInfo)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProjectInfo)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Accepted)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Accepted)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContractSigned)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractSigned)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    i++;
 }
-
-</table>
+    
