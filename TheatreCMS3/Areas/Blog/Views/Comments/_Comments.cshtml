@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Dislikes)
         </th>
+        <th>
+            User Rating
+        </th>
         <th></th>
     </tr>
 
@@ -39,7 +42,7 @@
                 @Html.DisplayFor(modelItem => item.CommentDate)
             </td>
             <td>
-                @((DateTime.Now-item.CommentDate).Days.ToString()) Days
+                Posted @((DateTime.Now-item.CommentDate).Days.ToString()) Days
                 @((DateTime.Now - item.CommentDate).Hours.ToString()) Hours
                 @((DateTime.Now - item.CommentDate).Minutes.ToString()) Minutes Ago
             </td>
@@ -48,6 +51,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Dislikes)
+            </td>
+            <td>
+                @(item.LikeRatio())% 
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |

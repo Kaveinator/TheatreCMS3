@@ -56,7 +56,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                comment.CommentDate = DateTime.Now;
+                //comment.CommentDate = DateTime.Now;
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
