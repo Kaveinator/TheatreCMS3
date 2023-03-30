@@ -21,6 +21,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(db.Comments.ToList());
         }
 
+        public ActionResult ViewComments()
+        {
+            return View(db.Comments.ToList());
+        }
+
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
         {
