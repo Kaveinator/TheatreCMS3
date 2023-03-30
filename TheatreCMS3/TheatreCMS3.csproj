@@ -223,6 +223,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TextHelpers.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.designer.cs">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
@@ -511,7 +512,6 @@
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
-    <Folder Include="Helpers\" />
     <Folder Include="obj\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
