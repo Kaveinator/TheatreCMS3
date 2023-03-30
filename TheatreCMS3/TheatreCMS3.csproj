@@ -217,9 +217,11 @@
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistoryAuthorization.cs" />
     <Compile Include="Areas\Rent\Models\HistoryManager.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
+    <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -346,6 +348,11 @@
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalRequests\Create.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalRequests\Delete.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalRequests\Details.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalRequests\Edit.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalRequests\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogComments\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogComments\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogComments\Details.cshtml" />
