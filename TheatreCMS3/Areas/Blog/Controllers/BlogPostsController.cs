@@ -11,112 +11,107 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class CommentsController : Controller
+    public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/Comments
+        // GET: Blog/BlogPosts
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            return View(db.BlogPosts.ToList());
         }
 
-        public ActionResult ViewComments()
-        {
-            return View(db.Comments.ToList());
-        }
-
-        // GET: Blog/Comments/Details/5
+        // GET: Blog/BlogPosts/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            if (blogPost == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPost);
         }
 
-        // GET: Blog/Comments/Create
+        // GET: Blog/BlogPosts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/Comments/Create
+        // POST: Blog/BlogPosts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "BlogPostId,Title,Content,Posted,Author")] BlogPost blogPost)
         {
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                db.BlogPosts.Add(blogPost);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(comment);
+            return View(blogPost);
         }
 
-        // GET: Blog/Comments/Edit/5
+        // GET: Blog/BlogPosts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            if (blogPost == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPost);
         }
 
-        // POST: Blog/Comments/Edit/5
+        // POST: Blog/BlogPosts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Edit([Bind(Include = "BlogPostId,Title,Content,Posted,Author")] BlogPost blogPost)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comment);
+            return View(blogPost);
         }
 
-        // GET: Blog/Comments/Delete/5
+        // GET: Blog/BlogPosts/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            if (blogPost == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(blogPost);
         }
 
-        // POST: Blog/Comments/Delete/5
+        // POST: Blog/BlogPosts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
+            BlogPost blogPost = db.BlogPosts.Find(id);
+            db.BlogPosts.Remove(blogPost);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

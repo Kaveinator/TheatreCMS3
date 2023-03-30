@@ -200,8 +200,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogPostsController.cs" />
     <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
+    <Compile Include="Areas\Blog\Models\BlogPost.cs" />
     <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TextHelpers.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.cs" />
     <Compile Include="Migrations\202102162045367_InitialCreate.designer.cs">
       <DependentUpon>202102162045367_InitialCreate.cs</DependentUpon>
@@ -358,6 +361,12 @@
     <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\_Comments.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -531,7 +540,6 @@
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
-    <Folder Include="Helpers\" />
     <Folder Include="obj\" />
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
