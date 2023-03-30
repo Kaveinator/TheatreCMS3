@@ -52,10 +52,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
+        public ActionResult Create([Bind(Include = "CommentId,Message,Likes,Dislikes")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                comment.CommentDate = DateTime.Now;
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");

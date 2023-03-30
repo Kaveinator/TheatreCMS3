@@ -6,10 +6,16 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Message)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CommentDate)
+        </th>
+        <th>
+            Time Elapsed
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Likes)
@@ -24,10 +30,18 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Message)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CommentDate)
+            </td>
+            <td>
+                @((DateTime.Now-item.CommentDate).Days.ToString()) Days
+                @((DateTime.Now - item.CommentDate).Hours.ToString()) Hours
+                @((DateTime.Now - item.CommentDate).Minutes.ToString()) Minutes Ago
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Likes)
