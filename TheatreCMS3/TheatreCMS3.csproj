@@ -353,11 +353,6 @@
     <Content Include="Areas\Rent\Views\RentalRequests\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogComments\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogComments\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogComments\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogComments\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogComments\Index.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
