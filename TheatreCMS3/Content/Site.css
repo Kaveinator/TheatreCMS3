@@ -637,28 +637,3 @@ footer {
     transition: 0.75s ease-in;
 }
 /* End home page styling */
-
-/* Start comment styling */
-.blog-comment-container {
-    color:  var(--light-color);
-    background-color: var(--dark-color);
-    border: 3px solid var(--main-color);
-    border-radius: 5px;
-    min-width: 500px;
-    max-width: 80vw;
-    height: 10vw;
-    margin: 10px;
-}
-
-.blog-comment-header {
-
-}
-
-.blog-comment-body {
-
-}
-
-.blog-comment-footer {
-
-}
-/* End comment styling */
