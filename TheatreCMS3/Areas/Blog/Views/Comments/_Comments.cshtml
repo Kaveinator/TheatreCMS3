@@ -33,7 +33,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Author)
+                @Html.DisplayFor(modelItem => item.Author)Unimplemented Author
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Message)
@@ -42,9 +42,38 @@
                 @Html.DisplayFor(modelItem => item.CommentDate)
             </td>
             <td>
-                Posted @((DateTime.Now-item.CommentDate).Days.ToString()) Days
-                @((DateTime.Now - item.CommentDate).Hours.ToString()) Hours
-                @((DateTime.Now - item.CommentDate).Minutes.ToString()) Minutes Ago
+                @* If else statements disclude time increments if they are *@
+                @* equal to zero and adjusts string if time increment equals one *@
+                Posted
+                @if ((DateTime.Now - item.CommentDate).Days == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Days.ToString() + " Day ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Days != 0)
+                {
+                    @((DateTime.Now-item.CommentDate).Days.ToString() + " Days ")
+                }
+
+                @if ((DateTime.Now - item.CommentDate).Hours == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Hours.ToString() + " Hour ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Hours != 0)
+                {
+                    @((DateTime.Now - item.CommentDate).Hours.ToString() + " Hours ")
+                }
+
+                @if ((DateTime.Now - item.CommentDate).Minutes == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Minutes.ToString() + " Minute ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Minutes != 0)
+                {
+                    @((DateTime.Now - item.CommentDate).Minutes.ToString() + " Minutes ")
+                }
+
+                @((DateTime.Now - item.CommentDate).Seconds.ToString() + " Seconds Ago")
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Likes)
