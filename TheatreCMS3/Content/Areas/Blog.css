@@ -46,7 +46,6 @@
 
 .blog-comment-body {
 }
-
 .blog-comment-footer button {
     padding: 3px;
     border: 2px solid var(--main-color);
@@ -57,12 +56,59 @@
     font-size: 12px;
 }
 
-.blog-comment-footer button:hover {
-    color: var(--dark-color);
-    background-color: var(--main-color--light);
-}
+    .blog-comment-footer button:hover {
+        color: var(--dark-color);
+        background-color: var(--main-color--light);
+    }
 
 .blog-comment-footer i:hover {
     cursor: pointer;
 }
 /* End comment styling */
+
+
+/* create form styling*/
+.blog-create--header {
+    text-align: center;
+    padding: 2vw;
+    font-family: Broadway;
+    font-weight: bold;
+}
+
+.blog-create--form {
+    background-color: var(--main-color--light);
+    border-radius: 0.5rem;
+    padding: 2vw;
+}
+
+.blog-create--textfield {
+    width: 100%;
+}
+
+textarea#Bio {
+    min-width: 100px;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    height: 20vw;
+}
+
+.blog-create--buttons {
+    display: inline-grid;
+    padding-left: 1vw;
+    padding-top: 1vw;
+}
+
+textarea#Bio {
+    min-width: 100px;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    height: 20vw;
+}
+
+.blog-create--buttons {
+    display: inline-grid;
+    padding-left: 1vw;
+    padding-top: 1vw;
+}
