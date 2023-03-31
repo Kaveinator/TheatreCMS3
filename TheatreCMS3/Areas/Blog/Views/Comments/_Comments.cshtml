@@ -1,46 +1,74 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+@Styles.Render("~Content/Area/Blog.css")
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Message)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CommentDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Likes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dislikes)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Message)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Likes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dislikes)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
-            </td>
-        </tr>
+@foreach (var item in Model) 
+    { 
+    <div class="blog-comment-container">
+        @* Author pfp and name *@
+        <div class="row">
+            <div class="blog-comment-header col">
+                <div class="blog-comment-pfp">
+                    <i class="fa fa-user-circle-o fa-2x"></i>
+                    @Html.DisplayFor(modelItem => item.Author)Unimplemented Author
+                </div>
+            </div>
+            <div class="blog-comment-time-elapsed col">
+                @* If else statements disclude time increments if they are *@
+                @* equal to zero and adjusts string if time increment equals one *@
+                Posted
+                @if ((DateTime.Now - item.CommentDate).Days == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Days.ToString() + " Day ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Days != 0)
+                {
+                    @((DateTime.Now-item.CommentDate).Days.ToString() + " Days ")
+                }
+
+                @if ((DateTime.Now - item.CommentDate).Hours == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Hours.ToString() + " Hour ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Hours != 0)
+                {
+                    @((DateTime.Now - item.CommentDate).Hours.ToString() + " Hours ")
+                }
+
+                @if ((DateTime.Now - item.CommentDate).Minutes == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Minutes.ToString() + " Minute ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Minutes != 0)
+                {
+                    @((DateTime.Now - item.CommentDate).Minutes.ToString() + " Minutes ")
+                }
+
+                @((DateTime.Now - item.CommentDate).Seconds.ToString() + " Seconds Ago")
+            </div>
+        </div>
+    
+        @* Comment body *@
+        <div class="blog-comment-body mt-2 mb-2">
+            @Html.DisplayFor(modelItem => item.Message)
+        </div>
+
+        @* Comment footer *@
+        <div class="blog-comment-footer row">
+            <div class="col text-left">
+                <button>Reply</button>
+                <i class="fa fa-trash"></i>
+            </div>
+            <div class="col text-right">
+                @(item.Likes)
+                <i class="fa fa-thumbs-up"></i>
+                @item.Dislikes
+                <i class="fa fa-thumbs-down"></i>
+                (@(item.LikeRatio())% User Approval)
+            </div>
+        </div>
+    </div> 
     }
-
-</table>

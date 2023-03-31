@@ -609,6 +609,7 @@ footer {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+/* Start home page styling */
 /* Adds color to horizontal line breaks */
 .home-index-break {
     margin-left: 0;
@@ -635,3 +636,4 @@ footer {
     background-color: var(--main-color--light);
     transition: 0.75s ease-in;
 }
+/* End home page styling */
