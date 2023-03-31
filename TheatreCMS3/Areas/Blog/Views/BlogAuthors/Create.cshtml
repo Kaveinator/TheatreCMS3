@@ -35,15 +35,15 @@
         <div class="col-4 offset-2">
             @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-12">
-                @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @type = "datetime-local", @class = "form-control datepicker" } })
-                @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @type = "datetime-local", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-light" })
             </div>
         </div>
         <div class="col-4">
             @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @type = "datetime-local", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-light" })
             </div>
         </div>
     </div>
