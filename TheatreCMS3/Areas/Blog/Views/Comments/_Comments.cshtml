@@ -3,7 +3,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-responsive">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Author)
@@ -82,7 +82,7 @@
                 @Html.DisplayFor(modelItem => item.Dislikes)
             </td>
             <td>
-                @(item.LikeRatio())% 
+                @(item.LikeRatio())%
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
@@ -90,6 +90,65 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
             </td>
         </tr>
+
     }
 
 </table>
+@foreach (var item in Model) 
+    { 
+    <div class="blog-comment-container">
+        @* Author pfp and name *@
+        <div class="blog-comment-header">
+            <div class="text-md-left">
+                @Html.DisplayFor(modelItem => item.Author)Unimplemented Author
+            </div>
+            <div class="text-sm-right">
+                @Html.DisplayFor(modelItem => item.CommentDate)
+                @* If else statements disclude time increments if they are *@
+                @* equal to zero and adjusts string if time increment equals one *@
+                Posted
+                @if ((DateTime.Now - item.CommentDate).Days == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Days.ToString() + " Day ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Days != 0)
+                {
+                    @((DateTime.Now-item.CommentDate).Days.ToString() + " Days ")
+                }
+
+                @if ((DateTime.Now - item.CommentDate).Hours == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Hours.ToString() + " Hour ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Hours != 0)
+                {
+                    @((DateTime.Now - item.CommentDate).Hours.ToString() + " Hours ")
+                }
+
+                @if ((DateTime.Now - item.CommentDate).Minutes == 1)
+                {
+                    @((DateTime.Now-item.CommentDate).Minutes.ToString() + " Minute ")
+                }
+                else if ((DateTime.Now - item.CommentDate).Minutes != 0)
+                {
+                    @((DateTime.Now - item.CommentDate).Minutes.ToString() + " Minutes ")
+                }
+
+                @((DateTime.Now - item.CommentDate).Seconds.ToString() + " Seconds Ago")
+            </div>
+        </div>
+
+        @* Comment body *@
+        <div class="blog-comment-body">
+            @Html.DisplayFor(modelItem => item.Message)
+        </div>
+
+        @* Comment footer *@
+        <div class="blog-comment-footer">
+            
+            @item.Likes Likes
+            @item.Dislikes Dislikes
+            @(item.LikeRatio())%
+        </div>
+    </div> 
+    }
