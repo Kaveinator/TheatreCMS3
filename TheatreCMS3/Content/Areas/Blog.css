@@ -112,3 +112,227 @@ textarea#Bio {
     padding-left: 1vw;
     padding-top: 1vw;
 }
+/* BlogPost Create CSS*/
+.BlogPost-create--formcontainer {
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+
+.BlogPost-create--formgroup {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+
+.BlogPost-create--formbtn {
+    background-color: var(--main-color);
+    border-color: var(--light-color);
+    color: var(--light-color);
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 20%;
+}
+
+.BlogPost-create--btncontainer {
+    padding-top: 20px;
+}
+
+.BlogPost-create--formbtn:hover {
+    cursor: pointer;
+    background-color: var(--main-color--light);
+    transition: 0.75s ease-in;
+}
+
+.BlogPost-create--backbtn {
+    background-color: black;
+    border-color: white;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 20%;
+    float: right;
+    color: white;
+}
+
+    .BlogPost-create--backbtn:hover {
+        cursor: pointer;
+        background-color: var(--main-color--light);
+        transition: 0.75s ease-in;
+    }
+
+#Content {
+    width: 100%;
+    display: block;
+    background-color: lightgray;
+}
+
+#Title {
+    width: 100%;
+    display: block;
+    background-color: lightgray;
+}
+
+#Content:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 10px var(--main-color);
+    background-color: white;
+}
+
+#Title:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 10px var(--main-color);
+    background-color: white;
+}
+
+#Posted:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 10px var(--main-color);
+    background-color: white;
+}
+
+#Posted {
+    width: 100%;
+    display: block;
+    background-color: lightgray;
+}
+
+#Author {
+    width: 100%;
+    display: block;
+    background-color: lightgray;
+    border: 2px solid #dadada;
+    border-radius: 7px;
+}
+
+    #Author:focus {
+        outline: none;
+        border-color: var(--main-color);
+        box-shadow: 0 0 10px var(--main-color);
+        background-color: white;
+    }
+
+.Blogpost-create--Title {
+    text-align: center;
+    text-decoration: underline;
+}
+/* BlogPost Edit CSS*/
+.BlogPost-Edit--formcontainer {
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color), -1px -1px 0px var(--light-color);
+}
+
+.BlogPost-Edit--formgroup {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+
+.BlogPost-Edit--formbtn {
+    background-color: var(--main-color);
+    border-color: var(--light-color);
+    color: var(--light-color);
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 20%;
+}
+
+.BlogPost-Edit--btncontainer {
+    padding-top: 20px;
+}
+
+.BlogPost-Edit--formbtn:hover {
+    cursor: pointer;
+    background-color: var(--main-color--light);
+    transition: 0.75s ease-in;
+}
+
+.BlogPost-Edit--backbtn {
+    background-color: black;
+    border-color: white;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 20%;
+    float: right;
+    color: white;
+}
+
+.BlogPost-Edit--backbtn:hover {
+     cursor: pointer;
+     background-color: var(--main-color--light);
+     transition: 0.75s ease-in;
+}
+
+#Content {
+    width: 100%;
+    display: block;
+    background-color: lightgray;
+}
+
+#Title {
+    width: 100%;
+    display: block;
+    background-color: lightgray;
+}
+
+#Content:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 10px var(--main-color);
+    background-color: white;
+}
+
+#Title:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 10px var(--main-color);
+    background-color: white;
+}
+
+#Posted:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 10px var(--main-color);
+    background-color: white;
+}
+
+#Posted {
+    width: 100%;
+    display: block;
+    background-color: lightgray;
+}
+
+#Author {
+    width: 100%;
+    display: block;
+    background-color: lightgray;
+    border: 2px solid #dadada;
+    border-radius: 7px;
+}
+
+#Author:focus {
+     outline: none;
+     border-color: var(--main-color);
+     box-shadow: 0 0 10px var(--main-color);
+     background-color: white;
+    }
+
+.Blogpost-Edit--Title {
+    text-align: center;
+    text-decoration: underline;
+}
