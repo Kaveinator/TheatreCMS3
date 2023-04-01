@@ -67,7 +67,7 @@
 /* End comment styling */
 
 
-/* create form styling*/
+/* create/edit form styling*/
 .blog-create--header {
     text-align: center;
     padding: 2vw;
@@ -112,3 +112,55 @@ textarea#Bio {
     padding-left: 1vw;
     padding-top: 1vw;
 }
+
+/* end create/edit form styling*/
+
+/*details page styling*/
+.blog-details--nav {
+    background-color: var(--light-color);
+    border-radius: 0.5vw;
+    width: 500px;
+    margin-top: 1vw;
+    margin-bottom: -0.2vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+}
+
+.blog-details--nav>li>a{
+    background-color: #6c757d!important;
+    color: var(--light-color)!important;
+}
+
+.blog-details--nav>li > a.active,
+.blog-details--nav>li > a:focus{
+    background-color: #28a745!important;
+    color: var(--light-color)!important; 
+}
+
+.blog-details--icons {
+    color: var(--dark-color);
+}
+
+.blog-details--card {
+    padding: 2vw;
+    border: none;
+}
+
+.blog-details--image{
+    border-radius: 0.5vw;
+}
+
+.blog-details--buttons {
+    display: inline-grid;
+    padding-top: 1vw;
+    margin: 0.25vw;
+}
+
+.blog-delete--header{
+    padding: 1vw;
+    color: var(--main-color);
+}
+       
+
+
+/*end details page styling*/
