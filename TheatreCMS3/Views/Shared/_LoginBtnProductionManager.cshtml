@@ -1,9 +1,0 @@
-﻿@using Microsoft.AspNet.Identity
-@{ if (!User.IsInRole("ProductionManager") && ViewContext.RouteData.Values["controller"].Equals("Productions"))
-    {
-        <button class="btn btn-dark Production-managerlogin--button"
-                onclick="location.href='@Url.Action("LoginAsProductionManager", "Account", new { area = "" })'">
-            Log in as Production Manager
-        </button>
-        }
-}
