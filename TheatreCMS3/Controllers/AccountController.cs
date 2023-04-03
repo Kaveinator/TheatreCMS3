@@ -10,8 +10,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TheatreCMS3.Models;
-using TheatreCMS3.Areas.Prod.Models;
-using System.Data.Entity;
 
 namespace TheatreCMS3.Controllers
 {
@@ -535,37 +533,5 @@ namespace TheatreCMS3.Controllers
             }
         }
         #endregion
-
-        [AllowAnonymous]
-        public async Task<ActionResult> LoginAsEventPlanner()
-        {
-            // Get the EventPlanner from the database
-            var eventPlanner = await UserManager.Users.OfType<EventPlanner>().FirstOrDefaultAsync();
-
-            if (eventPlanner != null)
-            {
-                // Sign the user out if they're already logged in
-                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-                // Sign the user in as the EventPlanner
-                await SignInManager.SignInAsync(eventPlanner, isPersistent: false, rememberBrowser: false);
-            }
-
-            // Redirect to the Index page of CalendarEvents
-            return RedirectToAction("Index", "CalendarEvents", new { area = "Prod" });
-        }
-
-        [AllowAnonymous]
-        public async Task<ActionResult> LoginAsProductionManager()
-        {
-            var productionManager = await UserManager.Users.OfType<ProductionManager>().FirstOrDefaultAsync();
-
-            if (productionManager != null)
-            {
-                AuthenticationManager.SignOut();
-                await SignInManager.SignInAsync(productionManager, isPersistent: false, rememberBrowser: false);
-            }
-
-            return RedirectToAction("Index", "Productions", new { area = "Prod" });
-        }
     }
 }
