@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
-@Styles.Render("~Content/Area/Blog.css")
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@foreach (var item in Model) 
-    { 
-    <div class="blog-comment-container">
+@foreach (var item in Model)
+{
+    <div class="blog-comment-container" id="comment-container">
         @* Author pfp and name *@
         <div class="row">
             <div class="blog-comment-header col">
@@ -50,7 +49,7 @@
                 @((DateTime.Now - item.CommentDate).Seconds.ToString() + " Seconds Ago")
             </div>
         </div>
-    
+
         @* Comment body *@
         <div class="blog-comment-body mt-2 mb-2">
             @Html.DisplayFor(modelItem => item.Message)
@@ -63,12 +62,14 @@
                 <i class="fa fa-trash"></i>
             </div>
             <div class="col text-right">
-                @(item.Likes)
-                <i class="fa fa-thumbs-up"></i>
-                @item.Dislikes
-                <i class="fa fa-thumbs-down"></i>
+                <span id="Likes-@item.CommentId">@(item.Likes)</span>
+                <i class="fa fa-thumbs-up" id="btnLike-@item.CommentId" onclick="Like(@item.CommentId)"></i>
+                <span id="Dislikes-@item.CommentId">@item.Dislikes</span>
+                <i class="fa fa-thumbs-down" id="btnDislike-@item.CommentId" onclick="Dislike(@item.CommentId)"></i>
                 (@(item.LikeRatio())% User Approval)
             </div>
         </div>
-    </div> 
-    }
+    </div>
+}
+<script src="~/Scripts/Areas/Blog.js" type="text/javascript"></script>
+
