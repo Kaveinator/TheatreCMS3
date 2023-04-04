@@ -5,53 +5,93 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2 class="blog-delete--header">Delete - Are you sure you want to delete this?</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+<div class="offset-3">
+    <ul class="nav nav-pills blog-details--nav" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="details-pill" data-toggle="pill" href="#details" role="tab" aria-controls="details" aria-selected="true">Author Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="posts-pill" data-toggle="pill" href="#posts" role="tab" aria-controls="posts" aria-selected="false">Blog Posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-pill" data-toggle="pill" href="#" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="twitter-pill" data-toggle="pill" href="#" role="tab" aria-controls="twitter" aria-selected="false">Twitter</a>
+        </li>
+    </ul>
 </div>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="details" role="tabpanel" aria-labelledby="details-pill">
+        <div class="card blog-details--card">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="http://via.placeholder.com/300x400" class="blog-details--image" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="row justify-content-between">
+                            <div class="col-4">
+                                <h2 class="card-title text-dark">@Html.DisplayFor(model => model.Name)</h2>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a class="blog-details--icons" href="https://www.facebook.com"><i class="fab fa-2x fa-facebook"></i></a>
+                                <a class="blog-details--icons" href="https://www.instagram.com"><i class="fab fa-2x fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <p class="card-text text-dark">@Html.DisplayFor(model => model.Bio)</p>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <p class="text-dark font-weight-bold">Joined Date</p>
+                                <p class="text-dark">@Html.DisplayFor(model => model.Joined)</p>
+                            </div>
+                            <div class="col-md-5">
+                                <p class="text-dark font-weight-bold">Left Date</p>
+                                <p class="text-dark">@Html.DisplayFor(model => model.Left)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="posts" role="tabpanel" aria-labelledby="posts-pill">
+        <div class="card blog-details--card">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="http://via.placeholder.com/300x400" class="blog-details--image" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="text-dark">Insert blog posts here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="" role="tabpanel" aria-labelledby="contact-pill">...</div>
+    <div class="tab-pane" id="" role="tabpanel" aria-labelledby="twitter-tab">...</div>
+</div>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-actions">       
+    <div class="row">
+        <div class="blog-details--buttons">
+            @Html.ActionLink(" Back to List", "Index", null, new { @class = "btn btn-dark" })
+        </div>
+        <div class="blog-details--buttons">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </div>
+</div>
+}
