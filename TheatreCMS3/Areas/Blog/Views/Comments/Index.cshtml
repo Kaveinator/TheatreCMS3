@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+@Styles.Render("~/Content/Areas/Blog.css")
 
 @{
     ViewBag.Title = "Index";
@@ -7,6 +8,6 @@
 
 <h2>Index</h2>
 
-<div>
+<body>
     @Html.Partial("~/Areas/Blog/Views/Comments/_Comments.cshtml", Model)
-</div>
+</body>
