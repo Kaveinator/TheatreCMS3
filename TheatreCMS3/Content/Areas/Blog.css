@@ -383,6 +383,192 @@ textarea#Bio {
     padding: 1vw;
     color: var(--main-color);
 }
-     
+.BlogPost-Details--conatainer {
+    height: 685px;
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px #d6972a, /* inner white */
+    0 0 40px 20px var(--main-color--light), 0 0 60px 5px var(--main-color); /* outer cyan */
+    padding-top: 10px;
+}
+.BlogPost-Details--dl-horizontal {
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right:10px;
+    padding-top: 20px;
+}
+.BlogPost-Details--PageTitle{
+    text-align:center;
+    text-shadow: 2px 2px black;
+    text-decoration:underline;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.BlogPost-Details--TitleContainer2 {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+    height: 30px;
+}
+.BlogPost-Details--ContentContainer {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+    height: 100px;
+}
+.BlogPost-Details--PostedContainer {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+}
+.BlogPost-Details--AuthorContainer {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+    height:30px;
+}
+.BlogPost-Details--ImageConatiner {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+    height: 200px;
+}
+
+.BlogPost-Details--EditBtn {
+    background-color: var(--main-color);
+    border-color: var(--light-color);
+    color: var(--light-color);
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 20%;
+}
+.BlogPost-Details--backbtn{
+    background-color: black;
+    border-color: white;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 20%;
+    color: white;
+}
+.BlogPost-Details--btncontainer {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+/*Delete CSS Start*/
+.BlogPost-Delete--conatainer {
+    height: 685px;
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px #d6972a, /* inner glow */
+    0 0 40px 20px var(--main-color--light), 0 0 60px 5px var(--main-color); /*outer glow*/
+}
+.BlogPost-Delete--dl-horizontal {
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+
+
+}
+
+
+.BlogPost-Delete--PageTitle {
+    text-align: center;
+    text-shadow: 2px 2px black;
+    text-decoration: underline;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.BlogPost-Delete--TitleContainer2 {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+    height: 30px;
+}
+
+.BlogPost-Delete--ContentContainer {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+    height: 100px;
+}
+
+.BlogPost-Delete--PostedContainer {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+}
+
+.BlogPost-Delete--AuthorContainer {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+    height: 25px;
+   
+}
+
+.BlogPost-Delete--ImageConatiner {
+    box-sizing: content-box;
+    border: 2px solid black;
+    background-color: darkgray;
+    border-radius: 10px;
+    height: 200px;
+}
+
+.BlogPost-Delete--EditBtn {
+    background-color: var(--main-color);
+    border-color: var(--light-color);
+    color: var(--light-color);
+    border-radius: 10px;
+    text-align: center;
+    display:inline-block;
+    width: 20%;
+}
+
+.BlogPost-Delete--backbtn {
+    background-color: black;
+    border-color: white;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 20%;
+    color: white;
+    display:inline-block;
+}
+
+.BlogPost-Delete--btncontainer {
+    padding-left: 10px;
+    padding-right: 10px;
+    position:relative;
+}
+.BlogPost-Delete--DelBtn {
+    background-color: var(--main-color);
+    border-color: var(--light-color);
+    color: var(--light-color);
+    border-radius: 10px;
+    text-align: center;
+    width: 20%;
+    float: right;
+    margin-top: -28px;
+    display:inline-block;
+}
+
+
 
 /*end details page styling*/

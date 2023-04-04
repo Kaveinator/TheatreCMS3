@@ -5,47 +5,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="BlogPost-Details--PageTitle">Blog Post Details</h2>
 
-<div>
-    <h4>BlogPost</h4>
+<div class="BlogPost-Details--conatainer"
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
+    <dl class="BlogPost-Details--dl-horizontal">
+        <dt class="BlogPost-Details--TitleContainer">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
 
-        <dd>
+        <dd class="BlogPost-Details--TitleContainer2">
             @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>Image</dt>
+        <dd class="BlogPost-Details--ImageConatiner">
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd class="BlogPost-Details--AuthorContainer">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Posted)
+        </dt>
+
+        <dd class="BlogPost-Details--PostedContainer">
+            @Html.DisplayFor(model => model.Posted)
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Content)
         </dt>
 
-        <dd>
+        <dd class="BlogPost-Details--ContentContainer">
             @Html.DisplayFor(model => model.Content)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Posted)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Posted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author)
-        </dd>
 
     </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    <div class="BlogPost-Details--btncontainer">
+
+        <a href="@Url.Action("BlogPosts", "../Blog")"><button class="BlogPost-Details--backbtn"><i class="fa fa-arrow-left" aria-hidden="true"></i></button></a>
+        <a href="@Url.Action("Edit/14","BlogPosts","../Blog")"><button class="BlogPost-Details--EditBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> </a>
+
+    </div>
+    </div>
+
