@@ -46,6 +46,15 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return Json(result);
         }
 
+        public JsonResult Ratio(int id)
+        {
+            var Comment = db.Comments.Find(id);
+            double LikeRatio = Comment.LikeRatio();
+            double DislikeRatio = 100 - LikeRatio;
+            List<double> Ratios = new List<double> { LikeRatio, DislikeRatio };
+            return Json(Ratios);
+        }
+
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
         {
