@@ -47,19 +47,22 @@
 .blog-comment-body {
 }
 .blog-comment-footer button {
-    padding: 3px;
+    padding-right: 5px;
+    padding-left: 5px;
     border: 2px solid var(--main-color);
     border-radius: 5px;
     color: var(--main-color);
     background-color: var(--dark-color);
     cursor: pointer;
     font-size: 12px;
+    margin-bottom: 4px;
 }
 
-    .blog-comment-footer button:hover {
-        color: var(--dark-color);
-        background-color: var(--main-color--light);
-    }
+.blog-comment-footer button:hover {
+    color: var(--dark-color);
+    background-color: var(--main-color--light);
+    transition: .5s ease-in;
+}
 
 .blog-comment-footer i:hover {
     cursor: pointer;
