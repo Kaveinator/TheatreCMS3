@@ -5,53 +5,61 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2 class="BlogPost-Delete--PageTitle">Delete this Blog Post?</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BlogPost</h4>
+<div class="BlogPost-Delete--conatainer">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
+    <dl class="BlogPost-Delete--dl-horizontal">
+        <dt class="BlogPost-Delete--TitleContainer">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
 
-        <dd>
+        <dd class="BlogPost-Delete--TitleContainer2">
             @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>Image</dt>
+        <dd class="BlogPost-Delete--ImageConatiner">
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd class="BlogPost-Delete--AuthorContainer">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Posted)
+        </dt>
+
+        <dd class="BlogPost-Delete--PostedContainer">
+            @Html.DisplayFor(model => model.Posted)
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Content)
         </dt>
 
-        <dd>
+        <dd class="BlogPost-Delete--ContentContainer">
             @Html.DisplayFor(model => model.Content)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Posted)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Posted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author)
-        </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+    <div class="BlogPost-Delete--btncontainer">
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        <a href="@Url.Action("BlogPosts", "../Blog")"><button class="BlogPost-Delete--backbtn"><i class="fa fa-arrow-left" aria-hidden="true"></i></button> </a>
+        <a href="@Url.Action("Edit/20","BlogPosts","../Blog")"><button class="BlogPost-Delete--EditBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> </a>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <button type="submit" value="" class="BlogPost-Delete--DelBtn"><i class='fa fa-trash' aria-hidden='true'></i></button>
+        }
+    </div>
+
+
+
 </div>
