@@ -4,8 +4,9 @@ function Like(id) {
         url: "/Comments/AddLike",
         data: { id: id },
         success: function (result) {
-            $("#Likes-" + id).empty(),
-            $("#Likes-" + id).text(result)
+            $("#Likes-" + id).empty();
+            $("#Likes-" + id).text(result);
+            GetRatio(id);
         }
     });
 };
@@ -16,8 +17,21 @@ function Dislike(id) {
         url: "/Comments/AddDislike",
         data: { id: id },
         success: function (result) {
-            $("#Dislikes-" + id).empty(),
-            $("#Dislikes-" + id).text(result)
+            $("#Dislikes-" + id).empty();
+            $("#Dislikes-" + id).text(result);
+            GetRatio(id);
+        }
+    })
+}
+
+function GetRatio(id) {
+    $.ajax({
+        type: "POST",
+        url: "/Comments/Ratio",
+        data: { id: id },
+        success: function (Ratios) {
+            $("#LikeBar-" + id).css("width", Ratios[0] + "%");
+            $("#DislikeBar-" + id).css("width", Ratios[1] + "%");
         }
     })
 }
