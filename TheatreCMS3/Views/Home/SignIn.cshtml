@@ -8,9 +8,14 @@
 
 <div class="py-5 text-center">
     @*Centered text and padded bottom*@
+    <script>
+        $(document).ready(function () {
+            var Persons = $('#PersonList p').length;
+            $('#NumPersons').text(Persons);
+        });
+    </script>
 
     <h1>Developers Of TheatreCMS &nbsp;<span id="NumPersons" class="badge badge-secondary">Total</span></h1>
-
     <h2>SignIn</h2>
 </div>
 
