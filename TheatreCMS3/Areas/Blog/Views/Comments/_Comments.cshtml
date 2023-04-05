@@ -3,7 +3,8 @@
 
 @foreach (var item in Model)
 {
-    <div class="blog-comment-container" id="comment-container">
+<div id="Comment-@item.CommentId">
+    <div class="blog-comment-container">
         @* Author pfp and name *@
         <div class="row">
             <div class="blog-comment-header col">
@@ -56,7 +57,7 @@
         <div class="blog-comment-footer row">
             <div class="col text-left">
                 <button>Reply</button>
-                <i class="fa fa-trash"></i>
+                <i class="fa fa-trash" onclick="DeleteComment(@item.CommentId)"></i>
             </div>
             <div class="col text-right">
                 <span id="Likes-@item.CommentId">@(item.Likes)</span>
@@ -76,8 +77,8 @@
             </span>
         </div>
     </div>
-
     <style onload="GetRatio(@item.CommentId)"></style>
+</div>
 }
 <script src="~/Scripts/Areas/Blog.js" type="text/javascript"></script>
 

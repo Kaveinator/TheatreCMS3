@@ -54,6 +54,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             List<double> Ratios = new List<double> { LikeRatio, DislikeRatio };
             return Json(Ratios);
         }
+        public JsonResult Delete(int id)
+        {
+            var Comment = db.Comments.Find(id);
+            db.Comments.Remove(Comment);
+            db.SaveChanges();
+            return Json(id);
+        }
 
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
@@ -76,9 +83,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View();
         }
 
-        // POST: Blog/Comments/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommentId,Message,Likes,Dislikes")] Comment comment)
@@ -109,9 +113,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(comment);
         }
 
-        // POST: Blog/Comments/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CommentId,Message,CommentDate,Likes,Dislikes")] Comment comment)
@@ -123,32 +124,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 return RedirectToAction("Index");
             }
             return View(comment);
-        }
-
-        // GET: Blog/Comments/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(comment);
-        }
-
-        // POST: Blog/Comments/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
