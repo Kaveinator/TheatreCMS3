@@ -35,3 +35,14 @@ function GetRatio(id) {
         }
     })
 }
+
+function DeleteComment(id) {
+    $.ajax({
+        type: "POST",
+        url: "/Comments/Delete",
+        data: { id: id },
+        success: function (id) {
+            $("#Comment-" + id).html("");
+        }
+    })
+}
