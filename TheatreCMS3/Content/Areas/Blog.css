@@ -70,7 +70,7 @@
 /* End comment styling */
 
 
-/* create/edit form styling*/
+/* blog authors create/edit form styling*/
 .blog-create--header {
     text-align: center;
     padding: 2vw;
@@ -341,7 +341,7 @@ textarea#Bio {
 }
 /* end create/edit form styling*/
 
-/*details page styling*/
+/* blogauthors details page styling*/
 .blog-details--nav {
     background-color: var(--light-color);
     border-radius: 0.5vw;
@@ -367,8 +367,12 @@ textarea#Bio {
     color: var(--dark-color);
 }
 
+.blog-details--bio{
+    padding-bottom: 3vw;
+}
+
 .blog-details--card {
-    padding: 2vw;
+    padding: 1vw 1vw 0vw 1vw;
     border: none;
 }
 
@@ -575,3 +579,14 @@ textarea#Bio {
 
 
 /*end details page styling*/
+
+/* blog authors index page styling*/
+.blog-index--entry{
+    padding-bottom: 3vw;
+}
+.blog-index--buttons{
+    padding: 1px;      
+    display:inline-block;
+}
+
+/* end blog authors index page styling*/
