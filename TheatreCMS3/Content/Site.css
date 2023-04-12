@@ -494,5 +494,61 @@ footer {
 
 }
 
+/* ABOUT PAGE STYLING */
 
+.home-about--title {
+    font-size: 80px;
+    margin-top: 50px;
+    text-align: center;
+    font-family: broadway;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-about--missionStatement{
+    text-align:center;
+}
+
+.home-about--aboutTitles {
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    text-decoration: underline #bd1a11 4px;
+}
+
+.home-about--statement {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+}
+
+.home-about--historyText {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+.home-about--historyContainer {
+    background-color: var(--main-color--light);
+}
+
+.home-about--ensembleImages {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.home-about--ensembleNames{
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+}
+
+.home-about--boardNames {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+
+/* END OF ABOUT PAGE STYLING*/
 
