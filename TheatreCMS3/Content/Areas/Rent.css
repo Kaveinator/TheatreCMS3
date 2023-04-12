@@ -12,3 +12,74 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+
+/* Rent CSS*/
+.rental-create--form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    
+}
+.rental-create--outline {
+    display: flex;
+    text-align:left;
+}
+.rental-create--h2 {
+    color: var(--light-color);
+    text-align: center;
+}
+.rental-create--damageoutline {
+    max-width: 400px;
+    padding-top: 2px;
+    display: inline-block;
+}
+.rental-create--btndefault {
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    padding: 10px 20px;
+    cursor: pointer;
+    padding-top: 5px;
+}
+.rental-create--font {
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 20px;
+}
+.rental-create--formgroup {
+    display: flex;
+    align-items: center;
+}
+.rental-create--flex {
+    flex: 1;
+}
+.rental-create--damagedlabel {
+    margin-left: -50px;
+}
+.rental-create--incurredoutline {
+    display: inline-block;
+    width: 100%;
+    padding-top: 2px;
+    padding-left: 15px;
+}
+.rental-create--buttoncontainer {
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+    width: 40%;
+    align-items: center;
+}
+.rental-create--backtolistbutton {
+    border-radius: 5px;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 10px 10px;
+    cursor: pointer;
+    padding-top: 5px;
+    text-decoration: none;
+}
+#damagesLabel {
+    white-space: nowrap;
+    overflow: visible;
+}
