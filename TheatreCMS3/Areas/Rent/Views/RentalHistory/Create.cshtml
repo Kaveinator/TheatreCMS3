@@ -7,7 +7,7 @@
 
 <h2>Create Rental History</h2>
 
-<script src="~/Scripts/Site.js"></script>
+<script src="~/Scripts/Areas/Rent.js"></script>
 <link href="~/Content/Areas/Rent.css" rel="stylesheet" />
 
 
@@ -18,20 +18,20 @@
     <div class="form-horizontal">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group rental-outline damage-outline">
+        <div class="rental-create--formgroup rental-create--outline rental-create--damageoutline">
             <div class="col-md-10">
-                <div class="font">
+                <div class="rental-create--font">
                     @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
                 </div>
-                <div class="col-md-10 rental-input">
+                <div class="col-md-10 rental-create--flex">
                     @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
                 </div>
 
             </div>
 
-            <div class="col-md-10 font">
-                @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2 damaged-label" })
+            <div class="col-md-10 rental-create--font">
+                @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2 rental-create--damagedlabel" })
 
                 <div class="checkbox">
                     @Html.EditorFor(model => model.RentalDamaged)
@@ -42,7 +42,7 @@
     </div>
 
 
-    <div class="form-group incurred-outline font">
+    <div class="rental-create--formgroup rental-create--incurredoutline rental-create--font">
         @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2", @id = "damagesLabel" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
@@ -51,11 +51,11 @@
     </div>
 
 
-    <div class="form-group">
-        <div class="button-container">
-            <a href="@Url.Action("Index")" class="btn backtolist-button">Back to List</a>
+    <div class="rental-create--formgroup">
+        <div class="rental-create--buttoncontainer">
+            <a href="@Url.Action("Index")" class="btn rental-create--backtolistbutton">Back to List</a>
 
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn rental-create--btndefault" />
 
         </div>
     </div>

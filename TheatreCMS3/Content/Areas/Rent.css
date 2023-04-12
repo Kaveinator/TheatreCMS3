@@ -21,56 +21,56 @@ form {
     border-radius: 10px;
     
 }
-.rental-outline {
+.rental-create--outline {
     display: flex;
     text-align:left;
 }
 h2 {
-    color: white;
+    color: #FFFBFB;
     text-align: center;
 }
-.damage-outline {
+.rental-create--damageoutline {
     max-width: 400px;
     padding-top: 2px;
     display: inline-block;
 }
-.btn-default {
+.rental-create--btndefault {
     border-radius: 5px; 
-    background-color: green; 
-    color: white;
+    background-color: #9D7C39; 
+    color: #FFFBFB;
     padding: 10px 20px; 
     cursor: pointer; 
     padding-top: 5px;
 }
-.font {
+.rental-create--font {
     font-weight: bold;
     font-family: Verdana;
     font-size: 20px;
 }
-.form-group {
+.rental-create--formgroup {
     display: flex;
     align-items: center;
 }
-.rental-input {
+.rental-create--flex {
     flex: 1;
 }
-.damaged-label {
+.rental-create--damagedlabel {
     margin-left: -50px;
 }
-.incurred-outline {
+.rental-create--incurredoutline {
     display: inline-block;
     width: 100%;
     padding-top: 2px;
     padding-left: 15px;
 }
-.button-container {
+.rental-create--buttoncontainer {
     display: flex;
     justify-content: center;
     margin: 15px auto;
     width: 40%;
     align-items: center;
 }
-.backtolist-button {
+.rental-create--backtolistbutton {
     border-radius: 5px;
     background-color:darkslategray;
     color: white;
