@@ -14,7 +14,7 @@
 
 
 /* Rent CSS*/
-form {
+.rental-create--form {
     max-width: 600px;
     margin: 0 auto;
     background-color: #F04D44;
@@ -25,7 +25,7 @@ form {
     display: flex;
     text-align:left;
 }
-h2 {
+.rental-create--h2 {
     color: #FFFBFB;
     text-align: center;
 }
