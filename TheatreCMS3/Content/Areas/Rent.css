@@ -17,7 +17,7 @@
 .rental-create--form {
     max-width: 600px;
     margin: 0 auto;
-    background-color: #F04D44;
+    background-color: var(--main-color--light);
     border-radius: 10px;
     
 }
@@ -26,7 +26,7 @@
     text-align:left;
 }
 .rental-create--h2 {
-    color: #FFFBFB;
+    color: var(--light-color);
     text-align: center;
 }
 .rental-create--damageoutline {
@@ -35,11 +35,11 @@
     display: inline-block;
 }
 .rental-create--btndefault {
-    border-radius: 5px; 
-    background-color: #9D7C39; 
-    color: #FFFBFB;
-    padding: 10px 20px; 
-    cursor: pointer; 
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    padding: 10px 20px;
+    cursor: pointer;
     padding-top: 5px;
 }
 .rental-create--font {
@@ -72,8 +72,8 @@
 }
 .rental-create--backtolistbutton {
     border-radius: 5px;
-    background-color:darkslategray;
-    color: white;
+    background-color: var(--dark-color);
+    color: var(--light-color);
     padding: 10px 10px;
     cursor: pointer;
     padding-top: 5px;
