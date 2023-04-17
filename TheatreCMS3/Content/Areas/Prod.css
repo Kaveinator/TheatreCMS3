@@ -14,7 +14,7 @@
 
 /* CREATE PAGE STYLING */
 /* BACK TO LIST BUTTON STYLING */
-.prod-create--backToList {
+.castmember-create--backToList {
     background-color: var(--secondary-color--dark);
     color: black;
     padding: 6px 12px;
@@ -23,14 +23,14 @@
     display: inline-block;
     border-radius: 3px;
 }
-.prod-create--backToList:hover {
+.castmember-create--backToList:hover {
     background-color: var(--main-color--light);
     color: black;
     text-decoration: none;
 }
 
 /* CREATE BUTTON SYLING */
-.prod-create--CreateBtn {
+.castmember-create--CreateBtn {
     background-color: var(--secondary-color);
     color: black;
     font-size: 12px;
@@ -40,29 +40,37 @@
     border-radius: 3px;
 }
 
-.prod-create--CreateBtn:hover{
-    background-color: var(--main-color);
+.castmember-create--CreateBtn:hover {
+    background-color: var(--main-color--light);
     color: black;
 }
 
 /* BACK TO LIST BUTTON CONTAINER */
-.prod-create--backToListContainer {
-  display: flex;
-  justify-content: center;
+.castmember-create--backToListContainer {
+    display: flex;
+    justify-content: center;
 }
 
 /* INPUT STYLING */
-.prod-create--input{
+.castmember-create--input {
     background-color: lightgray;
 }
-.prod-create--input:focus {
+.castmember-create--input:focus {
     border: 2px solid var(--secondary-color);
     background-color: var(--light-color);
+}
+
+/* FORM CONTAINER STYLING */
+.castmember-create--formContainer{
+  background-color: var(--main-color);
+  border-radius: 5px;
+  margin-bottom:4px;
+  height: 725px;
 }
 /* END OF CREATE PAGE STYLING*/
 
 /* EDIT PAGE STYLING*/
-.prod-create--SaveBtn {
+.castmember-create--SaveBtn {
     background-color: var(--secondary-color);
     color: black;
     font-size: 12px;
@@ -71,8 +79,8 @@
     margin-right: auto;
     border-radius: 3px;
 }
-.prod-create--SaveBtn:hover {
-    background-color: var(--main-color);
+.castmember-create--SaveBtn:hover {
+    background-color: var(--main-color--light);
     color: black
 }
 /* END OF EDIT PAGE STYLING*/
