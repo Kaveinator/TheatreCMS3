@@ -495,3 +495,59 @@ footer {
 
 /* END OF ABOUT PAGE STYLING*/
 
+/* HOME PAGE STYLING */
+
+.home-index--title_logo {
+    padding: 40px;
+}
+
+.home-index--donation_btn {
+    margin: 4rem 0 2.75rem;
+    padding: 20px;
+    font-size: 20pt;
+}
+
+.home-index--row {
+    display: flex;
+    padding-bottom: 40px;
+}
+
+.home-index--left_column {
+    flex: 66.66%;
+}
+
+.home-index--right_column {
+    flex: 33.33%;
+}
+
+.home-index--section_title {
+    font-family: Oswald;
+}
+
+.home-index--section_title::after {
+    content: "";
+    width: 80px;
+    padding-top: 15px;
+    border-bottom: 5px solid var(--main-color);
+    display: block;
+}
+
+.home-index--sponsors {
+    column-count: 2;
+}
+
+
+.home-index--land_acknowledgement {
+    font-size: large;
+}
+
+.home-index--naya_img {
+    width:75%;
+    height:75%;
+}
+
+.home-index--naya_caption {
+    font-size:15px;
+    text-align:center;
+}
+
