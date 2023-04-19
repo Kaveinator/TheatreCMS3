@@ -36,41 +36,50 @@
         <th>
             @Html.DisplayNameFor(model => model.DebutYear)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearJoined)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainRole)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Character)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CastYearLeft)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DebutYear)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CastMemberId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.YearJoined)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MainRole)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Bio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CurrentMember)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Character)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CastYearLeft)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DebutYear)
+    </td>
+    <td>
+        @if (item.Photo != null)
+        {
+            <img src="data:image/jpg;base64, @(Convert.ToBase64String(item.Photo))" />
+        }
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.CastMemberId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.CastMemberId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CastMemberId })
+    </td>
+</tr>
 }
 
 </table>
