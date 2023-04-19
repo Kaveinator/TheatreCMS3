@@ -316,6 +316,7 @@
     <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Shared\_Comments.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
@@ -485,7 +486,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
     <Folder Include="Areas\Blog\Data\" />
-    <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Data\" />
