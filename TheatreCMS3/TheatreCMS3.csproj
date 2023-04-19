@@ -199,6 +199,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
@@ -309,6 +311,11 @@
     <Content Include="Areas\Prod\Views\CastMembers\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CastMembers\Index.cshtml" />
     <Content Include="Areas\Blog\Views\web.config" />
+    <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
