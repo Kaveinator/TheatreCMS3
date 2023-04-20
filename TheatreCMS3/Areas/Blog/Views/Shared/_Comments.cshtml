@@ -1,43 +1,53 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+@using TheatreCMS3.Areas.Blog.Models
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Message)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CommentDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Likes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dislikes)
-        </th>
-        <th></th>
-    </tr>
+@foreach (var item in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="media g-mb-30 comment-Index--media-comment comment-Index--container comment-Index--shadow">
+                    <div class="media-body  blog-comments--bg-secondary comment-Index--pa-30">
+                        <div class="g-mb-15">
+                            <h5 class="h5 mb-0">@Html.DisplayFor(modelItem => item.Author) posted:</h5>
+                            <span class="comment-Index--textColor comment-Index--font-size-12"> @Comment.CommentTimePassed(item.CommentDate)</span>
+                        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Message)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommentDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Likes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dislikes)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CommentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CommentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CommentId })
-        </td>
-    </tr>
+                        <p class="color: white">
+                            @Html.DisplayFor(modelItem => item.Message)
+                        </p>
+
+                        <ul class="list-inline d-sm-flex my-0">
+                            <li class="list-inline-item g-mr-20">
+                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
+                                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+                                    @Html.DisplayFor(modelItem => item.Likes)
+                                </a>
+                            </li>
+                            <li class="list-inline-item g-mr-20">
+                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
+                                    <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                                    @Html.DisplayFor(modelItem => item.Dislikes)
+                                </a>
+                            </li>
+                            <li class="list-inline-item ml-auto">
+                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
+                                    <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                                    Reply
+                                </a>
+                            </li>
+                            <li class="list-inline-item ml-auto">
+                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
+                                    <i class="fa fa-trash g-pos-rel g-top-1 g-mr-3"></i>
+                                    Delete
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
-</table>

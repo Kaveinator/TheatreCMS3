@@ -11,3 +11,41 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+
+.comment-Index--container {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+
+
+
+
+@media (min-width: 0) {
+    .comment-Index--pa-30 {
+        padding: 2.14286rem !important;
+    }
+}
+
+
+
+.comment-Index--shadow {
+    box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.15);
+}
+
+.comment-Index--textColor {
+    color: var(--light-color) !important;
+}
+
+.comment-Index--font-size-12 {
+    font-size: 0.85714rem !important;
+}
+
+.comment-Index--media-comment {
+    margin-top: 20px
+}
+
+
+
+
