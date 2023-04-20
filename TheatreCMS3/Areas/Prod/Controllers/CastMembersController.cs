@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -51,6 +53,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase photo = Request.Files[0];
+                    castMember.Photo = this.ConvertPhotoToBytes(photo);
+                }
+
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -71,6 +79,13 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
+
+            if (Request.Files.Count > 0)
+            {
+                HttpPostedFileBase photo = Request.Files[0];
+                castMember.Photo = this.ConvertPhotoToBytes(photo);
+            }
+
             return View(castMember);
         }
 
@@ -83,6 +98,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase photo = Request.Files[0];
+                    castMember.Photo = this.ConvertPhotoToBytes(photo);
+                }
+
                 db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +144,24 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private byte[] ConvertPhotoToBytes(HttpPostedFileBase postedFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            {
+                bytes = br.ReadBytes(postedFile.ContentLength);
+            }
+
+            return bytes;
+        }
+
+        public ActionResult GetCastMemberPhoto(int id)
+        {
+            CastMember castMember = db.CastMembers.Find(id);
+            byte[] photo = castMember.Photo;
+            return File(photo, "image/jpg");
         }
     }
 }
