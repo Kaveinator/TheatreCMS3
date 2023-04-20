@@ -11,3 +11,60 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+/* -CREATE-- STYLES ARE USED IN EDIT AS WELL */
+.blogAuthor-create--form {
+    margin: 20px auto;
+    background-color: var(--main-color);
+    border-radius: 20px;
+    padding-bottom: 1px;
+    width: 66%;
+}
+
+/* LABEL STYLINGS (i.e: the word 'Name') */
+.blogAuthor-create--label {
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
+.blogAuthor-create--name {
+    margin-top: 1rem;
+}
+
+.blogAuthor-create--joinlabel {
+    margin-left: 12%;
+}
+
+.blogAuthor-create--leftlabel {
+    margin-left: 31.75%;
+}
+
+/* TEXTBOX STYLINGS (i.e the input field for 'Name') */
+.blogAuthor-create--biobox {
+     
+    min-width: 100%;
+    text-wrap: normal;
+    border-radius: 5px;
+}
+
+    /* this styles both Date Joined & Date Left */
+.blogAuthor-create--datepicker {
+    width: 33%;
+    height: calc(1.5em + 0.75rem + 2px);
+    border-radius: 5px;
+}
+
+.blogAuthor-create--datepicker_joined {
+    margin-right: 5%;
+}
+
+.blogAuthor-create--datepicker_left {
+    margin-left: 5%;
+}
+
+
+
+
+
+
+
