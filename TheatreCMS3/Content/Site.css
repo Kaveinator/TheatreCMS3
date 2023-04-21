@@ -551,3 +551,27 @@ footer {
     text-align:center;
 }
 
+/* SIGN IN PAGE STYLING */
+
+#PersonList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#PersonList p {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 25px;
+    background: var(--main-color--light);
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* END OF SIGN IN PAGE STYLING*/
