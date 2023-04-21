@@ -126,23 +126,25 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         [HttpPost]
-        public ActionResult addLike(int id)
+        public JsonResult addLike(int id)
         {
             Comment comment = db.Comments.Find(id);
             comment.Likes += 1;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(comment, JsonRequestBehavior.AllowGet);
+            
 
         }
 
         [HttpPost]
-        public ActionResult addDislike(int id)
+        public JsonResult addDislike(int id)
         {
             Comment comment = db.Comments.Find(id);
             comment.Dislikes += 1;
             db.SaveChanges();
-            return RedirectToAction("Index");
-
+            return Json(comment, JsonRequestBehavior.AllowGet);
         }
+
+        
     }
 }

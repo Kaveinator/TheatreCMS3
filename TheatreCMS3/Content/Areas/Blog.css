@@ -103,6 +103,33 @@
     margin-top: 20px
 }
 
+.comment-Index--progress-bar {
+    width: 25%;
+}
 
+.g-color-primary--hover:hover {
+    background-color: var(--secondary-color--dark);
+    border-radius: 5px;
+}
+
+
+
+.comment-Index--likes-dislikes-ratio {
+    display: flex;
+    
+}
+
+.comment-Index--likes-text {
+    padding-right: 3px;
+}
+.comment-Index--divider-text {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.comment-Index--list-inline-item{
+    display: inline-block;
+    position: relative;
+}
 
 
