@@ -124,5 +124,25 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpPost]
+        public ActionResult addLike(int id)
+        {
+            Comment comment = db.Comments.Find(id);
+            comment.Likes += 1;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        [HttpPost]
+        public ActionResult addDislike(int id)
+        {
+            Comment comment = db.Comments.Find(id);
+            comment.Dislikes += 1;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }

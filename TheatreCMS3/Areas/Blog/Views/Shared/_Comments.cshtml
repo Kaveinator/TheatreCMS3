@@ -20,14 +20,14 @@
 
                         <ul class="list-inline d-sm-flex my-0">
                             <li class="list-inline-item g-mr-20">
-                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
-                                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
-                                    @Html.DisplayFor(modelItem => item.Likes)
+                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!" id="likes">
+                                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3" onclick="addLike(@item.CommentId)" id="likesButton"></i>    
+                                    @Html.DisplayFor(modelItem => item.Likes)    
                                 </a>
                             </li>
                             <li class="list-inline-item g-mr-20">
-                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
-                                    <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!" id="dislikes">
+                                    <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3" onclick="addDislike(@item.CommentId)" id="dislikesButton"></i>
                                     @Html.DisplayFor(modelItem => item.Dislikes)
                                 </a>
                             </li>
