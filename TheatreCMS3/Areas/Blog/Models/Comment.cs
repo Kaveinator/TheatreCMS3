@@ -20,14 +20,15 @@ namespace TheatreCMS3.Areas.Blog.Models
             CommentDate = DateTime.Now;
         }
 
-        
 
-  
-        public double LikeRatio(int likes, int dislikes)
+
+
+        public static int LikeRatio(int likes, int dislikes)
         {
             double ratio = ((double)likes) / ((double)likes + (double)dislikes) * 100;
-            return ratio;
+            return Convert.ToInt32(ratio);
         }
+
         /// <summary>
         /// Takes a DateTime and tells you how many days, hours, minutes, and 
         /// seconds have passed since the input parameter

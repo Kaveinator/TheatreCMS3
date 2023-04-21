@@ -1,53 +1,65 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
-@using TheatreCMS3.Areas.Blog.Models
+    @using TheatreCMS3.Areas.Blog.Models
 
 
-@foreach (var item in Model)
-{
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="media g-mb-30 comment-Index--media-comment comment-Index--container comment-Index--shadow">
-                    <div class="media-body  blog-comments--bg-secondary comment-Index--pa-30">
-                        <div class="g-mb-15">
-                            <h5 class="h5 mb-0">@Html.DisplayFor(modelItem => item.Author) posted:</h5>
-                            <span class="comment-Index--textColor comment-Index--font-size-12"> @Comment.CommentTimePassed(item.CommentDate)</span>
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="media g-mb-30 comment-Index--media-comment comment-Index--container comment-Index--shadow">
+                        <div class="media-body  blog-comments--bg-secondary comment-Index--pa-30">
+                            <div class="g-mb-15">
+                                <h5 class="h5 mb-0">@Html.DisplayFor(modelItem => item.Author) posted:</h5>
+                                <span class="comment-Index--textColor comment-Index--font-size-12"> @Comment.CommentTimePassed(item.CommentDate)</span>
+                            </div>
+
+                            <p class="color: white">
+                                @Html.DisplayFor(modelItem => item.Message)
+                            </p>
+                            <div class="comment-Index--likes-dislikes-ratio">
+                                <p class="comment-Index--likes-text"> Likes: </p>
+                                <p id="likes-percentage-@item.CommentId" class="comment-Index--likes-percentage">@Comment.LikeRatio(item.Likes, item.Dislikes)% </p>
+                                <p class="comment-Index--divider-text"> | </p>
+                                <p class="comment-Index--dislikes-text">Dislikes: </p>
+                                <p id="dislikes-percentage-@item.CommentId" class="comment-Index--dislikes-percentage">@(100-@Comment.LikeRatio(item.Likes, item.Dislikes))% </p>
+
+                            </div>
+                            <div class="progress comment-Index--progress-bar">
+                                <div id="likes-bar-@item.CommentId" class="progress-bar bg-success" role="progressbar" style="width:@Comment.LikeRatio(item.Likes, item.Dislikes)%" aria-valuenow="@Comment.LikeRatio(item.Likes, item.Dislikes)%" aria-valuemin="0" aria-valuemax="100">@item.Likes</div>
+                                <div id="dislikes-bar-@(item.CommentId)" class="progress-bar bg-danger" role="progressbar" style="width:@(100-Comment.LikeRatio(item.Likes, item.Dislikes))%" aria-valuenow="@(100-@Comment.LikeRatio(item.Likes, item.Dislikes))%" aria-valuemin="0" aria-valuemax="100">@item.Dislikes</div>
+                                
+                            </div>
+                            <ul class="list-inline d-sm-flex my-0">
+                                <li class="comment-Index--list-inline-item g-mr-20">
+                                    <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" style="padding-right: 10px" >
+                                        <i id="likes-value-@item.CommentId" class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3" onclick="addLike(@item.CommentId)"> @Html.DisplayFor(modelItem => item.Likes)</i>
+                                        
+                                    </a>
+                                </li>
+                                <li class="list-inline-item g-mr-20">
+                                    <a class="u-link-v5 comment-Index--textColor g-color-primary--hover">
+                                        <i id="dislikes-value-@item.CommentId"class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3" onclick="addDislike(@item.CommentId)"> @Html.DisplayFor(modelItem => item.Dislikes)</i>
+                                        
+                                    </a>
+                                </li>
+                                <li class="list-inline-item ml-auto">
+                                    <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
+                                        <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                                        Reply
+                                    </a>
+                                </li>
+                                <li class="list-inline-item ml-auto">
+                                    <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
+                                        <i class="fa fa-trash g-pos-rel g-top-1 g-mr-3"></i>
+                                        Delete
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-
-                        <p class="color: white">
-                            @Html.DisplayFor(modelItem => item.Message)
-                        </p>
-
-                        <ul class="list-inline d-sm-flex my-0">
-                            <li class="list-inline-item g-mr-20">
-                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!" id="likes">
-                                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3" onclick="addLike(@item.CommentId)" id="likesButton"></i>    
-                                    @Html.DisplayFor(modelItem => item.Likes)    
-                                </a>
-                            </li>
-                            <li class="list-inline-item g-mr-20">
-                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!" id="dislikes">
-                                    <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3" onclick="addDislike(@item.CommentId)" id="dislikesButton"></i>
-                                    @Html.DisplayFor(modelItem => item.Dislikes)
-                                </a>
-                            </li>
-                            <li class="list-inline-item ml-auto">
-                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
-                                    <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
-                                    Reply
-                                </a>
-                            </li>
-                            <li class="list-inline-item ml-auto">
-                                <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" href="#!">
-                                    <i class="fa fa-trash g-pos-rel g-top-1 g-mr-3"></i>
-                                    Delete
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
 
