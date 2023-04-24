@@ -104,6 +104,7 @@
 
 .blogAuthor-details--biotxt {
     height: 298px;
+    margin-right: 48px;
 }
 
 .blogAuthor-details--dates_row {
@@ -126,12 +127,20 @@
 }
 
 /* END DELETE STYLING */
+/* BLOGAUTHOR INDEX PARTIAL VIEW  /Shared/_BlogAuthor.cshtml */
+
+.blog-shared--buttons {
+    margin-top: 24px;
+    margin-right: 48px;
+    text-align: right;
+}
+
+/* END BLOGAUTHOR INDEX PARTIAL VIEW STYLING */
 
 .comment-Index--container {
     background-color: var(--secondary-color);
     border-radius: 10px;
 }
-
 
 
 

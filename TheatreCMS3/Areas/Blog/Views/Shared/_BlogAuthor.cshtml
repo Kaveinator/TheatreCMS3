@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogAuthor>
+@using TheatreCMS3.Areas.Blog.Models
+
+@foreach (var item in Model)
+{
+    <div class="mt-5">
+        <ul class="nav nav-pills mb-0 justify-content-center blogAuthor-details--nav bg-light" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="details-@Html.DisplayFor(modelItem => item.BlogAuthorId)-tab" data-toggle="pill" href="#details-@Html.DisplayFor(modelItem => item.BlogAuthorId)" role="tab" aria-controls="pills-details" aria-selected="true">Author Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="posts-@Html.DisplayFor(modelItem => item.BlogAuthorId)-tab" data-toggle="pill" href="#posts-@Html.DisplayFor(modelItem => item.BlogAuthorId)" role="tab" aria-controls="pills-posts" aria-selected="false">Latest Posts</a>
+            </li>
+        </ul>
+        <div class="bg-white mt-0">
+            <div class="blogAuthor-details--row">
+                <div class="blogAuthor-details--img_column">
+                    <img class="blogAuthor-details--img" src="~/Content/images/Cast_Img_1.jpg" alt="placeholder img" />
+                </div>
+                <div class="blogAuthor-details--txt_column">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="details-@Html.DisplayFor(modelItem => item.BlogAuthorId)" role="tabpanel" aria-labelledby="details-@Html.DisplayFor(modelItem => item.BlogAuthorId)-tab">
+                            @* THIS IS THE START OF THE TEXT FOR AUTHOR DETAILS *@
+                            <div class="col m-0 p-0">
+                                <h1 class="blogAuthor-details--nametag">@Html.DisplayFor(modelItem => item.Name)</h1>
+                                <div class="float-right mr-5 my-2">
+                                    <a href="https://www.instagram.com/" target="_blank" class="text-dark"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                                    <a href="https://www.facebook.com" target="_blank" class="text-dark"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                                    <a href="https://www.twitter.com/" target="_blank" class="text-dark"><i class="fa-brands fa-twitter fa-xl"></i></a>
+
+                                </div>
+                            </div>
+                            <p class="blogAuthor-details--biotxt">@Html.DisplayFor(modelItem => item.Bio)</p>
+                            <div class="blogAuthor-details--dates_row">
+                                <div class="blogAuthor-details--join_column">
+                                    <p class="font-weight-bold">Joined Date</p>
+                                    <p>@Html.DisplayFor(modelItem => item.DateJoined)</p>
+                                </div>
+                                <div class="blogAuthor-details--left_column">
+                                    <p class="font-weight-bold">Left Date</p>
+                                    <p>
+                                        @{
+                                            if (item.DateLeft == null)
+                                            {
+                                                @:Hasn't left
+                                            }
+                                            else
+                                            {
+                                                @Html.DisplayFor(modelItem => item.DateLeft)
+                                            }
+                                        }
+                                    </p>
+                                </div>
+                                <div class="col pl-0 pr-0 blog-shared--buttons">
+                                    <button type="button" class="btn btn-success">@Html.ActionLink("Edit", "Edit", new { id = item.BlogAuthorId }, new { @class = "text-white" })</button>
+                                    <button class="btn btn-danger">@Html.ActionLink(" ", "Delete", new { id = item.BlogAuthorId }, new { @class = "fa-solid fa-trash text-white" })</button>
+                                </div>
+
+                            </div>
+
+
+
+                            @* THIS IS THE END OF THE TEXT FOR AUTHOR DETAILS*@
+                        </div>
+
+                        <div class="tab-pane fade" id="posts-@Html.DisplayFor(modelItem => item.BlogAuthorId)" role="tabpanel" aria-labelledby="posts-@Html.DisplayFor(modelItem => item.BlogAuthorId)-tab">(implement in future)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    
+}
