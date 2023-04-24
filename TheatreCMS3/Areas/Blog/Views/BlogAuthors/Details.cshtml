@@ -9,10 +9,10 @@
 <div class="mt-5">    
     <ul class="nav nav-pills mb-0 justify-content-center blogAuthor-details--nav bg-light" id="pills-tab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="pills-blogAuthor-Details--authorDetails-tab" data-toggle="pill" href="#blogAuthor-Details--authorDetails" role="tab" aria-controls="pills-home" aria-selected="true">Author Details</a>
+            <a class="nav-link active" id="pills-blogAuthor-Details-tab" data-toggle="pill" href="#blogAuthor-Details" role="tab" aria-controls="pills-details" aria-selected="true">Author Details</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#blogAuthor-Details--blogPosts" role="tab" aria-controls="pills-profile" aria-selected="false">Latest Posts</a>
+            <a class="nav-link" id="pills-blogAuthor-posts-tab" data-toggle="pill" href="#blogAuthor-posts" role="tab" aria-controls="pills-posts" aria-selected="false">Latest Posts</a>
         </li>
     </ul>
     <div class="bg-white mt-0">
@@ -22,16 +22,16 @@
             </div>
             <div class="blogAuthor-details--txt_column">
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="blogAuthor-Details--authorDetails" role="tabpanel" aria-labelledby="pills-blogAuthor-Details--authorDetails-tab">
+                    <div class="tab-pane fade show active" id="blogAuthor-Details" role="tabpanel" aria-labelledby="pills-blogAuthor-Details-tab">
                         @* THIS IS THE START OF THE TEXT FOR AUTHOR DETAILS *@
                         <div class="col m-0 p-0">
-                                <h1 class="blogAuthor-details--nametag">@Html.DisplayFor(model => model.Name)</h1>
-                                <div class="float-right mr-5 my-2">
-                                    <a href="https://www.instagram.com/" target="_blank" class="text-dark"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                                    <a href="https://www.facebook.com" target="_blank" class="text-dark"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                                    <a href="https://www.twitter.com/" target="_blank" class="text-dark"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                            <h1 class="blogAuthor-details--nametag">@Html.DisplayFor(model => model.Name)</h1>
+                            <div class="float-right mr-5 my-2">
+                                <a href="https://www.instagram.com/" target="_blank" class="text-dark"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                                <a href="https://www.facebook.com" target="_blank" class="text-dark"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                                <a href="https://www.twitter.com/" target="_blank" class="text-dark"><i class="fa-brands fa-twitter fa-xl"></i></a>
 
-                                </div>
+                            </div>
                         </div>
                         <p class="blogAuthor-details--biotxt">@Html.DisplayFor(model => model.Bio)</p>
                         <div class="blogAuthor-details--dates_row">
@@ -42,16 +42,16 @@
                             <div class="blogAuthor-details--left_column">
                                 <p class="font-weight-bold">Left Date</p>
                                 <p>
-                                @{ 
-                                    if (Model.DateLeft == null)
-                                    {
-                                        @:Hasn't left
+                                    @{
+                                        if (Model.DateLeft == null)
+                                        {
+                                            @:Hasn't left
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(model => model.DateLeft)
+                                        }
                                     }
-                                    else
-                                    {
-                                        @Html.DisplayFor(model => model.DateLeft)
-                                    }
-                                }
                                 </p>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                         @* THIS IS THE END OF THE TEXT FOR AUTHOR DETAILS*@
                     </div>
 
-                    <div class="tab-pane fade" id="blogAuthor-Details--blogPosts" role="tabpanel" aria-labelledby="pills-blogAuthor-Details--blogPosts-tab">(implement in future)</div>
+                    <div class="tab-pane fade" id="blogAuthor-posts" role="tabpanel" aria-labelledby="pills-blogAuthor-posts-tab">(implement in future)</div>
                 </div>
             </div>
         </div>
