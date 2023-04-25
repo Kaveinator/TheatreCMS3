@@ -145,6 +145,14 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return Json(comment, JsonRequestBehavior.AllowGet);
         }
 
-        
+        [HttpPost]
+        public JsonResult deleteComment(int id)
+        {
+            Comment comment = db.Comments.Find(id);
+            db.Comments.Remove(comment);
+            db.SaveChanges();
+            return Json("The comment was deleted successfully", JsonRequestBehavior.AllowGet); 
+
+        }
     }
 }
