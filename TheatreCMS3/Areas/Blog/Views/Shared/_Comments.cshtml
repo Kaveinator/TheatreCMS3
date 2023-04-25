@@ -9,7 +9,7 @@
         <p id="comment-delete-alert-text-@item.CommentId" class="comment-Index--comment-delete-alert-text">test</p>
         <i class="fa fa-check comment-Index-comment-delete-alert-icons"></i>
     </div>
-    <div class="modal fade" id="deleteCommentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="delete-comment-modal-@item.CommentId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,7 +72,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item ml-auto">
-                                <button class="btn" data-toggle="modal" data-target="#deleteCommentModal">
+                                <button class="btn" data-toggle="modal" data-target="#delete-comment-modal-@item.CommentId">
                                     <a class="u-link-v5 comment-Index--textColor g-color-primary--hover" onclick="deleteComment(@item.CommentId">
                                         <i class="fa fa-trash g-pos-rel g-top-1 g-mr-3"></i>
                                         Delete

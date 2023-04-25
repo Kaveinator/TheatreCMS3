@@ -36,24 +36,20 @@ function addDislike(id) {
 
 };        
 
-function deleteComment(id) {
-    function getCommentId() {
-        alert(id);
-    }
-    alert(id);
-    //$.ajax({
-    //    type: 'POST',
-    //    url: "/Comments/deleteComment",
-    //    data: { id: id },
-    //    success: function (response) {
-    //        $("#" + "comment-container-" + id).hide(1000);
-    //        $("#" + "comment-delete-alert-text-" + id).text(response);
-    //        $("#" + "comment-delete-alert-" + id).addClass('d-inline-block').removeClass('d-none');
+function deleteComment(id) { 
+    $.ajax({
+        type: 'POST',
+        url: "/Comments/deleteComment",
+        data: { id: id },
+        success: function (response) {
+            $("#" + "comment-container-" + id).hide(1000);
+            $("#" + "comment-delete-alert-text-" + id).text(response);
+            $("#" + "comment-delete-alert-" + id).addClass('d-inline-block').removeClass('d-none');
+            
+            setTimeout(() => {
+                $("#" + "comment-delete-alert-" + id).alert('close');
+            }, 3000);
 
-    //        setTimeout(() => {
-    //            $("#" + "comment-delete-alert-" + id).alert('close');
-    //        }, 3000);
-
-    //    }
-    //});  
+        }
+    });  
 };
