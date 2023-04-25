@@ -62,13 +62,80 @@
     margin-left: 5%;
 }
 
+/* BlogAuthor DETAILS STYLING*/
 
+.blogAuthor-details--nav {
+    padding-top: 8px;
+    width: 26.5%;
+    margin: 0 auto;
 
+}
 
+.blogAuthor-details--nav > li {
+    margin: 0 5px;
+}
+/* this sets the color of the active panel */
+.blogAuthor-details--nav .nav-link.active, .blogAuthor-details--nav .show > .nav-link {
+    background-color: rgb(25, 135, 84);       /* bootstrap success green */
+}
 
+/* this is the inactive coloring */
+.blogAuthor-details--nav .nav-link:not(.active) {
+    background-color: rgb(33, 37, 41); /* bootstrap dark */
+    color: var(--light-color)
+}
 
+.blogAuthor-details--row {
+    display: flex;
+    color: black;
+}
 
+.blogAuthor-details--txt_column {
+    flex: auto;
+    margin-top: 1%;
+    margin-left: 3%;
+}
 
+.blogAuthor-details--img {
+    margin: 5%;
+    height: 430px;
+    width: 310px;
+}
+
+.blogAuthor-details--biotxt {
+    height: 298px;
+    margin-right: 48px;
+}
+
+.blogAuthor-details--dates_row {
+    display: flex;
+}
+
+.blogAuthor-details--left_column {
+    margin-left: 30px;
+}
+
+.blogAuthor-details--nametag {
+    display: inline-block;
+}
+
+/* END DETAILS STYLING*/
+/* DELETE STYLING*/
+
+.blogAuthor-delete--deletebutton {
+   display: inline-block;
+}
+
+/* END DELETE STYLING */
+/* BLOGAUTHOR INDEX PARTIAL VIEW  /Shared/_BlogAuthor.cshtml */
+
+.blog-shared--buttons {
+    margin-top: 24px;
+    margin-right: 48px;
+    text-align: right;
+}
+
+/* END BLOGAUTHOR INDEX PARTIAL VIEW STYLING */
 
 .comment-Index--container {
     background-color: var(--secondary-color);
@@ -77,13 +144,12 @@
 
 
 
-
-
 @media (min-width: 0) {
     .comment-Index--pa-30 {
         padding: 2.14286rem !important;
     }
 }
+
 
 
 
