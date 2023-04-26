@@ -44,6 +44,7 @@
      
     min-width: 100%;
     text-wrap: normal;
+    overflow-wrap: break-word;
     border-radius: 5px;
 }
 
@@ -87,7 +88,7 @@
 
 .blogAuthor-details--row {
     display: flex;
-    color: black;
+    color: var(--dark-color);
 }
 
 .blogAuthor-details--txt_column {
@@ -129,13 +130,20 @@
 /* END DELETE STYLING */
 /* BLOGAUTHOR INDEX PARTIAL VIEW  /Shared/_BlogAuthor.cshtml */
 
-.blog-shared--buttons {
+.blogAuthor-shared--buttons {
     margin-top: 24px;
     margin-right: 48px;
     text-align: right;
 }
 
 /* END BLOGAUTHOR INDEX PARTIAL VIEW STYLING */
+/* BLOGAUTHOR MODAL STYLING */
+.blogAuthor-index--modalContent {
+    background-color: rgb(255, 193, 7); /* bootstrap warning color*/
+    color: black;        
+}
+
+/*END BLOGAUTHOR MODAL STYLING */
 
 .comment-Index--container {
     background-color: var(--secondary-color);
