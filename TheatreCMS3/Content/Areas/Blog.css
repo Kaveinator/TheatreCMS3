@@ -206,4 +206,26 @@
     position: relative;
 }
 
+.comment-Index--comment-delete-alert {
+    border-radius: 45px;
+    height: 40px;
+    justify-self: center;
+    font-size: 0.85714rem !important;
+    position: fixed;
+    top:100px;
+    left: 300px;
+    z-index: 999;
+}
+.comment-Index--comment-delete-alert-text {
+    display: inline-block;
+    
+}
+
+.comment-Index-comment-delete-alert-icons {
+    padding: .5em;
+    line-height: 2.7;
+    -webkit-columns: 150px 2;
+
+}
+
 
