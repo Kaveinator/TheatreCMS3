@@ -124,5 +124,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult setDateLeft(string id) //string id is received
+        {
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(Convert.ToInt32(id)); //converts string to int, and finds the matching entity
+            blogAuthor.DateLeft = DateTime.Now; 
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

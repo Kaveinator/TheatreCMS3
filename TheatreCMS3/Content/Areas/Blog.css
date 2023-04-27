@@ -44,6 +44,7 @@
      
     min-width: 100%;
     text-wrap: normal;
+    overflow-wrap: break-word;
     border-radius: 5px;
 }
 
@@ -87,7 +88,7 @@
 
 .blogAuthor-details--row {
     display: flex;
-    color: black;
+    color: var(--dark-color);
 }
 
 .blogAuthor-details--txt_column {
@@ -129,13 +130,20 @@
 /* END DELETE STYLING */
 /* BLOGAUTHOR INDEX PARTIAL VIEW  /Shared/_BlogAuthor.cshtml */
 
-.blog-shared--buttons {
+.blogAuthor-shared--buttons {
     margin-top: 24px;
     margin-right: 48px;
     text-align: right;
 }
 
 /* END BLOGAUTHOR INDEX PARTIAL VIEW STYLING */
+/* BLOGAUTHOR MODAL STYLING */
+.blogAuthor-index--modalContent {
+    background-color: rgb(255, 193, 7); /* bootstrap warning color*/
+    color: black;        
+}
+
+/*END BLOGAUTHOR MODAL STYLING */
 
 .comment-Index--container {
     background-color: var(--secondary-color);
@@ -196,6 +204,28 @@
 .comment-Index--list-inline-item{
     display: inline-block;
     position: relative;
+}
+
+.comment-Index--comment-delete-alert {
+    border-radius: 45px;
+    height: 40px;
+    justify-self: center;
+    font-size: 0.85714rem !important;
+    position: fixed;
+    top:100px;
+    left: 300px;
+    z-index: 999;
+}
+.comment-Index--comment-delete-alert-text {
+    display: inline-block;
+    
+}
+
+.comment-Index-comment-delete-alert-icons {
+    padding: .5em;
+    line-height: 2.7;
+    -webkit-columns: 150px 2;
+
 }
 
 
