@@ -229,3 +229,91 @@
 }
 
 
+
+
+
+
+
+
+/**BLOGPOST CREATE & EDIT STYLING*/
+
+/**buttons*/
+.blogPost-Create--create_button,
+.blogPost-Edit--save_button{
+    background-color: var(--secondary-color); 
+    color: var(--light-color);
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-align: center;
+    display: inline-block;
+    margin:0 10px;
+}
+
+.blogPost-Create--create_button:hover,
+.blogPost-Edit--save_button:hover{
+    background-color: var(--secondary-color--dark);
+}
+
+
+.blogPost-Create--backToList_button,
+.blogPost-Edit--backToList_button {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-align: center;
+    display: inline-block;
+    margin:0 10px;
+}
+
+
+.blogPost-Create--backToList_button:hover,
+.blogPost-Edit--backToList_button:hover {
+    background-color: var(--dark-color);
+}
+
+
+.blogPost-Create--buttonsContainer,
+.blogPost-Edit--buttonsContainer{
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   text-align: center;
+
+}
+
+/**form*/
+.blogPost-Create--formContainer,
+.blogPost-Edit--formContainer{
+    background-color: var(--main-color);
+    border-radius: 20px;
+    padding-bottom: 50px;
+    width: max-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+.blogPost-Create--formInput,
+.blogPost-Edit--formInput{
+    width: 600px;
+    background: var(--main-color--light);
+    border: 3px solid;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+ .blogPost-Create--formInput::placeholder,
+    .blogPost-Edit--formInput::placeholder {
+        color: var(--light-color);
+    }
+
+
+
+    .blogPost-Create--formInput:focus,
+    .blogPost-Edit--formInput:focus {
+        border: 3px solid var(--secondary-color);
+    }
+
+
+/**END BLOGPOST CREATE & EDIT STYLING*/
