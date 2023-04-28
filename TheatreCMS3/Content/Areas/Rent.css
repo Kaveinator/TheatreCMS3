@@ -13,3 +13,55 @@
 /*}*/
 
 
+/* CREATE PAGE STYLING*/
+
+.rental_history-create--title {
+    padding: 20px;
+    text-align: center;
+}
+
+.rental_history-create--form-horizontal {       /*center form on page*/
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.rental_history-create--form {                /* form size, color styling*/
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 20px;
+    background-color: var( --main-color--light );
+    padding: 20px;
+}
+
+.rental_history-create--label {
+    margin-bottom: 100px;
+    margin-left: 400px auto;
+}
+
+
+.rental_history-create--name {
+    font-size: larger;
+}
+
+.rental_history-create--checkbox {
+    padding-top: 8px;
+    padding-left: 50px;
+}
+
+.rental_history-create--damage {
+    padding-left: 15px;
+}
+
+.rental_history-create--damagesincurred {
+      padding-top: 20px;
+      font-size: larger;
+     
+}
+
+.rental_history-create--buttons {
+    text-align: center;
+    padding-top: 10px;
+    padding-left:60px;
+}
+
+/* END - CREATE PAGE STYLING*/
