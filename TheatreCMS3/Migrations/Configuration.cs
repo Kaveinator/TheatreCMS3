@@ -21,7 +21,7 @@
 
         protected override void Seed(ApplicationDbContext context)
         {
-            TheatreCMS3.Areas.Blog.Models.HeadAuthor.Seed();
+          
         }
     }
 
