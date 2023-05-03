@@ -592,3 +592,114 @@ footer {
 }
 
 /*END ABOUT PAGE STYLING*/   
+
+/* CONTACT PAGE STYLING*/
+
+
+.home-contact--blackBox{
+     background-color:black;
+     height: 200px;
+}
+
+.home-contact--contactUs {
+    margin-top:100px;
+    font-family: Broadway;
+    text-align: center;
+}
+
+.home-contact--getInTouch {
+    text-align:center;
+    background-color: var(--main-color--light);
+    font-family: Dominica Casual; 
+                       
+}
+
+.home-content--formContainer {
+    background-color: var(--main-color--light);
+    
+
+}
+
+.home-contact--submit{
+    color: white;
+    width: 500px;
+    background-color: var(--main-color);
+    margin-left: 200px;
+    margin-top:20px;
+    margin-bottom: 20px;
+    border-color: white;
+    border-radius:10px 10px;   
+}
+
+.home-contact--firstLastName{
+    margin-left:100px;
+    width:750px;
+}
+
+.home-contact--emailAddress {
+    margin-left: 50px;
+    margin-left: 100px;
+}
+
+.home-contact--subject {
+    margin-left: 50px;
+    margin-left: 100px;
+}
+
+.home-contact--message {
+    margin-left: 50px;
+    margin-left: 100px;
+}
+
+.home-contact--donateVolunteer {
+    background-color: var(--main-color--light);
+    
+}
+
+.home-contact--donateBtn {
+    background-color: var(--main-color);
+    color: white;
+    width: 100px;
+    background-color: var(--main-color);
+    margin-bottom: 20px;
+    border-color: white;
+    border-radius: 10px 10px;
+}
+
+.home-contact--volunteerBtn {
+    background-color: var(--main-color);
+    color: white;
+    width: 100px;
+    background-color: var(--main-color);
+    margin-bottom:20px;
+    border-color: white;
+    border-radius: 10px 10px;
+}
+
+.home-contact--columnRight{ /*I don't think this is or the one below actually do anything*/
+   
+    width:50%;
+}
+  
+}
+.home-contact--columnLeft {  
+    width: 50%;
+}
+
+.home-contact--text{
+    margin-left: 200px;
+    
+}
+
+.home-contact--everything{
+    background-color: var(--main-color--light);
+}
+
+
+
+
+
+
+
+
+/*END CONTACT PAGE STYLING*/
