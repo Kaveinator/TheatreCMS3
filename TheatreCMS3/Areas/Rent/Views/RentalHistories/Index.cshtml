@@ -5,42 +5,70 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div class="container p-3 my-3 border border-danger rental_history-index--border">
+    
+    <div class="row text-dark">
+        <div class="col-sm-8">Most Recent Rental Histories</div>
+        <div class="col-sm-4">Sorted by:
+    <select name="sort box">
+        <option value="A"> No Extra Sorting </option>
+        
+    </select>
+        
+        </div>
+    </div> 
+    
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
+
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
+            @if (item.RentalDamaged)
+            {
+                <i class="fa-sharp fa-solid fa-circle-xmark" style="color: #BD1A11; "></i>
+            }
+            else
+            {
+               <i class="fa-solid fa-circle-check" style="color:green;"></i>
+            }
+
+            
+        </td>
+        <td class="rental_history-index--badgedef">
+            <span class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
+            @if (item.RentalDamaged)
+            {
+                <span class="rental_history-index--ellipsis">@item.DamagesIncurred</span>
+            }
+            else
+            {
+                <span class="rental_history-index--ellipsis" style="color: lightslategrey; " >@item.DamagesIncurred</span>
+            }
+
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryID })
+            <div class="dropdown rental_history-index--dropdown-button">
+                <button class="btn btn-dark " type="button" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-ellipsis-vertical" style="color: #ffffff;"></i>
+                </button>
+                <div class="dropdown-menu rental_history-index--icon">
+                    
+                    <span class="dropdown-item"><i class="fa-solid fa-pen-to-square"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
+                    <span class="dropdown-item"><i class="fa-solid fa-circle-info"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
+                    <span class="dropdown-item"><i class="fa-solid fa-trash-can" style="color: #bd1a11;"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
+                </div>
+            </div>
         </td>
     </tr>
 }
 
 </table>
+</div>

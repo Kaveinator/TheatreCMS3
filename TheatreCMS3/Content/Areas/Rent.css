@@ -13,7 +13,7 @@
 /*}*/
 
 
-/* CREATE PAGE STYLING*/
+/* CREATE / EDIT PAGE STYLING*/
 
 .rental_history-create--title {
     padding: 20px;
@@ -64,4 +64,48 @@
     padding-left:60px;
 }
 
-/* END - CREATE PAGE STYLING*/
+/* END - CREATE / EDIT PAGE STYLING*/
+
+/* INDEX PAGE STYLING*/
+
+.rental_history-index--border {
+    border-color: var( --main-color ) !important;
+    border-width: 3px !important;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.rental_history-index--ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    
+    
+}
+
+.rental_history-index--dropdown-button{
+    opacity: 0;
+}
+
+tr:hover .rental_history-index--dropdown-button {
+    opacity: 1;
+}
+
+.rental_history-index--icon {
+    margin-right: 100px;
+   
+}
+
+.rental_history-index--badgedef {
+    
+    padding:10px !important;
+    vertical-align:middle !important;
+}
+
+.rental_history-index--badgedef span {
+      padding: 10px;
+}
+
+/* END - INDEX PAGE STYLING*/
