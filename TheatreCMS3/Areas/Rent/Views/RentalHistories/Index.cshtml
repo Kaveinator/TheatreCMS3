@@ -11,64 +11,96 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <div class="container p-3 my-3 border border-danger rental_history-index--border">
-    
+
     <div class="row text-dark">
         <div class="col-sm-8">Most Recent Rental Histories</div>
-        <div class="col-sm-4">Sorted by:
-    <select name="sort box">
-        <option value="A"> No Extra Sorting </option>
-        
-    </select>
-        
-        </div>
-    </div> 
-    
-<table class="table">
-
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @if (item.RentalDamaged)
-            {
-                <i class="fa-sharp fa-solid fa-circle-xmark" style="color: #BD1A11; "></i>
-            }
-            else
-            {
-               <i class="fa-solid fa-circle-check" style="color:green;"></i>
-            }
-
-            
-        </td>
-        <td class="rental_history-index--badgedef">
-            <span class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
-        </td>
-        <td>
-            @if (item.RentalDamaged)
-            {
-                <span class="rental_history-index--ellipsis">@item.DamagesIncurred</span>
-            }
-            else
-            {
-                <span class="rental_history-index--ellipsis" style="color: lightslategrey; " >@item.DamagesIncurred</span>
-            }
-
-        </td>
-        <td>
-            <div class="dropdown rental_history-index--dropdown-button">
-                <button class="btn btn-dark " type="button" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis-vertical" style="color: #ffffff;"></i>
-                </button>
-                <div class="dropdown-menu rental_history-index--icon">
-                    
-                    <span class="dropdown-item"><i class="fa-solid fa-pen-to-square"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
-                    <span class="dropdown-item"><i class="fa-solid fa-circle-info"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
-                    <span class="dropdown-item"><i class="fa-solid fa-trash-can" style="color: #bd1a11;"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
-                </div>
+        <div class="col-sm-4 rental_history-index--sortby">Sorted by:
+            <button class="rental_history-index--dropmenu_button" type="button" data-toggle="dropdown">No Extra Sorting...</button>
+            <div class=" dropdown-menu">
+                <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortOrder = "NoExtraSorting" })">No Extra Sorting...</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortOrder = "Damaged Rentals" })">Damaged Rentals</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortOrder = "Undamaged Rentals" })">Undamaged Rentals</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortOrder = "RentalsAtoZ" })">Rentals A-Z</a>
+                <a class="dropdown-item" href="@Url.Action("Index", "RentalHistories", new { sortOrder = "RentalsZtoA" })">Rentals Z-A</a>
             </div>
-        </td>
-    </tr>
+        </div>
+    </div>
+
+    <table class="table">
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.RentalDamaged)
+                    {
+                        <i class="fa-sharp fa-solid fa-circle-xmark" style="color: #BD1A11; "></i>
+                    }
+                    else
+                    {
+                        <i class="fa-solid fa-circle-check" style="color:green;"></i>
+                    }
+
+                </td>
+                    <td class="rental_history-index--badgedef">
+                    <span class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
+                </td>
+                <td>
+                    @if (item.RentalDamaged)
+                    {
+                        <span class="rental_history-index--ellipsis">@item.DamagesIncurred</span>
+                    }
+                    else
+                    {
+                        <span class="rental_history-index--ellipsis" style="color: lightslategrey; ">@item.DamagesIncurred</span>
+                    }
+                </td>
+                <td>
+                    <div class="dropdown rental_history-index--dropdown-button">
+                        <button class="btn btn-dark " type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-ellipsis-vertical" style="color: #ffffff;"></i>
+                        </button>
+                        <div class="dropdown-menu rental_history-index--icon">
+
+                            <span class="dropdown-item"><i class="fa-solid fa-pen-to-square"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
+                            <span class="dropdown-item"><i class="fa-solid fa-circle-info"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
+                            <span class="dropdown-item"><i class="fa-solid fa-trash-can" style="color: #bd1a11;"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryID }, new { @style = "color:#111;" })</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+         }
+
+    </table>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
-</table>
-</div>
+
+
+
+@*Sort the Rental History entities on the Index page.
+
+    The -- RentalHistories -- should always appear on the Index page from most recent to oldest
+    (most recent RentalHistory should be first in the list of RentalHistories).
+
+    Additionally, implement a way for users to choose how to sort the RentalHistories further.
+
+    ------ Create a select list with the options No Extra Sorting..., Damaged Rentals, Undamaged Rentals, Rentals A - Z, Rentals Z - A.  --- DONE
+
+    Make the select list close to flush on the right side of the RentalHistories:
+
+    The --Damaged Rentals-- option should show all of the damaged Rentals first.
+
+    The --Undamaged Rentals-- option does the opposite.
+
+    The --Rentals A - Z option sorts by Rental Name in ascending order.
+    The --Rentals Z - A should sort in descending order.
+
+    Select one of these options should not reload the page.
+    There are a few ways to accomplish this.
+    Some options include using JavaScript to sort the elements on the page or using Ajax
+    to contact a controller method so that the sorting can be done on the backend.*@

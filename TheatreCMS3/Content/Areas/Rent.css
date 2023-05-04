@@ -108,4 +108,32 @@ tr:hover .rental_history-index--dropdown-button {
       padding: 10px;
 }
 
+.rental_history-index--dropmenu_button {
+    
+    margin-bottom:5px;
+    margin-left: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-color: lightslategrey;
+    border-width: 1px;
+    background-color: var(--light-color)!important;
+
+}
+
+.rental_history-index--dropmenu_button::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.rental_history-index--sortby {
+    padding-right:5px;
+    padding-left: 80px;
+}
+
 /* END - INDEX PAGE STYLING*/
