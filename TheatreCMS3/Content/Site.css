@@ -703,3 +703,52 @@ footer {
 
 
 /*END CONTACT PAGE STYLING*/
+
+/*DONATE PAGE STYLING*/
+
+.home-donate--header {
+    text-align: center;
+    font-family: Broadway;
+    padding: 50px;
+}
+
+.home-donate--header_background {
+    background: url(../Content/images/theater.jpg) no-repeat 50% 50%;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    display: block;
+    height: auto;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.home-donate--form_container {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    border-radius: 10px;
+    border: 5px 10px 0 0 solid var(--secondary-color);
+    padding: 50px;
+}
+
+.home-donate--form_buffer {
+    margin-top: 10px;
+}
+
+.home-donate--form_input_big {
+    height: 150px;
+}
+
+.home-donate--button {
+    background-color: var(--secondary-color);
+    margin: 10px;
+    position: fixed;
+}
+
+.home-donate--button:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
