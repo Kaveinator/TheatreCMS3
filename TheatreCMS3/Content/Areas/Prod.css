@@ -12,3 +12,66 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+/* BEGIN CAST MEMBER STYLING */ /* create styles also used on edit page for consistency*/
+
+.castMember-create--header {
+    font-family: Broadway;
+}
+
+.castMember-create--submit {
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+}
+
+.castMember-create--submit:hover {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    transition: transform 1s;
+    transform: scale(1.1);
+}
+
+.castMember-create--back_button {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+ .castMember-create--back_button:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    transition: transform 1s;
+    transform: scale(1.1);
+}
+
+ .castMember-create--center {
+     margin-left: auto;
+     margin-right: auto;
+     width: 80%;
+     background-color: var(--main-color);
+     border-radius: 10px;
+     border-top: 3px solid var(--secondary-color);
+     border-left: 3px solid var(--secondary-color);
+     border-right: 3px solid var(--light-color);
+     border-bottom: 3px solid var(--light-color);
+ }
+
+.castMember-create--center_buttons {
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+}
+
+.castMember-create--buffer {
+    padding-bottom: 20px;
+}
+
+.castMember-create--input {
+    background-color: var(--secondary-color);
+}
+
+.castMember-create--input:focus {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--light-color);
+    box-shadow: none;
+}
+
+/* END CAST MEMBER STYLING*/
