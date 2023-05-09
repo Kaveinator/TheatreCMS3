@@ -8,9 +8,9 @@
 
 <div class="py-5 text-center">
     @*Centered text and padded bottom*@
-   
 
-    <h1>Developers Of TheatreCMS &nbsp;<span id="NumPersons" class="badge badge-secondary">Total</span></h1>
+
+    <h1>Developers Of TheatreCMS&nbsp;<span id="NumPersons" class="badge badge-danger"></span></h1>
     <h2>SignIn</h2>
 </div>
 
@@ -243,3 +243,14 @@
     <p>Dalton Walls</p>
     <p>Ellie Monroy</p>
 </div>
+
+<script>
+    // This gets the PersonList element by its id.
+    var personList = document.getElementById("PersonList");
+
+    // This counts the number of p elements inside PersonList.
+    var numPersons = personList.getElementsByTagName("p").length;
+
+    // This sets the innerHTML of the NumPersons element to the number of persons.
+    document.getElementById("NumPersons").innerHTML = numPersons;
+</script>
