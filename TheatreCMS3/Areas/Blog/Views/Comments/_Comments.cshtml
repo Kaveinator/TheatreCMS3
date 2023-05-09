@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+
+@foreach (var comment in Model)
+{
+<div class="comment">
+    <p>@comment.CommentDate.ToShortDateString()</p>
+    <p>@comment.Message</p>
+    <p>Likes: @comment.Likes, Dislikes: @comment.Dislikes</p>
+    <p>Like Ratio: @comment.LikeRatio().ToString("0.00")%</p>
+</div>
+}
+
