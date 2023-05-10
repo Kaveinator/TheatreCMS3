@@ -669,3 +669,18 @@ footer {
     background-color: var(--light-color);
     color: var(--dark-color);
 }
+
+.home-signin--container p {
+    background-color: var(--main-color);
+    border-radius: 15px;
+    text-align: center;
+    width: 180px;
+    height: 25px;
+    overflow: hidden;
+}
+
+#PersonList {
+    column-count: 4;
+    gap: 0px;
+    column-rule-width: 0px;
+}
