@@ -28,32 +28,26 @@
         <div class="form-group">
                 @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                  <textarea id="BlogAuthors-Create--ellie-input"></textarea> 
-                    @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextAreaFor(model => model.Bio, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
                 </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
+         <div class="BlogAuthors-Create--ellie-container">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" } )
+                   @Html.TextBoxFor(model => model.Joined, new { @class = "form-control", @type = "date"} )
+                   @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
+                   @Html.TextBoxFor(model => model.Left, new { @class = "form-control", @type = "date" } )
+                   @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+      
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <a class="btn btn-dark" href="">Back to List</a>
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
                 <input type="submit" value="Create" class="btn btn-success" />
-
             </div>
           </div>
         </div>
@@ -61,9 +55,6 @@
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
