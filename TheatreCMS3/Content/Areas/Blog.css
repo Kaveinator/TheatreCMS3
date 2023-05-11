@@ -11,3 +11,56 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.BackToList {
+    border: 2px solid #ff0000;
+    border-radius: 9px;
+    background-color: #ffd800;
+    margin: 15px;
+    -webkit-transition: margin 0.5s ease-out;
+    -moz-transition: margin 0.5s ease-out;
+    -o-transition: margin 0.5s ease-out;
+}
+
+.BackToList:hover {
+    margin-top: 0px;
+}
+
+.CreateEdit {
+    border: 2px solid #ffd800;
+    border-radius: 9px;
+    background-color: #ff0000;
+}
+
+.midTop {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.midBot {
+    text-align: center;
+}
+
+.form-horizontal {
+    align-content: center;
+    margin: 0, auto;
+    justify-content: center;
+    padding-left: 150px;
+}
+
+.center {
+    block-size: auto;
+}
+
+input[type=datetime]:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px #ff0000;
+    background-color: #ffd800;
+}
+
+input[type=text]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #ff0000;
+    background-color: #ffd800;
+}
+

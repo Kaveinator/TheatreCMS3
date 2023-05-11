@@ -52,7 +52,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             if (ModelState.IsValid)
             {
                 db.BlogPosts.Add(blogPost);
-                db.SaveChanges();
+                int v = db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
