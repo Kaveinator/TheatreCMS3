@@ -2,11 +2,30 @@
 
 @foreach (var comment in Model)
 {
-<div class="comment">
-    <p>@comment.CommentDate.ToShortDateString()</p>
-    <p>@comment.Message</p>
-    <p>Likes: @comment.Likes, Dislikes: @comment.Dislikes</p>
-    <p>Like Ratio: @comment.LikeRatio().ToString("0.00")%</p>
-</div>
+    <div class="Comment-partialComments--Container">
+        <div class="Comment-partialComments--Header">
+            <p>@comment.Author<p>
+            <p>@comment.TimeSinceCreation()</p>
+        </div>
+        <div class="Comment-partialComments--Body">
+            <p>@comment.Message</p>
+        </div>
+        <div class="Comment-partialComments--Buttons">
+            <button type="button" class="btn btn-danger">
+                <i class="fa fa-thumbs-up"></i>
+                @comment.Likes
+            </button>
+            <button type="button" class="btn btn-danger">
+                <i class="fa fa-thumbs-down"></i>
+                @comment.Dislikes
+            </button>
+            <button type="button" class="btn btn-danger">
+                <i class="fa fa-reply"></i>
+            </button>
+            <button type="button" class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </div>
 }
 

@@ -5,136 +5,113 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.IO;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Prod.Models;
+using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
-using System.Drawing;
 
-namespace TheatreCMS3.Areas.Prod.Controllers
+namespace TheatreCMS3.Areas.Blog.Controllers
 {
-    public class CastMembersController : Controller
+    public class BlogAuthorsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Prod/CastMembers
+        // GET: Blog/BlogAuthors
         public ActionResult Index()
         {
-
-            return View(db.CastMembers.ToList());
+            return View(db.BlogAuthors.ToList());
         }
 
-        // GET: Prod/CastMembers/Details/5
+        // GET: Blog/BlogAuthors/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // GET: Prod/CastMembers/Create
+        // GET: Blog/BlogAuthors/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        public byte[] ConvertPhoto(HttpPostedFileBase postedFile)
-        {
-            byte[] photo;
-            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
-            {
-                photo = br.ReadBytes(postedFile.ContentLength);
-            }
-            return photo;
-        }
-
-        // POST: Prod/CastMembers/Create
+        // POST: Blog/BlogAuthors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase postedFile)
+        public ActionResult Create([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
         {
-            if (postedFile != null)
-            {
-               castMember.Photo = ConvertPhoto(postedFile);
-            }
-
             if (ModelState.IsValid)
             {
-                db.CastMembers.Add(castMember);
+                db.BlogAuthors.Add(blogAuthor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // GET: Prod/CastMembers/Edit/5
+        // GET: Blog/BlogAuthors/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // POST: Prod/CastMembers/Edit/5
+        // POST: Blog/BlogAuthors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase postedFile)
+        public ActionResult Edit([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
         {
-            if (postedFile != null)
-            {
-                castMember.Photo = ConvertPhoto(postedFile);
-            }
-
             if (ModelState.IsValid)
             {
-                db.Entry(castMember).State = EntityState.Modified;
+                db.Entry(blogAuthor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // GET: Prod/CastMembers/Delete/5
+        // GET: Blog/BlogAuthors/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            if (blogAuthor == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(blogAuthor);
         }
 
-        // POST: Prod/CastMembers/Delete/5
+        // POST: Blog/BlogAuthors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CastMember castMember = db.CastMembers.Find(id);
-            db.CastMembers.Remove(castMember);
+            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+            db.BlogAuthors.Remove(blogAuthor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
