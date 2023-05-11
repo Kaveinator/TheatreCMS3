@@ -96,3 +96,89 @@
 }
 
 /* END CAST MEMBER STYLING*/
+/* END CAST MEMBER STYLING*/
+
+/*CALENDAR EVENT STYLING*/
+
+.CalendarEvent-Index--table{
+    background-color: var(--main-color--light);
+}
+
+.CalendarEvent-Create--header{
+    padding-left:200px;
+}
+
+.CalendarEvent-Create--form-horizontal{
+    background-color: var(--main-color--light);
+    margin-right: 25px;
+    margin-left:25px;
+    padding-left:90px
+}
+
+.CalendarEvent-Create--SubmitBtn{
+    background-color: var(--main-color);
+    text-align:center;
+    margin-left:300px;
+    margin-bottom: 20px;
+    padding-left:75px;
+    padding-right:75px;
+    color:white;    
+}
+
+.CalendarEvent-Create--InputBox:focus {
+    border: 2px solid black;
+    box-shadow:none;
+    background-color:floralwhite;
+}
+
+.CalendarEvent-Create--checkbox{
+    margin-left:15px;
+}
+
+.CalendarEvent-Create--DateBox:focus {
+    border: 2px solid black;
+    box-shadow: none;
+    background-color: floralwhite;
+}
+
+.CalendarEvent-Create--BacktoList {
+    background-color: var(--main-color--light);
+    border: 1px solid white;
+    margin-left: 25px;
+}
+
+.CalendarEvent-Create--BacktoList:hover{
+   background-color:var(--main-color);
+   border: 1px solid white;
+}
+
+.CalendarEvent-Create--CreateNew {
+    background-color: var(--main-color--light);
+    border: 1px solid white;
+    
+}
+
+.CalendarEvent-Create--CreateNew:hover {
+     background-color: var(--main-color);
+     border: 1px solid white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*END CALENDAR EVENT STYLING*/
