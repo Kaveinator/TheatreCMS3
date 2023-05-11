@@ -141,6 +141,28 @@
     background-color: floralwhite;
 }
 
+.CalendarEvent-Create--BacktoList {
+    background-color: var(--main-color--light);
+    border: 1px solid white;
+    margin-left: 25px;
+}
+
+.CalendarEvent-Create--BacktoList:hover{
+   background-color:var(--main-color);
+   border: 1px solid white;
+}
+
+.CalendarEvent-Create--CreateNew {
+    background-color: var(--main-color--light);
+    border: 1px solid white;
+    
+}
+
+.CalendarEvent-Create--CreateNew:hover {
+     background-color: var(--main-color);
+     border: 1px solid white;
+}
+
 
 
 
