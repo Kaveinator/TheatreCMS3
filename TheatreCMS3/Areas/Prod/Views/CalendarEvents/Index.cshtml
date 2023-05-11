@@ -7,10 +7,10 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="CalendarEvent-Index--button">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary CalendarEvent-Create--CreateNew" })
 </p>
-<table class="table">
+<table class="CalendarEvent-Index--table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)

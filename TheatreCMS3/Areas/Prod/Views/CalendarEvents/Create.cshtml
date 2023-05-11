@@ -12,60 +12,60 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>CalendarEvent</h4>
+    <div class="CalendarEvent-Create--form-horizontal">
+        <h1 class="CalendarEvent-Create--header">Create Calendar Event</h1>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="CalendarEvent-Create--inputBox">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control CalendarEvent-Create--InputBox", placeholder = "Title" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
-
+                                                                                                                 
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control CalendarEvent-Create--InputBox", placeholder="Description" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StartDate,"Start Date", htmlAttributes: new { @class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.StartDate, new {@type="date", @class = "form-control" })
+                @Html.TextBoxFor(model => model.StartDate, new {@type="date", @class = "form-control CalendarEvent-Create--DateBox", placeholder="Start Date" })
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EndDate, "End Date", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.EndDate, new { @type = "date", @class = "form-control" })
+                @Html.TextBoxFor(model => model.EndDate, new { @type = "date", @class = "form-control CalendarEvent-Create--DateBox", placeholder="End Date" })
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StartTime, "Start Time", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.StartTime, new { @type = "date", @class = "form-control" })
+                @Html.TextBoxFor(model => model.StartTime, new { @type = "date", @class = "form-control CalendarEvent-Create--DateBox", placeholder="Start Time" })
                 @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EndTime, "End Time", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.EndTime, new { @type = "date", @class = "form-control" })
+                @Html.TextBoxFor(model => model.EndTime, new { @type = "date", @class = "form-control CalendarEvent-Create--DateBox", placeholder="End Time"})
                 @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AllDay, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AllDay, "All Day", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.AllDay)
@@ -75,17 +75,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TicketsAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TicketsAvailable, "Tickets Available", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TicketsAvailable, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TicketsAvailable, new { htmlAttributes = new { @class = "form-control CalendarEvent-Create--DateBox", placeholder="Tickets Available"} })
                 @Html.ValidationMessageFor(model => model.TicketsAvailable, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IsProduction, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
+            @Html.LabelFor(model => model.IsProduction, "Is Production", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="CalendarEvent-Create--inputBox">
+                <div class="CalendarEvent-Create--checkbox">
                     @Html.EditorFor(model => model.IsProduction)
                     @Html.ValidationMessageFor(model => model.IsProduction, "", new { @class = "text-danger" })
                 </div>
@@ -94,14 +94,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="CalendarEvent-Create--SubmitBtn" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new {@class="btn btn-primary CalendarEvent-Create--BacktoList"})
 </div>
 
 @section Scripts {
