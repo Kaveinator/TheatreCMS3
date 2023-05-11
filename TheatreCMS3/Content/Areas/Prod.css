@@ -74,4 +74,25 @@
     box-shadow: none;
 }
 
+.castMember-create--input_photo {
+    background-color: var(--secondary-color);
+    width: 100%;
+    display: block;
+    height: calc(1.5rem + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.castMember-create--input_photo:focus {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--light-color);
+    box-shadow: none;
+}
+
 /* END CAST MEMBER STYLING*/
