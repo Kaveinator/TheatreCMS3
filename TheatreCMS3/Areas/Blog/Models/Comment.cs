@@ -25,5 +25,31 @@ namespace TheatreCMS3.Areas.Blog.Models
             }
             return (double)Likes / (Likes + Dislikes) * 100;
         }
+
+        public string TimeSinceCreation()
+        {
+            var timeSince = DateTime.Now - CommentDate;
+
+            if (timeSince.TotalSeconds < 60)
+            {
+                return $"{(int)timeSince.TotalSeconds} seconds ago";
+            }
+            else if (timeSince.TotalMinutes < 60)
+            {
+                return $"{(int)timeSince.TotalMinutes} minutes ago";
+            }
+            else if (timeSince.TotalHours < 24)
+            {
+                return $"{(int)timeSince.TotalHours} hours ago";
+            }
+            else if (timeSince.TotalDays < 2)
+            {
+                return "1 day ago";
+            }
+            else
+            {
+                return $"{(int)timeSince.TotalDays} days ago";
+            }
+        }
     }
 }
