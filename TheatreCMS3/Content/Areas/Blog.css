@@ -11,3 +11,18 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.BlogAuthors-Create--ellie-form {
+    background-color: var(--main-color--light);
+}
+
+#BlogAuthors-Create--ellie-input {
+    min-width: 100px;
+   
+}
+
+.BlogAuthors-Edit--ellie-form {
+    background-color: var(--main-color--light);
+}
+
+
+
