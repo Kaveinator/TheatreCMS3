@@ -40,3 +40,63 @@
 
 
 
+.BlogPost-CreateEdit-btn {
+    border: 2px solid var(--secondary-color);
+    border-radius: 9px;
+    background-color: var(--main-color);
+}
+
+.BlogPost-CreateEdit-btn:hover {
+    display: inline-flex;
+}
+
+.BlogPost-CreateEdit-midTop {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.BlogPost-CreateEdit-midBot {
+    text-align: center;
+}
+
+.BlogPost-CreateEdit-Form {
+    border: solid 2px var(--secondary-color);
+    background-color: var(--main-color--light);
+    align-content: center;
+    margin: 0, auto;
+    justify-content: center;
+    padding-left: 150px;
+}
+
+.BlogPost-CreateEdit-center {
+    block-size: auto;
+}
+
+.BlogPost-CreateEdit-Date:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.BlogPost-CreateEdit-Text:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.BlogPost-CreateEdit-BacktoList-btn {
+    margin-top: 0;
+    padding: 10px 7px;
+    border: solid 2px var(--main-color);
+    border-radius: 9px;
+    background-color: var(--secondary-color);
+    letter-spacing: 1px;
+}
+
+.BlogPost-CreateEdit-BacktoList-btn:hover {
+    background-color: var(--secondary-color--dark);
+    border-color: var(--main-color);
+    text-decoration: none;
+}
+
