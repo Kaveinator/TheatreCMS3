@@ -11,56 +11,63 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
-.BackToList {
-    border: 2px solid #ff0000;
+.BlogPost-CreateEdit-btn {
+    border: 2px solid var(--secondary-color);
     border-radius: 9px;
-    background-color: #ffd800;
-    margin: 15px;
-    -webkit-transition: margin 0.5s ease-out;
-    -moz-transition: margin 0.5s ease-out;
-    -o-transition: margin 0.5s ease-out;
+    background-color: var(--main-color);
 }
 
-.BackToList:hover {
-    margin-top: 0px;
+.BlogPost-CreateEdit-btn:hover {
+    display: inline-flex;
 }
 
-.CreateEdit {
-    border: 2px solid #ffd800;
-    border-radius: 9px;
-    background-color: #ff0000;
-}
-
-.midTop {
+.BlogPost-CreateEdit-midTop {
     text-align: center;
     padding-bottom: 10px;
     padding-left: 10px;
 }
 
-.midBot {
+.BlogPost-CreateEdit-midBot {
     text-align: center;
 }
 
-.form-horizontal {
+.BlogPost-CreateEdit-Form {
+    border: solid 2px var(--secondary-color);
+    background-color: var(--main-color--light);
     align-content: center;
     margin: 0, auto;
     justify-content: center;
     padding-left: 150px;
 }
 
-.center {
+.BlogPost-CreateEdit-center {
     block-size: auto;
 }
 
-input[type=datetime]:focus {
-    outline: none; 
-    box-shadow: 0 0 0 2px #ff0000;
-    background-color: #ffd800;
+.BlogPost-CreateEdit-Date:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--main-color);
+    background-color: var(--secondary-color);
 }
 
-input[type=text]:focus {
+.BlogPost-CreateEdit-Text:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #ff0000;
-    background-color: #ffd800;
+    box-shadow: 0 0 0 2px var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.BlogPost-CreateEdit-BacktoList-btn {
+    margin-top: 0;
+    padding: 10px 7px;
+    border: solid 2px var(--main-color);
+    border-radius: 9px;
+    background-color: var(--secondary-color);
+    letter-spacing: 1px;
+}
+
+.BlogPost-CreateEdit-BacktoList-btn:hover {
+    background-color: var(--secondary-color--dark);
+    border-color: var(--main-color);
+    text-decoration: none;
 }
 
