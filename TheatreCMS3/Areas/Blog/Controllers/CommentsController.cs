@@ -17,6 +17,32 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return View(db.Comments.ToList());
         }
 
+        // Increment Like Button On Comments
+        public ActionResult LikeComment(int commentId)
+        {
+            var comment = db.Comments.Find(commentId);
+            if (comment != null)
+            {
+                comment.Likes++;
+                db.SaveChanges();
+            }
+
+            return Json(new { likes = comment.Likes }, JsonRequestBehavior.AllowGet);
+        }
+
+        // Increment Dislike Button On Comments
+        public ActionResult DislikeComment(int commentId)
+        {
+            var comment = db.Comments.Find(commentId);
+            if (comment != null)
+            {
+                comment.Dislikes++;
+                db.SaveChanges();
+            }
+
+            return Json(new { dislikes = comment.Dislikes }, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
         {
