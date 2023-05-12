@@ -11,6 +11,35 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.BlogAuthors-Create--ellie-form {
+    background-color: var(--main-color--light);
+    width: 700px;
+    border-radius: 25px;
+    margin: 0 auto;
+}
+
+.BlogAuthors-Create--ellie-container {
+    display: flex;
+    flex-direction: row; 
+}
+
+
+.BlogAuthors-Edit--ellie-form {
+    background-color: var(--main-color--light);
+    width: 700px;
+    border-radius: 25px;
+    margin: 0 auto;
+}
+
+.BlogAuthors-Edit--ellie-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
 .BlogPost-CreateEdit-btn {
     border: 2px solid var(--secondary-color);
     border-radius: 9px;
