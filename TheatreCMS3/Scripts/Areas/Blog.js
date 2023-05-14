@@ -5,6 +5,8 @@ function likeComment(commentId) {
         data: { commentId: commentId },
         success: function (data) {
             $('#likes-' + commentId).text(data.likes);
+            $('#dislikes-' + commentId).text(data.dislikes);
+            $('#progress-bar-' + commentId).css("width", data.likeRatio + "%");
         }
     });
 }
@@ -15,7 +17,9 @@ function dislikeComment(commentId) {
         url: '/Blog/Comments/DislikeComment',
         data: { commentId: commentId },
         success: function (data) {
+            $('#likes-' + commentId).text(data.likes);
             $('#dislikes-' + commentId).text(data.dislikes);
+            $('#progress-bar-' + commentId).css("width", data.likeRatio + "%");
         }
     });
 }
