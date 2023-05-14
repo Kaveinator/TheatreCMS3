@@ -1,4 +1,6 @@
-﻿@foreach (var comment in Model)
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comment>
+
+@foreach (var comment in Model)
 {
     <div class="Comment-partialComments--Header">
         <p>@comment.Author</p>
