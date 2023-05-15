@@ -6,46 +6,62 @@
 }
 
 <h2>Details</h2>
-
+<h4>Blog Author</h4>
+<hr />
 <div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
+    @Html.ActionLink("Author Details", "Details", null, new { @class = "btn btn-dark" })
+    @Html.ActionLink("Blog Posts","Blog Posts", null, new { @class = "btn btn-dark" })
 </div>
+<div class="BlogAuthors-Details--ellie-card">
+<div class="card h-25">
+    <div class="card-body">   
+
+        <a href="https://www.instagram.com" style="float: right; color: black; text-decoration: none;" class="fa-brands fa-instagram fa-2xl"></a>
+        <a href="https://www.facebook.com" style="float: right; color: black; text-decoration: none;" class="fa-brands fa-facebook fa-2xl"></a>
+    
+        <p class="card-text">
+            <img src="https://picsum.photos/640/360" width="300" height="300">
+        </p>
+     </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bio)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Bio)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Joined)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Joined)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Left)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Left)
+                </dd>
+
+            </dl>
+    </div>
+</div>
+</div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId })
 </p>
