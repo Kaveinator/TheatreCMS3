@@ -11,13 +11,11 @@
             <p>@comment.Message</p>
         </div>
         <div class="Comment-partialComments--Buttons">
-            <button type="button" class="btn btn-danger">
-                <i class="fa fa-thumbs-up"></i>
-                @comment.Likes
+            <button type="button" class="btn btn-danger" onclick="likeComment('@comment.CommentId')">
+                <span class="fa fa-thumbs-up"></span> <span id="likes-@comment.CommentId">@comment.Likes</span>
             </button>
-            <button type="button" class="btn btn-danger">
-                <i class="fa fa-thumbs-down"></i>
-                @comment.Dislikes
+            <button type="button" class="btn btn-danger" onclick="dislikeComment('@comment.CommentId')">
+                <span class="fa fa-thumbs-down"></span> <span id="dislikes-@comment.CommentId">@comment.Dislikes</span>
             </button>
             <button type="button" class="btn btn-danger">
                 <i class="fa fa-reply"></i>
@@ -28,4 +26,3 @@
         </div>
     </div>
 }
-
