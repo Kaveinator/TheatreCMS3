@@ -17,19 +17,19 @@
 
 <div class="BlogAuthors-Details--ellie-container" id="BlogAuthors-Details--ellie-card">
 
- 
-    <a href="https://www.facebook.com" class="fa-brands fa-facebook fa-2xl" id="BlogAuthors-Details--social-links"></a>
-    <a href="https://www.instagram.com" class="fa-brands fa-instagram fa-2xl" id="BlogAuthors-Details--social-links"></a>
- 
+    <div class="BlogAuthors-Details--icons">
+        <a href="https://www.facebook.com" class="fa-brands fa-facebook fa-2xl" id="BlogAuthors-Details--social-links"></a>
+        <a href="https://www.instagram.com" class="fa-brands fa-instagram fa-2xl" id="BlogAuthors-Details--social-links"></a>
+     </div>
 
     <p>
         <img src="https://picsum.photos/640/360" width="300" height="300">
     </p>
 
     <dl>
-        <dd>
+        <dt class="BlogAuthors-Details--AuthorNameFont">
             @Html.DisplayFor(model => model.Name)
-        </dd>
+        </dt>
         <dd>
             @Html.DisplayFor(model => model.Bio)
         </dd>
@@ -56,7 +56,7 @@
 
 
 <p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn fa-solid fa-arrow-rotate-left" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark BlogAuthors-Details--ellie-BackToListBtn fa-solid fa-arrow-rotate-left" })
     @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn btn-success fa fa-address-book-o" })
     @Html.ActionLink("Delete", "Delete", new { id = Model.BlogAuthorId }, new { @class = "btn btn-danger fa fa-trash-o" })
 </p>

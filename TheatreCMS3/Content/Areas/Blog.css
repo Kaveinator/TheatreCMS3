@@ -52,14 +52,29 @@
     line-height: inherit; 
 }
 
-.BlogAuthors-Details--ellie-button:focus {
-    background-color: green!important;
-    outline: green!important;
+BlogAuthors-Details--icons {
+    position: absolute;
+    right: 0;
 }
 
-.BlogAuthors-Details--ellie-BackToListBtn
+.BlogAuthors-Details--ellie-button:focus {
+    background-color: green !important;
+    border-color: green !important;
+}
 
+.BlogAuthors-Details--ellie-BackToListBtn {
+    font-weight: 400;
+}
 
+.BlogAuthors-Details--JoinedLeftTitle {
+    display: flex;
+    flex-flow: row;
+}
+
+.BlogAuthors-Details--AuthorNameFont {
+    font-weight: bold;
+    font-size: 30px;
+}
 
 
 
