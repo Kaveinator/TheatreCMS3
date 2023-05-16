@@ -1,3 +1,6 @@
+
+
+
 function likeComment(commentId) {
     $.ajax({
         type: 'POST',
@@ -67,3 +70,9 @@ function showDeleteMessage() {
         });
     }, 3000);
 }
+        success: function (data) {
+            $('#dislikes-' + commentId).text(data.dislikes);
+        }
+    });
+}
+
