@@ -53,6 +53,20 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             });
         }
 
+        // Delete Comments
+        [HttpPost]
+        public ActionResult DeleteComment(int commentId)
+        {
+            var comment = db.Comments.Find(commentId);
+            if (comment != null)
+            {
+                db.Comments.Remove(comment);
+                db.SaveChanges();
+                return new EmptyResult();
+            }
+            return HttpNotFound();
+        }
+
         // GET: Blog/Comments/Details/5
         public ActionResult Details(int? id)
         {
