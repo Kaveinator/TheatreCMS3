@@ -1,3 +1,6 @@
+
+
+
 function likeComment(commentId) {
     $.ajax({
         type: 'POST',
@@ -73,12 +76,3 @@ function showDeleteMessage() {
     });
 }
 
-function showAuthor() {
-    $(".AuthorSection").show();
-    $(".BlogPostSection").hide();
-}
-
-function showBlogPost() {
-    $(".AuthorSection").hide();
-    $(".BlogPostSection").show();
-}
