@@ -100,3 +100,55 @@
     text-decoration: none;
 }
 
+
+/* CSS Styling for Comments */
+
+.Comment-Index--Container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.Comment-Index--commentSection {
+    margin-top: 20px;
+}
+
+.Comment-partialComments--Container {
+    background-color: var(--light-color);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.Comment-partialComments--Header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--light-color);
+}
+
+    .Comment-partialComments--Header p:first-child {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .Comment-partialComments--Header p:last-child {
+        display: inline-block;
+        color: var(--secondary-color--dark);
+    }
+
+.Comment-partialComments--Body {
+    margin-bottom: 10px;
+    color: var(--light-color);
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.Comment-partialComments--Buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .Comment-partialComments--Buttons button {
+        margin-right: 10px;
+    }
