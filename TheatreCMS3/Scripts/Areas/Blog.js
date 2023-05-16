@@ -19,3 +19,13 @@ function dislikeComment(commentId) {
         }
     });
 }
+
+function showAuthor() {
+    $(".AuthorSection").show();
+    $(".BlogPostSection").hide();
+}
+
+function showBlogPost() {
+    $(".AuthorSection").hide();
+    $(".BlogPostSection").show();
+}

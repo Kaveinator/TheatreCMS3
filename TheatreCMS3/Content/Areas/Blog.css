@@ -37,8 +37,7 @@
 }
 
 .BlogAuthors-Details--ellie-container {
-    display: flex;
-    flex-direction: row;
+
 }
 
 #BlogAuthors-Details--ellie-card {
@@ -52,9 +51,14 @@
     line-height: inherit; 
 }
 
-BlogAuthors-Details--icons {
-    position: absolute;
-    right: 0;
+.BlogAuthors-Details--icons {
+    float:right;
+}
+
+.BlogAuthors-Create--image {
+    float: left;
+    width: 100%; /* or any custom size */
+    height: 100%;
 }
 
 .BlogAuthors-Details--ellie-button:focus {
@@ -76,6 +80,14 @@ BlogAuthors-Details--icons {
     font-size: 30px;
 }
 
+.aaaa {
+    height: 100%;
+    width: 12em;
+}
+
+.BlogAuthor-DetailsDelete--TextBlack {
+    color: var(--dark-color);
+}
 
 
 .BlogPost-CreateEdit-btn {
@@ -137,4 +149,3 @@ BlogAuthors-Details--icons {
     border-color: var(--main-color);
     text-decoration: none;
 }
-
