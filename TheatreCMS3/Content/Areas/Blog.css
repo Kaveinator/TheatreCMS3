@@ -23,7 +23,6 @@
     flex-direction: row; 
 }
 
-
 .BlogAuthors-Edit--ellie-form {
     background-color: var(--main-color--light);
     width: 700px;
@@ -36,57 +35,53 @@
     flex-direction: row;
 }
 
-.BlogAuthors-Details--ellie-container {
-
-}
-
-#BlogAuthors-Details--ellie-card {
+#BlogAuthors-DetailsDelete--SocialLinks {
     color: var(--dark-color);
-    background-color: var(--light-color);
-}
-
-#BlogAuthors-Details--social-links {
-    color: black;
     text-decoration: none;
     line-height: inherit; 
 }
 
-.BlogAuthors-Details--icons {
-    float:right;
+.BlogAuthors-DetailsDelete--icons {
+    float: right;
 }
 
-.BlogAuthors-Create--image {
-    float: left;
-    width: 100%; /* or any custom size */
-    height: 100%;
+.BlogAuthors-DetailsDelete--CardDim {
+    max-width: 540px;
 }
 
-.BlogAuthors-Details--ellie-button:focus {
+.BlogAuthors-DetailsDelete--CardBodyDim {
+    min-height: 12rem;
+}
+
+.BlogAuthors-DetailsDelete--TopButtons:focus {
     background-color: green !important;
     border-color: green !important;
 }
 
-.BlogAuthors-Details--ellie-BackToListBtn {
-    font-weight: 400;
-}
-
-.BlogAuthors-Details--JoinedLeftTitle {
-    display: flex;
-    flex-flow: row;
-}
-
-.BlogAuthors-Details--AuthorNameFont {
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.aaaa {
+.BlogAuthors-DetailsDelete--Dim {
     height: 100%;
     width: 12em;
 }
 
-.BlogAuthor-DetailsDelete--TextBlack {
+.BlogAuthors-DetailsDelete--TextBlack {
     color: var(--dark-color);
+}
+
+.BlogAuthors-DetailsDelete--TextBold {
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.BlogAuthors-DetailsDelete--LeftDate {
+    float: right;
+}
+
+.BlogAuthors-DetailsDelete--JoinedDate {
+    float: left;
+}
+
+.BlogAuthors-DetailsDelete--TrashBtn {
+    float: right;
 }
 
 

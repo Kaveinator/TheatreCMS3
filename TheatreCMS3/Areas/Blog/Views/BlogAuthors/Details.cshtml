@@ -9,97 +9,55 @@
 <h4>Blog Author</h4>
 <hr />
 <div>
-    <input type="button" value="Author Details" class="BlogAuthors-Details--ellie-button btn btn-dark" id="Author" onclick="showAuthor()" />
-    <input type="button" value="Blog Posts" class="BlogAuthors-Details--ellie-button btn btn-dark" id="BlogPost" onclick="showBlogPost()" />
-    <input type="button" value="Contact" class="BlogAuthors-Details--ellie-button btn btn-dark" id="hide" />
-    <input type="button" value="Twitter" class="BlogAuthors-Details--ellie-button btn btn-dark" id="hide" />
+    <input type="button" value="Author Details" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="Author" onclick="showAuthor()" />
+    <input type="button" value="Blog Posts" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="BlogPost" onclick="showBlogPost()" />
+    <input type="button" value="Contact" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="hide" />
+    <input type="button" value="Twitter" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="hide" />
 </div>
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3 BlogAuthors-DetailsDelete--CardDim">
   <div class="row no-gutters AuthorSection">
     <div class="col-md-4">
-      <img src="https://picsum.photos/640/360" class="aaaa">
+      <img src="https://picsum.photos/640/360" class="BlogAuthors-DetailsDelete--Dim">
     </div>
-
     <div class="col-md-8">
-      <div class="BlogAuthors-Details--icons">
-        <a href="https://www.facebook.com" class="fa-brands fa-facebook fa-2xl" id="BlogAuthors-Details--social-links"></a>
-        <a href="https://www.instagram.com" class="fa-brands fa-instagram fa-2xl" id="BlogAuthors-Details--social-links"></a>
+      <div class="BlogAuthors-DetailsDelete--icons">
+        <a href="https://www.facebook.com" class="fa-brands fa-facebook fa-2xl" id="BlogAuthors-DetailsDelete--SocialLinks"></a>
+        <a href="https://www.instagram.com" class="fa-brands fa-instagram fa-2xl" id="BlogAuthors-DetailsDelete--SocialLinks"></a>
       </div>
-      <div class="card-body" style="min-height:12rem">
-        <h5 class="card-title BlogAuthor-DetailsDelete--TextBlack">@Html.DisplayFor(model => model.Name)</h5>
-        <p class="card-text BlogAuthor-DetailsDelete--TextBlack">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text BlogAuthor-DetailsDelete--TextBlack"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <div class="card-body BlogAuthors-DetailsDelete--CardBodyDim">
+          <h5 class="card-title BlogAuthors-DetailsDelete--TextBlack">@Html.DisplayFor(model => model.Name)</h5>
+          <p class="card-text BlogAuthors-DetailsDelete--TextBlack">@Html.DisplayFor(model => model.Bio)</p>
+       <div class="BlogAuthors-DetailsDelete--JoinedDate">
+          <p class="card-text BlogAuthors-DetailsDelete--TextBold">@Html.DisplayNameFor(model => model.Joined)</p>
+          <p class="card-text BlogAuthors-DetailsDelete--TextBlack">@Html.DisplayFor(model => model.Joined)</p>
+       </div>
+       <div class="BlogAuthors-DetailsDelete--LeftDate">
+          <p class="card-text BlogAuthors-DetailsDelete--TextBold">@Html.DisplayNameFor(model => model.Left)</p>
+          <p class="card-text BlogAuthors-DetailsDelete--TextBlack">@Html.DisplayFor(model => model.Left)</p>
       </div>
-
-    </div>
-  </div>
+      </div>
+   </div>
+ </div>
 
   @*Start of BlogPost Section*@
 <div class="row no-gutters BlogPostSection" style="display:none">
   <div class="col-md-4">
-    <img src="https://picsum.photos/640/360" class="aaaa">
+    <img src="https://picsum.photos/640/360" class="BlogAuthors-DetailsDelete--Dim">
   </div>
-
   <div class="col-md-8">
-  
-    <div class="card-body" style="min-height:12rem">
-      <h5 class="card-title BlogAuthor-DetailsDelete--TextBlack">This is a blogPost</h5>
+    <div class="card-body BlogAuthors-DetailsDelete--CardBodyDim">
+      <h5 class="card-title BlogAuthors-DetailsDelete--TextBlack">This is a blogPost</h5>
     </div>
-
   </div>
 </div>
 </div>
-@*<div class="BlogAuthors-Details--ellie-container" id="BlogAuthors-Details--ellie-card" height="300">
 
-
-
-  <div>
-    <p>
-      <img src="https://picsum.photos/640/360" width="300" height="300">
-    </p>
+<div class="BlogAuthors-DetailsDelete--CardDim">
+  <a href="@Url.Action("Index","BlogAuthors")" class = "btn btn-dark"><i class="fa-solid fa-arrow-rotate-left"></i> Back to List</a>
+  <a href="@Url.Action("Edit","BlogAuthors", new { id = Model.BlogAuthorId })" class = "btn btn-success"><i class="fa fa-address-book-o"></i> Edit</a>
+  <div class="BlogAuthors-DetailsDelete--TrashBtn">
+    <a href="@Url.Action("Delete", "BlogAuthors", new { id = Model.BlogAuthorId })" class="btn btn-danger"><i class="fa fa-trash-o"></i></a> 
   </div>
+</div>
 
-
-  <dl>
-    <dt class="BlogAuthors-Details--AuthorNameFont">
-      @Html.DisplayFor(model => model.Name)
-    </dt>
-    <dd>
-      @Html.DisplayFor(model => model.Bio)
-    </dd>
-
-    <dt>
-      @Html.DisplayNameFor(model => model.Joined)
-    </dt>
-
-    <dd>
-      @Html.DisplayFor(model => model.Joined)
-    </dd>
-
-    <dt>
-      @Html.DisplayNameFor(model => model.Left)
-    </dt>
-
-    <dd>
-      @Html.DisplayFor(model => model.Left)
-    </dd>
-
-  </dl>
-
-  <div class="BlogAuthors-Details--icons">
-    <a href="https://www.facebook.com" class="fa-brands fa-facebook fa-2xl" id="BlogAuthors-Details--social-links"></a>
-    <a href="https://www.instagram.com" class="fa-brands fa-instagram fa-2xl" id="BlogAuthors-Details--social-links"></a>
-  </div>
-</div>*@
-
-
-
-<p>
-  <a href="@Url.Action("Index","BlogAuthors")" class = "btn btn-dark BlogAuthors-Details--ellie-BackToListBtn"><i class="fa-solid fa-arrow-rotate-left"></i>Back to List</a>
-  <a href="@Url.Action("Edit","BlogAuthors", new { id = Model.BlogAuthorId })" class = "btn btn-success"><i class="fa fa-address-book-o"></i>Edit</a>
-
-    
-
-    @Html.ActionLink(" ", "Delete", new { id = Model.BlogAuthorId }, new { @class = "btn btn-danger fa fa-trash-o" })
-</p>
 
