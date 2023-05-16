@@ -18,6 +18,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // Increment Like Button On Comments
+        [HttpPost]
         public ActionResult LikeComment(int commentId)
         {
             var comment = db.Comments.Find(commentId);
@@ -27,10 +28,15 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.SaveChanges();
             }
 
-            return Json(new { likes = comment.Likes }, JsonRequestBehavior.AllowGet);
+            return Json(new {
+                likes = comment.Likes,
+                dislikes = comment.Dislikes,
+                likeRatio = comment.LikeRatio()
+            });
         }
 
         // Increment Dislike Button On Comments
+        [HttpPost]
         public ActionResult DislikeComment(int commentId)
         {
             var comment = db.Comments.Find(commentId);
@@ -40,7 +46,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.SaveChanges();
             }
 
-            return Json(new { dislikes = comment.Dislikes }, JsonRequestBehavior.AllowGet);
+            return Json(new {
+                likes = comment.Likes,
+                dislikes = comment.Dislikes,
+                likeRatio = comment.LikeRatio()
+            });
         }
 
         // GET: Blog/Comments/Details/5

@@ -5,10 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="Comment-Index--Container">
+    <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-@Html.Partial("_Comments", Model)
+    <div class="Comment-Index--commentSection">
+        @Html.Partial("_Comments", Model)
+    </div>
+</div>
