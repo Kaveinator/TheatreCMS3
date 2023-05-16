@@ -7,72 +7,34 @@
 
 <h2>Index</h2>
 
-<div class="BlogPost-Index-container">
-    <div class="BlogPost-Index-img">
-        <img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero" alt="Zelda" />
-    </div>
-    <div class="BlogPost-Index-text">
-        <h4>Zelda: Tears of the Kingdom</h4><br /><h6>May 16th, 2023</h6><br /><p>This is where Zelda info can be placed. Only a placeholder.</p>
-    </div>
-</div>
-<div class="BlogPost-Index-container">
-    <div class="BlogPost-Index-img">
-        <img src="https://th.bing.com/th/id/OIF.laVJXsjtHX5hipYYmyTcBw?pid=ImgDet&rs=1" alt="Activision" />
-    </div>
-    <div class="BlogPost-Index-text">
-        <h4>Activision & Microsft</h4><br /><h6>May 16th, 2023</h6><br /><p>This is where Activision info can be placed. Only a placeholder.</p>
-    </div>
-</div>
-<div class="BlogPost-Index-container">
-    <div class="BlogPost-Index-img">
-        <img src="https://techraptor.net/sites/default/files/styles/image_header/public/2022-09/PSVR%202%20Headset%20(1).jpg?itok=myNeYbpI" alt="PSVR 2" />
-    </div>
-    <div class="BlogPost-Index-text">
-        <h4>PSVR 2</h4><br /><h6>May 16th, 2023</h6><br /><p>This is where PSVR 2 info can be placed. Only a placeholder.</p>
-    </div>
-</div>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Posted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                <button class="BlogPost-Index-EdDetDel btn btn-secondary btn-sm">@Html.ActionLink("Edits", "Edits", new { id = item.BlogPostId })</button>
-                <button class="">@Html.ActionLink("Details", "Details", new { id = item.BlogPostId })</button>
-                <button class="">@Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId })</button>
-            </td>
-        </tr>
-    }
-
-</table>
+@foreach (var item in Model)
+{
+    <div class="BlogPost-Index-container">
+        <div class="BlogPost-Index-img">
+            <img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero" alt="Zelda" />
+            <tr class="BlogPost-Index-column">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Posted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    <button class="BlogPost-Index-EdDetDel btn btn-secondary fa fa-pencil-ruler">@Html.ActionLink("Edits", "Edits", new { id = item.BlogPostId })</button>
+                    <button class="BlogPost-Index-EdDetDel btn btn-secondary fa fa-circle-info">@Html.ActionLink("Details", "Details", new { id = item.BlogPostId })</button>
+                    <button class="BlogPost-Index-EdDetDel btn btn-danger fa fa-trash-o">@Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId })</button>
+                </td>
+            </tr>
+        </div>
+    </div>
+}

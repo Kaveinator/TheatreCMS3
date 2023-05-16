@@ -100,3 +100,32 @@
     text-decoration: none;
 }
 
+.BlogPost-Index-EdDetDel:hover {
+    border: solid 1px #000000;
+    transition: 0.6s
+}
+
+.BlogPost-Index-main-container {
+    border: solid 2px #808080;
+    background-color: black;
+}
+
+.BlogPost-Index-container {
+    grid-auto-columns: auto;
+    display: table;
+    width: 100%;
+    height: auto;
+    background-color: darkorange;
+    margin: 10px 0px;
+}
+
+.BlogPost-Index-container img {
+    display: block;
+    float: left;
+    width: 545px;
+    height: 250px;
+}
+
+.BlogPost-Index-column {
+    text-align: center;
+}
