@@ -30,7 +30,7 @@
                     @Html.DisplayFor(modelItem => item.Author)
                 </td>
                 <td>
-                    <button class="BlogPost-Index-EdDetDel btn btn-secondary fa fa-pencil-ruler">@Html.ActionLink("Edits", "Edits", new { id = item.BlogPostId })</button>
+                    <button class="BlogPost-Index-EdDetDel btn btn-secondary fa fa-pencil-ruler">@Html.ActionLink("Edit", "Edit", new { id = item.BlogPostId })</button>
                     <button class="BlogPost-Index-EdDetDel btn btn-secondary fa fa-circle-info">@Html.ActionLink("Details", "Details", new { id = item.BlogPostId })</button>
                     <button class="BlogPost-Index-EdDetDel btn btn-danger fa fa-trash-o">@Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId })</button>
                 </td>

@@ -120,6 +120,7 @@
 }
 
 .BlogPost-Index-container img {
+    padding-right: 10px;
     display: block;
     float: left;
     width: 545px;
