@@ -36,11 +36,28 @@
     flex-direction: row;
 }
 
-.BlogAuthors-Details--ellie-card {
-    color: var(--dark-color); 
+.BlogAuthors-Details--ellie-container {
+    display: flex;
+    flex-direction: row;
 }
 
+#BlogAuthors-Details--ellie-card {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
 
+#BlogAuthors-Details--social-links {
+    color: black;
+    text-decoration: none;
+    line-height: inherit; 
+}
+
+.BlogAuthors-Details--ellie-button:focus {
+    background-color: green!important;
+    outline: green!important;
+}
+
+.BlogAuthors-Details--ellie-BackToListBtn
 
 
 

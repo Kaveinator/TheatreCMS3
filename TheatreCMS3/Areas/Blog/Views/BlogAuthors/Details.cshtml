@@ -9,59 +9,66 @@
 <h4>Blog Author</h4>
 <hr />
 <div>
-    @Html.ActionLink("Author Details", "Details", null, new { @class = "btn btn-dark" })
-    @Html.ActionLink("Blog Posts","Blog Posts", null, new { @class = "btn btn-dark" })
+    <input type="button" value="Author Details" class="BlogAuthors-Details--ellie-button btn btn-dark" id="show" />
+    <input type="button" value="Blog Posts" class="BlogAuthors-Details--ellie-button btn btn-dark" id="hide" />
+    <input type="button" value="Contact" class="BlogAuthors-Details--ellie-button btn btn-dark" id="hide" />
+    <input type="button" value="Twitter" class="BlogAuthors-Details--ellie-button btn btn-dark" id="hide" />
 </div>
-<div class="BlogAuthors-Details--ellie-card">
-<div class="card h-25">
-    <div class="card-body">   
 
-        <a href="https://www.instagram.com" style="float: right; color: black; text-decoration: none;" class="fa-brands fa-instagram fa-2xl"></a>
-        <a href="https://www.facebook.com" style="float: right; color: black; text-decoration: none;" class="fa-brands fa-facebook fa-2xl"></a>
-    
-        <p class="card-text">
-            <img src="https://picsum.photos/640/360" width="300" height="300">
-        </p>
-     </div>
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
+<div class="BlogAuthors-Details--ellie-container" id="BlogAuthors-Details--ellie-card">
 
-                <dd>
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
+ 
+    <a href="https://www.facebook.com" class="fa-brands fa-facebook fa-2xl" id="BlogAuthors-Details--social-links"></a>
+    <a href="https://www.instagram.com" class="fa-brands fa-instagram fa-2xl" id="BlogAuthors-Details--social-links"></a>
+ 
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Bio)
-                </dt>
+    <p>
+        <img src="https://picsum.photos/640/360" width="300" height="300">
+    </p>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Bio)
-                </dd>
+    <dl>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Bio)
+        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Joined)
-                </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Joined)
+        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Joined)
-                </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Joined)
+        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Left)
-                </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Left)
+        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Left)
-                </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Left)
+        </dd>
 
-            </dl>
-    </div>
+    </dl>   
 </div>
-</div>
+
+
 
 <p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn fa-solid fa-arrow-rotate-left" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn btn-success fa fa-address-book-o" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.BlogAuthorId }, new { @class = "btn btn-danger fa fa-trash-o" })
 </p>
+
+
+<script>
+    $(document).ready(function () {
+        $("#hide").click(function () {
+            $("dl").hide();
+        });
+        $("#show").click(function () {
+            $("dl").show();
+        });
+    });
+</script>
