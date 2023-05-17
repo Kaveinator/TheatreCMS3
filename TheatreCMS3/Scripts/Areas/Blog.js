@@ -1,3 +1,6 @@
+
+
+
 function likeComment(commentId) {
     $.ajax({
         type: 'POST',
@@ -35,3 +38,41 @@ function dislikeComment(commentId) {
         }
     });
 }
+
+function deleteComment(commentId) {
+    $.ajax({
+        type: 'POST',
+        url: '/Blog/Comments/DeleteComment',
+        data: { commentId: commentId },
+        success: function () {
+            $('#comment-' + commentId).fadeOut(500, function () {
+                $(this).remove();
+            });
+            $('#confirmDeleteModal-' + commentId).modal('hide');
+            showDeleteMessage();
+        },
+        error: function () {
+            alert('An error occurred while deleting the comment.');
+        }
+    });
+}
+
+function showDeleteMessage() {
+    var message = $('<div>').addClass('alert alert-success fixed-top')
+        .text('The comment was deleted successfully')
+        .append($('<i>').addClass('fas fa-check ml-2'));
+
+    $('body').append(message);
+
+    setTimeout(function () {
+        message.fadeOut(500, function () {
+            $(this).remove();
+        });
+    }, 3000);
+}
+        success: function (data) {
+            $('#dislikes-' + commentId).text(data.dislikes);
+        }
+    });
+}
+
