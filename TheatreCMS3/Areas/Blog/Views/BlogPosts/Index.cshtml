@@ -7,34 +7,32 @@
 
 <h2>Index</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 
 @foreach (var item in Model)
 {
-    <div class="BlogPost-Index-container">
-        <div class="BlogPost-Index-img">
-            <img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero" alt="Zelda" />
-            <tr class="BlogPost-Index-column">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Content)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Posted)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author)
-                </td>
-                <td>
-                    <button class="BlogPost-Index-EdDetDel btn btn-secondary fa fa-pencil-ruler">@Html.ActionLink("Edit", "Edit", new { id = item.BlogPostId })</button>
-                    <button class="BlogPost-Index-EdDetDel btn btn-secondary fa fa-circle-info">@Html.ActionLink("Details", "Details", new { id = item.BlogPostId })</button>
-                    <button class="BlogPost-Index-EdDetDel btn btn-danger fa fa-trash-o">@Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId })</button>
-                </td>
-            </tr>
+    <div class="card mb-3" style="max-width: 100%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="https://th.bing.com/th?id=OIF.eL0PcLAnu%2fNeR4aDy65eOg&pid=ImgDet&rs=1" alt="Zelda" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="BlogPost_Index--card-title">@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <p class="BlogPost-Index--card-text">@Html.DisplayFor(modelItem => item.Content)</p>
+                    <p class="BlogPost-Index--card-time"><small class="text-muted">@Html.DisplayFor(modelItem => item.Posted)</small></p>
+                    <h4>@Html.DisplayFor(modelItem => item.Author)</h4>
+
+                    <div class="BlogPost-Index--bot-right">
+                        <button class="BlogPost-Index-EdDetDel-btn btn-success"><i class="fa-regular fa-pen-to-square"></i>@Html.ActionLink("Edit", "Edit", new { id = item.BlogPostId })</button>
+                        <button class="BlogPost-Index-EdDetDel-btn btn-success"><i class="fa-solid fa-circle-info"></i>@Html.ActionLink("Details", "Details", new { id = item.BlogPostId })</button>
+                        <button class="BlogPost-Index-EdDetDel-btn btn-danger"><i class="fa-sharp fa-solid fa-trash"></i>@Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId })</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 }

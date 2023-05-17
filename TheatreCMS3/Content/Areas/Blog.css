@@ -142,7 +142,6 @@
 .BlogPost-CreateEdit-BacktoList-btn:hover {
     background-color: var(--secondary-color--dark);
     border-color: var(--main-color);
-    text-decoration: none;
 }
 
 
@@ -197,33 +196,69 @@
     .Comment-partialComments--Buttons button {
         margin-right: 10px;
     }
-.BlogPost-Index-EdDetDel:hover {
-    border: solid 1px #000000;
-    transition: 0.6s
+
+img {
+    width: 550px;
 }
 
-.BlogPost-Index-main-container {
-    border: solid 2px #808080;
-    background-color: black;
+.BlogPost_Index--card-title {
+    color: black;
+    padding-right: 100px;
+    text-align: right;
 }
 
-.BlogPost-Index-container {
-    grid-auto-columns: auto;
-    display: table;
-    width: 100%;
-    height: auto;
-    background-color: darkorange;
-    margin: 10px 0px;
-}
-
-.BlogPost-Index-container img {
-    padding-right: 10px;
-    display: block;
-    float: left;
-    width: 545px;
-    height: 250px;
-}
-
-.BlogPost-Index-column {
+.BlogPost-Index--card-text {
+    color: black;
+    padding-left: 160px;
     text-align: center;
+}
+
+.BlogPost-Index--card-time {
+    color: black;
+    padding-left: 160px;
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+    color: black;
+    padding-left: 160px;
+}
+
+.BlogPost-Index--bot-right {
+    float: right;
+    font-size: 12px;
+    overflow: auto;
+    padding-top: 100px;
+}
+
+.BlogPost-Index-EdDetDel-btn {
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 70px;
+    height: 35px;
+    line-height: 30px;
+    margin: 0 4px;
+    text-align: match-parent;
+}
+
+.BlogPost-Index-EdDetDel-btn:hover {
+    border: solid 2px #000000;
+    background-color: darkturquoise;
+}
+
+.BlogPost-Index--card mb-3 {
+}
+
+.BlogPost-Index--row no-gutters {
+}
+
+.BlogPost-Index--col-md-4 {
+}
+
+.BlogPost-Index--col-md-8 {
+}
+
+.BlogPost-Index--card-body {
 }
