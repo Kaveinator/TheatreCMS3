@@ -142,7 +142,6 @@
 .BlogPost-CreateEdit-BacktoList-btn:hover {
     background-color: var(--secondary-color--dark);
     border-color: var(--main-color);
-    text-decoration: none;
 }
 
 
@@ -197,3 +196,66 @@
     .Comment-partialComments--Buttons button {
         margin-right: 10px;
     }
+
+BlogPost-Index--img {
+    width: 570px;
+}
+
+.BlogPost_Index--card-title {
+    color: black;
+    padding-right: 10px;
+    text-align: center;
+    display: block;
+    text-indent: 200px;
+}
+
+.BlogPost-Index--card-text {
+    color: black;
+    padding-left: 160px;
+    text-align: center;
+    text-indent: 20px;
+}
+
+.BlogPost-Index--card-time {
+    color: black;
+    padding-left: 200px;
+    text-align: center;
+}
+
+.BlogPost-Index--H4 {
+    text-align: center;
+    color: black;
+    padding-left: 190px;
+}
+
+.BlogPost-Index--bot-right {
+    float: right;
+    font-size: 12px;
+    overflow: auto;
+    padding-top: 70px;
+}
+
+.BlogPost-Index--btn {
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 70px;
+    height: 35px;
+    line-height: 30px;
+    margin: 0 4px;
+}
+
+/*.BlogPost-Index--card mb-3 {
+}
+
+.BlogPost-Index--row no-gutters {
+}
+
+.BlogPost-Index--col-md-4 {
+}
+
+.BlogPost-Index--col-md-8 {
+}
+
+.BlogPost-Index--card-body {
+}*/
