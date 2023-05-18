@@ -26,9 +26,9 @@
                     <h4>@Html.DisplayFor(modelItem => item.Author)</h4>
 
                     <div class="BlogPost-Index--bot-right">
-                        <button class="BlogPost-Index-EdDetDel-btn btn-success"><i class="fa-regular fa-pen-to-square"></i>@Html.ActionLink("Edit", "Edit", new { id = item.BlogPostId })</button>
-                        <button class="BlogPost-Index-EdDetDel-btn btn-success"><i class="fa-solid fa-circle-info"></i>@Html.ActionLink("Details", "Details", new { id = item.BlogPostId })</button>
-                        <button class="BlogPost-Index-EdDetDel-btn btn-danger"><i class="fa-sharp fa-solid fa-trash"></i>@Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId })</button>
+                        <input type="button" value="Edit" onclick="location.href='@Url.Action("Edit", "BlogPosts", new { id=item.BlogPostId})'" class="BlogPost-Index--btn btn-success btn-sm" />
+                        <input type="button" value="Details" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id=item.BlogPostId})'" class="BlogPost-Index--btn btn-secondary btn-sm" />
+                        <input type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "BlogPosts", new { id=item.BlogPostId})'" class="BlogPost-Index--btn btn-danger btn-sm" />
                     </div>
 
                 </div>

@@ -197,32 +197,39 @@
         margin-right: 10px;
     }
 
+body {
+    text-align: center;
+}
+
 img {
-    width: 550px;
+    width: 570px;
 }
 
 .BlogPost_Index--card-title {
     color: black;
-    padding-right: 100px;
-    text-indent: 385px;
+    padding-right: 10px;
+    text-align: center;
+    display: block;
+    text-indent: 200px;
 }
 
 .BlogPost-Index--card-text {
     color: black;
     padding-left: 160px;
     text-align: center;
+    text-indent: 20px;
 }
 
 .BlogPost-Index--card-time {
     color: black;
-    padding-left: 160px;
+    padding-left: 200px;
     text-align: center;
 }
 
 h4 {
     text-align: center;
     color: black;
-    padding-left: 160px;
+    padding-left: 190px;
 }
 
 .BlogPost-Index--bot-right {
@@ -232,7 +239,7 @@ h4 {
     padding-top: 100px;
 }
 
-.BlogPost-Index-EdDetDel-btn {
+.BlogPost-Index--btn {
     border-radius: 8px;
     display: inline-block;
     vertical-align: bottom;
@@ -240,15 +247,9 @@ h4 {
     height: 35px;
     line-height: 30px;
     margin: 0 4px;
-    text-align: match-parent;
 }
 
-.BlogPost-Index-EdDetDel-btn:hover {
-    border: solid 2px #000000;
-    background-color: darkturquoise;
-}
-
-.BlogPost-Index--card mb-3 {
+/*.BlogPost-Index--card mb-3 {
 }
 
 .BlogPost-Index--row no-gutters {
@@ -261,4 +262,4 @@ h4 {
 }
 
 .BlogPost-Index--card-body {
-}
+}*/
