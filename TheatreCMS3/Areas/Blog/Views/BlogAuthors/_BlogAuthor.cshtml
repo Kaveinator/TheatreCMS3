@@ -9,13 +9,13 @@
 @foreach (var item in Model)
 {
     <div>
-        <input type="button" value="Author Details" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="Author" onclick="showAuthor()" />
-        <input type="button" value="Blog Posts" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="BlogPost" onclick="showBlogPost()" />
+        <input type="button" value="Author Details" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="Author" onclick="showAuthor(@item.BlogAuthorId)" />
+        <input type="button" value="Blog Posts" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="BlogPost" onclick="showBlogPost(@item.BlogAuthorId)" />
         <input type="button" value="Contact" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="hide" />
         <input type="button" value="Twitter" class="BlogAuthors-DetailsDelete--TopButtons btn btn-dark" id="hide" />
     </div>
     <div class="card mb-3 BlogAuthors-DetailsDelete--CardDim">
-        <div class="row no-gutters AuthorSection">
+        <div class="row no-gutters AuthorSection-@item.BlogAuthorId">
             <div class="col-md-4">
                 <img src="https://picsum.photos/640/360" class="BlogAuthors-DetailsDelete--Dim">
             </div>
@@ -43,7 +43,7 @@
         </div>
 
         @*Start of BlogPost Section*@
-        <div class="row no-gutters BlogPostSection" style="display:none">
+        <div class="row no-gutters BlogPostSection-@item.BlogAuthorId" style="display:none">
             <div class="col-md-4">
                 <img src="https://picsum.photos/640/360" class="BlogAuthors-DetailsDelete--Dim">
             </div>
@@ -58,14 +58,14 @@
 
 
 <script>
-    function showAuthor() {
-        $(".AuthorSection").show();
-        $(".BlogPostSection").hide();
+    function showAuthor(id) {
+        $(".AuthorSection-" + id ).show();
+        $(".BlogPostSection-" + id).hide();
     }
 
-    function showBlogPost() {
-        $(".AuthorSection").hide();
-        $(".BlogPostSection").show();
+    function showBlogPost(id) {
+        $(".AuthorSection-" + id).hide();
+        $(".BlogPostSection-" + id).show();
     }
 </script>
 
