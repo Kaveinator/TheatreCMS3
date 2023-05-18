@@ -35,13 +35,10 @@
                     <div class="BlogAuthors-DetailsDelete--LeftDate">
                         <p class="card-text BlogAuthors-DetailsDelete--TextBold">@Html.DisplayNameFor(model => model.Left)</p>
                         <p class="card-text BlogAuthors-DetailsDelete--TextBlack">@Html.DisplayFor(modelItem => item.Left)</p>
-                    </div>
-                    <div class="card-body BlogAuthors-DetailsDelete--CardBodyDim">
                         <a href="@Url.Action("Edit", "BlogAuthors", new { id = item.BlogAuthorId })" class="btn btn-success"><i class="fa fa-address-book-o"></i> Edit</a>
                         <a href="@Url.Action("Delete", "BlogAuthors", new { id = item.BlogAuthorId })" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -55,13 +52,6 @@
                     <h5 class="card-title BlogAuthors-DetailsDelete--TextBlack">This is a blogPost</h5>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="BlogAuthors-DetailsDelete--CardDim">
-        <a href="@Url.Action("Edit", "BlogAuthors", new { id = item.BlogAuthorId })" class="btn btn-success"><i class="fa fa-address-book-o"></i> Edit</a>
-        <div class="BlogAuthors-DetailsDelete--TrashBtn">
-            <a href="@Url.Action("Delete", "BlogAuthors", new { id = item.BlogAuthorId })" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
         </div>
     </div>
 }
