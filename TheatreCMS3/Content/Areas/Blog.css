@@ -23,7 +23,6 @@
     flex-direction: row; 
 }
 
-
 .BlogAuthors-Edit--ellie-form {
     background-color: var(--main-color--light);
     width: 700px;
@@ -36,8 +35,54 @@
     flex-direction: row;
 }
 
+#BlogAuthors-DetailsDelete--SocialLinks {
+    color: var(--dark-color);
+    text-decoration: none;
+    line-height: inherit; 
+}
 
+.BlogAuthors-DetailsDelete--icons {
+    float: right;
+}
 
+.BlogAuthors-DetailsDelete--CardDim {
+    max-width: 540px;
+}
+
+.BlogAuthors-DetailsDelete--CardBodyDim {
+    min-height: 12rem;
+}
+
+.BlogAuthors-DetailsDelete--TopButtons:focus {
+    background-color: green !important;
+    border-color: green !important;
+}
+
+.BlogAuthors-DetailsDelete--Dim {
+    height: 100%;
+    width: 12em;
+}
+
+.BlogAuthors-DetailsDelete--TextBlack {
+    color: var(--dark-color);
+}
+
+.BlogAuthors-DetailsDelete--TextBold {
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.BlogAuthors-DetailsDelete--LeftDate {
+    float: right;
+}
+
+.BlogAuthors-DetailsDelete--JoinedDate {
+    float: left;
+}
+
+.BlogAuthors-DetailsDelete--TrashBtn {
+    float: right;
+}
 
 
 .BlogPost-CreateEdit-btn {
@@ -97,7 +142,6 @@
 .BlogPost-CreateEdit-BacktoList-btn:hover {
     background-color: var(--secondary-color--dark);
     border-color: var(--main-color);
-    text-decoration: none;
 }
 
 
@@ -152,3 +196,66 @@
     .Comment-partialComments--Buttons button {
         margin-right: 10px;
     }
+
+BlogPost-Index--img {
+    width: 570px;
+}
+
+.BlogPost_Index--card-title {
+    color: black;
+    padding-right: 10px;
+    text-align: center;
+    display: block;
+    text-indent: 200px;
+}
+
+.BlogPost-Index--card-text {
+    color: black;
+    padding-left: 160px;
+    text-align: center;
+    text-indent: 20px;
+}
+
+.BlogPost-Index--card-time {
+    color: black;
+    padding-left: 200px;
+    text-align: center;
+}
+
+.BlogPost-Index--H4 {
+    text-align: center;
+    color: black;
+    padding-left: 190px;
+}
+
+.BlogPost-Index--bot-right {
+    float: right;
+    font-size: 12px;
+    overflow: auto;
+    padding-top: 70px;
+}
+
+.BlogPost-Index--btn {
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 70px;
+    height: 35px;
+    line-height: 30px;
+    margin: 0 4px;
+}
+
+/*.BlogPost-Index--card mb-3 {
+}
+
+.BlogPost-Index--row no-gutters {
+}
+
+.BlogPost-Index--col-md-4 {
+}
+
+.BlogPost-Index--col-md-8 {
+}
+
+.BlogPost-Index--card-body {
+}*/

@@ -454,6 +454,41 @@ footer {
     column-rule-width: 0px;
 }
 
+
+.home-contact-form {
+    width: 40%;
+}
+
+.home-contact-body {
+    background-color: var(--main-color--light);
+    align-content: center;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.home-contact-header {
+    padding: 60px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    font-family: Broadway;
+}
+
+.home--contact--donate {
+    font-family: Broadway;
+    position: relative;
+    top: -350px;
+    right: -600px;
+}
+
+.home--contact--volunteer {
+    font-family: Broadway;
+    position: relative;
+    top: -270px;
+    right: -600px;
+}
+}
+
 /* ABOUT PAGE */
 
 
