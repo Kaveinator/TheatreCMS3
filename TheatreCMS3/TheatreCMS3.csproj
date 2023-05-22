@@ -208,6 +208,8 @@
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionsController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
+    <Compile Include="Areas\Prod\Controllers\CastMembersController.cs" />
+    <Compile Include="Areas\Prod\Models\CastMember.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
@@ -325,6 +327,11 @@
     <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\CastMembers\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\CastMembers\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\CastMembers\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\CastMembers\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\CastMembers\Index.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Create.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Delete.cshtml" />
     <Content Include="Areas\Prod\Views\Productions\Details.cshtml" />
