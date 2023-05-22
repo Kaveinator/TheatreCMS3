@@ -226,6 +226,8 @@ a.CMS-text-bigger {
   font-size: 36px;
 }
 
+
+
 /* Additional Styling for the Navbar dropdown menu to override the default bootstrap color schema */
 .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -484,4 +486,102 @@ footer {
     position: relative;
     top: -270px;
     right: -600px;
+}
+
+
+/* ABOUT PAGE */
+
+
+
+.Home-About-text-bigger {
+    font-size: 75px;
+    text-align: center;
+    font-family: fantasy;
+    
+}
+
+.Home-About-text {
+    text-align: center;
+    font-family: fantasy;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: var(--main-color);
+}
+
+.Home-About-Background-img {
+    background-position: center top;/*This is the theatre image for about page*/
+    background-size: cover;
+    height: 50%;
+    width: 100%;
+    background-color: var(--main-color--light);
+    z-index: -1;
+}
+.Home-About-Background {
+    background-color: var(--main-color--light);
+    width: 100%;
+}
+
+.Home-About-container {
+    position:relative;
+    text-align:center;
+    color:white;
+    font-family: fantasy;
+}
+
+.Home-About-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 75px;
+}
+.
+.Home-About-centered-cast {
+    left: 50%;
+    right: 50%;
+    position:center;
+    display: inline-block;
+    align-content:center;
+}
+
+.Home-About-p {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.Home-About-image-cropper {
+   
+    padding: 10px;
+    border-radius: 70%;
+}
+.Home-About-img {
+    max-height: 200px;
+    min-width: 200px;
+    object-fit: cover;
+    display: inline block;
+    margin: auto;
+    align-content: center;
+   
+    
+    display: flex;
+}
+.Home-About-ul {
+    display: flex;
+    flex-wrap:wrap;
+    
+    /* as the name shows, this will wrap the image*/
+    
+    
+}
+.Home-About-li {
+     
+     
+     /*This gets rid of the bullets */
+     list-style: none;
+     
+
+}
+.Home-About-body {
+    height: 50%;
+    margin: 0;
 }
