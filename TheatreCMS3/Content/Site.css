@@ -585,3 +585,46 @@ footer {
     height: 50%;
     margin: 0;
 }
+
+.home-donate-container{
+    border-radius: 36px;
+    background-color: var(--main-color--light);
+    padding: 40px;
+    margin: 20px;
+}
+
+.home-donate-form{
+     border-radius: 12px 12px 12px 12px;
+     margin: 8px;
+     padding: 3px;
+}
+
+.home-donate-label{
+    margin: 10px;
+}
+
+.home-donate-submit {
+    width: 10%;
+    padding: 14px 14px 14px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    float: inline-end;
+    margin: 10px;
+    border: none;
+}
+
+.home-donate-label {
+    width: 100%;
+    border-radius: 4px 4px 4px 4px ;
+    margin: 6px;
+    padding: 5px;
+    border:none;
+}
+
+.home-donate-h1{    
+    margin: 60px;
+    font-weight: bold;
+    position: absolute;
+    transform: translate(40%, -50%);
+}
+
