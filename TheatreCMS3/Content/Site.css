@@ -585,3 +585,56 @@ footer {
     height: 50%;
     margin: 0;
 }
+
+/* Home INDEX Styling */
+.home-index--main_logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 4em;
+    padding-bottom: 6em;
+}
+
+.home-index--column_1 {
+    float: left;
+    width: 67%; /*this ensures the colummn takes up 2/3 the page width */
+    padding: 5%;
+}
+
+.home-index--column_2 {
+    float: left;
+    width: 33%;
+    padding: 5%;
+}
+
+.home-index--posters {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.home-index--donations_btn {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    padding: 5%;
+    margin-left: 10%;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+.home-index--sponsors {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.home-index--hr {
+    float: left;
+    height: 5px;
+    width: 6em;
+    border-width: 0;
+    background-color: var(--main-color);
+}
