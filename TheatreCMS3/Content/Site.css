@@ -603,7 +603,7 @@ footer {
     margin: 10px;
 }
 
-input[type=submit] {
+.home-donate-submit {
     width: 10%;
     padding: 14px 14px 14px 14px;
     border-radius: 7px;
@@ -613,7 +613,7 @@ input[type=submit] {
     border: none;
 }
 
-.form-control-name {
+.home-donate-label {
     width: 100%;
     border-radius: 4px 4px 4px 4px ;
     margin: 6px;
@@ -628,6 +628,3 @@ input[type=submit] {
     transform: translate(40%, -50%);
 }
 
-input[type=submit]:hover{
-
-}
