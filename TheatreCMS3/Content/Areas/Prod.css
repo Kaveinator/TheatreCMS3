@@ -30,7 +30,6 @@
     margin-left:325px;
 }
 
-.form-control {
+.production-editcreate-input:focus {
     border: 3px solid #9D7C39;
-    
 }
