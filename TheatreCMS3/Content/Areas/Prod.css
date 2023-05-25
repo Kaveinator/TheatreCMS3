@@ -12,3 +12,21 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+
+.production-create-button {
+    background-color: rgb(93, 123, 244);
+    margin-left:325px;
+}
+
+
+.production-create-form {
+    background-color: var(--main-color--light);
+    margin-left: 100px;
+    overflow: hidden;
+}
+
+.production-create-backbutton {
+    background-color: var(--light-color);
+    margin-left:325px;
+}
+
