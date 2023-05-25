@@ -18,7 +18,7 @@
     <div class="form-group" >
         @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Title" } })
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "Title" } })
             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "Description" } })
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "Description" } })
             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -34,7 +34,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Playwright, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10" >
-            @Html.EditorFor(model => model.Playwright, new { htmlAttributes = new { @class = "form-control", @placeholder = "Playwright" } })
+            @Html.EditorFor(model => model.Playwright, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "Playwright" } })
             @Html.ValidationMessageFor(model => model.Playwright, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -42,7 +42,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Runtime, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "form-control", @placeholder = "00:00" } })
+            @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "00:00" } })
             @Html.ValidationMessageFor(model => model.Runtime, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -50,7 +50,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.OpeningDay, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "form-control", @placeholder = "MM/DD/YY" } })
+            @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "MM/DD/YY" } })
             @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ClosingDay, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "form-control", @placeholder = "MM/DD/YY" } })
+            @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "MM/DD/YY" } })
             @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -66,7 +66,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ShowTimeEvening, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ShowTimeEvening, new { htmlAttributes = new { @class = "form-control", @placeholder = "MM/DD/YY" } })
+            @Html.EditorFor(model => model.ShowTimeEvening, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "MM/DD/YY" } })
             @Html.ValidationMessageFor(model => model.ShowTimeEvening, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -74,7 +74,7 @@
     <div class="form-group" >
         @Html.LabelFor(model => model.ShowTimeMatinee, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ShowTimeMatinee, new { htmlAttributes = new { @class = "form-control ", @placeholder = "MM/DD/YY" } })
+            @Html.EditorFor(model => model.ShowTimeMatinee, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "MM/DD/YY" } })
             @Html.ValidationMessageFor(model => model.ShowTimeMatinee, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -82,7 +82,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control", @placeholder = "Season" } })
+            @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "Season" } })
             @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -92,15 +92,15 @@
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.WorldPremiere)
-                @Html.ValidationMessageFor(model => model.WorldPremiere, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.WorldPremiere, "", new { @class = "text-danger production-editcreate-input" })
             </div>
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.TicketLink, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.TicketLink, htmlAttributes: new { @class = "control-label col-md-2 production-editcreate-input" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "form-control", @placeholder = "TicketLink" } })
+            @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "form-control production-editcreate-input", @placeholder = "TicketLink" } })
             @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
         </div>
     </div>
