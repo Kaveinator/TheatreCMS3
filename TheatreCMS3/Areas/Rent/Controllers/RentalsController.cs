@@ -6,113 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Prod.Models;
+using TheatreCMS3.Areas.Rent.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Prod.Controllers
+namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    public class CastMembersController : Controller
+    public class RentalsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
-        // GET: Prod/CastMembers
+
+        // GET: Rent/Rentals
         public ActionResult Index()
         {
-            return View(db.CastMembers.ToList());
+            return View(db.Rentals.ToList());
         }
 
-        // GET: Prod/CastMembers/Details/5
+        // GET: Rent/Rentals/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            Rental rental = db.Rentals.Find(id);
+            if (rental == null)
             {
                 return HttpNotFound();
             }
-            
-            return View(castMember);
+            return View(rental);
         }
 
-        // GET: Prod/CastMembers/Create
+        // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prod/CastMembers/Create
+        // POST: Rent/Rentals/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
         {
             if (ModelState.IsValid)
             {
-                db.CastMembers.Add(castMember);
+                db.Rentals.Add(rental);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(castMember);
+            return View(rental);
         }
 
-        // GET: Prod/CastMembers/Edit/5
+        // GET: Rent/Rentals/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            Rental rental = db.Rentals.Find(id);
+            if (rental == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(rental);
         }
 
-        // POST: Prod/CastMembers/Edit/5
+        // POST: Rent/Rentals/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(castMember).State = EntityState.Modified;
+                db.Entry(rental).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(castMember);
+            return View(rental);
         }
 
-        // GET: Prod/CastMembers/Delete/5
+        // GET: Rent/Rentals/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CastMember castMember = db.CastMembers.Find(id);
-            if (castMember == null)
+            Rental rental = db.Rentals.Find(id);
+            if (rental == null)
             {
                 return HttpNotFound();
             }
-            return View(castMember);
+            return View(rental);
         }
 
-        // POST: Prod/CastMembers/Delete/5
+        // POST: Rent/Rentals/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CastMember castMember = db.CastMembers.Find(id);
-            db.CastMembers.Remove(castMember);
+            Rental rental = db.Rentals.Find(id);
+            db.Rentals.Remove(rental);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,0 +1,58 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="rental-CreateEdit--header">Create Rental</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="rental-CreateEdit--form ">
+    <div class="form-horizontal">
+        <h4 class="rental-CreateEdit--form_header">Rental</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentalName, "Rental Name", htmlAttributes: new { @class = "control-label rental-CreateEdit--field_label " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control rental-CreateEdit--input_field", @placeholder = "Name" } })
+                @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentalCost, "Rental Cost", htmlAttributes: new { @class = "control-label rental-CreateEdit--field_label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control rental-CreateEdit--input_field", @placeholder = "Cost" } })
+                @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FlawsAndDamages, "Flaws and Damages", htmlAttributes: new { @class = "control-label rental-CreateEdit--field_label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control rental-CreateEdit--input_field", @placeholder = "Flaws or Damages" } })
+                @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="text-center">
+                <input type="submit" value="Create" class="btn rental-CreateEdit--submit_btn hover-shadow" />
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<div class="text-center rental-CreateEdit--back_btn">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn rental-CreateEdit--back_button" })
+</div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

@@ -1,4 +1,4 @@
-﻿@model TheatreCMS3.Areas.Blog.Models.Comment
+﻿@model TheatreCMS3.Areas.Rent.Models.Rental
 
 @{
     ViewBag.Title = "Delete";
@@ -9,39 +9,31 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Comment</h4>
+    <h4>Rental</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Message)
+            @Html.DisplayNameFor(model => model.RentalName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Message)
+            @Html.DisplayFor(model => model.RentalName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CommentDate)
+            @Html.DisplayNameFor(model => model.RentalCost)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CommentDate)
+            @Html.DisplayFor(model => model.RentalCost)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Likes)
+            @Html.DisplayNameFor(model => model.FlawsAndDamages)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Likes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dislikes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Dislikes)
+            @Html.DisplayFor(model => model.FlawsAndDamages)
         </dd>
 
     </dl>
