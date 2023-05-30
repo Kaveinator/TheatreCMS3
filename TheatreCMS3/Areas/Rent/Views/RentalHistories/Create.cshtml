@@ -20,7 +20,7 @@
     <div class="form-group">
 
         <div class="rentalhistory-create-damagedlabel">
-
+                                          
             <div class="rentalhistory-create--div">
 
                 <div class="rentalhistory-create-damaged?">
@@ -28,10 +28,9 @@
                 </div>
 
                 <div class="rentalhistory-create--checkboxtransform"> 
-                    
                         
-                        @Html.EditorFor(model => model.RentalDamaged, new {  @onclick = "changelabel(RentalDamaged, lbldmg)" })     <!--Checkbox!-->
-                        @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger"})
+                    @Html.EditorFor(model => model.RentalDamaged, new {  @onclick = "changelabel(RentalDamaged, lbldmg)" })     <!--Checkbox!-->
+                    @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger"})
                                      
                 </div>
 
@@ -41,16 +40,17 @@
 
     </div>
 
-    <div>
 
+    <div>
         <div class="rentalhistory-create--rentalform">
             @Html.LabelFor(model => model.Rental, htmlAttributes: new { style = "font-weight: bold;", @class = "control-label col-md-2" })
         </div>
        
-            @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control wrap" } })
-            @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })    
+        @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control wrap" } })
+        @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })    
 
     </div>
+
 
     <div class="rentalhistory-create--rentalform2">
 
