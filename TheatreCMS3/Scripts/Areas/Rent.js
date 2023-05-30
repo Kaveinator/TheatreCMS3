@@ -1,6 +1,21 @@
-﻿////document.querySelector("RentalDamaged").onclick = function () {
-////    const h = document.querySelector("lbldmg");
-////    h.innerText = "Damages Incurred";
+﻿
+$("#RentalDamaged").click(function () {
+    if ($("#RentalDamaged").is(":checked")) {
+        $("#lbldmg").html("Damages Incurred");
+    }
+    else {
+        $("#lbldmg").html("Notes");
+    }
+});
+
+
+
+
+//document.querySelector("RentalDamaged").onclick = function () {
+//    const h = document.querySelector("lbldmg");
+//    h.innerText = "Damages Incurred";
+
+/*const { checked } = require("modernizr");*/
 
 
 //Test
@@ -32,17 +47,6 @@
 //    }
 //}
 
-
-
-
-$("#RentalDamaged").click(function () {
-    if ($("#RentalDamaged").is(":checked")) {
-        $("#lbldmg").html("Damages Incurred");
-    }
-    else {
-        $("#lbldmg").html("Notes");
-    }
-});
 
 
 //Practice
