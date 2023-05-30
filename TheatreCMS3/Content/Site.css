@@ -534,3 +534,17 @@ footer {
     border-width: 0;
     background-color: var(--main-color);
 }
+
+.home-signin--container {
+    color: var(--light-color);   
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.home-signin--container p {
+    background-color: var(--main-color--light);
+    border-radius: 32px;
+    width: 20em;
+    padding: 2em;
+}
