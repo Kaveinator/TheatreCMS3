@@ -1,17 +1,86 @@
-﻿@{
-    Layout = null;
+﻿
+@{
+    ViewBag.Title = "About";
 }
-
 <!DOCTYPE html>
-
-<html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <link rel="stylesheet" href="~/Content/Site.css" />
 </head>
-<body>
-    <div>
-    
+<!-- this adds in the theater background with the About Us text -->
+<body class="page-template page-template-page-templates page-template-full-width-page page-template-page-templatesfull-width-page-php page page-id-41 page-parent custom-background wp-custom-logo siteorigin-panels">
+    <div class="home-about--theater_bg">
+        <img src="~/Content/images/theater.jpg" alt="Theater" style="width:100%;" />
+        <div class="home-about--text">
+            <h2>About Us</h2>
+        </div>
     </div>
+
+    <!-- this adds in the WHO WE ARE text with the brief description -->
+    <div class="home-about--desc">
+        <p class="home-about--red-underline" ">WHO WE ARE</p>
+        We seek to engage audiences through compelling ensemble-driven<br />productions<br />
+        with a focus on developing new works.
+    </div>
+
+    <!-- this adds in the red background with the corresponding paragraph -->
+    <div class="home-about--red-container">
+        <p class="home-about--red-underline">COMPANY HISTORY</p>
+        <p>
+            In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.
+            Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater,
+            The Electric Company, Theater!Theatre!, and The Shoebox Theater.<br />
+
+            From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser in
+            collaboration with The Anonymous Theatre Company. Other past collaborations include
+            defunkt theatre, Stark Raving Theater, and Tears of Joy Theatre.<br />
+
+            Theatre Vertigo has worked on world premieres including Faust.Us by Joseph Fisher,
+            99 Ways to Fuck a Swan by Kim Rosenstock, and The End of Sex by Craig Jessen.<br />
+
+            In 2016, Theatre Vertigo produced its first officially commissioned work from a playwright,
+            I Want To Destroy You, by Rob Handel.
+        </p>
+    </div>
+
+
+    <div class="home-about--ensemble">
+        <p class="home-about--red-underline">ENSEMBLE</p>
+    </div>
+
+    <div class="home-about--ensemble-images">
+        <div class="home-about--ensemble-images-item">
+            <img src="~/Content/images/Cast_Img_7.jpg" style="width:35%;" alt="Image 1" />
+            <figcaption class="home-about--caption">TOM MOUNSEY</figcaption>
+        </div>
+
+        <div class="home-about--ensemble-images-item">
+            <img src="~/Content/images/Cast_Img_1.jpg" style="width:35%;" alt="Image 1" />
+            <figcaption class="home-about--caption">KALA MAARJA HILLER</figcaption>
+        </div>
+        <div class="home-about--ensemble-images-item">
+            <img src="~/Content/images/Cast_Img_3.jpg" style="width:35%;" alt="Image 1" />
+            <figcaption class="home-about--caption">HEATH HYIJIN HOUGHTON</figcaption>
+        </div>
+        <div class="home-about--ensemble-images-item">
+            <img src="~/Content/images/Cast_Img_4.jpg" style="width:35%;" alt="Image 1" />
+            <figcaption class="home-about--caption">JACQUELLE DAVIS</figcaption>
+        </div>
+        <div class="home-about--ensemble-images-item">
+            <img src="~/Content/images/Cast_Img_6.jpg" style="width:35%;" alt="Image 1" />
+            <figcaption class="home-about--caption">VICTORIA ALVAREZ-CHACON</figcaption>
+        </div>
+    </div>
+
+    <div class="home-about--board">
+        <br />
+        <p class="home-about--red-underline" style="text-align:center">BOARD</p>
+        <p class="home-about--board-names" style="text-align:center">
+            Jamie Floyd(President)<br />
+            Tom Mounsey<br />
+            Marcia Reyes<br />
+            Lena-Liis-Kiesel
+        </p>
+    </div>
+
 </body>
-</html>
+
