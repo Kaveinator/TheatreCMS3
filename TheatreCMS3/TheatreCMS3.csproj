@@ -199,6 +199,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Prod\Controllers\ProductionController.cs" />
+    <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Controllers\CastmembersController.cs" />
     <Compile Include="Areas\Prod\Models\Castmember.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
@@ -309,6 +311,11 @@
     <Content Include="Areas\Rent\Views\Rentals\Index.cshtml" />
     <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Prod\Views\web.config" />
+    <Content Include="Areas\Prod\Views\Production\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\Production\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\Production\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\Production\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\Production\Index.cshtml" />
     <Content Include="Areas\Prod\Views\Castmembers\Create.cshtml" />
     <Content Include="Areas\Prod\Views\Castmembers\Delete.cshtml" />
     <Content Include="Areas\Prod\Views\Castmembers\Details.cshtml" />
