@@ -27,12 +27,12 @@
 .castmembers-createedit--container {
     width: 60%;
     margin-left: 20%;
+    border: 5px solid var(--secondary-color);
+    background-color: var(--secondary-color--dark);
 }
 
 .castmembers-createedit-backtolistbtn {
     background-color: var(--secondary-color);
-    border: none;
-    padding: 15px 32px;
     color: white;
 }
 
