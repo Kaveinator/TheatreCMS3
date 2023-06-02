@@ -11,6 +11,5 @@ namespace TheatreCMS3.Areas.Rent.Models
         public bool RentalDamaged { get; set; }
         public string DamagesIncurred { get; set; }
         public string Rental { get; set; }
-
     }
 }

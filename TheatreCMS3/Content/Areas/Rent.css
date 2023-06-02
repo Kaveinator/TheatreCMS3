@@ -11,11 +11,89 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+.rentalhistory-create--h2 {
+    transform: translate(285px,0px);
+    margin: 12px;
+}
+
+.rentalhistory-create--container {
+    transform:translate(155px,0px);
+    width:600px;
+    height:220px;
+    border-radius: 15px;
+    background-color: var(--main-color--light);
+    padding: 75px;
+    margin: 15px;
+    line-height: 15px;
+}
+
+.rentalhistory--create-sidebyside{
+    transform: translate(100px, -85px);
+    display:inline-block;
+}
+
+.rentalhistory-create--backtolist {
+    background-color: #535052; /* Green background */
+    border-radius:6px;
+    border: none;
+    color: white; /* White text */
+    padding: 13px 13px 13px 13px;
+    cursor: pointer; /* Pointer/hand icon */
+    transform:translate(120px,-90px);
+    float:left;
+    
+}
+
+.rentalhistory-create--createbtn {
+    background-color: #22a211; /* Green background */
+    border: none;
+    padding: 13px 13px 13px 13px;
+    border-radius: 6px;
+    color: white; /* White text */
+    cursor: pointer; /* Pointer/hand icon */
+    transform:translate(25px,-5.7px);
+}
+
+.rentalhistory-create--backtolist a{
+    color:white;
+    text-decoration:none;
+    
+}
+
+.rentalhistory-create-damagedlabel{
+    transform:translate(172px, -67px);
+}
+
+.rentalhistory-create--checkboxtransform{
+    transform: translate(45px,5px);
+}
+
+.rentalhistory-create--rentalform{
+    transform: translate(-75px,-120px);
+    
+}
+.rentalhistory-create--rentalform2{
+    transform:translate(-60px,-100px);
+}
+
+.wrap {
+    width: 50%;
+    transform: translate(-60px,-120px);
+}
+.rentalhistory-create-rentalformbox2 {
+  width:125%;
+}
+
+.rentalhistory-createEdit--formbox{
+    width: 50%;
+    transform: translate(-60px, -120px);
+}
+
 
 .rental-CreateEdit--header {
     text-align: center;
     color: var(--light-color);
-    padding:1em;
+    padding: 1em;
 }
 
 .rental-CreateEdit--form_header {
