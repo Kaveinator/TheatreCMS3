@@ -5,42 +5,141 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<script src="https://kit.fontawesome.com/634caf7d3f.js" crossorigin="anonymous"></script>
 
-<p>
+<h2 style="text-align:center;">Index</h2>
+
+<p style="transform:translate(55px,0px);">
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
+
+
+<table class="table" style="background-color: white; margin-bottom:0px; border-top-left-radius: 18px; border-top-right-radius:18px; width:1000px; transform:translate(55px,0px);">
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
+        <th style="border-top:0px; font-weight:unset;">Most recent Rental Histories</th>
     </tr>
-}
+</table>
+
+<table class="table" style="background-color: white; border-bottom-left-radius:18px; border-bottom-right-radius:18px; width:1000px; transform:translate(55px,0px);">
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+
+            <td style="width:4%;">
+                <!-- Check / X circle-->
+                @if (item.RentalDamaged == true)
+                {
+                    <i class="fa-solid fa-circle-xmark" style="color: #fe0606; font-size:20px;"></i>
+                }
+                else
+                {
+                    <i class="fa-solid fa-circle-check" style="color: #17c41a; font-size:20px;"></i>
+                }
+            </td>
+
+            <td class="rentalhistory-index--rentaltitle">
+                <a href="#" class="badge badge-dark" id="rentalhistory-index--darkbadge">@Html.DisplayFor(modelItem => item.Rental)</a>      <!--Rental Title-->
+            </td>
+
+            <td class="rentalhistory-index--rentaldescription">
+                @if (!item.RentalDamaged)
+                {
+                    <p class="text-secondary">@Html.DisplayFor(modelItem => item.DamagesIncurred)</p> <!-- Description under construction -->
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                }
+
+            </td>
+
+
+            <td style="text-align:right; width:30%;">
+
+
+                <div class="rentalhistory-index--dropdowncontainer" id="test">
+
+                    <div class="dropdown">
+
+                        <a data-toggle="dropdown" class="rentalhistory-index--dropdown"><i class="fa fa-ellipsis-v fa-2x waves-effect"></i></a>
+
+
+                        <div class="dropdown-menu rentalhistory-index--dropdownbox">
+
+                            <i class="fa-solid fa-pen-to-square" style="color: #000000;"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId, @class = "edd" })
+                            <br />
+                            <i class="fa-solid fa-circle-info"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId, @class = "edd" })
+
+                            <div class="dropdown-divider"></div>
+                            <i class="fa-solid fa-trash-can" style="color: #f22c2c;"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId, @class = "edd" })
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </td>
+
+        </tr>
+    }
+
 
 </table>
+
+
+<!--Dropdown menu code -->
+@*<div class="col-6 offset-4" id="test">
+        <div class="dropdown">
+            <a data-toggle="dropdown"><i class="fa fa-ellipsis-v fa-2x waves-effect"></i></a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </div>
+    </div>*@
+
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalDamaged)                              <!-- Checkbox RentalDamaged -->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DamagesIncurred)                            <!-- DamagedIncurred Description -->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rental)                                     <!--  Rental Title -->
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {                                                                              <!--Default version -->
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalDamaged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DamagesIncurred)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rental)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
+            </td>
+        </tr>
+    }
+
+    </table>*@  
