@@ -148,3 +148,46 @@
 .rental-CreateEdit--input_field {
     background-color: rgb(93, 123, 244);
 }
+
+/*rentalhistory-index--page*/
+
+
+
+.rentalhistory-index--rentaltitle{
+    transform:translate(-15px,-2px);     /*Moves Title, move just incase ellipsis moves it around*/
+    width:11%;
+    white-space:nowrap;
+}
+
+.rentalhistory-index--rentaldescription{
+    text-overflow: ellipsis;
+}
+
+
+#rentalhistory-index--darkbadge{
+    font-size: 17px;
+}
+
+
+
+.rentalhistory-index--dropdown{
+   cursor:pointer;
+   color:black;
+}
+
+.rentalhistory-index--dropdowncontainer{
+
+}
+
+.rentalhistory-index--dropdownbox{
+    font-weight:bold;
+    margin:10px;
+    text-decoration:none;
+}
+
+.dropdown-menu{
+    transform:translate(10px,0px);
+}
+
+
+
