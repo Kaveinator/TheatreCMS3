@@ -11,3 +11,81 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
+
+
+.production-input input[type="text"] {
+    border: 2px solid var(--dark-color);
+    background-color: lightgray !important; /* Overriding bootstrap styles for these form items */
+}
+
+    .production-input input[type="text"]:focus {
+        border: 3px solid;
+        border-color: var(--main-color);
+        background: var(--light-color) !important;
+    }
+
+
+#production-create--formContainer {
+    display: flex;
+    flex-direction: column;
+    border: solid 5px;
+    border-color: var(--secondary-color--dark);
+    align-content: center;
+}
+
+#production-create--input {
+    border: solid 2px;
+    border-color: purple;
+}
+
+    #production-create--input:focus {
+        outline: none;
+        border-color: var(--main-color);
+    }
+
+#production-create--flex-container {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    justify-content: space-around;
+}
+
+#production-create--flex-items {
+    background-color: var(--secondary-color);
+    border: 1px;
+    border-radius: 5px;
+    width: 75px;
+    height: 50px;
+}
+
+.production-create--button {     
+    border-radius: 8px;
+    width: 100px;
+    height: 45px;
+    text-align: center;
+    padding: 10px;
+}
+
+
+#production-create--submitbuttoncolor {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+    #production-create--submitbuttoncolor:hover {
+        background-color: var(--light-color);
+        border-color: var(--secondary-color);
+    }
+
+#production-create--savebuttoncolor {
+    background-color: var(--main-color--light);
+    border-color: var(--main-color--light);
+}
+
+    #production-create--savebuttoncolor:hover {
+        background-color: var(--light-color);
+    }
+   
+    

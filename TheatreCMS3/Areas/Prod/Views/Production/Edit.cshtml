@@ -1,27 +1,23 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.Production
 
-@{
-    ViewBag.Title = "Edit";
+@{     
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Edit</h2>
-
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Production</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ProductionId)
-
+<div class="form-horizontal">
+    <h1>Edit Production</h1>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ProductionId)
+    <div id="production-create--formContainer" class="production-input">
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" ,placeholder="Enter a title"} })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -29,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder="Enter a description" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -37,7 +33,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Playwright, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Playwright, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Playwright, new { htmlAttributes = new { @class = "form-control", placeholder="Enter a playwright"} })
                 @Html.ValidationMessageFor(model => model.Playwright, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -45,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Runtime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Runtime, new { htmlAttributes = new { @class = "form-control" , placeholder="Enter a run time"} })
                 @Html.ValidationMessageFor(model => model.Runtime, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -53,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OpeningDay, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "form-control", placeholder="Enter an opening day" } })
                 @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -61,7 +57,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShowTimeEve, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.ShowTimeEve, new { htmlAttributes = new { @class = "form-control" ,placeholder="Enter an evening showtime"} })
                 @Html.ValidationMessageFor(model => model.ShowTimeEve, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -69,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShowTimeMat, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.ShowTimeMat, new { htmlAttributes = new { @class = "form-control" , placeholder="Enter a matinee showtime"} })
                 @Html.ValidationMessageFor(model => model.ShowTimeMat, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -77,7 +73,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control", placeholder="Enter a season" } })
                 @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -95,7 +91,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TicketLink, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "form-control", placeholder="Enter a ticket link" } })
                 @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -112,16 +108,19 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <div id="production-create--flex-container">
+                <input type="submit" value="Save" id="production-create--savebuttoncolor" class="production-create--button" />
+                </div>
             </div>
         </div>
     </div>
-}
+    </div>
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
