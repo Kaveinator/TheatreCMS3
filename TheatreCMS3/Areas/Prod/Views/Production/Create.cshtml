@@ -15,7 +15,7 @@
         <h1>Create Production</h1>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div id="production-create--formContainer" class="production-input">
+        <div id="production-createedit--formContainer" class="production-input">
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -110,18 +110,17 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-             <div id="production-create--flex-container" >
-                <input type="submit" value="Create" id="production-create--submitbuttoncolor" class="production-create--button" />
-            </div>
+                <div id="production-createedit--flex-container">
+                    <input type="submit" value="Create" id="production-create--createbuttoncolor" class="production-createedit--button" />
+                    @Html.ActionLink("Back to List","Index",null,new{@class="btn btn-primary",id="production-createedit--backtolistbuttoncolor"})
+                </div>
             </div>
         </div>
      </div>
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
