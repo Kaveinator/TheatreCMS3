@@ -64,6 +64,19 @@
     max-width: 600px;
 }
 
+.calendarevent-create--input {
+    width: 122%;
+    border-radius: 10px;
+    border: 2px solid var(--dark-color);
+    background-color: lightgray;
+}
+
+    .calendarevent-create--input:focus {
+        border: 3px solid;
+        border-color: var(--main-color--light);
+        background: var(--light-color);
+    }
+
 /* This code designs the buttons that falls under this class */
 .calendarevent-create--button_group {
     margin-inline: 0%;
@@ -85,19 +98,16 @@
 
 /* This code effects the "Back to List" button */
 .calendar-create--BackToList {
-    margin-bottom: 5%;
+    margin: 0 auto;
+    display: block;
     background-color: #FFFBFB;
-    background-color: #FFFBFB;
-    border: 2px black;
+    border: 2px solid black;
     color: black;
-    width: auto;
-    text-decoration: none;
-    display: inline-block;
+    width: fit-content;
+    padding: 3px;
     font-size: 16px;
     cursor: pointer;
-    float: inherit;
     text-align: center;
-    padding: 3px;
 }
 
                                                     /* End Calendar Create Page */
@@ -142,19 +152,17 @@
 
 /* This code effects the "Back to List" button on the Edit page */
 .calendar-edit--BackToList {
-    margin-bottom: 5%;
+    margin: 0 auto;
+    display: block;
     background-color: #FFFBFB;
-    background-color: #FFFBFB;
-    border: 2px black;
+    border: 2px solid black;
     color: black;
-    width: auto;
-    text-decoration: none;
-    display: inline-block;
+    width: fit-content;
+    padding: 3px;
     font-size: 16px;
     cursor: pointer;
-    float: inherit;
     text-align: center;
-    padding: 3px;
 }
+
 
                                                         /* End Calendar Edit Page */
