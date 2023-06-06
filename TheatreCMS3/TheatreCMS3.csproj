@@ -199,6 +199,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Blog\Models\Comment.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionController.cs" />
     <Compile Include="Areas\Prod\Models\Production.cs" />
     <Compile Include="Areas\Prod\Controllers\CastmembersController.cs" />
@@ -328,6 +330,11 @@
     <Content Include="Areas\Prod\Views\CalenderEvents\Details.cshtml" />
     <Content Include="Areas\Prod\Views\CalenderEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalenderEvents\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Comments\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -492,9 +499,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
-    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
-    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
