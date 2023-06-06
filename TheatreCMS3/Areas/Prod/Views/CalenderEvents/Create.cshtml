@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Title" } })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "calendarevent-create--input", @placeholder = "Enter Title" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Start Date" } })
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "calendarevent-create--input", @placeholder = "Enter Start Date" } })
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter End Date" } })
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "calendarevent-create--input", @placeholder = "Enter End Date" } })
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Start Time" } })
+                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "calendarevent-create--input", @placeholder = "Enter Start Time" } })
                 @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter End Time" } })
+                @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "calendarevent-create--input", @placeholder = "Enter End Time" } })
                 @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TicketsAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TicketsAvailable, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tickets Available" } })
+                @Html.EditorFor(model => model.TicketsAvailable, new { htmlAttributes = new { @class = "calendarevent-create--input", @placeholder = "Tickets Available" } })
                 @Html.ValidationMessageFor(model => model.TicketsAvailable, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -92,7 +92,7 @@
 }
 
 <div>
-    <div class="col-md-offset-2 col-md-10">
+    <div class="col-md-9 col-md-12">
 
         @Html.ActionLink("Back to List", "Index", null, new { @class = "calendar-create--BackToList" })
     </div>
