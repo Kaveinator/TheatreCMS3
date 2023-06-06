@@ -43,3 +43,90 @@
 .castmembers-createedit-label:focus {
     border: 2px solid var(--main-color);
 }
+
+
+.production-input input[type="text"] {
+    border: 2px solid var(--dark-color);
+    background-color: lightgray !important; /* Overriding bootstrap styles for these form items */
+}
+
+    .production-input input[type="text"]:focus {
+        border: 3px solid;
+        border-color: var(--main-color);
+        background: var(--light-color) !important;
+    }
+
+
+#production-createedit--formContainer {
+    display: flex;
+    flex-direction: column;
+    border: solid 5px;
+    border-color: var(--secondary-color--dark);
+    align-content: center;
+}
+
+#production-createedit--input {
+    border: solid 2px;
+    border-color: purple;
+}
+
+    #production-create--input:focus {
+        outline: none;
+        border-color: var(--main-color);
+    }
+
+#production-createedit--flex-container {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 100px;
+    margin: auto;
+    justify-content: space-around;
+}
+
+#production-createedit--flex-items {
+    background-color: var(--secondary-color);
+    border: 1px;
+    border-radius: 5px;
+    width: 80px;
+    height: 45px;
+}
+
+.production-createedit--button {     
+    border-radius: 3px;
+    width: 100px;
+    height: 37px;
+    text-align: center;
+    padding: 5px;
+}
+
+
+#production-create--createbuttoncolor {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+    #production-create--createbuttoncolor:hover {
+        background-color: var(--light-color);
+        border-color: var(--secondary-color);
+    }
+#production-createedit--backtolistbuttoncolor {
+    background-color: var(--dark-color);
+    border-color: var(--secondary-color);
+}
+
+    #production-createedit--backtolistbuttoncolor:hover {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+
+#production-edit--savebuttoncolor {
+    background-color: var(--main-color--light);
+    border-color: var(--main-color--light);
+}
+
+    #production-edit--savebuttoncolor:hover {
+        background-color: var(--light-color);
+    }
+   
+    
