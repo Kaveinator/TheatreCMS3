@@ -129,4 +129,125 @@
         background-color: var(--light-color);
     }
    
-    
+
+                                                        /* Start Calendar Create Page */
+
+/* This code designs the text "Create Calendar Event" */
+.calendarevent-create--header {
+    text-align: center;
+    color: white;
+}
+
+/* This code creates the container for the Create Calendar Event */
+.calendarevent-create--form_container {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color--dark), -1px -1px 0px var(--secondary-color--dark);
+    max-width: 600px;
+}
+
+.calendarevent-create--input {
+    width: 122%;
+    border-radius: 10px;
+    border: 2px solid var(--dark-color);
+    background-color: lightgray;
+}
+
+    .calendarevent-create--input:focus {
+        border: 3px solid;
+        border-color: var(--main-color--light);
+        background: var(--light-color);
+    }
+
+/* This code designs the buttons that falls under this class */
+.calendarevent-create--button_group {
+    margin-inline: 0%;
+    padding-bottom: 4%;
+}
+
+ /* This code directly affects the create button */
+.calendarevent-create--submit_button {
+    background-color: #FFFBFB;
+    border-block-color: black;
+    border: 2px black;
+    padding: 3px;
+    width: 100%;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* This code effects the "Back to List" button */
+.calendar-create--BackToList {
+    margin: 0 auto;
+    display: block;
+    background-color: #FFFBFB;
+    border: 2px solid black;
+    color: black;
+    width: fit-content;
+    padding: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+                                                    /* End Calendar Create Page */
+
+                                                    /* Start Calendar Edit Page */
+
+/* This code designs the text "Create Calendar Event" */
+.calendarevent-edit--header {
+    text-align: center;
+    color: white;
+}
+
+/* This code creates the container for the Calendar Event Edit Page */
+.calendarevent-edit--form_container {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--secondary-color--dark), -1px -1px 0px var(--secondary-color--dark);
+    max-width: 600px;
+}
+
+/* This code designs the buttons that falls under this class on the edit page */
+.calendarevent-edit--button_group {
+    margin-inline: 0%;
+    padding-bottom: 4%;
+}
+
+/* This code directly affects the create button */
+.calendarevent-edit--submit_button {
+    background-color: #FFFBFB;
+    border-block-color: black;
+    border: 2px black;
+    padding: 3px;
+    width: 100%;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* This code effects the "Back to List" button on the Edit page */
+.calendar-edit--BackToList {
+    margin: 0 auto;
+    display: block;
+    background-color: #FFFBFB;
+    border: 2px solid black;
+    color: black;
+    width: fit-content;
+    padding: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+                                                        /* End Calendar Edit Page */
