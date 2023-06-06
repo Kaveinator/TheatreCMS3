@@ -7,46 +7,10 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Message)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CommentDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Likes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dislikes)
-        </th>
-        <th></th>
-    </tr>
+@Html.Partial("_Comments")
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Message)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommentDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Likes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dislikes)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CommentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CommentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CommentId })
-        </td>
-    </tr>
-}
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+ </p>
 
-</table>
+    @Html.Partial("~/Areas/Blog/Views/Comments/_Comments.cshtml", Model*@)
