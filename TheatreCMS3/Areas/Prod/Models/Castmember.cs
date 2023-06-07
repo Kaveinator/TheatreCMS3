@@ -13,8 +13,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         public position MainRole { get; set; }
         public string Bio { get; set; }
 
-        //Photo will be used in a later story, so it is not needed until then
-        //public byte[] Photo { get; set; }
+        public byte[] Photo { get; set; }
         public bool CurrentMember { get; set; }
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
