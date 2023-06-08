@@ -40,6 +40,12 @@
     </tr>
 
 @foreach (var item in Model) {
+    string words = "";
+    //If there is no photo, place the photo into words and convert it to a string
+    if (item.Photo != null)
+    {
+        words = Convert.ToBase64String(item.Photo);
+    }
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -64,6 +70,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DebutYear)
+        </td>
+        <td>
+            <img class="castmembers-index--photo" src="data:image/jpeg;base64,@words"/>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberId }) |
