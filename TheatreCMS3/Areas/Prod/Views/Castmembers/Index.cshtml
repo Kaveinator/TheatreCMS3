@@ -42,7 +42,7 @@
         <th></th>
     </tr>*@
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (var item in Model.OrderBy(c => c.ProductionTitle))
     {
         string words = "";
         //If there is no photo, place the photo into words and convert it to a string
@@ -78,7 +78,7 @@
             <td>*@
         <div class="col">
             <div class="card castmembers-index--photocontainer">
-                @*Change the html action link into a url action link and encase it in the div, so the details can be access anywhere.*@
+                @*Change the html action link into a url action link and encase it in the div, so the details can be accessed on the img.*@
                 <a href="@Url.Action("Details", new { id = item.CastMemberId })">
                     <img class="card-img-top castmembers-index--image" src="data:image/jpeg;base64,@words" />
                     <p class="editDelete">
