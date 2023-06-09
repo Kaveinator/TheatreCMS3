@@ -10,8 +10,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+@*<table class="table">
     <tr>
+        <th>
+
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -37,49 +40,60 @@
             @Html.DisplayNameFor(model => model.DebutYear)
         </th>
         <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    string words = "";
-    //If there is no photo, place the photo into words and convert it to a string
-    if (item.Photo != null)
+    </tr>*@
+<div class="row">
+    @foreach (var item in Model)
     {
-        words = Convert.ToBase64String(item.Photo);
-    }
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearJoined)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainRole)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Character)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CastYearLeft)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DebutYear)
-        </td>
-        <td>
-            <img class="castmembers-index--photo" src="data:image/jpeg;base64,@words"/>
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CastMemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CastMemberId })
-        </td>
-    </tr>
-}
+        string words = "";
+        //If there is no photo, place the photo into words and convert it to a string
+        if (item.Photo != null)
+        {
+            words = Convert.ToBase64String(item.Photo);
+        }
+        @*<tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearJoined)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Character)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CastYearLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DebutYear)
+            </td>
+            <td>*@
+        <div class="col">
+            <div class="card castmembers-index--photocontainer">
+                @*Change the html action link into a url action link and encase it in the div, so the details can be access anywhere.*@
+                <a href="@Url.Action("Details", new { id = item.CastMemberId })">
+                    <img class="card-img-top castmembers-index--image" src="data:image/jpeg;base64,@words" />
+                    <p class="editDelete">
+                        <i class="fa fa-pencil-square-o">@Html.ActionLink(" Edit", "Edit", new { id = item.CastMemberId })</i> |
+                        <i class="fa fa-trash">@Html.ActionLink(" Delete", "Delete", new { id = item.CastMemberId })</i>
+    </p>
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        @*@Html.ActionLink("Details", "Details", new { id = item.CastMemberId })*@
+                    </div>
+                </a>
+            </div>
 
-</table>
+        </div>
+    }
+</div>
+
+@*</table>*@
