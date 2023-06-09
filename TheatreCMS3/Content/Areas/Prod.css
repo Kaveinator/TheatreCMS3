@@ -44,6 +44,41 @@
     border: 2px solid var(--main-color);
 }
 
+.castmembers-index--photocontainer {
+    width: 18rem;
+    text-align: center;
+    position: relative;
+    background-color: gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 dimgray;
+}
+
+.castmembers-index--image {
+    height: 12rem;
+    display: block;
+}
+
+.editDelete {
+    position: absolute;
+    top: 50%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    display: none;
+    transform: scale(2,2);
+    font-size: 13px;
+    
+}
+
+.castmembers-index--photocontainer:hover .editDelete {
+    display: block;
+    /*filter: brightness(50%);*/
+}
+
+.castmembers-index--image:hover {
+    filter: brightness(50%);
+}
+
+
+
 
 .production-input input[type="text"] {
     border: 2px solid var(--dark-color);
