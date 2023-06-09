@@ -2,26 +2,29 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.7.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="~/Content/Site.css">
+<link rel="stylesheet" href="~/Content/Areas/Blog.css">
 
-<div class="comments-section">
+<div class="comment-index--comments_section">
     <h3>Comments</h3>
     <hr />
 
-    <div class="container">
-        <div class="row">
+    <div class="comment-index--container">
+        <div class="comment-index--row">
             <div class="col-md-12">
+
+                <a href="@Url.Action("Create")" class="btn" style="background-color: #d6972a; color: black; font-weight: bold;">Create New Comment</a>
+
                 @foreach (var item in Model)
                 {
-                    <div class="comment-item">
-                        <img src="https://i.imgur.com/yTFUilP.jpg" alt="User Avatar" class="user-avatar rounded-circle">
-                        <div class="comment-content">
+                    <div class="comment-index--comment_item">
+                        <img src="https://i.imgur.com/yTFUilP.jpg" alt="User Avatar" class="comment-index--user_avatar rounded-circle">
+                        <div class="comment-index--comment_content">
                             <h5 class="mt-0">@item.Author</h5>
                             <span class="text-muted">@item.CommentDate.ToString("MMM dd, yyyy")</span>
                             <p>@Html.DisplayFor(modelItem => item.Message)</p>
                             <div class="comment-actions">
-                                <button class="btn btn-link"><i class="fa-regular fa-thumbs-up" style="color: #f04d44;"></i> <span class="like-count">@item.Likes</span></button>
-                                <button class="btn btn-link"><i class="fa-regular fa-thumbs-down" style="color: #bd1a11;"></i> <span class="dislike-count">@item.Dislikes</span></button>
+                                <button class="btn btn-link"><i class="fa-regular fa-thumbs-up" style="color: #f04d44;"></i> <span class="comment-index--like_count">@item.Likes</span></button>
+                                <button class="btn btn-link"><i class="fa-regular fa-thumbs-down" style="color: #bd1a11;"></i> <span class="comment-index--dislike_count">@item.Dislikes</span></button>
                                 <button class="btn btn-link"><i class="fa-solid fa-reply"></i> Reply</button>
                                 @if (User.IsInRole("Admin"))
                                 {
@@ -37,5 +40,5 @@
         </div>
     </div>
 
-    <a href="@Url.Action("Create")" class="btn" style="background-color: #d6972a; color: black; font-weight: bold;">Create New Comment</a>
+
 </div>
