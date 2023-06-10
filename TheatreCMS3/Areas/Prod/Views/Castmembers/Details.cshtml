@@ -6,78 +6,90 @@
 }
 
 <h2>Details</h2>
+    <div class="castmembers-detailsdelete--container">
+        <br>
+        <h4>Castmember</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dd>
+                @*Converts the image to a string so that it can be displayed on the details page*@
+                @if (Model.Photo != null)
+                {
+                    string words = Convert.ToBase64String(Model.Photo);
+                    <div class="castmembers-detailsdelete--img">
+                        <img class="card-img-top castmembers-index--image" src="data:image/jpeg;base64,@words" />
+                    </div>
+                 }
 
-<div>
-    <h4>Castmember</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dd class="castmembers-detailsdelete--textcontainer">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.YearJoined)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.YearJoined)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.YearJoined)
-        </dd>
+                <dd class="castmembers-detailsdelete--textcontainer">
+                    @Html.DisplayFor(model => model.YearJoined)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MainRole)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MainRole)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MainRole)
-        </dd>
+                <dd class="castmembers-detailsdelete--textcontainer">
+                    @Html.DisplayFor(model => model.MainRole)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bio)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+                <dd class="castmembers-detailsdelete--textcontainer">
+                    @Html.DisplayFor(model => model.Bio)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentMember)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CurrentMember)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CurrentMember)
-        </dd>
+                <dd class="castmembers-detailsdelete--textcontainer">
+                    @Html.DisplayFor(model => model.CurrentMember)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Character)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Character)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Character)
-        </dd>
+                <dd class="castmembers-detailsdelete--textcontainer">
+                    @Html.DisplayFor(model => model.Character)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CastYearLeft)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CastYearLeft)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CastYearLeft)
-        </dd>
+                <dd class="castmembers-detailsdelete--textcontainer">
+                    @Html.DisplayFor(model => model.CastYearLeft)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DebutYear)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DebutYear)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DebutYear)
-        </dd>
+                <dd class="castmembers-detailsdelete--textcontainer">
+                    @Html.DisplayFor(model => model.DebutYear)
+                </dd>
+                <br>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CastMemberId }) |
-    @Html.ActionLink("Back to List", "Index")
+            </dl>
+    </div>
+    <p class="castmembers-detailsdelete--icons">
+        <i class="fa fa-pencil-square-o">@Html.ActionLink(" Edit", "Edit", new { id = Model.CastMemberId })</i> |
+        <i class="fa-solid fa-hand-point-left">@Html.ActionLink(" Back to List", "Index")</i>
 </p>
