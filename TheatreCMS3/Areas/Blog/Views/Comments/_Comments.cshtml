@@ -23,22 +23,30 @@
                             <span class="text-muted">@item.CommentDate.ToString("MMM dd, yyyy")</span>
                             <p>@Html.DisplayFor(modelItem => item.Message)</p>
                             <div class="comment-actions">
-                                <button class="btn btn-link"><i class="fa-regular fa-thumbs-up" style="color: #f04d44;"></i> <span class="comment-index--like_count">@item.Likes</span></button>
-                                <button class="btn btn-link"><i class="fa-regular fa-thumbs-down" style="color: #bd1a11;"></i> <span class="comment-index--dislike_count">@item.Dislikes</span></button>
-                                <button class="btn btn-link"><i class="fa-solid fa-reply"></i> Reply</button>
-                                @if (User.IsInRole("Admin"))
-                                {
-                                    @Html.ActionLink("Details", "Details", new { id = item.CommentId }, new { @class = "btn btn-link" })
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }, new { @class = "btn btn-link" })
-                                    <button class="btn btn-link"><i class="fas fa-trash-alt trash-icon"></i></button>
-                                }
-                            </div>
-                        </div>
+                                <button onclick="Like(@item.CommentId)">
+                                    <i class="fa-regular fa-thumbs-up" style="color: #f04d44;"></i>
+                                    <span class="comment-index--like_count" id="like-count-@item.CommentId">@item.Likes</span>
+                                </button>
+                                <button onclick="Dislike(@item.CommentId)">
+                                    <i class="fa-regular fa-thumbs-down" style="color: #bd1a11;"></i>
+                                    <span class="comment-index--dislike_count" id="dislike-count-@item.CommentId">@item.Dislikes</span>
+                                </button>
+
+                        <button class="btn btn-link"><i class="fa-solid fa-reply"></i> Reply</button>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Details", "Details", new { id = item.CommentId }, new { @class = "btn btn-link" })
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }, new { @class = "btn btn-link" })
+                            <button class="btn btn-link"><i class="fas fa-trash-alt trash-icon"></i></button>
+                        }
                     </div>
+                </div>
+            </div>
                 }
             </div>
         </div>
     </div>
-
-
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="~/Scripts/Areas/Blog.js"></script>
