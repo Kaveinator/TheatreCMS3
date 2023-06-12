@@ -116,6 +116,43 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             return RedirectToAction("Index");
         }
 
+        // like and dislike methods
+        [HttpPost]
+        public JsonResult AddLike(int id)
+        {
+            var comment = db.Comments.Find(id);
+            if (comment == null)
+            {
+                return Json(new { error = "Comment not found." });
+            }
+
+            comment.Likes += 1;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+
+            var result = new JsonResult();
+            result.Data = new { likes = comment.Likes };
+            return result;
+        }
+
+        [HttpPost]
+        public JsonResult AddDislike(int id)
+        {
+            var comment = db.Comments.Find(id);
+            if (comment == null)
+            {
+                return Json(new { error = "Comment not found." });
+            }
+
+            comment.Dislikes += 1;
+            db.Entry(comment).State = EntityState.Modified;
+            db.SaveChanges();
+
+            var result = new JsonResult();
+            result.Data = new { dislikes = comment.Dislikes };
+            return result;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
