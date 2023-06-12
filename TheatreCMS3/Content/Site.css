@@ -634,9 +634,9 @@ footer {
 .home-contact-container {
     height: 220px;
     padding: 2%;
-    background-color: #000000;
+    background-color: var(--dark-color);
     font-family: broadway;
-    color: white;
+    color: var(--light-color);
     text-align: center;
     border-radius: 20px 20px 20px 20px;
     font-size: xx-large;
@@ -647,13 +647,12 @@ footer {
     width: 100%;
     height: 50px;
     padding: 1.6%;
-    background-color: #f04d44;
-    ;
-    color: white;
+    background-color: var(--main-color--light);
+    color: var(--light-color);
     text-align: center;
     font-family: Poppins;
     text-decoration: underline;
-    text-decoration-color: #bd1a11;
+    text-decoration-color: var(--main-color);
     font-size: x-large;
     text-decoration-thickness: 5px;
 }
@@ -667,8 +666,8 @@ footer {
     width: 30%;
     padding: 1.6%;
     height: 450px;
-    background-color: #f04d44;
-    color: white;
+    background-color: var(--main-color--light);
+    color: var(--light-color);
     font-family: Poppins;
     font-size: medium;
 }
@@ -678,15 +677,15 @@ footer {
     width: 60%;
     padding: 1.6%;
     height: 450px;
-    background-color: #f04d44;
-    color: white;
+    background-color: var(--main-color--light);
+    color: var(--light-color);
     font-family: Poppins;
 }
 
 .home-contact-form {
     border-radius: 12px 12px 12px 12px;
     margin: 8px;
-    color: white;
+    color: var(--light-color);
     font-size: medium;
 }
 
@@ -708,8 +707,8 @@ footer {
     float: inline-end;
     margin: 10px;
     border: none;
-    background-color: #bd1a11;
-    color: white;
+    background-color: var(--main-color);
+    color: var(--light-color);
     font-family: Poppins;
     outline-style: double;
 }
@@ -722,8 +721,8 @@ footer {
     float: inline-end;
     margin: 10px;
     border: none;
-    background-color: #bd1a11;
-    color: white;
+    background-color: var(--main-color);
+    color: var(--light-color);
     font-family: Poppins;
     outline-style: double;
 }
@@ -736,8 +735,8 @@ footer {
     float: inline-end;
     margin: 10px;
     border: none;
-    background-color: #bd1a11;
-    color: white;
+    background-color: var(--main-color);
+    color: var(--light-color);
     font-family: Poppins;
     outline-style: double;
 }
