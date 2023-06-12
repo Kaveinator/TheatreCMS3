@@ -10,3 +10,42 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+/* Start _Comments.cshtml section */
+comment-index--comment_item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.comment-index--comment_item .comment-index--user_avatar {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.comment-index--comment_item .comment-index--comment_content {
+    flex-grow: 1;
+}
+
+.comment-index--like_count {
+    color: var(--main-color--light);
+}
+
+.comment-index--dislike_count {
+    color: var(--main-color);
+}
+
+.comment-index--comment_item {
+    background-color: var(--light-color);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: black;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 5px var(--main-color);
+}
+/* End _Comments.cshtml section */
