@@ -48,4 +48,36 @@ comment-index--comment_item {
     margin-right: auto;
     box-shadow: 5px 5px 5px var(--main-color);
 }
+
+/*.comment-index--bg-custom {
+    background-image: linear-gradient(to right, var(--secondary-color) var(--like-ratio-value)%, var(--secondary-color) var(--like-ratio-value)%, var(--main-color) var(--like-ratio-value)%, var(--main-color) var(--like-ratio-value)%, #28A745 var(--like-ratio-value)%);
+    color: var(--dark-color);
+}*/
+
+/*.comment-index--bg-custom {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-weight: 600;
+    height: 35px;
+}*/
+
+/*.comment-index--custom-progress-bar {
+    height: 30px;
+    width: 50%;
+}
+
+.comment-index--custom-progress-bar .progress-text {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-index--custom-progress-bar .progress {
+    height: 100%;
+}
+
+.comment-index--custom-progress-bar .progress-bar {
+    transition: width 0.3s ease;
+}*/
 /* End _Comments.cshtml section */

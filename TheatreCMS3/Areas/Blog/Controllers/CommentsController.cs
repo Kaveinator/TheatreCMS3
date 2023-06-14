@@ -15,10 +15,47 @@ namespace TheatreCMS3.Areas.Blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/Comments
+        // defines the LikeRatio() method for controller
+        private double LikeRatio(int likes, int dislikes)
+        {
+            int totalUserVotes = likes + dislikes;
+            
+            if (totalUserVotes == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                double ratioOfVotes = (double)likes / totalUserVotes * 100;
+                return Math.Round(ratioOfVotes, 2);
+            }
+        }
+
+        // GET: Blog/Comments/GetLikeRatio
+        [HttpGet]
+        public ActionResult GetLikeRatio(int commentId)
+        {
+            var comment = db.Comments.Find(commentId);
+            if (comment == null)
+            {
+                return Json(new { error = "Comment not found." }, JsonRequestBehavior.AllowGet);
+            }
+
+            double likeRatio = LikeRatio(comment.Likes, comment.Dislikes);
+            return Json(new { likeRatio = likeRatio }, JsonRequestBehavior.AllowGet);
+        }
+
+        //GET: Blog/Comments
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            var userComments = db.Comments.ToList();
+
+            foreach (var comment in userComments)
+            {
+                comment.LikeRatioValue = comment.LikeRatio();
+            }
+
+            return View(userComments);
         }
 
         // GET: Blog/Comments/Details/5
