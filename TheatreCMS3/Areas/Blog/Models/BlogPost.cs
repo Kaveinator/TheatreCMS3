@@ -13,4 +13,5 @@ namespace TheatreCMS3.Areas.Blog.Models
         public DateTime BlogDate { get; set; }
         public string Author { get; set; }
     }
+
 }
