@@ -254,6 +254,8 @@ a.CMS-text-bigger {
 /*----- End Styling for Navbar -------*/
 
 
+
+
 /*-----Styling for _Footer.cshtml-----*/
 
 footer {
@@ -553,3 +555,55 @@ footer {
 #home-contact-messagebox {
     height: 150px;
 }
+
+.home-index-logo-img {
+    margin-top: 5em;
+}
+
+.home-index-space {
+    margin-bottom: 100px;
+}
+.home-index-text {
+    color: var(--light-color);
+    font-family: Poppins;
+}
+
+
+.home-index-column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.home-index-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.home-index-column {
+    padding: 10px;
+    display: table;
+    clear: both;
+    width: 50%;
+}
+
+.home-index-padding {
+    padding: 75px
+}
+
+.home-index-hr {
+    <hr style="height:7px;border-width:0;color:#fO4d44;background-color:#fO4d44">
+}
+
+.home-index-p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.home-index-p {
+    font-family:Oswald;
+}
+
+
+

@@ -1,32 +1,65 @@
 ﻿@{
-  ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Page";
 }
-
+<head>
+    <link rel="stylesheet" href="~/Content/Site.css">
+</head>
 <div>
-  <h1 class="CMS-text-white CMS-text-bigger">Welcome to Theatre Vertigo</h1>
-  <p class="text-xl-center">@Html.ActionLink("About Theatre Vertigo", "About", new { }, new { @class = "CMS-text-bigger" })</p>
-  @*<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>*@
-  @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    <center>
+        <img src="~/Content/images/TheatreLogo.png" class="home-index-logo-img home-index-padding" style="width:700px;" />
+    </center>
 </div>
 
-@*<div class="row">
-      <div class="col-md-4">
-          <h2>Getting started</h2>
-          <p>
-              ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-              enables a clean separation of concerns and gives you full control over markup
-              for enjoyable, agile development.
-          </p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-          <h2>Get more libraries</h2>
-          <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-          <h2>Web Hosting</h2>
-          <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-          <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-      </div>
-  </div>*@
+<div class="home-index-row">
+    <div class="home-index-column">
+        <h4><u>SPOTLIGHT</u></h4>
+        <img class="img-fluid" src="~/Content/images/DollsHouse.png" alt="" />
+    </div>
+
+    <div class="home-index-column">
+        <h4><u>DONATIONS</u></h4>
+        <button type="button" class="btn btn-danger">Click to Support</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="column">
+        <div class="col-sm">
+            <h4><u>SPONSORS</u></h4>
+            <img class="img-fluid" src="~/Content/images/Sponsors/LogoRoundColor.png" width="75" height="75" />
+            <img class="img-fluid" src="~/Content/images/Sponsors/Ninkasi-white-text.png" width="75" height="75" />
+            <img class="img-fluid" src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" width="75" height="75" />
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="column">
+        <div class="col-sm">
+            <img class="img-fluid" src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" width="75" height="75" />
+            <img class="img-fluid" src="~/Content/images/Sponsors/RACC.png" width="75" height="75" />
+        </div>
+    </div>
+</div>
+<img src="~/Content/images/Tempest.png" />
+
+<h3>LAND ACKNOWLEDGEMENT</h3>
+<p>Theatre Vertigo humbly acknowledges we lie and work on the unceded, traditional tribal lands</p>
+<p>of the Multnomah, Wasco, Clackamas, Chinook bands, Kathlamet, Tualatin Kalapuya, Cowlitz, Mollala</p>
+<p>
+    Cowlitz, Mollala, Cascades, Oregon City Tumwater, Confederated Tribes of the Grande Ronde and other
+    indigenous peoples
+</p>
+<p><b> We are on stolen land</b></p>
+<p>Theatre Vertigo has been and continues to examine our community relationships to ensure our</p>
+<p>collaborators, partners and sponsors support the our regions Indigenous Nations and communities.</p>
+<p>One of the ways Theatre Vertigo is working to act on our commitment to being of service to the lands</p>
+<p>that we now share is to build brdges between our arts community and local Nations</p>
+
+
+<a href="https://nayapdx.org/"><img src="Content/images/NAYAFamilyCenter.jpg" style="width:50px;height:50px;"></a>
+<!--Footer section-->
+<footer>
+    <p><a href=About</a> <a href=Contact</a></p>
+    <p class="left">
+</footer>
