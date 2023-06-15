@@ -307,6 +307,7 @@
     <Content Include="Areas\Blog\Views\BlogPosts\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPosts\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPosts\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogPosts\_Blogpost.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
