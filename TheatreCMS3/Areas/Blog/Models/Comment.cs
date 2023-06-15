@@ -16,6 +16,8 @@ namespace TheatreCMS3.Areas.Blog.Models
         public DateTime CommentDate { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
+        // defines a property for LikeRatioValue
+        public double LikeRatioValue { get; set; }
 
         public Comment()
         {
@@ -29,7 +31,7 @@ namespace TheatreCMS3.Areas.Blog.Models
                 return 0;
             }
 
-            return (double)Likes / (Likes + Dislikes);
+            return (double)Likes / (Likes + Dislikes) * 100;
         }
     }
 }
