@@ -81,3 +81,137 @@ comment-index--comment_item {
     transition: width 0.3s ease;
 }*/
 /* End _Comments.cshtml section */
+/* End _Comments.cshtml section */
+
+/*BLOGPOST EDIT PAGE*/
+
+.blog-edit-container {
+    height: 80%;
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    text-align: left;
+    border-radius: 20px 20px 20px 20px;
+    font-size: x-large;
+    border: 10px solid var(--main-color);
+    padding-left: 12%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.blog-edit-h1 {
+    font-size: xx-large;
+    text-align: center;
+    padding: 5%;
+}
+
+
+.blog-edit-savebtn {
+    width: 20%;
+    height: 15%;
+    padding: 1%;
+    border-radius: 7px;
+    cursor: pointer;
+    float: inline-end;
+    margin: 10px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border: 3px solid var(--main-color);
+}
+
+/*BLOGPOST CREATE PAGE*/
+
+.blog-create-container {
+    height: 80%;
+    background-color: var(--secondary-color--dark);
+    color: var(--light-color);
+    text-align: left;
+    border-radius: 20px 20px 20px 20px;
+    font-size: x-large;
+    border: 10px solid var(--main-color--light);
+    padding-left: 12%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.blog-create-h1 {
+    font-size: xx-large;
+    text-align: center;
+    padding: 5%;
+}
+
+
+.blog-create-savebtn {
+    width: 20%;
+    height: 15%;
+    padding: 1%;
+    border-radius: 7px;
+    cursor: pointer;
+    float: inline-end;
+    margin: 10px;
+    background-color: var(--light-color);
+    color: var(--secondary-color);
+    border: 3px solid var(--main-color--light);
+}
+
+/*BLOGPOST INDEX PAGE*/
+
+.blog-index-container {
+    height: 420px;
+    width: 900px;
+    background-color: var(--secondary-color--dark);
+    color: var(--light-color);
+    text-align: left;
+    border-radius: 20px;
+    font-size: large;
+    border: 5px solid var(--main-color);
+    margin-bottom: 3rem;
+    margin-left: 9rem;
+}
+
+.blog-index-blogcontainer {
+    height: 80%;
+    background-color: var(--dark-color);
+}
+
+.blog-index-blogphoto {
+    float: left;
+    height: 410px;
+    width: 50%;
+    border-radius: 10px;
+    border: 2px solid var(--main-color);
+}
+
+.blog-index-Blog_info {
+    font-size: x-large;
+    text-align: center;
+}
+
+.blog-index-createbtn {
+    width: 15%;
+    height: 10%;
+    padding: 1%;
+    border-radius: 7px;
+    float: inline-end;
+    margin-bottom: 100px;
+    background-color: var(--light-color);
+    border: 3px solid var(--main-color--light);
+    text-align: center;
+}
+
+.blog-index-extrabtn {
+    width: 15%;
+    height: 10%;
+    padding: 1%;
+    border-radius: 7px;
+    background-color: var(--light-color);
+    text-align: center;
+}
+
+.blog-index-titlecontainer {
+    width: 100%;
+    height: 140px;
+    padding-top: 4rem;
+    border-radius: 7px;
+    background-color: var(--dark-color);
+    text-align: left;
+}
