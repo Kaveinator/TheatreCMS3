@@ -31,12 +31,12 @@
 }
 
 .CastMember-CreateEdit--CreateButton {
-    background-color: #9d7c39;
-    color: #d6972a;
+    background-color: #fffbfb;
+    color: #bd1a11;
     display: block;
-    margin: 10px auto 0;
+    margin: 40px auto 0;
     text-align: center;
-    width: 200px; 
+    width: 125px; 
 }
 
 .CastMember-CreateEdit--CreateButton:hover {
@@ -47,6 +47,7 @@
 .CastMember-CreateEdit--BackButton {
     background-color: var(--secondary-color);
     color: var(--light-color);
+    text-align: center;
 }
 
 .CastMember-CreateEdit--BackButton:hover {
