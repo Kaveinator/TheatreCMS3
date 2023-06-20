@@ -12,3 +12,37 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+
+.col-md-offset-2 col-md-10 {
+    background-color: #BD1A11;
+    color: #FFFBFB;
+    font-size: 16px;
+    padding: 12px 28px;
+}
+
+.control-label col-md-2 {
+    background-color: #D6972A;
+    color: #FFFBFB;
+}
+
+.CalendarEvents-create-container {
+    border: 10px solid;
+    background-color: var(--light-color);
+    border-radius: inherit;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    top: auto;
+    background-color: #D6972A;
+    text-align: left;
+}
+
+.CalendarEvents-Create-input:focus {
+    background-color: rgb(93, 123, 244);
+    color: #D6972A;
+    outline: 2px #BD1A11;
+}
+
+.CalendarEvents-create-button {
+    font-size: 18px;
+}
+
