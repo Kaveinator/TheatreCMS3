@@ -12,6 +12,47 @@
 /*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
 /*}*/
 
+.CastMember-FormContainer {
+    display: inherit;
+    align-items: center;
+    background-color: #9d7c39;
+    border-radius: 20px;
+}
+.CastMember-Edit--Input input:focus {
+    outline: none;
+    border: 3px solid var(--secondary-color--dark);
+    background-color: var(--light-color);
+}
+
+.CastMember-Create--Input input:focus {
+    outline: none;
+    border: 3px solid var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.CastMember-CreateEdit--CreateButton {
+    background-color: #fffbfb;
+    color: #bd1a11;
+    display: block;
+    margin: 40px auto 0;
+    text-align: center;
+    width: 125px; 
+}
+
+.CastMember-CreateEdit--CreateButton:hover {
+    background-color: var(--main-color);
+
+}
+
+.CastMember-CreateEdit--BackButton {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    text-align: center;
+}
+
+.CastMember-CreateEdit--BackButton:hover {
+    background-color: var(--main-color);
+}
 
 .col-md-offset-2 col-md-10 {
     background-color: #BD1A11;
