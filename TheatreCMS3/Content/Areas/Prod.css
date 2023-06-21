@@ -50,6 +50,31 @@
     text-align: center;
 }
 
+
 .CastMember-CreateEdit--BackButton:hover {
     background-color: var(--main-color);
 }
+
+.CalendarEvents-create-container {
+    border: 10px solid;
+    background-color: var(--light-color);
+    border-radius: inherit;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    top: auto;
+    background-color: #D6972A;
+    text-align: left;
+}
+
+.CalendarEvents-Create-input:focus {
+    background-color: var(--light-blue);
+    color: #D6972A;
+    outline: 2px #BD1A11;
+}
+
+.CalendarEvents--CreateEdit--CreateButton {
+    background-color: var(--main-color);
+    font-size: 15px;
+    color: var(--dark-color);
+}
+
