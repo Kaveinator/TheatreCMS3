@@ -54,18 +54,6 @@
     background-color: var(--main-color);
 }
 
-.col-md-offset-2 col-md-10 {
-    background-color: #BD1A11;
-    color: #FFFBFB;
-    font-size: 16px;
-    padding: 12px 28px;
-}
-
-.control-label col-md-2 {
-    background-color: #D6972A;
-    color: #FFFBFB;
-}
-
 .CalendarEvents-create-container {
     border: 10px solid;
     background-color: var(--light-color);
