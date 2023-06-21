@@ -98,7 +98,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default CalendarEvents-create-button" button style="background-color:#bd1a11;" />
-                <input type="submit" value="Back to List" class="btn btn-default CalendarEvents-create-button" button style="background-color:#bd1a11;" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = " CalendarEvents--CreateEdit--CreateButton btn btn-default" })
             </div>
             </div>
         </div>

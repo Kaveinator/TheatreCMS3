@@ -45,10 +45,11 @@
 }
 
 .CastMember-CreateEdit--BackButton {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
+    background-color: var(--main-color);
+    color: var(--main-color);
     text-align: center;
 }
+
 
 .CastMember-CreateEdit--BackButton:hover {
     background-color: var(--main-color);
@@ -66,12 +67,14 @@
 }
 
 .CalendarEvents-Create-input:focus {
-    background-color: rgb(93, 123, 244);
+    background-color: var(--light-blue);
     color: #D6972A;
     outline: 2px #BD1A11;
 }
 
-.CalendarEvents-create-button {
-    font-size: 18px;
+.CalendarEvents--CreateEdit--CreateButton {
+    background-color: var(--main-color);
+    font-size: 15px;
+    color: var(--dark-color);
 }
 
