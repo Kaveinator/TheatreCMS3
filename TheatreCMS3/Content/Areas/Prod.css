@@ -78,3 +78,15 @@
     color: var(--dark-color);
 }
 
+.CalendarEvents--Index--CreateButton {
+    background-color: var(--main-color);
+    font-size: 15px;
+    color: var(--light-color);
+}
+
+.hr {
+    height:2px;
+    border-width:0;
+    color:#FFFBFB;  
+    background-color: #FFFBFB;
+}
