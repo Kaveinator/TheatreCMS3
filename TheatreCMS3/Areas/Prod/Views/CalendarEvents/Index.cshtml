@@ -44,6 +44,12 @@
 
     @foreach (var item in Model)
     {
+        DateTime startTime = DateTime.Parse(item.StartTime.ToString());
+        DateTime endTime = DateTime.Parse(item.EndTime.ToString());
+
+        string newStartTime = startTime.ToString("hh:mm tt");
+        string newEndTime = startTime.ToString("hh:mm tt");
+
         <div class="container">
             <div class="row row-striped">
                 <div class="col-2 text-right">
@@ -54,7 +60,7 @@
                     <h3 class="text-uppercase"><strong>@item.Title</strong></h3>
                     <ul class="list-inline">
                         <li class="list-inline-item"><i class="fa fa-calendar-o mr-2" aria-hidden="true"></i>@item.StartDate.DayOfWeek</li>
-                        <li class="list-inline-item"><i class="fa fa-clock-o mr-2" aria-hidden="true"></i>@item.StartTime</li>
+                        <li class="list-inline-item"><i class="fa fa-clock-o mr-2" aria-hidden="true"></i>@newStartTime  - @newEndTime</li>
                     </ul>
                     <p>@item.Description</p>
                     <hr>
