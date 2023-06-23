@@ -12,11 +12,13 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int? YearJoined { get; set; }
         public Position MainRole { get; set; }
         public string Bio { get; set; }
-        //public Byte[] Photo { get; set; }
+        public byte[] Photo { get; set; }
         public bool CurrentMember { get; set; }
         public string Character { get; set; }
         public int? CastYearLeft { get; set; }
         public int? DebutYear { get; set; }
+        //public object Photo { get; internal set; }
+
         public enum Position
         {
             Actor,
