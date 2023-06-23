@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "CalendarEvents--Index--CreateButton btn btn-default" })
 </p>
 <table class="table">
     <tr>
@@ -39,15 +39,33 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
+@foreach (var item in Model)
+{
+<div class="container">
+    <div class="row row-striped">
+        <div class="col-2 text-right">
+            <h1 class="display-4"><span class="badge badge-secondary">17</span></h1>
+            <h2>JUNE</h2>
+        </div>
+        <div class="col-10">
+            <h3 class="text-uppercase"><strong>The Tour</strong></h3>
+            <ul class="list-inline">
+                <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i>Saturday</li>
+                <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
+            </ul>
+            <p><textarea id="w3review" name="w3review" rows="4" cols="50">, @placeholder = "Enter a description of the event"</textarea></p>
+
+            <hr>
+
+        </div>
+    </div>
+</div>
+    @Html.DisplayFor(modelItem => item.Title)
+   
+<td>
             @Html.DisplayFor(modelItem => item.StartDate)
         </td>
         <td>
@@ -76,7 +94,7 @@
             @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
         </td>
-    </tr>
+ 
 }
 
 </table>
