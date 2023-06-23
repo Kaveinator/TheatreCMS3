@@ -18,12 +18,25 @@
 /* Styles for Create and Edit pages */
 .RentalHistory-Create-form-container,
 .RentalHistory-Edit-form-container {
-    max-width: 700px;
     margin: 0 auto;
     border-radius: 10px;
     background-color: var(--main-color);
     color: var(--light-color);
-    width: fit-content;
+    max-width: 600px
+}
+
+    .RentalHistory-Create-form-container .form-row {
+        padding-left: 15px;
+    }
+
+.damage-check-container .col {
+    width: 150px;
+    height: 36px;
+}
+
+.col .damage-check {
+    width: 150px;
+    margin-top: 33px;
 }
 
 .RentalHistory-Create-form-group,
@@ -34,14 +47,10 @@
 
 .RentalHistory-Create-label,
 .RentalHistory-Edit-label {
-   
-
 }
 
 .RentalHistory-Create-controls,
 .RentalHistory-Edit-controls {
-   
-    
 }
 
 
@@ -59,7 +68,6 @@
     white-space: nowrap;
 }
 
-.RentalHistory-form-button-container .btn {
-     margin-bottom: 10px;
- }
-
+    .RentalHistory-form-button-container .btn {
+        margin-bottom: 10px;
+    }
