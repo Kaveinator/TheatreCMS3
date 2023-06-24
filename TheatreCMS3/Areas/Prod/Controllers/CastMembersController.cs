@@ -15,10 +15,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 {
     public class CastMembersController : Controller
     {
-      
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
-       // GET: Prod/CastMembers
+        // GET: Prod/CastMembers
         public ActionResult Index()
         {
             var t = db.CastMembers.ToList();
@@ -47,19 +47,19 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View();
         }
 
-       
+
 
         // POST: Prod/CastMembers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Photo,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase castMemberPhotoUpload)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Image,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase Photo)
         {
+            var a = ConvertPhotoToBytes(Photo);
             if (ModelState.IsValid)
             {
 
-                var a = ImagetoByte(castMemberPhotoUpload);
                 castMember.Photo = a;
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
@@ -68,8 +68,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
 
 
-
-            return View(castMember);
+                return View(castMember);
         }
         // GET: Prod/CastMembers/Edit/5
         public ActionResult Edit(int? id)
@@ -92,7 +91,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(castMember);
         }
 
-         // POST: Prod/CastMembers/Edit/5
+        // POST: Prod/CastMembers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -148,18 +147,20 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
-        private byte[] ConvertPhotoToBytes(HttpPostedFileBase postedFile)
+        private byte[] ConvertPhotoToBytes(HttpPostedFileBase Photo)
         {
             byte[] bytes;
-            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            using (BinaryReader br = new BinaryReader(Photo.InputStream))
             {
-                bytes = br.ReadBytes(postedFile.ContentLength);
+                bytes = br.ReadBytes(Photo.ContentLength);
             }
 
             return bytes;
         }
         public ActionResult GetCastMemberPhoto(int id)
         {
+
+
             CastMember castMember = db.CastMembers.Find(id);
             byte[] photo = (byte[])castMember.Photo;
             return File(photo, "image/jpg");
