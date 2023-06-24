@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Drawing;
+using System.IO;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
@@ -13,11 +15,14 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 {
     public class CastMembersController : Controller
     {
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/CastMembers
         public ActionResult Index()
         {
+            var t = db.CastMembers.ToList();
+
             return View(db.CastMembers.ToList());
         }
 
@@ -42,23 +47,29 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View();
         }
 
+
+
         // POST: Prod/CastMembers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember)
+        public ActionResult Create([Bind(Include = "CastMemberId,Name,YearJoined,MainRole,Image,Bio,CurrentMember,Character,CastYearLeft,DebutYear")] CastMember castMember, HttpPostedFileBase Photo)
         {
+            var a = ConvertPhotoToBytes(Photo);
             if (ModelState.IsValid)
             {
+
+                castMember.Photo = a;
                 db.CastMembers.Add(castMember);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
-            return View(castMember);
-        }
 
+                return View(castMember);
+        }
         // GET: Prod/CastMembers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -71,6 +82,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             {
                 return HttpNotFound();
             }
+            if (Request.Files.Count > 0)
+            {
+                HttpPostedFileBase photo = Request.Files[0];
+                castMember.Photo = ConvertPhotoToBytes(photo);
+            }
+
             return View(castMember);
         }
 
@@ -83,6 +100,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase photo = Request.Files[0];
+                    castMember.Photo = this.ConvertPhotoToBytes(photo);
+                }
+
                 db.Entry(castMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +146,24 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        private byte[] ConvertPhotoToBytes(HttpPostedFileBase Photo)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(Photo.InputStream))
+            {
+                bytes = br.ReadBytes(Photo.ContentLength);
+            }
+
+            return bytes;
+        }
+        public ActionResult GetCastMemberPhoto(int id)
+        {
+
+
+            CastMember castMember = db.CastMembers.Find(id);
+            byte[] photo = (byte[])castMember.Photo;
+            return File(photo, "image/jpg");
         }
     }
 }
