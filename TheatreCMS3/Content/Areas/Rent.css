@@ -2,15 +2,14 @@
 /* Do not uncomment these color variables */
 
 /* CSS color variables */
-:root {
-    /* Color palette for css */
-    --main-color: #bd1a11; /* Red */
-    --main-color--light: #f04d44; /* Red, a shade lighter */
-    --secondary-color: #d6972a; /* Yellow gold */
-    --secondary-color--dark: #9d7c39; /* Dark Gold */
-    --light-color: #fffbfb; /* White */
-    --dark-color: #000000; /* Black */
-}
+/*:root {*/ /* Color palette for css */
+/*--main-color: #BD1A11;*/ /* Red */
+/*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
+/*--secondary-color: #D6972A;*/ /* Yellow gold */
+/*--light-color: #FFFBFB;*/ /* White */
+/*--dark-color: #000000;*/ /* Black */
+/*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*}*/
 
 
 /* rental.css */
