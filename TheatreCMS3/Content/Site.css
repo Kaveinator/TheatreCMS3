@@ -441,3 +441,20 @@ footer {
         background: var(--light-color) !important;
 }
 
+
+.home-signin--container {
+    color: var(--light-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly
+}
+
+
+    .home-signin--container p {
+        border-radius: 25px;
+        width: 15rem;
+        justify-content: center;
+        display: flex;
+        padding: 0.5rem;
+        background-color: var(--main-color--light);
+    }
