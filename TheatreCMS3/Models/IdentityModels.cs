@@ -40,10 +40,12 @@ namespace TheatreCMS3.Models
 
         }
 
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogAuthor> BlogAuthors { get; set; }
+
 
 
         /* ▼ Put DbSet's for your models below ▼ */
-     
+
     }
 
 
