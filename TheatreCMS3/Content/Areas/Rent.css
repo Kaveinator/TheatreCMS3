@@ -70,3 +70,17 @@
     .RentalHistory-form-button-container .btn {
         margin-bottom: 10px;
     }
+
+.rental-history-page-damages-incurred-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rental-history-page-damages-incurred-text-muted {
+    color: #999;
+}
+
+.table-light{
+    border-radius:10px
+}

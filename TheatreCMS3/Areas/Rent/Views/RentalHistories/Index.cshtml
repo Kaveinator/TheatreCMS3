@@ -10,37 +10,60 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
-}
+<div class="rental-history-page">
+    <table class="rental-history-table table table-light">
+        <thead>
+            <tr>
+                <th>
+                   Most Recent Rental Historys
+                </th>
+                
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (item.RentalDamaged)
+                        {
+                            <i class="fas fa-times rental-history-page-damaged-icon text-danger"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-check rental-history-page-undamaged-icon text-success"></i>
+                        }
 
-</table>
+                        <span class="badge badge-dark rental-history-page-rental-name">@Html.DisplayFor(modelItem => item.Rental)</span>
+
+                        @if (item.RentalDamaged)
+                        {
+                            <span class="rental-history-page-damages-incurred-text">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                        }
+                        else
+                        {
+                            <span class="rental-history-page-damages-incurred-text-muted">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                        }
+                    </td>
+                    
+                    
+                    <td>
+                        <div class="dropdown rental-history-page-dropdown">
+                            <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ...
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" } )
+                                <span><i class="fa-regular fa-pen-to-square"></i></span>
+                                @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
