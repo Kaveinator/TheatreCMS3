@@ -12,6 +12,16 @@
 /*}*/
 
 /*Blog Auther Create Styling*/
+form {
+    width: 100%;
+}
+.form-group {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    text-align: left !important;
+}
 .blogauthor-create-container {
     height: 60%;
     background-color: var(--main-color--light);
@@ -19,9 +29,10 @@
     text-align: left;
     border-radius: 20px 20px 20px 20px;
     font-size: large;
-    padding-left: 12%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .blogauthor-create-savebtn {
