@@ -57,9 +57,10 @@ form {
     text-align: center;
 }
 
-.blogauthor-create-rows {
-    display: flex;
-}
+
+    .blogauthor-create-rows {
+        display: flex;
+    }
 
 .blogauthor-create-bioheight {
     width: 100%;
@@ -79,9 +80,10 @@ form {
     text-align: left;
     border-radius: 20px 20px 20px 20px;
     font-size: large;
-    padding-left: 12%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .blogauthor-edit-savebtn {

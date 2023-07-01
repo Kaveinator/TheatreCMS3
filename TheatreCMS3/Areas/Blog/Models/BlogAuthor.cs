@@ -16,6 +16,6 @@ namespace TheatreCMS3.Areas.Blog.Models
         public string Bio { get; set; }
         [Required]
         public DateTime JoinedDate { get; set; }
-        public DateTime LeftDate { get; set; }
+        public DateTime? LeftDate { get; set; }
     }
 }
