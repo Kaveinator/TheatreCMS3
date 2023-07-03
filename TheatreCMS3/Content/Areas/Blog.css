@@ -11,3 +11,113 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+/*Blog Auther Create Styling*/
+form {
+    width: 100%;
+}
+.form-group {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    text-align: left !important;
+}
+.blogauthor-create-container {
+    height: 60%;
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    text-align: left;
+    border-radius: 20px 20px 20px 20px;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blogauthor-create-savebtn {
+    padding: 0.8%;
+    border-radius: 7px;
+    margin: 10px;
+    background-color: green;
+    color: var(--light-color);
+    width: 10%;
+    height: 15%;
+    text-align: center;
+}
+
+.blogauthor-create-backbtn {
+    padding: 1%;
+    border-radius: 7px;
+    margin: 10px;
+    background-color: #171717;
+    color: var(--light-color);
+    width: 15%;
+    height: 15%;
+    text-align: center;
+}
+
+
+    .blogauthor-create-rows {
+        display: flex;
+    }
+
+.blogauthor-create-bioheight {
+    width: 100%;
+    height: 150px;
+    border-radius: 7px;
+}
+
+.blogauthor-create-h4container {
+    padding: 5%;
+}
+
+/*Blog Auther Edit Styling*/
+.blogauthor-edit-container {
+    height: 60%;
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    text-align: left;
+    border-radius: 20px 20px 20px 20px;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blogauthor-edit-savebtn {
+    padding: 0.8%;
+    border-radius: 7px;
+    margin: 10px;
+    background-color: green;
+    color: var(--light-color);
+    width: 10%;
+    height: 15%;
+    text-align: center;
+}
+
+.blogauthor-edit-backbtn {
+    padding: 1%;
+    border-radius: 7px;
+    margin: 10px;
+    background-color: #171717;
+    color: var(--light-color);
+    width: 15%;
+    height: 15%;
+    text-align: center;
+}
+
+.blogauthor-edit-rows {
+    display: flex;
+}
+
+.blogauthor-edit-bioheight {
+    width: 100%;
+    height: 150px;
+    border-radius: 7px;
+}
+
+.blogauthor-edit-h4container {
+    padding: 5%;
+}

@@ -48,6 +48,7 @@ namespace TheatreCMS3.Areas.Blog.Models
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BlogAuthorId,Name,Bio,JoinedDate,LeftDate")] BlogAuthor blogAuthor)
         {
+            ModelState["LeftDate"].Errors.Clear();
             if (ModelState.IsValid)
             {
                 db.BlogAuthors.Add(blogAuthor);

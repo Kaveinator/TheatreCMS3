@@ -1,67 +1,77 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 @{
-    ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Edit";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="~/Content/Areas/Blog.css" />
+</head>
+
+<body style="background-color: #000000">
+
+  <div class="blogauthor-edit-h4container">
+    <h4>Edit</h4>
+  </div>
+
+  <div class="blogauthor-edit-container">
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>BlogAuthor</h4>
+    @using (Html.BeginForm())
+    {
+      @Html.AntiForgeryToken()
+
+      <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.BlogAuthorId)
-
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
+          @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-10" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+          </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
-            </div>
+          @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-10" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "blogauthor-create-bioheight" } })
+            @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
+          </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.JoinedDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.JoinedDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.JoinedDate, "", new { @class = "text-danger" })
+        <div class="blogauthor-create-rows flex justify-content-around align-items-start">
+          <div class="form-group">
+            @Html.LabelFor(model => model.JoinedDate, htmlAttributes: new { @class = "control-label col-md-20 w-100" })
+            <div class="col-md-20 w-100">
+              @Html.EditorFor(model => model.JoinedDate, new { htmlAttributes = new { @type = "datetime-local", @class = "form-control datepicker" } })
+              @Html.ValidationMessageFor(model => model.JoinedDate, "", new { @class = "text-danger" })
             </div>
+          </div>
+
+          <div class="form-group">
+            @Html.LabelFor(model => model.LeftDate, htmlAttributes: new { @class = "control-label col-md-20 w-100" })
+            <div class="col-md-20 w-100">
+              @Html.EditorFor(model => model.LeftDate, new { htmlAttributes = new { type = "datetime-local", @class = "form-control datepicker" } })
+            </div>
+          </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LeftDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LeftDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LeftDate, "", new { @class = "text-danger" })
-            </div>
+        <div class="blogauthor-create-rows">
+          <div class="blogauthor-create-backbtn">
+            @Html.ActionLink("Back to List", "Index", null, new { style = "text-decoration:none;" })
+          </div>
+
+          <input type="submit" value="Save" class="blogauthor-create-savebtn" />
         </div>
+      </div>
+    }
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+  </div>
+      @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+      }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+</body>
