@@ -73,6 +73,14 @@ body {
   flex-direction: column;
 }
 
+/* This will position text towards top center */
+.home-about-centered {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -458,3 +466,4 @@ footer {
         padding: 0.5rem;
         background-color: var(--main-color--light);
     }
+
