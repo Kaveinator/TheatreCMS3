@@ -200,7 +200,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
-    <Compile Include="Areas\Blog\Models\BlogAuthorsController.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
+    <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -462,7 +463,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
-    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Controllers\" />
