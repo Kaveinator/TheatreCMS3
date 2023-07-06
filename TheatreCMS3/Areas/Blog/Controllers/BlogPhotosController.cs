@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -57,6 +59,8 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
 
             return View(blogPhoto);
+
+
         }
 
         // GET: Blog/BlogPhotos/Edit/5
