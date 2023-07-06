@@ -37,18 +37,18 @@
       </dd>
 
     </dl>
-    <div class="blogauthor-details-stylingrow">
+    <div class= "blogauthor-details-stylingbootstrap">
+      <div class="row">
+        <div class="col-md-4">
+          <strong> @Html.DisplayNameFor(model => model.JoinedDate)</strong>
+          @Html.DisplayFor(model => model.JoinedDate)
+        </div>
+        <div class=" col-md-4">
+          <strong> @Html.DisplayNameFor(model => model.LeftDate)</strong>
 
-      @Html.DisplayNameFor(model => model.JoinedDate)
-
-
-      @Html.DisplayFor(model => model.JoinedDate)
-
-
-      @Html.DisplayNameFor(model => model.LeftDate)
-
-      @Html.DisplayFor(model => model.LeftDate)
-
+          @Html.DisplayFor(model => model.LeftDate)
+        </div>
+      </div>
     </div>
   </div>
   </div>
