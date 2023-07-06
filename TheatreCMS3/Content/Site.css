@@ -503,7 +503,7 @@ footer {
     display: block;
 }
 
-.card-body {
+.contact-card-body {
     background-color: var(--main-color--light);
 }
 
