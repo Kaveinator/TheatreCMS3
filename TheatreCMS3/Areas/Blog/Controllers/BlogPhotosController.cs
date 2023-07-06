@@ -10,6 +10,7 @@ using TheatreCMS3.Areas.Blog.Models;
 using TheatreCMS3.Models;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace TheatreCMS3.Areas.Blog.Controllers
 {
@@ -17,10 +18,54 @@ namespace TheatreCMS3.Areas.Blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public int UploadImageInDataBase(HttpPostedFileBase file, BlogPhoto blogPhoto)
+        {
+            blogPhoto.Photo = ConvertToBytes(file);
+            var Content = new Content
+            {
+                ID = blogPhoto.BlogPhotoId,
+                Title = blogPhoto.Title,
+                Image = blogPhoto.Photo
+            };
+            db.BlogPhotos.Add(Content);
+            int i = db.SaveChanges();
+            if (i == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public byte[] ConvertToBytes(HttpPostedFileBase image)
+        {
+            byte[] imageBytes = null;
+            BinaryReader reader = new BinaryReader(image.InputStream);
+            imageBytes = reader.ReadBytes((int)image.ContentLength);
+            return imageBytes;
+        }
+
+
         // GET: Blog/BlogPhotos
         public ActionResult Index()
         {
-            return View(db.BlogPhotos.ToList());
+            var content = db.BlogPhotos.Select(s => new
+            {
+                s.BlogPhotoId,
+                s.Title,
+                s.Photo,
+                
+            });
+            List<BlogPhoto> blogPhotos = content.Select(item => new BlogPhoto()
+            {
+                BlogPhotoId = item.BlogPhotoId,
+                Title = item.Title,
+                Photo = item.Photo,
+                
+            }).ToList();
+
+            return View(blogPhotos);
         }
 
         // GET: Blog/BlogPhotos/Details/5
@@ -51,16 +96,21 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
         {
-            if (ModelState.IsValid)
+
+
             {
-                db.BlogPhotos.Add(blogPhoto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                HttpPostedFileBase file = Request.Files["ImageData"];
+                ContentRepository service = new ContentRepository();
+                int i = service.UploadImageInDataBase(file, blogPhoto);
+                if (i == 1)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                return View(blogPhoto);
+
+
             }
-
-            return View(blogPhoto);
-
-
         }
 
         // GET: Blog/BlogPhotos/Edit/5
