@@ -1,51 +1,63 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Details";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
+<hr/>
 
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
+<div class="blogauthor-details-titlecontainer">
+  <button class="blogauthor-details-extrabtn">"Author Details"</button>
+  <button class="blogauthor-details-extrabtn">"Blog Post"</button>
+  <button class="blogauthor-details-extrabtn">"Contact"</button>
+  <button class="blogauthor-details-extrabtn">"Twitter"</button>
+</div>
+
+<div class="blogauthor-index-container">
+  <div class="blogauthor-details-Blog_info">
+    <img src="~/Content/images/BlogPostDefault.jpg" alt="User Avatar" class="blogauthor-details-blogphoto">
+
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+      <dt>
+        @Html.DisplayNameFor(model => model.Name)
+      </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+      <dd>
+        @Html.DisplayFor(model => model.Name)
+      </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+      <dt>
+        @Html.DisplayNameFor(model => model.Bio)
+      </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JoinedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JoinedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LeftDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LeftDate)
-        </dd>
+      <dd>
+        @Html.DisplayFor(model => model.Bio)
+      </dd>
 
     </dl>
+    <div class="blogauthor-details-stylingrow">
+
+      @Html.DisplayNameFor(model => model.JoinedDate)
+
+
+      @Html.DisplayFor(model => model.JoinedDate)
+
+
+      @Html.DisplayNameFor(model => model.LeftDate)
+
+      @Html.DisplayFor(model => model.LeftDate)
+
+    </div>
+  </div>
+  </div>
+
+<div class="blogauthor-details-stylingbtmrow">
+  <button class="blogauthor-create-backbtn"><i class="fa-solid fa-circle-arrow-left"></i>@Html.ActionLink("Back to List", "Index")</button>
+
+  <button class="blogauthor-create-editbtn"><i class="fa-solid fa-pen-to-square"></i>@Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId })</button>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+

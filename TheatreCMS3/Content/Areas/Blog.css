@@ -58,7 +58,7 @@ form {
 }
 
 
-    .blogauthor-create-rows {
+.blogauthor-create-rows {
         display: flex;
     }
 
@@ -120,4 +120,121 @@ form {
 
 .blogauthor-edit-h4container {
     padding: 5%;
+}
+
+/*Blog Author Details Styling*/
+.blogauthor-index-container {
+    height: 420px;
+    width: 1000px;
+    background-color: var(--light-color);
+    color: var(--dark-color));
+    text-align: left;
+    font-size: large;
+    
+}
+
+.blogauthor-details-blogcontainer {
+    height: 80%;
+    background-color: var(--light-color);
+}
+
+.blogauthor-details-blogphoto {
+    float: left;
+    height: 30%;
+    width: 45%;
+    border: 1px solid var(--dark-color);
+    justify-content: left;
+    display: flex;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.blogauthor-details-Blog_info {
+    font-size: large;
+    color: black;
+}
+
+
+.blogauthor-details-extrabtn {
+    width: 40%;
+    height: 10%;
+    padding: 1%;
+    margin: 5px;
+    border-radius: 7px;
+    background-color: #171717;
+    color: var(--light-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.blogauthor-details-titlecontainer {
+    width: 62%;
+    margin-top: 30%;
+    border-radius: 7px;
+    background-color: var(--light-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.blogauthor-details-extrabtn:hover {
+    background-color: green;
+}
+
+.blogauthor-details-stylingrow {
+        display: flex;
+        justify-content: center;
+        margin-left: 32rem;
+        flex-direction: column;
+        width: 20rem;
+    }
+
+.blogauthor-details-stylingbtmrow {
+    display: flex;
+    margin-top: -8px;
+    margin-left: -10px;
+}
+
+
+.blogauthor-create-backbtn {
+    width: 15%;
+    height: 10%;
+    padding: 1%;
+    border-radius: 7px;
+    background-color: #171717;
+    color: var(--light-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.blogauthor-create-editbtn {
+    width: 10%;
+    height: 10%;
+    padding: 1%;
+    margin-top: 10px;
+    border-radius: 7px;
+    background-color: green;
+    color: var(--light-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.fa-solid.fa-circle-arrow-left {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.fa-solid.fa-pen-to-square {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.dl-horizontal {
+    margin-left: 32rem;
+    padding-top: 4rem;
 }
