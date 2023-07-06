@@ -465,6 +465,7 @@
     <Content Include="webfonts\PTSans-Regular.ttf" />
     <Content Include="webfonts\Broadway Normal.ttf" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
