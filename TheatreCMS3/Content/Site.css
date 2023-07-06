@@ -467,3 +467,44 @@ footer {
         background-color: var(--main-color--light);
     }
 
+    /* Styling the Contact Page*/
+
+#contact-bg {
+    background-color: var(--main-color--light);
+}
+
+.cont-container {
+    width: 100%;
+}
+
+.contact-greeting {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.contact-greeting2 {
+    text-align: center;
+    padding: 10px;
+    border-bottom: solid;
+
+}
+
+.contact-form {
+    float: left;
+    width: 70%;
+    display: block;
+
+}
+
+#right-col {
+    float: right;
+    width: 40%;    
+    display: block;
+}
+
+.card-body {
+    background-color: var(--main-color--light);
+}
+
+
