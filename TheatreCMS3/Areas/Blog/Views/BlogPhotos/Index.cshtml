@@ -22,19 +22,32 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPhotoId })
-        </td>
-    </tr>
+    string text = "";
+    if (item.Photo != null)
+    {
+        text = Convert.ToBase64String(item.Photo);
+    }
+
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+    <img class="" src="data:jpeg;base64,@text" width="400" height="200" />
+    </td>
+    <td>
+
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })
+    </td>
+
+</tr>
+
+
 }
 
 </table>
