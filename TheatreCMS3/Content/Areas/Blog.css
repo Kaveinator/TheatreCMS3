@@ -242,3 +242,58 @@ form {
 .blogauthor-details-stylingbootstrap {
     margin-left: 32rem;
 }
+
+/*Blog Photo Create Styling*/
+
+
+
+
+.blogphoto-create-container {
+    height: 60%;
+    background-color: var(--main-color--light);
+    color: var(--light-color);
+    text-align: left;
+    border-radius: 20px 20px 20px 20px;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blogphoto-create-submitbtn {
+    padding: 0.8%;
+    border-radius: 7px;
+    margin: 10px;
+    background-color: green;
+    color: var(--light-color);
+    width: 10%;
+    height: 15%;
+    text-align: center;
+}
+
+.blogphoto-create-backbtn {
+    padding: 1%;
+    border-radius: 7px;
+    margin: 10px;
+    background-color: #171717;
+    color: var(--light-color);
+    width: 15%;
+    height: 15%;
+    text-align: center;
+}
+
+
+.blogphoto-create-rows {
+    display: flex;
+}
+
+.blogphoto-create-bioheight {
+    width: 100%;
+    height: 150px;
+    border-radius: 7px;
+}
+
+.blogphoto-create-h4container {
+    padding: 5%;
+}
