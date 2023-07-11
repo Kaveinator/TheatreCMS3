@@ -15,3 +15,29 @@
 /* rental.css */
 
 /* Styles for Create and Edit pages */
+
+/* Rental Histories Create Page Styling*/
+#body-bg {
+    text-align: center;
+    background-color: var(--dark-color);
+}
+.c-e-heading {
+    padding: 20px;
+}
+.rh-container {
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+}
+
+form {
+    width: 100%;
+}
+
+.create-buttons {
+    text-decoration: none;
+    color: var(--light-color);
+    padding-bottom: 15px;
+}
