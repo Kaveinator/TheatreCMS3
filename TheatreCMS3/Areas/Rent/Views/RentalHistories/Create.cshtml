@@ -43,12 +43,14 @@
                             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
                         </div>
                         <script>
-                            $('#check-box').click(function () {
-                                if ($(this).is(':checked')) {
-                                    $("#label-id").text('Notes');
-                                } else {
-                                    $("#label-id").text('Damages Incurred');
-                                }
+                            $(document).ready(function () {
+                                $('#check-box input[type=checkbox]').change(function () {
+                                    if ($(this).is(':checked')) {
+                                        $('#label-id').text('Damages Incurred');
+                                    } else {
+                                        $('#label-id').text('Notes');
+                                    }
+                                });
                             });
                         </script>
                     </div>
@@ -57,7 +59,7 @@
             <div class="form-row mx-auto">
                 <div class="col-md-10">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.DamagesIncurred, "Damages Incurred", htmlAttributes: new { @class = "control-label col-md-2 left-align", id = "label-id" })
+                        @Html.LabelFor(model => model.DamagesIncurred, "Notes", htmlAttributes: new { @class = "control-label col-md-2 float-left", id = "label-id" })
                         <div>
                             @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
