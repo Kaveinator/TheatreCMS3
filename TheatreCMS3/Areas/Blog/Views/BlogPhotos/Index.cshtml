@@ -1,60 +1,39 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPhoto>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+      </p>
 
+      @foreach (var item in Model)
+      {
+        string text = "";
+        if (item.Photo != null)
+        {
+          text = Convert.ToBase64String(item.Photo);
+        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-
-
-
-@foreach (var item in Model)
-{
-    string text = "";
-    if (item.Photo != null)
-    {
-        text = Convert.ToBase64String(item.Photo);
-    }
-
-<div class="card bg-dark text-white">
-    
-    
-    <a href="@Url.Action("Details", "Details", new { id = item.BlogPhotoId })">
-        <img src="data:jpeg;base64,@text" class="card-img" alt="">
-    </a>
-
-   
-    
-    
- 
-
-    <div class="card-img-overlay">
-        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
-
-
-        @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }, new { @class = "badge badge-dark " }) |
-
-
-        @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId }, new { @class = "badge badge-danger" }) |
-
+        <div class="card bg-dark text-white mb-3">
+          <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })" class="card-link">
+            <img src="data:jpeg;base64,@text" class="card-img-top" alt="">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <div class="btn-group" role="group">
+              @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }, new { @class = "btn btn-dark" })
+              @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId }, new { @class = "btn btn-danger" })
+              @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }, new { @class = "btn btn-info" })
+            </div>
+          </div>
+        </div>
+      }
     </div>
+  </div>
 </div>
-  
-
-
-
-
-
-
-    <p>
-
-        @Html.ActionLink( "Details", "Details", new { id = item.BlogPhotoId })
-
-    </p>
-}
