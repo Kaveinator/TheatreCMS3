@@ -5,49 +5,56 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
+
+
+
+@foreach (var item in Model)
+{
     string text = "";
     if (item.Photo != null)
     {
         text = Convert.ToBase64String(item.Photo);
     }
 
-<tr>
+<div class="card bg-dark text-white">
+    
+    
+    <a href="@Url.Action("Details", "Details", new { id = item.BlogPhotoId })">
+        <img src="data:jpeg;base64,@text" class="card-img" alt="">
+    </a>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-    <img class="" src="data:jpeg;base64,@text" width="400" height="200" />
-    </td>
-    <td>
+   
+    
+    
+ 
 
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })
-    </td>
-
-</tr>
+    <div class="card-img-overlay">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
 
 
+        @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }, new { @class = "badge badge-dark " }) |
+
+
+        @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId }, new { @class = "badge badge-danger" }) |
+
+    </div>
+</div>
+  
+
+
+
+
+
+
+    <p>
+
+        @Html.ActionLink( "Details", "Details", new { id = item.BlogPhotoId })
+
+    </p>
 }
-
-</table>
