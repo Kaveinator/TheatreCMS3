@@ -1,53 +1,64 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogPhoto>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    string text = "";
-    if (item.Photo != null)
-    {
-        text = Convert.ToBase64String(item.Photo);
+<style>
+    .card-title {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px;
+        color: #fff;
     }
 
-<tr>
+    .card-img-top {
+        transition: opacity 0.3s ease-in-out;
+    }
 
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-    <img class="" src="data:jpeg;base64,@text" width="400" height="200" />
-    </td>
-    <td>
+    .card:hover .card-title {
+        opacity: 1;
+    }
 
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.BlogPhotoId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })
-    </td>
+    .card:hover .card-img-top {
+        opacity: 0.7;
+    }
+</style>
 
-</tr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+      </p>
 
+      @foreach (var item in Model)
+      {
+        string text = "";
+        if (item.Photo != null)
+        {
+          text = Convert.ToBase64String(item.Photo);
+        }
 
-}
+        <div class="card bg-dark text-white mb-3">
+          <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })" class="card-link">
+            <img src="data:jpeg;base64,@text" class="card-img-top" alt="">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <div class="btn-group" role="group">
+              @Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId }, new { @class = "btn btn-dark" })
+              @Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId }, new { @class = "btn btn-danger" })
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
 
-</table>

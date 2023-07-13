@@ -367,3 +367,14 @@ form {
 .blogphoto-edit-h4container {
     padding: 5%;
 }
+
+.image-button {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    text-indent: -9999px;
+    border: none;
+    cursor: pointer;
+}
