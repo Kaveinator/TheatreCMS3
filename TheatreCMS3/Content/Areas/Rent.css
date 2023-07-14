@@ -14,10 +14,9 @@
 
 /* rental.css */
 
-/* Styles for Create and Edit pages */
 
-/* Rental Histories Create Page Styling*/
-#body-bg {
+/* Create and Edit Pages Styling*/
+.c-e-bg {
     text-align: center;
     background-color: var(--dark-color);
 }
@@ -41,3 +40,38 @@ form {
     color: var(--light-color);
     padding-bottom: 15px;
 }
+
+/* Index Page Styling*/
+
+
+.index-heading {
+    padding: 20px;
+    text-align: center;
+}
+
+.index-table {
+    width: 100%;
+    border: 4px solid var(--main-color);
+
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid;
+}
+
+#bottom-id {
+    border-bottom: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+
+
+
+
+
+
