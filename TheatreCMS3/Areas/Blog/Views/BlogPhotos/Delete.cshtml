@@ -5,37 +5,86 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<style>
+    .delete-page {
+        text-align: center;
+        margin-top: 50px;
+    }
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BlogPhoto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+    .delete-page h2 {
+        margin-bottom: 20px;
+    }
 
-        <dd>
+    .delete-page h3 {
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+
+    .delete-page .blog-photo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .delete-page .blog-photo-container .blog-photo {
+        margin-bottom: 10px;
+    }
+
+    .delete-page .blog-photo-container .blog-title {
+        text-align: center;
+    }
+
+    .delete-page .blog-photo-container .blog-title h4 {
+        margin: 0;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px;
+    }
+
+    .delete-page .blog-photo-container img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .delete-page .form-actions {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .delete-page .delete-btn {
+        color: #fff;
+        background-color: #BD1A11;
+        border-color: #ff0000;
+    }
+</style>
+
+<div class="delete-page">
+    <h2>Delete this Blog Photo?</h2>
+
+    <div class="blog-photo-container">
+
+        <div class="blog-title">
+            <h4>BlogPhoto</h4>
             @Html.DisplayFor(model => model.Title)
-        </dd>
+            <div class="blog-photo">
+                <img src="data:image/jpeg;base64,@(Model.Photo != null ? Convert.ToBase64String(Model.Photo) : string.Empty)" alt="Blog Photo" />
+            </div>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<div class="form-actions no-color">
+    <a href="@Url.Action("Index")" class="btn btn-dark"><i class="fas fa-arrow-left"></i> Back to List</a>
+    <a href="@Url.Action("Edit", new { id = Model.BlogPhotoId })" class="btn btn-dark" role="button">
+        <i class="fas fa-edit"></i> Edit
+    </a>
+    <button type="submit" class="btn btn-default delete-btn"><i class="fas fa-trash"></i> Delete</button>
+</div>
     }
 </div>

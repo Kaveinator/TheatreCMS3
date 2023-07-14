@@ -28,6 +28,14 @@
     .card:hover .card-img-top {
         opacity: 0.7;
     }
+    .smaller-image {
+        width: 200px;
+        height: 150px;
+    }
+    .smaller-card {
+        width: 210px;
+        height: 225px;
+    }
 </style>
 
 <div class="container">
@@ -45,9 +53,9 @@
           text = Convert.ToBase64String(item.Photo);
         }
 
-        <div class="card bg-dark text-white mb-3">
+        <div class="card bg-dark text-white mb-3 smaller-card">
           <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })" class="card-link">
-            <img src="data:jpeg;base64,@text" class="card-img-top" alt="">
+            <img src="data:jpeg;base64,@text" class="card-img-top smaller-image" alt="">
           </a>
           <div class="card-body">
             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
