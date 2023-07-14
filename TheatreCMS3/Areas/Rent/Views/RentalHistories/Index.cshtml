@@ -33,7 +33,7 @@
         {
             <tr>
                 <td>
-                    @if (item.DamagesIncurred == "true")
+                    @if (!item.RentalDamaged)
                     {
                         <i class="fa-solid fa-circle-check" style="color: #0ed00b;"></i>
                     }
@@ -43,10 +43,17 @@
                     }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Rental, new { @class = "btn btn-secondary"})
+                    <span style="color:white;font-weight:bold;background-color:darkslategray;padding:5px;border-radius:10px;">@Html.DisplayFor(modelItem => item.Rental)</span>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                    @if (!item.RentalDamaged)
+                    {
+                        <span style="color: #808080;">@Html.DisplayFor(modelItem => item.Rental)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                    }
                 </td>
                 <td>
                     <div class="dropdown">
@@ -56,7 +63,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
                             @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
-                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId }, new { @class = "dropdown-item text-danger" })
+                            <a href="@Url.Action("Delete", new { id = item.RentalHistoryId })" class="dropdown-item text-danger text-truncate" style="width: 100px; display: block;" title="@item.RentalHistoryId">Delete</a>
                         </div>
                     </div>
                 </td>

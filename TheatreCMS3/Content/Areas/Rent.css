@@ -55,10 +55,22 @@ form {
 
 }
 
+th {
+    font-size: 25px;
+}
+
+td {
+    font-size: 16px;
+}
+
 th, td {
+    font-weight: bold;
+    color: black;
     padding: 15px;
     border-bottom: 1px solid;
+    background-color: white;
 }
+
 
 #bottom-id {
     border-bottom: none;
@@ -68,7 +80,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0px;
 }
-
 
 
 
