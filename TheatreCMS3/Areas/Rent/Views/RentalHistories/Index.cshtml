@@ -33,19 +33,32 @@
         {
             <tr>
                 <td>
-                    <i class="fa-solid fa-circle-check" style="color: #0ed00b; display:none"></i> 
-                    <i class="fa-solid fa-circle-xmark" style="color: #ff1414;"></i>
+                    @if (item.DamagesIncurred == "true")
+                    {
+                        <i class="fa-solid fa-circle-check" style="color: #0ed00b;"></i>
+                    }
+                    else
+                    {
+                        <i class="fa-solid fa-circle-xmark" style="color: #ff1414;"></i>
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Rental)
+                    @Html.DisplayFor(modelItem => item.Rental, new { @class = "btn btn-secondary"})
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DamagesIncurred)
                 </td>
-                <td id="bottom-td">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
+                <td>
+                    <div class="dropdown">
+                        <a class="btn btn-outline-light text-wrap" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId }, new { @class = "dropdown-item text-danger" })
+                        </div>
+                    </div>
                 </td>
             </tr>
         }

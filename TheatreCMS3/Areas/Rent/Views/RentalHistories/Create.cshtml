@@ -37,8 +37,8 @@
 
                 <div class="col-3">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.RentalDamaged, "Rental Damaged", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div id ="check-box" class="checkbox">
+                        @Html.LabelFor(model => model.RentalDamaged, "Rental Damaged", htmlAttributes: new { @class = "control-label col-md-2, @for = check-box" })
+                        <div class="checkbox">
                             @Html.EditorFor(model => model.RentalDamaged)
                             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
                         </div>
