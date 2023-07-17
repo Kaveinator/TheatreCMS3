@@ -73,14 +73,6 @@ body {
   flex-direction: column;
 }
 
-/* This will position text towards top center */
-.home-about-centered {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -448,63 +440,3 @@ footer {
         border: 2px solid var(--secondary-color);
         background: var(--light-color) !important;
 }
-
-
-.home-signin--container {
-    color: var(--light-color);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly
-}
-
-
-    .home-signin--container p {
-        border-radius: 25px;
-        width: 15rem;
-        justify-content: center;
-        display: flex;
-        padding: 0.5rem;
-        background-color: var(--main-color--light);
-    }
-
-    /* Styling the Contact Page*/
-
-#contact-bg {
-    background-color: var(--main-color--light);
-}
-
-.cont-container {
-    width: 100%;
-}
-
-.contact-greeting {
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 50px;
-}
-
-.contact-greeting2 {
-    text-align: center;
-    padding: 10px;
-    border-bottom: solid;
-
-}
-
-.contact-form {
-    float: left;
-    width: 70%;
-    display: block;
-
-}
-
-#right-col {
-    float: right;
-    width: 40%;    
-    display: block;
-}
-
-.contact-card-body {
-    background-color: var(--main-color--light);
-}
-
-
