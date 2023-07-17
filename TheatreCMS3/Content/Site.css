@@ -440,3 +440,37 @@ footer {
         border: 2px solid var(--secondary-color);
         background: var(--light-color) !important;
 }
+
+/*Home page styling*/
+.logo-img { /*Centers the logo img*/
+    margin: 0 auto;
+    display: block;
+}
+
+.spotlight-images img{
+    display: block;
+    margin-bottom: 10px;
+    height: auto;
+    width: 95%;
+}
+
+.section-title {
+    text-transform: uppercase;
+    font-family: "Oswald";
+}
+
+.sponsor-badge img {
+    display: inline-block;
+    max-width: 100%; 
+    height: auto;
+    margin: 5px;
+    width:50%;
+}
+
+.donation-button-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+
+/*End Home Page styling*/
