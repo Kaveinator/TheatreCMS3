@@ -5,42 +5,74 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/Content/Areas/Rent.css" />
+</head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
+<body>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
+    <div class="index-heading">
+        <h2>Index</h2>
+    </div>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="index-table">
+        <tr class="table-head">
+            <th>
+                Rental Histories
+            </th>
+            <th></th>
+            <th></th>
+            <th>Sort By:</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!item.RentalDamaged)
+                    {
+                        <i class="fa-solid fa-circle-check" style="color: #0ed00b;"></i>
+                    }
+                    else
+                    {
+                        <i class="fa-solid fa-circle-xmark" style="color: #ff1414;"></i>
+                    }
+                </td>
+                <td>
+                    <span style="color:white;font-weight:bold;background-color:darkslategray;padding:5px;border-radius:10px;">@Html.DisplayFor(modelItem => item.Rental)</span>
+                </td>
+                <td>
+                    @if (!item.RentalDamaged)
+                    {
+                        <span style="color: #808080;">@Html.DisplayFor(modelItem => item.Rental)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                    }
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <a class="btn btn-outline-light text-wrap" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                            <a href="@Url.Action("Delete", new { id = item.RentalHistoryId })" class="dropdown-item text-danger text-truncate" style="width: 100px; display: block;" title="@item.RentalHistoryId">Delete</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
-
-</table>
