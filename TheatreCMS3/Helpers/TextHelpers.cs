@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TheatreCMS3.Helpers
 {
-    public static class TextHelpers
+    public class TextHelpers
     {
         public static string Truncate(string entry, int limit)
         {
