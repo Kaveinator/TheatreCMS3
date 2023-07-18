@@ -16,3 +16,15 @@
     });
 });
 
+$('.dropdown').find('.dropdown-btn').hide();                      //hide the dropdown button on load
+
+$(document).ready(function () {
+    $('.rental-item').hover(
+        function () {
+            $(this).find('.dropdown-btn').show();                 //on hover show the dropdown button for that row
+        },
+        function () {
+            $(this).find('.dropdown-btn').hide();                //on un-hover hide the dropdown button for that row
+        }
+    );
+});
