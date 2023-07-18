@@ -1,10 +1,10 @@
-﻿@using TheatreCMS3.Helpers
-@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var limit = 25;
+    var sortMethods = new List<string> {"First to Last", "A-Z", "Z-A", "Damaged", "Undamaged" };
+    var sortSelectList = new SelectList(sortMethods);
 }
 
 <h2>Index</h2>
@@ -12,18 +12,25 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<div class="card overflow-auto" >
+<div class="card" >
+    <div class="row">
+        <div class="cms-text-dark card-header col align-content-start">Most recent Rental Histories</div>
+        <div class="cms-text-dark card-header col text-right">
+            Sorted By:
+            @Html.DropDownList("Sort By", sortSelectList,new {id = "DropDownList" })
+        </div>
+        
 
-    <p class="cms-text-dark card-header">Most recent Rental Histories</p>
+    </div>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table rental-items">
 
             @foreach (var item in Model)
             {
-                <tr class="row rental-item m-0">
+                <tr class="row rental-item m-0" damaged =@item.RentalDamaged name ="@item.Rental" sortId=@item.RentalHistoryId>
                     @if (item.RentalDamaged.ToString() == "True")
                     {
-                        <td class="fa-solid fa-times-circle cms-text-main"></td>
+                        <td class="fa-solid fa-times-circle cms-text-main" ></td>
                     }
                     else
                     {
