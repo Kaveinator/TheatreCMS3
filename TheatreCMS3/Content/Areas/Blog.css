@@ -378,3 +378,11 @@ form {
     border: none;
     cursor: pointer;
 }
+
+
+.form-horizontal {
+    background-color: var(--main-color);
+    
+}
+
+
