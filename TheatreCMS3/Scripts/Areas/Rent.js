@@ -1,9 +1,17 @@
 ﻿$(document).ready(function () {
-    $('#check-box').change(function () {
+    
+    if ($('.check-box').is(':checked')) {
+        $('.label-id').text('Damages Incurred');
+    } else {
+        $('.label-id').text('Notes');
+    }
+
+    $('.check-box').change(function () {
+        console.log('Hello');
         if ($(this).is(':checked')) {
-            $('#label-id').text('Damages Incurred');
+            $('.label-id').text('Damages Incurred');
         } else {
-            $('#label-id').text('Notes');
+            $('.label-id').text('Notes');
         }
     });
 });
