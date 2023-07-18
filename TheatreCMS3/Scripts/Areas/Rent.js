@@ -19,7 +19,7 @@
 $('.dropdown').find('.dropdown-btn').hide();                      //hide the dropdown button on load
 
 $(document).ready(function () {
-    $('tr').hover(
+    $('.rental-item').hover(
         function () {
             $(this).find('.dropdown-btn').show();                 //on hover show the dropdown button for that row
         },
