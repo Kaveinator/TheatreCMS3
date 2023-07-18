@@ -16,3 +16,8 @@
     });
 });
 
+$(document).ready(function () {
+    if ($('.rental-item').is(':hover')) {
+        $('.rental-dropdown').show;
+    }
+});

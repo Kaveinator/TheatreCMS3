@@ -1,8 +1,10 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
+﻿@using TheatreCMS3.Helpers
+@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var limit = 25;
 }
 
 <h2>Index</h2>
@@ -10,37 +12,60 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
+<div class="card" >
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
-}
+    <p class="cms-text-dark card-header">Most recent Rental Histories</p>
+    <table class="table">
+
+        @foreach (var item in Model)
+        {
+        <tr class="row col-12 rental-item">
+            @if (item.RentalDamaged.ToString() == "True")
+            {
+                <td class="fa-solid fa-times-circle cms-text-main"></td>
+            }
+            else
+            {
+                <td class="fa-solid fa-check-circle"></td>
+            }
+
+            <td>
+                <div class="badge-dark">@Html.DisplayFor(modelItem => item.Rental)</div>
+            </td>
+
+
+            @if (item.RentalDamaged.ToString() == "False")
+            {
+                
+                <td class="col text-black-50 text-truncate">
+                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                </td>
+                
+
+            }
+            else
+            {
+                
+                <td class="col text-truncate">
+                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                </td>
+                
+            }
+
+            <td class= "dropdown rental-dropdown" hidden="hidden">
+                <button class="btn" id="dropdownMenuRental" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="dropdown-toggle fa-solid fa-ellipsis-v"></div>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuRental">
+                    <div class="row"><i class="fa-solid fa-edit"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId, @class = "dropdown-item"})</div>
+                    <div class="row"><i class="fa-solid fa-circle-info"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId, @class = "dropdown-item  fa-solid fa-circle-info" })</div>
+                    <div class="row"><i class="fa-solid fa-times-circle cms-text-main"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId, @class = "dropdown-item cms-text-main" })</div>
+                </div>
+                
+            </td>
+        </tr>
+        }
+    </table>
+</div>
 
 </table>
