@@ -8,16 +8,3 @@
     });
 });
 
-
-$('.dropdown').find('.dropdown-toggle').hide();
-
-$(document).ready(function () {
-    $('td').hover(
-        function () {
-            $(this).find('.dropdown-toggle').show();
-        },
-        function () {
-            $(this).find('.dropdown-toggle').hide();
-        }
-    );
-});
