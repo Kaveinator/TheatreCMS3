@@ -19,7 +19,7 @@
 
         @foreach (var item in Model)
         {
-        <tr class="row col-12 rental-item">
+        <tr class="row col-12 rental-item m-0">
             @if (item.RentalDamaged.ToString() == "True")
             {
                 <td class="fa-solid fa-times-circle cms-text-main"></td>
@@ -52,14 +52,14 @@
                 
             }
 
-            <td class= "dropdown rental-dropdown" hidden="hidden">
+            <td class= "dropdown rental-dropdown m-0">
                 <button class="btn" id="dropdownMenuRental" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="dropdown-toggle fa-solid fa-ellipsis-v"></div>
+                    <div class="dropdown-btn fa-solid fa-ellipsis-v"></div>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuRental">
-                    <div class="row"><i class="fa-solid fa-edit"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId, @class = "dropdown-item"})</div>
-                    <div class="row"><i class="fa-solid fa-circle-info"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId, @class = "dropdown-item  fa-solid fa-circle-info" })</div>
-                    <div class="row"><i class="fa-solid fa-times-circle cms-text-main"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId, @class = "dropdown-item cms-text-main" })</div>
+                    <div class="row"> <i class="fa-solid fa-edit col-1"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId, @class = "dropdown-item"})</div>
+                    <div class="row"> <i class="fa-solid fa-circle-info col-1"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId, @class = "dropdown-item " })</div>
+                    <div class="row"> <i class="fa-solid fa-times-circle cms-text-main col-1"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId, @class = "dropdown-item cms-text-main" })</div>
                 </div>
                 
             </td>

@@ -16,8 +16,15 @@
     });
 });
 
+$('.dropdown').find('.dropdown-btn').hide();
+
 $(document).ready(function () {
-    if ($('.rental-item').is(':hover')) {
-        $('.rental-dropdown').show;
-    }
+    $('tr').hover(
+        function () {
+            $(this).find('.dropdown-btn').show();
+        },
+        function () {
+            $(this).find('.dropdown-btn').hide();
+        }
+    );
 });
