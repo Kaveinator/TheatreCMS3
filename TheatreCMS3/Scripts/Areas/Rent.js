@@ -76,8 +76,18 @@ $(document).ready(function () {
                 rows.sort(function (a, b) {
                     var KeyA = $(a).attr('damaged');                //sort the tr elements based on the name attribute
                     var KeyB = $(b).attr('damaged');
-                    return (KeyA === KeyB) ? 0 : KeyA ? -1 : 1;         //sort the tr elements based on the damaged attribute
-                                                               //checks if a is exactly equal to b
+                    if (KeyA < KeyB)
+                    {
+                        //console.log(KeyA + " is less then " + KeyB);
+                        return 1;
+                    }
+                    if (KeyA > KeyB)
+                    {
+                        //console.log(KeyA + " is greater then " + KeyB);
+                        return -1;
+                    }
+                    //console.log("Same");
+                    return 0;
                 });
 
                 $.each(rows, function (index, row) {
@@ -91,7 +101,9 @@ $(document).ready(function () {
                 rows.sort(function (a, b) {
                     var KeyA = $(a).attr('damaged');                //sort the tr elements based on the name attribute
                     var KeyB = $(b).attr('damaged');
-                    return (KeyA === KeyB) ? 0 : KeyA ? 1 : -1;         //sort the tr elements based on the damaged attribute
+                    if (KeyA < KeyB) return -1;         //sort the tr elements based on the damaged attribute
+                    if (KeyA < KeyB) return 1;
+                    return 0;
                 });
 
                 $.each(rows, function (index, row) {
