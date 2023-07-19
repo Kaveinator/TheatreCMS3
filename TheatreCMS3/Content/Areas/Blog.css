@@ -127,7 +127,7 @@ form {
     height: 420px;
     width: 1000px;
     background-color: var(--light-color);
-    color: var(--dark-color));
+    color: var(--dark-color);
     text-align: left;
     font-size: large;
     
@@ -379,10 +379,96 @@ form {
     cursor: pointer;
 }
 
-
+/*
 .form-horizontal {
     background-color: var(--main-color);
+    border-radius: 20px;
+    width: 65%;
+    height: 500px;
+    display: inline-block;
+}
+
+.form-container {
+    color: black;
+    text-align: center;
+    padding: 10px;
+    display: block;
+}
+
+.time-container {
+   margin-top: 50px;
+   display: inline-flex;
     
 }
+
+.biobox {
+}*/
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--main-color);
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex: 1 1 100%;
+    padding: 10px;
+}
+
+.name-column {
+    order: 1;
+}
+
+.bio-column {
+    order: 2;
+    flex-basis: 100%;
+    resize: vertical;
+    min-height: 100px;
+    min-width: 100px;
+    
+}
+
+.joined-column {
+    order: 4;
+}
+
+.left-column {
+    order: 3;
+}
+
+@media (min-width: 768px) {
+    .flex-container-bottom {
+        display: flex;
+    }
+
+    .flex-column-bottom {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .joined-column {
+        order: 3;
+    }
+
+    .left-column {
+        order: 4;
+    }
+}
+
+.resizeable-textbox {
+    resize: vertical; 
+    min-height: 100px; 
+    
+}
+
+
 
 
