@@ -6,52 +6,92 @@
 }
 
 <h2>Delete</h2>
-
 <h3>Are you sure you want to delete this?</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-danger btn-outline-warning" /> 
+    </div>
+}
 <div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-danger btn-outline-light" id="btnAuthorDetails">Author Details</button>
+        <button type="button" class="btn btn-danger btn-outline-light" id="btnLatestPosts">Latest Posts</button>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+    <div class="detedit">
+        <div class="img-container">
+            <img src="~/Content/images/Sponsors/LogoRoundColor.png" />
         </div>
-    }
+        <div id="authorDetails">
+            <div class="social-media-icons">
+                <a href="https://twitter.com/home" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <h4>@Html.DisplayFor(model => model.Name)</h4>
+
+            <div>
+                @Html.DisplayFor(model => model.Bio)
+            </div>
+
+            <div class="dates">
+                <label>Joined Date:</label>
+                @Html.DisplayFor(model => model.Joined)
+
+                <label>Left Date:</label>
+                @Html.DisplayFor(model => model.Left)
+            </div>
+
+        </div>
+        <div id="latestPosts" style="display: none;">
+            <h4>Latest Posts</h4>
+            <p>Not yet implemented.</p>
+
+        </div>
+    </div>
+
+    <div class="button-container">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorID }, new { @class = "btn btn-danger btn-outline-light" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger btn-outline-light" })
+    </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#btnLatestPosts").on("click", function () {
+            $("#authorDetails").hide();
+            $("#latestPosts").show();
+            $("#btnAuthorDetails").removeClass("active");
+            $("#btnLatestPosts").addClass("active");
+        });
+
+        $("#btnAuthorDetails").on("click", function () {
+            $("#latestPosts").hide();
+            $("#authorDetails").show();
+            $("#btnLatestPosts").removeClass("active");
+            $("#btnAuthorDetails").addClass("active");
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
