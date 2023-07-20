@@ -1,8 +1,8 @@
-﻿@if (!User.Identity.IsAuthenticated)
+﻿@using (Html.BeginForm("EasyLogin", "Account", new { area = "", ReturnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
 {
-    <div class="row ">
-
-        @Html.ActionLink("Login as History Manager", "Login", new { id = "Admin" }, new { @class = "btn cms-bg-main text-white col-2 fixed-bottom" })
-    </div>
+   @Html.AntiForgeryToken()
+        <div class="row ">
+            <button type="submit" class="btn cms-bg-main text-white col-2 fixed-bottom">Login as History Manager</button>
+        </div>
 
 }

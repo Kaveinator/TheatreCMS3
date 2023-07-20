@@ -142,6 +142,28 @@ namespace TheatreCMS3.Controllers
             }
         }
        
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> HistoryManagerLogin(string returnUrl)
+        {
+            var result = await SignInManager.PasswordSignInAsync("HistoryManager", "abc123pass", true, shouldLockout: false);
+
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return RedirectToLocal(returnUrl);
+                case SignInStatus.LockedOut:
+                    return View("Lockout");
+                case SignInStatus.RequiresVerification:
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = true });
+                case SignInStatus.Failure:
+                default:
+                    ModelState.AddModelError("", "Invalid Login Attempt");
+                    return View();
+            }
+
+        }
 
         //
         // GET: /Account/VerifyCode
@@ -222,6 +244,34 @@ namespace TheatreCMS3.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        public async Task<ActionResult> EasyLogin(string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                //var user = db.Users.Where(x => x.UserName == "HistoryManager").FirstOrDefault();
+                //var userModel = new LoginViewModel { EmailOrUsername = user.UserName, Password = user.PasswordHash, RememberMe = true };
+                //var login = new AccountController();
+                //await login.HistoryManagerLogin("~/Rent/RentalHistories/Index");
+
+                var result = await SignInManager.PasswordSignInAsync("TheHistoryManager", "Password123!", true, shouldLockout: false);
+                switch (result)
+                {
+                    case SignInStatus.Success:
+                        return RedirectToLocal(returnUrl);
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = true });
+                    case SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View();
+                }
+            }
+
+            return RedirectToAction("Index");
         }
 
         //
