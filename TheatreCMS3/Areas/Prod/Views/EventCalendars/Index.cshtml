@@ -26,7 +26,11 @@
             <!-- Other details on the right -->
             <div style="flex: 6;">
                 <p style="font-family: broadway; font-weight: bold; font-size: 1.5em">@Html.DisplayFor(modelItem => item.ShowTitle)</p>
-                @if (item.AllDay == false)
+                @if (item.StartTime == null && item.EndTime == null)
+                {
+                    //do nothing
+                }
+                else
                 {
                     <p>@Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)</p>
                 }
