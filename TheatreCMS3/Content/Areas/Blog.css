@@ -469,6 +469,41 @@ form {
     
 }
 
+.detedit {
+    background-color: var(--main-color);
+    border-radius: 5px;
+    border: 1px solid var(--light-color);
+    
+}
+
+#authorDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+}
+
+#latestPosts {
+    height: 250px;
+}
+
+.dates {
+    margin-top: auto;
+}
+
+.social-media-icons {
+    text-align: right;
+    margin-right: 5px;
+}
+
+.img-container {
+    float: left;
+}
+
+
+
+
+
 
 
 
