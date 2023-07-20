@@ -11,6 +11,7 @@ using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
+    
     public class RentalHistoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -39,6 +40,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalHistories/Create
         public ActionResult Create()
         {
+            if (User.Identity.Name != "HistoryManager")
+            {
+                return View("AccessDenied");
+            }
             return View();
         }
 
@@ -62,6 +67,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalHistories/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (User.Identity.Name != "HistoryManager")
+            {
+                return View("AccessDenied");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -93,6 +102,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalHistories/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (User.Identity.Name != "HistoryManager")
+            {
+                return View("AccessDenied");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -116,6 +129,24 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        public ActionResult Login(string admin)
+        {       
+            if (admin == "Admin")
+            {
+                if (ModelState.IsValid)
+                {
+                    var user = db.Users.Where(x => x.UserName == "HistoryManager").FirstOrDefault();
+                }
+                
+            }
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,4 +156,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             base.Dispose(disposing);
         }
     }
+
+
 }

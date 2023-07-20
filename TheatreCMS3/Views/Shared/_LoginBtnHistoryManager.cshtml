@@ -1,0 +1,8 @@
+﻿@if (!User.Identity.IsAuthenticated)
+{
+    <div class="row ">
+
+        @Html.ActionLink("Login as History Manager", "Login", new { id = "Admin" }, new { @class = "btn cms-bg-main text-white col-2 fixed-bottom" })
+    </div>
+
+}

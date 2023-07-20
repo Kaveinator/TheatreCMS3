@@ -24,7 +24,7 @@
 
     </div>
     
-    <div class="table rental-items">
+    <div class="table table-responsive rental-items">
         <ul class="tbody list-group list-group-flush accordion "id="accordianParent">
             @foreach (var item in Model)
             {
@@ -77,9 +77,9 @@
                                 <div class="dropdown-btn fa-solid fa-ellipsis-v"></div>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuRental">
-                                <div class="row align-items-center"> <i class="fa-solid fa-edit col-1"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId, @class = "dropdown-item" })</div>
-                                <div class="row align-items-center"> <i class="fa-solid fa-circle-info col-1"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId, @class = "dropdown-item " })</div>
-                                <div class="row align-items-center"> <i class="fa-solid fa-times-circle cms-text-main col-1"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId, @class = "dropdown-item cms-text-main" })</div>
+                                <div class="row align-items-center"> <i class="fa-solid fa-edit col-1"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })</div>
+                                <div class="row align-items-center"> <i class="fa-solid fa-circle-info col-1"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId})</div>
+                                <div class="row align-items-center"> <i class="fa-solid fa-times-circle cms-text-main col-1"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId}, new { @class = "cms-text-main" })</div>
                             </div>
 
                         </div>
