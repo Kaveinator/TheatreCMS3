@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.Owin;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Controllers;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
@@ -38,12 +42,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Create
+        [HistoryManagerAuthorize(Roles ="HistoryManager")]
         public ActionResult Create()
         {
-            if (User.Identity.Name != "HistoryManager")
-            {
-                return View("AccessDenied");
-            }
             return View();
         }
 
@@ -65,12 +66,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Edit/5
+        [HistoryManagerAuthorize(Roles = "HistoryManager")]
         public ActionResult Edit(int? id)
         {
-            if (User.Identity.Name != "HistoryManager")
-            {
-                return View("AccessDenied");
-            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -100,12 +98,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Delete/5
+        [HistoryManagerAuthorize(Roles = "HistoryManager")]
         public ActionResult Delete(int? id)
-        {
-            if (User.Identity.Name != "HistoryManager")
-            {
-                return View("AccessDenied");
-            }
+        {           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -134,18 +129,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View();
         }
 
-        public ActionResult Login(string admin)
-        {       
-            if (admin == "Admin")
-            {
-                if (ModelState.IsValid)
-                {
-                    var user = db.Users.Where(x => x.UserName == "HistoryManager").FirstOrDefault();
-                }
-                
-            }
-            return RedirectToAction("Index");
-        }
+        
 
         protected override void Dispose(bool disposing)
         {

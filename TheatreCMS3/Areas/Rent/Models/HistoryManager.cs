@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using TheatreCMS3.Models;
@@ -35,6 +36,19 @@ namespace TheatreCMS3.Areas.Rent.Models
                 {
                     roleUserManager.AddToRole(historyManager.Id, "HistoryManager");
                 }
+            }
+        }
+    }
+
+    public class HistoryManagerAuthorize : AuthorizeAttribute
+    {
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            base.OnAuthorization(filterContext);
+
+            if (filterContext.Result is HttpUnauthorizedResult)
+            {
+                filterContext.Result = new RedirectResult("~/Rent/RentalHistories/AccessDenied");
             }
         }
     }
