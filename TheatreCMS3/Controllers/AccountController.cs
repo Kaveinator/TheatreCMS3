@@ -246,16 +246,14 @@ namespace TheatreCMS3.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<ActionResult> EasyLogin(string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                //var user = db.Users.Where(x => x.UserName == "HistoryManager").FirstOrDefault();
-                //var userModel = new LoginViewModel { EmailOrUsername = user.UserName, Password = user.PasswordHash, RememberMe = true };
-                //var login = new AccountController();
-                //await login.HistoryManagerLogin("~/Rent/RentalHistories/Index");
-
-                var result = await SignInManager.PasswordSignInAsync("TheHistoryManager", "Password123!", true, shouldLockout: false);
+                var result = await SignInManager.PasswordSignInAsync("HistoryManager", "abc123pass", true, shouldLockout: false);
                 switch (result)
                 {
                     case SignInStatus.Success:

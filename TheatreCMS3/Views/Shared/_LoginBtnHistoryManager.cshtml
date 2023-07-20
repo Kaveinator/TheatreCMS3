@@ -1,8 +1,11 @@
-﻿@using (Html.BeginForm("EasyLogin", "Account", new { area = "", ReturnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
+﻿@if (!User.Identity.IsAuthenticated)
 {
-   @Html.AntiForgeryToken()
+    using (Html.BeginForm("EasyLogin", "Account", new { area = "", ReturnUrl = "/Rent/RentalHistories/Index" }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
         <div class="row ">
             <button type="submit" class="btn cms-bg-main text-white col-2 fixed-bottom">Login as History Manager</button>
         </div>
 
+    }
 }
