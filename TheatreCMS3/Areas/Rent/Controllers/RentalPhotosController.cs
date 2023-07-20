@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,24 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotoImg,Details")] RentalPhoto rentalPhoto)
+        public ActionResult Create(HttpPostedFileBase uploadImage, [Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotoImg,Details")] RentalPhoto rentalPhoto )
         {
             if (ModelState.IsValid)
             {
+                if(uploadImage != null)
+                {
+                    if (uploadImage.ContentLength > 0)
+                        {
+                            byte[] imageData;
+                            using (var binaryReader = new BinaryReader(uploadImage.InputStream))
+                            {
+                                imageData = binaryReader.ReadBytes(uploadImage.ContentLength);
+                            }
+
+                            rentalPhoto.RentalPhotoImg = imageData;
+                        }
+                }              
+
                 db.RentalPhotoes.Add(rentalPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +94,23 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotoImg,Details")] RentalPhoto rentalPhoto)
+        public ActionResult Edit(HttpPostedFileBase uploadImage, [Bind(Include = "RentalPhotoId,RentalsName,Damaged,RentalPhotoImg,Details")] RentalPhoto rentalPhoto)
         {
             if (ModelState.IsValid)
             {
+                if (uploadImage != null)
+                {
+                    if (uploadImage.ContentLength > 0)
+                    {
+                        byte[] imageData;
+                        using (var binaryReader = new BinaryReader(uploadImage.InputStream))
+                        {
+                            imageData = binaryReader.ReadBytes(uploadImage.ContentLength);
+                        }
+
+                        rentalPhoto.RentalPhotoImg = imageData;
+                    }
+                }
                 db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +151,14 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public FileContentResult getImg(int id)
+        {
+            byte[] bytearray = db.RentalPhotoes.Find(id).RentalPhotoImg;
+            return bytearray != null
+                ? new FileContentResult(bytearray, "image/jpeg")
+                : null;
         }
     }
 }

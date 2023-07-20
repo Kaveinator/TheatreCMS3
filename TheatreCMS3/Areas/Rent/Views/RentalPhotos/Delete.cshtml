@@ -33,7 +33,10 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RentalPhotoImg)
+            @if (Model.RentalPhotoImg != null)
+            {
+                <img src="@Url.Action("getImg", "RentalPhotos", new { id = Model.RentalPhotoId})" alt="@Model.RentalsName image" />
+            }
         </dd>
 
         <dt>
@@ -50,7 +53,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn cms-bg-main text-white" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
