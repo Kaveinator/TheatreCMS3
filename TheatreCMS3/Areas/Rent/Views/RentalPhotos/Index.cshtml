@@ -10,43 +10,47 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
+<div class="card table-responsive cms-text-dark">
+    <div class="row">
+        <div class="col-2">
             @Html.DisplayNameFor(model => model.RentalsName)
-        </th>
-        <th>
+        </div>
+        <div class="col-2">
             @Html.DisplayNameFor(model => model.Damaged)
-        </th>
-        <th>
+        </div>
+        <div class="col-2">
             @Html.DisplayNameFor(model => model.RentalPhotoImg)
-        </th>
-        <th>
+        </div>
+        <div class="col-4">
             @Html.DisplayNameFor(model => model.Details)
-        </th>
-        <th></th>
-    </tr>
+        </div>
+        <div class="col-2"></div>
+        
+    </div>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
+    <div class="row cms-text-dark">
+        <div class="col-2">
             @Html.DisplayFor(modelItem => item.RentalsName)
-        </td>
-        <td>
+        </div>
+        <div class="col-2">
             @Html.DisplayFor(modelItem => item.Damaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalPhotoImg)
-        </td>
-        <td>
+        </div>
+        <div class="col-2">
+            @if (item.RentalPhotoImg != null) 
+            { 
+                <img src="@Url.Action("getImg", "RentalPhotos", new { id = item.RentalPhotoId})" alt="@item.RentalsName image" height="120"/>
+            }
+        </div>
+        <div class="col-4">
             @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
+        </div>
+        <div class="col-2">
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalPhotoId }) |
             @Html.ActionLink("Details", "Details", new { id=item.RentalPhotoId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.RentalPhotoId })
-        </td>
-    </tr>
+        </div>
+    </div>
 }
 
-</table>
+</div>
