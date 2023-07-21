@@ -130,3 +130,20 @@ $(document).ready(function () {
         }
     );
 });
+
+//function for hover showing details
+
+$('.rental-card').find('.rental-card-edit').hide();
+
+$(document).ready(function () {
+    $('.rental-card').hover(
+        function () {
+            $(this).find('.rental-card-edit').show();
+            $(this).find('.card-img-top').animate({ 'opacity': '0.5' }, 200);
+        },
+        function () {
+            $(this).find('.rental-card-edit').hide();
+            $(this).find('.card-img-top').animate({ 'opacity': '1' }, 200);
+        }
+    );
+});
