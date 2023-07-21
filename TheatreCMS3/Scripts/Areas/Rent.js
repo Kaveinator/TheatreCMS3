@@ -132,7 +132,6 @@ $(document).ready(function () {
 });
 
 //function for hover showing details
-
 $('.rental-card').find('.rental-card-edit').hide();
 
 $(document).ready(function () {
@@ -146,4 +145,15 @@ $(document).ready(function () {
             $(this).find('.card-img-top').animate({ 'opacity': '1' }, 200);
         }
     );
+});
+
+
+//FUnction for the search bar
+$(document).ready(function () {
+    $('#Search').on('input', function () {             //on change of input to the search bar
+        var value = $(this).val().toLowerCase();       //value of what's in the search bar
+        $('.rental-img-card').filter(function() {      //filter the rental-img-card for li tags containing the text of the search bar
+            $(this).toggle($(this).find('li').text().toLowerCase().indexOf(value) > -1);
+        });
+    });
 });
