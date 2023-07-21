@@ -82,8 +82,8 @@ table {
 }
 
 .form-control:focus {
-    border-color: #BD1A11;
-    box-shadow: #BD1A11 .75px .75px 7px 7px;
+    border-color: var(--main-color);
+    box-shadow: var(--main-color) .75px .75px 7px 7px;
 }
 
 .img-container {
@@ -97,6 +97,6 @@ table {
     text-shadow:3px 3px 5px white;
 }
 
-.stretched-link {
-
+.border-red {
+    border: 2px solid var(--main-color);
 }
