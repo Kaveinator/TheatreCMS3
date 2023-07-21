@@ -81,7 +81,10 @@ table {
     border-spacing: 0px;
 }
 
-
+.form-control:focus {
+    border-color: #BD1A11;
+    box-shadow: #BD1A11 .75px .75px 7px 7px;
+}
 
 
 
