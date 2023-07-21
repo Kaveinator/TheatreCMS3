@@ -98,19 +98,25 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (uploadImage != null)
-                {
-                    if (uploadImage.ContentLength > 0)
-                    {
-                        byte[] imageData;
-                        using (var binaryReader = new BinaryReader(uploadImage.InputStream))
-                        {
-                            imageData = binaryReader.ReadBytes(uploadImage.ContentLength);
-                        }
 
-                        rentalPhoto.RentalPhotoImg = imageData;
+
+                if (uploadImage != null && uploadImage.ContentLength > 0)
+                {
+                    byte[] imageData;
+                    using (var binaryReader = new BinaryReader(uploadImage.InputStream))
+                    {
+                        imageData = binaryReader.ReadBytes(uploadImage.ContentLength);
                     }
+
+                    rentalPhoto.RentalPhotoImg = imageData;
+                    
                 }
+                else
+                {
+                    var existingRentalPhoto = db.RentalPhotoes.AsNoTracking().FirstOrDefault(p => p.RentalPhotoId == rentalPhoto.RentalPhotoId);
+                    rentalPhoto.RentalPhotoImg = existingRentalPhoto.RentalPhotoImg;
+                }
+
                 db.Entry(rentalPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

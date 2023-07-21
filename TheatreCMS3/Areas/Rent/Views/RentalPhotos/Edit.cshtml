@@ -8,7 +8,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm("Create", "RentalPhotos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "RentalPhotos", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -38,16 +38,16 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.RentalPhotoImg, htmlAttributes: new { @class = "control-label col-md-2" })
-            @if (Model.RentalPhotoImg != null)
+            
+            @if(Model.RentalPhotoImg != null) 
             {
                 <img src="@Url.Action("getImg", "RentalPhotos", new { id = Model.RentalPhotoId})" alt="@Model.RentalsName image" />
             }
-            else 
-            {
+
             <div class="col-md-10">
                 <input type="file" name="uploadImage" />
             </div>
-            }
+
         </div>
 
         <div class="form-group">
