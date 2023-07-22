@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
+using TheatreCMS3.Areas.Rent.ViewModels;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
@@ -18,7 +19,18 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals
         public ActionResult Index()
         {
-            return View(db.Rentals.ToList());
+            var rental_Equipment = db.Rentals.OfType<RentalEquipment>().ToList();
+            var rental_Room = db.Rentals.OfType<RentalRoom>().ToList();
+            var rental = db.Rentals.ToList();
+
+            RentalVM rentals = new RentalVM()
+            {
+                Room = rental_Room,
+                Equipment = rental_Equipment,
+                Rental = rental
+            };
+
+            return View(rentals);
         }
 
         // GET: Rent/Rentals/Details/5
@@ -39,6 +51,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
