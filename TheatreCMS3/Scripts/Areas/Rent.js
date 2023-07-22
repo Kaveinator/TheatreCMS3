@@ -157,3 +157,25 @@ $(document).ready(function () {
         });
     });
 });
+
+
+//script for making the right form appear
+$('.rental-equipment-form').hide();
+$('.rental-room-form').hide();
+$('.rental-default-form').hide();
+
+$(document).ready(function () {
+    $('input[name="rentalType"]').change( function () {
+        if ($('input[value="Equipment"]').is(':checked')) {
+            $('.rental-equipment-form').show();
+            $('.rental-room-form').hide();
+            $('.rental-default-form').hide();
+        }
+        else
+        {
+            $('.rental-equipment-form').hide();
+            $('.rental-room-form').show();
+            $('.rental-default-form').hide();
+        }
+    });
+});
