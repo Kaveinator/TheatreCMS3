@@ -489,8 +489,8 @@ footer {
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide overflowing text */
     text-overflow: ellipsis; /* Show ellipses (...) for hidden text */
-    background-color: #bd1a11; /* Red */
-    color: #fffbfb; /* White */
+    background-color: var(--main-color); /* Red */
+    color: var(--light-color); /* White */
     padding: 5px;
     border-radius: 5px;
 }
