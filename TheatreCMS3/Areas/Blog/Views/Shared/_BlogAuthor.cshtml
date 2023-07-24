@@ -1,0 +1,55 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+
+<div>
+
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-danger btn-outline-light" id="btnAuthorDetails">Author Details</button>
+        <button type="button" class="btn btn-danger btn-outline-light" id="btnLatestPosts">Latest Posts</button>
+    </div>
+
+    <div class="detedit">
+        <div class="img-container">
+            <img src="~/Content/images/Sponsors/LogoRoundColor.png" />
+        </div>
+        <div id="authorDetails">
+            <div class="social-media-icons">
+                <a href="https://twitter.com/home" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <h4>@Html.DisplayFor(model => model.Name)</h4>
+
+            <div>
+                @Html.DisplayFor(model => model.Bio)
+            </div>
+
+            <div class="dates">
+                <label>Joined Date:</label>
+                @Html.DisplayFor(model => model.Joined)
+
+                <label>Left Date:</label>
+                @Html.DisplayFor(model => model.Left)
+            </div>
+
+            <div class="buttonbox">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorID }, new { @class = "btn btn-danger btn-outline-light" })
+                @Html.ActionLink("Delete", "Delete", new { id = Model.BlogAuthorID }, new { @class = "btn btn-danger btn-outline-light" })
+            </div>
+
+        </div>
+        <div id="latestPosts" style="display: none;">
+            <h4>Latest Posts</h4>
+            <p>Not yet implemented.</p>
+
+           
+
+        </div>
+    </div>
+
+
+
+
+
+    
+</div>
+
