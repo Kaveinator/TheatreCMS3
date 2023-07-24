@@ -235,6 +235,7 @@
     <Content Include="Content\images\access_denied.png" />
     <Content Include="Content\images\BlogPostDefault.jpg" />
     <Content Include="Content\images\ensemble.jpg" />
+    <Content Include="Content\images\placeholder.jpg" />
     <Content Include="Content\images\Sample Image.jpg" />
     <Content Include="Content\images\Sponsors\Ellyn-Bye-Logo.png" />
     <Content Include="Content\Areas\Prod.css" />

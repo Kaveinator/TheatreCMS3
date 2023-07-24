@@ -71,6 +71,10 @@ th, td {
     background-color: white;
 }
 
+hr {
+    height: 1px;
+    background-color: var(--main-color);
+}
 
 #bottom-id {
     border-bottom: none;
