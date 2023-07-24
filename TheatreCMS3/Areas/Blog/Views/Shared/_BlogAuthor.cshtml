@@ -3,15 +3,15 @@
 <div>
 
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-danger btn-outline-light" id="btnAuthorDetails">Author Details</button>
-        <button type="button" class="btn btn-danger btn-outline-light" id="btnLatestPosts">Latest Posts</button>
+        <button type="button" class="btn btn-danger btn-outline-light" id="btnAuthorDetails_@Model.BlogAuthorID">Author Details</button>
+        <button type="button" class="btn btn-danger btn-outline-light" id="btnLatestPosts_@Model.BlogAuthorID">Latest Posts</button>
     </div>
 
     <div class="detedit">
         <div class="img-container">
             <img src="~/Content/images/Sponsors/LogoRoundColor.png" />
         </div>
-        <div id="authorDetails">
+        <div id="authorDetails_@Model.BlogAuthorID" class="authorDetails">
             <div class="social-media-icons">
                 <a href="https://twitter.com/home" class="social-icon"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -37,11 +37,30 @@
             </div>
 
         </div>
-        <div id="latestPosts" style="display: none;">
+        <div id="latestPosts_@Model.BlogAuthorID" class="latestPosts" style="display: none;">
             <h4>Latest Posts</h4>
             <p>Not yet implemented.</p>
 
-           
+            <script>
+            $(document).ready(function () {
+            $("#btnLatestPosts_@Model.BlogAuthorID").on("click", function () {
+            console.log("Clicked");
+            $("#authorDetails_@Model.BlogAuthorID").hide();
+            $("#latestPosts_@Model.BlogAuthorID").show();
+            $("#btnAuthorDetails_@Model.BlogAuthorID").removeClass("active");
+            $("#btnLatestPosts_@Model.BlogAuthorID").addClass("active");
+            });
+
+            $("#btnAuthorDetails_@Model.BlogAuthorID").on("click", function () {
+            console.log("Clicked");
+            $("#latestPosts_@Model.BlogAuthorID").hide();
+            $("#authorDetails_@Model.BlogAuthorID").show();
+            $("#btnLatestPosts_@Model.BlogAuthorID").removeClass("active");
+            $("#btnAuthorDetails_@Model.BlogAuthorID").addClass("active");
+            });
+            });
+            </script>
+
 
         </div>
     </div>

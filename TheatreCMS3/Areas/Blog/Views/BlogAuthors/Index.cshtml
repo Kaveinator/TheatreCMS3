@@ -17,29 +17,7 @@
         @Html.Partial("_BlogAuthor", item)
 
     }
-    <script>
-        $(document).ready(function () {
-            $("#btnLatestPosts").on("click", function () {
-                console.log("Clicked");
-                $("#authorDetails").hide();
-                $("#latestPosts").show();
-                $("#btnAuthorDetails").removeClass("active");
-                $("#btnLatestPosts").addClass("active");
-            });
-
-            $("#btnAuthorDetails").on("click", function () {
-                console.log("Clicked");
-                $("#latestPosts").hide();
-                $("#authorDetails").show();
-                $("#btnLatestPosts").removeClass("active");
-                $("#btnAuthorDetails").addClass("active");
-            });
-        });
-    </script>
 </div>
 
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

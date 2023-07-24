@@ -476,14 +476,14 @@ form {
     
 }
 
-#authorDetails {
+.authorDetails {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 250px;
 }
 
-#latestPosts {
+.latestPosts {
     height: 250px;
 }
 
