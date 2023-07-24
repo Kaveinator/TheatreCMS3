@@ -83,15 +83,16 @@
                 <img class="card-img-top" src="~/Content/images/placeholder.jpg" alt="Placeholder">
                 <div class="card-body">
                     <h5>@rental.RentalName</h5>
-                    @if (rental.ChockingHazard)
-                    {
-                        <span class="badge-pill cms-bg-main text-white small">Choking Hazard</span>
-                    }
-                    @if (rental.SuffocationHazard)
-                    {
-                        <span class="badge-pill cms-bg-main text-white small">Suffocation Hazard</span>
-                    }
-
+                    <div class="row">
+                        @if (rental.ChockingHazard)
+                        {
+                            <span class="col badge-pill cms-bg-main text-white small">Choking Hazard</span>
+                        }
+                        @if (rental.SuffocationHazard)
+                        {
+                            <span class="col badge-pill cms-bg-main text-white small">Suffocation Hazard</span>
+                        }
+                    </div>
                     <br />
                     @{cost = rental.RentalCost / 7; }
                     <span>$@cost / day</span>
