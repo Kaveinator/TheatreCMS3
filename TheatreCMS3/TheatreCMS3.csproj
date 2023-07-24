@@ -491,6 +491,7 @@
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Data\" />
+    <Folder Include="Areas\Prod\Models\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
