@@ -150,6 +150,70 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
+        // GET: Rent/Rentals/EditEquipment/5
+        public ActionResult EditEquipment(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Rental rental = db.Rentals.Find(id);
+            if (rental == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rental);
+        }
+
+        // POST: Rent/Rentals/EditEquipment/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditEquipment([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,ChockingHazard,SuffocationHazard,PurchasePrice")] RentalEquipment rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(rental).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(rental);
+        }
+
+        // GET: Rent/Rentals/EditRoom/5
+        public ActionResult EditRoom(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
+            Rental rental = db.Rentals.Find(id);
+
+            if (rental == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rental);
+        }
+
+        // POST: Rent/Rentals/EditRoom/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditRoom([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,RoomNumber,SquareFootage,MaxOccupancy")] RentalRoom rental)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(rental).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(rental);
+        }
+
         // GET: Rent/Rentals/Delete/5
         public ActionResult Delete(int? id)
         {

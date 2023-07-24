@@ -160,7 +160,7 @@ $(document).ready(function () {
 
 
 //script for making the right form appear
-$('.rental-equipment-form').hide();
+//$('.rental-equipment-form').hide();
 $('.rental-room-form').hide();
 $('.rental-default-form').hide();
 
