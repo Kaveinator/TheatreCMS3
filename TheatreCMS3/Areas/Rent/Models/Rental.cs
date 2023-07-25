@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,8 +8,6 @@ namespace TheatreCMS3.Areas.Rent.Models
 {
     public class Rental
     {
-        public virtual RentalEquipment RentalEquipment { get; set; }
-        public virtual RentalRoom RentalRoom { get; set; }
         public int RentalId { get; set; }
         public string RentalName { get; set; }
         public int RentalCost { get; set; }
@@ -18,6 +17,7 @@ namespace TheatreCMS3.Areas.Rent.Models
 
     public class RentalEquipment : Rental
     {
+        [Required(ErrorMessage = "You must indicate if Choking Hazard.")]
         public bool ChockingHazard { get; set; }
         public bool SuffocationHazard { get; set; }
         public int PurchasePrice { get; set; }
@@ -25,6 +25,7 @@ namespace TheatreCMS3.Areas.Rent.Models
 
     public class RentalRoom : Rental
     {
+        [Required(ErrorMessage ="You must indicate the Room Number.")]
         public int RoomNumber { get; set; }
         public int SquareFootage { get; set; }
         public int MaxOccupancy { get; set; }

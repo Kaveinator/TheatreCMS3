@@ -45,24 +45,42 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+
+
+            try 
+            {
+                RentalRoom rentalRoom = (RentalRoom)rental;
+                if (rentalRoom != null)
+                {
+                    return View("DetailsRoom", rental);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            
+            try 
+            { 
+                RentalEquipment rentalEquipment = (RentalEquipment)rental;
+                if (rentalEquipment != null)
+                {
+                    return View("DetailsEquipment", rental);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            
+
+
             return View(rental);
         }
 
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
-            //var rental_Equipment = db.Rentals.OfType<RentalEquipment>().ToList();
-            //var rental_Room = db.Rentals.OfType<RentalRoom>().ToList();
-            //var rental = db.Rentals.ToList();
-
-            //RentalVM rentals = new RentalVM()
-            //{
-            //    Room = rental_Room,
-            //    Equipment = rental_Equipment,
-            //    Rental = rental
-            //};
-
-            //return View(rentals);
 
             return View();
         }
@@ -226,6 +244,34 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
+
+            try
+            {
+                RentalRoom rentalRoom = (RentalRoom)rental;
+                if (rentalRoom != null)
+                {
+                    return View("DeleteRoom", rental);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            try
+            {
+                RentalEquipment rentalEquipment = (RentalEquipment)rental;
+                if (rentalEquipment != null)
+                {
+                    return View("DeleteEquipment", rental);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+
+
             return View(rental);
         }
 
