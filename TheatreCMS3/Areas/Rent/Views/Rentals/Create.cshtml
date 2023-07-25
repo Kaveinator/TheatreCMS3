@@ -17,21 +17,23 @@
         <div class="card-header cms-text-dark">Create Rental</div>
         <div class="cms-text-dark card-header col">
             @*@foreach (var rentalType in rentalTypes)
-                {
-                    @Html.RadioButton("rentalType", rentalType, false, new { @class = rentalType })
-                    <span> </span>
-                    @rentalType
-                    <br />
-                }*@
+        {
+            @Html.RadioButton("rentalType", rentalType, false, new { @class = rentalType })
+            <span> </span>
+            @rentalType
+            <br />
+        }*@
 
             <input type="radio" id="rentalEquipment" name="rentalType" value="Equipment" checked="checked" />
             <label for="rentalEquipment">Equipment Rental</label><br />
             <input type="radio" id="rentalRoom" name="rentalType" value="Room" />
             <label for="rentalEquipment">Room Rental</label><br />
+            <input type="radio" id="rentalEquipment" name="rentalType" value="Other" />
+            <label for="rentalEquipment">Other Rental</label><br />
 
         </div>
     </div>
-    @*<div class="rental-default-form">
+    <div class="rental-default-form">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
@@ -80,7 +82,7 @@
                 </div>
             </div>
         }
-    </div>*@
+    </div>
 
     <div class="rental-equipment-form">
         <form action="CreateEquipment" method="post">
