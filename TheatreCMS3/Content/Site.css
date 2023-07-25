@@ -474,3 +474,23 @@ footer {
 }
 
 /*End Home Page styling*/
+
+/* Custom styles for developers' names on the SignIn page */
+#PersonList {
+    /* Add styles to the container that holds the <p> tags */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#PersonList p {
+    /* Apply styles to the <p> tags containing developers' names */
+    width: 140px; /* Specific width for each <p> tag */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Show ellipses (...) for hidden text */
+    background-color: var(--main-color); /* Red */
+    color: var(--light-color); /* White */
+    padding: 5px;
+    border-radius: 5px;
+}
