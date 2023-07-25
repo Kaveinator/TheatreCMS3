@@ -330,6 +330,10 @@
     <Content Include="Areas\Rent\Views\Rentals\EditEquipment.cshtml" />
     <Content Include="Areas\Rent\Views\Rentals\EditRoom.cshtml" />
     <Content Include="Areas\Prod\Views\web.config" />
+    <Content Include="Areas\Rent\Views\Rentals\DetailsRoom.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\DetailsEquipment.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\DeleteRoom.cshtml" />
+    <Content Include="Areas\Rent\Views\Rentals\DeleteEquipment.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Details.cshtml" />
