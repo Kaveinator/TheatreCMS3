@@ -12,6 +12,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         public string RentalName { get; set; }
         public int RentalCost { get; set; }
         public string FlawsAndDamages { get; set; }
+        public virtual List<RentalHistory> RentalHistory { get; set; }
 
     }
 
