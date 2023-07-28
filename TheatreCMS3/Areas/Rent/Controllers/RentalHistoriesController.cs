@@ -45,6 +45,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [HistoryManagerAuthorize(Roles ="HistoryManager")]
         public ActionResult Create()
         {
+            IEnumerable<Rental> rentals = db.Rentals.ToList();
+            ViewBag.data = rentals;
             return View();
         }
 
@@ -53,8 +55,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,RentalHistoryID,SelectedRentalId")] RentalHistory rentalHistory)
         {
+            rentalHistory.Rental = db.Rentals.Find(rentalHistory.SelectedRentalId);
+
             if (ModelState.IsValid)
             {
                 db.RentalHistories.Add(rentalHistory);
@@ -69,6 +73,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [HistoryManagerAuthorize(Roles = "HistoryManager")]
         public ActionResult Edit(int? id)
         {
+            IEnumerable<Rental> rentals = db.Rentals.ToList();
+            ViewBag.data = rentals;
+            ViewBag.selectedRentalId = db.RentalHistories.Find(id).SelectedRentalId;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -86,14 +94,25 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,SelectedRentalId")] RentalHistory rentalHistory)
         {
+            
+            
             if (ModelState.IsValid)
             {
-                db.Entry(rentalHistory).State = EntityState.Modified;
+                var rentalHistoryObject = db.RentalHistories.Find(rentalHistory.RentalHistoryId);
+                rentalHistoryObject.SelectedRentalId = rentalHistory.SelectedRentalId;
+                rentalHistoryObject.Rental = db.Rentals.Find(rentalHistory.SelectedRentalId);
+                rentalHistoryObject.DamagesIncurred = rentalHistory.DamagesIncurred;
+                rentalHistoryObject.RentalDamaged = rentalHistory.RentalDamaged;
+
+                db.Entry(rentalHistoryObject).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            ViewBag.data = db.Rentals.ToList();
+            ViewBag.selectedRentalId = rentalHistory.SelectedRentalId;
             return View(rentalHistory);
         }
 

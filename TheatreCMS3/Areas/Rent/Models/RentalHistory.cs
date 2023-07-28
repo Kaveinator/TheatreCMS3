@@ -10,6 +10,7 @@ namespace TheatreCMS3.Areas.Rent.Models
         public int RentalHistoryId { get; set; }
         public bool RentalDamaged { get; set; }
         public string DamagesIncurred { get; set; }
-        public string Rental { get; set; }
+        public int SelectedRentalId { get; set; }
+        public virtual Rental Rental { get; set; }
     }
 }

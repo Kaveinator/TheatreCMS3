@@ -55,7 +55,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     return View("DetailsRoom", rental);
                 }
             }
-            catch (Exception e)
+            catch 
             {
 
             }
@@ -68,7 +68,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     return View("DetailsEquipment", rental);
                 }
             }
-            catch (Exception e)
+            catch 
             {
 
             }
@@ -253,7 +253,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     return View("DeleteRoom", rental);
                 }
             }
-            catch (Exception e)
+            catch 
             {
 
             }
@@ -266,7 +266,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                     return View("DeleteEquipment", rental);
                 }
             }
-            catch (Exception e)
+            catch 
             {
 
             }
