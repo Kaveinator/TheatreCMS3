@@ -186,3 +186,23 @@ $(document).ready(function () {
         }
     });
 });
+
+
+$(document).ready(function () {
+    $('.upvote').click( function () {
+        var postId = $(this).data('post-id');             //set the postId variable from the post-id attribute
+
+        $.ajax({
+            type: 'POST',
+            url: 'Upvote/' + postId,
+            success: function (data) {
+                $('#upvotes-count-' + postId).text(data.Upvotes);
+                $('#votes-count-' + postId).text(data.Votes);
+                $('#downvotes-count-' + postId).text(data.Votes - data.Upvotes);
+            },
+            error: function () {
+                alert('Error upvoting the post.');
+            }
+        });
+    });
+});

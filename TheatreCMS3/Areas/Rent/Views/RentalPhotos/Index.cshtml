@@ -36,6 +36,11 @@
                                 <div class="align-items-center">
                                     <i class="fa-solid fa-times-circle cms-text-main col-1"></i> @Html.ActionLink("Delete", "Delete", new { id = item.RentalPhotoId })
                                 </div>
+                                <div class="text-center align-items-center">
+                                    <button data-post-id="@item.RentalPhotoId"class="btn fa-solid fa-arrow-alt-circle-up upvote"><span id="upvotes-count-@item.RentalPhotoId">test</span></button>
+                                    @*<span id="votes-count-@item.RentalPhotoId">test</span>*@
+                                    <button class="btn fa-solid fa-arrow-alt-circle-down downvote"><span id="downvotes-count-@item.RentalPhotoId">test</span></button>
+                                </div>
                             </div>
                         }
                         else
@@ -49,6 +54,9 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                
+                            </li>
                             <li class="list-group-item">@Html.DisplayFor(modelItem => item.RentalsName) </li>
                             <li class="list-group-item">
                                 @Html.DisplayName("Damaged")

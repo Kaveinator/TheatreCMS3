@@ -166,5 +166,23 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 ? new FileContentResult(bytearray, "image/jpeg")
                 : null;
         }
+
+        [HttpPost]
+        public JsonResult Upvote(int? postId)
+        {
+            var photo = db.RentalPhotoes.Find(postId);
+            if (photo == null)
+            {
+                return Json(new { Upvotes = 0, Votes = 0});
+            }
+
+            photo.UpVotes++;
+            photo.Votes++;
+
+            db.SaveChanges();
+
+            return Json(new { Upvotes = photo.UpVotes, Votes = photo.Votes});
+        }
+
     }
 }
