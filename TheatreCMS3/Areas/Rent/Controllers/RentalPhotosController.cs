@@ -168,7 +168,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         [HttpPost]
-        public JsonResult Upvote(int? postId)
+        public JsonResult Upvote(int postId)
         {
             var photo = db.RentalPhotoes.Find(postId);
             if (photo == null)
