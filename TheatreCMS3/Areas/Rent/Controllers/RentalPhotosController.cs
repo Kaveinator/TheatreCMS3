@@ -170,6 +170,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [HttpPost]
         public JsonResult Upvote(int postId)
         {
+            
             var photo = db.RentalPhotoes.Find(postId);
             if (photo == null)
             {
@@ -184,5 +185,21 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return Json(new { Upvotes = photo.UpVotes, Votes = photo.Votes});
         }
 
+        [HttpPost]
+        public JsonResult Downvote(int postId)
+        {
+
+            var photo = db.RentalPhotoes.Find(postId);
+            if (photo == null)
+            {
+                return Json(new { Upvotes = 0, Votes = 0 });
+            }
+
+            photo.Votes++;
+
+            db.SaveChanges();
+
+            return Json(new { Upvotes = photo.UpVotes, Votes = photo.Votes });
+        }
     }
 }
