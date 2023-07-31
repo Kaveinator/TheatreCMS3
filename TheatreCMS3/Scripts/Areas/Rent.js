@@ -186,3 +186,44 @@ $(document).ready(function () {
         }
     });
 });
+
+
+$(document).ready(function () {
+    $('.upvote').click( function () {
+        var postId = $(this).data('post-id');             //set the postId variable from the post-id attribute
+
+        $.ajax({
+            type: 'POST',
+            url: 'Upvote/',
+            data: {postId: postId},
+            success: function (data) {
+                $('#upvotes-count-' + postId).text(data.Upvotes);
+                $('#votes-count-' + postId).text(((data.Upvotes/data.Votes)*100).toPrecision(2) + '%');
+                $('#downvotes-count-' + postId).text(data.Votes - data.Upvotes);
+            },
+            error: function () {
+                alert('Error upvoting the post.');
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    $('.downvote').click(function () {
+        var postId = $(this).data('post-id');             //set the postId variable from the post-id attribute
+
+        $.ajax({
+            type: 'POST',
+            url: 'Downvote/',
+            data: { postId: postId },
+            success: function (data) {
+                $('#upvotes-count-' + postId).text(data.Upvotes);
+                $('#votes-count-' + postId).text(((data.Upvotes / data.Votes) * 100).toPrecision(2) + '%');
+                $('#downvotes-count-' + postId).text(data.Votes - data.Upvotes);
+            },
+            error: function () {
+                alert('Error upvoting the post.');
+            }
+        });
+    });
+});

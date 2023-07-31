@@ -12,6 +12,10 @@ namespace TheatreCMS3.Areas.Rent.Models
         public bool Damaged { get; set; }
         public byte[] RentalPhotoImg { get; set; }
         public string Details { get; set; }
+        public int Votes { get; set; }
+        public int UpVotes { get; set; }
 
     }
+
+
 }

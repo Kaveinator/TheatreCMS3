@@ -104,3 +104,7 @@ table {
 .border-red {
     border: 2px solid var(--main-color);
 }
+
+.upvote {
+    z-index: 2;
+}
