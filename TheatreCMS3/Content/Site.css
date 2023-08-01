@@ -82,7 +82,7 @@ body {
     margin-bottom: 55px;
 }
 
-h2 {
+.home-page-h2 {
     font-family: Oswald;
     text-transform: uppercase;
     color: var(--light-color);
@@ -91,7 +91,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-    h2::after {
+    .home-page-h2::after {
         display: block;
         content: '';
         max-width: 75px;
