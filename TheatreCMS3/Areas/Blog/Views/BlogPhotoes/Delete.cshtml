@@ -30,6 +30,19 @@
 
     </dl>
 
+    <dd>
+        @if (Model.Photo != null && Model.Photo.Length > 0)
+        {
+            var imageBase64 = Convert.ToBase64String(Model.Photo);
+            var imageUrl = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+            <img src="@imageUrl" alt="@Model.Title" width="100" height="100" />
+        }
+        else
+        {
+            <p>No photo available.</p>
+        }
+    </dd>
+
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
