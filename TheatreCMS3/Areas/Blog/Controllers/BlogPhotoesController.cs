@@ -49,7 +49,7 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "BlogPhotoId,Title")] BlogPhoto blogPhoto, HttpPostedFileBase imageFile) 
+        public async Task<ActionResult> Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase imageFile) 
         {
             if (ModelState.IsValid && imageFile != null && imageFile.ContentLength > 0)
             {
