@@ -63,6 +63,10 @@
 }
 /*End background color classes*/
 
+@font-face {
+    font-family: Oswald;
+    src :url(/webfonts/Oswald-VariableFont_wght.ttf);
+}
 body {
   background-color: var(--dark-color);
   color: var(
@@ -73,11 +77,78 @@ body {
   flex-direction: column;
 }
 
+#header {
+    margin-top: 35px;
+    margin-bottom: 55px;
+}
+
+h2 {
+    font-family: Oswald;
+    text-transform: uppercase;
+    color: var(--light-color);
+    padding: 5px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+    h2::after {
+        display: block;
+        content: '';
+        max-width: 75px;
+        width: 100%;
+        height: 4px;
+        background: var(--main-color);
+        position: relative;
+        bottom: -5px;
+        left: 0;
+    }
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.home-logo {
+    background-image: url(images/TheatreLogo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 575px;
+    height: 119px;
+    margin: auto;
+}
+
+.spotlight {
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.spotlight img {
+    width: 470px;
+    height: auto;
+    display: block;
+    margin: 10px;
+}
+
+.sponsors-logos img {
+    max-width: 95px;
+    height: auto;
+    display: inline-block;
+    padding: 10px;
+
+}
+button.donate-btn {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 
 /* Override the default bootstrap behavior where horizontal description lists
    will truncate terms that are too long to fit in the left column
