@@ -1,0 +1,44 @@
+﻿/* CSS for the header above the form */
+h2 {
+    text-align: center;
+}
+
+/* CSS for the centered container */
+.container {
+    margin: 0 auto;
+    max-width: 500px; /* Adjust the width as needed */
+}
+
+/* CSS for placeholders */
+input::placeholder {
+    color: #d6972a;
+}
+
+/* CSS for input fields on focus */
+input:focus {
+    border-color: #bd1a11;
+    background-color: #fffbfb;
+}
+
+/* CSS for Submit and Back to List buttons */
+.btn {
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Specific CSS for the Submit button */
+.btn-primary {
+    background-color: #f04d44;
+    border-color: #f04d44;
+}
+
+/* Specific CSS for the Back to List button */
+.btn-secondary {
+    background-color: #bd1a11;
+    border-color: #bd1a11;
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+    opacity: 0.8;
+}
