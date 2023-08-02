@@ -28,6 +28,14 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotoFile)
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = Model.ProPhotoId })" width="200" height="200" />
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {

@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
+using System.IO;
+using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -47,10 +50,20 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description, PhotoFile")] ProductionPhoto productionPhoto, HttpPostedFileBase photo)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && photo != null && photo.ContentLength > 0)
             {
+               
+                byte[] bytes;
+                //Converts uploaded photo to byte
+                using (BinaryReader br = new BinaryReader(photo.InputStream))
+                {
+                    bytes = br.ReadBytes(photo.ContentLength);
+                }
+
+                productionPhoto.PhotoFile = bytes;
+
                 db.ProductionPhotos.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +92,21 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description, PhotoFile")] ProductionPhoto productionPhoto, [Optional] HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+                if (photo != null && photo.ContentLength > 0)
+                {
+                    byte[] bytes;
+                    using (BinaryReader br = new BinaryReader(photo.InputStream))
+                    {
+                        bytes = br.ReadBytes(photo.ContentLength);
+                    }
+
+                    productionPhoto.PhotoFile = bytes;
+
+                }
                 db.Entry(productionPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +147,21 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //GET the byte of a ProductionPhotos object 
+        [HttpGet]
+        public ActionResult GetImage(int id)
+        {
+            var productionPhoto = db.ProductionPhotos.Find(id);
+            if (productionPhoto != null && productionPhoto != null)
+            {
+                //Returns image file in JPEG format
+                return new FileContentResult(productionPhoto.PhotoFile, "image/jpeg");
+            }
+            
+             return null;
+            
         }
     }
 }
