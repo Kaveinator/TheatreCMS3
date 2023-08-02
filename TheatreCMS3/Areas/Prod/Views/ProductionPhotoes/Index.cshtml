@@ -18,6 +18,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhotoFile)
+        </th>
         <th></th>
     </tr>
 
@@ -30,9 +33,16 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProPhotoId })
+
+            @if (item.PhotoFile != null && item.PhotoFile.Length > 0)
+            {
+            <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = item.ProPhotoId })" width="100" height="100" />
+            }                       
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
         </td>
     </tr>
 }
