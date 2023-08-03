@@ -11,4 +11,27 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+.renthistory-h4 {
+    padding: 15px;
+    text-align: center;
+    margin-top: 25px;
+}
 
+.renthistory-label {
+    font-weight: 700;
+}
+.renthistory-damage {
+
+}
+
+.renthistory-input {
+    width: 400px;
+}
+
+.renthistory-form-bg {
+    background-color: var(--main-color--light);
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: auto;
+}
