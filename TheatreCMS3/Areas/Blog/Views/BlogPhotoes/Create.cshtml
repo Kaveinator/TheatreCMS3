@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+<div class="BlogPhoto-create-container">
     <!-- Add container class here -->
-    <h2>Create Blog Photo</h2>
+    <h2 class="BlogPhoto-create-header">Create Blog Photo</h2>
 
 
     @using (Html.BeginForm("Create", "BlogPhotoes", FormMethod.Post, new { enctype = "multipart/form-data" }))

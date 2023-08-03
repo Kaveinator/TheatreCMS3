@@ -504,9 +504,70 @@ form {
     text-align: right;
 }
 
+/*Blog Photo Styling(Zac)*/
+/* CSS for the header above the form */
+h2 {
+    text-align: center;
+}
 
+/* CSS for the centered container */
+.BlogPhoto-create-container,
+.BlogPhoto-edit-container,
+.BlogPhoto-delete-container {
+    margin: 0 auto;
+    max-width: 500px; /* Adjust the width as needed */
+}
 
+/* CSS for placeholders */
+input::placeholder {
+    color: #d6972a;
+}
 
+/* CSS for input fields on focus */
+input:focus {
+    border-color: #bd1a11;
+    background-color: #fffbfb;
+}
+
+/* CSS for Submit and Back to List buttons */
+/* Specific CSS for the Submit button */
+.BlogPhoto-create-submit,
+.BlogPhoto-edit-submit {
+    background-color: #f04d44;
+    border-color: #f04d44;
+    color: #fffbfb;
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+
+/* Specific CSS for the Back to List button */
+.BlogPhoto-create-backtolist,
+.BlogPhoto-edit-backtolist {
+    background-color: #bd1a11;
+    border-color: #bd1a11;
+    color: #fffbfb;
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+
+    /* Hover effect for buttons */
+    .BlogPhoto-create-submit:hover,
+    .BlogPhoto-edit-submit:hover,
+    .BlogPhoto-create-backtolist:hover,
+    .BlogPhoto-edit-backtolist:hover {
+        opacity: 0.8;
+    }
+
+/* CSS for image display in the form */
+.BlogPhoto-create-preview,
+.BlogPhoto-edit-preview {
+    display: block;
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+}
 
 
 

@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+<div class="BlogPhoto-edit-container">
     <!-- Add container class here -->
-    <h2>Edit Blog Photo</h2>
+    <h2 class="BlogPhoto-edit-header">Edit Blog Photo</h2>
 
 
     @using (Html.BeginForm("Edit", "BlogPhotoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
