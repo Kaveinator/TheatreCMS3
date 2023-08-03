@@ -5,55 +5,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>RentalHistory</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RentalDamaged)
-                    @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
+        <h4 class="renthistory-h4">Rental History</h4>
+        <div class="renthistory-form-bg">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Rental, "Rental", htmlAttributes: new { @class = "renthistory-label control-label col-9" })
+                    <div class="col-9">
+                        @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "renthistory-input form-control" } })
+                        @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RentalDamaged, "Damage?", htmlAttributes: new { @class = "renthistory-label control-label col-3" })
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.RentalDamaged)
+                                @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+             </div>   
+            <div class="form-row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DamageIncurred, "Notes", htmlAttributes: new { @class = "renthistory-damage renthistory-label control-label col-12" })
+                    <div class="col-12">
+                        @Html.EditorFor(model => model.DamageIncurred, new { htmlAttributes = new { @class = "renthistory-input form-control" } })
+                        @Html.ValidationMessageFor(model => model.DamageIncurred, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DamageIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DamageIncurred, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DamageIncurred, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="row justify-content-center">
+                <input type="submit" value="Create" class="btn btn-success mr-3" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
