@@ -19,16 +19,16 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "renthistory-label control-label col-md-2" })
-                    <div class="col-md-10">
+                    @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "renthistory-label control-label col-9" })
+                    <div class="col-9">
                         @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "renthistory-input form-control" } })
                         @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "renthistory-label control-label col-md-2" })
-                    <div class="col-md-2">
+                    @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "renthistory-label control-label col-3" })
+                    <div class="col-md-3">
                         <div class="checkbox">
                             @Html.EditorFor(model => model.RentalDamaged)
                             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
@@ -38,8 +38,8 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.DamageIncurred, "Notes", htmlAttributes: new { @class = "renthistory-damage renthistory-label control-label col-md-2" })
-                    <div class="col-md-10">
+                    @Html.LabelFor(model => model.DamageIncurred, "Notes", htmlAttributes: new { @class = "renthistory-damage renthistory-label control-label col-12" })
+                    <div class="col-12">
                         @Html.EditorFor(model => model.DamageIncurred, new { htmlAttributes = new { @class = "renthistory-input form-control" } })
                         @Html.ValidationMessageFor(model => model.DamageIncurred, "", new { @class = "text-danger" })
                     </div>
