@@ -1,19 +1,15 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.CalendarEvent
-
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Edit</h2>
-
-
 @using (Html.BeginForm())
+
 {
+    <link rel="stylesheet" href="~/Content/Areas/Prod.css" />
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>CalendarEvent</h4>
-        <hr />
+    <h4 class="jl-CalendarEventTitle">Edit Calendar Event</h4>
+    <div class="jl-CalendarEventForm">
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.EventId)
 
@@ -95,7 +91,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="jl-submitButton" />
             </div>
         </div>
     </div>
