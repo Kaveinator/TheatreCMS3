@@ -1,21 +1,16 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.Owin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Rent.Models;
-using TheatreCMS3.Controllers;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Rent.Controllers
 {
-    
     public class RentalHistoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -42,11 +37,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Create
-        [HistoryManagerAuthorize(Roles ="HistoryManager")]
         public ActionResult Create()
         {
-            IEnumerable<Rental> rentals = db.Rentals.ToList();
-            ViewBag.data = rentals;
             return View();
         }
 
@@ -55,10 +47,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,RentalHistoryID,SelectedRentalId")] RentalHistory rentalHistory)
+        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamageIncurred,Rental")] RentalHistory rentalHistory)
         {
-            rentalHistory.Rental = db.Rentals.Find(rentalHistory.SelectedRentalId);
-
             if (ModelState.IsValid)
             {
                 db.RentalHistories.Add(rentalHistory);
@@ -70,13 +60,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: Rent/RentalHistories/Edit/5
-        [HistoryManagerAuthorize(Roles = "HistoryManager")]
         public ActionResult Edit(int? id)
         {
-            IEnumerable<Rental> rentals = db.Rentals.ToList();
-            ViewBag.data = rentals;
-            ViewBag.selectedRentalId = db.RentalHistories.Find(id).SelectedRentalId;
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -94,32 +79,20 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,SelectedRentalId")] RentalHistory rentalHistory)
+        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamageIncurred,Rental")] RentalHistory rentalHistory)
         {
-            
-            
             if (ModelState.IsValid)
             {
-                var rentalHistoryObject = db.RentalHistories.Find(rentalHistory.RentalHistoryId);
-                rentalHistoryObject.SelectedRentalId = rentalHistory.SelectedRentalId;
-                rentalHistoryObject.Rental = db.Rentals.Find(rentalHistory.SelectedRentalId);
-                rentalHistoryObject.DamagesIncurred = rentalHistory.DamagesIncurred;
-                rentalHistoryObject.RentalDamaged = rentalHistory.RentalDamaged;
-
-                db.Entry(rentalHistoryObject).State = EntityState.Modified;
+                db.Entry(rentalHistory).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.data = db.Rentals.ToList();
-            ViewBag.selectedRentalId = rentalHistory.SelectedRentalId;
             return View(rentalHistory);
         }
 
         // GET: Rent/RentalHistories/Delete/5
-        [HistoryManagerAuthorize(Roles = "HistoryManager")]
         public ActionResult Delete(int? id)
-        {           
+        {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -143,13 +116,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult AccessDenied()
-        {
-            return View();
-        }
-
-        
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -159,6 +125,4 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             base.Dispose(disposing);
         }
     }
-
-
 }

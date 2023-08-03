@@ -41,19 +41,16 @@ namespace TheatreCMS3.Models
         }
 
  
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalHistory> RentalHistories { get; set; }
         /* ▼ Put DbSet's for your models below ▼ */
 
         public DbSet<TheatreCMS3.Areas.Blog.Models.BlogAuthor> BlogAuthors { get; set; }
  
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalPhoto> RentalPhotoes { get; set; }
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.Rental> Rentals { get; set; }
-
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.Models.BlogPhoto> BlogPhotoes { get; set; }
 
         public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.CalendarEvent> CalendarEvents { get; set; }
+
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Prod.Models.ProductionPhoto> ProductionPhotos { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalHistory> RentalHistories { get; set; }
     }
 
 

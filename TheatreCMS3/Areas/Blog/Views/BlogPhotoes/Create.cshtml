@@ -8,10 +8,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "BlogPhotoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>BlogPhoto</h4>
         <hr />
@@ -32,6 +32,14 @@
             </div>
         </div>
 
+        <!-- Added this div classfor file input -->
+        <div class="form-group">
+            @Html.Label("Image File", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="imageFile" />
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -44,6 +52,7 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+<!--Don't Know if this is needed, but google said it might help'-->
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
