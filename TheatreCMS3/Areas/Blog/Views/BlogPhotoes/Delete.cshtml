@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<div class="BlogPhoto-delete-container">
+
+<h2 class="BlogPhoto-delete-header">Delete BlogPhoto</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -35,7 +37,7 @@
         {
             var imageBase64 = Convert.ToBase64String(Model.Photo);
             var imageUrl = string.Format("data:image/jpeg;base64,{0}", imageBase64);
-            <img src="@imageUrl" alt="@Model.Title" width="100" height="100" />
+            <img src="@imageUrl" alt="@Model.Title" class="BlogPhoto-delete-preview" />
         }
         else
         {
@@ -47,8 +49,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="BlogPhoto-delete-submit" /> |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "BlogPhoto-delete-backtolist" })
         </div>
     }
 </div>
