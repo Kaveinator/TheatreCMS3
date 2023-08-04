@@ -505,6 +505,13 @@ form {
 }
 
 /*Blog Photo Styling(Zac)*/
+/* Set the background color to red */
+body {
+    background-color: #bd1a11;
+    border: 1px solid #bd1a11; /* Add a border around the page */
+    color: #fffbfb; /* Set the text color to white */
+}
+
 /* CSS for the header above the form */
 h2 {
     text-align: center;
@@ -568,7 +575,4 @@ input:focus {
     max-width: 100%;
     height: auto;
 }
-
-
-
 
