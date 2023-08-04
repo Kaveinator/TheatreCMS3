@@ -576,3 +576,8 @@ input:focus {
     height: auto;
 }
 
+/* Adjust delete image size */
+.BlogPhoto-delete-container img {
+    max-width: 50%; /* Resize image to half of its original size */
+    height: auto;
+}
