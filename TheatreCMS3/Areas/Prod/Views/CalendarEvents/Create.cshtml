@@ -1,24 +1,20 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.CalendarEvent
-
 @{
     ViewBag.Title = "Create";
 }
+@using (Html.BeginForm())
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
 {
+    <link rel="stylesheet" href="~/Content/Areas/Prod.css" />
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>CalendarEvent</h4>
-        <hr />
+    <h2 class="jl-CalendarEventTitle">Create Calendar Event</h2>
+    <div class="jl-CalendarEventForm">
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Title, new { placeholder = "Please enter the title here..", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -26,7 +22,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.StartDate, new { placeholder = "Please enter a start date here..", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +30,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.EndDate, new { placeholder = "Please enter an end date here..", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +38,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.StartTime, new { placeholder = "Please enter the start time..", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.EndTime, new { placeholder = "Please enter the end time..", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,7 +64,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TicketsAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TicketsAvailable, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.TicketsAvailable, new { placeholder = "Please enter the amount of tickets here..", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.TicketsAvailable, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -86,14 +82,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Description, new { placeholder = "Please enter a description..", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="jl-submitButton" />
             </div>
         </div>
     </div>
