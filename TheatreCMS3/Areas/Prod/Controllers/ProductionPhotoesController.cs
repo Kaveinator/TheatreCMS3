@@ -85,14 +85,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 return HttpNotFound();
             }
             return View(productionPhoto);
+
+
         }
+
 
         // POST: Prod/ProductionPhotoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description, PhotoFile")] ProductionPhoto productionPhoto, [Optional] HttpPostedFileBase photo)
+        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description, PhotoFile")] ProductionPhoto productionPhoto, HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +110,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                     productionPhoto.PhotoFile = bytes;
 
                 }
+
                 db.Entry(productionPhoto).State = EntityState.Modified;
+                if(photo == null) //if no photo was uploaded, leave original photo
+                {
+                    db.Entry(productionPhoto).Property(x => x.PhotoFile).IsModified = false;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
