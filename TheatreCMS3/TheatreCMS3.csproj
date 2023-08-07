@@ -199,10 +199,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
-    <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
-    <Compile Include="Areas\Blog\Controllers\BlogPhotoesController.cs" />
-    <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
-    <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
@@ -300,19 +296,7 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
-    <Content Include="Areas\Blog\Views\web.config" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
     <Content Include="Areas\Prod\Views\web.config" />
-    <Content Include="Areas\Blog\Views\BlogPhotoes\Create.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPhotoes\Delete.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPhotoes\Details.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPhotoes\Edit.cshtml" />
-    <Content Include="Areas\Blog\Views\BlogPhotoes\Index.cshtml" />
-    <Content Include="Areas\Blog\Views\Shared\_BlogAuthor.cshtml" />
     <Content Include="Areas\Prod\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Prod\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Create.cshtml" />
@@ -331,6 +315,7 @@
     <Content Include="Areas\Prod\Views\ProductionPhotoes\Details.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoes\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoes\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\web.config" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -495,7 +480,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
+    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
+    <Folder Include="Areas\Blog\Models\" />
+    <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
