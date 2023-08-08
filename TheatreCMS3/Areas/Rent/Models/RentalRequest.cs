@@ -19,5 +19,34 @@ namespace TheatreCMS3.Areas.Rent.Models
         public bool ContractSigned { get; set; }
 
 
+        public string GetRentalDuration()
+        {
+            var now = DateTime.Now;
+
+            if (EndTime > now && now > StartTime)
+            {
+                TimeSpan timeRemaining = EndTime - now;
+                string formattedTimeRemaining = string.Format("{0} days, {1} hours, {2} minutes, {3} seconds.",
+                timeRemaining.Days, timeRemaining.Hours, timeRemaining.Minutes, timeRemaining.Seconds);
+
+                return formattedTimeRemaining;
+            }
+
+            if (StartTime > now)
+            {
+                TimeSpan timeUntilRentalStarts = StartTime - now;
+                string formattedTimeUntilRentalStarts = string.Format("{0} days, {1} hours, {2} minutes, {3} seconds.",
+                timeUntilRentalStarts.Days, timeUntilRentalStarts.Hours, timeUntilRentalStarts.Minutes, timeUntilRentalStarts.Seconds);
+
+                return formattedTimeUntilRentalStarts;
+            }
+
+            if (now > EndTime)
+            {
+                return "Rental time has ended.";
+            }
+            return "There was an error handling time";
+        }
+
     }
 }
