@@ -13,17 +13,17 @@
 
 @foreach (var item in Model) {
 
-<div class="accordion" id="accordionExample">
+<div class="accordion" id="accordionExample_@item.RentalRequestID">
     <div class="card">
-        <div class="card-header" id="headingOne">
+        <div class="card-header" id="heading_@item.RentalRequestID">
             <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse_@item.RentalRequestID" aria-expanded="true" aria-controls="collapse_@item.RentalRequestID">
                     @item.ContactPerson
                 </button>
             </h2>
         </div>
 
-        <div id="collapseOne" class="collapse show bg-dark" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div id="collapse_@item.RentalRequestID" class="collapse bg-dark" aria-labelledby="heading_@item.RentalRequestID" data-parent="#accordionExample_@item.RentalRequestID">
             <div class="card-body bg-light text-dark border border-danger">
                 <p>Company: @item.Company</p><br />
                 <p>Contact Person: @item.ContactPerson</p>
