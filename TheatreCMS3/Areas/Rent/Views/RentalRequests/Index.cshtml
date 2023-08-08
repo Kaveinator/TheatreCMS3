@@ -23,10 +23,19 @@
             </h2>
         </div>
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-dark">
-                @item.Company
-                @item.EndTime
+        <div id="collapseOne" class="collapse show bg-dark" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body bg-dark border border-danger">
+                <p>Comapany: @item.Company</p><br />
+                <p>Contact Person: @item.ContactPerson</p>
+                <p>Time Remaining: @item.GetRentalDuration()</p>
+            </div>
+            <div class="border border-danger p-20">
+                <p>Start Time: @item.StartTime</p>
+                <p>End Time: @item.EndTime</p>
+                <p>Rental Code: @item.RentalCode</p><br />
+                <p>Project Info: @item.ProjectInfo</p><br />
+                <p>Accepted: @item.Accepted</p><br />
+                <p>Contract Signed: @item.ContractSigned</p>
             </div>
         </div>
     </div>
