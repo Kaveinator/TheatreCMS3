@@ -31,7 +31,7 @@ namespace TheatreCMS3.Areas.Rent.Models
 
                 return formattedTimeRemaining;
             }
-            
+
             if (StartTime > now)
             {
                 TimeSpan timeUntilRentalStarts = StartTime - now;
@@ -40,6 +40,12 @@ namespace TheatreCMS3.Areas.Rent.Models
 
                 return formattedTimeUntilRentalStarts;
             }
+
+            if (now > EndTime)
+            {
+                return "Rental time has ended.";
+            }
+            return "There was an error handling time";
         }
 
     }
