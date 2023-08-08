@@ -67,3 +67,11 @@
     color: var(--main-color);
 }
 
+.renthistory-ellip {
+    right: 0;
+    position: absolute;
+}
+
+
+
+
