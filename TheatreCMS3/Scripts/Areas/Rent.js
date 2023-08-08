@@ -20,3 +20,8 @@ $(document).ready(function () {
         }
     });
 });
+
+
+$(".dropdown-button").hover(function () {
+    $(this).find(".dropdown-menu").slideToggle();
+});

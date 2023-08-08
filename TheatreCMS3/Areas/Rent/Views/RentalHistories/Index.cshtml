@@ -5,42 +5,62 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="renthistory-h2">Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamageIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
+<div class="renthistory-table-outer">
+    <div class="renthistory-table-inner table table-hover table-fixed">
+        @*<tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RentalDamaged)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DamageIncurred)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rental)
+                </th>
+                <th></th>
+            </tr>*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamageIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+        <div class="d-flex flex-row mb-2 pt-2 border-top">
+            <div class="order-1 mr-3 p-2">
+                @Html.DisplayFor(modelItem => item.RentalDamaged)
+                @if (item.RentalDamaged)
+                {
+                    <i class="fas fa-times text-danger"></i>
+                }
+                else
+                {
+                    <i class="fas fa-check text-success"></i>
+                }
+            </div>
+            <div class="order-3 ml-3 mr-2 p-2">
+                @Html.DisplayFor(modelItem => item.DamageIncurred)
+            </div>
+            <div class="renthistory-index order-2 p-2">
+                @Html.DisplayFor(modelItem => item.Rental)
+            </div>
+                <button class="btn btn-secondary dropdown-button">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })
+                    </li>
+                    <li class="dropdown-item">
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })
+                    </li>
+                    <li class="dropdown-item">
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
+                    </li>
+                </ul>
+        </div>
+        }
 
-</table>
+    </div>
+</div>
