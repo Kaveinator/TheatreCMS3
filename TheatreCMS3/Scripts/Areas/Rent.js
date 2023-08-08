@@ -21,7 +21,10 @@ $(document).ready(function () {
     });
 });
 
-
-$(".dropdown-button").hover(function () {
-    $(this).find(".dropdown-menu").slideToggle();
+$(document).ready(function () {
+    $(".dropdown-button").hover(function () {
+        $(this).find(".dropdown-menu").show();
+    }, function () {
+        $(this).find(".dropdown-menu").hide();
+    });
 });

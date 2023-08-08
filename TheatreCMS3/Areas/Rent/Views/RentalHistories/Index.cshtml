@@ -27,7 +27,7 @@
 
         @foreach (var item in Model)
         {
-        <div class="d-flex flex-row mb-2 pt-2 border-top">
+        <div class="dropdown-button d-flex flex-row mb-2 pt-2 border-top">
             <div class="order-1 mr-3 p-2">
                 @Html.DisplayFor(modelItem => item.RentalDamaged)
                 @if (item.RentalDamaged)
@@ -45,22 +45,19 @@
             <div class="renthistory-index order-2 p-2">
                 @Html.DisplayFor(modelItem => item.Rental)
             </div>
-                <button class="btn btn-secondary dropdown-button">
+
+            <div class="dropdown dropdown-button float-right order-3 p-2">
+                <a class="btn btn-secondary btn-sm dropdown-toggle">
                     <i class="fas fa-ellipsis-v"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-item">
-                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })
-                    </li>
-                    <li class="dropdown-item">
-                            @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })
-                    </li>
-                    <li class="dropdown-item">
-                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
-                    </li>
-                </ul>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_@item.RentalHistoryId">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId }, new { @class = "dropdown-item text-danger" })
+                </div>
+            </div>
         </div>
         }
-
     </div>
 </div>
