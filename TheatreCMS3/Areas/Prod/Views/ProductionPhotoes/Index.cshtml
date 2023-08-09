@@ -1,16 +1,130 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>
+﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhotoViewModel>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<style>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+    .badge {
+        background-color: #9D7C39;
+        width: 50px;
+        height: 20px;
+    }
+
+        .badge:hover {
+            filter: brightness(60%);
+        }
+
+    .btn:hover {
+        filter: brightness(60%);
+    }
+
+    .card {
+        width: 255px;
+    }
+</style>
+
+
+
+<hr />
+
+<h2 style="text-align:center; font-family: Broadway;">Production Photos </h2>
+
+<div style=" text-align: center">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default button", style = "color: #fffbfb; background-color: #d6972a; " })
+</div>
+
+<hr />
+<hr />
+ 
+
+@foreach (var item in Model)
+{
+      
+
+     
+
+          <h2 style="text-align:center;"> @item.ProductionTitle</h2>
+          <div class="row justify-content-center" id="prodPhotos1"> 
+              
+              @foreach(var photo in item.ProdPhotos)
+              {
+
+                  <div class="col-lg-3 mb-4" id="parentId">
+                      <div class="card" >
+                          @if (photo.PhotoFile != null && photo.PhotoFile.Length > 0)
+                          {
+                              <a href="@Url.Action("Details",new { id = photo.ProPhotoId } )">
+                                  <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = photo.ProPhotoId })" width="250" height="200" />
+                              </a>
+
+                          }
+
+                          <div class="card-body">
+                              <h5 class="card-title" style="color:black; text-align:center">@Html.DisplayFor(modelItem => photo.Title) </h5>
+                              <p class="card-text" style="color:black">@Html.DisplayFor(modelItem => photo.Description)</p>
+                          </div>
+                          <div class="card-body" style="text-align:center">
+                              <a href="@Url.Action("Edit",  new { id = photo.ProPhotoId } )"><span class="badge badge-secondary">Edit</span></a>
+                              <a href="@Url.Action("Delete",  new { id = photo.ProPhotoId } )"><span class="badge badge-secondary">Delete</span></a>
+                          </div>
+                      </div>
+
+
+                  </div>
+              }
+              
+
+          </div>
+     
+
+   
+    
+
+}
+
+
+
+
+
+@*@foreach(var item in Model)
+    {
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        @if (item.PhotoFile != null && item.PhotoFile.Length > 0)
+                        {
+                            <a href="@Url.Action("Details",new { id = item.ProPhotoId } )">
+                                <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = item.ProPhotoId })" width="250" height="200" />
+                            </a>
+
+                        }
+
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:black; text-align:center">@Html.DisplayFor(modelItem => item.Title) </h5>
+                            <p class="card-text" style="color:black">@Html.DisplayFor(modelItem => item.Description)</p>
+                        </div>
+                        <div class="card-body" style="text-align:center">
+                            <a href="@Url.Action("Edit",  new { id = item.ProPhotoId } )"><span class="badge badge-secondary">Edit</span></a>
+                            <a href="@Url.Action("Delete",  new { id = item.ProPhotoId } )"><span class="badge badge-secondary">Delete</span></a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+         </div>
+    }*@
+
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -24,27 +138,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
 
-            @if (item.PhotoFile != null && item.PhotoFile.Length > 0)
-            {
-            <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = item.ProPhotoId })" width="100" height="100" />
-            }                       
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
-        </td>
-    </tr>
-}
+                @if (item.PhotoFile != null && item.PhotoFile.Length > 0)
+                {
+                    <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = item.ProPhotoId })" width="100" height="100" />
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
+            </td>
+        </tr>
+    }
 
-</table>
+</table>*@
