@@ -21,7 +21,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // GET: Prod/ProductionPhotoes
         public ActionResult Index()
         {
-            return View(db.ProductionPhotos.ToList());
+            var model = db.ProductionPhotos.GroupBy(t => t.Title).Select(g => new ProductionPhotoViewModel
+            {   ProductionTitle = g.Key,
+                ProdPhotos = g
+            });
+            return View(model.ToList());
         }
 
         // GET: Prod/ProductionPhotoes/Details/5
