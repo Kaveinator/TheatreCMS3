@@ -5,23 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<script>
-    function switchVisible() {
-        if (document.getElementById('non-expired')) {
-
-            if (document.getElementById('non-expired').style.display == 'none') {
-                document.getElementById('non-expired').style.display = 'block';
-                document.getElementById('expired').style.display = 'none';
-                document.getElementById('Button1').value = "Expired Rentals";
-            }
-            else {
-                document.getElementById('non-expired').style.display = 'none';
-                document.getElementById('expired').style.display = 'block';
-                document.getElementById('Button1').value = "Current Rentals";
-            }
-        }
-    }
-</script>*@
 
 <h2>Index</h2>
 
@@ -61,15 +44,25 @@
                             <p>Project Info: @item.ProjectInfo</p><br />
                             <p>Accepted: @item.Accepted</p><br />
                             <p>Contract Signed: @item.ContractSigned</p>
+                            <p>Ignore Survey Prompt: @item.IgnoreSurveyPrompt</p>
+
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID })
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+
+                            <button class="btn bg-dark text-light">View Survey</button>
+                            @if (item.EndTime.Date <= DateTime.Today && item.EndTime.AddDays(+7) > DateTime.Today && item.IgnoreSurveyPrompt == false)
+                            {
+                                <button class="btn bg-dark text-light">Fill in Rental Survey</button>
+                            }
+                            @Html.ActionLink("IgnoreSurvey", "IgnoreSurvey", new { id = item.RentalRequestID })
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID })
-            @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID })
-            @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+            
 
 
         }
@@ -106,15 +99,18 @@
                             <p>Project Info: @item.ProjectInfo</p><br />
                             <p>Accepted: @item.Accepted</p><br />
                             <p>Contract Signed: @item.ContractSigned</p>
+                            <p>Ignore Survey Prompt: @item.IgnoreSurveyPrompt</p>
+
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID })
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID })
-            @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID })
-            @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+
 
 
         }
