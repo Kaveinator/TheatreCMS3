@@ -1,0 +1,10 @@
+﻿
+
+@using (Html.BeginForm())
+{
+            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Find by name..." })
+            <input type="submit" value="Search" id="jv-searchBtn"/>
+    
+
+
+}
