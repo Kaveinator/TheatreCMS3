@@ -78,3 +78,54 @@
 /*END Styling for the Calendar Event Page (Create.cshtml and the Edit.cshtml)*/
 
 
+/*START Styling for Production Photos Area*/
+
+#jv-searchBtn {
+    background-color: #d6972a;
+    border-radius: 12px;
+    height: 40px;
+    width: 100px;
+    color: #fffbfb;
+    padding: 5px 15px;
+    text-align: center;
+    display: inline;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+    #jv-searchBtn:hover {
+        filter: brightness(60%);
+    }
+
+#jv-centerAlign {
+    display: flex;
+    justify-content: space-between;
+}
+
+#jv-badge {
+    background-color: #9D7C39;
+    width: 50px;
+    height: 20px;
+}
+
+    #jv-badge:hover {
+        filter: brightness(60%);
+    }
+
+#jv-createNewBtn {
+    background-color: #d6972a;
+    color: #fffbfb;
+    border-radius: 12px;
+    font-size: 14px;
+    padding: 8px 15px;
+    height: 38px;
+    text-align: center;
+}
+
+    #jv-createNewBtn:hover {
+        filter: brightness(60%);
+    }
+
+/*END Styling for Production Photos Area*/
+
+
