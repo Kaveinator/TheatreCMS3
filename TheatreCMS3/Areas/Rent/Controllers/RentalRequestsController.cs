@@ -18,6 +18,17 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalRequests
         public ActionResult Index()
         {
+            var rentalRequests = db.RentalRequests.ToList();
+            foreach (var item in rentalRequests)
+            {
+                if (item.EndTime.AddDays(7) < DateTime.Now)
+                {
+                    item.IgnoreSurveyPrompt = true;
+                    db.Entry(item).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
             return View(db.RentalRequests.ToList());
         }
 
@@ -51,6 +62,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
+                rentalRequest.IgnoreSurveyPrompt = false;
                 db.RentalRequests.Add(rentalRequest);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +135,17 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult IgnoreSurvey(int id)
+        {
+            var rentalRequest = db.RentalRequests.Find(id);
+            rentalRequest.IgnoreSurveyPrompt = true;
+            db.Entry(rentalRequest).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
