@@ -203,6 +203,7 @@
     <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionPhotographer.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhotoViewModel.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
