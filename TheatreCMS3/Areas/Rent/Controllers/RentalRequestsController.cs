@@ -18,6 +18,17 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/RentalRequests
         public ActionResult Index()
         {
+            var rentalRequests = db.RentalRequests.ToList();
+            foreach (var item in rentalRequests)
+            {
+                if (item.EndTime.AddDays(7) < DateTime.Now)
+                {
+                    item.IgnoreSurveyPrompt = true;
+                    db.Entry(item).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
             return View(db.RentalRequests.ToList());
         }
 
