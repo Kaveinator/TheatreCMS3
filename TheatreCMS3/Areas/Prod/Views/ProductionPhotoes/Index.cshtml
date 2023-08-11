@@ -27,42 +27,43 @@
 
 @foreach (var item in Model)
 {
-    <h2 style="text-align:center;"> @item.ProductionTitle</h2>
-    <div class="row justify-content-center">
+<h2 style="text-align:center;"> @item.ProductionTitle</h2>
+<div class="row justify-content-center">
 
-        @foreach (var photo in item.ProdPhotos)
+    @foreach (var photo in item.ProdPhotos)
         {
 
-            <div class="col-lg-3 mb-4">
-                <div class="card">
-                    @if (photo.PhotoFile != null && photo.PhotoFile.Length > 0)
+    <div class="col-lg-3 mb-4">
+        <div class="card">
+            @if (photo.PhotoFile != null && photo.PhotoFile.Length > 0)
                     {
-                        <a href="@Url.Action("Details",new { id = photo.ProPhotoId } )">
-                            <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = photo.ProPhotoId })" width="250" height="200" />
-                        </a>
+            <a href="@Url.Action("Details",new { id = photo.ProPhotoId } )">
+                <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = photo.ProPhotoId })" width="250" height="200" />
+            </a>
 
                     }
 
-                    <div class="card-body">
-                        <h5 class="card-title" style="color:black; text-align:center">@Html.DisplayFor(modelItem => photo.Title) </h5>
-                        <p class="card-text" style="color:black">@Html.DisplayFor(modelItem => photo.Description)</p>
-                    </div>
-                    <div class="card-body" style="text-align:center">
-                        <a href="@Url.Action("Edit",  new { id = photo.ProPhotoId } )"><span class="badge badge-pill badge-secondary" id="jv-badge">Edit</span></a>
-                        <a href="@Url.Action("Delete",  new { id = photo.ProPhotoId } )"><span class="badge badge-pill badge-secondary" id="jv-badge">Delete</span></a>
-                    </div>
-                </div>
-
-
+            <div class="card-body">
+                <h5 class="card-title" style="color:black; text-align:center">@Html.DisplayFor(modelItem => photo.Title) </h5>
+                <p class="card-text" style="color:black">@Html.DisplayFor(modelItem => photo.Description)</p>
             </div>
-        }
+            <div class="card-body" style="text-align:center">
+                <a href="@Url.Action("Edit",  new { id = photo.ProPhotoId } )"><span class="badge badge-pill badge-secondary" id="jv-badge">Edit</span></a>
+                <a href="@Url.Action("Delete",  new { id = photo.ProPhotoId } )"><span class="badge badge-pill badge-secondary" id="jv-badge">Delete</span></a>
+            </div>
+        </div>
 
 
     </div>
+        }
+
+
+</div>
 
 
 }
 
+@Html.Partial("_LoginBtnProductionPhotographer")
 
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 

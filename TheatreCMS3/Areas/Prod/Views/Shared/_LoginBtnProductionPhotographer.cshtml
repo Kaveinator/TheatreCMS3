@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNet.Identity
+
+@if (!User.Identity.IsAuthenticated)
+{
+    using (Html.BeginForm("EasyLoginProd", "Account", new { area = "", ReturnUrl = "/Prod/ProductionPhotoes/Index" }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn" id="jv-loginBtn">Login as Production Photographer</button>
+
+    }
+}
