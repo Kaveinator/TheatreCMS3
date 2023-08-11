@@ -1,50 +1,73 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhoto>
+﻿@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.ProductionPhotoViewModel>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhotoFile)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
+<hr />
 
-            @if (item.PhotoFile != null && item.PhotoFile.Length > 0)
-            {
-            <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = item.ProPhotoId })" width="100" height="100" />
-            }                       
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ProPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ProPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ProPhotoId })
-        </td>
-    </tr>
+<h2 style="text-align:center; font-family: Broadway;">Production Photos </h2>
+<hr />
+
+<div id="jv-centerAlign">
+    @Html.Partial("_SearchButton")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default button" , id = "jv-createNewBtn"})
+</div>
+
+
+
+<hr />
+<hr />
+
+
+@foreach (var item in Model)
+{
+<h2 style="text-align:center;"> @item.ProductionTitle</h2>
+<div class="row justify-content-center">
+
+    @foreach (var photo in item.ProdPhotos)
+        {
+
+    <div class="col-lg-3 mb-4">
+        <div class="card">
+            @if (photo.PhotoFile != null && photo.PhotoFile.Length > 0)
+                    {
+            <a href="@Url.Action("Details",new { id = photo.ProPhotoId } )">
+                <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = photo.ProPhotoId })" width="250" height="200" />
+            </a>
+
+                    }
+
+            <div class="card-body">
+                <h5 class="card-title" style="color:black; text-align:center">@Html.DisplayFor(modelItem => photo.Title) </h5>
+                <p class="card-text" style="color:black">@Html.DisplayFor(modelItem => photo.Description)</p>
+            </div>
+            <div class="card-body" style="text-align:center">
+                <a href="@Url.Action("Edit",  new { id = photo.ProPhotoId } )"><span class="badge badge-pill badge-secondary" id="jv-badge">Edit</span></a>
+                <a href="@Url.Action("Delete",  new { id = photo.ProPhotoId } )"><span class="badge badge-pill badge-secondary" id="jv-badge">Delete</span></a>
+            </div>
+        </div>
+
+
+    </div>
+        }
+
+
+</div>
+
+
 }
 
-</table>
+@Html.Partial("_LoginBtnProductionPhotographer")
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+

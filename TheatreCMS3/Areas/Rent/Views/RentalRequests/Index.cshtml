@@ -5,47 +5,115 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@foreach (var item in Model) {
+<input id="Button1" type="button" value="Expired Rentals" onclick="switchVisible();" />
 
-<div class="accordion" id="accordionExample_@item.RentalRequestID">
-    <div class="card">
-        <div class="card-header" id="heading_@item.RentalRequestID">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse_@item.RentalRequestID" aria-expanded="true" aria-controls="collapse_@item.RentalRequestID">
-                    @item.ContactPerson
-                </button>
-            </h2>
-        </div>
+<br />
+<div id="non-expired">
+    @foreach (var item in Model.OrderBy(t => t.StartTime))
+    {
+        // Shows Non expired requests
+        if (item.EndTime.AddDays(7) > DateTime.Now)
+        {
+            <div class="accordion" id="accordionExample_@item.RentalRequestID">
+                <div class="card">
+                    <div class="card-header" id="heading_@item.RentalRequestID">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse_@item.RentalRequestID" aria-expanded="true" aria-controls="collapse_@item.RentalRequestID">
+                                @item.ContactPerson
+                            </button>
+                        </h2>
+                    </div>
 
-        <div id="collapse_@item.RentalRequestID" class="collapse bg-dark" aria-labelledby="heading_@item.RentalRequestID" data-parent="#accordionExample_@item.RentalRequestID">
-            <div class="card-body bg-light text-dark border border-danger">
-                <p>Company: @item.Company</p><br />
-                <p>Contact Person: @item.ContactPerson</p>
-                <p>Time Remaining: @item.GetRentalDuration()</p>
+                    <div id="collapse_@item.RentalRequestID" class="collapse bg-dark" aria-labelledby="heading_@item.RentalRequestID" data-parent="#accordionExample_@item.RentalRequestID">
+                        <div class="card-body bg-light text-dark border border-danger">
+                            <p>Company: @item.Company</p><br />
+                            <p>Contact Person: @item.ContactPerson</p>
+                            <p>Time Remaining: @item.GetRentalDuration()</p>
+                        </div>
+                        <div class="border border-danger p-20 bg-light text-dark">
+                            <p>Start Time: @item.StartTime</p>
+                            <p>End Time: @item.EndTime</p>
+                            <p>Rental Code: @item.RentalCode</p><br />
+                            <p>Project Info: @item.ProjectInfo</p><br />
+                            <p>Accepted: @item.Accepted</p><br />
+                            <p>Contract Signed: @item.ContractSigned</p>
+                            <p>Ignore Survey Prompt: @item.IgnoreSurveyPrompt</p>
+
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID })
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+
+                            <button class="btn bg-dark text-light">View Survey</button>
+                            @if (item.EndTime.Date <= DateTime.Today && item.EndTime.AddDays(+7) > DateTime.Today && item.IgnoreSurveyPrompt == false)
+                            {
+                                <button class="btn bg-dark text-light">Fill in Rental Survey</button>
+                            }
+                            @Html.ActionLink("IgnoreSurvey", "IgnoreSurvey", new { id = item.RentalRequestID })
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="border border-danger p-20 bg-light text-dark">
-                <p>Start Time: @item.StartTime</p>
-                <p>End Time: @item.EndTime</p>
-                <p>Rental Code: @item.RentalCode</p><br />
-                <p>Project Info: @item.ProjectInfo</p><br />
-                <p>Accepted: @item.Accepted</p><br />
-                <p>Contract Signed: @item.ContractSigned</p>
-            </div>
-        </div>
-    </div>
+
+
+            
+
+
+        }
+
+    }
 </div>
 
+<div id="expired">
+    @foreach (var item in Model.OrderBy(t => t.StartTime))
+    {
+        // Shows expired requests
+        if (item.EndTime.AddDays(7) < DateTime.Now)
+        {
+            <div class="accordion" id="accordionExample_@item.RentalRequestID">
+                <div class="card">
+                    <div class="card-header" id="heading_@item.RentalRequestID">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse_@item.RentalRequestID" aria-expanded="true" aria-controls="collapse_@item.RentalRequestID">
+                                @item.ContactPerson
+                            </button>
+                        </h2>
+                    </div>
 
-@Html.ActionLink("Edit", "Edit", new { id=item.RentalRequestID }) 
-@Html.ActionLink("Details", "Details", new { id=item.RentalRequestID }) 
-@Html.ActionLink("Delete", "Delete", new { id=item.RentalRequestID })
-        
+                    <div id="collapse_@item.RentalRequestID" class="collapse bg-dark" aria-labelledby="heading_@item.RentalRequestID" data-parent="#accordionExample_@item.RentalRequestID">
+                        <div class="card-body bg-light text-dark border border-danger">
+                            <p>Company: @item.Company</p><br />
+                            <p>Contact Person: @item.ContactPerson</p>
+                            <p>Time Remaining: @item.GetRentalDuration()</p>
+                        </div>
+                        <div class="border border-danger p-20 bg-light text-dark">
+                            <p>Start Time: @item.StartTime</p>
+                            <p>End Time: @item.EndTime</p>
+                            <p>Rental Code: @item.RentalCode</p><br />
+                            <p>Project Info: @item.ProjectInfo</p><br />
+                            <p>Accepted: @item.Accepted</p><br />
+                            <p>Contract Signed: @item.ContractSigned</p>
+                            <p>Ignore Survey Prompt: @item.IgnoreSurveyPrompt</p>
 
-}
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RentalRequestID })
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalRequestID })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalRequestID })
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+
+
+
+
+        }
+
+    }
+</div>

@@ -205,11 +205,14 @@
     <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionPhotographer.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionPhotoViewModel.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\Models\RentalRequest.cs" />
+    <Compile Include="Areas\Rent\Models\RequestManager.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -326,6 +329,8 @@
     <Content Include="Areas\Rent\Views\RentalRequests\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\Shared\_SearchButton.cshtml" />
+    <Content Include="Areas\Prod\Views\Shared\_LoginBtnProductionPhotographer.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
