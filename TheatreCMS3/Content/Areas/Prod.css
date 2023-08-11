@@ -126,6 +126,16 @@
         filter: brightness(60%);
     }
 
+#jv-loginBtn {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    background-color: #BD1A11;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 /*END Styling for Production Photos Area*/
 
 

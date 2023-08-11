@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Web.Mvc;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Prod.Models
@@ -47,5 +48,8 @@ namespace TheatreCMS3.Areas.Prod.Models
 
 
         }
+
+        
     }
+
 }

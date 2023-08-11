@@ -328,6 +328,7 @@
     <Content Include="Areas\Rent\Views\RentalRequests\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Index.cshtml" />
     <Content Include="Areas\Prod\Views\Shared\_SearchButton.cshtml" />
+    <Content Include="Areas\Prod\Views\Shared\_LoginBtnProductionPhotographer.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
