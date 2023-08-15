@@ -10,5 +10,10 @@ namespace TheatreCMS3.Areas.Rent.Models
     {
         public int RejectedRequests { get; set; }
         public int AcceptedRequests { get; set; }
+
+        public static SeedRequestManager()
+        {
+
+        }
     }
 }
