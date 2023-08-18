@@ -1,4 +1,4 @@
-﻿@model TheatreCMS3.Areas.Prod.Models.ProductionPhoto
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 @{
     ViewBag.Title = "Delete";
@@ -9,31 +9,39 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ProductionPhoto</h4>
+    <h4>BlogAuthor</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(model => model.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Bio)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.Bio)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PhotoFile)
+            @Html.DisplayNameFor(model => model.Joined)
         </dt>
 
         <dd>
-            <img src="@Url.Action("GetImage", "ProductionPhotoes", new { id = Model.ProPhotoId })" width="200" height="200" />
+            @Html.DisplayFor(model => model.Joined)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Left)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Left)
         </dd>
 
     </dl>

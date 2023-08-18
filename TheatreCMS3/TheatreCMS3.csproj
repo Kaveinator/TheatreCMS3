@@ -199,11 +199,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
-    <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
-    <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
-    <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
-    <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
-    <Compile Include="Areas\Prod\Models\ProductionPhotoViewModel.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
+    <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalRequestsController.cs" />
@@ -301,31 +298,24 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
-    <Content Include="Areas\Prod\Views\web.config" />
-    <Content Include="Areas\Prod\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Prod\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Prod\Views\CalendarEvents\Create.cshtml" />
-    <Content Include="Areas\Prod\Views\CalendarEvents\Delete.cshtml" />
-    <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
-    <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
-    <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <Content Include="Areas\Rent\Views\web.config" />
     <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Create.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Delete.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Details.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Edit.cshtml" />
-    <Content Include="Areas\Prod\Views\ProductionPhotoes\Index.cshtml" />
     <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Rent\Views\RentalRequests\Create.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Delete.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\web.config" />
     <Content Include="Areas\Rent\Views\RentalRequests\_LoginBtnRequestManager.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -491,11 +481,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
-    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
-    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
+    <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Data\" />
+    <Folder Include="Areas\Prod\Models\" />
+    <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
