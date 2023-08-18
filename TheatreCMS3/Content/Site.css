@@ -469,4 +469,11 @@ footer {
     margin-bottom: 50px;
 }
 
+.bottom-right{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+
 /*End Home Page styling*/
