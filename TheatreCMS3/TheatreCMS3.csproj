@@ -326,6 +326,7 @@
     <Content Include="Areas\Rent\Views\RentalRequests\Details.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Edit.cshtml" />
     <Content Include="Areas\Rent\Views\RentalRequests\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalRequests\_LoginBtnRequestManager.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

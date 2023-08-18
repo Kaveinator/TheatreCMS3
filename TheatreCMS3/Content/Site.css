@@ -615,4 +615,10 @@ footer {
     background: var(--secondary-color);
 }
 
+.bottom-right{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
 
