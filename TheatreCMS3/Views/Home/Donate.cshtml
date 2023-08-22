@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Donate";
+}
+<style>
+    h2 {
+        text-align: center;
+    }
+    .donation-container {
+        background-color: var(--main-color--light);
+        max-width: 800px;          
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .form-label {
+         text-align: left;
+         max-width: 200px;
+         margin-right: 10px;
+         
+    }
+
+    .form-input {
+        flex-grow: 1;
+        margin-left: 10px;
+        padding: 10px;
+        margin-right: 10px;
+    }                  
+
+    .donate-btn {
+        color: var(--dark-color);
+        background-color: var(--light-color);
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+    #name {
+        width: 25%;
+    }
+
+    #address {
+        width: 50%;
+    }
+
+    #donation {
+        width: 50%;
+    }
+
+    #donationcomment {
+        width: 50%;
+    }
+
+    #email {
+        width: 50%;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="~/Content/Site.css" />
+
+<h2>Consider Making a Donation</h2>
+<div class="donation-container">
+    <form>            
+        <div class="form-row">
+            <label class="form-label" id="name">Name:</label>
+            <input class="form-input" type="text" id="name" placeholder="First Name" />
+            <input class="form-input" type="text" id="name" placeholder="Last Name" />
+        </div>
+        <div class="form-row">
+            <label class="form-label" id="email">Email Address*</label>
+            <input class="form-input" type="email" id="email" placeholder="Email Address" />
+        </div>
+        <div class="form-row">
+            <label class="form-label" id="address">Address</label>
+            <input class="form-input" type="text" id="address" placeholder="Address" />
+        </div>
+        <div class="form-row">
+            <label class="form-label" id="donation">Donation Amount($)*</label>
+            <input class="form-input" type="number" id="donation" placeholder="Donation Amount" />
+        </div>
+        <div class="form-row">
+            <label class="form-label" id="donationcomment">Donation Comments</label>
+            <textarea class="form-input" type="text" id="donationcomment" rows="5" placeholder="Place Comments Here"></textarea>
+        </div>
+        <button type="submit" class="donate-btn">Submit</button>
+    </form>
+</div>
+
+
+
+

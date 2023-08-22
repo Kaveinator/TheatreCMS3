@@ -492,3 +492,9 @@ footer {
 
 
 /*End Home Page styling*/
+
+/*Start of Donation Page styling*/
+
+.donation-container {
+    background-color: var(--main-color--light);
+}
