@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Donate";
+}
+<style>
+    .donation-container {
+        background-color: var(--main-color--light);
+        max-width: 800px;
+        padding: 10px;
+        margin: auto;
+    }
+
+    .form-label {
+         text-align: right;
+         margin-right: 10px;
+    }
+
+    .form-input {
+        flex-grow:1;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="~/Content/Site.css" />
+
+<h2 text-align:center>Consider Making a Donation</h2>
+<div class="donation-container">
+    <form>
+        <div class="form-row">
+            <label class="form-label" for="name">Name:</label>
+            <input class="form-input" type="text" name="name" placeholder="First Name" />
+            <input class="form-input" type="text" name="name" placeholder="Last Name" />
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="name">Email Address*</label>
+            <input class="form-input" type="email" name="email" placeholder="Email Address" />
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="address">Address</label>
+            <input class="form-input" type="text" name="address" placeholder="Address" />
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="name">Donation Amount($)*</label>
+            <input class="form-input" type="number" name="name" placeholder="Donation Amount" />
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="name">Donation Comments</label>
+            <input class="form-input" type="text" name="name" placeholder="Place Comments Here" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+
