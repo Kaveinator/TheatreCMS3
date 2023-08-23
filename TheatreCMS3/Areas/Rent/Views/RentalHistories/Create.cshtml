@@ -5,59 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="RH-create-h2">Create Rental History</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <style>
-        h2 {
-            text-align: center;
-        }
+  
 
-        form {
-            background-color: var(--main-color--light);
-            max-width: 500px;
-            padding: 15px;
-            border-radius: 10px;
-            align-content: center;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .form-group {
-            text-align: left;
-            margin-right: 10px;
-        }
-
-        .label-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-    <div class="form-horizontal">
-        <h4>RentalHistory</h4>
-        <hr />
+    <div class="RH-create-form-horizontal">   
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <form>
-            <div class="label-container">
-                <div class="form-group">
+        <form class="RH-create-container">
+            <div class="RH-create-label-container">
+                <div class="RH-create-form-group">
                     @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div>
                         @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="RH-create-form-group">
                     @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="">
                         <div id="myCheck">
@@ -69,16 +37,7 @@
                 </div>
             </div>
 
-            <script>
-                $(document).ready(function () {
-
-                    $("label:contains('Notes')").click(function () {
-                        $(this).text("Damages Incurred");
-                    });
-                });
-            </script>
-
-            <div class="form-group">
+            <div class="RH-create-form-group">
                 @Html.LabelFor(model => model.DamagesIncurred, "Notes", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="">
                     @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
@@ -87,8 +46,8 @@
             </div>
 
 
-            <div class="form-group">
-                <div class="button-container">
+            <div class="RH-create-form-group">
+                <div class="RH-create-button-container">
                     <input type="submit" value="Back to List" class="btn btn-dark" />
                     <input type="submit" value="Create" class="btn btn-success" />
                 </div>

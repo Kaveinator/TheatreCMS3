@@ -1,31 +1,14 @@
-﻿var checkbox = $('.checkbox input[type="checkbox"]');
-var isChecked = checkbox.prop("checked");
-var label = $('.renthistory-damage');
-    if (isChecked) {
-        label.text('Damages Incurred');
-    } else {
-        label.text('Notes');
-    }
+﻿console.log("hello world");
+
 
 $(document).ready(function () {
-    var checkbox = $('.checkbox input[type="checkbox"]');
-    var label = $('.renthistory-damage');
+    $("#myCheck input[type='checkbox']").click(function () {
+        var label = $("label[for='DamagesIncurred']");
 
-    checkbox.on('change', function () {
-        var checked = this.checked;
-        if (checked) {
-            label.text('Damages Incurred');
+        if (this.checked) {
+            label.text("Damages Incurred");
         } else {
-            label.text('Notes');
+            label.text("Notes");
         }
-    });
-});
-
-$(document).ready(function () {
-    $(".dropdown-button").hover(function () {
-        $(this).find(".dropdown-menu").show();
-    }, function () {
-        $(this).find(".dropdown-menu").hide();
-
     });
 });
