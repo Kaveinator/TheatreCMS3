@@ -10,3 +10,39 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+
+.RH-create-h2, .RH-edit-h2 {
+    text-align: center;
+}
+
+.RH-create-container, .RH-edit-container {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    background-color: var(--main-color--light);
+    max-width: 600px;
+    padding: 15px;
+    border-radius: 10px;
+    align-content: center;
+    text-align: center;
+}
+
+.RH-edit-button-container, .RH-create-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.RH-edit-form-group, .RH-create-form-group {
+    text-align: left;
+    margin-right: 10px;
+}
+
+.RH-edit-label-container, .RH-create-label-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
