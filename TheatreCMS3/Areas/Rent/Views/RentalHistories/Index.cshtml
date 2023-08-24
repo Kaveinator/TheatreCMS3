@@ -10,37 +10,41 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="RH-index-form-horizontal">
+    <form>
+        <table style="width:100%">
+            <tr>
+                <th>
+                    Most Recent Rental Histories
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="RH-index-table-row">
+                    <td class="RH-index-damaged" style="width:5%">
+                        @Html.DisplayFor(modelItem => item.RentalDamaged)
+                        @*circlecheck = <span class="bi bi-check-circle-fill red color"></span>*@
+                        @*<span class="bi bi-x-circle-fill red-color"></span>*@
+                    </td>
+                    <td class="RH-index-rentalname" style="width:10%">
+                        <span class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
+                    </td>
+                    <td class="RH-index-notes" style="width:80%">
+                        <span class="d-inline-block text-truncate text-secondary" style="max-width: 400px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                        @*text-muted only if item is not damaged*@
+                    </td>
+                    <td style="width:5%">
+                        <div class="RH-index-dropdown">
+                            <button class="RH-index-dropbtn">Dropdown</button>
+                            <div class="RH-index-dropdown-content">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>

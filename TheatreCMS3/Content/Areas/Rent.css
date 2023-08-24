@@ -16,18 +16,23 @@
     text-align: center;
 }
 
-.RH-create-container, .RH-edit-container {
-    display: flex;
-    justify-content: center;
+.RH-index-form-horizontal {
+    background-color: var(--light-color);
+    padding: 15px;
+    border-radius: 10px;
+    border-color: var(--main-color);
+    border-style: solid;
+    max-width: 700px;
 }
 
-form {
+.RH-create-form-horizontal, .RH-edit-form-horizontal {
     background-color: var(--main-color--light);
     max-width: 600px;
     padding: 15px;
     border-radius: 10px;
     align-content: center;
     text-align: center;
+    justify-content: center;
 }
 
 .RH-edit-button-container, .RH-create-button-container {
@@ -46,3 +51,37 @@ form {
     flex-wrap: wrap;
 }
 
+/*drop down menu*/
+
+.RH-index-dropdown {
+    background-color: var(--light-color);
+    border-radius: 10px;
+}
+
+.RH-index-dropbtn {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border-radius: 10px;
+}
+
+.RH-index-dropdown-content {
+    display: none;
+}
+
+.RH-index-table-row:hover .RH-index-dropbtn {
+    display: inline-block;
+}
+
+/*table section*/
+
+.RH-index-damaged {
+    
+}
+
+.RH-index-rentalname {
+    text-align: left;
+}
+
+.RH-index-notes {
+    
+}

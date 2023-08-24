@@ -1,7 +1,4 @@
-﻿console.log("hello world");
-
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $("#myCheck input[type='checkbox']").click(function () {
         var label = $("label[for='DamagesIncurred']");
 
@@ -12,3 +9,5 @@ $(document).ready(function () {
         }
     });
 });
+
+
