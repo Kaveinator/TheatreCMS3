@@ -4,8 +4,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 <h2>Index</h2>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -24,12 +26,12 @@
                     <td class="RH-index-damaged" style="width:5%">
                         @if (item.RentalDamaged ==true)
                         {
-                            <i class="fas fa-x-circle-fill" style="font-size: 2rem; color: red;"></i>
+                        <i class="fa-solid fa-circle-xmark" style="color: #e44d1b;"></i>
                             @*<span id="boot-icon" class="bi bi-x-circle-fill" style="font-size: 10rem; color: rgb(255, 0, 0);"></span>*@
                         }
                         else
                         {
-                            <i class="fas fa-check-circle-fill" style="font-size: 2rem; color: green;"></i>
+                    <i class="fa-solid fa-circle-check" style="color: #4eb154;"></i>
                             @*<span id="boot-icon" class="bi bi-check-circle-fill" style="font-size: 10rem; color: rgb(0, 128, 55);"></span>*@
                         }
                     </td>
@@ -38,8 +40,10 @@
                     </td>
                     <td class="RH-index-notes" style="width:80%">
                         <span class="d-inline-block text-truncate text-secondary" style="max-width: 400px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
-                        @*text-muted only if item is not damaged*@
-                    </td>
+                                                           
+                            @*text-muted only if item is not damaged*@
+
+                        </td>
                     <td style="width:5%">
                         <div class="RH-index-dropdown">
                             <button class="RH-index-dropbtn"><i class="fas fa-ellipsis-v"></i></button>
