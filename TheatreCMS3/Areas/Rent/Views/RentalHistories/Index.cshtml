@@ -22,14 +22,15 @@
             {
                 <tr class="RH-index-table-row">
                     <td class="RH-index-damaged" style="width:5%">
-                        @if (item.RentalDamaged)
+                        @if (item.RentalDamaged ==true)
                         {
-                            <span id="boot-icon" class="bi bi-x-circle-fill" style="font-size: 10rem; color: rgb(255, 0, 0);"></span>
+                            <i class="fas fa-x-circle-fill" style="font-size: 2rem; color: red;"></i>
+                            @*<span id="boot-icon" class="bi bi-x-circle-fill" style="font-size: 10rem; color: rgb(255, 0, 0);"></span>*@
                         }
                         else
                         {
-
-                            <span id="boot-icon" class="bi bi-check-circle-fill" style="font-size: 10rem; color: rgb(0, 128, 55);"></span>
+                            <i class="fas fa-check-circle-fill" style="font-size: 2rem; color: green;"></i>
+                            @*<span id="boot-icon" class="bi bi-check-circle-fill" style="font-size: 10rem; color: rgb(0, 128, 55);"></span>*@
                         }
                     </td>
                     <td class="RH-index-rentalname" style="width:10%">
