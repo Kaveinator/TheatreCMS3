@@ -15,23 +15,19 @@
 <div class="RH-index-form-horizontal">
     <form>
         <table style="width:100%">
-            <tr>
-                <th>
-                    Most Recent Rental Histories
-                </th>
-            </tr>
+            <caption>Most Recent Rental Histories</caption>            
             @foreach (var item in Model)
             {
                 <tr class="RH-index-table-row">
                     <td class="RH-index-damaged" style="width:5%">
-                        @if (item.RentalDamaged ==true)
+                        @if (item.RentalDamaged == true)
                         {
-                        <i class="fa-solid fa-circle-xmark" style="color: #e44d1b;"></i>
+                            <i class="fa-solid fa-circle-xmark" style="color: #e44d1b;"></i>
                             @*<span id="boot-icon" class="bi bi-x-circle-fill" style="font-size: 10rem; color: rgb(255, 0, 0);"></span>*@
                         }
                         else
                         {
-                    <i class="fa-solid fa-circle-check" style="color: #4eb154;"></i>
+                            <i class="fa-solid fa-circle-check" style="color: #4eb154;"></i>
                             @*<span id="boot-icon" class="bi bi-check-circle-fill" style="font-size: 10rem; color: rgb(0, 128, 55);"></span>*@
                         }
                     </td>
@@ -39,11 +35,19 @@
                         <span class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
                     </td>
                     <td class="RH-index-notes" style="width:80%">
-                        <span class="d-inline-block text-truncate text-secondary" style="max-width: 400px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
-                                                           
-                            @*text-muted only if item is not damaged*@
 
-                        </td>
+                        @if (item.RentalDamaged == true)
+                        {
+                            <span class="d-inline-block text-truncate text-dark" style="max-width: 400px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+
+                        }
+                        else
+                        {
+                            <span class="d-inline-block text-truncate text-muted" style="max-width: 400px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                        }
+
+
+                    </td>
                     <td style="width:5%">
                         <div class="RH-index-dropdown">
                             <button class="RH-index-dropbtn"><i class="fas fa-ellipsis-v"></i></button>

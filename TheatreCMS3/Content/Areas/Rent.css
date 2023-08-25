@@ -101,3 +101,7 @@
 .RH-index-notes {
     
 }
+
+caption {
+    caption-side: top;
+}
