@@ -58,24 +58,40 @@
     border-radius: 10px;
 }
 
-.RH-index-dropbtn {
+.RH-index-dropbtn  {
     background-color: var(--dark-color);
     color: var(--light-color);
     border-radius: 10px;
+    display: none;
+
+}
+
+.fas fa-ellipsis-v {
+    display: none;
 }
 
 .RH-index-dropdown-content {
     display: none;
+    z-index: 1;
+    position: absolute;
+    background-color: var(--light-color);
+    text-decoration-color: var(--dark-color);
+    max-width: 100px;
+    min-width: 100px;
+    padding: 5px;
+    box-shadow: 2px 2px black;
+    border-radius: 5px;
 }
 
 .RH-index-table-row:hover .RH-index-dropbtn {
     display: inline-block;
 }
 
+.RH-index-dropdown:hover .RH-index-dropdown-content {
+    display: block;
+}
 /*table section*/
-
 .RH-index-damaged {
-    
 }
 
 .RH-index-rentalname {
