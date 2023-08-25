@@ -4,43 +4,64 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 <h2>Index</h2>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
+<div class="RH-index-form-horizontal">
+    <form>
+        <table style="width:100%">
+            <caption>Most Recent Rental Histories</caption>            
+            @foreach (var item in Model)
+            {
+                <tr class="RH-index-table-row">
+                    <td class="RH-index-damaged" style="width:5%">
+                        @if (item.RentalDamaged == true)
+                        {
+                            <i class="fa-solid fa-circle-xmark" style="color: #e44d1b;"></i>
+                            @*<span id="boot-icon" class="bi bi-x-circle-fill" style="font-size: 10rem; color: rgb(255, 0, 0);"></span>*@
+                        }
+                        else
+                        {
+                            <i class="fa-solid fa-circle-check" style="color: #4eb154;"></i>
+                            @*<span id="boot-icon" class="bi bi-check-circle-fill" style="font-size: 10rem; color: rgb(0, 128, 55);"></span>*@
+                        }
+                    </td>
+                    <td class="RH-index-rentalname" style="width:10%">
+                        <span class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
+                    </td>
+                    <td class="RH-index-notes" style="width:80%">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
-}
+                        @if (item.RentalDamaged == true)
+                        {
+                            <span class="d-inline-block text-truncate text-dark" style="max-width: 400px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
 
-</table>
+                        }
+                        else
+                        {
+                            <span class="d-inline-block text-truncate text-muted" style="max-width: 400px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                        }
+
+
+                    </td>
+                    <td style="width:5%">
+                        <div class="RH-index-dropdown">
+                            <button class="RH-index-dropbtn"><i class="fas fa-ellipsis-v"></i></button>
+                            <div class="RH-index-dropdown-content">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })
+                                <br>
+                                @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })
+                                <br>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>
