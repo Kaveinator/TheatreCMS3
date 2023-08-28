@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Models;
+using TheatreCMS3.Areas.Prod.Controllers;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
