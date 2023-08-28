@@ -477,3 +477,24 @@ footer {
 
 /*End Home Page styling*/
 
+/*********** Sign-in Page Styling ***********/
+.signin-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.signin-list p {
+    color: #fffbfb;
+    background-color: #bd1a11;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+}
+
+/*********** END Sign-in Page Styling ***********/
