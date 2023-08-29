@@ -14,21 +14,33 @@
 </p>
 <div class="RH-index-form-horizontal">
     <form>
-        <table style="width:100%">
-            <caption>Most Recent Rental Histories</caption>            
+        <div class="RH-index-header row">
+            <div class="RH-index-row-cols-1">
+                Most Recent Rental Histories
+            </div>
+            <div class="RH-index-row-cols-3">
+                <p class="RH-index-p">Sorted by:</p>
+                <button class="RH-index-sortdrop">No Extra Sorting...</button>
+                <div class="RH-index-sortcontent">
+                </div>
+            </div>
+        </div>
+        <table id="RH-index-table" style="width:100%">
+            
+            
+
             @foreach (var item in Model)
             {
+
                 <tr class="RH-index-table-row">
                     <td class="RH-index-damaged" style="width:5%">
                         @if (item.RentalDamaged == true)
                         {
                             <i class="fa-solid fa-circle-xmark" style="color: #e44d1b;"></i>
-                            @*<span id="boot-icon" class="bi bi-x-circle-fill" style="font-size: 10rem; color: rgb(255, 0, 0);"></span>*@
                         }
                         else
                         {
                             <i class="fa-solid fa-circle-check" style="color: #4eb154;"></i>
-                            @*<span id="boot-icon" class="bi bi-check-circle-fill" style="font-size: 10rem; color: rgb(0, 128, 55);"></span>*@
                         }
                     </td>
                     <td class="RH-index-rentalname" style="width:10%">

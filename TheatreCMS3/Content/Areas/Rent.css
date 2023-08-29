@@ -102,6 +102,17 @@
     
 }
 
-caption {
-    caption-side: top;
+.RH-index-p {
+    display: inline;
+    z-index: 1;
+
 }
+/*Sort button*/
+.RH-index-sortdrop {
+    float: right;
+}
+      
+
+ /*   .RH-index-header {
+    z-index: 2;
+}*/
