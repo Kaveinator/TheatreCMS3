@@ -16,15 +16,6 @@
     text-align: center;
 }
 
-.RH-index-form-horizontal {
-    background-color: var(--light-color);
-    padding: 15px;
-    border-radius: 10px;
-    border-color: var(--main-color);
-    border-style: solid;
-    max-width: 700px;
-}
-
 .RH-create-form-horizontal, .RH-edit-form-horizontal {
     background-color: var(--main-color--light);
     max-width: 600px;
@@ -49,6 +40,16 @@
 .RH-edit-label-container, .RH-create-label-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+/*index form*/
+.RH-index-form-horizontal {
+    background-color: var(--light-color);
+    padding: 15px;
+    border-radius: 10px;
+    border-color: var(--main-color);
+    border-style: solid;
+    max-width: 700px;
 }
 
 /*drop down menu*/
@@ -102,17 +103,16 @@
     
 }
 
-.RH-index-p {
-    display: inline;
-    z-index: 1;
-
-}
 /*Sort button*/
 .RH-index-sortdrop {
     float: right;
 }
-      
 
- /*   .RH-index-header {
-    z-index: 2;
+
+/*.RH-index-inline-text{
+    margin-right: 10px;
 }*/
+
+.RH-index-header row {
+    color: var(--dark-color);
+}

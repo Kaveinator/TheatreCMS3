@@ -15,19 +15,18 @@
 <div class="RH-index-form-horizontal">
     <form>
         <div class="RH-index-header row">
-            <div class="RH-index-row-cols-1">
+            <div class="RH-index-row-cols-1 col-sm">
                 Most Recent Rental Histories
             </div>
-            <div class="RH-index-row-cols-3">
-                <p class="RH-index-p">Sorted by:</p>
+            <div class="RH-index-row-cols-3 col-sm">
+                <span class="RH-index-inline-text">Sort by:</span>
                 <button class="RH-index-sortdrop">No Extra Sorting...</button>
                 <div class="RH-index-sortcontent">
                 </div>
             </div>
+
         </div>
         <table id="RH-index-table" style="width:100%">
-            
-            
 
             @foreach (var item in Model)
             {
