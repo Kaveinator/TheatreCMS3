@@ -109,10 +109,11 @@
 }
 
 
-/*.RH-index-inline-text{
+
+    /*.RH-index-inline-text{
     margin-right: 10px;
 }*/
 
-.RH-index-header row {
+    .RH-index-header {
     color: var(--dark-color);
 }

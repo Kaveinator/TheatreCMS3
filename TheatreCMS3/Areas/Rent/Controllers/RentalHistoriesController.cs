@@ -14,6 +14,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
     public class RentalHistoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        
 
         // GET: Rent/RentalHistories
         public ActionResult Index()
@@ -124,5 +125,24 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //sort table area
+
+        
+        public ActionResult SortedRental(string sortOrder)
+        {
+            var rentalHistories = db.RentalHistories;
+
+            IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory> sortedData = null;
+
+            if (sortOrder == "az")
+            {
+                // Sort the data by Rental Name in ascending order
+                sortedData = rentalHistories.OrderBy(item => item.Rental);
+            }
+
+            return PartialView("_PartialView", sortedData);
+        }
+
     }
 }

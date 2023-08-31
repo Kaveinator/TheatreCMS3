@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "_PartialView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<h2>_PartialView</h2>
 
 <h2>Index</h2>
 
@@ -20,7 +21,7 @@
             </div>
             <div class="RH-index-row-cols-3 col-sm">
                 <span class="RH-index-inline-text">Sort by:</span>
-                <select class="RH-index-sortdrop">                      
+                <select class="RH-index-sortdrop">
                     <option value="none">No Extra Sorting...</option>
                     <option value="az">A-Z</option>
                     <option value="za">Z-A</option>
@@ -79,9 +80,4 @@
             }
         </table>
     </form>
-</div>
-
-@*added to see if this works for the partial view*@
-<div id="partialViewContainer">
-    @Html.Partial("_RentalHistoryTable", Model)
 </div>
