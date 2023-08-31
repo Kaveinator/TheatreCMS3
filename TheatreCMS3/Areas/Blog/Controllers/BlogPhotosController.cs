@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -33,6 +35,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             {
                 return HttpNotFound();
             }
+
+            // Getting byte array from user
+            byte[] imageBytes = GetBytes(blogPhoto.BlogPhotoId);
+
+
             return View(blogPhoto);
         }
 
@@ -47,10 +54,12 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase blogImage)
         {
             if (ModelState.IsValid)
             {
+                blogPhoto.Photo = ConvertImage(blogImage);
+
                 db.BlogPhotoes.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +88,12 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Edit([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase blogImage)
         {
             if (ModelState.IsValid)
             {
+                blogPhoto.Photo = ConvertImage(blogImage);
+
                 db.Entry(blogPhoto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +134,26 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public byte[] ConvertImage(HttpPostedFileBase blogImage)
+        {
+            byte[] bytes;
+
+            using (BinaryReader br = new BinaryReader(blogImage.InputStream))
+            {
+                bytes = br.ReadBytes(blogImage.ContentLength);
+            }
+
+            return bytes;
+        }
+
+        public byte[] GetBytes(int? id)
+        {
+            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+            byte[] bytes = blogPhoto.Photo;
+
+            return bytes;
         }
     }
 }

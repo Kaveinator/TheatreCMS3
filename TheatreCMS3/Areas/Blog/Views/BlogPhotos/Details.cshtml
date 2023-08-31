@@ -24,7 +24,10 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Photo)
+            <!-- This is where converted byte array (image) will display -->
+            @*@Html.DisplayFor(model => model.Photo)*@
+
+            <img src="data:image;base64,@System.Convert.ToBase64String(Model.Photo)" width="80" height="80" />
         </dd>
 
     </dl>

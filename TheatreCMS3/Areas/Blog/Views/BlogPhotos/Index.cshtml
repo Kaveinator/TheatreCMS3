@@ -27,7 +27,11 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Photo)
+            <!-- This is where converted byte array (image) will display -->
+
+            <img src="data:image;base64,@System.Convert.ToBase64String(item.Photo)" width="80" height="80" />
+
+            @*@Html.DisplayFor(modelItem => item.Photo)*@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BlogPhotoId }) |
