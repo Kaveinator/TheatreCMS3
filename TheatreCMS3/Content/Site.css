@@ -500,3 +500,98 @@ footer {
 }
 
 /*********** END Sign-in Page Styling ***********/
+
+/*********** Create/Edit BlogPhoto Styling ***********/
+.blogBtn {
+    color: #000000;
+    font-weight: 700;
+}
+
+.blogBtnOther {
+    color: #000000;
+    font-weight: 700;
+}
+
+.blogBtn:hover {
+    background-color: var(--secondary-color);
+    color: #000000;
+}
+
+.blogBtnOther:hover {
+    background-color: var(--light-color);
+    font-weight: 700;
+}
+
+.blogHeader {
+    text-align: center;
+    color: #000000;
+    padding-top: 10px;
+}
+
+.blogForm-container {
+    background-color: #9d7c39;
+    padding: 10px;
+}
+
+.blogForm {
+    background-color: #fffbfb;
+    border-radius: 5px;
+}
+
+.blogForm-label {
+    font-size: 1.2em;
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+}
+
+.blogForm-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: lightgrey;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.blogForm-input:focus {
+    border: 1px solid #9d7c39;
+    outline: 1px solid #9d7c39;
+    border-radius: 3px;
+    background-color: #fffbfb;
+}
+
+.centerBtn {
+    margin: 30px 0px 0px 0px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centerFile {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.blogForm-label:focus {
+    border: 1px solid #9d7c39;
+    outline: 1px solid #9d7c39;
+    border-radius: 3px;
+    background-color: #fffbfb;
+}
+
+.blogImage {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px auto;
+    border: 1px solid black;
+}
+
+/*********** END Create/Edit BlogPhoto Styling ***********/
