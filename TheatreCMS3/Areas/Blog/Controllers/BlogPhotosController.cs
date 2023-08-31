@@ -92,11 +92,13 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                blogPhoto.Photo = ConvertImage(blogImage);
-
-                db.Entry(blogPhoto).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (blogImage != null)
+                {
+                    blogPhoto.Photo = ConvertImage(blogImage);
+                    db.Entry(blogPhoto).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             return View(blogPhoto);
         }
