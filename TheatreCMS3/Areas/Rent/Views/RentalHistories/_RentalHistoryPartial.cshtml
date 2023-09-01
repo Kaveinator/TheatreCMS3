@@ -3,18 +3,12 @@
 
 @{
     ViewBag.Title = "_PartialView";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>_PartialView</h2>
 
 <h2>Index</h2>
 
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div class="RH-index-form-horizontal">
+@*<div class="RH-index-form-horizontal">
     <form>
         <div class="RH-index-header row">
             <div class="RH-index-row-cols-1 col-sm">
@@ -31,8 +25,8 @@
                 </select>
             </div>
 
-        </div>
-        <table id="RH-index-table" style="width:100%">
+        </div>*@
+        @*<table id="RH-index-table" style="width:100%">*@
 
             @foreach (var item in Model)
             {
@@ -79,6 +73,6 @@
                     </td>
                 </tr>
             }
-        </table>
-    </form>
-</div>
+        @*</table>*@
+    @*</form>
+</div>*@

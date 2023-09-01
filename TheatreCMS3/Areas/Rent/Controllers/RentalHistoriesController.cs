@@ -127,22 +127,37 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         //sort table area
-
-        
-        public ActionResult SortedRental(string sortOrder)
+        public ActionResult SortNone()
         {
-            var rentalHistories = db.RentalHistories;
-
-            IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory> sortedData = null;
-
-            if (sortOrder == "az")
-            {
-                // Sort the data by Rental Name in ascending order
-                sortedData = rentalHistories.OrderBy(item => item.Rental);
-            }
-
-            return PartialView("_PartialView", sortedData);
+            var noSortedRentals = db.RentalHistories.ToList();
+            return PartialView("_RentalHistoryPartial", noSortedRentals);
         }
+
+        public ActionResult Sortaz()
+        {
+            var sortedRentals = db.RentalHistories.OrderBy(r => r.RentalDamaged).ToList();
+            return PartialView("_RentalHistoryPartial", sortedRentals);
+        }
+
+        public ActionResult Sortza()
+        {
+            var sortedRentals = db.RentalHistories.OrderByDescending(r => r.RentalDamaged).ToList();
+            return PartialView("_RentalHistoryPartial", sortedRentals);
+        }
+
+        public ActionResult SortDamaged()
+        {
+            var damagedRentals = db.RentalHistories.Where(r => r.RentalDamaged).ToList();
+            return PartialView("_RentalHistoryPartial", damagedRentals);
+        }
+
+        public ActionResult SortUndamaged()
+        {
+            var undamgagedRentals = db.RentalHistories.Where(r => !r.RentalDamaged).ToList(); //!r means it is not damaged
+            return PartialView("_RentalHistoryPartial", undamgagedRentals);
+        }
+
+
 
     }
 }

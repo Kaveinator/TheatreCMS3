@@ -12,18 +12,49 @@
     });
 });
 
+
+
 $(document).ready(function () {
     $(".RH-index-sortdrop").change(function () {
+        
         var selectedValue = $(this).val();
-
-        $.ajax({
-            url: "@Url.Action("SortedRental", "RentalHistoriesController")":, // Update with your controller and action names
-            type: "GET",
-            data: { sortOrder: selectedValue },
-            success: function (data) {
-                $("#RH-index-table").html(data);
-            }
-        });
+        if (selectedValue === 'damaged') {
+            console.log("damaged sort")
+            $.ajax({
+                url: '/Rent/RentalHistories/SortDamaged',
+                type: "GET",
+                success: function (result) {
+                    $("#RH-index-table").html(result);
+                }
+            });
+        } else if (selectedValue === 'undamaged') {
+            console.log("undamaged sort")
+            $.ajax({
+                url: '/Rent/RentalHistories/SortUndamaged',
+                type: "GET",
+                success: function (result) {
+                    $("#RH-index-table").html(result);
+                }
+            });
+        } else if (selectedValue === 'az') {
+            console.log("az sort")
+            $.ajax({
+                url: '/Rent/RentalHistories/Sortaz',
+                type: "GET",
+                success: function (result) {
+                    $("#RH-index-table").html(result);
+                }
+            });
+        } else if (selectedValue === 'za') {
+            console.log("za sort")
+            $.ajax({
+                url: '/Rent/RentalHistories/Sortza',
+                type: "GET",
+                success: function (result) {
+                    $("#RH-index-table").html(result);
+                }
+            });
+        }
     });
 });
 
