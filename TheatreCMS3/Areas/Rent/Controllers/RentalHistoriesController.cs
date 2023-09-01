@@ -14,6 +14,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
     public class RentalHistoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        
 
         // GET: Rent/RentalHistories
         public ActionResult Index()
@@ -124,5 +125,39 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //sort table area
+        public ActionResult SortNone()
+        {
+            var noSortedRentals = db.RentalHistories.ToList();
+            return PartialView("_RentalHistoryPartial", noSortedRentals);
+        }
+
+        public ActionResult Sortaz()
+        {
+            var sortedRentals = db.RentalHistories.OrderBy(r => r.RentalDamaged).ToList();
+            return PartialView("_RentalHistoryPartial", sortedRentals);
+        }
+
+        public ActionResult Sortza()
+        {
+            var sortedRentals = db.RentalHistories.OrderByDescending(r => r.RentalDamaged).ToList();
+            return PartialView("_RentalHistoryPartial", sortedRentals);
+        }
+
+        public ActionResult SortDamaged()
+        {
+            var damagedRentals = db.RentalHistories.Where(r => r.RentalDamaged).ToList();
+            return PartialView("_RentalHistoryPartial", damagedRentals);
+        }
+
+        public ActionResult SortUndamaged()
+        {
+            var undamgagedRentals = db.RentalHistories.Where(r => !r.RentalDamaged).ToList(); //!r means it is not damaged
+            return PartialView("_RentalHistoryPartial", undamgagedRentals);
+        }
+
+
+
     }
 }
