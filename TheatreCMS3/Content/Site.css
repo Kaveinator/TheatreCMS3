@@ -500,26 +500,30 @@ footer {
 
 /*********** END Sign-in Page Styling ***********/
 
-/*About Page Styling*/
+
+/***********About Page Styling***********/
 
 .about-background {
     position: absolute;
     top: -13em;
     min-width: 100%;
     z-index: -1;
-    }
+}
+
 @font-face {
     font-family: Broadway;
     src: url('/webfonts/Broadway Normal.ttf');
-    }
+}
+
 .about-headline h1{
     text-align: center;
     font-family: Broadway;
-    color: white;
-    }
-.about-headline h2{
-    color: white;
-    text-align:center;
+    color: var(--light-color);
+}
+
+.about-headline h2 {
+    color: var(--light-color);
+    text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -533,7 +537,7 @@ footer {
 .about-Column1 {
     position: center;
     padding-top: 30%;
-    }
+}
 
 .about-photoContainer {
     width: 10vw;
@@ -543,3 +547,4 @@ footer {
     margin: auto;
     padding-right: 1%;
 }
+/**********END About Page Styling**********/
