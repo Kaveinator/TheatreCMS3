@@ -5,37 +5,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!-- CSS -->
+<link href="@Url.Content("~/Areas/Blog.css")" rel="stylesheet" type="text/css" />
+
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th></th>
-    </tr>
+    <div class="card-columns">
+        @foreach (var item in Model)
+        {
+            <div class="card blogImage-container">
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.Photo)" class="card-img image-overlay" />
+                <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })" class="card-img-overlay">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            <!-- This is where converted byte array (image) will display -->
-            <img src="data:image;base64,@System.Convert.ToBase64String(item.Photo)" width="80" height="80" />
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPhotoId })
-        </td>
-    </tr>
-}
+                    <span class="card-overlay cardImage-title">@Html.DisplayFor(modelItem => item.Title)</span>
 
+                    <!-- This link (<a>) needs to be here for the "Edit" and "Delete" buttons to render correctly -->
+                    <span class="card-overlay badge badge-pill badge-edit"><a></a></span>
+
+                    <span class="card-overlay badge badge-pill badge-edit">@Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId })</span>
+                    <span class="card-overlay badge badge-pill badge-delete">@Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })</span>
+                </a>
+            </div>
+        }
+    </div>
 </table>

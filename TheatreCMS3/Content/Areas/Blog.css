@@ -105,3 +105,50 @@
 }
 
 /*********** END Create/Edit BlogPhoto Styling ***********/
+
+/*********** Index BlogPhoto Styling ***********/
+.image-overlay {
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.blogImage-container:hover .image-overlay {
+    opacity: .3;
+}
+
+.card-overlay {
+    opacity: 0;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.cardImage-title {
+    color: #fffbfb;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px black;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+}
+
+.blogImage-container:hover .card-overlay {
+    opacity: 1;
+}
+
+.badge-edit {
+    background-color: #000000;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+
+.badge-delete {
+    background-color: #BD1A11;
+    position: absolute;
+    left: 50px;
+    bottom: 5px;
+}
+
+/*********** END Index BlogPhoto Styling ***********/
