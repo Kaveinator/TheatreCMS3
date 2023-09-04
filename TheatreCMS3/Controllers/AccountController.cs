@@ -111,7 +111,9 @@ namespace TheatreCMS3.Controllers
              bool IsValidEmail(string input)
             {
                 if (string.IsNullOrWhiteSpace(input))
+                {
                     return false;
+                }
 
                 try
                 {
