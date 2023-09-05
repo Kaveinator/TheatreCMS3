@@ -7,30 +7,25 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>BlogPhoto</h4>
+<div class="deleteForm-container">
+    <h4 class="blogHeader-white">Blog Photo Details</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
+    <dl>
         <dd>
-            @Html.DisplayFor(model => model.Title)
+            <span class="image-title">@Html.DisplayFor(model => model.Title)</span>
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
         <dd>
-            <!-- This is where converted byte array (image) will display -->
-            <img src="data:image;base64,@System.Convert.ToBase64String(Model.Photo)" width="80" height="80" />
-        </dd>
+            <div class="deleteForm-container">
+                <!-- This is where converted byte array (image) will display -->
+                <img src="data:image;base64,@System.Convert.ToBase64String(Model.Photo)" class="image-large" />
 
+                <div class="form-actions no-color">
+                    @Html.ActionLink("Edit", "Edit", null, new { id = Model.BlogPhotoId }, new { @class = "btn btn-edit edit-icon" })
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-back back-icon" })
+
+                    @Html.ActionLink("Delete", "Delete", null, new { id = Model.BlogPhotoId }, new { @class = "btn btn-delete delete-icon" })
+                </div>
+            </div>
+        </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPhotoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
