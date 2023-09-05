@@ -64,12 +64,12 @@
     border-radius: 3px;
 }
 
-    .blogForm-input:focus {
-        border: 1px solid #9d7c39;
-        outline: 1px solid #9d7c39;
-        border-radius: 3px;
-        background-color: #fffbfb;
-    }
+.blogForm-input:focus {
+    border: 1px solid #9d7c39;
+    outline: 1px solid #9d7c39;
+    border-radius: 3px;
+    background-color: #fffbfb;
+}
 
 .centerBtn {
     margin: 30px 0px 0px 0px;
@@ -139,6 +139,7 @@
 
 .badge-edit {
     background-color: #000000;
+    color: #fffbfb;
     position: absolute;
     left: 5px;
     bottom: 5px;
@@ -146,9 +147,97 @@
 
 .badge-delete {
     background-color: #BD1A11;
+    color: #fffbfb;
     position: absolute;
     left: 50px;
     bottom: 5px;
 }
 
 /*********** END Index BlogPhoto Styling ***********/
+
+/*********** Details / Delete BlogPhoto Styling ***********/
+.blogHeader-white {
+    text-align: center;
+    color: #fffbfb;
+    padding-top: 10px;
+}
+
+.deleteForm-container {
+    background-color: #000000;
+    text-align: center;
+    position: relative;
+}
+
+.image-large {
+    width: 100%;
+    height: auto;
+}
+
+.image-title {
+    font-size: 2em;
+    font-weight: 600;
+    color: #fffbfb;
+}
+
+.btn-delete {
+    background-color: #BD1A11;
+    color: #fffbfb;
+    margin: 5px auto;
+    position: absolute;
+    right: 0px;
+}
+
+.btn-delete-wide {
+    background-color: #BD1A11;
+    color: #fffbfb;
+    margin: 5px auto;
+    position: absolute;
+    right: 0px;
+    width: 90px;
+    padding-left: 30px;
+}
+
+.btn-back {
+    background-color: #808080;
+    color: #fffbfb;
+    margin: 5px auto;
+    position: absolute;
+    left: 80px;
+    text-decoration: none;
+}
+
+.btn-edit {
+    background-color: #808080;
+    color: #fffbfb;
+    margin: 5px auto;
+    position: absolute;
+    left: 0px;
+    text-decoration: none;
+}
+
+.back-icon:before {
+    content: "\f0a8";
+    font-family: 'FontAwesome';
+    padding-right: 5px;
+}
+
+.edit-icon:before {
+    content: "\f044";
+    font-family: 'FontAwesome';
+    padding-right: 5px;
+}
+
+.delete-icon:before {
+    content: "\f2ed ";
+    font-family: 'FontAwesome';
+    padding-right: 5px;
+}
+
+.deleteForm-container i{
+    position: absolute;
+    color: #fffbfb;
+    right: 64.5px;
+    bottom: -32.5px;
+}
+
+/*********** END Details / Delete BlogPhoto Styling ***********/
