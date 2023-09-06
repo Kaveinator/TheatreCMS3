@@ -5,47 +5,129 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="container-fluid">
+    <div class="row">
+        <div class="row-colsmd-6">
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+            @*Card  NAV*@
+            <div class="card-body text-white cms-bg-main">
+                <ul class="nav nav-tabs" role="tablist" id="blogTab">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+                    <li class="nav-item active" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#details" aria-controls="details" role="tab">Author Details</a>
+                    </li>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#posts" aria-controls="posts" role="tab">Blog Posts</a>
+                    </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#contact" aria-controls="contact" role="tab">Contact</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" href="https://www.twitter.com" target="_blank">Twitter / X</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+        <div class="col-md-1">
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
 
-    </dl>
+    <div class="row card-body">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4 cms-bg-main">
+
+            @*Placeholder image section*@
+            <p>
+                <img src="http://placekitten.com/g/200/200" alt="loaf">
+            </p>
+        </div>
+
+        <div class="tab-content col-md-6 cms-bg-main">
+
+            <div role="tabpanel" class="tab-pane active" id="details">
+                @*Begining of Blog Author details*@
+                <p>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Bio)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Bio)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Joined)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Joined)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Left)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Left)
+                        </dd>
+                    </dl>
+                </p>
+            </div>
+
+            @*End of Blog Author details*@
+
+            <div role="tabpanel" class="tab-pane" id="posts">
+                <p>- razor link to BlogPosts from model.Id once linked</p>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="contact">
+                <p> - razor link to BlogAuthor contact from model.Id once linked </p>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+
+        <div class="card-footer col-md-10 cms-bg-main">
+
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn cms-bg-secondary" })
+            @Html.ActionLink("Edit this Author", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn cms-bg-secondary" })
+            @Html.ActionLink("Delete this Author", "Delete", new { id = Model.BlogAuthorId }, new { @class = "btn cms-bg-secondary" })
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

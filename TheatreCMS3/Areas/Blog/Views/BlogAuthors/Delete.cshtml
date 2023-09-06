@@ -1,57 +1,148 @@
-﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+﻿
+@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<div class="container-fluid">
+    <div class="row">
+        <div class="row-colsmd-6">
         </div>
-    }
+
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+            @*Card  NAV*@
+            <div class="card-body text-white cms-bg-main">
+                <ul class="nav nav-tabs" role="tablist" id="blogTab">
+
+                    <li class="nav-item active" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#details" aria-controls="details" role="tab">Author Details</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#posts" aria-controls="posts" role="tab">Blog Posts</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#contact" aria-controls="contact" role="tab">Contact</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" href="https://www.twitter.com" target="_blank">Twitter / X</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
+
+
+    <div class="row card-body">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4 cms-bg-main">
+
+            @*Placeholder image section*@
+            <p>
+                <img src="http://placekitten.com/g/200/200" alt="loaf">
+            </p>
+        </div>
+
+        <div class="tab-content col-md-6 cms-bg-main">
+
+            <div role="tabpanel" class="tab-pane active" id="details">
+                <h2>Delete</h2>
+
+                <h3>Are you sure you want to delete this Author?</h3>
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Bio)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Bio)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Joined)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Joined)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Left)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Left)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    }
+                </div>
+                
+            </div>
+
+            @*End of Blog Author delete*@
+
+            <div role="tabpanel" class="tab-pane" id="posts">
+                <p>- razor link to BlogPosts from model.Id once linked</p>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="contact">
+                <p> - razor link to BlogAuthor contact from model.Id once linked </p>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+
+        <div class="card-footer col-md-10 cms-bg-main">
+
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn cms-bg-secondary" })
+            @Html.ActionLink("Edit this Author", "Edit", new { id = Model.BlogAuthorId }, new { @class = "btn cms-bg-secondary" })
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
 </div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
