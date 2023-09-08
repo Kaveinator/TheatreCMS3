@@ -5,10 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- CSS -->
-<link href="@Url.Content("~/Areas/Blog.css")" rel="stylesheet" type="text/css" />
-
 <h2>Index</h2>
+<div class="deleteForm-container">
+    <div class="deleteDisplaySuccess badge badge-pill" id="deleteDisplaySuccess" style="display:none;">This is a test</div>
+    <div class="deleteDisplayFailure badge badge-pill" id="deleteDisplayFailure" style="display:none;">This is a test</div>
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,7 +19,7 @@
     <div class="card-columns">
         @foreach (var item in Model)
         {
-            <div class="card blogImage-container">
+            <div class="card blogImage-container hidden-@item.BlogPhotoId">
                 <img src="data:image;base64,@System.Convert.ToBase64String(item.Photo)" class="card-img image-overlay" />
                 <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })" class="card-img-overlay">
 
@@ -27,10 +28,33 @@
                     <!-- This link (<a>) needs to be here for the "Edit" and "Delete" buttons to render correctly -->
                     <span class="card-overlay badge badge-pill badge-edit"><a></a></span>
 
-                    <span class="card-overlay badge badge-pill badge-edit">@Html.ActionLink("Edit", "Edit", new { id = item.BlogPhotoId })</span>
-                    <span class="card-overlay badge badge-pill badge-delete">@Html.ActionLink("Delete", "Delete", new { id = item.BlogPhotoId })</span>
+                    @Html.ActionLink("Edit", "Edit", null, new { id = item.BlogPhotoId }, new { @class = "card-overlay badge badge-pill badge-edit" })
+                    <a id="" class="card-overlay badge badge-pill badge-delete deleteItem" data-target="#deleteModal" data-toggle="modal" data-path="@item.BlogPhotoId">
+                        Delete
+                    </a>
                 </a>
             </div>
         }
+
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-bg">
+                    <div class="modal-header">
+                        <h5 class="blogHeader" id="deleteModalLabel">Are you sure you would like to delete this image?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn modal-delete deleteBtn" id="deleteBtn" data-toggle="modal" data-target="#deleteModal">
+                            Delete
+                        </button>
+                        @*data-url="@Url.Action($"Delete/{item.BlogPhotoId}")"*@
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </table>
