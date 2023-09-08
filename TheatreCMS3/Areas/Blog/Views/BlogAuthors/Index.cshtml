@@ -1,4 +1,4 @@
-﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+﻿
 
 @{
     ViewBag.Title = "Index";
@@ -58,7 +58,7 @@
         <div class="tab-content col-md-6 cms-bg-main">
 
             <div role="tabpanel" class="tab-pane active" id="details">
-                @*Begining of foreach loop BlogAuthors in db*@
+                @*Begining of BlogAuthors in db*@
 
                 @{
                     Html.RenderPartial("_BlogAuthor");
@@ -66,7 +66,7 @@
 
             </div>
 
-            @*end of foreach BlogAuthros*@
+            @*end of BlogAuthros*@
 
             <div role="tabpanel" class="tab-pane" id="posts">
                 <p>- razor link to BlogPosts from model.Id once linked</p>
