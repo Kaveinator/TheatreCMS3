@@ -149,8 +149,9 @@
     background-color: #BD1A11;
     color: #fffbfb;
     position: absolute;
-    left: 50px;
+    left: 45px;
     bottom: 5px;
+    cursor: pointer;
 }
 
 /*********** END Index BlogPhoto Styling ***********/
@@ -241,3 +242,20 @@
 }
 
 /*********** END Details / Delete BlogPhoto Styling ***********/
+
+/*********** Modal BlogPhoto Styling ***********/
+.btn-cancel {
+    background-color: #808080;
+    color: #fffbfb;
+}
+
+.modal-delete {
+    background-color: #BD1A11;
+    color: #fffbfb;
+}
+
+.modal-bg {
+    background-color: #fffbfb;
+}
+
+/*********** END Modal BlogPhoto Styling ***********/

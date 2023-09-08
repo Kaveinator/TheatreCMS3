@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Areas.Blog.Models;
@@ -115,8 +116,12 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             {
                 return HttpNotFound();
             }
-            return View(blogPhoto);
+            db.BlogPhotoes.Remove(blogPhoto);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            //return View(blogPhoto);
         }
+
 
         // POST: Blog/BlogPhotos/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -127,6 +132,20 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             db.BlogPhotoes.Remove(blogPhoto);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // POST: Blog/BlogPhotos/DeleteJson/5
+        [HttpPost]
+        public JsonResult DeleteJson(int id)
+        {
+            BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
+            db.BlogPhotoes.Remove(blogPhoto);
+            db.SaveChanges();
+            BlogPhoto newblogPhoto = new BlogPhoto
+            {
+                BlogPhotoId = id
+            };
+            return Json(newblogPhoto);
         }
 
         protected override void Dispose(bool disposing)
