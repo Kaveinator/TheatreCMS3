@@ -1,37 +1,16 @@
-////$(document).ready(function () {
-////    $('#deleteBtn').click(function (e) {
-////        e.preventDefault();
-////        if (confirm("Are you sure you want to delete this image?")) {
-////            $.ajax({
-////                url: 'Blog/BlogPhotos/Delete/' + blogPhotoId,
-////                type: 'POST',
-////                success: function (result) {
-////                    var ignoreSelection = $(".ignoreSelection-" + blogPhotoId);
-////                    ignoreSelection.hide();
-////                },
-////                error: function (err) {
-////                    console.log(err);
-////                }
-////            });
-////        }
-////    });
-////});
+// Functions to hide BlogPhotos on Index page once deleted
 
 $(document).ready(function () {
-    console.log("Document is ready!");
     $('.deleteItem').click(function (e) {
         e.preventDefault();
         var iDToDelete = $(this).data('path');
-        console.log("ID to delete = " + iDToDelete);
         myFunction(iDToDelete);
     }); 
 });
 
 function myFunction(x) {
-    console.log("Second function triggered! Parameter is: " + x);
     $('.deleteBtn').click(function (e) {
         e.preventDefault();
-        console.log("deleteBtn clicked!");
         $.ajax({
             type: 'POST',
             url: 'BlogPhotos/DeleteJson/' + x,
@@ -39,9 +18,19 @@ function myFunction(x) {
             success: function (result) {
                 var hidden = $('.hidden-' + x);
                 hidden.hide();
+                document.getElementById("deleteDisplaySuccess").innerHTML = "The blog photo was deleted successfully";
+                $('.deleteDisplaySuccess').show();
+                setTimeout(function () {
+                    $('#deleteDisplaySuccess').fadeOut('fast');
+                }, 3000);
             },
             error: function (err) {
+                document.getElementById("deleteDisplayFailure").innerHTML = "The blog photo could not be deleted";
+                $('.deleteDisplayFailure').show();
                 console.log(err);
+                setTimeout(function () {
+                    $('#deleteDisplayFailure').fadeOut('fast');
+                }, 3000);
             }
         });
     });

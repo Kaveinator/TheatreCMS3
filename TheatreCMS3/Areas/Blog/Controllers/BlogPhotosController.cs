@@ -144,15 +144,8 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 // Returns response letting user know that the record does not exist
                 return Json(new { success = false, message = "Record not found." });
             }
-            try
-            {
-                db.BlogPhotoes.Remove(blogPhoto);
-                db.SaveChanges();
-            }
-            catch
-            {
-
-            }
+            db.BlogPhotoes.Remove(blogPhoto);
+            db.SaveChanges();
             // Creating newblogPhoto to pass original blogPhoto's id back to Blog.js
             BlogPhoto newblogPhoto = new BlogPhoto
             {

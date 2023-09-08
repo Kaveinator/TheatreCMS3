@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<!-- CSS -->
-<link href="@Url.Content("~/Areas/Blog.css")" rel="stylesheet" type="text/css" />
-
 <h2>Index</h2>
+<div class="deleteForm-container">
+    <div class="deleteDisplaySuccess badge badge-pill" id="deleteDisplaySuccess" style="display:none;">This is a test</div>
+    <div class="deleteDisplayFailure badge badge-pill" id="deleteDisplayFailure" style="display:none;">This is a test</div>
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")

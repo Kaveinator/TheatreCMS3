@@ -258,4 +258,32 @@
     background-color: #fffbfb;
 }
 
+.deleteDisplaySuccess {
+    background-color: green;
+    position: fixed;
+    margin: 0px auto;
+    top: 70px;
+    z-index: 2;
+}
+
+.deleteDisplaySuccess:after {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    padding: 5px;
+} 
+
+.deleteDisplayFailure {
+    background-color: #BD1A11;
+    position: fixed;
+    margin: 0px auto;
+    top: 70px;
+    z-index: 2;
+}
+
+.deleteDisplayFailure:after {
+    content: "\f00d";
+    font-family: 'FontAwesome';
+    padding: 5px;
+}
+
 /*********** END Modal BlogPhoto Styling ***********/
