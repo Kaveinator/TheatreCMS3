@@ -204,6 +204,7 @@
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
+    <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -479,7 +480,6 @@
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Controllers\" />
     <Folder Include="Areas\Rent\Data\" />
-    <Folder Include="Areas\Rent\Models\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
     <Folder Include="obj\" />
