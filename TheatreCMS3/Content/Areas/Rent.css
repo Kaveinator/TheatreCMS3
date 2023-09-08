@@ -40,7 +40,6 @@
 }
 
 .rent-button2 {
-    text-decoration: none;
     color: var(--light);
     padding-block: 1em;
     margin-top: 10px;
@@ -48,6 +47,11 @@
     position: relative;
     left: 10em;
 }
+
+    .rent-button2 a {
+        text-decoration: none;
+        color: inherit;
+    }
 
 .rent-input {
     margin-top: 10px;
