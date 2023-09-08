@@ -19,7 +19,7 @@
     <div class="card-columns">
         @foreach (var item in Model)
         {
-            <div class="card blogImage-container">
+            <div class="card blogImage-container hidden-@item.BlogPhotoId">
                 <img src="data:image;base64,@System.Convert.ToBase64String(item.Photo)" class="card-img image-overlay" />
                 <a href="@Url.Action("Details", "BlogPhotos", new { id = item.BlogPhotoId })" class="card-img-overlay">
 
@@ -29,7 +29,7 @@
                     <span class="card-overlay badge badge-pill badge-edit"><a></a></span>
 
                     @Html.ActionLink("Edit", "Edit", null, new { id = item.BlogPhotoId }, new { @class = "card-overlay badge badge-pill badge-edit" })
-                    <a id="deleteItem" class="card-overlay badge badge-pill badge-delete deleteItem" data-target="#deleteModal" data-toggle="modal" data-path="@item.BlogPhotoId">
+                    <a id="" class="card-overlay badge badge-pill badge-delete deleteItem" data-target="#deleteModal" data-toggle="modal" data-path="@item.BlogPhotoId">
                         Delete
                     </a>
                 </a>
@@ -58,5 +58,3 @@
         </div>
     </div>
 </table>
-
-<script src="~/Scripts/Areas/Blog.js"></script>

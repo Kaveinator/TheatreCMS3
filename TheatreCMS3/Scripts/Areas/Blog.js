@@ -18,7 +18,9 @@
 ////});
 
 $(document).ready(function () {
-    $('.deleteItem').click(function () {
+    console.log("Document is ready!");
+    $('.deleteItem').click(function (e) {
+        e.preventDefault();
         var iDToDelete = $(this).data('path');
         console.log("ID to delete = " + iDToDelete);
         myFunction(iDToDelete);
@@ -32,12 +34,11 @@ function myFunction(x) {
         console.log("deleteBtn clicked!");
         $.ajax({
             type: 'POST',
-            url: 'DeleteJson/' + x,
+            url: 'BlogPhotos/DeleteJson/' + x,
             dataType: "text",
             success: function (result) {
-                console.log(result + " has been deleted");
-                var ignoreSelection = $(".ignoreSelection-" + x);
-                ignoreSelection.hide();
+                var hidden = $('.hidden-' + x);
+                hidden.hide();
             },
             error: function (err) {
                 console.log(err);

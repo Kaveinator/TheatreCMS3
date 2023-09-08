@@ -139,13 +139,26 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         public JsonResult DeleteJson(int id)
         {
             BlogPhoto blogPhoto = db.BlogPhotoes.Find(id);
-            db.BlogPhotoes.Remove(blogPhoto);
-            db.SaveChanges();
+            if (blogPhoto == null)
+            {
+                // Returns response letting user know that the record does not exist
+                return Json(new { success = false, message = "Record not found." });
+            }
+            try
+            {
+                db.BlogPhotoes.Remove(blogPhoto);
+                db.SaveChanges();
+            }
+            catch
+            {
+
+            }
+            // Creating newblogPhoto to pass original blogPhoto's id back to Blog.js
             BlogPhoto newblogPhoto = new BlogPhoto
             {
                 BlogPhotoId = id
             };
-            return Json(newblogPhoto);
+            return Json(newblogPhoto.BlogPhotoId);
         }
 
         protected override void Dispose(bool disposing)
