@@ -149,8 +149,9 @@
     background-color: #BD1A11;
     color: #fffbfb;
     position: absolute;
-    left: 50px;
+    left: 45px;
     bottom: 5px;
+    cursor: pointer;
 }
 
 /*********** END Index BlogPhoto Styling ***********/
@@ -241,3 +242,48 @@
 }
 
 /*********** END Details / Delete BlogPhoto Styling ***********/
+
+/*********** Modal BlogPhoto Styling ***********/
+.btn-cancel {
+    background-color: #808080;
+    color: #fffbfb;
+}
+
+.modal-delete {
+    background-color: #BD1A11;
+    color: #fffbfb;
+}
+
+.modal-bg {
+    background-color: #fffbfb;
+}
+
+.deleteDisplaySuccess {
+    background-color: green;
+    position: fixed;
+    margin: 0px auto;
+    top: 70px;
+    z-index: 2;
+}
+
+.deleteDisplaySuccess:after {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    padding: 5px;
+} 
+
+.deleteDisplayFailure {
+    background-color: #BD1A11;
+    position: fixed;
+    margin: 0px auto;
+    top: 70px;
+    z-index: 2;
+}
+
+.deleteDisplayFailure:after {
+    content: "\f00d";
+    font-family: 'FontAwesome';
+    padding: 5px;
+}
+
+/*********** END Modal BlogPhoto Styling ***********/
