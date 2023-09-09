@@ -1,15 +1,11 @@
-﻿
-
-function changeFunction() {
-    var changes = "Damages Incurred";
-    var changed = "Notes";
-    const checkBox = document.querySelector("#check");
-
-        if (checkBox.checked) {
-            document.getElementById("change").innerHTML = changes;
-        }
-        else {
-            document.getElementById("change").innerHTML = changed;
-        }
-    
-}
+﻿$(document).ready(function () {
+    function toggleLabel() {
+        var isChecked = $('#RentalDamaged').is(':checked');
+        var label = isChecked ? 'Damages Incurred' : 'Notes';
+        $('#damageLabel').text(label);
+    }
+    toggleLabel();
+    $('#RentalDamaged').change(function () {
+        toggleLabel();
+    });
+});

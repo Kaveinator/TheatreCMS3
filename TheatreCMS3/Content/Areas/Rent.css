@@ -32,23 +32,16 @@
 }
 
 .rent-button {
-    position: relative;
-    left: 10em;
-    padding-block: 1em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.rent-button2 {
     color: var(--light);
     padding-block: 1em;
     margin-top: 10px;
+    margin-right: 10px;
     margin-bottom: 10px;
     position: relative;
     left: 10em;
 }
 
-    .rent-button2 a {
+    .rent-button a {
         text-decoration: none;
         color: inherit;
     }
