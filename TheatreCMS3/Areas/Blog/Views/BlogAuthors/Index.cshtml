@@ -1,52 +1,103 @@
-﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogAuthor>
+﻿
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Joined)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Left)
-        </th>
-        <th></th>
-    </tr>
+<div class="container-fluid">
+    <div class="row">
+        <div class="row-colsmd-6">
+        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Joined)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Left)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogAuthorId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogAuthorId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogAuthorId })
-        </td>
-    </tr>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+            @*Card  NAV*@
+            <div class="card-body text-white cms-bg-main">
+                <ul class="nav nav-tabs" role="tablist" id="blogTab">
+
+                    <li class="nav-item active" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#details" aria-controls="details" role="tab">Author Details</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#posts" aria-controls="posts" role="tab">Blog Posts</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" data-toggle="tab" href="#contact" aria-controls="contact" role="tab">Contact</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link btn cms-bg-secondary" href="https://www.twitter.com" target="_blank">Twitter / X</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
+
+
+    <div class="row card-body">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4 cms-bg-main">
+
+            @*Placeholder image section*@
+
+
+            <p>
+                <img src="http://placekitten.com/g/200/200" alt="loaf">
+            </p>
+        </div>
+
+        <div class="tab-content col-md-6 cms-bg-main">
+
+            <div role="tabpanel" class="tab-pane active" id="details">
+                @*Begining of BlogAuthors in db*@
+
+                @{
+                    Html.RenderPartial("_BlogAuthor");
+                }
+
+            </div>
+
+            @*end of BlogAuthros*@
+
+            <div role="tabpanel" class="tab-pane" id="posts">
+                <p>- razor link to BlogPosts from model.Id once linked</p>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="contact">
+                <p> - razor link to BlogAuthor contact from model.Id once linked </p>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+
+        <div class="card-footer col-md-10 cms-bg-main">
+
+
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
-
-</table>
