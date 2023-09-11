@@ -10,3 +10,49 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+/*********Rental History Styling*/
+.rent-headline {
+    padding-top: 1em;
+    text-align: center;
+    color: var(--light-color);
+}
+
+.rent-form {
+
+    width: 600px;
+    background-color: var(--main-color--light);
+    height: auto;
+    position: relative; 
+    left: 16em;
+    border-radius: 10px;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-weight: bold;
+}
+
+.rent-button {
+    color: var(--light);
+    padding-block: 1em;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    left: 10em;
+}
+
+    .rent-button a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+.rent-input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+ 
+}
+
+.rent-checkbox {
+    position: relative;
+    left: 3em;
+}
