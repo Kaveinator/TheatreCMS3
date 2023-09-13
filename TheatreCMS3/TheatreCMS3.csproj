@@ -259,7 +259,6 @@
     <Content Include="Content\images\TheatreLogo.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\images\restricted.png" />
-    <Content Include="Content\Rent.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
