@@ -104,13 +104,14 @@ tr {
     color: var(--light-color);
 }
 
-/*#dropDown {
-    visibility: hidden;
+/*.dropdown {
+    display: none;
+}
+
+.drop-container {
+    display: block;
 }*/
 
-#dropDown:hover {
-        visibility: visible;
-    }
 @font-face {
     font-family: FontAwesome;
     src: url('/Content/font-awesome.css');
