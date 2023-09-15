@@ -1,4 +1,4 @@
-﻿$(".dropdown").hide(onload)
+﻿$(".dropdown").hide();
 
 $(document).ready(function () {
     $('.rentContainer').hover(
