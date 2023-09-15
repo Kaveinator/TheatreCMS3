@@ -1,4 +1,19 @@
-﻿$(document).ready(function () {
+﻿$(".dropdown").hide(onload)
+
+$(document).ready(function () {
+    $('.rentContainer').hover(
+        function () {
+            $(this).find('.dropdown').show();
+        },
+        function () {
+            $(this).find('.dropdown').hide();
+        }
+    );
+});
+
+
+
+$(document).ready(function () {
     function toggleLabel() {
         var isChecked = $('#RentalDamaged').is(':checked');
         var label = isChecked ? 'Damages Incurred' : 'Notes';
