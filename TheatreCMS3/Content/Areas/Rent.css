@@ -71,7 +71,7 @@ th {
 td {
     border: 1px thin var(--dark-color);
     text-overflow: ellipsis;
-    overflow: hidden;
+    overflow:visible;
     color: var(--dark-color);
     white-space: nowrap;
     padding-right: 10px;
