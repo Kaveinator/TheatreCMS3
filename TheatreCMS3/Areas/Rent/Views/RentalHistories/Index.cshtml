@@ -62,12 +62,17 @@
                 }
             </td>
             <td>
-                <label for="dropDown"></label>
-                <select name="dropDown" id="dropDown">
-                    <option value="edit" class="element"> @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) </option>
-                    <option value="details">@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })</option>
-                    <option value="delete">@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })</option>
-                </select>               
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        
+                        <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_@item.RentalHistoryId">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new {@class = "dropdown-item"})
+                        @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId }, new { @class = "dropdown-item text danger" })
+                    </div>
+                </div>       
             </td>
         </tr>
     }
