@@ -23,32 +23,51 @@
         </th>
     </tr>
     <colgroup>
+        <col span="1" style="width: 5%;">
         <col span="1" style="width: 20%;">
-        <col span="1" style="width: 20%;">
-        <col span="1" style="width: 40%;">
-        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 45%;">
+        <col span="1" style="width: 30%;">
     </colgroup>
 
     @foreach (var item in Model)
     {
-        <tr>
-            
+        <tr>           
             <td>
-                <input class="icon">
-                    @Html.DisplayFor(modelItem => item.RentalDamaged)
-                
-                
+                @if (item.RentalDamaged)
+                {
+                    <i class="fa-solid fa-square-check" style="color: #00ff40;"></i>
+                }
+                else
+                {
+                    <i class="fa-solid fa-circle-xmark" style="color: #ff0000;"></i>
+                }
+
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rental)
+                <div class="rent-rental">
+                    <span class="badge rounded-pill bg-secondary">
+                        @Html.DisplayFor(modelItem => item.Rental)
+                        </span>
+                    </div>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DamageIncurred)
+<!----Dark text for if property is damged, lighter if property is not damaged-->
+                @if (item.RentalDamaged)
+                {
+            <p class="text-secondary">@Html.DisplayFor(modelItem => item.DamageIncurred)</p>
+                }
+                else
+                {
+            <p class="text-dark">@Html.DisplayFor(modelItem => item.DamageIncurred)</p>
+                }
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
+                <label for="dropDown"></label>
+                <select name="dropDown" id="dropDown">
+                    <option value="edit" class="element"> @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) </option>
+                    <option value="details">@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId })</option>
+                    <option value="delete">@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })</option>
+                </select>               
             </td>
         </tr>
     }
