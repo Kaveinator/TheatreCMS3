@@ -1,4 +1,6 @@
 ﻿
+
+
 function switchVisible() {
     if (document.getElementById('non-expired')) {
 
@@ -14,3 +16,8 @@ function switchVisible() {
         }
     }
 }
+
+let devs = document.getElementById("PersonList").children.length;
+document.getElementById("countDevs").innerHTML = devs;
+
+
