@@ -527,60 +527,6 @@ namespace TheatreCMS3.Controllers
 
             base.Dispose(disposing);
         }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public async Task<ActionResult> EasyLoginProd(string returnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await SignInManager.PasswordSignInAsync("ProductionManager", "P@ssw0rd4!", true, shouldLockout: false);
-                switch (result)
-                {
-                    case SignInStatus.Success:
-                        return RedirectToLocal(returnUrl);
-                    case SignInStatus.LockedOut:
-                        return View("Lockout");
-                    case SignInStatus.RequiresVerification:
-                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = true });
-                    case SignInStatus.Failure:
-                    default:
-                        ModelState.AddModelError("", "Invalid login attempt.");
-                        return View();
-                }
-            }
-
-            return RedirectToAction("Index");
-        }
-
-       
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public async Task<ActionResult> RequestManagerLogin(string returnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await SignInManager.PasswordSignInAsync("RentalManager", "Password123!", true, shouldLockout: false);
-                switch (result)
-                {
-                    case SignInStatus.Success:
-                        return RedirectToLocal(returnUrl);
-                    case SignInStatus.LockedOut:
-                        return View("Lockout");
-                    case SignInStatus.RequiresVerification:
-                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = true });
-                    case SignInStatus.Failure:
-                    default:
-                        ModelState.AddModelError("", "Invalid login attempt.");
-                        return View();
-                }
-            }
-
-            return RedirectToAction("Index");
-        }
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
