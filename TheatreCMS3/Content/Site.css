@@ -438,3 +438,9 @@ footer {
         background: var(--light-color) !important;
     }
 
+#rentalhist-form-horizontal {
+    background-color: #f04d44;
+    max-width: 600px;
+    margin: 2% auto;
+    border-radius: 25px;
+}
