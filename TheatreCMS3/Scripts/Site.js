@@ -17,7 +17,14 @@ function switchVisible() {
     }
 }
 
-let devs = document.getElementById("PersonList").children.length;
-document.getElementById("countDevs").innerHTML = devs;
 
 
+
+
+
+
+    
+    
+  
+
+   

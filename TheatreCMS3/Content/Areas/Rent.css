@@ -10,3 +10,18 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+#rentalhist-form-horizontal {
+    background-color: #BD1A11;
+    max-width: 600px;
+    margin: 2% auto;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size:x-large;
+}
+
+
+#check {
+    width: 20px;
+    height: 20px;
+}
