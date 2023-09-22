@@ -16,7 +16,7 @@
             <h1 class="text-center mt-2">Edit Rental History</h1>
             <div class="form-horizontal border p-4" id="rentalhist-form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.ID)
+                @Html.HiddenFor(model => model.RentalHistoryId)
 
 
                 <div class="form-group row">
