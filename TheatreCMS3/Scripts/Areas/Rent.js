@@ -20,3 +20,13 @@ if (document.getElementById("check").checked === true) {
     document.getElementById("damage-label").hidden = true;
     document.getElementById("notes-label").hidden = false;
 }
+
+$(document).ready(function () {
+    $('.dropdown').hover(function () {
+        $(this).addClass('show');
+        $(this).find('.dropdown-menu').addClass('show');
+    }, function () {
+        $(this).removeClass('show');
+        $(this).find('.dropdown-menu').removeClass('show');
+    });
+});

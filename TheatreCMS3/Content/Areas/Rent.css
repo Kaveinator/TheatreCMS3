@@ -25,3 +25,43 @@
     width: 20px;
     height: 20px;
 }
+
+
+.red {
+    color:red;
+}
+
+.gray {
+    color:gray;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+   
+}
+
+
+.table-container {
+    border-radius: 15px;
+    border: 2px solid #BD1A11;
+    
+}
+
+
+.text-single-line {
+    max-width: 90%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.table {
+    table-layout: fixed;
+    width: 100%;
+    
+}
+
+
