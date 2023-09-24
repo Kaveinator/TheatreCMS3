@@ -65,3 +65,10 @@
 }
 
 
+.last-td .dropdown{
+    display: none;
+}
+
+tr:hover .last-td .dropdown {
+    display: block;
+}
