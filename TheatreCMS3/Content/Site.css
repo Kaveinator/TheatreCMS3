@@ -438,3 +438,17 @@ footer {
         background: var(--light-color) !important;
     }
 
+.home-signin--container {
+    column-count: 4;
+}
+
+.home-signin--container p {
+    max-width: 200px;
+    background-color: var(--main-color);
+    border-radius: 30px;
+    padding: 5px 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
