@@ -13,11 +13,25 @@
 <div class="container">
    
     <div class="bg-white pt-1 table-container">
+        <div class="container">
+            <div class="row">
+                <p class="text-dark pl-1">Most Recent Rental Histories</p>
+                <div class="ml-auto pr-1">
+                    <span class="text-dark">Sorted By: </span>
+                    <select id="select">
+                        <option value="">--No Extra Sort--</option>
+                        <option value="name_asc">Rentals A - Z</option>
+                        <option value="name_desc">Rentals Z - A</option>
+                        <option value="damage_desc">Damaged Rentals</option>
+                        <option value="damage_asc">Undamaged Rentals</option>
+                    </select>
 
-        <p class="text-dark ml-3">Most Recent Rental Histories</p>
+
+                </div>
+            </div>
+        </div>
+            <div id="partial-load"></div>
 
 
-       
-        @Html.Partial("PartialView", Model)
-    </div>
+        </div>
     </div>
