@@ -8,42 +8,65 @@
 <h2>Details</h2>
 
 <div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <!-- DETAILS BUTTON SECTION -->
+    <div>
+        <div class="details-container-top text-dark mx-auto">
+            <div class="text-center">
+                <button onclick="toggleContent('info')" class="btn btn-secondary">Author Details</button>
+                <button onclick="toggleContent('blog')" class="btn btn-secondary">Blog Posts</button>
+            </div>
+        </div>
+    </div>
+    <!-- END DETAILS BUTTON SECTION -->
+    
+    <!-- DETAILS INFO SECTION -->
+    <div class="details-container-bot text-dark row">
+        <!-- AUTHOR IMAGE -->
+        <div>
+            <p>image PH</p>
+        </div>
+        <!-- END AUTHOR IMAGE -->
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
+        <!-- CONTENT AREA -->
+        <div id="content-area" class="pl-3">
+            <div id="blog" class="content" style="display: none;">
+                <p>content 1</p>
+            </div>
+            <div id="test" class="content" style="display: none;">
+                <p>content 2</p>
+            </div>
+            <div id="info" class="content">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Bio)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Bio)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Joined)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Joined)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Left)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Left)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <!-- END CONTENT AREA -->
+    </div>
+    <!-- END DETAILS INFO SECTION -->
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |

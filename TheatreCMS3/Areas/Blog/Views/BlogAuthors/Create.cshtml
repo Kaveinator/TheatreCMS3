@@ -5,14 +5,12 @@
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-
 @using (Html.BeginForm())
 {
   @Html.AntiForgeryToken()
 
 <div class="container blog-form">
-    <h4>BlogAuthor</h4>
+    <h4>Create</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 

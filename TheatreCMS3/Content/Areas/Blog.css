@@ -12,8 +12,21 @@
 /*}*/
 
 .blog-form {
+    margin-top: 50px;
     background-color: var(--main-color);
     border-radius: 10px;
     padding: 10px;
 }
 
+.details-container-top {
+    background-color: var(--light-color);
+    border-radius: 5px 5px 0px 0px;
+    max-width: min-content;
+    padding: 10px 10px 0px 10px;
+}
+
+.details-container-bot {
+    background-color: var(--light-color);
+    border-radius: 5px;
+    padding: 10px;
+}
