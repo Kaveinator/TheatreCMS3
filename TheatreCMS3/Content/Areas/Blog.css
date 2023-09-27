@@ -10,3 +10,10 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+.blog-form {
+    background-color: var(--main-color);
+    border-radius: 10px;
+    padding: 10px;
+}
+
