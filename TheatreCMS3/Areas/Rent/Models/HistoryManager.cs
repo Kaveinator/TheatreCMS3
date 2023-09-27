@@ -9,5 +9,27 @@ namespace TheatreCMS3.Areas.Rent.Models
     {
         public int RestrictedUsers { get; set; }
         public int RentalReplacementRequests { get; set; }
+
+
+        public static HistoryManager createManagers()
+        {
+
+            HistoryManager manager = new HistoryManager
+                {
+                    UserName = "TestUser",
+                    RestrictedUsers = 3,
+                    RentalReplacementRequests = 4
+                };
+
+            return manager;
+
+
+        }
+        
+
+        
     }
+
+
+   
 }
