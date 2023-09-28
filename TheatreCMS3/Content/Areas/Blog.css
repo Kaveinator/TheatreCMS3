@@ -26,6 +26,8 @@
 }
 
 .details-container-bot {
+    display: flex;
+    display: -webkit-box;
     background-color: var(--light-color);
     border-radius: 5px;
     padding: 10px;
@@ -36,8 +38,13 @@
     flex-direction: row;
 }
 
-.content-area {
+#content-area {
     width: 100%;
+    padding-right: 150px;
+}
+
+.content {
+    margin: 0;
 }
 
 .social-icon {
@@ -47,4 +54,10 @@
 
 .author-img {
     max-width: 130px;
+}
+
+.events-container {
+    display: flex;
+    display: -webkit-box;
+    margin: 0;
 }
