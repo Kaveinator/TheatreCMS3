@@ -2,11 +2,14 @@
 
 
 }
-<table class="table bg-white">
+<table class="table bg-white table-borderless" id="myGroup">
+    @{ int i = 0;}
     @foreach (var item in Model)
     {
-        <tr>
 
+        <tr data-toggle="collapse" data-target="#X@(item.ID)">
+            @{i++;}
+            
             @if (item.RentalDamaged)
             {
                 <td class="col-1 col-md-1 col-lg-1">
@@ -38,7 +41,7 @@
             else
             {
                 <td class="col-6 col-md-7 col-lg-8">
-                    <span class="text-single-line gray"> @Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                    <span class="text-single-line gray"> None</span>
                 </td>
             }
             <td class="col-1 col-md-1 col-lg-1 last-td">
@@ -53,18 +56,18 @@
                     <ul class="dropdown-menu"
                         aria-labelledby="dropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.RentalHistoryId }) ">
+                            <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.ID }) ">
                                 <i class="fa fa-pencil pr-2" aria-hidden="true"></i> Edit
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="@Url.Action("Details", new { id = item.RentalHistoryId })">
+                            <a class="dropdown-item" href="@Url.Action("Details", new { id = item.ID })">
                                 <i class="fa-solid fa-circle-info pr-2"></i>Details
                             </a>
                         </li>
                         <div class="dropdown-divider"></div>
                         <li>
-                            <a class="dropdown-item red" href="@Url.Action("Delete", new { id = item.RentalHistoryId })">
+                            <a class="dropdown-item red" href="@Url.Action("Delete", new { id = item.ID })">
                                 <i class="fa fa-trash pr-2" aria-hidden="true"></i>
                                 Delete
                             </a>
@@ -72,6 +75,12 @@
                     </ul>
                 </div>
 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+           
+                <div data-parent="#myGroup" class="collapse" id="X@(item.ID)"> @Html.DisplayFor(modelItem => item.DamagesIncurred)</div>
             </td>
         </tr>
     }
