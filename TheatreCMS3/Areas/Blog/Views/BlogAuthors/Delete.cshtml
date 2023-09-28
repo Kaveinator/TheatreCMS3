@@ -12,48 +12,59 @@
     <h4>BlogAuthor</h4>
     
     <hr />
-    <dl class="dl-horizontal">
+    <!-- DETAILS INFO SECTION -->
+    <div class="details-container-bot text-dark row mx-0">
+        <!-- AUTHOR IMAGE -->
+        <div>
+            <img class="author-img" src="~/Content/images/chromatic-studio.jpg" alt="artist chromatic-studio">
+        </div>
+        <!-- END AUTHOR IMAGE -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        <!-- CONTENT AREA -->
+        <div id="content-area" class="pl-3">
+            <div id="blog" class="content" style="display: none;">
+                <p>content 1</p>
+            </div>
+            <div id="test" class="content" style="display: none;">
+                <p>content 2</p>
+            </div>
+            <div id="info" class="content">
+                <!-- AUTHOR NAME -->
+                <div class="row">
+                    <h2 class="ml-3">@Html.DisplayFor(model => model.Name)</h2>
+                    <div class="ml-auto">
+                        <a class="" href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook social-icon"></i></a>
+                        <a class="" href="https://www.facebook.com/"><i class="fa-brands fa-instagram social-icon"></i></a>
+                    </div>
+                </div>
+                <!-- AUTHOR BIO -->
+                <p>@Html.DisplayFor(model => model.Bio)</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
+                <div class="row">
+                    <div class="mx-3">
+                        <p><strong>@Html.DisplayNameFor(model => model.Joined)</strong></p>
+                        @Html.DisplayFor(model => model.Joined)
+                    </div>
+                    <div class="">
+                        <p><strong>@Html.DisplayNameFor(model => model.Left)</strong></p>
+                        @Html.DisplayFor(model => model.Left)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT AREA -->
+    </div>
+    <!-- END DETAILS INFO SECTION -->
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-actions no-color mt-2">
+            <input type="submit" value="Delete" class="btn btn-danger text-white" />
+            <div class="btn btn-success">
+                <i class="fa-solid fa-circle-left"></i>
+                @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "text-white" })
+            </div>
         </div>
     }
 </div>

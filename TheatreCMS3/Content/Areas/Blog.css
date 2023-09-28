@@ -45,6 +45,6 @@
     color: var(--dark-color);
 }
 
-.details {
-    width: 100%;
+.author-img {
+    max-width: 130px;
 }

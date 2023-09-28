@@ -7,7 +7,7 @@
 
 <script src="/TheatreCMS3/Scripts/Areas/Blog.js"></script>
 
-<div class="details">
+<div class="container">
     <!-- DETAILS BUTTON SECTION -->
     <div>
         <div class="details-container-top text-dark mx-auto">
@@ -20,10 +20,10 @@
     <!-- END DETAILS BUTTON SECTION -->
     
     <!-- DETAILS INFO SECTION -->
-    <div class="details-container-bot text-dark row">
+    <div class="details-container-bot text-dark row mx-0 w-100">
         <!-- AUTHOR IMAGE -->
         <div>
-            <p>image PH</p>
+            <img class="author-img" src="~/Content/images/chromatic-studio.jpg" alt="artist chromatic-studio">
         </div>
         <!-- END AUTHOR IMAGE -->
 
@@ -62,14 +62,17 @@
         <!-- END CONTENT AREA -->
     </div>
     <!-- END DETAILS INFO SECTION -->
-    <div class="my-2 w-100">
-        <div class="btn btn-secondary ml-0">
-            <i class="fa-solid fa-circle-left"></i>
+    <div class="mx-0 my-2 row">
+        <div class="btn btn-secondary mr-2">
+            <i class="fa-solid fa-pen-to-square"></i>
             @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, htmlAttributes: new { @class = "text-white" })
         </div>
         <div class="btn btn-success">
-            <i class="fa-solid fa-pen-to-square"></i>
+            <i class="fa-solid fa-circle-left"></i>
             @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "text-white" })
+        </div>
+        <div class="ml-auto">
+            <a href=@Url.Action("Delete", new { id = Model.BlogAuthorId }) class="btn btn-danger"><i class="fa-solid fa-trash-can text-white"></i></a>
         </div>
     </div>
 </div>
