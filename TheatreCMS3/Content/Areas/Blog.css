@@ -30,3 +30,21 @@
     border-radius: 5px;
     padding: 10px;
 }
+
+.details-btn-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-area {
+    width: 100%;
+}
+
+.social-icon {
+    font-size: 30px;
+    color: var(--dark-color);
+}
+
+.details {
+    width: 100%;
+}
