@@ -56,18 +56,18 @@
                     <ul class="dropdown-menu"
                         aria-labelledby="dropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.ID }) ">
+                            <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.RentalHistoryId }) ">
                                 <i class="fa fa-pencil pr-2" aria-hidden="true"></i> Edit
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="@Url.Action("Details", new { id = item.ID })">
+                            <a class="dropdown-item" href="@Url.Action("Details", new { id = item.RentalHistoryId })">
                                 <i class="fa-solid fa-circle-info pr-2"></i>Details
                             </a>
                         </li>
                         <div class="dropdown-divider"></div>
                         <li>
-                            <a class="dropdown-item red" href="@Url.Action("Delete", new { id = item.ID })">
+                            <a class="dropdown-item red" href="@Url.Action("Delete", new { id = item.RentalHistoryId })">
                                 <i class="fa fa-trash pr-2" aria-hidden="true"></i>
                                 Delete
                             </a>
