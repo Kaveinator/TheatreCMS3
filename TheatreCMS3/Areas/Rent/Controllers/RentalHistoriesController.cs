@@ -72,6 +72,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [HistoryManagerAttribute]
         public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
@@ -98,13 +99,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             return View(rentalHistory);
         }
-
+        [HistoryManagerAttribute]
         // POST: Rent/RentalHistories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Edit([Bind(Include = "ID,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
             {
@@ -131,6 +132,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // POST: Rent/RentalHistories/Delete/5
+        [HistoryManagerAttribute]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -139,6 +141,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             db.RentalHistories.Remove(rentalHistory);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AccessDenied()
+        {
+           
+            return View();
         }
 
         protected override void Dispose(bool disposing)
