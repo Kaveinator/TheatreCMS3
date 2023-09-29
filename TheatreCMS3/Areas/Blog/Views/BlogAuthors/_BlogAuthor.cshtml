@@ -1,0 +1,35 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+
+<!-- CONTENT AREA -->
+<div id="content-area" class="pl-3 m-0">
+    <div id="blog" class="content" style="display: none;">
+        <p>content 1</p>
+    </div>
+    <div id="test" class="content" style="display: none;">
+        <p>content 2</p>
+    </div>
+    <div id="info" class="content">
+        <!-- AUTHOR NAME -->
+        <div class="row">
+            <h2 class="ml-3">@Html.DisplayFor(model => model.Name)</h2>
+            <div class="ml-auto">
+                <a class="" href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook social-icon"></i></a>
+                <a class="" href="https://www.facebook.com/"><i class="fa-brands fa-instagram social-icon"></i></a>
+            </div>
+        </div>
+        <!-- AUTHOR BIO -->
+        <p>@Html.DisplayFor(model => model.Bio)</p>
+
+        <div class="events-container">
+            <div class="mr-3">
+                <strong>@Html.DisplayNameFor(model => model.Joined)</strong> <br>
+                @Html.DisplayFor(model => model.Joined)
+            </div>
+            <div class="">
+                <strong>@Html.DisplayNameFor(model => model.Left)</strong> <br>
+                @Html.DisplayFor(model => model.Left)
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END CONTENT AREA -->
