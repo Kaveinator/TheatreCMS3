@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Access Denied</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <h1 class="display-3 font-weight-bolder text-center">You are not authorized to visit that page</h1>
+        </div>
+        <div class="row">
+            <img id="img-denied" src="~/Content/images/access_denied.png" />
+         </div>
+        <div class="row">
+            <div class="mx-auto p-4 display-4">
+
+                @Html.ActionLink("Login", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })
+            </div>
+            </div>
+        </div>
+</body>
+</html>
