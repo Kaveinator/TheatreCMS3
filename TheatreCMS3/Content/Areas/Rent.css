@@ -61,6 +61,7 @@
 .table {
     table-layout: fixed;
     width: 100%;
+    border:0;
     
 }
 
@@ -71,4 +72,14 @@
 
 tr:hover .last-td .dropdown {
     display: block;
+}
+#img-denied {
+    padding-top: 3%;
+    max-width: 100px;
+    height: auto;
+    margin: 0px auto;
+}
+
+#center-login-link {
+    text-align:center;
 }
