@@ -71,6 +71,37 @@ body {
     flex-direction: column;
 }
 
+.Xbutton {
+    background-color: red;
+    color: #ffffff;
+  
+    align-self:center;
+}
+
+.infoX {
+    background-color: black;
+     color:white;
+     font-size:small;
+    border-radius:5px;
+}
+
+.LM{
+    color:white;
+  font-size:large;
+ text-align:center;
+ font-style:normal;
+}
+.MOtext{
+    color:white;
+font-family:oswald;
+text-transform:uppercase;
+font-style:normal;
+font-size:large;
+}
+
+
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -322,7 +353,7 @@ footer {
     margin: 10% auto;
     width: 750px;
     background-color: var(--secondary-color--dark);
-    border: ridge 10px;
+    border: ridge 30px;
     border-color: var(--main-color--light);
     box-shadow: inset var(--dark-color) 1px 2px 20px;
 }
@@ -345,7 +376,7 @@ footer {
     background-color: var(--secondary-color);
     border: outset 2px;
     border-color: var(--main-color--light);
-    font-weight: bold;
+    font-weight:bold;
     box-shadow: var(--dark-color) 0.8px 0.8px 5px;
 }
 
