@@ -312,6 +312,7 @@
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\_BlogAuthor.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\AccessDenied.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
