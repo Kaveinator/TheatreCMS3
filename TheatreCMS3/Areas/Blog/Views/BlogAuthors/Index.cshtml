@@ -11,16 +11,17 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+<!-- Loop through all entries in BlogAuthor db-->
 @foreach (var item in Model)
 {
-    <partial name="_BlogAuthor" model="@item" />
+    @Html.Partial("_BlogAuthor", item)
 }
 
 
 
     @*<table class="table">
         <tr>
-            <th>
+            <th>  
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
