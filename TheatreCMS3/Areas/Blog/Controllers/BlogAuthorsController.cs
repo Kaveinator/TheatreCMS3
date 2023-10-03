@@ -124,5 +124,10 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult BlogAuthorsPartial()
+        {
+            return PartialView("_BlogAuthor", db.BlogAuthors.ToList());
+        }
     }
 }

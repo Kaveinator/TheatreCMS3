@@ -314,6 +314,7 @@
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\BlogAuthors\_BlogAuthor.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\AccessDenied.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Create.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Delete.cshtml" />
