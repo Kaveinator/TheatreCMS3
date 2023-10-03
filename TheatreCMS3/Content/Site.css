@@ -483,3 +483,15 @@ footer {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+/*-----Styling for Donate/Index.cshtml-----*/
+
+#donation-form-container {
+    border-radius: 25px;    
+}
+
+#donation-comment-box {
+    resize: none;
+}
+
+/*-----End of Styling for Donate/Index.cshtml-----*/
