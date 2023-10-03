@@ -206,6 +206,7 @@
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DonateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -218,6 +219,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DonateModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -468,6 +470,7 @@
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
     <Content Include="webfonts\Broadway Normal.ttf" />
+    <Content Include="Views\Home\Donate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -485,6 +488,7 @@
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
     <Folder Include="UIUX\Prototypes\" />
+    <Folder Include="Views\Donate\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
