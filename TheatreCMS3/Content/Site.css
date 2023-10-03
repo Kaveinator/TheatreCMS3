@@ -494,4 +494,15 @@ footer {
     resize: none;
 }
 
+#donation-background {
+    background-image: url('../Content/images/DonateStage.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#donation-title {
+    font-family: 'Broadway', sans-serif;
+    font-size: 4em;
+}
+
 /*-----End of Styling for Donate/Index.cshtml-----*/
