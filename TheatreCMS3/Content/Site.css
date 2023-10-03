@@ -489,14 +489,17 @@ footer {
 
 
 
-#contact-us-title-section {
+#contact-us-title-section
+{
     font-family: Broadway;
     background-color: black;
-    margin-top: 250px;
-    margin-bottom: 250px;
+    margin-top: 150px;
+    margin-bottom: 150px;
 }
 
-#contact-us-page-body {
+#contact-us-page-body
+{
+    
     background-color: #f04d44;
     color: white;
 }
@@ -511,4 +514,10 @@ footer {
 {
     margin-top: 30px;
     margin-bottom: 25px;
+}
+
+#contact-us-extra-row
+{
+    background-color: ##f04d44;
+    margin-top: auto;
 }
