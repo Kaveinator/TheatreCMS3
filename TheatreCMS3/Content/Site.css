@@ -489,12 +489,16 @@ footer {
 #create-rental-history-form {
     border-radius: 15px;
     max-width: 600px;
-    align-content: center;
+    margin: auto;
 }
 
 #create-rental-history-form-btn {
     border-radius: 10px;
     background-color: green;
+}
+
+#damages-incurred {
+    display: none;
 }
 
 /*-----End of Styling for Rent/RentalHistories/Create.cshtml-----*/
@@ -521,7 +525,6 @@ footer {
 }
 
 /*-----End of Styling for Donate/Index.cshtml-----*/
-}
 
 
 /*--The following designs impact the Contact Us page, incl padding between various elements-*/
