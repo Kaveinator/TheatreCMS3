@@ -1,47 +1,14 @@
-﻿function toggleCheck() {
+﻿changeDamagedToNotes();
 
-    let damages = document.getElementById("damage-label");
-    let notes = document.getElementById("notes-label");
-    if (damages.hidden === true) {
-        damages.hidden = false;
-        notes.hidden = true;
+function changeDamagedToNotes() {
+    var checkbox = document.getElementById("RentalDamaged")
+    if (checkbox.checked == true) {
+        console.log("Checkbox is checked.." + checkbox.checked);
+        document.getElementById("damages-incurred").style.display = 'flex';
+        document.getElementById("notes").style.display = 'none';
     } else {
-        damages.hidden = true;
-        notes.hidden = false;
+        console.log("Checkbox is not checked..");
+        document.getElementById("damages-incurred").style.display = 'none';
+        document.getElementById("notes").style.display = 'flex';
     }
 }
-
-$(document).ready(function () {
-    $('.dropdown').hover(function () {
-        $(this).addClass('show');
-        $(this).find('.dropdown-menu').addClass('show');
-    }, function () {
-        $(this).removeClass('show');
-        $(this).find('.dropdown-menu').removeClass('show');
-    });
-});
-$(document).ready(function () {
-   
-    $('#partial-load').load('/Rent/RentalHistories/testPartial');
-   
-});
-
-const select = document.getElementById('select');
-
-select.addEventListener('change', function handleChange(event) {
-    console.log(event.target.value);
-    var sortOrder = event.target.value
-    $('#partial-load').load('/Rent/RentalHistories/testPartial/?sortOrder='+sortOrder);
-
-    
-});
-
-
-if (document.getElementById("check").checked === true) {
-    document.getElementById("damage-label").hidden = false;
-    document.getElementById("notes-label").hidden = true;
-} else {
-    document.getElementById("damage-label").hidden = true;
-    document.getElementById("notes-label").hidden = false;
-}
-
