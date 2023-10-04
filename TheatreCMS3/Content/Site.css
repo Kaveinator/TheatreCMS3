@@ -506,3 +506,57 @@ footer {
 }
 
 /*-----End of Styling for Donate/Index.cshtml-----*/
+}
+
+
+/*--The following designs impact the Contact Us page, incl padding between various elements-*/
+
+
+
+#contact-us-title-section {
+    font-family: Broadway;
+    background-color: black;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    border-radius: 0px 0px 0px 120px;
+    padding-bottom: 100px;
+}
+
+
+#contact-us-page-body
+{
+    margin-top: 200px;
+    background-color: #f04d44;
+    color: white;
+    padding-top: 75px;
+
+}
+
+#contact-page-button
+{
+    background-color: #bd1a11;
+    color: white;
+}
+
+#contact-us-side-section
+{
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+#contact-page-title-underline
+{
+    text-decoration: underline;
+    text-decoration-color: #bd1a11;
+    text-decoration-thickness: 5px;
+}
+
+#contact-us-form
+{
+    margin-left: 25px;
+}
+
+#contact-us-container-div
+{
+    background-color: #f04d44;
+}
