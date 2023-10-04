@@ -5,49 +5,61 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="">Create Rental History</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>RentalHistory</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RentalDamaged)
-                    @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+<div id="create-rental-history-form" class="form-horizontal cms-bg-main-light pl-3 pr-5 pt-3 pb-1">
 
+    <div class="row">
         <div class="form-group">
-            @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
+            <p class="font-weight-bold">
+                @Html.LabelFor(model => model.Rental, htmlAttributes: new { @class = "control-label col-md-2" })
+            </p>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Rental, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Rental, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <p class="font-weight-bold">
+                @Html.LabelFor(model => model.RentalDamaged, htmlAttributes: new { @class = "control-label col-md-2" })
+            </p>
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.RentalDamaged)
+                @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
+</div>
+
+    <div class="form-group">
+        <p class="font-weight-bold">
+            @Html.LabelFor(model => model.DamagesIncurred, htmlAttributes: new { @class = "control-label col-md-2" })
+        </p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
+        </div>
+</div>
+
+
+
+    <div class="form-group row justify-content-center">
+        <div class="col-md-offset-2 pr-1">
+            <input class="btn btn-dark" type="button" value="Back to List" onclick="window.location.href='@Url.Action("RentalHistories", ".")';" />
+        </div>
+        <div class="col-md-offset-2">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>
 }
 
 <div>
