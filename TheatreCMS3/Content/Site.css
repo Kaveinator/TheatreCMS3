@@ -489,6 +489,7 @@ footer {
 #create-rental-history-form {
     border-radius: 15px;
     max-width: 600px;
+    align-content: center;
 }
 
 #create-rental-history-form-btn {
