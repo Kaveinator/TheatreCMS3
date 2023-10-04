@@ -43,6 +43,48 @@
     padding-right: 150px;
 }
 
+.author-card-partial {
+    margin-bottom: 10px; 
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.author-name {
+    display: flex;
+    width: 100%;
+}
+
+.card-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.card-info {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.card-events-container {
+    width: 100%;
+    display: flex;
+    margin-top: auto;
+}
+
+.date-box {
+    min-width: 165px; /* fix for: if the date is to short the edit/delete buttons are pushed over */
+}
+
+.author-card-buttons {
+    display: flex;
+    width: 63%; /* fix for odd expand behavior. if width == 100% it expands outside of its parent */
+    justify-content: end;
+    align-content: end;
+}
+
 .content {
     margin: 0;
 }

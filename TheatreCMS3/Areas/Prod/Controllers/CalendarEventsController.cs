@@ -6,112 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheatreCMS3.Areas.Blog.Models;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Blog.Controllers
+namespace TheatreCMS3.Areas.Prod.Controllers
 {
-    public class BlogAuthorsController : Controller
+    public class CalendarEventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Blog/BlogAuthors
+        // GET: Prod/CalendarEvents
         public ActionResult Index()
         {
-            return View(db.BlogAuthors.ToList());
+            return View(db.CalendarEvents.ToList());
         }
 
-        // GET: Blog/BlogAuthors/Details/5
+        // GET: Prod/CalendarEvents/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(calendarEvent);
         }
 
-        // GET: Blog/BlogAuthors/Create
+        // GET: Prod/CalendarEvents/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blog/BlogAuthors/Create
+        // POST: Prod/CalendarEvents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Create([Bind(Include = "EventId,Title,StartDate,EndDate,AllDay,TicketsAvailable,IsProduction")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
             {
-                db.BlogAuthors.Add(blogAuthor);
+                db.CalendarEvents.Add(calendarEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(blogAuthor);
+            return View(calendarEvent);
         }
 
-        // GET: Blog/BlogAuthors/Edit/5
+        // GET: Prod/CalendarEvents/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(calendarEvent);
         }
 
-        // POST: Blog/BlogAuthors/Edit/5
+        // POST: Prod/CalendarEvents/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogAuthorId,Name,Bio,Joined,Left")] BlogAuthor blogAuthor)
+        public ActionResult Edit([Bind(Include = "EventId,Title,StartDate,EndDate,AllDay,TicketsAvailable,IsProduction")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogAuthor).State = EntityState.Modified;
+                db.Entry(calendarEvent).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blogAuthor);
+            return View(calendarEvent);
         }
 
-        // GET: Blog/BlogAuthors/Delete/5
+        // GET: Prod/CalendarEvents/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            if (blogAuthor == null)
+            CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            if (calendarEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(blogAuthor);
+            return View(calendarEvent);
         }
 
-        // POST: Blog/BlogAuthors/Delete/5
+        // POST: Prod/CalendarEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            db.BlogAuthors.Remove(blogAuthor);
+            CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            db.CalendarEvents.Remove(calendarEvent);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -123,11 +123,6 @@ namespace TheatreCMS3.Areas.Blog.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public ActionResult BlogAuthorsPartial()
-        {
-            return PartialView("_BlogAuthor", db.BlogAuthors.ToList());
         }
     }
 }

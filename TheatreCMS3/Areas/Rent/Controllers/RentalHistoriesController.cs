@@ -21,31 +21,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(db.RentalHistories.ToList());
         }
 
-        public ActionResult testPartial(string sortOrder)
-        {
-            var rents = from r in db.RentalHistories
-                           select r;
-
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    rents = rents.OrderByDescending(r => r.Rental);
-                    break;
-                case "name_asc":
-                    rents = rents.OrderBy(r => r.Rental);
-                    break;
-                case "damage_desc":
-                    rents = rents.OrderByDescending(r => r.RentalDamaged);
-                    break;
-                case "damage_asc":
-                    rents = rents.OrderBy(r => r.RentalDamaged);
-                    break;
-               
-            }
-            return PartialView(rents.ToList());
-        }
-
-          
         // GET: Rent/RentalHistories/Details/5
         public ActionResult Details(int? id)
         {
@@ -72,7 +47,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HistoryManagerAttribute]
         public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
             if (ModelState.IsValid)
@@ -99,7 +73,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             return View(rentalHistory);
         }
-        [HistoryManagerAttribute]
+
         // POST: Rent/RentalHistories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -132,7 +106,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // POST: Rent/RentalHistories/Delete/5
-        [HistoryManagerAttribute]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -141,12 +114,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             db.RentalHistories.Remove(rentalHistory);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public ActionResult AccessDenied()
-        {
-           
-            return View();
         }
 
         protected override void Dispose(bool disposing)

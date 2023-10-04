@@ -5,33 +5,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center">Index</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<div class="container">
-   
-    <div class="bg-white pt-1 table-container">
-        <div class="container">
-            <div class="row">
-                <p class="text-dark pl-2">Most Recent Rental Histories</p>
-                <div class="ml-auto pr-1">
-                    <span class="text-dark">Sorted By: </span>
-                    <select id="select">
-                        <option value="">--No Extra Sort--</option>
-                        <option value="name_asc">Rentals A - Z</option>
-                        <option value="name_desc">Rentals Z - A</option>
-                        <option value="damage_desc">Damaged Rentals</option>
-                        <option value="damage_asc">Undamaged Rentals</option>
-                    </select>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalDamaged)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DamagesIncurred)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rental)
+        </th>
+        <th></th>
+    </tr>
 
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalDamaged)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DamagesIncurred)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rental)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
+        </td>
+    </tr>
+}
 
-                </div>
-            </div>
-        </div>
-            <div id="partial-load"></div>
-
-
-        </div>
-    </div>
+</table>
