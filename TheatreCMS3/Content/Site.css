@@ -489,19 +489,21 @@ footer {
 
 
 
-#contact-us-title-section
-{
+#contact-us-title-section {
     font-family: Broadway;
     background-color: black;
     margin-top: 150px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
+
 
 #contact-us-page-body
 {
-    
+    margin-top: 200px;
     background-color: #f04d44;
     color: white;
+    padding-top: 75px;
+
 }
 
 #contact-page-button
@@ -516,8 +518,14 @@ footer {
     margin-bottom: 25px;
 }
 
-#contact-us-extra-row
+#contact-page-title-underline
 {
-    background-color: ##f04d44;
-    margin-top: auto;
+    text-decoration: underline;
+    text-decoration-color: #bd1a11;
+    text-decoration-thickness: 5px;
+}
+
+#contact-us-form
+{
+    margin-left: 25px;
 }
