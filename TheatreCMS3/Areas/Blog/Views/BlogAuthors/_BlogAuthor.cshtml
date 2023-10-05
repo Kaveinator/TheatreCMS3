@@ -1,7 +1,7 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
 
 <!-- CONTENT AREA -->
-<div class="author-card-partial">
+<div class="author-card-partial" id="@Model.BlogAuthorId">
     <div class="card-content">
         <!-- AUTHOR IMAGE -->
         <div>
@@ -33,7 +33,7 @@
                         <a href=@Url.Action("Edit", new { id = Model.BlogAuthorId }) class="btn btn-success"><i class="fa-solid fa-pen-to-square text-white"></i> Edit</a>
                     </div>
                     <div class="">
-                        <a href=@Url.Action("Delete", new { id = Model.BlogAuthorId }) class="btn btn-danger"><i class="fa-solid fa-trash-can text-white"></i></a>
+                        <button id="deleteAuthorButton" class="btn btn-danger" onclick="ConfirmDelete('@Model.BlogAuthorId', '@Model.Name')"><i class="fa-solid fa-trash-can text-white"></i> Delete Author</button>
                     </div>
                 </div>
             </div>
