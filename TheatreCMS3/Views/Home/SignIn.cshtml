@@ -9,7 +9,7 @@
 
 
     <h1>Developers Of TheatreCMS&nbsp;<span id="NumPersons" class="badge badge-secondary">Total: <span id="countDevs"></span></span></h1>
-    <h2>SignIn<span id="badge" class="badge badge-primary">@Model.Count</span></h2>
+    <h2>SignIn</h2>
 </div>
 
 
@@ -278,3 +278,13 @@
     <p>Jonathan Agno*</p>
     <p>Carlos Duque</p>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var namesCount = $('#PersonList p').length;
+            $('#countDevs').text(namesCount);
+        });
+    </script>
+}
+
