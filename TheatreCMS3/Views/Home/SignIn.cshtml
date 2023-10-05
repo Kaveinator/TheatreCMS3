@@ -278,3 +278,13 @@
     <p>Jonathan Agno*</p>
     <p>Carlos Duque</p>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var namesCount = $('#PersonList p').length;
+            $('#countDevs').text(namesCount);
+        });
+    </script>
+}
+
