@@ -484,25 +484,6 @@ footer {
     text-overflow: ellipsis;
 }
 
-/*-----Styling for Rent/RentalHistories/Create.cshtml-----*/
-
-#create-rental-history-form {
-    border-radius: 15px;
-    max-width: 600px;
-    margin: auto;
-}
-
-#create-rental-history-form-btn {
-    border-radius: 10px;
-    background-color: green;
-}
-
-#damages-incurred {
-    display: none;
-}
-
-/*-----End of Styling for Rent/RentalHistories/Create.cshtml-----*/
-
 /*-----Styling for Donate/Index.cshtml-----*/
 
 #donation-form-container {

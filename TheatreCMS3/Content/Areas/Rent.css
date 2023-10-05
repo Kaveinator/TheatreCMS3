@@ -83,3 +83,18 @@ tr:hover .last-td .dropdown {
 #center-login-link {
     text-align:center;
 }
+
+#create-rental-history-form {
+    border-radius: 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+#create-rental-history-form-btn {
+    border-radius: 10px;
+    background-color: green;
+}
+
+#damages-incurred {
+    display: none;
+}
