@@ -129,5 +129,26 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         {
             return PartialView("_BlogAuthor", db.BlogAuthors.ToList());
         }
+
+        [HttpPost]
+        public ActionResult DeleteAjax(int id)
+        {
+            var blogAuthors = db.BlogAuthors.Find(id);
+            if (blogAuthors != null)
+            {
+                db.BlogAuthors.Remove(blogAuthors);
+                db.SaveChanges();
+
+                // Return a JSON response indicating success
+                return Json(new { success = true });
+            }
+            // Return a JSON response indicating failure
+            return Json(new { success = false });
+        }
+
+        public ActionResult ShowDelete(int AuthorId)
+        {
+            return PartialView("_DeleteConfirm");
+        }
     }
 }
