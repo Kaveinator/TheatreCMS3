@@ -26,10 +26,14 @@ $("#deleteAuthorConfirmButton").click(function () {
         url: "BlogAuthors/DeleteAjax/" + blogAuthorId,
         type: 'POST',
         data: { id: blogAuthorId },
-        success: function (data) {
+        success: function(data) {
             // Handle success, maybe refresh the page or update the UI
             // For now, let's close the modal
             $("#ModalPopUp").modal("hide");
+            $("#" + blogAuthorId).fadeOut(500, function () {
+                // Optionally, you can remove the section from the DOM after the fade-out animation completes
+                $("#" + blogAuthorId).hide();
+            });
         },
         error: function () {
             // Handle error if the delete action fails
