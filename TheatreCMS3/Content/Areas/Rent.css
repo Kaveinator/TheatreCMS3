@@ -107,24 +107,21 @@ td {
     word-wrap: break-word;
 }
 tr {
-    padding: 5px;
 }
 
 tr.bordered {
     border-bottom: 1px solid lightgrey;
-    padding: 5px 0px;
     width: 80%;
 }
 
-hr {
-    border: solid grey;
-    border-width: 1px 0px 0px 0px;
-    width: 80%;
+tr:hover #rental-history-ellipses-dropdown {
+    display: inline;
 }
 
 #item-name {
     font-weight: bold;
-    font-size: large;
+    font-size: medium;
+    height: 80%;
 }
 
 #most-recent-rental-histories {
@@ -134,10 +131,6 @@ hr {
 }
 
 /*-----Checkbox Font Replacement-----*/
-
-.fancy-checkbox {
-    padding: 0px 10px 0px 20px;
-}
 
 .fancy-checkbox input[type="checkbox"],
 .fancy-checkbox .checked {
@@ -154,12 +147,20 @@ hr {
 
 /*-----End of Checkbox Font Replacement-----*/
 
-.dropdown-toggle {
-    background-color: #1E1E1E;
+#rental-history-ellipses-dropdown {
+    display: none;
+    background-color: #343a40;
+    border: none;
+    height: 100%;
+    z-index: 1;
 }
-.dropdown-toggle::after {
+
+#rental-history-ellipses-dropdown::after {
     content: none;
 }
 
+#delete-button {
+    color: #BD1A11;
+}
 
 /*-----End of Styling for Rent/RentalHistories/Index.cshtml-----*/
