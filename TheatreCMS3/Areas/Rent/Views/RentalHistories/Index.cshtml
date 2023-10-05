@@ -15,17 +15,20 @@
     <table width="100%">
         @foreach (var item in Model)
         {
+
             <tr class="bordered"></tr>
-            <tr id="itemrow" class="row p-lg-auto">
-                <td class="col-auto">
+
+            <tr class="row p-xl-auto">
+                <td class="fancy-checkbox">
                     @Html.DisplayFor(modelItem => item.RentalDamaged)
-                    <i id="checkmark" class="fa-solid fa-square-check" style="color: #00ff00;"></i>
-                    <i id="xmark" class="fa-solid fa-square-xmark" style="color: #ff0000;"></i>
+                    <i class="fa-solid fa-square-check unchecked" style="color: #00ff00;"></i>
+                    <i class="fa-solid fa-square-xmark checked" style="color: #ff0000;"></i>
                 </td>
+
                 <td id="item-name" class="col-auto">
                     @Html.DisplayFor(modelItem => item.Rental)
                 </td>
-                <td class="col">
+                <td class="col text-nowrap">
                     @Html.DisplayFor(modelItem => item.DamagesIncurred)
                 </td>
 

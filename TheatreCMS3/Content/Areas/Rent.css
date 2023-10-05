@@ -107,7 +107,7 @@ td {
     word-wrap: break-word;
 }
 tr {
-
+    padding: 5px;
 }
 
 tr.bordered {
@@ -137,4 +137,27 @@ hr {
     color: black;
     padding: 10px 0px 0px 10px
 }
+
+/*-----Checkbox Font Replacement-----*/
+
+.fancy-checkbox {
+    padding: 0px 10px 0px 20px;
+}
+
+.fancy-checkbox input[type="checkbox"],
+.fancy-checkbox .checked {
+    display: none;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked ~ .checked {
+    display: inline-block;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked ~ .unchecked {
+    display: none;
+}
+
+/*-----End of Checkbox Font Replacement-----*/
+
+
 /*-----End of Styling for Rent/RentalHistories/Index.cshtml-----*/
