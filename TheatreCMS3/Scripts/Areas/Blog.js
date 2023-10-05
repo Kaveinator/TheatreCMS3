@@ -7,4 +7,4 @@ function toggleContent(contentID) {
     //get passed content seaction id and set display to visible
     var elem = document.getElementById(contentID);
     elem.style.display = 'block';
-    }
+}
