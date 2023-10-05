@@ -123,13 +123,8 @@ hr {
 }
 
 #item-name {
-    border-radius: 5px;
-    border-collapse: separate;
-    background-color: #1E1E1E;
-    color: white;
     font-weight: bold;
-    padding: 2px 10px;
-    width: auto;
+    font-size: large;
 }
 
 #most-recent-rental-histories {
@@ -158,6 +153,13 @@ hr {
 }
 
 /*-----End of Checkbox Font Replacement-----*/
+
+.dropdown-toggle {
+    background-color: #1E1E1E;
+}
+.dropdown-toggle::after {
+    content: none;
+}
 
 
 /*-----End of Styling for Rent/RentalHistories/Index.cshtml-----*/
