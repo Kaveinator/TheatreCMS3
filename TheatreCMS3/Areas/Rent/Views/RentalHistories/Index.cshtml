@@ -10,11 +10,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<div class="table-container">
-    <p id="most-recent-rental-histories">Most recent Rental Histories</p>
+<div class="table-container row">
+    <div id="most-recent-rental-histories" class="col-8">
+        Most recent Rental Histories
+    </div>
+    <div id="sorted-by" class="col-4">
+        Sorted By:
+    </div>
     <table>
-        @foreach (var item in Model)
-        {
+        @foreach (var item in Model.Reverse()) {
 
             <tr class="bordered"></tr>
 

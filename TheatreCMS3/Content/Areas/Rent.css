@@ -119,7 +119,11 @@ tr:hover #rental-history-ellipses-dropdown {
 }
 
 #most-recent-rental-histories {
-    font-weight: lighter;
+    color: black;
+    padding: 10px 0px 0px 10px
+}
+
+#sorted-by {
     color: black;
     padding: 10px 0px 0px 10px
 }
