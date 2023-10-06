@@ -36,16 +36,10 @@
 }
 
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-   
-}
-
-
 .table-container {
     border-radius: 15px;
     border: 2px solid #BD1A11;
-    
+    background-color: white;
 }
 
 
@@ -55,14 +49,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
 }
 
-.table {
+table {
     table-layout: fixed;
     width: 100%;
-    border:0;
-    
+    border: 0;
+    border-collapse: collapse;
 }
 
 
@@ -95,6 +88,77 @@ tr:hover .last-td .dropdown {
     background-color: green;
 }
 
-#damages-incurred {
+
+
+/*-----Styling for Rent/RentalHistories/Index.cshtml-----*/
+th {
+    color: black;
+}
+td {
+    color: black;
+    word-wrap: break-word;
+}
+tr {
+}
+
+tr.bordered {
+    border-bottom: 1px solid lightgrey;
+    width: 50%;
+}
+
+tr:hover #rental-history-ellipses-dropdown {
+    display: inline;
+}
+
+#item-name {
+    font-weight: bold;
+    font-size: medium;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+}
+
+#most-recent-rental-histories {
+    font-weight: lighter;
+    color: black;
+    padding: 10px 0px 0px 10px
+}
+
+/*-----Checkbox Font Replacement-----*/
+
+.fancy-checkbox input[type="checkbox"],
+.fancy-checkbox .checked {
     display: none;
 }
+
+.fancy-checkbox input[type="checkbox"]:checked ~ .checked {
+    display: inline-block;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked ~ .unchecked {
+    display: none;
+}
+
+input[type=checkbox]:checked + #item-notes {
+    color: red;
+}
+
+/*-----End of Checkbox Font Replacement-----*/
+
+#rental-history-ellipses-dropdown {
+    display: none;
+    background-color: #343a40;
+    border: none;
+    height: 100%;
+    z-index: 1;
+}
+
+#rental-history-ellipses-dropdown::after {
+    content: none;
+}
+
+#delete-button {
+    color: #BD1A11;
+}
+
+/*-----End of Styling for Rent/RentalHistories/Index.cshtml-----*/
