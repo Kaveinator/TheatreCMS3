@@ -1,6 +1,4 @@
 ﻿changeDamagedToNotes();
-hasBeenChecked();
-
 
 
 function changeDamagedToNotes() {
@@ -14,21 +12,6 @@ function changeDamagedToNotes() {
         console.log("Checkbox is not checked..");
         document.getElementById("damages-incurred").style.display = 'none';
         document.getElementById("notes").style.display = 'flex';
-    }
-}
-
-function hasBeenChecked() {
-    var checkbox = document.getElementsByClassName('check-box')
-
-
-
-
-    let textVar = document.getElementById('item-notes').checked;
-    console.log(textVar);
-    if (document.getElementsByClassName('check-box').checked) {
-        textVar.style.color = 'grey';
-    } else {
-        textVar.style.color = 'black';
     }
 }
 
