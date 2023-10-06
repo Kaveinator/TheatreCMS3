@@ -36,12 +36,6 @@
 }
 
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-   
-}
-
-
 .table-container {
     border-radius: 15px;
     border: 2px solid #BD1A11;
