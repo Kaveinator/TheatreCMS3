@@ -1,5 +1,7 @@
 ﻿changeDamagedToNotes();
-damageSymbol();
+hasBeenChecked();
+
+
 
 function changeDamagedToNotes() {
     var checkbox = document.getElementById("RentalDamaged")
@@ -15,15 +17,18 @@ function changeDamagedToNotes() {
     }
 }
 
-function damageSymbol() {
-    var checkbox = document.getElementsByClassName("check-box")
-    if (checkbox.checked == true) {
-        console.log("test1");
-        document.getElementById("checkmark").style.display = 'flex';
-        document.getElementById("xmark").style.display = 'none';
+function hasBeenChecked() {
+    var checkbox = document.getElementsByClassName('check-box')
+
+
+
+
+    let textVar = document.getElementById('item-notes').checked;
+    console.log(textVar);
+    if (document.getElementsByClassName('check-box').checked) {
+        textVar.style.color = 'grey';
     } else {
-        console.log("test2");
-        document.getElementById("checkmark").style.display = 'none';
-        document.getElementById("xmark").style.display = 'flex';
+        textVar.style.color = 'black';
     }
 }
+

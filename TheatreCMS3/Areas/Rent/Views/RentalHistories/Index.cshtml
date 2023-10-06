@@ -18,7 +18,7 @@
 
             <tr class="bordered"></tr>
 
-            <tr class="row">
+            <tr id="entry-row-@item.RentalHistoryId" class="row">
                 <td class="col-xs-1 fancy-checkbox p-2 pl-4 my-auto">
                     @Html.DisplayFor(modelItem => item.RentalDamaged)
                     <i class="fa-solid fa-circle-check unchecked" style="color: #00ff00;"></i>
@@ -28,9 +28,18 @@
                 <td id="item-name" class="badge badge-dark my-auto">
                     @Html.DisplayFor(modelItem => item.Rental)
                 </td>
-                <td class="my-auto pl-1 col-6 text-truncate">
-                    @Html.DisplayFor(modelItem => item.DamagesIncurred)
-                </td>
+                @if (item.RentalDamaged == true)
+                {
+                    <td class="my-auto pl-1 col-6 text-truncate style="color:black;">
+                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                    </td>
+                }
+                else
+                {
+                    <td class="my-auto pl-1 col-6 text-truncate" style="color:lightgrey;">
+                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                    </td>
+                }
 
                 <td class="col-xs-1 dropdown pr-4 my-auto ml-auto">
                     <button id="rental-history-ellipses-dropdown" class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

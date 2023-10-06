@@ -145,6 +145,10 @@ tr:hover #rental-history-ellipses-dropdown {
     display: none;
 }
 
+input[type=checkbox]:checked + #item-notes {
+    color: red;
+}
+
 /*-----End of Checkbox Font Replacement-----*/
 
 #rental-history-ellipses-dropdown {
