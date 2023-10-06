@@ -1,4 +1,8 @@
-﻿changeDamagedToNotes();
+﻿try {
+    changeDamagedToNotes();
+} catch {
+    console.error();
+}
 
 
 function changeDamagedToNotes() {
