@@ -127,7 +127,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         public ActionResult testPartial()
         {
-            return PartialView("myPartial");
+            return PartialView("myPartial", db.RentalHistories.ToList());
         }
     }
 }

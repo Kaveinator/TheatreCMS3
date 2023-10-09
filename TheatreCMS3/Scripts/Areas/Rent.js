@@ -37,7 +37,7 @@ function test() {
             $('#rental-list').html(result);
         },
         error: function (result) {
-            alert('error');
+            console.log('error');
         }
     });
 }
