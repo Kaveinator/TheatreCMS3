@@ -18,20 +18,10 @@ function changeDamagedToNotes() {
     }
 }
 
-//function test() {
-//    $('#rental-list').html('RentalHistories/testPartial');
-//}
-
-//function test() {
-//    $('#rental-list').on("click", "RentalHistories/testPartial", function () {
-
-//    });
-//}
-
 function test() {
     $.ajax({
         type: "POST",
-        url: "RentalHistories/testPartial",
+        url: "NoSorting",
         success: function (result) {
 /*            alert('ok');*/
             $('#rental-list').html(result);
