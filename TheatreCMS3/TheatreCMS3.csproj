@@ -206,6 +206,7 @@
     <Compile Include="Areas\Blog\Models\HeadAuthor.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
