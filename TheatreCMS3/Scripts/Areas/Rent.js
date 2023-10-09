@@ -52,3 +52,31 @@ function damagedRentals() {
     });
 }
 
+function undamagedRentals() {
+    $.ajax({
+        type: "POST",
+        url: "RentalHistories/UndamagedRentals",
+        success: function (result) {
+            /*            alert('ok');*/
+            $('#rental-list').html(result);
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+}
+
+function rentalsAZ() {
+    $.ajax({
+        type: "POST",
+        url: "RentalHistories/RentalsAZ",
+        success: function (result) {
+            /*            alert('ok');*/
+            $('#rental-list').html(result);
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+}
+

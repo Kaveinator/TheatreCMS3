@@ -329,6 +329,8 @@
     <Content Include="Areas\Blog\Views\BlogPhotoes\Index.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\TableNoSorting.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\TableDamagedRentals.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\TableUndamagedRentals.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\TableRentalsAZ.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
