@@ -130,10 +130,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return PartialView("TableNoSorting", db.RentalHistories.ToList());
         }
 
-        //public ActionResult DamagedRentals()
-        //{
-        //    return PartialView("TableNoSorting", db.RentalHistories.ToList());
-        //}
+        public ActionResult DamagedRentals()
+        {
+            return PartialView("TableDamagedRentals", db.RentalHistories.ToList());
+        }
 
         //public ActionResult UndamagedRentals()
         //{

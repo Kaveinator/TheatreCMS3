@@ -4,6 +4,12 @@
     console.error();
 }
 
+try {
+    noSorting();
+} catch {
+    console.error();
+}
+
 function changeDamagedToNotes() {
     var checkbox = document.getElementById("RentalDamaged")
     if (checkbox.checked == true) {
@@ -18,10 +24,10 @@ function changeDamagedToNotes() {
     }
 }
 
-function test() {
+function noSorting() {
     $.ajax({
         type: "POST",
-        url: "NoSorting",
+        url: "RentalHistories/NoSorting",
         success: function (result) {
 /*            alert('ok');*/
             $('#rental-list').html(result);
@@ -31,3 +37,18 @@ function test() {
         }
     });
 }
+
+function damagedRentals() {
+    $.ajax({
+        type: "POST",
+        url: "RentalHistories/DamagedRentals",
+        success: function (result) {
+            /*            alert('ok');*/
+            $('#rental-list').html(result);
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+}
+
