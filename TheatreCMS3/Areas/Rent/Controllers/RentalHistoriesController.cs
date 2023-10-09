@@ -146,9 +146,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return PartialView("TableRentalsAZ", db.RentalHistories.ToList());
         }
 
-        //public ActionResult RentalsZA()
-        //{
-        //    return PartialView("TableNoSorting", db.RentalHistories.ToList());
-        //}
+        public ActionResult RentalsZA()
+        {
+            return PartialView("TableRentalsZA", db.RentalHistories.ToList());
+        }
     }
 }

@@ -80,3 +80,17 @@ function rentalsAZ() {
     });
 }
 
+function rentalsZA() {
+    $.ajax({
+        type: "POST",
+        url: "RentalHistories/RentalsZA",
+        success: function (result) {
+            /*            alert('ok');*/
+            $('#rental-list').html(result);
+        },
+        error: function (result) {
+            console.log('error');
+        }
+    });
+}
+
