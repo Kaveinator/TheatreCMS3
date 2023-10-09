@@ -1,6 +1,4 @@
-﻿
-
-@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
 
 @foreach (var item in Model.OrderBy(RentalHistory => RentalHistory.Rental).Reverse())
 {
