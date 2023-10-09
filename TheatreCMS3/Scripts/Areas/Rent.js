@@ -4,7 +4,6 @@
     console.error();
 }
 
-
 function changeDamagedToNotes() {
     var checkbox = document.getElementById("RentalDamaged")
     if (checkbox.checked == true) {
@@ -19,3 +18,26 @@ function changeDamagedToNotes() {
     }
 }
 
+//function test() {
+//    $('#rental-list').html('RentalHistories/testPartial');
+//}
+
+//function test() {
+//    $('#rental-list').on("click", "RentalHistories/testPartial", function () {
+
+//    });
+//}
+
+function test() {
+    $.ajax({
+        type: "POST",
+        url: "RentalHistories/testPartial",
+        success: function (result) {
+/*            alert('ok');*/
+            $('#rental-list').html(result);
+        },
+        error: function (result) {
+            alert('error');
+        }
+    });
+}

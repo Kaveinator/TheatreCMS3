@@ -327,6 +327,7 @@
     <Content Include="Areas\Blog\Views\BlogPhotoes\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\myPartial.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

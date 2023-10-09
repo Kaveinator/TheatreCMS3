@@ -124,5 +124,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult testPartial()
+        {
+            return PartialView("myPartial");
+        }
     }
 }
