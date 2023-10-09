@@ -205,7 +205,9 @@
     <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
     <Compile Include="Areas\Blog\Models\HeadAuthor.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
+    <Compile Include="Areas\Prod\Controllers\ProductionPhotoesController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
+    <Compile Include="Areas\Prod\Models\ProductionPhoto.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
     <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
@@ -327,6 +329,11 @@
     <Content Include="Areas\Blog\Views\BlogPhotoes\Details.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogPhotoes\Index.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoes\Index.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\TableNoSorting.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\TableDamagedRentals.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\TableUndamagedRentals.cshtml" />
