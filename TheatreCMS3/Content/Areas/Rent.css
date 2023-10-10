@@ -106,7 +106,13 @@ tr.bordered {
     width: 50%;
 }
 
-tr:hover #rental-history-ellipses-dropdown {
+.card {
+    border-radius:12px;
+    background-color: none;
+    border-color: none;
+}
+
+.card-header:hover #rental-history-ellipses-dropdown {
     display: inline;
 }
 
@@ -128,6 +134,12 @@ tr:hover #rental-history-ellipses-dropdown {
 }
 
 /*-----Checkbox Font Replacement-----*/
+
+.fancy-checkbox {
+    border: none;
+    background-color: #f7f7f7;
+    color: none;
+}
 
 .fancy-checkbox input[type="checkbox"],
 .fancy-checkbox .checked {
@@ -152,8 +164,9 @@ input[type=checkbox]:checked + #item-notes {
     display: none;
     background-color: #343a40;
     border: none;
-    height: 100%;
-    z-index: 1;
+    z-index: 100;
+    font-size: xx-small;
+    padding-top: 2px;
 }
 
 #rental-history-ellipses-dropdown::after {
