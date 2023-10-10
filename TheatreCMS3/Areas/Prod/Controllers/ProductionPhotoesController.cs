@@ -124,5 +124,14 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public byte[] ConvertToBytes(HttpPostedFileBase photo)
+        {
+            byte[] photoBytes = null;
+            BinaryReader reader = new BinaryReader(photo.InputStream);
+            photoBytes = reader.ReadBytes(photo.ContentLength);
+            return photoBytes;
+        }
+
     }
 }
