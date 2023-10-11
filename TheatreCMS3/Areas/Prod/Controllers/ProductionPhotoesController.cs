@@ -145,7 +145,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                     productionPhoto.PhotoFile = ConvertToBytes(photo);
                 }
 
-                db.ProductionPhotos.Add(productionPhoto);
+                db.ProductionPhotoes.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -159,7 +159,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
-                var existingPhoto = db.ProductionPhotos.Find(productionPhoto.ProPhotoId);
+                var existingPhoto = db.ProductionPhotoes.Find(productionPhoto.ProPhotoId);
 
                 existingPhoto.Title = productionPhoto.Title;
                 existingPhoto.Description = productionPhoto.Description;
@@ -191,7 +191,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
         public byte[] GetBytes(int? id)
         {
-            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
+            ProductionPhoto productionPhoto = db.ProductionPhotoes.Find(id);
             byte[] bytes = productionPhoto.PhotoFile;
 
             return bytes;
