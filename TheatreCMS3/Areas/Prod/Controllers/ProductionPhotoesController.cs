@@ -133,5 +133,17 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return photoBytes;
         }
 
+        public ActionResult GetPhoto(int id)
+        {
+            var productionPhoto = db.ProductionPhotos.Find(id);
+
+            if (productionPhoto == null)
+            {
+                return HttpNotFound();
+            }
+
+            return File(productionPhoto.PhotoFile, "image/jpeg");
+        }
+
     }
 }
