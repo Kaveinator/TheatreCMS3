@@ -128,9 +128,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
 
         public byte[] ConvertToBytes(HttpPostedFileBase photo)
         {
-            byte[] photoBytes = null;
-            BinaryReader reader = new BinaryReader(photo.InputStream);
-            photoBytes = reader.ReadBytes(photo.ContentLength);
+            byte[] photoBytes;
+            using (BinaryReader reader = new BinaryReader(photo.InputStream))
+            {
+                photoBytes = reader.ReadBytes(photo.ContentLength);
+            }
             return photoBytes;
         }
 
