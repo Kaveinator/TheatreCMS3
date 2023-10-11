@@ -29,7 +29,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
-        
+        <td>
+            <img src="@Url.Action("GetPhoto", "ProductionPhotos", new { id = Model.ProPhotoId })" alt="Production Photo" />
+
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProPhotoId }) |
