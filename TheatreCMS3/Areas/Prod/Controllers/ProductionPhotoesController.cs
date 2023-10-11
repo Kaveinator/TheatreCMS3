@@ -52,6 +52,11 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (productionPhoto != null)
+                {
+                    productionPhoto.PhotoFile = ConvertImage(productionPhoto);
+                }
+
                 db.ProductionPhotoes.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
