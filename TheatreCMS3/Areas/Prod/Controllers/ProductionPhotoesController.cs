@@ -133,17 +133,50 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return photoBytes;
         }
 
-        public ActionResult GetPhoto(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photo)
         {
-            var productionPhoto = db.ProductionPhotos.Find(id);
-
-            if (productionPhoto == null)
+            if (ModelState.IsValid)
             {
-                return HttpNotFound();
+                if (photo != null)
+                {
+                    productionPhoto.PhotoFile = ConvertToBytes(photo);
+                }
+
+                db.ProductionPhotos.Add(productionPhoto);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
-            return File(productionPhoto.PhotoFile, "image/jpeg");
+            return View(productionPhoto);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photo)
+        {
+            if (ModelState.IsValid)
+            {
+                var existingPhoto = db.ProductionPhotos.Find(productionPhoto.ProPhotoId);
+
+                existingPhoto.Title = productionPhoto.Title;
+                existingPhoto.Description = productionPhoto.Description;
+
+                if (photo != null)
+                {
+                    existingPhoto.PhotoFile = ConvertToBytes(photo);
+                }
+
+                db.Entry(existingPhoto).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(productionPhoto);
+        }
+
+
 
     }
 }
