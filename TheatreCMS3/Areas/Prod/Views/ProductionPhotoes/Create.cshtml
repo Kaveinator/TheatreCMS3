@@ -44,6 +44,17 @@
         <div class="col-md-10">
             <input type="file" name="PhotoFile" />
         </div>
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <!-- ... existing form fields ... -->
+            <!-- Add the new file input field for uploading images -->
+            <div class="form-group">
+                <label asp-for="UploadedFile">Upload Photo</label>
+                <input type="file" class="form-control" name="UploadedFile">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+
     </div>
 
 }
