@@ -30,7 +30,8 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            <img src="@Url.Action("GetPhoto", "ProductionPhotos", new { id = Model.ProPhotoId })" alt="Production Photo" />
+            <img src="data:image;base64,@System.Convert.ToBase64String(item.ProPhotoId)" width="80" height="80" />
+
 
         </td>
         <td>

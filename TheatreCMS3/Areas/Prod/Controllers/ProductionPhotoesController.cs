@@ -176,23 +176,24 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             return View(productionPhoto);
         }
 
-        public byte[] GetPhotoBytesById(int id)
+        public byte[] ConvertImage(HttpPostedFileBase productionPhoto)
         {
-            ProductionPhoto photo = db.ProductionPhotos.Find(id);
-            return photo.PhotoFile;
+            byte[] bytes;
+
+            using (BinaryReader br = new BinaryReader(productionPhoto.InputStream))
+            {
+                bytes = br.ReadBytes(productionPhoto.ContentLength);
+            }
+
+            return bytes;
         }
 
-        public FileContentResult GetImage(int id)
+        public byte[] GetBytes(int? id)
         {
-            var photo = db.ProductionPhotos.Find(id);
-            if (photo != null)
-            {
-                return new FileContentResult(photo.PhotoFile, "image/*");
-            }
-            else
-            {
-                return null;
-            }
+            ProductionPhoto productionPhoto = db.ProductionPhotos.Find(id);
+            byte[] bytes = productionPhoto.PhotoFile;
+
+            return bytes;
         }
     }
 }
