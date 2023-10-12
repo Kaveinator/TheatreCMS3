@@ -48,15 +48,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto)
+        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase uploadedImage)
         {
             if (ModelState.IsValid)
             {
-                if (productionPhoto != null)
-                {
-                    productionPhoto.PhotoFile = ConvertImage(productionPhoto);
-                }
-
+                productionPhoto.PhotoFile = new byte[uploadedImage.ContentLength];
+                uploadedImage.InputStream.Read(productionPhoto.PhotoFile, 0, uploadedImage.ContentLength);
                 db.ProductionPhotoes.Add(productionPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -130,78 +127,3 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             }
             base.Dispose(disposing);
         }
-
-        public byte[] ConvertToBytes(HttpPostedFileBase photo)
-        {
-            byte[] photoBytes;
-            using (BinaryReader reader = new BinaryReader(photo.InputStream))
-            {
-                photoBytes = reader.ReadBytes(photo.ContentLength);
-            }
-            return photoBytes;
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photo)
-        {
-            if (ModelState.IsValid)
-            {
-                if (photo != null)
-                {
-                    productionPhoto.PhotoFile = ConvertToBytes(photo);
-                }
-
-                db.ProductionPhotoes.Add(productionPhoto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(productionPhoto);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProPhotoId,Title,Description")] ProductionPhoto productionPhoto, HttpPostedFileBase photo)
-        {
-            if (ModelState.IsValid)
-            {
-                var existingPhoto = db.ProductionPhotoes.Find(productionPhoto.ProPhotoId);
-
-                existingPhoto.Title = productionPhoto.Title;
-                existingPhoto.Description = productionPhoto.Description;
-
-                if (photo != null)
-                {
-                    existingPhoto.PhotoFile = ConvertToBytes(photo);
-                }
-
-                db.Entry(existingPhoto).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(productionPhoto);
-        }
-
-        public byte[] ConvertImage(HttpPostedFileBase productionPhoto)
-        {
-            byte[] bytes;
-
-            using (BinaryReader br = new BinaryReader(productionPhoto.InputStream))
-            {
-                bytes = br.ReadBytes(productionPhoto.ContentLength);
-            }
-
-            return bytes;
-        }
-
-        public byte[] GetBytes(int? id)
-        {
-            ProductionPhoto productionPhoto = db.ProductionPhotoes.Find(id);
-            byte[] bytes = productionPhoto.PhotoFile;
-
-            return bytes;
-        }
-    }
-}
