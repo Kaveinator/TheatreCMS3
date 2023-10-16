@@ -44,11 +44,6 @@ namespace TheatreCMS3.Controllers
         {
             return View();
         }
-        
-        public ActionResult ContactUs()
-        {
-            return View();
-        }
 
     }
 }
