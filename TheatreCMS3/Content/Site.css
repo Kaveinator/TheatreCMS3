@@ -437,3 +437,26 @@ footer {
         border: 2px solid var(--secondary-color);
         background: var(--light-color) !important;
     }
+
+/* SignIn Page Styling*/
+
+.home-signin--container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+    .home-signin--container p {
+        background-color: var(--main-color--light);
+        border-radius: 20px;
+        padding: 10px;
+        text-align: center;
+        width: 250px;
+        margin: 7px 10px ;
+        display: inline-block;
+        box-sizing: border-box;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
