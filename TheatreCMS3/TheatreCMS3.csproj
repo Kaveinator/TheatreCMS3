@@ -224,6 +224,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Rent\CSS\CreateStyleSheet.css" />
     <Content Include="Content\all.css" />
     <Content Include="Content\Areas\Blog.css" />
     <Content Include="Content\images\access_denied.png" />
