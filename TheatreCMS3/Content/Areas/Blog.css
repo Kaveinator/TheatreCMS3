@@ -10,3 +10,37 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+/* Blog.css */
+
+/* Apply rounded corners and background color */
+#create-blogauthor-form {
+    background-color: var(--main-color--light);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 900px;
+}
+
+/* Style the labels */
+.custom-label {
+    color: white;
+}
+
+/* Style the input fields */
+.form-control {
+    background-color: var(--light-color);
+}
+
+/* Style the Bio textarea */
+.bio-textarea {
+    min-width: 100px;
+    min-height: 100px;
+}
+
+/* Style the datetime inputs */
+.datetime-input {
+    width: 50%;
+    display: inline-block;
+}
+
+
