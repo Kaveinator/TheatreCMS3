@@ -28,13 +28,14 @@
 .returnButtonStyle {
     background-color: var(--main-color--light);
     text-align: center;
+    text-decoration: none;
     display: inline-block;
     font-size: 12px;
     cursor: pointer;
 }
 
 /* this allows me to set a general asthetic to text in the system*/
-#textStyle{
+.textStyle{
     font-size: 20px;
     color: var(--dark-color);
     font-family: Arial, sans-serif;

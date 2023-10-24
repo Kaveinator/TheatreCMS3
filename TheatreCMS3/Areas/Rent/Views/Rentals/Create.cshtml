@@ -1,5 +1,5 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.Rental
-<link rel="stylesheet" type="text/css" href="~/Areas/Rent/CSS/CreateStyleSheet.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/Areas/Rent.css" />
 
 @{
     ViewBag.Title = "Create";
@@ -19,26 +19,26 @@
 
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group" id="textStyle">
-        @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-3" })
+    <div class="form-group" >
+        @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
         <div id="centered-input" >
-            @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the Renters name" } })
             @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    <div class="form-group" id="textStyle">
-        @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-3" })
+    <div class="form-group" >
+        @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-3 textStyle " })
         <div id="centered-input">
-            @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the Renters cost " } })
             @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    <div class="form-group" id="textStyle">
-        @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-3" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
         <div id="centered-input">
-            @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Text" } })
             @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -46,13 +46,12 @@
     <div class="form-group">
         <div class="row">
             <div class="col-sm">
-                <input type="submit" value="Create Account" class="btn btn-default" id="submitButtonStyle" />
+                <input type="submit" value="Create Account" class="btn" id="submitButtonStyle" />
             </div>
             <div class="col-sm">
-                @Html.ActionLink("Return to List","Index", new { @class = "btn btn-default returnButtonStyle" })
-                <a href="<%: Url.Action("Index", "RentalsController") %>" >
-                    <input type="submit" value="Return to List" class="btn btn-default returnButtonStyle" />
-                </a>
+                <div class="btn btn-default returnButtonStyle">
+                    @Html.ActionLink("Return to List", "Index", "Rentals", "Rent", new { Style = "text-decoration: none; color: black; font-size:16px" })
+                </div>
             </div>
         </div>
     </div>
