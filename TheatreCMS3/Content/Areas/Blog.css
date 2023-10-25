@@ -13,34 +13,25 @@
 /* Blog.css */
 
 /* Apply rounded corners and background color */
-#create-blogauthor-form {
+#crud-blogauthor-form {
     background-color: var(--main-color--light);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    width: 900px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: auto;
+    width: 700px;
 }
 
-/* Style the labels */
-.custom-label {
-    color: white;
-}
-
-/* Style the input fields */
 .form-control {
     background-color: var(--light-color);
 }
 
-/* Style the Bio textarea */
 .bio-textarea {
+    min-height: 200px;
     min-width: 100px;
-    min-height: 100px;
+    display: flex;
 }
 
-/* Style the datetime inputs */
-.datetime-input {
-    width: 50%;
-    display: inline-block;
+.custom-label {
+    margin-left: 15px;
+    padding-top: 10px;
 }
-
-
