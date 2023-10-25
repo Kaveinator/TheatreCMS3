@@ -10,3 +10,28 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+/* Blog.css */
+
+/* Apply rounded corners and background color */
+#crud-blogauthor-form {
+    background-color: var(--main-color--light);
+    border-radius: 15px;
+    padding: 10px;
+    margin: auto;
+    width: 700px;
+}
+
+.form-control {
+    background-color: var(--light-color);
+}
+
+.bio-textarea {
+    min-height: 200px;
+    min-width: 100px;
+    display: flex;
+}
+
+.custom-label {
+    margin-left: 15px;
+    padding-top: 10px;
+}
