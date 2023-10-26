@@ -1,4 +1,34 @@
 ﻿@model TheatreCMS3.Areas.Rent.Models.Rental
+
+<script>
+    $(document).ready(function () {
+        $("#myselection").change(function () {
+            if ($("#myselection").val() == 1) {
+
+                $("#RO").show();
+                $("#REO").hide();
+                $("#RRO").hide();
+            }
+            else if ($("#myselection").val() == 2) {
+                $("#RO").show();
+                $("#REO").show();
+                $("#RRO").hide();
+            }
+            else if ($("#myselection").val() == 3) {
+                $("#RO").show();
+                $("#REO").hide();
+                $("#RRO").show();
+            }
+            else {
+                $("#RO").hide();
+                $("#REO").hide();
+                $("#RRO").hide();
+            }
+
+        });
+    })
+</script>
+
 <link rel="stylesheet" type="text/css" href="~/Content/Areas/Rent.css" />
 
 @{
@@ -7,42 +37,102 @@
 }
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
 
-    
-<div class="container-sm" >
 
-    <h2 id="titleStyle" style="text-align: center">Create Rental</h2>
+<div class="container-sm">
+
+    <h2 id="titleStyle" style="text-align: center">Create Rental</h2 >
 
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group" >
-        @Html.LabelFor(model => model.RentalName, htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
-        <div id="centered-input" >
-            @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the Renters name" } })
+
+    <!--This contains the dropdown for selecting which rental type they want -->
+    <div>
+        <div>
+            <select  id="myselection">
+                <option>Select an option</option>
+                <option value="1">Rental</option>
+                <option value="2">Rental Equipment</option>
+                <option value="3">Rental Room</option>
+            </select>
+        </div>
+    </div>
+
+    <!--This contains all the Rental(parentclass) properties that will be displayed-->
+    <div class="form-group" id="RO">
+        @Html.LabelFor(model => model.RentalName, "Rental Name", htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
+        <div id="centered-input">
+            @Html.EditorFor(model => model.RentalName, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the rental name" } })
             @Html.ValidationMessageFor(model => model.RentalName, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    <div class="form-group" >
-        @Html.LabelFor(model => model.RentalCost, htmlAttributes: new { @class = "control-label col-md-3 textStyle " })
+    <div class="form-group" id="RO">
+        @Html.LabelFor(model => model.RentalCost, "Rental Cost", htmlAttributes: new { @class = "control-label col-md-3 textStyle " })
         <div id="centered-input">
-            @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the Renters cost " } })
+            @Html.EditorFor(model => model.RentalCost, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the rental cost " } })
             @Html.ValidationMessageFor(model => model.RentalCost, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.FlawsAndDamages, htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
+    <div class="form-group" id="RO">
+        @Html.LabelFor(model => model.FlawsAndDamages, "Flaws And Damages", htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
         <div id="centered-input">
-            @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter any Damage or flaws you find" } })
+            @Html.EditorFor(model => model.FlawsAndDamages, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter any flaws or damage" } })
             @Html.ValidationMessageFor(model => model.FlawsAndDamages, "", new { @class = "text-danger" })
         </div>
     </div>
+    <!--This contains all the RentalEquipment properties that will be displayed when selected-->
+    <div class="form-group" id="REO">
+        @Html.LabelFor(model => model.RentalEquipment.ChokingHazard, "Choking Hazard", htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
+        <div id="centered-input">
+            @Html.EditorFor(model => model.RentalEquipment.ChokingHazard, new { htmlAttributes = new { @class = "form-control form-change" } })
+            @Html.ValidationMessageFor(model => model.RentalEquipment.ChokingHazard, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" id="REO">
+        @Html.LabelFor(model => model.RentalEquipment.SuffocationHazard, "Suffocation Hazard", htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
+        <div id="centered-input">
+            @Html.EditorFor(model => model.RentalEquipment.SuffocationHazard, new { htmlAttributes = new { @class = "form-control form-change" } })
+            @Html.ValidationMessageFor(model => model.RentalEquipment.SuffocationHazard, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" id="REO">
+        @Html.LabelFor(model => model.RentalEquipment.PurchasingPrice, "Purchasing Price", htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
+        <div id="centered-input">
+            @Html.EditorFor(model => model.RentalEquipment.PurchasingPrice, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the purchasing price" } })
+            @Html.ValidationMessageFor(model => model.RentalEquipment.PurchasingPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
+    <!--This contains all the RentalRoom properties that will be displayed when selected-->
+    <div class="form-group" id="RRO">
+        @Html.LabelFor(model => model.RentalRoom.RoomNumber, "Room Number", htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
+        <div id="centered-input">
+            @Html.EditorFor(model => model.RentalRoom.RoomNumber, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the room number" } })
+            @Html.ValidationMessageFor(model => model.RentalRoom.RoomNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" id="RRO">
+        @Html.LabelFor(model => model.RentalRoom.MaxOccupancy, "Max Occupancy", htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
+        <div id="centered-input">
+            @Html.EditorFor(model => model.RentalRoom.MaxOccupancy, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the max occupancy" } })
+            @Html.ValidationMessageFor(model => model.RentalRoom.MaxOccupancy, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" id="RRO">
+        @Html.LabelFor(model => model.RentalRoom.SquareFootage, "Square Footage", htmlAttributes: new { @class = "control-label col-md-3 textStyle" })
+        <div id="centered-input">
+            @Html.EditorFor(model => model.RentalRoom.SquareFootage, new { htmlAttributes = new { @class = "form-control form-change", placeholder = "Enter the square footage" } })
+            @Html.ValidationMessageFor(model => model.RentalRoom.SquareFootage, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!--This contains the submission and return buttons used to compelted this file-->
     <div class="form-group">
         <div class="row">
             <div class="col-sm">

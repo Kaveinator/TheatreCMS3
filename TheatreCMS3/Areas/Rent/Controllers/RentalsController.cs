@@ -47,8 +47,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+
+  
+        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,RentalEquipment,RentalRoom")] Rental rental)
         {
+            
+            //this saves it to the database 
             if (ModelState.IsValid)
             {
                 db.Rentals.Add(rental);
