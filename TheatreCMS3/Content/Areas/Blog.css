@@ -35,3 +35,40 @@
     margin-left: 15px;
     padding-top: 10px;
 }
+
+.details-label {
+    margin: 20px;
+}
+.toggle-buttons {
+    margin-bottom: 10px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons {
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.back-to-List {
+    margin-left: 90px;
+    margin-right: 5px;
+}
+
+.delete {
+    margin-left: 658px;
+}
+.card-img {
+    width: 300px;
+    height: 400px;
+}
+.form-width {
+    width: 900px;
+}
+.toggle-buttons {
+    margin: 10px;
+}

@@ -5,47 +5,96 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Details</h2>
 
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
+<div class="row justify-content-md-center">
+    <div class="bg-light row">
+        <div class="toggle-buttons">
+            <button class="btn btn-success" id="authorDetailsBtn">Author Details</button>
+        </div>
+        <div class="toggle-buttons">
+            <button class="btn btn-dark" id="latestPostsBtn">Latest Posts</button>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="card-container">
+    <div class="card mb-3 form-width">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="~/Content/images/placeholder.jpg" alt="Author Image" class="card-img img-fluid"/>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body text-body">
+                    <div class="author-details">
+                        <div class="row text-body">
+                            <h1 class="m-3">
+                                @Html.DisplayFor(model => model.Name)
+                            </h1>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com" target="_blank" class="text-body">
+                                    <h2 class="fab fa-facebook"></h2>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://www.instagram.com" target="_blank" class="text-body">
+                                    <h2 class="fab fa-instagram"></h2>
+                                </a>
+                            </div>
+                        </div>
+                        
+
+                        <p>
+                            @Html.DisplayFor(model => model.Bio)
+                        </p>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b>Joined Date</b>
+                            </div>
+                            <div class="col-md-8">
+                                <b>Left Date</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dd>
+                                    @Html.DisplayFor(model => model.Joined)
+                                </dd>
+                            </div>
+                            <div class="col-md-8">
+                                <dd>
+                                    @Html.DisplayFor(model => model.Left)
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="latest-posts">
+                        (Implement in future stories)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-start no-gutters">
+        <div class="back-to-List">
+            <a href="@Url.Action("Index")" class="btn btn-dark">
+                <i class="fa-solid fa-circle-arrow-left"></i> Back to List
+            </a>
+        </div>
+        <div>
+            <a href="@Url.Action("Edit", new { id = Model.BlogAuthorId })" class="btn btn-success">
+                <i class="fa-solid fa-pen-to-square"></i> Edit
+            </a>
+        </div>
+        <div class="delete">
+            <a href="@Url.Action("Delete", new { id = Model.BlogAuthorId })" class="btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
