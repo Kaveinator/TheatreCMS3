@@ -86,16 +86,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return HttpNotFound();
             }
-            var RentalTypes = new List<SelectListItem>
-            {
-                new SelectListItem { Text = "Select an Option", Value = "Select an Option" },
-                new SelectListItem { Text = "Rental", Value = "Rental" },
-                new SelectListItem { Text = "RentalEquipment", Value = "RentalEquipment" },
-                new SelectListItem { Text = "RentalRoom", Value = "RentalRoom" }
-            };
-
-            ViewBag.RentalTypes = new SelectList(RentalTypes, "Text", "Value");
-
             return View(rental);
         }
 
@@ -106,9 +96,20 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Rental rental)
         {
+            var RentalTypes = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Select an Option", Value = "Select an Option" },
+                new SelectListItem { Text = "Rental", Value = "Rental" },
+                new SelectListItem { Text = "RentalEquipment", Value = "RentalEquipment" },
+                new SelectListItem { Text = "RentalRoom", Value = "RentalRoom" }
+            };
+
+            ViewBag.RentalTypes = new SelectList(RentalTypes, "Text", "Value");
+
             if (ModelState.IsValid)
             {
                 var clone = db.Rentals.Find(rental.RentalId);
+
                 clone.RentalName = rental.RentalName;
                 clone.RentalCost = rental.RentalCost;
                 clone.FlawsAndDamages = rental.FlawsAndDamages;
