@@ -105,11 +105,14 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Rental modifiedRental)
         {
+        {
             if (ModelState.IsValid)
             {
-                // dkljsl
-                // Retrieve the existing entity from the database
-                var existingRental = db.Rentals.Find(modifiedRental.RentalId);
+                var clone = db.Rentals.Find(rental.RentalId);
+                clone.RentalName = rental.RentalName;
+                clone.RentalCost = rental.RentalCost;
+                clone.FlawsAndDamages = rental.FlawsAndDamages;
+                clone.RentalType = rental.RentalType;
 
                 if (existingRental == null)
                 {
