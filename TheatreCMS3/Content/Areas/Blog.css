@@ -39,9 +39,6 @@
 .details-label {
     margin: 20px;
 }
-.toggle-buttons {
-    margin-bottom: 10px;
-}
 
 .card-container {
     display: flex;
@@ -55,20 +52,31 @@
 }
 
 .back-to-List {
-    margin-left: 90px;
+    margin-left: 40px;
     margin-right: 5px;
 }
 
 .delete {
-    margin-left: 658px;
+    margin-left: 758px;
 }
 .card-img {
-    width: 300px;
+    width: 400px;
     height: 400px;
 }
 .form-width {
-    width: 900px;
+    width: 1000px;
 }
 .toggle-buttons {
     margin: 10px;
+}
+.partial-edit {
+    margin-left: auto;
+    margin-right: 5px;
+}
+.partial-delete {
+    margin-right: 5px;
+}
+.partial-joined {
+    margin-left: 15px;
+    margin-right: 55px;
 }
