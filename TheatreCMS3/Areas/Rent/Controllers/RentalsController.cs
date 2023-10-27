@@ -99,59 +99,70 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rental);
         }
 
-        // POST: Rent/Rentals/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Rental rental)
+        public ActionResult Edit(Rental modifiedRental)
         {
             if (ModelState.IsValid)
             {
-                var clone = db.Rentals.Find(rental.RentalId);
-                clone.RentalName = rental.RentalName;
-                clone.RentalCost = rental.RentalCost;
-                clone.FlawsAndDamages = rental.FlawsAndDamages;
-                clone.RentalType = rental.RentalType;
+                // Retrieve the existing entity from the database
+                var existingRental = db.Rentals.Find(modifiedRental.RentalId);
 
-                if (clone.RentalType == "Rental")
+                if (existingRental == null)
                 {
-                    rental = new Rental();
-                    clone.RentalEquipment.ChokingHazard = null;
-                    clone.RentalEquipment.SuffocationHazard = null;
-                    clone.RentalEquipment.PurchasingPrice = null;
-                    clone.RentalRoom.MaxOccupancy = null;
-                    clone.RentalRoom.RoomNumber = null;
-                    clone.RentalRoom.SquareFootage = null;
-                }
-                else if (clone.RentalType == "RentalEquipment")
-                {
-                    clone.RentalEquipment = new RentalEquipment();
-                    clone.RentalEquipment.ChokingHazard = rental.RentalEquipment.ChokingHazard;
-                    clone.RentalEquipment.SuffocationHazard = rental.RentalEquipment.SuffocationHazard;
-                    clone.RentalEquipment.PurchasingPrice = rental.RentalEquipment.PurchasingPrice;
-                    clone.RentalRoom.MaxOccupancy = null;
-                    clone.RentalRoom.RoomNumber = null;
-                    clone.RentalRoom.SquareFootage = null;
-                }
-                else if (clone.RentalType == "RentalRoom")
-                {
-                    clone.RentalRoom = new RentalRoom();
-                    clone.RentalEquipment.ChokingHazard = null;
-                    clone.RentalEquipment.SuffocationHazard = null;
-                    clone.RentalEquipment.PurchasingPrice = null;
-                    clone.RentalRoom.MaxOccupancy = null;
-                    clone.RentalRoom.RoomNumber = null;
-                    clone.RentalRoom.SquareFootage = null;
+                    return HttpNotFound();
                 }
 
+                // Update the properties of the existing entity with the modified values
+                existingRental.RentalName = modifiedRental.RentalName;
+                existingRental.RentalCost = modifiedRental.RentalCost;
+                existingRental.FlawsAndDamages = modifiedRental.FlawsAndDamages;
+                existingRental.RentalType = modifiedRental.RentalType;
 
-                db.Entry(rental).State = EntityState.Modified;
+                // Depending on the RentalType, update the related properties
+
+                if (modifiedRental.RentalType == "Rental")
+                {
+                    existingRental.RentalEquipment.ChokingHazard = null;
+                    existingRental.RentalEquipment.SuffocationHazard = null;
+                    existingRental.RentalEquipment.PurchasingPrice = null;
+                    existingRental.RentalRoom.MaxOccupancy = null;
+                    existingRental.RentalRoom.RoomNumber = null;
+                    existingRental.RentalRoom.SquareFootage = null;
+                }
+                else if (modifiedRental.RentalType == "RentalEquipment")
+                {
+                    existingRental.RentalEquipment.ChokingHazard = modifiedRental.RentalEquipment.ChokingHazard;
+                    existingRental.RentalEquipment.SuffocationHazard = modifiedRental.RentalEquipment.SuffocationHazard;
+                    existingRental.RentalEquipment.PurchasingPrice = modifiedRental.RentalEquipment.PurchasingPrice;
+                    existingRental.RentalRoom.MaxOccupancy = null;
+                    existingRental.RentalRoom.RoomNumber = null;
+                    existingRental.RentalRoom.SquareFootage = null;
+                }
+                else if (modifiedRental.RentalType == "RentalRoom")
+                {
+                    existingRental.RentalEquipment.ChokingHazard = null;
+                    existingRental.RentalEquipment.SuffocationHazard = null;
+                    existingRental.RentalEquipment.PurchasingPrice = null;
+                    existingRental.RentalRoom.MaxOccupancy = modifiedRental.RentalRoom.MaxOccupancy;
+                    existingRental.RentalRoom.RoomNumber = modifiedRental.RentalRoom.RoomNumber;
+                    existingRental.RentalRoom.SquareFootage = modifiedRental.RentalRoom.SquareFootage;
+                }
+
+                // Set the entity state to Modified
+                db.Entry(existingRental).State = EntityState.Modified;
+
+                // Save changes to the database
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-            return View(rental);
+
+            return View(modifiedRental);
         }
+
 
         // GET: Rent/Rentals/Delete/5
         public ActionResult Delete(int? id)
