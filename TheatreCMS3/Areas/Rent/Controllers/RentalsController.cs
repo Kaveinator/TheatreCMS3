@@ -39,6 +39,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
+            var RentalTypes = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Select an Option", Value = "Select an Option" },
+                new SelectListItem { Text = "Rental", Value = "Rental" },
+                new SelectListItem { Text = "RentalEquipment", Value = "RentalEquipment" },
+                new SelectListItem { Text = "RentalRoom", Value = "RentalRoom" }
+            };
+
+            ViewBag.RentalTypes = new SelectList(RentalTypes, "Text", "Value");
+
             return View();
         }
 
@@ -49,7 +59,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         [ValidateAntiForgeryToken]
 
   
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages,RentalEquipment,RentalRoom")] Rental rental)
+        public ActionResult Create(Rental rental)
         {
             
             //this saves it to the database 
