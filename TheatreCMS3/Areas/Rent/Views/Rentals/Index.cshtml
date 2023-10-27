@@ -12,13 +12,13 @@
 </p>
 <table class="table">
     <tr>
-        <th>
+        <th class="indextextstyle">
             @Html.DisplayNameFor(model => model.RentalName)
         </th>
-        <th>
+        <th class="indextextstyle">
             @Html.DisplayNameFor(model => model.RentalCost)
         </th>
-        <th>
+        <th class="indextextstyle">
             @Html.DisplayNameFor(model => model.FlawsAndDamages)
         </th>
         <th></th>
@@ -26,13 +26,13 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td class="indextextstyle">
             @Html.DisplayFor(modelItem => item.RentalName)
         </td>
-        <td>
+        <td class="indextextstyle">
             @Html.DisplayFor(modelItem => item.RentalCost)
         </td>
-        <td>
+        <td class="indextextstyle">
             @Html.DisplayFor(modelItem => item.FlawsAndDamages)
         </td>
         <td>

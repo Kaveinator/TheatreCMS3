@@ -67,6 +67,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 db.Rentals.Add(rental);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -80,11 +81,21 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rental rental = db.Rentals.Find(id);
+            var rental = db.Rentals.Find(id);
             if (rental == null)
             {
                 return HttpNotFound();
             }
+            var RentalTypes = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Select an Option", Value = "Select an Option" },
+                new SelectListItem { Text = "Rental", Value = "Rental" },
+                new SelectListItem { Text = "RentalEquipment", Value = "RentalEquipment" },
+                new SelectListItem { Text = "RentalRoom", Value = "RentalRoom" }
+            };
+
+            ViewBag.RentalTypes = new SelectList(RentalTypes, "Text", "Value");
+
             return View(rental);
         }
 
@@ -93,10 +104,48 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Edit(Rental rental)
         {
             if (ModelState.IsValid)
             {
+                var clone = db.Rentals.Find(rental.RentalId);
+                clone.RentalName = rental.RentalName;
+                clone.RentalCost = rental.RentalCost;
+                clone.FlawsAndDamages = rental.FlawsAndDamages;
+                clone.RentalType = rental.RentalType;
+
+                if (clone.RentalType == "Rental")
+                {
+                    rental = new Rental();
+                    clone.RentalEquipment.ChokingHazard = null;
+                    clone.RentalEquipment.SuffocationHazard = null;
+                    clone.RentalEquipment.PurchasingPrice = null;
+                    clone.RentalRoom.MaxOccupancy = null;
+                    clone.RentalRoom.RoomNumber = null;
+                    clone.RentalRoom.SquareFootage = null;
+                }
+                else if (clone.RentalType == "RentalEquipment")
+                {
+                    clone.RentalEquipment = new RentalEquipment();
+                    clone.RentalEquipment.ChokingHazard = rental.RentalEquipment.ChokingHazard;
+                    clone.RentalEquipment.SuffocationHazard = rental.RentalEquipment.SuffocationHazard;
+                    clone.RentalEquipment.PurchasingPrice = rental.RentalEquipment.PurchasingPrice;
+                    clone.RentalRoom.MaxOccupancy = null;
+                    clone.RentalRoom.RoomNumber = null;
+                    clone.RentalRoom.SquareFootage = null;
+                }
+                else if (clone.RentalType == "RentalRoom")
+                {
+                    clone.RentalRoom = new RentalRoom();
+                    clone.RentalEquipment.ChokingHazard = null;
+                    clone.RentalEquipment.SuffocationHazard = null;
+                    clone.RentalEquipment.PurchasingPrice = null;
+                    clone.RentalRoom.MaxOccupancy = null;
+                    clone.RentalRoom.RoomNumber = null;
+                    clone.RentalRoom.SquareFootage = null;
+                }
+
+
                 db.Entry(rental).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

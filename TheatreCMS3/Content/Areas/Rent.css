@@ -256,6 +256,12 @@ input[type=checkbox]:checked + #item-notes {
     border-radius: 5px;
     margin: auto;
 }
-
+/*This details our index page so we can see everything*/
+.indextextstyle {
+    font-size: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
 
 /*-----End of Styling for Rent/RentalHistories/Index.cshtml-----*/
