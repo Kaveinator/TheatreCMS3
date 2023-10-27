@@ -107,6 +107,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             if (ModelState.IsValid)
             {
+                // dkljsl
                 // Retrieve the existing entity from the database
                 var existingRental = db.Rentals.Find(modifiedRental.RentalId);
 
