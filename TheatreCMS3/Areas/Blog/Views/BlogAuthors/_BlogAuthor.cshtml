@@ -1,6 +1,10 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+@{
+    var deleteUrl = Url.Action("Delete", "BlogAuthors", new { id = Model.BlogAuthorId });
+
+}
 <div class="modal" id="confirmation-modal">
-    <div class="modal-dialog">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmation-modal">Confirm Deletion</h5>
@@ -111,48 +115,54 @@
 </div>
 
 <script>
-    var deleteAuthorUrl = null;
+        $(".delete-author-button").click(function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var authorId = $(this).data('author-id');
+            deleteAuthorUrl = '@Html.Raw(deleteUrl)';
+            $('#confirmation-modal').show();
+        });
+
 
     $(document).ready(function () {
         $('.delete-author-button').click(function () {
-            console.log("Delete button clicked");
+        console.log("Delete button clicked");
             var authorId = $(this).data('author-id');
             console.log("Author ID: " + authorId);
-
-            deleteAuthorUrl = '@Url.Action("Delete", "BlogAuthors", new { id = Model.BlogAuthorId })';
-            $('#confirmation-modal').show();
-            $('#confirm-delete').off().on('click', function () {
+        $('#confirmation-modal').show();
+            $('#confirm-delete').off().on('click',function () {
                 if (!deleteAuthorUrl) {
                     console.error("Delete URL is not ready.");
                     return;
                 }
+            $.ajax({
+                type: 'POST',
+                url: deleteAuthorUrl,
+                data: { id: authorId, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() },
+                success: function () {
+                    console.log("Deletion success");
 
-                $.ajax({
-                    type: 'POST',
-                    url: deleteAuthorUrl,
-                    data: { id: authorId, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() },
-                    success: function () {
-                        console.log("Deletion success");
+                    var authorContainer = $('.blogauthor-fade[data-author-id="' + authorId + '"]');
+                    console.log(authorContainer);
+                    authorContainer.addClass('author-fade-out');
+                    console.log("Fade-out class added");
+                    setTimeout(function () {
+                        authorContainer.remove();
+                        console.log("Author container removed");
+                    }, 500);
+                    $('#confirmation-modal').hide();
+                },
+                error: function (err) {
+                    console.error("Deletion error: " + err);
+                }
+            });
 
-                        var authorContainer = $('.blogauthor-fade[data-author-id="' + authorId + '"]');
-                        console.log(authorContainer);
-                        authorContainer.addClass('author-fade-out');
-                        console.log("Fade-out class added");
-                        setTimeout(function () {
-                            authorContainer.remove();
-                            console.log("Author container removed");
-                        }, 500);
-                        $('#confirmation-modal').hide();
-                    },
-                    error: function (err) {
-                        console.error("Deletion error: " + err);
-                    }
-                });
-            });
-            $('#cancel-delete').click(function () {
-                $('#confirmation-modal').hide();
-            });
+        });
+
+        $('#cancel-delete').click(function () {
+            $('#confirmation-modal').hide();
         });
     });
-</script>
+});
 
+</script>
