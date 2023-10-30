@@ -110,11 +110,32 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
-            db.BlogAuthors.Remove(blogAuthor);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+                if (blogAuthor == null)
+                {
+                    // Handle the case where the entity is not found (e.g., redirect to the index page with a message)
+                    TempData["ErrorMessage"] = "Author not found.";
+                    return RedirectToAction("Index");
+                }
+
+                db.BlogAuthors.Remove(blogAuthor);
+                db.SaveChanges();
+
+                // Handle successful deletion (e.g., redirect to a confirmation view)
+                TempData["SuccessMessage"] = "Author deleted successfully.";
+                return RedirectToAction("Confirmation");
+            }
+            catch (Exception ex)
+            {
+                // Handle any unexpected exceptions (e.g., log the error and display a generic error message)
+                TempData["ErrorMessage"] = "An error occurred while deleting the author: " + ex.Message;
+                return RedirectToAction("Index");
+            }
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

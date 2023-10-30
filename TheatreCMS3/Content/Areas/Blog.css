@@ -80,3 +80,7 @@
     margin-left: 15px;
     margin-right: 55px;
 }
+.blogauthor-fade.author-fade-out {
+    opacity: 0;
+    transition: opacity 1s;
+}
