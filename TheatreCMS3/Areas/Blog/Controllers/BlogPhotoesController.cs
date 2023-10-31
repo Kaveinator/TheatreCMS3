@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,19 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo,PhotoFileName")] BlogPhoto blogPhoto, HttpPostedFileBase PhotoFile)
         {
             if (ModelState.IsValid)
             {
+                if (PhotoFile != null && PhotoFile.ContentLength > 0)
+                {
+                    using (var binaryReader = new BinaryReader(PhotoFile.InputStream))
+                    {
+                        blogPhoto.Photo = binaryReader.ReadBytes(PhotoFile.ContentLength);
+                        blogPhoto.PhotoFileName = PhotoFile.FileName;
+                    }
+                }
+
                 db.BlogPhotoes.Add(blogPhoto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -115,6 +125,22 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        // GET: Blog/BlogPhotoes/GetImage/5
+        public FileContentResult GetImage(int id)
+        {
+            var blogPhoto = db.BlogPhotoes.Find(id);
+            if (blogPhoto != null)
+            {
+                return File(blogPhoto.Photo, "image/jpeg"); // Adjust the content type as needed
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {
