@@ -203,6 +203,7 @@
     <Compile Include="Areas\Blog\Controllers\BlogPhotoesController.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Areas\Blog\Models\BlogPhoto.cs" />
+    <Compile Include="Areas\Blog\Models\HeadAuthor.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
