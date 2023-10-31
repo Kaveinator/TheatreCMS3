@@ -48,17 +48,14 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo,PhotoFileName")] BlogPhoto blogPhoto, HttpPostedFileBase PhotoFile)
+        public ActionResult Create([Bind(Include = "BlogPhotoId,Title,Photo")] BlogPhoto blogPhoto, HttpPostedFileBase imageFile)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && imageFile != null && imageFile.ContentLength > 0)
             {
-                if (PhotoFile != null && PhotoFile.ContentLength > 0)
+                using (var memoryStream = new MemoryStream())
                 {
-                    using (var binaryReader = new BinaryReader(PhotoFile.InputStream))
-                    {
-                        blogPhoto.Photo = binaryReader.ReadBytes(PhotoFile.ContentLength);
-                        blogPhoto.PhotoFileName = PhotoFile.FileName;
-                    }
+                    imageFile.InputStream.CopyTo(memoryStream);
+                    blogPhoto.Photo = memoryStream.ToArray();
                 }
 
                 db.BlogPhotoes.Add(blogPhoto);
