@@ -14,21 +14,19 @@
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
-
     </dl>
 </div>
+
+<div>
+    <h4>Image</h4>
+    <hr />
+    <img src="@Url.Action("GetImage", "BlogPhotoes", new { id = Model.BlogPhotoId })" alt="Image" />
+
+</div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPhotoId }) |
     @Html.ActionLink("Back to List", "Index")
