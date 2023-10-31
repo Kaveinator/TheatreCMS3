@@ -124,19 +124,19 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // GET: Blog/BlogPhotoes/GetImage/5
-        public FileContentResult GetImage(int id)
+        public FileResult GetImage(int id)
         {
             var blogPhoto = db.BlogPhotoes.Find(id);
             if (blogPhoto != null)
             {
+                // Return the image data along with the appropriate content type (e.g., "image/jpeg").
                 return File(blogPhoto.Photo, "image/jpeg"); // Adjust the content type as needed
             }
             else
             {
-                return null;
+                return null; // Handle the case where the image is not found
             }
         }
-
 
 
         protected override void Dispose(bool disposing)
