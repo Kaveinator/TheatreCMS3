@@ -10,18 +10,11 @@ namespace TheatreCMS3.Areas.Blog.Models
         public int ViewsPerMonth { get; set; }
         public int AuthorsHired { get; set; }
         public int AuthorsLetGo { get; set; }
-    }
-    public class Seedata
-    {
-
-        public static void HeadAuthorSeed(IServiceProvider serviceProvider)
+        public static void HeadAuthorSeed(ApplicationDbContext context)
         {
+            var userManager = new UserManager<HeadAuthor>(new UserStore<HeadAuthor>(context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            Console.WriteLine("Seeding the HeadAuthor...");
-            var userManager = new UserManager<HeadAuthor>(new UserStore<HeadAuthor>(new ApplicationDbContext()));
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
-
-            // Ensure the "HeadAuthor" role exists
             if (!roleManager.RoleExists("HeadAuthor"))
             {
                 var role = new IdentityRole { Name = "HeadAuthor" };
@@ -29,11 +22,9 @@ namespace TheatreCMS3.Areas.Blog.Models
                 if (!roleResult.Succeeded)
                 {
                     throw new Exception("Failed to create the 'HeadAuthor' role.");
-                    return;
                 }
             }
 
-            // Create and seed a HeadAuthor user
             var headAuthor = new HeadAuthor
             {
                 UserName = "HeadAuthorUsername",
