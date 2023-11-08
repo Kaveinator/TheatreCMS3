@@ -22,7 +22,7 @@
 
         protected override void Seed(ApplicationDbContext context)
         {
-            HeadAuthor.HeadAuthorSeed(context);
+
         }
     }
 
