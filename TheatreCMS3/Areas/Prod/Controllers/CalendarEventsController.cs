@@ -47,7 +47,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction,Description")] CalendarEvent calendarEvent)
+        public ActionResult Create([Bind(Include = "Title,EventId,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction,Description")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction,Description")] CalendarEvent calendarEvent)
+        public ActionResult Edit([Bind(Include = "Title,EventId,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction,Description")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
             {

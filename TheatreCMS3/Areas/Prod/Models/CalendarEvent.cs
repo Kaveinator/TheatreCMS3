@@ -10,6 +10,7 @@ namespace TheatreCMS3.Areas.Prod.Models
     {
         [Key]
         public int EventId { get; set; }
+        public string Title { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime? StartTime { get; set; }

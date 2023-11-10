@@ -5,67 +5,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-warning" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
-
+<table class="table text-white table-dark">
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
+        <td rowspan="2" class="text-lg-center font-weight-bolder" style="font-size: 4vh">
+            @Html.DisplayFor(modelItem => item.StartDate.Day)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
+        <td colspan="8">
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
+    </tr>
+    <tr>
+        <td colspan="8">
+            @Html.DisplayFor(modelItem => item.StartDate.DayOfWeek), @Html.DisplayFor(modelItem => item.StartTime.DayOfWeek) - @Html.DisplayFor(modelItem => item.EndTime)
         </td>
+    </tr>
+    <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
+            @Html.DisplayFor(modelItem => item.StartDate.Month)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AllDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProduction)
-        </td>
-        <td>
+        <td rowspan="3" colspan="6">
             @Html.DisplayFor(modelItem => item.Description)
         </td>
-        <td>
+        <td colspan="2">
             @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
             @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
