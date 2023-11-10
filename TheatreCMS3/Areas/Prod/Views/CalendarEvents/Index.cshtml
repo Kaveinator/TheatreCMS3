@@ -5,70 +5,104 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-warning" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
-
+<table class="table text-white table-dark table-borderless">
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
+        <td rowspan="2" class="text-lg-center font-weight-bolder" style="font-size: 6vh">
+            @Html.DisplayFor(modelItem => item.StartDate.Day)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
+        <td colspan="8" class="font-weight-bold" style="font-size: 2vh; vertical-align: bottom">
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
+    </tr>
+    <tr>
+        <td colspan="8" style="font-size: 1.25vh; vertical-align: top">
+            @if (item.StartTime.HasValue && item.EndTime.HasValue)
+            {
+                <p>@Html.DisplayFor(modelItem => item.StartDate.DayOfWeek), @Html.DisplayFor(modelItem => item.StartTime.Value.TimeOfDay) - 
+                @Html.DisplayFor(modelItem => item.EndTime.Value.TimeOfDay) </p>
+            }
+            else
+            {
+                <p>All Day @Html.DisplayFor(modelItem => item.StartDate.DayOfWeek)</p>
+            }
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
+    </tr>
+    <tr>
+        <td class="text-lg-center font-weight-bold">
+            @if (item.StartDate.Month == 1)
+            {
+                <p>Jan</p>
+            }
+            else if (item.StartDate.Month == 2)
+            {
+                <p>Feb</p>
+            }
+            else if (item.StartDate.Month == 3)
+            {
+                <p>Mar</p>
+            }
+            else if (item.StartDate.Month == 4)
+            {
+                <p>Apr</p>
+            }
+            else if (item.StartDate.Month == 5)
+            {
+                <p>May</p>
+            }
+            else if (item.StartDate.Month == 6)
+            {
+                <p>Jun</p>
+            }
+            else if (item.StartDate.Month == 7)
+            {
+                <p>Jul</p>
+            }
+            else if (item.StartDate.Month == 8)
+            {
+                <p>Aug</p>
+            }
+            else if (item.StartDate.Month == 9)
+            {
+                <p>Sept</p>
+            }
+            else if (item.StartDate.Month == 10)
+            {
+                <p>Oct</p>
+            }
+            else if (item.StartDate.Month == 11)
+            {
+                <p>Nov</p>
+            }
+            else if (item.StartDate.Month == 12)
+            {
+                <p>Dec</p>
+            }
+            else
+            {
+                <p>This Month doesn't exist</p>
+            }
+
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AllDay)
+        <td colspan="6">
+            <div class="container text-wrap rounded" style="max-width: 60vw; max-height: 10vh; background: gray; overflow: hidden;">
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
+        <td colspan="2" style="vertical-align: bottom">
+            @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProduction)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
+    </tr>
+    <tr>
+        <td colspan="10">
+            <hr style="width: 100%;">
         </td>
     </tr>
 }
