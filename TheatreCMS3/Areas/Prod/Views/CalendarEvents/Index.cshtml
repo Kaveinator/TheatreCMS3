@@ -10,32 +10,47 @@
 <p>
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-warning" })
 </p>
-<table class="table text-white table-dark">
+<table class="table text-white table-dark table-borderless">
 @foreach (var item in Model) {
     <tr>
-        <td rowspan="2" class="text-lg-center font-weight-bolder" style="font-size: 4vh">
+        <td rowspan="2" class="text-lg-center font-weight-bolder" style="font-size: 6vh">
             @Html.DisplayFor(modelItem => item.StartDate.Day)
         </td>
-        <td colspan="8">
+        <td colspan="8" class="font-weight-bold" style="font-size: 2vh; vertical-align: bottom">
             @Html.DisplayFor(modelItem => item.Title)
         </td>
     </tr>
     <tr>
-        <td colspan="8">
-            @Html.DisplayFor(modelItem => item.StartDate.DayOfWeek), @Html.DisplayFor(modelItem => item.StartTime.DayOfWeek) - @Html.DisplayFor(modelItem => item.EndTime)
+        <td colspan="8" style="font-size: 1.25vh; vertical-align: top">
+            @if (item.StartTime.HasValue && item.EndTime.HasValue)
+            {
+                <p>@Html.DisplayFor(modelItem => item.StartDate.DayOfWeek), @Html.DisplayFor(modelItem => item.StartTime.Value.TimeOfDay) - 
+                @Html.DisplayFor(modelItem => item.EndTime.Value.TimeOfDay) </p>
+            }
+            else
+            {
+                <p>All Day @Html.DisplayFor(modelItem => item.StartDate.DayOfWeek)</p>
+            }
         </td>
     </tr>
     <tr>
-        <td>
+        <td class="text-lg-center font-weight-bold">
             @Html.DisplayFor(modelItem => item.StartDate.Month)
         </td>
-        <td rowspan="3" colspan="6">
-            @Html.DisplayFor(modelItem => item.Description)
+        <td colspan="6">
+            <div class="container text-wrap rounded" style="max-width: 60vw; max-height: 10vh; background: gray; overflow: hidden;">
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
         </td>
-        <td colspan="2">
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
+        <td colspan="2" style="vertical-align: bottom">
+            @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="10">
+            <hr style="width: 100%;">
         </td>
     </tr>
 }
