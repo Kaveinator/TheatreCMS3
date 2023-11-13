@@ -19,5 +19,32 @@ namespace TheatreCMS3.Areas.Prod.Models
         public int TicketsAvailable { get; set; }
         public bool IsProduction { get; set; }
         public string Description { get; set; }
+        public bool oneDay(DateTime start, DateTime end)
+        {
+            TimeSpan fullDay = new TimeSpan(24, 0, 0);
+            if (end - start > fullDay)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public int Days(DateTime start, DateTime end)
+        {
+            TimeSpan eventDuration = end - start;
+            int hours = 0;
+            if (eventDuration.Hours > 0)
+            {
+                hours += 1;
+            }
+            else
+            {
+                hours += 0;
+            }
+            int days = eventDuration.Days + hours;
+            return days;
+        }
     }
 }
