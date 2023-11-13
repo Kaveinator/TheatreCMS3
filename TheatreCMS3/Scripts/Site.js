@@ -18,16 +18,6 @@ function switchVisible() {
 }
 
 
-$(document).ready(function () {
-
-    // count names
-    var nameCount = $("#PersonList p").length;
-
-//display count to badge
-$("#countDevs").text(nameCount);
-});
-
-
 
 
 
