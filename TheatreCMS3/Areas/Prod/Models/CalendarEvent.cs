@@ -33,6 +33,7 @@ namespace TheatreCMS3.Areas.Prod.Models
         }
         public int Days(DateTime start, DateTime end)
         {
+            AllDay = false;
             TimeSpan eventDuration = end - start;
             int hours = 0;
             if (eventDuration.Hours > 0)
@@ -44,6 +45,21 @@ namespace TheatreCMS3.Areas.Prod.Models
                 hours += 0;
             }
             int days = eventDuration.Days + hours;
+            return days;
+        }
+        public int Days(DateTime end)
+        {
+            TimeSpan remaining = end - DateTime.Now;
+            int hours = 0;
+            if (remaining.Hours > 0)
+            {
+                hours += 1;
+            }
+            else
+            {
+                hours += 0;
+            }
+            int days = remaining.Days + hours;
             return days;
         }
     }

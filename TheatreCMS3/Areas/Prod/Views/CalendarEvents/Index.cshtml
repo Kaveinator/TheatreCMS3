@@ -19,6 +19,18 @@
             </td>
             <td colspan="8" class="font-weight-bold" style="font-size: 2vh; vertical-align: bottom">
                 @Html.DisplayFor(modelItem => item.Title)
+                @if (item.Days(item.EndDate) > 1)
+                {
+                    <span class="badge-warning rounded-pill font-weight-normal" style="font-size: 1.25vh; padding: 0 .5vw .15vh .5vw">@(item.Days(item.EndDate)) Days Remaining!</span>
+                }
+                else if (item.Days(item.EndDate) == 1)
+                {
+                    <span class="badge-danger rounded-pill font-weight-normal" style="font-size: 1.25vh; padding: 0 .5vw .15vh .5vw">Last Day!</span>
+                }
+                else
+                {
+                    <span class="badge-info rounded-pill font-weight-normal" style="font-size: 1.25vh; padding: 0 .5vw .15vh .5vw">This Event has Ended</span>
+                }
             </td>
         </tr>
         <tr>
