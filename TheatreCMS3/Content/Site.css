@@ -64,7 +64,7 @@
 /*End background color classes*/
 
 body {
-    background-color: darkred);
+    background-color: var(--dark-color);
     color: var( --light-color ); /*This should default all text to the white of the site.*/
     min-height: 100vh;
     display: flex;
