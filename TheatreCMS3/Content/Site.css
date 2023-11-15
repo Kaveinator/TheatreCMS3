@@ -69,7 +69,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    border: 15px solid red;
 
 }
 
@@ -441,6 +440,6 @@ footer {
     }
 
 .donate-center {
-    color: black;
+    color: white;
 
 }
