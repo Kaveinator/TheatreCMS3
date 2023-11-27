@@ -69,7 +69,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -439,7 +438,3 @@ footer {
         background: var(--light-color) !important;
     }
 
-.donate-center {
-    color: white;
-
-}
