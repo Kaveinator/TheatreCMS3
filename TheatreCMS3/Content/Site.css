@@ -439,17 +439,17 @@ footer {
     }
 
 /*about Styling*/
-h1 {
+.abouth1 {
     text-align:center;
     font-family:Impact; /*my computer wouldnt let me use "broadway"*/
     font-weight: bold;
 }
 
-h3 {
+.abouth3 {
     text-align:center;
 }
 
-p{
+.aboutp {
     text-align:center;
 }
 
