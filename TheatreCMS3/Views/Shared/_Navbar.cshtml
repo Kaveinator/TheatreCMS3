@@ -62,42 +62,45 @@
     </div> <!-- mobile nav end -->
 
     <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="~/Home/Index">TheatreCMS</a>
-      </li>
-      <li class="nav nav-item dropdown ">
-        <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Production
-        </a>
-        <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
-            @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
-            @Html.ActionLink("Production Photos", "Index", "ProductionPhotoes", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
-            @Html.ActionLink("Productions", "Index", "Productions", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
-            @Html.ActionLink("Calendar Events", "Index", "CalendarEvents", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Rental
-        </a>
-        <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
-          @Html.ActionLink("Rental Requests", "Index", "RentalRequests", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
-          @Html.ActionLink("Rental", "Index", "Rentals", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
-          @Html.ActionLink("Rental Histories", "Index", "RentalHistories", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
-          @Html.ActionLink("Rental Survey", "Index", "RentalSurvey", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Blog
-        </a>
-        <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
-          @Html.ActionLink("Blog Posts", "Index", "BlogPosts", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
-          @Html.ActionLink("Comments", "Index", "Comments", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
-          @Html.ActionLink("Blog Authors", "Index", "BlogAuthors", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
-          @Html.ActionLink("Blog Photos", "Index", "BlogPhotoes", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
-        </div>
-      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="~/Home/Index">TheatreCMS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="~/Home/About">About</a>
+        </li>
+        <li class="nav nav-item dropdown ">
+            <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Production
+            </a>
+            <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+                @Html.ActionLink("Cast Members", "Index", "CastMembers", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Production Photos", "Index", "ProductionPhotoes", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Productions", "Index", "Productions", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Calendar Events", "Index", "CalendarEvents", new { Area = "Prod" }, new { @class = "dropdown-item dropdowntxt" })
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Rental
+            </a>
+            <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+                @Html.ActionLink("Rental Requests", "Index", "RentalRequests", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Rental", "Index", "Rentals", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Rental Histories", "Index", "RentalHistories", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Rental Survey", "Index", "RentalSurvey", new { Area = "Rent" }, new { @class = "dropdown-item dropdowntxt" })
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Blog
+            </a>
+            <div class="dropdown-menu dropdownbckgrndclr" aria-labelledby="navbarDropdownMenuLink">
+                @Html.ActionLink("Blog Posts", "Index", "BlogPosts", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Comments", "Index", "Comments", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Blog Authors", "Index", "BlogAuthors", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
+                @Html.ActionLink("Blog Photos", "Index", "BlogPhotoes", new { Area = "Blog" }, new { @class = "dropdown-item dropdowntxt" })
+            </div>
+        </li>
     </ul>
     @Html.Partial("_LoginPartial")
   </div>
