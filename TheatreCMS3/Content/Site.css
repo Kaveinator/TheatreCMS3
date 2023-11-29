@@ -438,3 +438,26 @@ footer {
         background: var(--light-color) !important;
     }
 
+/*about Styling*/
+.abouth1 {
+    text-align:center;
+    font-family:Impact; /*my computer wouldnt let me use "broadway"*/
+    font-weight: bold;
+}
+
+.abouth3 {
+    text-align:center;
+}
+
+.aboutp {
+    text-align:center;
+}
+
+.ensemble img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 250px;
+}
+
