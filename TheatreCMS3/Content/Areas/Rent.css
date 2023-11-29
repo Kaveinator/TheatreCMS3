@@ -10,3 +10,90 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+/*Rental Create/Edit Styling*/
+.save-button {
+    background: #9d7c39;
+    color: #fffbfb;
+    border-style: outset;
+    border-color: black;
+    border-radius: 12px;
+    height: 50px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.save-button:hover {
+    background: #d6972a;
+    color: #fff;
+    border-style: outset;
+    border-color: black;
+    border-radius: 12px;
+    text-shadow: none;
+}
+
+.create-button {
+    background: #9d7c39;
+    color: #fffbfb;
+    border-style: outset;
+    border-color: black;
+    border-radius: 12px;
+    height: 50px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.create-button:hover {
+    background: #d6972a;
+    color: #fff;
+    border-style: outset;
+    border-color: black;
+    border-radius: 12px;
+    text-shadow: none;
+}
+
+.backtolist {
+    background: #f04d44;
+    color: #fffbfb;
+    border-style: outset;
+    border-color: black;
+    border-radius: 12px;
+    height: 50px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.backtolist:hover {
+    background: #d6972a;
+    color: #fff;
+    border-style: outset;
+    border-color: black;
+    border-radius: 12px;
+    text-shadow: none;
+}
+
+.form-horizontal {
+    display: block;
+    text-align: center;
+    background: #bd1a11;
+}
+
+form-horizontal {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-control:focus {
+    background-color: #d6972a;
+    border-color: #f04d44;
+}
