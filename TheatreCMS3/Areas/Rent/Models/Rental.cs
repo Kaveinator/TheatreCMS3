@@ -8,6 +8,7 @@ namespace TheatreCMS3.Areas.Rent.Models
 {
     public class Rental
     {
+        public string RentalType { get; set; }
         public int RentalId { get; set; }
         public string RentalName { get; set; }
         public int RentalCost { get; set; }
@@ -16,17 +17,17 @@ namespace TheatreCMS3.Areas.Rent.Models
 
     public class RentalEquipment : Rental
     {
-        public bool ChokingHazard { get; set; }
-        public bool SuffocationHazard { get; set; }
-        public int PurchasePrice { get; set; }
+        public bool? ChokingHazard { get; set; }
+        public bool? SuffocationHazard { get; set; }
+        public int? PurchasePrice { get; set; }
 
     }
 
     public class RentalRoom : Rental
     {
-        public int RoomNumber { get; set; }
-        public int SquareFootage { get; set; }
-        public int MaxOccupancy { get; set; }
+        public int? RoomNumber { get; set; }
+        public int? SquareFootage { get; set; }
+        public int? MaxOccupancy { get; set; }
     }
  
 }

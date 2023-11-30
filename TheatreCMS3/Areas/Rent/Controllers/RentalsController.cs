@@ -39,14 +39,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: Rent/Rentals/Create
         public ActionResult Create()
         {
-            var rentalTypes = new List<SelectListItem>
-            {
-                new SelectListItem{Text= "Rental", Value="Rental"},
-                new SelectListItem{Text = "Rental Equipment", Value = "Rental Equipment" },
-                new SelectListItem{Text= "Rental Room", Value="Rental Room"}
-            };
-            ViewBag.RentalTypes = new SelectList(rentalTypes, "Text", "Value");
-            return View(model);
+            return View();
         }
 
         // POST: Rent/Rentals/Create
@@ -54,16 +47,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Rental Id, Rental Name, Rental Cost,Flaws And Damages")] Rental rental)
+        public ActionResult Create(Rental model)
         {
             if (ModelState.IsValid)
             {
-                db.Rentals.Add(rental);
+                db.Rentals.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rental);
+            return View();
         }
 
         // GET: Rent/Rentals/Edit/5
