@@ -1,19 +1,13 @@
 ﻿console.log("HelloWorld");
 
-function rentalEquip() {
-    var x = document.getElementsByClassName("form-group");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function rentalRoom() {
-    var x = document.getElementsByClassName("form-group");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+$(function () {
+    $("#RentalType").change(function () {
+        var selectedType = $(this).val();
+        $(".rentalEquipmentContainer, .rentalRoomContainer").hide();
+        if (selectedType === "RentalEquipment") {
+            $(".rentalEquipmentContainer").show();
+        } else if (selectedType === "RentalRoom") {
+            $(".rentalRoomContainer").show();
+        }
+    });
+});
