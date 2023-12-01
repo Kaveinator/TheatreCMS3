@@ -47,16 +47,16 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Create(Rental model)
         {
             if (ModelState.IsValid)
             {
-                db.Rentals.Add(rental);
+                db.Rentals.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rental);
+            return View();
         }
 
         // GET: Rent/Rentals/Edit/5
@@ -79,7 +79,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RentalId,RentalName,RentalCost,FlawsAndDamages")] Rental rental)
+        public ActionResult Edit([Bind(Include = "Rental Id, Rental Name, Rental Cost, Flaws And Damages")] Rental rental)
         {
             if (ModelState.IsValid)
             {
