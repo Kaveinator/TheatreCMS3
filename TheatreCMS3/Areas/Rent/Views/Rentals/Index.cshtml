@@ -15,57 +15,58 @@
 
 <div class="container text-center">
     <div class="row">
-        @Html.DisplayNameFor(model => model.RentalType)
         <div class="row row-cols-2">
-            @foreach (var item in Model)
+            <h2>Rental</h2>
+            @foreach (var rental in Model.Where(item => item.RentalType == "Rental"))
             {
                 <div class="card w-25">
                     <img src="~/Content/images/placeholder.jpg" class="card-img-top" alt="Image soon to come">
                     <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.RentalCost)</p>
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => rental.RentalName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => rental.RentalCost)</p>
 
-                        <a href="@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })" class="btn btn-primary">Edit</a>
-                        <a href="@Html.ActionLink("Details", "Details", new { id = item.RentalId })" class="btn btn-primary">Details</a>
-                        <a href="@Html.ActionLink("Delete", "Delete", new { id = item.RentalId })" class="btn btn-primary">Delete</a>
+                        <a href="@Html.ActionLink("Edit", "Edit", new { id = rental.RentalId })" class="btn btn-primary">Edit</a>
+                        <a href="@Html.ActionLink("Details", "Details", new { id = rental.RentalId })" class="btn btn-primary">Details</a>
+                        <a href="@Html.ActionLink("Delete", "Delete", new { id = rental.RentalId })" class="btn btn-primary">Delete</a>
                     </div>
                 </div>
             }
         </div>
-        @Html.DisplayNameFor(model => model.RentalEquipment)
+        
         <div class="row row-cols-2">
-            @foreach (var item in Model.RentalEquipment)
+            <h2>Rental Equipment</h2>
+            @foreach (var rentalEquipment in Model.Where(item => item.RentalType == "RentalEquipment"))
             {
                 <div class="card w-25">
                     <img src="~/Content/images/placeholder.jpg" class="card-img-top" alt="Image soon to come">
                     <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.RentalCost)</p>
-                        <span class="badge badge-pill badge-warning">@Html.DisplayFor(ModelItem=>item.ChokingHazard</span>
-                        <span class="badge badge-pill badge-warning">Warning</span>
-                        <a href="@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })" class="btn btn-primary">Edit</a>
-                        <a href="@Html.ActionLink("Details", "Details", new { id = item.RentalId })" class="btn btn-primary">Details</a>
-                        <a href="@Html.ActionLink("Delete", "Delete", new { id = item.RentalId })" class="btn btn-primary">Delete</a>
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => rentalEquipment.RentalName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => rentalEquipment.RentalCost)</p>
+                        <span class="badge badge-pill badge-warning">@Html.DisplayFor(ModelItem => rentalEquipment.RentalEquipment.SuffocationHazard)</span>
+                        <span class="badge badge-pill badge-warning">@Html.DisplayFor(ModelItem => rentalEquipment.RentalEquipment.ChokingHazard)</span>
+                        <a href="@Html.ActionLink("Edit", "Edit", new { id =rentalEquipment.RentalId })" class="btn btn-primary">Edit</a>
+                        <a href="@Html.ActionLink("Details", "Details", new { id = rentalEquipment.RentalId })" class="btn btn-primary">Details</a>
+                        <a href="@Html.ActionLink("Delete", "Delete", new { id = rentalEquipment.RentalId })" class="btn btn-primary">Delete</a>
                     </div>
                 </div>
             }
         </div>
-        @Html.DisplayNameFor(model => model.RentalRoom)
-        <div class="row row-cols-2">
-            @foreach (var item in Model)
-            {
-                <div class="card w-25">
-                    <img src="~/Content/images/placeholder.jpg" class="card-img-top" alt="Image soon to come">
-                    <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.RentalCost)</p>
-                        <a href="@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })" class="btn btn-primary">Edit</a>
-                        <a href="@Html.ActionLink("Details", "Details", new { id = item.RentalId })" class="btn btn-primary">Details</a>
-                        <a href="@Html.ActionLink("Delete", "Delete", new { id = item.RentalId })" class="btn btn-primary">Delete</a>
-                    </div>
+        <h2>Rental Room</h2>
+    <div class="row row-cols-2">
+        @foreach (var rentalRoom in Model.Where(item => item.RentalType == "RentalRoom"))
+        {
+            <div class="card w-25">
+                <img src="~/Content/images/placeholder.jpg" class="card-img-top" alt="Image soon to come">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => rentalRoom.RentalName)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => rentalRoom.RentalCost)</p>
+                    <a href="@Html.ActionLink("Edit", "Edit", new { id = rentalRoom.RentalId })" class="btn btn-primary">Edit</a>
+                    <a href="@Html.ActionLink("Details", "Details", new { id = rentalRoom.RentalId })" class="btn btn-primary">Details</a>
+                    <a href="@Html.ActionLink("Delete", "Delete", new { id = rentalRoom.RentalId })" class="btn btn-primary">Delete</a>
                 </div>
-            }
-        </div>
+            </div>
+        }
+    </div>
     </div>
 </div>
 
