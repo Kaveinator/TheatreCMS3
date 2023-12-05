@@ -5,42 +5,67 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="~/Content/bootstrap-grid.css" />
+
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FlawsAndDamages)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlawsAndDamages)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalId })
-        </td>
-    </tr>
-}
+<div class="container text-center">
+    <div class="row">
+        @Html.DisplayNameFor(model => model.RentalType)
+        <div class="row row-cols-2">
+            @foreach (var item in Model)
+            {
+                <div class="card w-25">
+                    <img src="~/Content/images/placeholder.jpg" class="card-img-top" alt="Image soon to come">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.RentalCost)</p>
 
-</table>
+                        <a href="@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })" class="btn btn-primary">Edit</a>
+                        <a href="@Html.ActionLink("Details", "Details", new { id = item.RentalId })" class="btn btn-primary">Details</a>
+                        <a href="@Html.ActionLink("Delete", "Delete", new { id = item.RentalId })" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+        @Html.DisplayNameFor(model => model.RentalEquipment)
+        <div class="row row-cols-2">
+            @foreach (var item in Model.RentalEquipment)
+            {
+                <div class="card w-25">
+                    <img src="~/Content/images/placeholder.jpg" class="card-img-top" alt="Image soon to come">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.RentalCost)</p>
+                        <span class="badge badge-pill badge-warning">@Html.DisplayFor(ModelItem=>item.ChokingHazard</span>
+                        <span class="badge badge-pill badge-warning">Warning</span>
+                        <a href="@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })" class="btn btn-primary">Edit</a>
+                        <a href="@Html.ActionLink("Details", "Details", new { id = item.RentalId })" class="btn btn-primary">Details</a>
+                        <a href="@Html.ActionLink("Delete", "Delete", new { id = item.RentalId })" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+        @Html.DisplayNameFor(model => model.RentalRoom)
+        <div class="row row-cols-2">
+            @foreach (var item in Model)
+            {
+                <div class="card w-25">
+                    <img src="~/Content/images/placeholder.jpg" class="card-img-top" alt="Image soon to come">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.RentalName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.RentalCost)</p>
+                        <a href="@Html.ActionLink("Edit", "Edit", new { id = item.RentalId })" class="btn btn-primary">Edit</a>
+                        <a href="@Html.ActionLink("Details", "Details", new { id = item.RentalId })" class="btn btn-primary">Details</a>
+                        <a href="@Html.ActionLink("Delete", "Delete", new { id = item.RentalId })" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
