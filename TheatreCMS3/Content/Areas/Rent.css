@@ -97,3 +97,9 @@ form-horizontal {
     background-color: #d6972a;
     border-color: #f04d44;
 }
+
+/*index styling*/
+.index-header {
+    border-bottom: 1px solid #BD1A11;
+    padding-bottom: 3px;
+}
