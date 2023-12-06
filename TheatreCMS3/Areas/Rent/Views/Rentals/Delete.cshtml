@@ -36,6 +36,38 @@
             @Html.DisplayFor(model => model.FlawsAndDamages)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalEquipment.SuffocationHazard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalEquipment.SuffocationHazard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalEquipment.ChokingHazard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalEquipment.ChokingHazard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalRoom.SquareFootage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalRoom.SquareFootage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalRoom.MaxOccupancy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalRoom.MaxOccupancy)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {

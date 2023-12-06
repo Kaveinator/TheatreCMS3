@@ -35,9 +35,49 @@
             @Html.DisplayFor(model => model.FlawsAndDamages)
         </dd>
 
+        @foreach (var rentalRoom in Model.Where(item => item.RentalType == "RentalEquipment"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.RentalEquipment.SuffocationHazard)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RentalEquipment.SuffocationHazard)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RentalEquipment.ChokingHazard)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RentalEquipment.ChokingHazard)
+            </dd>
+        }
+
+        @foreach (var rentalRoom in Model.Where(item => item.RentalType == "RentalRoom"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.RentalRoom.SquareFootage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RentalRoom.SquareFootage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RentalRoom.MaxOccupancy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RentalRoom.MaxOccupancy)
+            </dd>
+        }
+
+</div>
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.RentalId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
