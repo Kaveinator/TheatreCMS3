@@ -19,6 +19,18 @@
             <div class="event-date">
                 <div class="event-day">@item.StartDate.Day</div>
                 <div class="event-month">@item.StartDate.ToString("MMM")</div>
+
+                @{
+                    // Calculate event duration in days
+                    TimeSpan? duration = item.EndDate - item.StartDate;
+                    var durationText = duration.HasValue
+                        ? (duration.Value.TotalDays > 1 ? $"{duration.Value.TotalDays} day" : "All Day")
+                        : string.Empty;
+                }
+                <div class="event-duration" data-toggle="popover" data-placement="top" title="Event Duration" data-content="This is a @durationText event.">
+                    <i class="fas fa-clock"></i> @durationText
+                </div>
+
             </div>
             <div class="event-details">
                 <div class="event-title">@Html.DisplayFor(modelItem => item.Title)</div>
@@ -31,7 +43,16 @@
                     </div>
                 }
                 <div class="event-description">@Html.DisplayFor(modelItem => item.Description)</div>
+
+                
             </div>
         </div>
     }
 }
+
+<script>
+    // Bootstrap Popover
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
