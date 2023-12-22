@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.Models;
+using TheatreCMS3.Areas.Prod.Models;
 
 namespace TheatreCMS3.Areas.Prod.Controllers
 {
@@ -36,6 +37,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CalendarEvents/Create
+        [EventAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +48,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [EventAuthorize]
         public ActionResult Create([Bind(Include = "EventID,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction,Description")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
@@ -59,6 +62,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CalendarEvents/Edit/5
+        [EventAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +82,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [EventAuthorize]
         public ActionResult Edit([Bind(Include = "EventID,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction,Description")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
@@ -90,6 +95,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CalendarEvents/Delete/5
+        [EventAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +113,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // POST: Prod/CalendarEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [EventAuthorize]
         public ActionResult DeleteConfirmed(int id)
         {
             CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
@@ -122,6 +129,12 @@ namespace TheatreCMS3.Areas.Prod.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //Creating AccessDenied action
+        public ActionResult AccessDenied()
+        {
+            return View("AccessDenied");
         }
     }
 }
