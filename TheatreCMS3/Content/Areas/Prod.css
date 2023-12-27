@@ -185,3 +185,13 @@ form {
     background-color: var(--secondary-color);
     cursor: pointer;
 }
+
+.event-actions {
+    margin-left: 20px;
+    display: flex;
+}
+
+.edit-button, .delete-button {
+    margin: 0 5px;
+    text-decoration: none;
+}

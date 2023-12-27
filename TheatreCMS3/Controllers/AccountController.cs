@@ -475,6 +475,25 @@ namespace TheatreCMS3.Controllers
 
             base.Dispose(disposing);
         }
+
+        [AllowAnonymous]
+        public async Task<ActionResult> LoginAsEventPlanner()
+        {
+            var userName = "user"; // Username of the EventPlanner
+            var user = await UserManager.FindByNameAsync(userName);
+
+            if (user != null)
+            {
+                // Skip password for dev purposes
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

@@ -16,6 +16,7 @@
     foreach (var item in Model)
     {
 <div class="event-container">
+
     <div class="event-date">
         <div class="event-day">@item.StartDate.Day</div>
         <div class="event-month">@item.StartDate.ToString("MMM")</div>
@@ -62,6 +63,14 @@
             </div>
         }
         <div class="event-description">@Html.DisplayFor(modelItem => item.Description)</div>
+
+        @if (User.IsInRole("EventPlanner"))
+        {
+            <div class="event-actions">
+                @Html.ActionLink("Edit", "Edit", new { id = item.EventID }, new { @class = "btn btn-quaternary edit-button" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.EventID }, new { @class = "btn btn-quaternary delete-button" })
+            </div>
+        }
     </div>
 </div>
 
