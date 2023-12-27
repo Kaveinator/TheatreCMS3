@@ -33,13 +33,13 @@ namespace TheatreCMS3.Areas.Prod.Models
             };
 
             // EventPlanner user with a password
-            userManager.Create(eventPlanner, "Password");
-
-           
-
-            // Assign role to the user
-            userManager.AddToRole(eventPlanner.Id, "EventPlanner");
-           
+            var roleUserManager = userManager.Create(eventPlanner, "Password");
+            if (roleUserManager.Succeeded)
+            {
+                // Assign role to the user
+                userManager.AddToRole(eventPlanner.Id, "EventPlanner");
+            }
+                   
 
         }
     }
