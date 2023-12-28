@@ -16,7 +16,9 @@
     <div class="home-row">
         <!--Column1 Spotlight-->
         <div class="home-col1">
-            <h3>SPOTLIGHT</h3>
+            <div class="home-title">
+                <h3>SPOTLIGHT</h3>
+            </div>
             <img src="~/Content/images/DollsHouse.png" />
             <img src="~/Content/images/Tempest.png" />
             <img src="~/Content/images/MidsummerNightDream.png" />
@@ -24,37 +26,57 @@
         </div>
         <!--Column2 Sidebar-->
         <div class="home-col2">
-            <h3>DONATIONS</h3>
-            <button>Click to Support</button>
-            <h3>SPONSORS</h3>
-            <img src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" class="home-sponsors" />
-            <img src="~/Content/images/Sponsors/LogoRoundColor.png" class="home-sponsors" />
-            <img src="~/Content/images/Sponsors/Ninkasi-white-text.png" class="home-sponsors" />
-            <img src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" class="home-sponsors" />
-            <img src="~/Content/images/Sponsors/RACC.png" class="home-sponsors" />
+            <!--Donations-->
+            <div class="donations">
+                <div class="home-title">
+                    <h3>DONATIONS</h3>
+                </div>
+                <div class="btn-container">
+                    <button class="home-btn">Click to Support</button>
+                </div>
+            </div>
+            <div>
+                <!--Sponsors-->
+                <div class="home-title">
+                    <h3>SPONSORS</h3>
+                </div>
+                <div class="sponsors-container">
+                    <img src="~/Content/images/Sponsors/Ellyn-Bye-Logo.png" class="home-sponsors" />
+                    <img src="~/Content/images/Sponsors/LogoRoundColor.png" class="home-sponsors" />
+                    <img src="~/Content/images/Sponsors/Ninkasi-white-text.png" class="home-sponsors" />
+                    <img src="~/Content/images/Sponsors/OCF-logo-in-white-with-tagline-lg.png" class="home-sponsors" />
+                    <img src="~/Content/images/Sponsors/RACC.png" class="home-sponsors" />
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="home-row">
         <!--Column1 Land Acknowledgement-->
         <div class="home-col1">
-            <h3>LAND ACKNOWLEDGEMENT</h3>
-            <p>
-                Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional
+            <div class="home-title">
+                <h3>LAND ACKNOWLEDGEMENT</h3>
+            </div>
+            <div class="home-text">
+                <p>Theatre Vertigo humbly acknowledges we live and work on the unceded, traditional
                 tribal lands of the Multnomah, Wasco, Clackamas, Chinook bands, Kathlamet, Tualatin,
                 Kalapuya, Cowlitz, Mollala, Cascades, Oregon City Tumwater, Confederated Tribes of
-                the Grand Ronde and other indigenous peoples.<br /
-                                                                 We are on stolen land.<br />
+                the Grand Ronde and other indigenous peoples.<br /><br />
+                <span style="font-weight: bold;">We are on stolen land.</span><br /><br />
                 Theatre Vertigo has been and continues to examine our community relationships to ensure
-                our collaborators, partners and sponsors support the our reions Indegenous Nations and communities.<br />
+                our collaborators, partners and sponsors support the our reions Indegenous Nations and communities.<br /><br />
                 One of the ways Theatre Vertigo is working to act on our commitment to being of service
-                to the lands that we now share is to build bridges between our arts community and local Nations.
-            </p>
+                to the lands that we now share is to build bridges between our arts community and local Nations.</p>
+            </div>
         </div>
-        <!--Column2-->
+        <!--Column2 Link-->
         <div class="home-col2">
-            <a href="https://nayapdx.org/"><img src="~/Content/images/NAYAFamilyCenter.jpg" /></a>
-            <p>Click to visit the NAYA Family Center to learn more about supporting our local indigenous communities.</p>
+            <div class="home-acknowledgement">
+                <a href="https://nayapdx.org/" target="_blank"><img src="~/Content/images/NAYAFamilyCenter.jpg" /></a>
+                <div class="home-text">
+                    <p>Click to visit the NAYA Family Center to learn more about supporting our local indigenous communities.</p>
+                </div>
+            </div>
         </div>
     </div>
 
