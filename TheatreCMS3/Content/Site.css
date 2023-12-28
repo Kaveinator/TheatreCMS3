@@ -463,5 +463,39 @@ footer {
 
 
 
+/* Home page styling */
 
+.home-content {
+    overflow-x: hidden;
+}
+
+.home-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.home-col1 {
+    flex: 2;
+    width: 100%;
+}
+
+.home-col2 {
+    flex: 1;
+    width: 100%;
+}
+
+.home-logo {
+    width: 100vw;
+    text-align: center;
+}
+
+    .home-logo img {
+        max-width: 100%;
+        margin: 100px 0 1px 0;
+    }
+
+.home-sponsors {
+      width: 50%;
+}
 
