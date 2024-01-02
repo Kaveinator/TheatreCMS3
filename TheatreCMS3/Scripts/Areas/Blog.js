@@ -13,3 +13,4 @@ $(document).ready(function () {
         $(`.latest-posts[data-author-id="${authorId}"]`).show();
     });
 });
+
