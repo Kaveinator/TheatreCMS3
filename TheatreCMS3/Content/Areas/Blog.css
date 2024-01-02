@@ -12,13 +12,16 @@
 /*}*/
 /* Blog.css */
 
-.form {
+form {   
     margin: 5% 10% 0 10%;
     padding: 5%;
+    border: solid 8px var(--main-color);
     border-radius: 20px;
     background-color: #F04D44;
     color: black;
+    font-family: "Oswald";
     font-weight: bold;
+    letter-spacing: 1.5px;
 }
 
 h2 {
@@ -27,14 +30,18 @@ h2 {
 
 h4 {
     text-align: center;
-    color: black;
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2vw;
 }
-
 
 .text-area {
     min-width: 100px;
     height: 150px;
+}
+
+.custom-text-color {
+    color: #BD1A11;
 }
 
 .form-control {
@@ -48,12 +55,14 @@ h4 {
         box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
     }
 
+
 .button-container {
-    margin-top: 20px; /* Add spacing between the form and buttons if needed */
+    margin-top: 20px;
+    width: 100%;
 }
 
 .custom-button {
-    /* Add your custom button styles here */
+    display: inline-block;
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
@@ -80,3 +89,5 @@ h4 {
     box-shadow: none;
     top: 6px;
 }
+
+
