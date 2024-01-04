@@ -12,7 +12,10 @@
 /*}*/
 /* Blog.css */
 
-form {   
+
+/* create/edit styling */
+form,
+{   
     margin: 5% 10% 0 10%;
     padding: 5%;
     border: solid 8px var(--main-color);
@@ -91,3 +94,21 @@ h4 {
 }
 
 
+/* Details/Delete styling */
+.card {
+    margin: 5% 10% 0 10%;
+    padding: 5%;
+    border: solid 8px var(--main-color);
+    border-radius: 20px;
+    background-color: #F04D44;
+    color: black;
+    font-family: "Oswald";
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+    background-color: var(--secondary-color--dark);
+    color: black;
+    border: none;
+}

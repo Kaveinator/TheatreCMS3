@@ -5,47 +5,86 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Details</h2>
 
-<div>
+<div class="card">
     <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="authorDetailsTab" data-toggle="tab" href="#authorDetailsView">Author Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="blogPostsTab" data-toggle="tab" href="#blogPostsView" onclick="toggleView('blogPosts')">Blog Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contactTab" data-toggle="tab" href="#contactView" onclick="toggleView('contact')">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="twitterTab" data-toggle="tab" href="#twitterView" onclick="toggleView('twitter')">Twitter</a>
+            </li>
+        </ul>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <div class="card-body tab-content">
+        <!-- Author Details View -->
+        <div id="authorDetailsView" class="tab-pane fade show active">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bio)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Bio)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Joined)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Joined)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Left)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Left)
+                </dd>
+            </dl>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
+        <!-- BlogPosts View -->
+        <div id="blogPostsView" class="tab-pane fade">
+            <!-- Add code to display blog posts -->
+            (Implement in future stories)
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
+        <!-- Contact View -->
+        <div id="contactView" class="tab-pane fade">
+            <!-- Add code to display contact here -->
+            (Implement in future stories)
+        </div>
 
-    </dl>
+        <!-- Twitter View -->
+        <div id="twitterView" class="tab-pane fade">
+            <!-- Add code to display twitter here -->
+            (Implement in future stories)
+        </div>
+    </div>
+ 
+    <p>
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "custom-button back" }) 
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "custom-button submit" })
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
