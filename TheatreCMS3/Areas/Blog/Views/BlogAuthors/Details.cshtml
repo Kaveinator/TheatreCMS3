@@ -5,11 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!-- Include Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
 
 <h2>Details</h2>
 
 <div class="card">
-    <h4>BlogAuthor</h4>
+    <h4>Blog Author</h4>
+    <!-- Card Header -->
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
@@ -18,48 +21,54 @@
             <li class="nav-item">
                 <a class="nav-link" id="blogPostsTab" data-toggle="tab" href="#blogPostsView" onclick="toggleView('blogPosts')">Blog Posts</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="contactTab" data-toggle="tab" href="#contactView" onclick="toggleView('contact')">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="twitterTab" data-toggle="tab" href="#twitterView" onclick="toggleView('twitter')">Twitter</a>
-            </li>
         </ul>
     </div>
 
+    <!-- Card Body -->
     <div class="card-body tab-content">
         <!-- Author Details View -->
         <div id="authorDetailsView" class="tab-pane fade show active">
+            <!-- Image, Name, Bio, and Joined Details -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="path/to/your/image.jpg" class="img-fluid rounded" alt="Author Image">
+                </div>
+                <div class="col-md-8">
+                    <dl class="dl-horizontal">
 
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
+                        <!-- Social Media Icons -->
+                        <div class="float-right mb-3">
+                            <a href="https://www.facebook.com/your-facebook-page" target="_blank" title="Facebook">
+                                <i class="fab fa-facebook fa" style="color: black;"></i>
+                            </a>
+                            <a href="https://www.instagram.com/your-instagram-account" target="_blank" title="Instagram">
+                                <i class="fab fa-instagram fa" style="color: black;"></i>
+                            </a>
+                        </div>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Bio)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Bio)
-                </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Joined)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Joined)
-                </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Bio)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Bio)
+                        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Left)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Left)
-                </dd>
-            </dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Joined)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Joined)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
         </div>
 
         <!-- BlogPosts View -->
@@ -67,26 +76,13 @@
             <!-- Add code to display blog posts -->
             (Implement in future stories)
         </div>
-
-        <!-- Contact View -->
-        <div id="contactView" class="tab-pane fade">
-            <!-- Add code to display contact here -->
-            (Implement in future stories)
-        </div>
-
-        <!-- Twitter View -->
-        <div id="twitterView" class="tab-pane fade">
-            <!-- Add code to display twitter here -->
-            (Implement in future stories)
-        </div>
     </div>
- 
+
+    <!-- Button Container -->
     <div class="button-container">
-        <div class="row justify-content-start aligh-items-end">
-            <div class="m-2">@Html.ActionLink("Back to List", "Index", null, new { @class = "custom-button back" })</div>
-            <div class="m-2"> @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "custom-button submit" })</div>
+        <div class="row justify-content-start align-items-end">
+            <div class="m-4">@Html.ActionLink("Back to List", "Index", null, new { @class = "custom-button back" })</div>
+            <div class="m-4"> @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "custom-button submit" })</div>
         </div>
     </div>
 </div>
-
-

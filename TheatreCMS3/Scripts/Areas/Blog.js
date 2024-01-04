@@ -21,9 +21,4 @@ function toggleView(view) {
         $('#authorDetailsTab').tab('show');
     } else if (view === 'blogPosts') {
         $('#blogPostsTab').tab('show');
-    } else if (view === 'contact') {
-        $('#contactTab').tab('show');
-    } else if (view === 'twitter') {
-        $('#twitterTab').tab('show');
-    }
 }
