@@ -14,8 +14,7 @@
 
 
 /* create/edit styling */
-form,
-{   
+form {   
     margin: 5% 10% 0 10%;
     padding: 5%;
     border: solid 8px var(--main-color);

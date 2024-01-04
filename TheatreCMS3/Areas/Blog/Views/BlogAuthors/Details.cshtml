@@ -81,10 +81,12 @@
         </div>
     </div>
  
-    <p>
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "custom-button back" }) 
-        @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "custom-button submit" })
-    </p>
+    <div class="button-container">
+        <div class="row justify-content-start aligh-items-end">
+            <div class="m-2">@Html.ActionLink("Back to List", "Index", null, new { @class = "custom-button back" })</div>
+            <div class="m-2"> @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "custom-button submit" })</div>
+        </div>
+    </div>
 </div>
 
 
