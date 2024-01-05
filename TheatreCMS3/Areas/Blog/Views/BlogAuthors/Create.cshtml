@@ -13,11 +13,12 @@
     @Html.AntiForgeryToken()
 
 <div class="form">
-   
+
     <h4 class="banner-header">Blog Author</h4>
 
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-white" })
+  
 
     <div class="form-row justify-content-center">
         <div class="col">
@@ -55,7 +56,7 @@
                 @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-white" })
             </div>
         </div>
-       
+
         <div class="button-container">
             <div class="form-row justify-content-start align-items-end">
                 <div class="form-col mx-4">
