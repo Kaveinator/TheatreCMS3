@@ -15,11 +15,13 @@
     <!-- Card Header -->
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
+            <!--Nav Tabs-->
             <li class="nav-item">
                 <a class="nav-link active" id="authorDetailsTab" data-toggle="tab" href="#authorDetailsView">Author Details</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="blogPostsTab" data-toggle="tab" href="#blogPostsView" onclick="toggleView('blogPosts')">Blog Posts</a>
+                <!--Currently no blog posts view, dummy button-->
+                @Html.ActionLink("Blog Posts", "BlogPosts", new { id = Model.BlogAuthorId }, new { @class = "nav-link", id = "blogPostsTab" })
             </li>
         </ul>
     </div>
@@ -66,15 +68,16 @@
                         <dd>
                             @Html.DisplayFor(model => model.Joined)
                         </dd>
+                        
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Left)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Left)
+                        </dd>
                     </dl>
                 </div>
             </div>
-        </div>
-
-        <!-- BlogPosts View -->
-        <div id="blogPostsView" class="tab-pane fade">
-            <!-- Add code to display blog posts -->
-            (Implement in future stories)
         </div>
     </div>
 
@@ -82,7 +85,7 @@
     <div class="button-container">
         <div class="row justify-content-start align-items-end">
             <div class="m-4">@Html.ActionLink("Back to List", "Index", null, new { @class = "custom-button back" })</div>
-            <div class="m-4"> @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "custom-button submit" })</div>
+            <div class="m-4">@Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "custom-button submit" })</div>
         </div>
     </div>
 </div>
