@@ -5,47 +5,87 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!-- Include Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
+
 <h2>Details</h2>
 
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="card">
+    <h4>Blog Author</h4>
+    <!-- Card Header -->
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <!--Nav Tabs-->
+            <li class="nav-item">
+                <a class="nav-link active" id="authorDetailsTab" data-toggle="tab" href="#authorDetailsView">Author Details</a>
+            </li>
+            <li class="nav-item">
+                <!--Currently no blog posts view, dummy button-->
+                @Html.ActionLink("Blog Posts", "BlogPosts", new { id = Model.BlogAuthorId }, new { @class = "nav-link", id = "blogPostsTab" })
+            </li>
+        </ul>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <!-- Card Body -->
+    <div class="card-body tab-content">
+        <!-- Author Details View -->
+        <div id="authorDetailsView" class="tab-pane fade show active">
+            <!-- Image, Name, Bio, and Joined Details -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/Content/images/placeholder.jpg" class="img-fluid rounded" alt="Author Image">
+                </div>
+                <div class="col-md-8">
+                    <dl class="dl-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
+                        <!-- Social Media Icons -->
+                        <div class="float-right mb-3">
+                            <a href="https://www.facebook.com/your-facebook-page" target="_blank" title="Facebook">
+                                <i class="fab fa-facebook fa" style="color: black;"></i>
+                            </a>
+                            <a href="https://www.instagram.com/your-instagram-account" target="_blank" title="Instagram">
+                                <i class="fab fa-instagram fa" style="color: black;"></i>
+                            </a>
+                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Joined)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Bio)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Bio)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Joined)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Joined)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Joined)
+                        </dd>
+                        
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Left)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Left)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Left)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Left)
-        </dd>
-
-    </dl>
+    <!-- Button Container -->
+    <div class="button-container">
+        <div class="row justify-content-start align-items-end">
+            <div class="m-4">@Html.ActionLink("Back to List", "Index", null, new { @class = "custom-button back" })</div>
+            <div class="m-4">@Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "custom-button submit" })</div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
