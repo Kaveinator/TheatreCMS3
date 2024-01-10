@@ -437,3 +437,16 @@ footer {
         border: 2px solid var(--secondary-color);
         background: var(--light-color) !important;
     }
+
+.home-signin--container {
+    text-align: center;
+    columns: 100px 4;
+    text-overflow: ellipsis;
+}
+
+    .home-signin--container p {
+        padding: 20px;
+        font-weight: bold;
+        background: #bd1a11;
+        border-radius: 25px;
+    }
