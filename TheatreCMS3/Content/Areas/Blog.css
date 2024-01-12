@@ -11,3 +11,63 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 /* Blog.css */
+
+/*Create & Edit Page Styling*/
+
+.general{
+    font-weight: bold;
+}
+
+.form-horizontal {
+    background-color: #BD1A11;
+    border-radius: 5px;
+    width: 835px;
+    margin: auto;
+}
+
+.textArea {
+    border-radius: 5px;
+}
+
+.form-group {
+    width: 1000px;
+}
+
+
+.flex-container {
+    display: flex;
+}
+
+.buttons {
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.button {
+    color: white;
+}
+
+.name {
+    margin-top: 15px;
+}
+
+.btl {
+    color: white;
+}
+.btl:hover {
+    text-decoration: none;
+    color: lightgray;
+}
+
+.joined {
+    width: 220px;
+    margin: auto;
+}
+
+.joinedLabel {
+     margin-left: 50px;
+}
+
+.left {
+    width: 220px;
+}
