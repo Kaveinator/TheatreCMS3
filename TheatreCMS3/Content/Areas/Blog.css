@@ -12,7 +12,7 @@
 /*}*/
 /* Blog.css */
 
-/*Create Page Styling*/
+/*Create & Edit Page Styling*/
 
 .general{
     font-weight: bold;
@@ -57,4 +57,17 @@
 .btl:hover {
     text-decoration: none;
     color: lightgray;
+}
+
+.joined {
+    width: 220px;
+    margin: auto;
+}
+
+.joinedLabel {
+     margin-left: 50px;
+}
+
+.left {
+    width: 220px;
 }

@@ -14,6 +14,6 @@ namespace TheatreCMS3.Areas.Blog.Models
         [DataType(DataType.Date)]
         public DateTime Joined { get; set; }
         [DataType(DataType.Date)]
-        public DateTime Left { get; set; }
+        public DateTime? Left { get; set; }
     }
 }
