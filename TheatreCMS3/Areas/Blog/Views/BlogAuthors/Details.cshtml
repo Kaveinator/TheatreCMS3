@@ -7,45 +7,47 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>BlogAuthor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="btnNav">
+    <button type="button" class="btn btn-dark">@Html.ActionLink("Author Details", "Details", new { id = Model.BlogAuthorId })</button>
+    <button type="button" class="btn btn-dark">Blog Post</button>
+    <button type="button" class="btn btn-dark">Contact</button>
+    <button type="button" class="btn btn-dark">Twitter</button>
+</div>
 
+<div class="detailsContainer">
+    <div class="imageContainer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bill_Murray_by_David_Shankbone.jpg/463px-Bill_Murray_by_David_Shankbone.jpg" alt="Bill Murray" />
+    </div>
+    <dl class="dl-horizontal">
         <dd>
+
+        </dd>
+        <dd class="authorName pushRight">
             @Html.DisplayFor(model => model.Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-
-        <dd>
+        <dd class="pushRight">
             @Html.DisplayFor(model => model.Bio)
         </dd>
 
-        <dt>
+        <dt class="bold pushRight">
             @Html.DisplayNameFor(model => model.Joined)
         </dt>
 
-        <dd>
+        <dd class="pushRight">
             @Html.DisplayFor(model => model.Joined)
         </dd>
 
-        <dt>
+        <dt class="bold pushRight">
             @Html.DisplayNameFor(model => model.Left)
         </dt>
 
-        <dd>
+        <dd class="pushRight">
             @Html.DisplayFor(model => model.Left)
         </dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<button type="button" class="fa-solid fa-trash btn btn-danger"> @Html.ActionLink("Delete", "Delete", new { id = Model.BlogAuthorId }, new { @class = "deleteButton" })</button>
+<button type="button" class="button fa-solid fa-circle-left btn btn-dark">  @Html.ActionLink("Back to List", "Index", new { @class = "button" })</button>
+<button type="button" class="button fa-solid fa-pen-to-square btn btn-success">  @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "button" })</button>
