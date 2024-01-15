@@ -72,18 +72,16 @@
     width: 220px;
 }
 
+/*Details & Delete Styling*/
+
 .table {
     background-color: white;
 }
-
-    .table th {
-    }
 
 .detailsContainer {
     background-color: white;
     color: black;
     border-radius: 5px;
-    display: flex;
 }
 
 .button {
@@ -104,10 +102,11 @@
 .btnNav {
     background-color: white;
     text-align: center;
-    padding: 10px;
-    width: 60%;
+    width: 500px;
     margin: auto;
+    padding-top: 5px;
     border-radius: 5px 5px 0px 0px;
+    color: black;
 }
 
 .authorName {
@@ -116,24 +115,58 @@
 }
 
 .imageContainer {
-    display: flex;
-    width: 900px;
-    height: 320px;
+    width: 250px;
+    height: 300px;
+    float: left;
 }
 
     .imageContainer img {
         object-fit: contain;
         width: 200px;
-        height: 320px;
+        height: 300px;
         object-fit: contain;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
 
-.dl-horizontal:imageContainer {
-    right: 10px;
+.dl-horizontal {
+    flex: 1;
 }
 
-.bold {
-    font-weight: 800;
+.bioSection {
+    width: 900px;
+    height: 225px;
+}
+
+.bioContainer {
+   overflow: auto;
+}
+
+.detailsLeftLabel {
+    margin-left: 50px
+}
+
+.detailsLeft {
+    margin-left: 5px;
+}
+
+.detailsJoined {
+    margin-left: 5px;
+}
+
+.tabContainer {
+    height: 300px;
+}
+
+.flex-child {
+    flex: 1;
+}
+
+    .flex-child:first-child {
+        margin-right: 20px;
+    }
+
+.authorDetailsTab {
+    height: 300px;
+}
