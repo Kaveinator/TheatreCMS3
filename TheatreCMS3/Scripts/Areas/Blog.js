@@ -23,57 +23,28 @@ function toggleView(view) {
     }
 };
 
-//function deleteAuthor() {
-//    //var getId = $.ajax({
-//    //    type: "GET",
-//    //    url: "/BlogAuthors/Delete/" + Id
-//    /*})*/
-//    if (confirm("Are you sure you want to delete this author?")) {
-//            console.log("Hello");
-//    } else {
-//        console.log("Hello1");
-//    }
-//}
-
-//var modal = document.getElementById('simpleModal');
-//var modalBtn = document.getElementById('modalBtn');
-//var closeBtn = document.getElementsByClassName('closeBtn')[0];
-
-
-//modalBtn.addEventListener('click', openModal);
-
-//closeBtn.addEventListener('click', closeModal);
-
-//window.addEventListener('click', outsideClick);
-
-//function openModal() {
-//    modal.style.display = 'block';
-//}
-
-//function closeModal() {
-//    modal.style.display = 'none';
-//}
-
-//function outsideClick(e) {
-//    if (e.target == modal) {
-//        modal.style.display = 'none';
-//    }
-//}
-
 $(document).ready(function () {
-    $('.deleteAuthor').click(function (x) {
-        x.preventDefault();
-        var authorRequestId = $(this).data('indexDelete')
+    $('.deleteAuthor').click(function () {
+        var authorRequestId = $(this).data('deleteindex');
         console.log(authorRequestId);
-        if (confirm("are you sure you want to delete the author?")) {
+
+        if (confirm("Are you sure you want to delete the author?")) {
             $.ajax({
-                url: '/blogauthors/delete/' + authorrequestid,
-                type: 'post',
+                url: '/Blog/BlogAuthors/DeleteConfirmed/' + authorRequestId,
+                type: 'POST',  // Make sure your server supports DELETE method
                 success: function (result) {
-                    console.log(result)
+                    console.log(result);
+                    var x = document.getElementById("authorContainer");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+                    // Optionally, update the UI or take further actions upon success
                 },
                 error: function (err) {
-                    console.log(err);
+                    console.log("Error:", err);
+                    // Optionally, handle the error or provide user feedback
                 }
             });
         }

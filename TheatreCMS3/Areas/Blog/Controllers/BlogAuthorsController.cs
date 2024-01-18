@@ -106,14 +106,20 @@ namespace TheatreCMS3.Areas.Blog.Controllers
         }
 
         // POST: Blog/BlogAuthors/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public JsonResult DeleteConfirmed(int id)
         {
             BlogAuthor blogAuthor = db.BlogAuthors.Find(id);
+
+            if (blogAuthor == null)
+            {
+                return Json(new { success = false, message = "Author not found" });
+            }
+
             db.BlogAuthors.Remove(blogAuthor);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            return Json(new { success = true, message = "Author deleted successfully" });
         }
 
         protected override void Dispose(bool disposing)
