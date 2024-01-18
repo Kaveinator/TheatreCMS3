@@ -2,13 +2,13 @@
 
 <div class="btnNav">
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active btn btn-dark text-light"><a href="#blogDetailsTab" aria-controls="blogDetailsTab" role="tab" data-toggle="tab">@Html.ActionLink("Author Details", "Details", new { id = Model.BlogAuthorId }, new { @class = "button" })</a></li>
+        <li role="presentation" class="active btn btn-dark text-light"><a href="#blogDetailsTab" aria-controls="blogDetailsTab" role="tab" data-toggle="tab">Author Details</a></li>
         <li role="presentation"><a href="#blogPostTab" class="btn btn-dark text-light" aria-controls="blogPostTab" role="tab" data-toggle="tab">Blog Post</a></li>
         <li role="presentation"><a href="#blogContactTab" class="btn btn-dark text-light" aria-controls="blogContactTab" role="tab" data-toggle="tab">Contact</a></li>
         <li role="presentation"><a href="#blogTwitterTab" class="btn btn-dark text-light" aria-controls="blogTwitterTab" role="tab" data-toggle="tab">Twitter</a></li>
     </ul>
 </div>
-
+                                                                                                                                                                                      
 <div class="detailsContainer tab-content">
     <div role="tabpanel" class="authorDetailsTab tab-pane active" id="blogDetailsTab">
         <div class="imageContainer">
@@ -49,7 +49,17 @@
     <div role="tabpanel" class="tab-pane tabContainer" id="blogSocialTab">
         <p>Implement at a later date</p>
     </div>
-    <button type="button" class="btn btn-danger indexDelete"> @Html.ActionLink("Delete", "Delete", new { id = Model.BlogAuthorId }, new { @class = "button" })</button>
+    <button type="button" data-deleteIndex ="@Model.BlogAuthorId" id="modalBtn" class="btn btn-danger indexDelete deleteAuthor">Delete</button>
     <button type="button" class="btn btn-success indexEdit">  @Html.ActionLink("Edit", "Edit", new { id = Model.BlogAuthorId }, new { @class = "button" })</button>
 </div>
+@*<div id="simpleModal" class="modal">
+    <div class="modal-content">
+        <span class="closeBtn">&times;</span>
+        <h2 class="modalHeader">Are you sure this author is leaving?</h2>
+        <p class="modalText">This will remove them from the index!</p>
+        <div class="form-actions no-color">
+            <button id="deleteBtn" class="btn btn-danger @Model.BlogAuthorId">Delete</button>
+        </div>
+    </div>
+</div>*@
     
