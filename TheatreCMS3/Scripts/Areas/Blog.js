@@ -23,22 +23,30 @@ function toggleView(view) {
     }
 };
 
-//function toggle(id) {
-//    var e = document.getElementById(id);
-//    if (e.style.display == 'block')
-//        e.style.display = 'none';
-//    else
-//        e.style.display = 'block';
-//}
+$(document).ready(function () {
+    $('.deleteAuthor').click(function () {
+        var authorRequestId = $(this).data('deleteindex');
+        console.log(authorRequestId);
 
-//$(document).ready(function () {
-//    $(".nav-tabs a").click(function () {
-//        $(this).tab('show');
-//    });
-//});
-
-function activaTab(tab) {
-    $('.nav-tabs a[href="#' + tab + '"]').tab('show');
-};
-
-activaTab('authorDetailsTab');
+        if (confirm("Are you sure you want to delete the author?")) {
+            $.ajax({
+                url: '/Blog/BlogAuthors/DeleteConfirmed/' + authorRequestId,
+                type: 'POST',  // Make sure your server supports DELETE method
+                success: function (result) {
+                    console.log(result);
+                    var x = document.getElementById("authorContainer-" + authorRequestId);
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+                    // Optionally, update the UI or take further actions upon success
+                },
+                error: function (err) {
+                    console.log("Error:", err);
+                    // Optionally, handle the error or provide user feedback
+                }
+            });
+        }
+    });
+});
