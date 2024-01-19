@@ -1,5 +1,5 @@
 ﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
-<div id="authorContainer">
+<div id="authorContainer-@Model.BlogAuthorId">
     <div class="btnNav">
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active btn btn-dark text-light"><a href="#blogDetailsTab" aria-controls="blogDetailsTab" role="tab" data-toggle="tab">Author Details</a></li>
@@ -9,7 +9,7 @@
         </ul>
     </div>
 
-    <div class="detailsContainer tab-content" id="authorContainer" data-deleteDetails="@Model.BlogAuthorId">
+    <div class="detailsContainer tab-content" id="authorContainer">
         <div role="tabpanel" class="authorDetailsTab tab-pane active" id="blogDetailsTab">
             <div class="imageContainer">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bill_Murray_by_David_Shankbone.jpg/463px-Bill_Murray_by_David_Shankbone.jpg" alt="Bill Murray" />

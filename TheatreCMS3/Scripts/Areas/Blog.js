@@ -34,7 +34,7 @@ $(document).ready(function () {
                 type: 'POST',  // Make sure your server supports DELETE method
                 success: function (result) {
                     console.log(result);
-                    var x = document.getElementById("authorContainer");
+                    var x = document.getElementById("authorContainer-" + authorRequestId);
                     if (x.style.display === "none") {
                         x.style.display = "block";
                     } else {
