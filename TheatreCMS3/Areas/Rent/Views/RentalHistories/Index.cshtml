@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TheatreCMS3.Models.RentalHistory>
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
 
 @{
     ViewBag.Title = "Index";
@@ -13,13 +13,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
+            Rental
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
+            Damaged?
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rental)
+            Damages Incurred
         </th>
         <th></th>
     </tr>
@@ -27,14 +27,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Rental)
+        </td>
+
+        <td>
             @Html.DisplayFor(modelItem => item.RentalDamaged)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DamagesIncurred)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
             @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |

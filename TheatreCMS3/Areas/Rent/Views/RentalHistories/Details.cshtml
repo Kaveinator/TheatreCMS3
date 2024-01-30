@@ -1,4 +1,4 @@
-﻿@model TheatreCMS3.Models.RentalHistory
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalHistory
 
 @{
     ViewBag.Title = "Details";
@@ -11,6 +11,13 @@
     <h4>RentalHistory</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rental)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.RentalDamaged)
         </dt>
@@ -26,15 +33,6 @@
         <dd>
             @Html.DisplayFor(model => model.DamagesIncurred)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rental)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rental)
-        </dd>
-
     </dl>
 </div>
 <p>

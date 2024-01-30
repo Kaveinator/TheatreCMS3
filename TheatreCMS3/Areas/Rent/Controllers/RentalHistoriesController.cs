@@ -7,9 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TheatreCMS3.DAL;
-using TheatreCMS3.Models;
+using TheatreCMS3.Areas.Rent.Models;
 
-namespace TheatreCMS3.Controllers
+namespace TheatreCMS3.Areas.Rent.Controllers
 {
     public class RentalHistoriesController : Controller
     {
@@ -89,19 +89,30 @@ namespace TheatreCMS3.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rentalHistory).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(rentalHistory).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (DataException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, contact your system administrator.");
+                }
             }
             return View(rentalHistory);
         }
 
         // GET: RentalHistories/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, bool? saveChangesError=false)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists, contact your system administrator.";
             }
             RentalHistory rentalHistory = db.RentalHistories.Find(id);
             if (rentalHistory == null)
@@ -114,15 +125,23 @@ namespace TheatreCMS3.Controllers
         // POST: RentalHistories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
-            RentalHistory rentalHistory = db.RentalHistories.Find(id);
-            db.RentalHistories.Remove(rentalHistory);
-            db.SaveChanges();
+            try
+            {
+                RentalHistory rentalHistory = db.RentalHistories.Find(id);
+                db.RentalHistories.Remove(rentalHistory);
+                db.SaveChanges();
+            }
+            catch (DataException)
+            {
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
+            
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        protected override void Dispose(bool disposing) //this closes database connection and frees up resources
         {
             if (disposing)
             {

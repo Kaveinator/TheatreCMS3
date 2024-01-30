@@ -21,6 +21,6 @@ namespace TheatreCMS3.DAL
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); //prevents table names from being pluralized
         }
 
-        public System.Data.Entity.DbSet<TheatreCMS3.Models.RentalHistory> RentalHistories { get; set; }
+        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalHistory> RentalHistories { get; set; }
     }
 }

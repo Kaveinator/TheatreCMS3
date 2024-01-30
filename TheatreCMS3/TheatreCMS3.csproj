@@ -204,7 +204,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RentalHistoriesController.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
     <Compile Include="DAL\RentalHistoryContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,7 +218,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\RentalHistory.cs" />
+    <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -459,11 +459,11 @@
     <Content Include="webfonts\Broadway Normal.ttf" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Donate.cshtml" />
-    <Content Include="Views\RentalHistories\Create.cshtml" />
-    <Content Include="Views\RentalHistories\Delete.cshtml" />
-    <Content Include="Views\RentalHistories\Details.cshtml" />
-    <Content Include="Views\RentalHistories\Edit.cshtml" />
-    <Content Include="Views\RentalHistories\Index.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -476,9 +476,7 @@
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Models\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
-    <Folder Include="Areas\Rent\Controllers\" />
     <Folder Include="Areas\Rent\Data\" />
-    <Folder Include="Areas\Rent\Models\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
     <Folder Include="obj\" />
