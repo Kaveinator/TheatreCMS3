@@ -450,3 +450,16 @@ footer {
         background: #bd1a11;
         border-radius: 25px;
     }
+
+.donate-index--title {
+    font-family: Broadway;
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+
+.donate-index--form {
+    background-color: var(--main-color--light);
+    padding: 10px;
+    border-radius: 20px;
+}
+
