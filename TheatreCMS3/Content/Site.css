@@ -451,6 +451,20 @@ footer {
         border-radius: 25px;
     }
 
+.donate-index--title {
+    font-family: Broadway;
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+
+.donate-index--form {
+    background-color: var(--main-color--light);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+    }
+
 /* Jiahao Zhang new added */
 .about-background {
     background-image: url("/Content/images/theater.jpg");

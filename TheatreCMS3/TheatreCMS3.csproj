@@ -455,6 +455,7 @@
     <Content Include="webfonts\PTSans-Regular.ttf" />
     <Content Include="webfonts\Broadway Normal.ttf" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Donate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -476,7 +477,6 @@
     <Folder Include="UIUX\Images\" />
     <Folder Include="UIUX\Mockups\" />
     <Folder Include="UIUX\Prototypes\" />
-    <Folder Include="Views\Donate\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
