@@ -463,3 +463,49 @@ footer {
     border-radius: 20px;
 }
 
+    }
+
+/* Jiahao Zhang new added */
+.about-background {
+    background-image: url("/Content/images/theater.jpg");
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    background-position: center bottom; /* This line sets the background position to the center of the bottom */
+}
+
+/* Jiahao Zhang new added */
+.about-container {
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px; 
+    margin: 0 auto;
+}
+    /* Jiahao Zhang new added */
+    .about-container h2 {  /*About Us*/
+        font-family: Papyrus;
+    }
+
+    .about-container h3 { /*WHO WE ARE, Company History, ENSEMBLE, BOARD*/
+        font-family: Cooper;
+    }
+    .about-container p{
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+
+/* Jiahao Zhang new added */
+.about-photos {
+    display: flex;
+    flex-direction: row; /* Arrange the photos in a row */
+    justify-content: center; /* Add this line to center the photos horizontally */
+}
+
+/* Jiahao Zhang new added */
+    .about-photos img {
+        width: 10%; /* Control the width of each photo */
+        margin-bottom: 10px; /* Adjust the vertical spacing between all four photos */
+    }
