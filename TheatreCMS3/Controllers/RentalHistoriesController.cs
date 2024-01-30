@@ -49,13 +49,19 @@ namespace TheatreCMS3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.RentalHistories.Add(rentalHistory);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.RentalHistories.Add(rentalHistory);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, contact your system administrator.");
+            }
             return View(rentalHistory);
         }
 
@@ -77,7 +83,7 @@ namespace TheatreCMS3.Controllers
         // POST: RentalHistories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
         {
