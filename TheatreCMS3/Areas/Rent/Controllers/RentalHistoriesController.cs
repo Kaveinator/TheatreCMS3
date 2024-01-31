@@ -53,6 +53,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 if (ModelState.IsValid)
                 {
+
                     db.RentalHistories.Add(rentalHistory);
                     db.SaveChanges();
                     return RedirectToAction("Index");
