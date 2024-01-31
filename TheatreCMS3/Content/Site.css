@@ -507,16 +507,3 @@ footer {
         width: 10%; /* Control the width of each photo */
         margin-bottom: 10px; /* Adjust the vertical spacing between all four photos */
     }
-
-/*
-.RentalHistory-create--title {
-    font-family: Broadway;
-    padding-top: 80px;
-    padding-bottom: 10px;
-}
-
-.RentalHistory-create--form {
-    background-color: var(--main-color--light);
-    padding: 10px;
-    border-radius: 20px;
-}*/

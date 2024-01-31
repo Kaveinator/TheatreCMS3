@@ -6,11 +6,11 @@
 }
 
 
-<div class="text-center donate-index--title">
+<div class="text-center RentalHistory-create--title">
     <h1>Create Rental History</h1>
 </div>
 <div class="m-3">
-    <div class="card col-sm-14 col-md-12 col-lg-8 mx-auto shadow donate-index--form">
+    <div class="card col-sm-14 col-md-12 col-lg-8 mx-auto shadow RentalHistory-create--form">
         <div class="card-body">
             @using (Html.BeginForm())
             {
@@ -67,7 +67,7 @@
                         <div class="form-group row">
                             <div class="mx-auto">
                                 <input type="submit" value="Create" class="btn btn-success mx-auto" />
-                                <button class="btn btn-secondary">@Html.ActionLink("Back to List", "Index")</button>
+                                <button class="btn btn-secondary" id="RentalHistory-backToList-button">@Html.ActionLink("Back to List", "Index")</button>
                             </div>
                         </div>
 

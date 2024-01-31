@@ -24,3 +24,7 @@
     border-radius: 20px;
     max-width: 600px;
 }
+
+#RentalHistory-backToList-button {
+    color: white !important;
+}
