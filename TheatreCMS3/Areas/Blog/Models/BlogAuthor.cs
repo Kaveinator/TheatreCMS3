@@ -7,12 +7,10 @@ namespace TheatreCMS3.Areas.Blog.Models
 {
     public class BlogAuthor
     {
-        //primary Key
         public int BlogAuthorId { get; set; }
-        //properties
         public string Name { get; set; }
         public string Bio { get; set; }
-        public DateTime Joined { get; set; }
-        public DateTime? Left { get; set; } //nullable DateTime for when the author leaves
+        public Nullable<DateTime> Joined { get; set; }
+        public Nullable<DateTime> Left { get; set; } 
     }
 }
