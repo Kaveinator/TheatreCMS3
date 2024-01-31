@@ -11,3 +11,15 @@
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
 
+
+.RentalHistory-create--title {
+    font-family: Broadway;
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+
+.RentalHistory-create--form {
+    background-color: var(--main-color--light);
+    padding: 10px;
+    border-radius: 20px;
+}
