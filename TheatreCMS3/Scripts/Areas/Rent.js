@@ -11,3 +11,12 @@ $(function () {
         }
     });
 });
+
+function labelNameChangeFunction() {
+    var checkboxValue = $("#rentalDamageCheckbox").val();
+    var label = "DamagesIncurred"
+    if (checkboxValue) {
+        $("#labelNameChangeId").hide();
+        $("#labelNameChangeIdDisplay").html(label);
+    }
+}

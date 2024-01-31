@@ -26,5 +26,6 @@
 }
 
 #RentalHistory-backToList-button {
-    color: white !important;
+    color: var(--light-color) !important;
+    text-decoration: none;
 }
