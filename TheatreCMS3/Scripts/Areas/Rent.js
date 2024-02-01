@@ -11,3 +11,25 @@ $(function () {
         }
     });
 });
+
+
+//Function for RentalHistory model, Create and Edit pages:
+window.onload = function () {
+    labelNameChangeFunction();
+};
+function labelNameChangeFunction() {
+    var DamagesIncurredlabelvalue = document.getElementById('RentalHistory-create--damagesIncurredLabel');
+    var Noteslabelvalue = document.getElementById('RentalHistory-create--notesLabel');
+    var checkboxValue = document.getElementById('rentalDamageCheckbox').checked;
+
+    if (checkboxValue) {
+        DamagesIncurredlabelvalue.style.display = "block";
+        Noteslabelvalue.style.display = "none";
+    }
+
+    else
+    {
+        Noteslabelvalue.style.display = "block";
+        DamagesIncurredlabelvalue.style.display = "none";
+    }
+}
