@@ -25,7 +25,20 @@
     max-width: 600px;
 }
 
-#RentalHistory-backToList-button {
-    color: var(--light-color) !important;
-    text-decoration: none;
+.RentalHistory-backToList-button {
+    color: var(--light-color);
 }
+
+    .RentalHistory-backToList-button :link {
+        text-decoration: none;
+    }
+
+    .RentalHistory-backToList-button :visited {
+        text-decoration: none;
+        color: var(--light-color);
+    }
+
+    .RentalHistory-backToList-button :hover {
+        text-decoration: none;
+    }
+

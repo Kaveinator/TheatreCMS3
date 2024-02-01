@@ -14,6 +14,7 @@ $(function () {
 
 function labelNameChangeFunction() {
     var checkboxValue = $("#rentalDamageCheckbox").val();
+    console.log(checkboxValue);
     var label = "DamagesIncurred"
     if (checkboxValue) {
         $("#labelNameChangeId").hide();
