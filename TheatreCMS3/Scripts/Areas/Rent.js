@@ -13,11 +13,19 @@ $(function () {
 });
 
 function labelNameChangeFunction() {
-    var checkboxValue = $("#rentalDamageCheckbox").val();
-    console.log(checkboxValue);
-    var label = "DamagesIncurred"
+    var DamagesIncurredlabelvalue = document.getElementById('RentalHistory-create--damagesIncurredLabel');
+    var Noteslabelvalue = document.getElementById('RentalHistory-create--notesLabel');
+    var checkboxValue = document.getElementById('rentalDamageCheckbox');
+    console.log(checkboxValue)
+
     if (checkboxValue) {
-        $("#labelNameChangeId").hide();
-        $("#labelNameChangeIdDisplay").html(label);
+        DamagesIncurredlabelvalue.style.display = "block";
+        Noteslabelvalue.style.display = "none";
+    }
+
+    else
+    {
+        Noteslabelvalue.style.display = "block";
+        DamagesIncurredlabelvalue.style.display = "none";
     }
 }

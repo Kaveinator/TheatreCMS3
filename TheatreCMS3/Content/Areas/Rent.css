@@ -42,3 +42,11 @@
         text-decoration: none;
     }
 
+#RentalHistory-create--damagesIncurredLabel {
+    display: none;
+}
+
+#RentalHistory-create--notesLabel {
+    display: block;
+}
+
