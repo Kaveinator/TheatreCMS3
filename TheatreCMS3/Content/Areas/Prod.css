@@ -2,12 +2,69 @@
 /* Do not uncomment these color variables */
 
 /* CSS color variables */
-/*:root {*/ /* Color palette for css */
-/*--main-color: #BD1A11;*/ /* Red */
-/*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
-/*--secondary-color: #D6972A;*/ /* Yellow gold */
-/*--light-color: #FFFBFB;*/ /* White */
-/*--dark-color: #000000;*/ /* Black */
-/*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
-/*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
-/*}*/
+:root { /* Color palette for css */
+--main-color: #BD1A11; /* Red */
+--main-color--light: #F04D44; /* Red, a shade lighter */
+--secondary-color: #D6972A; /* Yellow gold */
+--light-color: #FFFBFB; /* White */
+--dark-color: #000000; /* Black */
+--secondary-color--dark: #9D7C39; /* Dark Gold */
+--light-blue: rgb(93, 123, 244) /*Light Blue - Added color on top of original*/
+}
+.prod-text-light {
+    color: var(--light-color);
+}
+
+.title-change{
+    font-size: 40px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.create-button {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    padding: 10px 15px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+body {
+    color: var(--light-color);
+}
+
+.wide-placeholder {
+    width: 300px;
+    max-width: 100%;
+}
+
+.card-footer-container {
+    border: 3px solid #808080;
+    padding: 10px;
+}
+
+.text-dark {
+    margin-right: 100px;
+    margin-left: 100px;
+    background-color: white;
+}
+
+.CRUD-layout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px; 
+}
+.action-link {
+    padding: 8px;
+    margin-right: 8px;
+    text-decoration: none;
+    color: var(--light-color);
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+}
+
+.card-change{
+    margin-bottom: 30px;
+}
