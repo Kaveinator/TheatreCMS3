@@ -19,11 +19,21 @@
         </td>
         <td colspan="2" id="RentalHistory-index--SortedBy">
             Sorted by:
+            <select id="sortingSelect" class="form-control">
+                <option value="nosorting">No Extra Sorting...</option>
+                <option value="damagedrentals">Damaged Rentals</option>
+                <option value="undamagedrentals">Undamaged Rentals</option>
+                <option value="rentalsAtoZ">Rentals A to Z</option>
+                <option value="rentalsZtoA">Rentals Z to A</option>
+            </select>
         </td>
     </tr>
 
-@foreach (var item in Model) {
-    <tr class="RentalHistory-index--tr" onmouseover = "dropDownMenuAppears()" onmouseout="dropDownMenuDisappears()">
+@foreach (var item in Model.OrderByDescending(item => item.RentalHistoryId)) {
+    <tr class="RentalHistory-index--tr">
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalHistoryId)
+        </td>
         <td>
             @if (item.RentalDamaged == true)
             {
