@@ -33,3 +33,14 @@ function labelNameChangeFunction() {
         DamagesIncurredlabelvalue.style.display = "none";
     }
 }
+
+$(document).ready(function () {
+    $('.RentalHistory-index--tr').hover(
+        function () {
+            $(this).find('.RentalHistory-index--dropdownMenuButton').show();
+        },
+        function () {
+            $(this).find('.RentalHistory-index--dropdownMenuButton').hide();
+        }
+    );
+});

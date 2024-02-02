@@ -50,3 +50,28 @@
     display: block;
 }
 
+.RentalHistory-index--table {
+    background-color: var(--light-color);
+    margin-top: 30px;
+    border-radius: 30px;
+}
+
+#RentalHistory-index--SortedBy {
+    float: right;
+}
+
+.RentalHistory-index--title {
+    font-family: Broadway;
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+
+.RentalHistory-index--rental {
+    font-size: 15px;
+    font-weight: bold;
+    padding: .35em;
+}
+
+.RentalHistory-index--dropdownMenuButton {
+    display: none;
+}
