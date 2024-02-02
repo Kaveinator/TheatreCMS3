@@ -10,6 +10,8 @@
 --dark-color: #000000; /* Black */
 --secondary-color--dark: #9D7C39; /* Dark Gold */
 --light-blue: rgb(93, 123, 244) /*Light Blue - Added color on top of original*/
+
+/*Index Page Section*/
 }
 .prod-text-light {
     color: var(--light-color);
@@ -68,3 +70,61 @@ body {
 .card-change{
     margin-bottom: 30px;
 }
+/*End Index Page Section*/
+
+
+/*Create Page Section*/
+.form-contanier {
+    border: 2px solid #ddd; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    background-color: darkred;
+    margin-top: 20px; 
+    margin-right: 120px;
+}
+
+.form-control:focus {
+    border-color: black;
+    outline: 0;
+    box-shadow: 0 0 50px;
+    border-width: 3px;
+    background-color: lightgrey;
+}
+
+.btn-create {
+    border: 2px solid #fff; 
+    background-color: #D6972A; 
+    color: black; 
+    font-weight: bold; 
+    padding: 10px 38px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+    .btn-create:hover {
+        background-color: #ffcc00; 
+    }
+
+.custom-checkbox {
+    transform: scale(2);
+    margin-left: 5px;
+}
+
+.btn-back-to-list {
+    background-color: #D6972A;
+    color: black;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 13px;
+    font-weight: bold;
+}
+
+    .btn-back-to-list:hover {
+        background-color: #ffcc00; 
+    }
+
+/* End Create Page Section */
