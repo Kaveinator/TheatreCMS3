@@ -33,3 +33,24 @@ function labelNameChangeFunction() {
         DamagesIncurredlabelvalue.style.display = "none";
     }
 }
+
+//function iconChangeFunction() {
+//    for (let i = 0, len = .length, i < len; i++)
+//        text = sg[i]
+//    var checkboxValue = document.getElementById('RentalHistory-index--checkbox').checked;
+//    console.log(checkboxValue);
+//}
+
+
+
+//$(document).ready(function () {
+
+//    $(".RentalHistory-index--checkbox").change(function () {
+//        if (this.checked) {
+//            $("#link").css("display", "block");
+//        }
+//        else {
+//            $("#link").css("display", "none");
+//        }
+//    });
+//}

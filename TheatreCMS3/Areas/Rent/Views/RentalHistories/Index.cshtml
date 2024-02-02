@@ -10,8 +10,18 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+    </button>
+    <ul class="dropdown-menu">
+        <li><button class="dropdown-item" type="button">Action</button></li>
+        <li><button class="dropdown-item" type="button">Another action</button></li>
+        <li><button class="dropdown-item" type="button">Something else here</button></li>
+    </ul>
+</div>
+<table class="table RentalHistory-index--table" onload="iconChangeFunction()">
+    @*<tr>
         <th>
             @Html.DisplayNameFor(model => model.Rental)
         </th>
@@ -22,25 +32,66 @@
             @Html.DisplayNameFor(model => model.DamagesIncurred)
         </th>
         <th></th>
+    </tr>*@
+
+    <tr>
+        <td>
+            Most recent Rental Histories
+        </td>
+        <td></td>
+        <td></td>
+        <td id="RentalHistory-index--SortedBy">
+            Sorted by
+        </td>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Rental)
+            @if (item.RentalDamaged == true)
+            {
+                <p><i class="fa-solid fa-circle-xmark" style="color:red"></i></p>
+            }
+            else
+            {
+                <p><i class="fa-solid fa-circle-check" style="color:green"></i></p>
+            }
         </td>
+        <td>
+            <span class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
+        </td>
+        <td>
+            @if (item.RentalDamaged == true)
+            {
+                <span class="text-muted d-inline-block text-truncate" style="max-width: 250px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+            }
+            else
+            {
+                <span class="text-dark d-inline-block text-truncate" style="max-width: 250px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+            }
 
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
+            <div class="dropdown ms-auto">
+                <button><i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <span class="dropdown-item">
+                            <i class="fas fa-pen mx-2"></i> @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }) |
+                        </span>
+                    </li>
+                    <li>
+                        <span class="dropdown-item">
+                            <i class="fas fa-info-circle mx-2"></i> @Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }) |
+                        </span>
+                    </li>
+                    <li>
+                        <span class="dropdown-item" style="color:red">
+                            <i class="fas fa-trash mx-2" style="color:red"></i> @Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId })
+                        </span>
+                    </li>
+                </ul>
+            </div>
         </td>
     </tr>
 }

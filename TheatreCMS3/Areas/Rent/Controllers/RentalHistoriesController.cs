@@ -18,6 +18,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: RentalHistories
         public ActionResult Index() //the index action method gets a rental history list
         {
+            
             return View(db.RentalHistories.ToList());
         }
 

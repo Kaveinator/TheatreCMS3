@@ -50,3 +50,19 @@
     display: block;
 }
 
+.RentalHistory-index--table {
+    background-color: var(--light-color);
+    border-radius: 20px;
+}
+
+#RentalHistory-index--SortedBy {
+    float: right;
+}
+
+.RentalHistory-Index-black {
+    color: black;
+}
+
+.RentalHistory-Index-grey {
+    color: grey;
+}
