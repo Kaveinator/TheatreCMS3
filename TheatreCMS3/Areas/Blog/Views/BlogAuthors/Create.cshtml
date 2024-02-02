@@ -5,60 +5,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Create</h2>                                                           
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>BlogAuthor</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "", new { @class = "cms-text-light" })
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-12">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "cms-text-light" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-12">
+                @Html.TextAreaFor(model => model.Bio, new { @class = "form-control", style = "height: 300px;" })
+                @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "cms-text-light" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
+        <div class="form-group1">
+            <div class="col-md-5">
+                @Html.LabelFor(model => model.Joined, "Joined", htmlAttributes: new { @class = "control-label" })
             </div>
+            <div class="col-md-5">
+                    @Html.LabelFor(model => model.Left, "Left", htmlAttributes: new { @class = "control-label" })
+            </div>
+        </div>
+        <div class="form-group1">
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "form-control", @type = "date", 
+                    required = true } })
+                @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "cms-text-light" })
+            </div>           
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.Left, "", new { @class = "cms-text-light" })
+            </div>                                
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-5 col-md-12">
+                    <a href="@Url.Action("Index")" class="btn mb-2 mt-4 btn-dark">Back to List</a>
+                    <input type="submit" value="Create" class="btn mb-2 mt-4 btn-light" />
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
