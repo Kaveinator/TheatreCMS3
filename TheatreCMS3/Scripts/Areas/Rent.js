@@ -34,16 +34,13 @@ function labelNameChangeFunction() {
     }
 }
 
-function dropDownMenuAppears() {
-    var DropDownMenuValue = document.getElementsByClassName("RentalHistory-index--dropdownMenuButton");
-    for (var i = 0; i < DropDownMenuValue.length; i += 1) {
-        DropDownMenuValue[i].style.display = "block";
-    }
-}
-
-function dropDownMenuDisappears() {
-    var DropDownMenuValue = document.getElementsByClassName("RentalHistory-index--dropdownMenuButton");
-    for (var i = 0; i < DropDownMenuValue.length; i += 1) {
-        DropDownMenuValue[i].style.display = "none";
-    }
-}
+$(document).ready(function () {
+    $('.RentalHistory-index--tr').hover(
+        function () {
+            $(this).find('.RentalHistory-index--dropdownMenuButton').show();
+        },
+        function () {
+            $(this).find('.RentalHistory-index--dropdownMenuButton').hide();
+        }
+    );
+});

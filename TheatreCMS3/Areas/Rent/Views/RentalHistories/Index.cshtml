@@ -23,7 +23,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr onmouseover = "dropDownMenuAppears()" onmouseout="dropDownMenuDisappears()">
+    <tr class="RentalHistory-index--tr" onmouseover = "dropDownMenuAppears()" onmouseout="dropDownMenuDisappears()">
         <td>
             @if (item.RentalDamaged == true)
             {
@@ -50,10 +50,10 @@
         </td>
         <td>
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle RentalHistory-index--dropdownMenuButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
+                <button class="btn btn-secondary dropdown-toggle RentalHistory-index--dropdownMenuButton" type="button" id="dropdownMenuButton_@item.RentalHistoryId" data-toggle="dropdown" aria-haspopup="true">
                     <i class="fas fa-ellipsis-vertical"></i>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_@item.RentalHistoryId">
                     <span class="dropdown-item">
                         <i class="fas fa-pen mx-2"></i> @Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId })
                     </span>
