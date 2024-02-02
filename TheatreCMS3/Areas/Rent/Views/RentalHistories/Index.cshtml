@@ -5,42 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="text-center RentalHistory-index--title">
+    <h1>Rental History</h1>
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown
-    </button>
-    <ul class="dropdown-menu">
-        <li><button class="dropdown-item" type="button">Action</button></li>
-        <li><button class="dropdown-item" type="button">Another action</button></li>
-        <li><button class="dropdown-item" type="button">Something else here</button></li>
-    </ul>
-</div>
-<table class="table RentalHistory-index--table" onload="iconChangeFunction()">
-    @*<tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th></th>
-    </tr>*@
-
+<table class="table RentalHistory-index--table w-auto mx-auto">
     <tr>
-        <td>
+        <td colspan="2">
             Most recent Rental Histories
         </td>
-        <td></td>
-        <td></td>
-        <td id="RentalHistory-index--SortedBy">
+        <td colspan="2" id="RentalHistory-index--SortedBy">
             Sorted by
         </td>
     </tr>
@@ -58,22 +35,22 @@
             }
         </td>
         <td>
-            <span class="badge badge-dark">@Html.DisplayFor(modelItem => item.Rental)</span>
+            <span class="badge badge-dark RentalHistory-index--rental">@Html.DisplayFor(modelItem => item.Rental)</span>
         </td>
         <td>
             @if (item.RentalDamaged == true)
             {
-                <span class="text-muted d-inline-block text-truncate" style="max-width: 250px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                <span class="text-muted d-inline-block text-truncate" style="max-width: 600px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
             }
             else
             {
-                <span class="text-dark d-inline-block text-truncate" style="max-width: 250px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
+                <span class="text-dark d-inline-block text-truncate" style="max-width: 600px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
             }
 
         </td>
         <td>
             <div class="dropdown ms-auto">
-                <button><i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i></button>
+                <i class="fas fa-ellipsis-vertical" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                 <ul class="dropdown-menu">
                     <li>
                         <span class="dropdown-item">
