@@ -72,3 +72,7 @@
     font-weight: bold;
     padding: .35em;
 }
+
+.RentalHistory-index--dropdownmenu {
+    display: none;
+}
