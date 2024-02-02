@@ -23,7 +23,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr onmouseover = "dropDownMenuAppears()" onmouseout="dropDownMenuDisappears()">
         <td>
             @if (item.RentalDamaged == true)
             {
@@ -49,8 +49,8 @@
 
         </td>
         <td>
-            <div class="dropdown RentalHistory-index--dropdownmenu" onhover = "dropDownMenuAppears()">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle RentalHistory-index--dropdownMenuButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
                     <i class="fas fa-ellipsis-vertical"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

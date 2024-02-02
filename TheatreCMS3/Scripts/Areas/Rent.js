@@ -33,3 +33,17 @@ function labelNameChangeFunction() {
         DamagesIncurredlabelvalue.style.display = "none";
     }
 }
+
+function dropDownMenuAppears() {
+    var DropDownMenuValue = document.getElementsByClassName("RentalHistory-index--dropdownMenuButton");
+    for (var i = 0; i < DropDownMenuValue.length; i += 1) {
+        DropDownMenuValue[i].style.display = "block";
+    }
+}
+
+function dropDownMenuDisappears() {
+    var DropDownMenuValue = document.getElementsByClassName("RentalHistory-index--dropdownMenuButton");
+    for (var i = 0; i < DropDownMenuValue.length; i += 1) {
+        DropDownMenuValue[i].style.display = "none";
+    }
+}
