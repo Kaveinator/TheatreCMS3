@@ -18,8 +18,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: RentalHistories
         public ActionResult Index() //the index action method gets a rental history list
         {
-            //return View(db.RentalHistories.OrderByDescending(rentalHistory => new.DateCreated).Take(10).ToList());
-            return View(db.RentalHistories.ToList());
+            return View(db.RentalHistories.OrderByDescending(item => item.RentalHistoryId).ToList());
+
         }
 
         // GET: RentalHistories/Details/5
@@ -54,7 +54,6 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //rentalHistory.DateCreated = DateTime.Now;
                     db.RentalHistories.Add(rentalHistory);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -145,12 +144,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         public ActionResult SortByDamaged()
         {
-            var sortedRentals = db.RentalHistories.OrderBy(r => r.Rental).ToList();
+            var sortedRentals = db.RentalHistories.Where(r => r.RentalDamaged).ToList();
             return PartialView("_RentalHistoriesPartial", sortedRentals);
         }
         public ActionResult SortByUndamaged()
         {
-            var sortedRentals = db.RentalHistories.OrderBy(r => r.Rental).ToList();
+            var sortedRentals = db.RentalHistories.Where(r => !r.RentalDamaged).ToList();
             return PartialView("_RentalHistoriesPartial", sortedRentals);
         }
         public ActionResult SortByAZ()
@@ -161,6 +160,12 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         public ActionResult SortByZA()
         {
             var sortedRentals = db.RentalHistories.OrderByDescending(r => r.Rental).ToList();
+            return PartialView("_RentalHistoriesPartial", sortedRentals);
+        }
+
+        public ActionResult NoSorting()
+        {
+            var sortedRentals = db.RentalHistories.OrderByDescending(item => item.RentalHistoryId).ToList();
             return PartialView("_RentalHistoriesPartial", sortedRentals);
         }
         protected override void Dispose(bool disposing) //this closes database connection and frees up resources

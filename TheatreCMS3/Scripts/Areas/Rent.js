@@ -67,7 +67,7 @@ $(document).ready(function () {
                 success: function (result) {
                     console.log("success")
                     $('#RentalHistory-index--tableId').html(result);
-                    $('.RentalHistory-index--table').find('.RentalHistory-index--dropdownMenuButton').hide();
+                    $('.RentalHistory-index--tr').find('.RentalHistory-index--dropdownMenuButton').hide();
                     resetToggleCards();
                 }
             });
@@ -96,6 +96,17 @@ $(document).ready(function () {
         } else if (selectedOption === 'rentalsZtoA') {
             $.ajax({
                 url: '/Rent/RentalHistories/SortByZA',
+                type: 'GET',
+                success: function (result) {
+                    console.log("success")
+                    $('#RentalHistory-index--tableId').html(result);
+                    $('.RentalHistory-index--tr').find('.RentalHistory-index--dropdownMenuButton').hide();
+                    resetToggleCards();
+                }
+            });
+        } else if (selectedOption === 'nosorting') {
+            $.ajax({
+                url: '/Rent/RentalHistories/NoSorting',
                 type: 'GET',
                 success: function (result) {
                     console.log("success")

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
 
 <table class="table RentalHistory-index--table w-auto mx-auto" id="RentalHistory-index--tableId">
-    @foreach (var item in Model.OrderByDescending(item => item.RentalHistoryId))
+    @foreach (var item in Model)
     {
         <tr class="RentalHistory-index--tr">
             <td>
