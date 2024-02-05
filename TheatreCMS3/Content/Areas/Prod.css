@@ -80,6 +80,10 @@ body {
     margin-right: 120px;
 }
 
+.badge-layout{
+    transform: scale(0.5);
+    margin-right: 50px;
+}
 /*End Index Page Section*/
 /*Create Page Section*/
 .form-contanier {
