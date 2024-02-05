@@ -13,7 +13,7 @@ $(function () {
 });
 
 
-//Function for RentalHistory model, Create and Edit pages:
+//Functions for RentalHistory model, Create and Edit pages:
 window.onload = function () {
     labelNameChangeFunction();
 };
@@ -34,17 +34,6 @@ function labelNameChangeFunction() {
     }
 }
 
-function resetToggleCards() {
-    $('.RentalHistory-index--tr').hover(
-        function () {
-            $(this).find('.RentalHistory-index--dropdownMenuButton').show();
-        },
-        function () {
-            $(this).find('.RentalHistory-index--dropdownMenuButton').hide();
-        }
-    );
-};
-
 $(document).ready(function () {
     $('.RentalHistory-index--tr').hover(
         function () {
@@ -55,6 +44,18 @@ $(document).ready(function () {
         }
     );
 });
+
+//Functions for RentalHistory Index page Sorting feature:
+function resetToggleCards() {
+    $('.RentalHistory-index--tr').hover(
+        function () {
+            $(this).find('.RentalHistory-index--dropdownMenuButton').show();
+        },
+        function () {
+            $(this).find('.RentalHistory-index--dropdownMenuButton').hide();
+        }
+    );
+};
 
 $(document).ready(function () {
     $('#sortingSelect').change(function () {
@@ -90,4 +91,43 @@ $(document).ready(function () {
             }
         });
     }
+});
+
+
+//var acc = document.getElementsByClassName("accordion");
+//var i;
+//console.log(acc)
+
+//for (i = 0; i < acc.length; i++) {
+//    acc[i].addEventListener("click", function () {
+//        /* Toggle between adding and removing the "active" class,
+//        to highlight the button that controls the panel */
+//        this.classList.toggle("active");
+
+//        /* Toggle between hiding and showing the active panel */
+//    });
+//}
+
+//table = document.getElementById("RentalHistory-index--tableId");
+//rows = table.rows;
+
+//$(document).ready(function () {
+//    $('.RentalHistory-index--damageNotesButton').click(
+//        function () {
+//            var collapseValue = document.getElementById('RentalHistory-index--rentalDamageDescription');
+//            $("#RentalHistory-index--rentalDamageDescription").collapse('toggle')
+//            console.log("collapse value is " + collapseValue)
+//        }
+//    );
+//});
+
+table = document.getElementById("RentalHistory-index--tableId");
+rows = table.rows;
+
+$(document).ready(function () {
+    $('.RentalHistory-index--damageNotesButton').click(
+        function () {
+            $('#RentalHistory-index--rentalDamageDescription').collapse('toggle')
+        }
+    );
 });
