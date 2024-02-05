@@ -12,9 +12,33 @@
 
 @foreach (var item in Model)
 {
+    
+    
     <div class="container card-change">
         <div class="card ">
-            <div class="card-header text-dark title-change">@Html.DisplayFor(modelItem => item.Title)</div>
+            <div class="card-header text-dark title-change">
+                @*<div class="remaining-days">*@
+                    
+
+                    @Html.DisplayFor(modelItem => item.Title)
+
+                    @*@if (item.EndDate != null)
+                    {
+                        int daysRemaining;
+                        daysRemaining = (item.EndDate.Value - DateTime.Now).Days;
+                        <span>
+                            @if (daysRemaining == 0)
+                            {
+                                <span class="badge badge-danger">Last Day!</span>
+                            }
+                            else if (daysRemaining >= 1)
+                            {
+                                <span class="badge badge-info">@daysRemaining days remaining!</span>
+                            }
+                        </span>
+                    }
+                </div>*@
+            </div>
 
             @if (item.StartTime != null && item.EndTime != null)
             {
