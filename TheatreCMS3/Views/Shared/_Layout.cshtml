@@ -27,10 +27,6 @@
     @Html.Partial("_Footer")
 
 
-    @if (!Request.IsAuthenticated)
-    {
-        @Html.Partial("LoginEventPlanner")
-    }
 
     @if (ViewContext.RouteData.DataTokens["area"] != null)
     {
