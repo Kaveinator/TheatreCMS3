@@ -56,65 +56,38 @@ $(document).ready(function () {
     );
 });
 
-
 $(document).ready(function () {
     $('#sortingSelect').change(function () {
         var selectedOption = $(this).val();
-        if (selectedOption === 'damagedrentals') {
-            $.ajax({
-                url: '/Rent/RentalHistories/SortByDamaged',
-                type: 'GET',
-                success: function (result) {
-                    console.log("success")
-                    $('#RentalHistory-index--tableId').html(result);
-                    $('.RentalHistory-index--tr').find('.RentalHistory-index--dropdownMenuButton').hide();
-                    resetToggleCards();
-                }
-            });
-        } else if (selectedOption === 'undamagedrentals') {
-            $.ajax({
-                url: '/Rent/RentalHistories/SortByUndamaged',
-                type: 'GET',
-                success: function (result) {
-                    console.log("success")
-                    $('#RentalHistory-index--tableId').html(result);
-                    $('.RentalHistory-index--tr').find('.RentalHistory-index--dropdownMenuButton').hide();
-                    resetToggleCards();
-                }
-            });
-        } else if (selectedOption === 'rentalsAtoZ') {
-            $.ajax({
-                url: '/Rent/RentalHistories/SortByAZ',
-                type: 'GET',
-                success: function (result) {
-                    console.log("success")
-                    $('#RentalHistory-index--tableId').html(result);
-                    $('.RentalHistory-index--tr').find('.RentalHistory-index--dropdownMenuButton').hide();
-                    resetToggleCards();
-                }
-            });
-        } else if (selectedOption === 'rentalsZtoA') {
-            $.ajax({
-                url: '/Rent/RentalHistories/SortByZA',
-                type: 'GET',
-                success: function (result) {
-                    console.log("success")
-                    $('#RentalHistory-index--tableId').html(result);
-                    $('.RentalHistory-index--tr').find('.RentalHistory-index--dropdownMenuButton').hide();
-                    resetToggleCards();
-                }
-            });
-        } else if (selectedOption === 'nosorting') {
-            $.ajax({
-                url: '/Rent/RentalHistories/NoSorting',
-                type: 'GET',
-                success: function (result) {
-                    console.log("success")
-                    $('#RentalHistory-index--tableId').html(result);
-                    $('.RentalHistory-index--tr').find('.RentalHistory-index--dropdownMenuButton').hide();
-                    resetToggleCards();
-                }
-            });
+
+        switch (selectedOption) {
+            case 'damagedrentals':
+                sendAjaxRequest('/Rent/RentalHistories/SortByDamaged');
+                break;
+            case 'undamagedrentals':
+                sendAjaxRequest('/Rent/RentalHistories/SortByUndamaged');
+                break;
+            case 'rentalsAtoZ':
+                sendAjaxRequest('/Rent/RentalHistories/SortByAZ');
+                break;
+            case 'rentalsZtoA':
+                sendAjaxRequest('/Rent/RentalHistories/SortByZA');
+                break;
+            case 'nosorting':
+                sendAjaxRequest('/Rent/RentalHistories/NoSorting');
+                break;
         }
     });
+
+    function sendAjaxRequest(url) {
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (result) {
+                $('#RentalHistory-index--tableId').html(result);
+                $('.RentalHistory-index--tr').find('.RentalHistory-index--dropdownMenuButton').hide();
+                resetToggleCards();
+            }
+        });
+    }
 });
