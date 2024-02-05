@@ -13,37 +13,59 @@
 @foreach (var item in Model)
 {
     <div class="container card-change">
-        <div class="card">
+        <div class="card ">
             <div class="card-header text-dark title-change">@Html.DisplayFor(modelItem => item.Title)</div>
-            
+
             @if (item.StartTime != null && item.EndTime != null)
             {
+                TimeSpan duration = item.EndTime.Value - item.StartTime.Value;
                 <div class="card-body text-dark">
                     @Html.DisplayFor(modelItem => item.StartTime)
                     -
                     @Html.DisplayFor(modelItem => item.EndTime)
+
+                    @if (item.AllDay)
+                    {
+                        <div>
+                            All Day
+                        </div>
+                    }
+                    else if (duration.Days >= 1)
+                    {
+                        <div>
+                            <span data-toggle="popover" data-content="This is a  @(duration.Days) day event" data-placement="bottom" style="cursor: pointer;">
+                                <i class="fas fa-clock"></i> @(duration.Days) days
+                            </span>
+                        </div>
+                    }
                 </div>
             }
-        <div class="card-footer text-dark card-footer-container">
-            <div>
-                Start Date: @item.StartDate.ToString("yyyy/MM/dd")
-            </div>
-            <div>
-                Tickets Available: @Html.DisplayFor(modelItem => item.TicketsAvailable)
-            </div>
-            @if (item.IsProduction == true)
-            {
+            <div class="card-footer text-dark card-footer-container">
                 <div>
-                    Production: @Html.DisplayFor(modelItem => item.IsProduction)
+                    Start Date: @item.StartDate.ToString("yyyy/MM/dd")
                 </div>
-            }
-        </div>
+                <div>
+                    Tickets Available: @Html.DisplayFor(modelItem => item.TicketsAvailable)
+                </div>
+                @if (item.IsProduction == true)
+                {
+                    <div>
+                        Production: @Html.DisplayFor(modelItem => item.IsProduction)
+                    </div>
+                }
+            </div>
             <div class="CRUD-layout">
-                @Html.ActionLink("Edit", "Edit", new { id = item.EventId }, new { @class = "action-link" })
-                @Html.ActionLink("Details", "Details", new { id = item.EventId }, new { @class = "action-link" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.EventId }, new { @class = "action-link" })
+                <button onclick="location.href='@Url.Action("Edit", new { id = item.EventId })'" class="btn-back-to-list">Edit</button>
+                <button onclick="location.href='@Url.Action("Details", new { id = item.EventId })'" class="btn-back-to-list">Details</button>
+                <button onclick="location.href='@Url.Action("Delete", new { id = item.EventId })'" class="btn-back-to-list">Delete</button>
             </div>
         </div>
     </div>
 }
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
 
