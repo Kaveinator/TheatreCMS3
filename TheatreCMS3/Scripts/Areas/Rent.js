@@ -93,41 +93,15 @@ $(document).ready(function () {
     }
 });
 
-
-//var acc = document.getElementsByClassName("accordion");
-//var i;
-//console.log(acc)
-
-//for (i = 0; i < acc.length; i++) {
-//    acc[i].addEventListener("click", function () {
-//        /* Toggle between adding and removing the "active" class,
-//        to highlight the button that controls the panel */
-//        this.classList.toggle("active");
-
-//        /* Toggle between hiding and showing the active panel */
-//    });
-//}
-
-//table = document.getElementById("RentalHistory-index--tableId");
-//rows = table.rows;
-
-//$(document).ready(function () {
-//    $('.RentalHistory-index--damageNotesButton').click(
-//        function () {
-//            var collapseValue = document.getElementById('RentalHistory-index--rentalDamageDescription');
-//            $("#RentalHistory-index--rentalDamageDescription").collapse('toggle')
-//            console.log("collapse value is " + collapseValue)
-//        }
-//    );
-//});
-
 table = document.getElementById("RentalHistory-index--tableId");
 rows = table.rows;
 
 $(document).ready(function () {
-    $('.RentalHistory-index--damageNotesButton').click(
-        function () {
-            $('#RentalHistory-index--rentalDamageDescription').collapse('toggle')
-        }
-    );
+    for (i = 0; i < rows.length; i++) {
+        $('.RentalHistory-index--damageNotesButton').click(
+            function () {
+                $('#RentalHistory-index--rentalDamageDescription').collapse('toggle')
+            }
+        );
+    }
 });

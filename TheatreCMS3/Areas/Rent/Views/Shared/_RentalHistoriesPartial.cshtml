@@ -22,7 +22,7 @@
             <span class="badge badge-dark RentalHistory-index--rental">@Html.DisplayFor(modelItem => item.Rental)</span>
         </td>
         <td>
-            <div class="btn RentalHistory-index--damageNotesButton" type="button" data-toggle="collapse" data-target="#RentalHistory-index--rentalDamageDescription" id="damageNotes">
+            <div class="btn RentalHistory-index--damageNotesButton" type="button" data-toggle="collapse">
                 @if (item.RentalDamaged == true)
                 {
                     <span class="text-muted d-inline-block text-truncate" style="max-width: 600px;">Damage details</span>
@@ -36,7 +36,7 @@
         </td>
         <td>
             <div class="accordion">
-                <div id="RentalHistory-index--rentalDamageDescription" class="collapse" data-parent="#damageNotes">
+                <div id="RentalHistory-index--rentalDamageDescription" class="collapse">
                     @if (item.RentalDamaged == true)
                     {
                         <span class="text-muted d-inline-block text-truncate" style="max-width: 600px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
