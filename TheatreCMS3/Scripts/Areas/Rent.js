@@ -53,7 +53,7 @@ function filterTable() {
     if (selectedValue === "rentalsAtoZ") {
         function sortTable() {
             var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementById("myTable");
+            table = document.getElementById("RentalHistory-index--tableId");
             switching = true;
             //Set the sorting direction to ascending:
             dir = "asc";
@@ -95,7 +95,7 @@ function filterTable() {
     else if (selectedValue === "rentalsZtoA") {
         function sortTable() {
             var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementById("myTable");
+            table = document.getElementById("RentalHistory-index--tableId");
             switching = true;
             dir = "desc";
             while (switching) {
@@ -126,7 +126,7 @@ function filterTable() {
     {
         function sortTable() {
             var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementById("myTable");
+            table = document.getElementById("RentalHistory-index--tableId");
             switching = true;
             while (switching) {
                 switching = false;
@@ -156,7 +156,7 @@ function filterTable() {
     {
         function sortTable() {
             var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementById("myTable");
+            table = document.getElementById("RentalHistory-index--tableId");
             switching = true;
             while (switching) {
                 switching = false;
