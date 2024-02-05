@@ -143,6 +143,26 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult SortByDamaged()
+        {
+            var sortedRentals = db.RentalHistories.OrderBy(r => r.Rental).ToList();
+            return PartialView("_RentalHistoriesPartial", sortedRentals);
+        }
+        public ActionResult SortByUndamaged()
+        {
+            var sortedRentals = db.RentalHistories.OrderBy(r => r.Rental).ToList();
+            return PartialView("_RentalHistoriesPartial", sortedRentals);
+        }
+        public ActionResult SortByAZ()
+        {
+            var sortedRentals = db.RentalHistories.OrderBy(r => r.Rental).ToList();
+            return PartialView("_RentalHistoriesPartial", sortedRentals);
+        }
+        public ActionResult SortByZA()
+        {
+            var sortedRentals = db.RentalHistories.OrderByDescending(r => r.Rental).ToList();
+            return PartialView("_RentalHistoriesPartial", sortedRentals);
+        }
         protected override void Dispose(bool disposing) //this closes database connection and frees up resources
         {
             if (disposing)
