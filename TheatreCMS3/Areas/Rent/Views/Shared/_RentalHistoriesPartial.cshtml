@@ -5,7 +5,7 @@
     @foreach (var item in Model)
     {
     <tr class="RentalHistory-index--tr">
-        <td>
+        <td id="RentalHistory-index--itemId">
             @Html.DisplayFor(modelItem => item.RentalHistoryId)
         </td>
         <td>
@@ -21,8 +21,7 @@
         <td>
             <span class="badge badge-dark RentalHistory-index--rental">@Html.DisplayFor(modelItem => item.Rental)</span>
         </td>
-        <td>
-            <div class="btn RentalHistory-index--damageNotesButton" type="button" data-toggle="collapse">
+        <td class="btn RentalHistory-index--damageNotesButton" type="button" data-toggle="collapse">
                 @if (item.RentalDamaged == true)
                 {
                     <span class="text-muted d-inline-block text-truncate" style="max-width: 600px;">Damage details</span>
@@ -31,12 +30,10 @@
                 {
                     <span class="text-dark d-inline-block text-truncate" style="max-width: 600px;">None</span>
                 }
-            </div>
-
         </td>
         <td>
             <div class="accordion">
-                <div id="RentalHistory-index--rentalDamageDescription" class="collapse">
+                <div id="RentalHistory-index--rentalDamageDescription" class="collapse collapseclass">
                     @if (item.RentalDamaged == true)
                     {
                         <span class="text-muted d-inline-block text-truncate" style="max-width: 600px;">@Html.DisplayFor(modelItem => item.DamagesIncurred)</span>
@@ -70,3 +67,40 @@
     }
 
 </table>
+
+
+<div class="accordion" id="accordionExample">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" data-toggle="collapse" id="collapseOneHeader" type="button" aria-expanded="true" aria-controls="collapseOne">
+                        @if (item.RentalDamaged == true)
+                        {
+                            <span class="text-muted d-inline-block text-truncate" style="max-width: 600px;">Damage details</span>
+                        }
+                        else
+                        {
+                            <span class="text-dark d-inline-block text-truncate" style="max-width: 600px;">None</span>
+                        }
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class=collapse aria-labelledby="collapseOneHeader">
+                <p class="card-body">
+                    @if (item.RentalDamaged == true)
+                    {
+                        <span class="text-muted d-inline-block text-truncate" style="max-width: 600px;">@Html.DisplayFor(modelItem => item.DamagesIncurred, new { @class = "something" })</span>
+                    }
+                    else
+                    {
+                        <span class="text-dark d-inline-block text-truncate" style="max-width: 600px;">@Html.DisplayFor(modelItem => item.DamagesIncurred, new { @class = "something" })</span>
+                    }
+                </p>
+            </div>
+        </div>
+    }
+</div>
+
