@@ -316,6 +316,7 @@
     <Content Include="Areas\Blog\Views\BlogAuthors\Edit.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\UnderConstruction.cshtml" />
+    <Content Include="Areas\Rent\Views\Shared\_RentalHistoriesPartial.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -485,18 +486,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
-	<Folder Include="Areas\Blog\Controllers\" />	
     <Folder Include="Areas\Blog\Data\" />
-	<Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
-    <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Data\" />
-    <Folder Include="Areas\Prod\Models\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
-    <Folder Include="Areas\Rent\Controllers\" />
     <Folder Include="Areas\Rent\Data\" />
-    <Folder Include="Areas\Rent\Models\" />
-    <Folder Include="Areas\Rent\Views\Shared\" />
     <Folder Include="Data\" />
     <Folder Include="obj\" />
     <Folder Include="UIUX\Images\" />
