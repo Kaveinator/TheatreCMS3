@@ -93,32 +93,3 @@ $(document).ready(function () {
     }
 });
 
-//table = document.getElementById("RentalHistory-index--tableId");
-//rows = table.rows;
-//console.log(rows.length);
-//var id = document.getElementById('RentalHistory-index--itemId');
-
-//$(document).ready(function () {
-//    $('.RentalHistory-index--damageNotesButton').click(
-//        function () {
-//            //$(this).find('td:nth-child(5)').show();
-
-//            //alert('The info of the cell you clicked on is: ' + ($(this).find('td:nth-child(5)').text()));
-//            $('.collapseclass').collapse('toggle');
-
-//        }
-//    );
-//});
-
-$(document).ready(function () {
-    $('.text-left').click(
-        function () {
-            $('.collapse').collapse('toggle');
-        }
-    );
-});
-
-//$('.card').find('h2').click(function () {
-//    alert('You clicked row ' + ($(this).index() + 1));
-//});
-
