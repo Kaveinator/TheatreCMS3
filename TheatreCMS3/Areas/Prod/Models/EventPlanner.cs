@@ -15,10 +15,10 @@ namespace TheatreCMS3.Areas.Prod.Models
 
         public static void SeedEventPlanner(ApplicationDbContext context)
         {
+            var roleUserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            var roleUserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser> (context));
-            if (!roleUserManager.RoleExists("EventPlanner"))
-            {
+            if (!roleManager.RoleExists("EventPlanner"))
+            {               
                 var modRole = new IdentityRole();
                 modRole.Name = "EventPlanner";
                 roleManager.Create(modRole);
