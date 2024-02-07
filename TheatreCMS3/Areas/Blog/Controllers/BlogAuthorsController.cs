@@ -124,5 +124,11 @@ namespace TheatreCMS3.Areas.Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // GET: Blog/BlogAuthors/BlogPosts/UnderConstruction
+        public ActionResult BlogPosts()
+        {
+            return View("UnderConstruction");
+        }
     }
 }

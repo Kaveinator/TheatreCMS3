@@ -11,51 +11,54 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-container">
         <h4>Blog Author</h4>
-        @Html.ValidationSummary(true, "", new { @class = "cms-text-ligh" })
+        @Html.ValidationSummary(true, "", new { @class = "validation-text" })
         @Html.HiddenFor(model => model.BlogAuthorId)
-
-        <div class="col-md-12">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-2" })
+        @*Name section*@
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "label-text col-2" })
             <div>
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control input-text" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "validation-text" })
             </div>
         </div>
-
+        @*Bio section*@
         <div class="col-md-12">
-            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "label-text col-2" })
             <div>
-                @Html.TextAreaFor(model => model.Bio, new { @class = "form-control", style = "height: 200px;" })
-                @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.Bio, new { @class = "bio-sec input-text" })
+                @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "validation-text" })
             </div>
         </div>
 
         <div class="row justify-content-md-center">
+            @*Joined section*@
             <div class="form-group col-4">
-                @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "label-text col-2" })
                 <div>
-                    @Html.TextBoxFor(model => model.Joined, "{0:yyyy-MM-ddTHH:mm}", new { @type = "datetime-local", @class = "form-control", id = "JoinedPicker", required = "true" })
-                    @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-warning" })
+                    @Html.TextBoxFor(model => model.Joined, "{0:yyyy-MM-ddTHH:mm}",
+                    new { @type = "datetime-local", @class = "form-control input-text", id = "JoinedPicker", required = "true" })
+                    @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "validation-text" })
                 </div>
             </div>
-
+            @*Left section*@
             <div class="form-group col-4">
-                @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "label-text col-2" })
                 <div>
-                    @Html.TextBoxFor(model => model.Left, "{0:yyyy-MM-ddTHH:mm}", new { @type = "datetime-local", @class = "form-control", id = "LeftPicker" })
-                    @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-warning" })
+                    @Html.TextBoxFor(model => model.Left, "{0:yyyy-MM-ddTHH:mm}",
+                    new { @type = "datetime-local", @class = "form-control input-text", id = "LeftPicker" })
+                    @Html.ValidationMessageFor(model => model.Left, "", new { @class = "validation-text" })
                 </div>
             </div>
         </div>
-
+        @*Nav button section*@
         <div class="row justify-content-md-start ml-0">
             <div class="form-group col-2">
-                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn bt-2 mt-2 btn-dark" })
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn bk-btn mt-2" })
             </div>
             <div class="form-group col-2">
-                <input type="submit" value="Save" class="btn bt-2 mt-2 btn-light" />
+                <input type="submit" value="Save" class="btn create-btn mb-2 mt-2" />
             </div>
         </div>
     </div>
