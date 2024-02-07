@@ -14,205 +14,201 @@
 
 /*Create & Edit Page Styling*/
 
-.general{
-    font-weight: bold;
-}
-
-.form-horizontal {
-    background-color: #BD1A11;
+.form-container {
+    background-color: var(--main-color);
     border-radius: 5px;
     width: 835px;
     margin: auto;
 }
 
-.textArea {
+.validation-text {
+    color: var(--secondary-color);
+}
+
+.label-text {
+    color: var(--light-color);
+}
+
+.input-text {
+    color: var(--dark-color);
+}
+
+.bio-sec {
+    height: 200px;
+    width: 100%;
     border-radius: 5px;
 }
 
-.form-group {
-    width: 1000px;
+.bk-btn {
+    background-color: var(--dark-color);
+    color: var(--light-color);
 }
 
-
-.flex-container {
-    display: flex;
+.bk-btn:hover {
+    color: var(--dark-color);
+    background-color: var(--light-color);
 }
 
-.buttons {
-    margin-bottom: 10px;
-    padding: 20px;
+.create-btn {
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
-.button {
-    color: white;
-}
-
-.name {
-    margin-top: 15px;
-}
-
-.btl {
-    color: white;
-}
-.btl:hover {
-    text-decoration: none;
-    color: lightgray;
-}
-
-.joined {
-    width: 220px;
-    margin: auto;
-}
-
-.joinedLabel {
-     margin-left: 50px;
-}
-
-.left {
-    width: 220px;
+.create-btn:hover {
+    color: var(--light-color);
+    background-color: var(--dark-color);
 }
 
 /*Details & Delete Styling*/
 
-.table {
-    background-color: white;
+.fa-facebook {
+    color: blue;
+    text-decoration: none;
 }
 
-.detailsContainer {
-    background-color: white;
+.fa-instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, 
+    #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-decoration: none;
+}
+
+a:hover, a:hover .fa-facebook,
+a:hover .fa-instagram {
+    text-decoration: none;
     color: black;
-    border-radius: 5px;
-    margin-bottom: 15px
 }
 
-.button {
-    color: white;
-}
-
-    .button:hover {
-        color: lightgray;
-        text-decoration: none;
-    }
-
-.btnNav {
+.nav-btn-con {
     background-color: white;
     text-align: center;
-    width: 500px;
-    margin: auto;
+    width: 255px;
+    margin-left: 590px;
     padding-top: 5px;
     border-radius: 5px 5px 0px 0px;
     color: black;
 }
 
-.authorName {
-    font-weight: bold;
-    font-size: 35px;
+.author-det-btn {
+    background-color: var(--dark-color);
+    color: var(--light-color);
 }
 
-.imageContainer {
-    width: 250px;
-    height: 300px;
+.author-det-btn:hover {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.outer-shell {
+    height: 100%;
+    width: 100%;
+    margin: 40px 0 0;
+    
+}
+
+.details-container {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    width: 93%;
+    height: 400px;
+    position: relative;
+    padding-right: 5px;
+}
+
+.image-container {
+    width: 400px;
+    height: 400px;
+    border-radius: 5px 0px 0px 5px;
     float: left;
+    overflow: hidden;
 }
 
-    .imageContainer img {
-        object-fit: contain;
-        width: 200px;
-        height: 300px;
-        object-fit: contain;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-.dl-horizontal {
-    flex: 1;
+.image-frame {
+    width: 100%;
+    height: 100%; 
+    border-radius: 5px 0px 0px 5px;
 }
 
-.bioSection {
-    width: 900px;
-    height: 225px;
+.image-frame img {
+    width: 100%; 
+    height: auto; 
 }
 
-.bioContainer {
-   overflow: auto;
+.bottom-details {
+    position: absolute;
+    bottom: 0;
+    left: 415px;
+    right: 0;
+    margin-top: 5px;
 }
 
-.detailsLeftLabel {
-    margin-left: 50px
+.image-link {
+    position: absolute;
+    bottom: 0;
+    left: 80px;
+    right: 0;
 }
 
-.detailsLeft {
-    margin-left: 5px;
+.side-by-side-details {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 380px);
 }
 
-.detailsJoined {
-    margin-left: 5px;
+.author-name {
+    font-weight: bold;
+    font-size: 25px;
+    padding-top: 10px;
+    padding-left: 415px;
 }
 
-.tabContainer {
-    height: 300px;
+.bio-section {
+    max-height: 275px;
+    width: 59%;
+    overflow: auto;
+    margin-top: 20px;
+    margin-left: 415px;
+    border: 3px solid var(--dark-color);
 }
 
-.flex-child {
-    flex: 1;
+dd {
+    margin-bottom: -10px;
 }
 
-    .flex-child:first-child {
-        margin-right: 20px;
-    }
-
-.authorDetailsTab {
-    height: 300px;
+dt {
+    margin-bottom: -10px;
 }
 
-.indexDelete {
+.edit-btn {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.edit-btn:hover {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.delete-btn {
+    background-color: var(--main-color);
+    color: var(--light-color);
     float: right;
+    margin-right: 76px;
+    margin-top: 8px;
+    margin-left: 5px;
+    padding: 0 25px;
 }
 
-.indexEdit {
-    margin-left: 975px; 
+.delete-btn:hover {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+h3 {
+    padding-left: 65px;
 }
 
 /*Modal Styling*/
 
-.modal {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-    background-color: #f4f4f4;
-    margin: 20% auto;
-    padding: 20px;
-    width: 800px;
-    height: 200px;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
-}
-
-.closeBtn {
-    color: #ccc;
-    float: right;
-    font-size: 30px;
-}
-
-.closeBtn:hover,.closeBtn:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modalText {
-    color: black;
-}
-
-.modalHeader {
-    font-weight: bold;
-    color: black;
-}
