@@ -200,12 +200,17 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogAuthorsController.cs" />
+    <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
+    <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
+    <Compile Include="Areas\Prod\Models\EventPlanner.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
+    <Compile Include="DAL\RentalHistoryContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -218,6 +223,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Areas\Rent\Models\RentalHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -299,6 +305,11 @@
     <Content Include="Areas\Prod\Views\web.config" />
     <Content Include="Areas\Rent\Views\web.config" />
     <Content Include="Areas\Blog\Views\web.config" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Create.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Delete.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\Details.cshtml" />
@@ -463,11 +474,20 @@
     <Content Include="webfonts\Oswald-VariableFont_wght.ttf" />
     <Content Include="webfonts\PTSans-Regular.ttf" />
     <Content Include="webfonts\Broadway Normal.ttf" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Donate.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Create.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Delete.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Details.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Edit.cshtml" />
+    <Content Include="Areas\Rent\Views\RentalHistories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
+	<Folder Include="Areas\Blog\Controllers\" />	
     <Folder Include="Areas\Blog\Data\" />
+	<Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Data\" />

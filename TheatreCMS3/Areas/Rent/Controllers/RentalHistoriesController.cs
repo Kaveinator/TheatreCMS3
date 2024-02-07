@@ -18,6 +18,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // GET: RentalHistories
         public ActionResult Index() //the index action method gets a rental history list
         {
+            //return View(db.RentalHistories.OrderByDescending(rentalHistory => new.DateCreated).Take(10).ToList());
             return View(db.RentalHistories.ToList());
         }
 
@@ -47,12 +48,13 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental")] RentalHistory rentalHistory)
+        public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental,DateCreated")] RentalHistory rentalHistory)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    //rentalHistory.DateCreated = DateTime.Now;
                     db.RentalHistories.Add(rentalHistory);
                     db.SaveChanges();
                     return RedirectToAction("Index");

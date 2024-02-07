@@ -7,70 +7,88 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </th>
-        <th></th>
-    </tr>
+<button onclick="location.href='@Url.Action("Create")'" class="create-button">Create New</button>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AllDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProduction)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
-        </td>
-    </tr>
+
+@foreach (var item in Model)
+{
+
+    <div class="container card-change">
+        <div class="card ">
+            <div class="card-header text-dark title-change">
+                @Html.DisplayFor(modelItem => item.Title)
+
+                    @if (item.EndDate != null)
+                    {
+                        if (item.StartDate < DateTime.Now)
+                        {
+                            int daysRemaining;
+                            daysRemaining = (item.EndDate - DateTime.Now).Days;
+
+                            <span>
+                                @if (daysRemaining == 0)
+                                {
+                                    <span class="badge badge-danger badge-layout">Last Day!</span>
+                                }
+                                else if (daysRemaining >= 1)
+                                {
+                                    <span class="badge badge-warning badge-layout">@daysRemaining days remaining!</span>
+                                }
+                            </span>
+                        }
+                    }
+            </div>
+
+            @if (item.StartTime != null && item.EndTime != null)
+            {
+                TimeSpan duration = item.EndTime.Value - item.StartTime.Value;
+                <div class="card-body text-dark">
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                    -
+                    @Html.DisplayFor(modelItem => item.EndTime)
+
+                    @if (item.AllDay)
+                    {
+                        <div>
+                            All Day
+                        </div>
+                    }
+                    else if (duration.Days >= 1)
+                    {
+                        <div>
+                            <span data-toggle="popover" data-content="This is a  @(duration.Days) day event" data-placement="bottom" style="cursor: pointer;">
+                                <i class="fas fa-clock"></i> @(duration.Days) days
+                            </span>
+                        </div>
+                    }
+                </div>
+            }
+            <div class="card-footer text-dark card-footer-container">
+                <div>
+                    Start Date: @item.StartDate.ToString("yyyy/MM/dd")
+                </div>
+                <div>
+                    Tickets Available: @Html.DisplayFor(modelItem => item.TicketsAvailable)
+                </div>
+                @if (item.IsProduction == true)
+                {
+                    <div>
+                        Production: @Html.DisplayFor(modelItem => item.IsProduction)
+                    </div>
+                }
+            </div>
+            <div class="CRUD-layout">
+                <button onclick="location.href='@Url.Action("Edit", new { id = item.EventId })'" class="btn-back-to-list">Edit</button>
+                <button onclick="location.href='@Url.Action("Details", new { id = item.EventId })'" class="btn-back-to-list">Details</button>
+                <button onclick="location.href='@Url.Action("Delete", new { id = item.EventId })'" class="btn-back-to-list">Delete</button>
+            </div>
+        </div>
+    </div>
 }
 
-</table>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
+
