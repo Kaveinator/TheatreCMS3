@@ -144,6 +144,14 @@ a:hover .fa-instagram {
     margin-top: 5px;
 }
 
+.button-move {
+    position: absolute;
+    bottom: 0;
+    left: 907px;
+    right: 0;
+    margin-top: 5px;
+}
+
 .image-link {
     position: absolute;
     bottom: 0;
@@ -191,6 +199,17 @@ dt {
     background-color: var(--light-color);
 }
 
+.edit-btn-sm {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    padding: 0rem 0.75rem;
+}
+
+.edit-btn-sm:hover {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
 .delete-btn {
     background-color: var(--main-color);
     color: var(--light-color);
@@ -202,6 +221,17 @@ dt {
 }
 
 .delete-btn:hover {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.delete-btn-sm {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    padding: 0rem 0.75rem;
+}
+
+.delete-btn-sm:hover {
     color: var(--dark-color);
     background-color: var(--light-color);
 }

@@ -318,6 +318,7 @@
     <Content Include="Areas\Blog\Views\BlogAuthors\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogAuthors\UnderConstruction.cshtml" />
     <Content Include="Areas\Rent\Views\Shared\_RentalHistoriesPartial.cshtml" />
+    <Content Include="Areas\Blog\Views\Shared\_BlogAuthor.cshtml" />
     <Content Include="Areas\Rent\Views\RentalHistories\AccessDenied.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -489,7 +490,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
     <Folder Include="Areas\Blog\Data\" />
-    <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Data\" />
