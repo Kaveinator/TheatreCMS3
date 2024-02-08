@@ -1,0 +1,20 @@
+﻿@using TheatreCMS3.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "AccessDenied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Access Denied</h2>
+<p>You are not authorized to visit this page!</p>
+<div class="RentalHistory-AccessDenied-image">
+    <img src="~/Content/images/rentalhistory_unauthorized.jpg" alt="Access denied">
+</div>
+<div class="RentalHistory-AccessDenied-button">
+    <button class="btn btn-secondary m-3 RentalHistory-backToList-button">@Html.ActionLink("Click here to login", "../../Account/Login")</button>
+</div>
+
+
+
+

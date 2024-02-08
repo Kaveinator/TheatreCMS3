@@ -34,7 +34,7 @@
                         <div class="form-group row">
                             <div class="col-12">
                                 <label id="RentalHistory-create--notesLabel">Notes</label>
-                                <div id="RentalHistory-create--damagesIncurredLabel">@Html.LabelFor(model => model.DamagesIncurred, htmlAttributes = new { @class = "form-label" })</div>
+                                <div id="RentalHistory-create--damagesIncurredLabel">@Html.LabelFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-label" } })</div>
                                 @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })
                             </div>
