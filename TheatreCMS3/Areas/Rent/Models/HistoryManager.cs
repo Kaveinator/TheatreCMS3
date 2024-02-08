@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Web.Mvc;
 
 namespace TheatreCMS3.Areas.Rent.Models
 {
@@ -42,6 +43,20 @@ namespace TheatreCMS3.Areas.Rent.Models
                 string newId = historymanager.Id;
             }
 
+        }
+
+        public class HistoryManagerAuthorize : AuthorizeAttribute
+        {
+            public override void OnAuthorization(AuthorizationContext filterContext)
+
+            {
+                base.OnAuthorization(filterContext);
+
+                if (filterContext.Result is HttpUnauthorizedResult)
+                {
+                    filterContext.Result = new RedirectResult("~/Rent/RentalHistories/AccessDenied");
+                }
+            }
         }
     }
 }

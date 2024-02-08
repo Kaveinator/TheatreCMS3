@@ -206,7 +206,6 @@
     <Compile Include="Areas\Prod\Models\EventPlanner.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Models\HistoryManager.cs" />
-    <Compile Include="Areas\Rent\Models\HistoryManagerAuthorize.cs" />
     <Compile Include="Areas\Rent\RentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
