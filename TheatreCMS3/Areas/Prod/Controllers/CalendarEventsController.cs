@@ -96,6 +96,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CalendarEvents/Delete/5
+        [EventAuthorize(Roles = "EventPlanner")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
