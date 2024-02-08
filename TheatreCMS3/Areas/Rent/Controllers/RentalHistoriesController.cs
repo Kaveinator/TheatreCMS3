@@ -22,6 +22,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
 
         }
 
+
         // GET: RentalHistories/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,7 +38,9 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalHistory);
         }
 
+
         // GET: RentalHistories/Create
+        [HistoryManager.HistoryManagerAuthorize(Roles = "HistoryManager")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +49,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         // POST: RentalHistories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HistoryManager.HistoryManagerAuthorize(Roles = "HistoryManager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RentalHistoryId,RentalDamaged,DamagesIncurred,Rental,DateCreated")] RentalHistory rentalHistory)
@@ -67,6 +71,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: RentalHistories/Edit/5
+        [HistoryManager.HistoryManagerAuthorize(Roles = "HistoryManager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,6 +86,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(rentalHistory);
         }
 
+        [HistoryManager.HistoryManagerAuthorize(Roles = "HistoryManager")]
         // POST: RentalHistories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -105,6 +111,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // GET: RentalHistories/Delete/5
+        [HistoryManager.HistoryManagerAuthorize(Roles = "HistoryManager")]
         public ActionResult Delete(int? id, bool? saveChangesError=false)
         {
             if (id == null)
@@ -124,6 +131,7 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         }
 
         // POST: RentalHistories/Delete/5
+        [HistoryManager.HistoryManagerAuthorize(Roles = "HistoryManager")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
@@ -175,6 +183,11 @@ namespace TheatreCMS3.Areas.Rent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }
