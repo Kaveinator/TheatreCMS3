@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TheatreCMS3.Areas.Prod.Authorization;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
@@ -37,6 +38,8 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CalendarEvents/Create
+
+        [EventAuthorize(Roles = "EventPlanner")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +50,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public ActionResult Create([Bind(Include = "EventId,Title,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEvent calendarEvent)
         {
             if (ModelState.IsValid)
@@ -60,6 +64,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CalendarEvents/Edit/5
+        [EventAuthorize(Roles = "EventPlanner")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +96,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers
         }
 
         // GET: Prod/CalendarEvents/Delete/5
+        [EventAuthorize(Roles = "EventPlanner")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,6 +120,10 @@ namespace TheatreCMS3.Areas.Prod.Controllers
             db.CalendarEvents.Remove(calendarEvent);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)
