@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalHistory>
+
+@{
+    ViewBag.Title = "_LoginBtnHistoryManager";
+}
+
+@using (Html.BeginForm("HistoryManagerLogin", "Account", new { area = "", ReturnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <button class="btn btn-danger" value="Log in" type="submit" id="RentalHistory-index--HistoryManagerLoginBtn">
+        Log in as History Manager</button>
+}

@@ -189,5 +189,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
         {
             return View();
         }
+
+        public ActionResult _LoginBtnHistoryManager()
+        {
+            return PartialView();
+        }
     }
 }
