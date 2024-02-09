@@ -92,12 +92,3 @@ $(document).ready(function () {
         });
     }
 });
-
-$(document).ready(function () {
-    $('#RentalHistory-index--HistoryManagerLoginBtn').click(function () {
-        $("#EmailOrUsername").val("historymanagerusername1");
-        $("#Password").val("passwordtest6677");
-        $(".LoginButton").submit();
-        //document.getElementsByClassName("LoginButton").submit();
-    })
-});

@@ -30,8 +30,3 @@
     </tr>
     @Html.Partial("_RentalHistoriesPartial")
 </table>
-
-@if (!System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
-{
-    { Html.RenderPartial("_LoginBtnHistoryManager"); }
-}
