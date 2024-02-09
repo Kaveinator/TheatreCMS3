@@ -39,3 +39,8 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.RentalHistoryId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@if (!System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+{
+    { Html.RenderPartial("_LoginBtnHistoryManager"); }
+}

@@ -74,3 +74,10 @@
 .RentalHistory-index--dropdownMenuButton {
     display: none;
 }
+
+#RentalHistory-index--HistoryManagerLoginBtn {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
