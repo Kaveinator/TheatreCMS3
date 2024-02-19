@@ -437,11 +437,12 @@ footer {
         border: 2px solid var(--secondary-color);
         background: var(--light-color) !important;
     }
-
+/*Britny Ortega added*/
 .home-signin--container {
     text-align: center;
     columns: 100px 4;
     text-overflow: ellipsis;
+    text-shadow: 4px 4px 6px #000000; /*added shadow*/
 }
 
     .home-signin--container p {
@@ -451,11 +452,16 @@ footer {
         border-radius: 25px;
     }
 
-.donate-index--title {
-    font-family: Broadway;
-    padding-top: 80px;
-    padding-bottom: 10px;
-}
+    /*Britny Ortega added hover effect*/
+        .home-signin--container p:hover {
+            background-color: #f04d44;
+        }
+
+    .donate-index--title {
+        font-family: Broadway;
+        padding-top: 80px;
+        padding-bottom: 10px;
+    }
 
 .donate-index--form {
     background-color: var(--main-color--light);
