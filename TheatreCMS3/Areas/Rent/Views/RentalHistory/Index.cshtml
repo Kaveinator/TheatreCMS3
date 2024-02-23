@@ -10,37 +10,59 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RentalDamaged)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DamagesIncurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rental)
-        </th>
-        <th></th>
-    </tr>
+<div class="page-unique-identifier">
+    <!--needed this div to hide check boxes on this page-->
+    <div class="table-container">
+        <table class="table">
+            <tr>
+                <th class="header-cell">
+                    @Html.Label("Rental Histories", htmlAttributes: new { @class = "control-label col-md-6" })
+                </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RentalDamaged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DamagesIncurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rental)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RentalHistoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RentalHistoryId })
-        </td>
-    </tr>
-}
+                <th>
 
-</table>
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="icon-cell">
+                        <!--once I hid the checkboxes on Index page, I moved the 'damage(red x) or not(green check)' parameters before Rental -->
+                        @if (item.RentalDamaged)
+                        {
+                            <i class="fa-solid fa-circle-xmark" style="color: red;"></i> <!-- Red X icon -->
+                        }
+                        else
+                        {
+                            <i class="fa-solid fa-circle-check" style="color: green" id="greyed-out"></i> <!-- Green check icon -->
+                        }
+                    </td>
+                    <td class="rental-cell" center;>
+                        @Html.DisplayFor(modelItem => item.Rental)
+                    </td>
+                    <td class="damage-cell">
+                        @Html.DisplayFor(modelItem => item.RentalDamaged)
+                    </td>
+                    <td class="incurred-cell">
+                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                    </td>
+
+                    <td>
+                        <div class="dropdown" id="dropdown_@item.RentalHistoryId">
+                            <button class="btn btn-secondary dropdown-toggle hidden-button" type="button" id="dropdownMenuButton_@item.RentalHistoryId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="vertical-ellipsis">&#8942;</span> <!-- Vertical ellipsis character -->
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_@item.RentalHistoryId" id="">
+                                <span class="dropdown-item"><i class="fa-solid fa-pencil"></i>@Html.ActionLink("Edit", "Edit", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })</span>
+                                <span class="dropdown-item"><i class="fa-solid fa-info"></i>@Html.ActionLink("Details", "Details", new { id = item.RentalHistoryId }, new { @class = "dropdown-item" })</span>
+                                <span class="dropdown-item"><i class="fa-solid fa-trash-can"></i>@Html.ActionLink("Delete", "Delete", new { id = item.RentalHistoryId }, new { @class = "dropdown-item", style = "color: red;", onclick = "return confirm('Are you sure you want to delete this item?');" })</span>
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>
