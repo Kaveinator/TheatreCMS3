@@ -47,3 +47,4 @@ $(document).ready(function () {
     });
 });
  //end of drop down menu on Rental History Index
+
