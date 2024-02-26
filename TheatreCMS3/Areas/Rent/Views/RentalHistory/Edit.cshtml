@@ -28,8 +28,8 @@
         <div class="form-group">
             @Html.Label("RentalDamage", "Damaged?", htmlAttributes: new { @class = "control-label col-md-6" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RentalDamaged)
+                <div class="checkbox" id="myCheck">
+                    @Html.EditorFor(model => model.RentalDamaged, new { htmlAttributes = new { @id = "RentalDamaged" } })
                     @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
                 </div>
             </div>

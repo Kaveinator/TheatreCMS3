@@ -1,17 +1,14 @@
-﻿/* Rental History Create Page js */
+﻿/***Rental History Create/Edit Page js***/
 
 document.addEventListener("DOMContentLoaded", function () {
-    /*adding variables to shorthand writing out syntax throughout code*/
+    // Adding variables to shorthand writing out syntax throughout code
     var checkbox = document.getElementById("RentalDamaged");
     var notesLabel = document.getElementById("notes");
     var damageIncurredLabel = document.getElementById("damage-incurred");
 
-    // Hiding "Damages Incurred" label and only show "Notes"
-    damageIncurredLabel.style.display = "none";
-
-    // Listen for changes in the checkbox for label switch in text field
-    checkbox.addEventListener("change", function () {
-        if (this.checked) {
+    // Function to update label visibility based on checkbox state
+    function updateLabelVisibility() {
+        if (checkbox.checked) {
             // Checkbox is checked, show "Damages Incurred" label and hide "Notes" label
             damageIncurredLabel.style.display = "block";
             notesLabel.style.display = "none";
@@ -20,37 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
             damageIncurredLabel.style.display = "none";
             notesLabel.style.display = "block";
         }
+    }
+        // calling function to keep lable change when checkbox is checked
+        updateLabelVisibility();
+        // Event listener to handle checkbox change
+        checkbox.addEventListener("change", updateLabelVisibility);
     });
-});
 
-/* Rental History Create Page js */
+//***end of create/edit page***
 
-document.addEventListener("DOMContentLoaded", function () {
-    /*adding variables to shorthand writing out syntax throughout code*/
-    var checkbox = document.getElementById("RentalDamaged");
-    var notesLabel = document.getElementById("notes");
-    var damageIncurredLabel = document.getElementById("damage-incurred");
-
-    // Hiding "Damages Incurred" label and only show "Notes"
-    damageIncurredLabel.style.display = "none";
-
-    // Listen for changes in the checkbox for label switch in text field
-    checkbox.addEventListener("change", function () {
-        if (this.checked) {
-            // Checkbox is checked, show "Damages Incurred" label and hide "Notes" label
-            damageIncurredLabel.style.display = "block";
-            notesLabel.style.display = "none";
-        } else {
-            // Checkbox is unchecked, show "Notes" label and hide "Damages Incurred" label
-            damageIncurredLabel.style.display = "none";
-            notesLabel.style.display = "block";
-        }
-    });
-});
-
-//end of create page
-
-//Drop Down menu on Index Page 
+//***Drop Down menu on Rental Index Page ***
 
 //drop down menu features to be invisible until hovered over
 $(document).ready(function () {
