@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //***sorting feature on Index Page***//
 
+var originalOrder = $('.table tbody tr').slice(1).get().slice();
+
 function sortRentalHistories(sortBy) {
     // Get all rows except the first one (header row)
     var rows = $('.table tbody tr').slice(1).get();
@@ -34,6 +36,10 @@ function sortRentalHistories(sortBy) {
     rows.sort(function (a, b) {
         var aValue, bValue;
         switch (sortBy) {
+            case 'none':
+                // Revert to the original order of table before sorting
+                rows = originalOrder.slice();
+                return originalOrder;
             case 'damaged':
                 aValue = $(a).find('.icon-cell .fa-circle-xmark').length; // Check if damaged icon exists
                 bValue = $(b).find('.icon-cell .fa-circle-xmark').length;
@@ -50,9 +56,6 @@ function sortRentalHistories(sortBy) {
                 aValue = $(a).find('.rental-cell').text().trim();
                 bValue = $(b).find('.rental-cell').text().trim();
                 return bValue.localeCompare(aValue);
-            default:
-                // No sorting
-                return 0;
         }
     });
 
