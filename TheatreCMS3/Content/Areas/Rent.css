@@ -90,27 +90,6 @@ h2, h4 {
     overflow: auto;
 }
 
-/* WebKit (Chrome, Safari) */
-::-webkit-scrollbar {
-    width: 5px; /* Width of the scrollbar */
-}
-
-::-webkit-scrollbar-track {
-    background: #FFFBFB; /* Color of the track */
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #F04D44;
-    border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color of the thumb on hover */
-}
-
-.table-container scrollbar {
-    border-radius: 25px;
-}
 
 /* Initially hide the dropdown button */
 /*.dropdown-toggle {
@@ -224,3 +203,12 @@ tr:hover .ellipsis {
     margin-right: 40%;
     width: -300px;
 }
+
+.sort-width {
+    max-width: 600px;
+    padding-left: 100px;
+    padding-bottom: 10px;
+    padding-top:10px;
+    color:black;
+}
+

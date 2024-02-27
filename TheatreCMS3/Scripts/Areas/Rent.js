@@ -1,5 +1,4 @@
 ﻿/***Rental History Create/Edit Page js***/
-
 document.addEventListener("DOMContentLoaded", function () {
     // Adding variables to shorthand writing out syntax throughout code
     var checkbox = document.getElementById("RentalDamaged");
@@ -22,9 +21,60 @@ document.addEventListener("DOMContentLoaded", function () {
         updateLabelVisibility();
         // Event listener to handle checkbox change
         checkbox.addEventListener("change", updateLabelVisibility);
+});
+//***end of create/edit page***
+
+//***sorting feature on Index Page***//
+
+function sortRentalHistories(sortBy) {
+    // Get all rows except the first one (header row)
+    var rows = $('.table tbody tr').slice(1).get();
+
+    // Sort the rows based on the selected option
+    rows.sort(function (a, b) {
+        var aValue, bValue;
+        switch (sortBy) {
+            case 'damaged':
+                aValue = $(a).find('.icon-cell .fa-circle-xmark').length; // Check if damaged icon exists
+                bValue = $(b).find('.icon-cell .fa-circle-xmark').length;
+                return bValue - aValue;
+            case 'undamaged':
+                aValue = $(a).find('.icon-cell .fa-circle-check').length; // Check if undamaged icon exists
+                bValue = $(b).find('.icon-cell .fa-circle-check').length;
+                return bValue - aValue;
+            case 'az':
+                aValue = $(a).find('.rental-cell').text().trim();
+                bValue = $(b).find('.rental-cell').text().trim();
+                return aValue.localeCompare(bValue);
+            case 'za':
+                aValue = $(a).find('.rental-cell').text().trim();
+                bValue = $(b).find('.rental-cell').text().trim();
+                return bValue.localeCompare(aValue);
+            default:
+                // No sorting
+                return 0;
+        }
     });
 
-//***end of create/edit page***
+    // Re-add sorted rows to the table body b/c they kept disappearing 
+    $.each(rows, function (index, row) {
+        $('.table tbody').append(row);
+    });
+}
+
+// Attach event listener to the dropdown menu
+$('#sortSelect').change(function () {
+    var sortBy = $(this).val();
+    sortRentalHistories(sortBy);
+});
+
+
+
+
+
+
+
+
 
 //***Drop Down menu on Rental Index Page ***
 

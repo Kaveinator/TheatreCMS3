@@ -12,19 +12,44 @@
 </p>
 <div class="page-unique-identifier"><!--needed this div to hide check boxes on this page-->
     <div class="table-container">
+
+
+        <!--sorting menu-->
+        <div class="row">
+            <div class="col-md-6 offset-md-6 text-right sort-width">
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <label for="sort">Sorted by:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select id="sortSelect" class="form-control">
+                            <option value="none" onclick="sortRentalHistories('none')" id="sort-none">No Extra Sorting...</option>
+                            <option value="damaged" onclick="sortRentalHistories('damaged')" id="sort-damage">Damaged Rentals</option>
+                            <option value="undamaged" onclick="sortRentalHistories('undamaged')" id="sort">Undamaged Rentals</option>
+                            <option value="az" onclick="sortRentalHistories('az')" id="sort-az">Rentals A - Z</option>
+                            <option value="za" onclick="sortRentalHistories('za')" id="sort-za">Rentals Z - A</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <table class="table">
+
             <tr>
                 <th class="header-cell">
-                    @Html.Label("Rental Histories", htmlAttributes: new { @class = "control-label col-md-6" })
+                    <h3>@Html.Label("Rental Histories", htmlAttributes: new { @class = "control-label col-md-6" })</h3>
+
+
+
                 </th>
 
                 <th>
 
                 </th>
             </tr>
-
-
-            @foreach (var item in Model)
+            <!--model.reverse() ensures all new entries will be on top of table-->
+            @foreach (var item in Model.Reverse())
             {
                 <tr>
                     <td class="icon-cell">
@@ -38,7 +63,7 @@
                             <i class="fa-solid fa-circle-check" style="color: green" id="greyed-out"></i> <!-- Green check icon -->
                         }
                     </td>
-                    <td class="rental-cell" center;>
+                    <td class="rental-cell">
                         @Html.DisplayFor(modelItem => item.Rental)
                     </td>
                     <td class="damage-cell">
@@ -63,6 +88,10 @@
 
                 </tr>
             }
+
         </table>
+        
     </div>
 </div>
+
+
