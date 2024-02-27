@@ -21,6 +21,8 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             return View(db.RentalHistory.ToList());
         }
 
+
+
         // GET: Rent/RentalHistories/Details/5
         public ActionResult Details(int? id)
         {
@@ -124,5 +126,10 @@ namespace TheatreCMS3.Areas.Rent.Controllers
             }
             base.Dispose(disposing);
         }
+
+       
     }
 }
+
+
+        
