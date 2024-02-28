@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 id="indexh2">Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-6 text-right sort-width">
                 <div class="row">
-                    <div class="col-md-4 text-right">
+                    <div class="col-md-3 text-right">
                         <label for="sort">Sorted by:</label>
                     </div>
                     <div class="col-md-8">
@@ -34,16 +34,12 @@
             </div>
         </div>
 
-        <table class="table">
+        <table class="table" style="border-top: none" >
 
             <tr>
-                <th class="header-cell">
-                    <h3>@Html.Label("Rental Histories", htmlAttributes: new { @class = "control-label col-md-6" })</h3>
-
-
-
+                <th class="header-cell" style="white-space: nowrap;"> <!---adding style to title to show all on one line-->
+                    @Html.Label("Most recent Rental Histories", htmlAttributes: new { @class = "control-label col-md-6" })
                 </th>
-
                 <th>
 
                 </th>
@@ -52,6 +48,7 @@
             @foreach (var item in Model.Reverse())
             {
                 <tr>
+
                     <td class="icon-cell">
                         <!--once I hid the checkboxes on Index page, I moved the 'damage(red x) or not(green check)' parameters before Rental -->
                         @if (item.RentalDamaged)
@@ -63,16 +60,32 @@
                             <i class="fa-solid fa-circle-check" style="color: green" id="greyed-out"></i> <!-- Green check icon -->
                         }
                     </td>
-                    <td class="rental-cell">
-                        @Html.DisplayFor(modelItem => item.Rental)
-                    </td>
-                    <td class="damage-cell">
-                        @Html.DisplayFor(modelItem => item.RentalDamaged)
-                    </td>
-                    <td class="incurred-cell">
-                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
-                    </td>
 
+                    <td class="rental-cell" style="max-width: 200px; overflow: hidden; white-space: nowrap;">
+                        <!--making rental act as button for collapse damages incurred feature-->
+                        <div class="btn btn-dark hover-accordion rental-click" data-toggle="collapse" data-target="#collapseExample_@item.RentalHistoryId" aria-expanded="false" aria-controls="collapseExample_@item.RentalHistoryId">
+                            @Html.DisplayFor(modelItem => item.Rental)
+                        </div>
+                        <!--bootstrap collapse for rental notes on state of rental-->
+                        <div class="collapse" id="collapseExample_@item.RentalHistoryId">
+                            <div class="form-control" style="border: none; max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
+                                @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                            </div>
+                        </div>
+                    </td>
+                    
+                    <td class="damage-cell">
+                        @if (item.RentalDamaged)
+                        {
+                            <!--displaying the damage notes if damage checkbox is checked during editing-->
+                            @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                        }
+                        else
+                        {
+                            <!--if no damages incurred on rental, shows 'none' next to rental-->
+                            <text>None</text>
+                        }
+                    </td>  
                     <td>
                         <div class="dropdown" id="dropdown_@item.RentalHistoryId">
                             <button class="btn btn-secondary dropdown-toggle hidden-button" type="button" id="dropdownMenuButton_@item.RentalHistoryId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

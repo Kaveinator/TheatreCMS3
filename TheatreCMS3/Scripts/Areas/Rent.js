@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //***sorting feature on Index Page***//
 
+//this variable resets table to original state
 var originalOrder = $('.table tbody tr').slice(1).get().slice();
 
 function sortRentalHistories(sortBy) {
@@ -70,22 +71,16 @@ $('#sortSelect').change(function () {
     var sortBy = $(this).val();
     sortRentalHistories(sortBy);
 });
-
-
-
-
-
-
+//end sorting feature //
 
 
 
 //***Drop Down menu on Rental Index Page ***
 
-//drop down menu features to be invisible until hovered over
+//drop down menu(edit, details, delete) features to be invisible until hovered over
 $(document).ready(function () {
     // Initially hide the dropdown menu
     $(".dropdown-menu").hide();
-
 
     // Show the dropdown button when hovering over a table row
     $("tr").mouseenter(function () {
@@ -101,3 +96,16 @@ $(document).ready(function () {
 });
  //end of drop down menu on Rental History Index
 
+//js for collapse accordion effect when clicking over Rentals on Index Page//
+$(document).ready(function () {
+    $('.rental-click').click(function () {
+        $(this).siblings('.collapse').collapse('toggle');
+    });
+
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('.rental-cell').length) {
+            $('.collapse').collapse('hide');
+        }
+    });
+});
+//end of clicking effect on rentals on index table//
