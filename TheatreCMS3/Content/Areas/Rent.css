@@ -197,6 +197,7 @@ tr:hover .ellipsis {
     width: 250px;
     text-align: center;
     padding: 5px;
+    margin-left: 30%;
 }
 
 .damage-cell {
@@ -210,5 +211,16 @@ tr:hover .ellipsis {
     padding-bottom: 10px;
     padding-top:10px;
     color:black;
+    
 }
 
+/* Style for rental hover effect */
+.rental-hover {
+    cursor: pointer;
+}
+
+    /* Style for rental hover effect when hovering */
+    .rental-hover:hover {
+        background-color: #007bff;
+        color: #fff;
+    }

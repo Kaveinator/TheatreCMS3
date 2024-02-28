@@ -52,6 +52,7 @@
             @foreach (var item in Model.Reverse())
             {
                 <tr>
+
                     <td class="icon-cell">
                         <!--once I hid the checkboxes on Index page, I moved the 'damage(red x) or not(green check)' parameters before Rental -->
                         @if (item.RentalDamaged)
@@ -63,16 +64,32 @@
                             <i class="fa-solid fa-circle-check" style="color: green" id="greyed-out"></i> <!-- Green check icon -->
                         }
                     </td>
-                    <td class="rental-cell">
-                        @Html.DisplayFor(modelItem => item.Rental)
-                    </td>
-                    <td class="damage-cell">
-                        @Html.DisplayFor(modelItem => item.RentalDamaged)
-                    </td>
-                    <td class="incurred-cell">
-                        @Html.DisplayFor(modelItem => item.DamagesIncurred)
-                    </td>
 
+                    <td class="rental-cell">
+                        <!--making rental act as button for collapse damages incurred feature-->
+                        <div class="btn btn-primary hover-accordion rental-hover" data-toggle="collapse" data-target="#collapseExample_@item.RentalHistoryId" aria-expanded="false" aria-controls="collapseExample_@item.RentalHistoryId">
+                            @Html.DisplayFor(modelItem => item.Rental)
+                        </div>
+                        <!--bootstrap collapse for rental notes on state of rental-->
+                        <div class="collapse" id="collapseExample_@item.RentalHistoryId">
+                            <div class="form-control">
+                                @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                            </div>
+                        </div>
+                    </td>
+                    
+                    <td class="damage-cell">
+                        @if (item.RentalDamaged)
+                        {
+                            <!--displaying the damage notes if damage checkbox is checked during editing-->
+                            @Html.DisplayFor(modelItem => item.DamagesIncurred)
+                        }
+                        else
+                        {
+                            <!--if no damages incurred on rental, shows 'none' next to rental-->
+                            <text>None</text>
+                        }
+                    </td>  
                     <td>
                         <div class="dropdown" id="dropdown_@item.RentalHistoryId">
                             <button class="btn btn-secondary dropdown-toggle hidden-button" type="button" id="dropdownMenuButton_@item.RentalHistoryId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

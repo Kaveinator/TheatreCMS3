@@ -70,12 +70,7 @@ $('#sortSelect').change(function () {
     var sortBy = $(this).val();
     sortRentalHistories(sortBy);
 });
-
-
-
-
-
-
+//end sorting feature //
 
 
 
@@ -101,3 +96,22 @@ $(document).ready(function () {
 });
  //end of drop down menu on Rental History Index
 
+//js for collapse accordion effect when hovering over Rentals on Index Page//
+$(document).ready(function () {
+    //hover to show collapse
+    $('.rental-hover').hover(function () {
+        var hoverEffect = $(this).siblings('.collapse').attr('id');
+        $('#' + hoverEffect).collapse('show');
+    });
+    // move mouse away to hide collapse
+    $('.rental-hover, .collapse').mouseleave(function () {
+        $('.collapse').collapse('hide'); // Hide collapse content when mouse leaves
+    });
+    // click outside rental to hide collapse
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('.rental-hover, .collapse').length) {
+            $('.collapse').collapse('hide');
+        }
+    });
+});
+//end of hovering effect on rentals on index table//
