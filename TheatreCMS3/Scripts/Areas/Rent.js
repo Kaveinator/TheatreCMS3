@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //***sorting feature on Index Page***//
 
+//this variable resets table to original state
 var originalOrder = $('.table tbody tr').slice(1).get().slice();
 
 function sortRentalHistories(sortBy) {
@@ -80,7 +81,6 @@ $('#sortSelect').change(function () {
 $(document).ready(function () {
     // Initially hide the dropdown menu
     $(".dropdown-menu").hide();
-
 
     // Show the dropdown button when hovering over a table row
     $("tr").mouseenter(function () {

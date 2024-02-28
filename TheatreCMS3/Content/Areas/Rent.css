@@ -219,8 +219,8 @@ tr:hover .ellipsis {
     cursor: pointer;
 }
 
-    /* Style for rental hover effect when hovering */
-    .rental-hover:hover {
-        background-color: #007bff;
-        color: #fff;
-    }
+#indexh2 {
+    padding-top: 20px;
+    padding-bottom: -10px;
+}
+
