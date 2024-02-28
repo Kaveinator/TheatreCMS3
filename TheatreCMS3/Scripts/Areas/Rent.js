@@ -77,7 +77,7 @@ $('#sortSelect').change(function () {
 
 //***Drop Down menu on Rental Index Page ***
 
-//drop down menu features to be invisible until hovered over
+//drop down menu(edit, details, delete) features to be invisible until hovered over
 $(document).ready(function () {
     // Initially hide the dropdown menu
     $(".dropdown-menu").hide();
