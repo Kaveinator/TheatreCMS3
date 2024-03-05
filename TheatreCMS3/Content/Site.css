@@ -437,3 +437,22 @@ footer {
         border: 2px solid var(--secondary-color);
         background: var(--light-color) !important;
     }
+
+    /* Styling  for  Sign-in page*/
+.home-signin--container p {
+    border-radius: 15px;
+    background: var(--secondary-color);
+    padding: 15px;
+    width:200px;
+    height:50px;
+    position: static;
+    text-align: center;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.home-signin--container p:hover {
+    color: var(--main-color--light);
+    background-color: white;
+}
