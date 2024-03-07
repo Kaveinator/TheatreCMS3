@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+<body id="bodyContact">
+    <h1 id="headerContact">CONTACT US</h1>
+    <div id="contactContainer">
+        
+        <div>
+            <div id="column-1">
+                <!-- Contct Form -->
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="firstLastName" class="contactLabel">First & Last Name *</label>
+                        <input type="text" class="contactInput" id="firstLastName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress" class="contactLabel">Email Address *</label>
+                        <input type="email" class="contactInput" id="emailAddress" />
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="contactLabel">Subject *</label>
+                        <input type="text" class="contactInput" id="subject" />
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="contactLabel">Message *</label>
+                        <textarea class="form-control" id="message" rows="75"></textarea>
+                    </div>
+                    <button type="submit" id="contactButton">Submit</button>
+                </form>
+
+            </div>
+            <!-- Content On the Right -->
+            <div id="column-2">
+                <div>
+                    <h3>DONATE</h3>
+                    <p>
+                        We've got a Patreon account!<br />
+                        Help support live theatre in <br />
+                        Portland, OR. by becoming a<br />
+                        Patron today!
+                    </p>
+                    <div>
+                        <button type="button" class="contactButton2">Donate</button>
+                    </div>
+
+                </div>
+                <div>
+                    <h3>VOLUNTEER</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet<br />
+                        consectetur adipiscing elit, sed<br />
+                        do eiusmod tempor incididunt ut<br />
+                        labore et dolore magna.
+                    </p>
+                    <div>
+                        <button type="button" class="contactButton2">Volunteer</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
