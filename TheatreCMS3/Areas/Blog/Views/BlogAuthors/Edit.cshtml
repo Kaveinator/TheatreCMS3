@@ -36,18 +36,18 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Joined, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col">
-                @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @type = "date", @class = "form-control datepicker", @id = "datepicker" } })
-                @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
-            </div>
+          <div class="col">
+            @Html.EditorFor(model => model.Joined, new { htmlAttributes = new { @class = "form-control joined", type = "datetime-local", required = "required" } })
+            @Html.ValidationMessageFor(model => model.Joined, "", new { @class = "text-danger" })
+          </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Left, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col">
-                @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @type = "date", @class = "form-control datepicker", @id = "datepicker" } })
-                @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
-            </div>
+          <div class="col">
+            @Html.EditorFor(model => model.Left, new { htmlAttributes = new { @class = "form-control left", type = "datetime-local" } })
+            @Html.ValidationMessageFor(model => model.Left, "", new { @class = "text-danger" })
+          </div>
         </div>
 
         <div class="form-group">
