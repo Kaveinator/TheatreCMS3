@@ -29,14 +29,14 @@
                     @Html.LabelFor(model => model.RentalDamaged, "Damaged?", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-2 offset-md-2">
                         <div class="checkbox text-center">
-                            @Html.EditorFor(model => model.RentalDamaged, new { htmlAttributes = new { @id = "rentalDamagedChackbox" } })
+                            @Html.EditorFor(model => model.RentalDamaged, new { htmlAttributes = new { @id = "rentalDamagedCheckbox" } })
                             @Html.ValidationMessageFor(model => model.RentalDamaged, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.DamagesIncurred, "Damages Incurred", htmlAttributes: new { @class = "control-label col-md-2 text-inline" })
+            <div class="form-group damagesIncurred">
+                @Html.LabelFor(model => model.DamagesIncurred, "Damages Incurred", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="offset-md-12">
                     @Html.EditorFor(model => model.DamagesIncurred, new { htmlAttributes = new { @id = "damagesIncurredTextbox", @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.DamagesIncurred, "", new { @class = "text-danger" })

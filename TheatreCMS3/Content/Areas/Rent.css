@@ -50,3 +50,7 @@
     margin: 5px;
 }
 
+.damagesIncurred {
+    white-space: nowrap;
+}
+
