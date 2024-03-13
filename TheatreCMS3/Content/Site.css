@@ -458,9 +458,9 @@ footer {
 }
 
 
-/* Styling for Contact.cshtml */
+//* Styling for Contact.cshtml */
 
-#headerContact{
+#headerContact {
      
      color: white;
      font-size: 75px;
@@ -474,7 +474,7 @@ footer {
   
 }
 
-#bodyContact{
+#bodyContact {
     margin: 0px;
     background-color: indianred;
     border: 3px;
@@ -486,32 +486,26 @@ footer {
     border: 1px solid;
     border-color: gray;
 }
-.contactLabel, .contactInput{
+.contactLabel, .contactInput {
     display: block;
     width: 75%;
     height: 15px;
     padding: 3px;
 }
 
-#message{
+#message {
     border-radius: 5px;
     padding: 3px;
     height: 200px;
     width: 75%;
 }
 
-#contactContainer{
+#contactContainer {
     width: 100%;
     padding: 15px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 40px;
-}
-#contactGIT{
-    text-align: center;
-    font-size: 50px;
-    padding-top: 20px;
-
 }
 
 #contactButton {
@@ -525,7 +519,7 @@ footer {
     margin-top: 6px;
 }
 
-.contactButton2{
+.contactButton2 {
     color: white;
     background-color: red;
     border: 1px solid;
@@ -536,19 +530,18 @@ footer {
     margin-top: 6px;
 }
 
-#column-1{
+#column-1 {
    float: left;
    width: 70%;
    height: 100%;
    padding: 10px;
 }
 
-#column-2{
+#column-2 {
     float: left;
     width: 25%;
     height: 100%;
     padding: 10px;
-    top:
 }
 
 #contactForm {
@@ -556,3 +549,8 @@ footer {
     width: 100%;
     
 }
+
+
+                      
+
+
