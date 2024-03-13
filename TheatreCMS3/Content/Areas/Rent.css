@@ -10,3 +10,43 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+/* Create/Edit Rental History*/
+
+.rentalHistoryContainer {
+    max-width: 600px;
+    max-height: 500px;
+    background-color: #F04D44;
+    padding: 15px;
+    margin: auto;
+    border: none;
+    border-radius: 6px;
+}
+
+    .rentalHistoryContainer .offset-md-2 {
+        margin-left: 16.66667%;
+    }
+
+    .rentalHistoryContainer .text-center {
+        text-align: center;
+    }
+
+
+.rentalHistoryBTL {
+    color: white;
+    height: auto;
+    padding: 8px, 12px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    margin: 5px
+}
+
+.rentalHistoryCBtn {
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    margin: 5px;
+}
+
