@@ -21,6 +21,16 @@
     cursor: pointer; /* Change cursor to pointer on hover */
 }
 
+.btn-backtolist {
+    background-color: var(--secondary-color); /* Dark gold background */
+    color: var(--dark-color);
+    font-weight: bold; /* Black text */
+    border-radius: 0.25rem; /* Rounded edges */
+    border: none; /* Remove any default button border */
+    padding: 8px 16px; /* Adjust padding as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
 .btn-edit {
     background-color: var(--secondary-color); /* Dark gold background */
     color: var(--dark-color);
