@@ -20,7 +20,7 @@
     @Html.Partial("_Navbar")
     @Html.Partial("_DevNavbar")
 
-    @*this checks what controller the current view is. If it's a RentalHistories view than it will display the EasyLogin button for HistoryManager'*@
+    @*this checks what controller the current view is. If it's a RentalHistories view then it will display the EasyLogin button for HistoryManager'*@
     @if (HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "RentalHistories")
     {
         if (!Request.IsAuthenticated)
