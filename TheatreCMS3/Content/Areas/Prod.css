@@ -59,3 +59,62 @@
     padding: 20px; /* Add padding for better spacing */
     border-radius: 10px; /* Add border radius for rounded corners */
 }
+
+.title {
+    color: var(--dark-color);
+    font-weight: bolder;
+    text-align: left;
+    vertical-align: top;
+}
+
+.header-day {
+    color: var(--dark-color);
+    width: 100px;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+}
+
+.body-month {
+    color: var(--dark-color);
+    font-size: small;
+    text-align: left;
+    vertical-align: top;
+}
+
+.footer-time {
+    color: var(--dark-color);
+    font-size: smaller;
+    text-align: left;
+    vertical-align: top;
+}
+
+.card-columns {
+    background-color: var(--main-color); /* red background color */
+    padding: 20px; /* Add padding for better spacing */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
+
+.container {
+    padding: 20px; /* Add padding for better spacing */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
+
+.tickets {
+    color: var(--dark-color);
+    font-size: small;
+    text-align: left;
+    vertical-align: top;
+}
+
+.card-rows {
+    display: inline-block;
+}
+
+.badge {
+    background-color: var(secondary-color);
+}
+
+.row-striped {
+    border-bottom: 1px solid var(--secondary-color--dark);
+}
