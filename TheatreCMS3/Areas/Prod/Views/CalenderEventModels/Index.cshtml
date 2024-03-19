@@ -1,15 +1,38 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CalenderEventModels>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Events";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<header><h2>Event Calender</h2></header>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <p>
+                <a href="@Url.Action("Create")" class="btn btn-create">Create New</a>
+            </p>
+        </div>
+    </div>
+}
+<hr />
+
+<!-- Bootstrap Cards -->
+@*@foreach (var item in Model)
+    {
+        //<div class="
+        <div class="card-columns">
+            <div class="card-rows">
+                <div class="header-day">@item.StartDate.Day</div>
+                <div class="body-month">@item.StartDate.ToString("MMMM")</div>
+                <div class="footer-time">@item.StartTime.ToString("hh:mm tt") - @item.EndTime.ToString("hh:mm tt")</div>
+                <div class="title">@item.Title</div>
+                <div class="tickets">@item.TicketsAvailable</div>
+            </div>
+        </div>
+    }*@
 
 <div class="container">
     @foreach (var item in Model)
@@ -31,3 +54,8 @@
         </div>
     }
 </div>
+
+
+
+
+
