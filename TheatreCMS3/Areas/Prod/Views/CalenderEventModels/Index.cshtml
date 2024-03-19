@@ -1,76 +1,61 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CalenderEventModels>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Events";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<header><h2>Event Calender</h2></header>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AllDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProduction)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <p>
+                <a href="@Url.Action("Create")" class="btn btn-create">Create New</a>
+            </p>
+        </div>
+    </div>
 }
+<hr />
 
-</table>
+<!-- Bootstrap Cards -->
+@*@foreach (var item in Model)
+    {
+        //<div class="
+        <div class="card-columns">
+            <div class="card-rows">
+                <div class="header-day">@item.StartDate.Day</div>
+                <div class="body-month">@item.StartDate.ToString("MMMM")</div>
+                <div class="footer-time">@item.StartTime.ToString("hh:mm tt") - @item.EndTime.ToString("hh:mm tt")</div>
+                <div class="title">@item.Title</div>
+                <div class="tickets">@item.TicketsAvailable</div>
+            </div>
+        </div>
+    }*@
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="row row-striped">
+            <div class="col-2 text-left">
+                <h1 class="display-4"><span class="badge badge-secondary">@item.StartDate.Day</span></h1>
+                <h3>@item.StartDate.ToString("MMM")</h3>
+            </div>
+            <div class="col-10">
+                <h3 class="text-uppercase"><strong>@item.Title</strong></h3>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> @item.StartDate.ToString("dddd")</li>
+                    <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @item.StartTime.ToString("h:mm tt") - @item.EndTime.ToString("h:mm tt")</li>
+                    <li class="list-inline-item"><i class="fa fa-ticket" aria-hidden="true"></i> Tickets Available: @item.TicketsAvailable</li>
+                </ul>
+                <p>Is this a production? @(item.IsProduction ? "Yes" : "No")</p>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
