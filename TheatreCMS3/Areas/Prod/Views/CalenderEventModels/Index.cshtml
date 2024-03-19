@@ -10,67 +10,24 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AllDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProduction)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="row row-striped">
+            <div class="col-2 text-left">
+                <h1 class="display-4"><span class="badge badge-secondary">@item.StartDate.Day</span></h1>
+                <h3>@item.StartDate.ToString("MMM")</h3>
+            </div>
+            <div class="col-10">
+                <h3 class="text-uppercase"><strong>@item.Title</strong></h3>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> @item.StartDate.ToString("dddd")</li>
+                    <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @item.StartTime.ToString("h:mm tt") - @item.EndTime.ToString("h:mm tt")</li>
+                    <li class="list-inline-item"><i class="fa fa-ticket" aria-hidden="true"></i> Tickets Available: @item.TicketsAvailable</li>
+                </ul>
+                <p>Is this a production? @(item.IsProduction ? "Yes" : "No")</p>
+            </div>
+        </div>
+    }
+</div>
