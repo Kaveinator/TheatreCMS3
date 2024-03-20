@@ -19,28 +19,32 @@
 }
 <hr />
 
-<!-- Bootstrap Cards -->
-@*@foreach (var item in Model)
-    {
-        //<div class="
-        <div class="card-columns">
-            <div class="card-rows">
-                <div class="header-day">@item.StartDate.Day</div>
-                <div class="body-month">@item.StartDate.ToString("MMMM")</div>
-                <div class="footer-time">@item.StartTime.ToString("hh:mm tt") - @item.EndTime.ToString("hh:mm tt")</div>
-                <div class="title">@item.Title</div>
-                <div class="tickets">@item.TicketsAvailable</div>
-            </div>
-        </div>
-    }*@
-
 <div class="container">
     @foreach (var item in Model)
     {
+        @* Calculate event duration *@
+        var duration = (item.EndDate - item.StartDate).TotalDays;
+
         <div class="row row-striped">
             <div class="col-2 text-left">
                 <h1 class="display-4"><span class="badge badge-secondary">@item.StartDate.Day</span></h1>
                 <h3>@item.StartDate.ToString("MMM")</h3>
+                
+            <button type="button" class="btn btn-secondary" data-toggle="popover" title="Event Duration" data-content="This is a @(duration) day event">
+                @if (item.AllDay)
+                {
+                    <text>All Day</text>
+                }
+                else if (duration >= 1)
+                {
+                    @($"{duration} days")
+                }
+                else
+                {
+                    @($"{(item.EndTime - item.StartTime).TotalHours} hours")
+                }
+                <i class="fa fa-clock-o"></i>
+            </button>
             </div>
             <div class="col-10">
                 <h3 class="text-uppercase"><strong>@item.Title</strong></h3>
@@ -54,8 +58,3 @@
         </div>
     }
 </div>
-
-
-
-
-
