@@ -118,3 +118,7 @@
 .row-striped {
     border-bottom: 1px solid var(--secondary-color--dark);
 }
+
+.btn {
+    background-color: var(--secondary-color);
+}
