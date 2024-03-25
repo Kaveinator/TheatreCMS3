@@ -18,14 +18,6 @@ function switchVisible() {
 }
 
 
-$(document).ready(function DevCount () {  //naming function that counts contributing developers that have signed in
-    
-    var numPersons = $('#PersonList').find('p').length;   //variable created identifying every entry with a "p" tag within the list of sign ins
-
-    $('#countDevs').text(numPersons);    //count and print the number of "p" tags found.
-});
-
-
 
 
 

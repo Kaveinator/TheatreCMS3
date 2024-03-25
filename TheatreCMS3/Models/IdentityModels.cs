@@ -40,14 +40,9 @@ namespace TheatreCMS3.Models
             base.OnModelCreating(modelBuilder);
 
         }
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Blog.BlogAuthor> BlogAuthors { get; set; }
-
-        public System.Data.Entity.DbSet<TheatreCMS3.Areas.Rent.Models.RentalHistory> RentalHistories { get; set; }
         /* ▼ Put DbSet's for your models below ▼ */
 
 
-        public DbSet<TheatreCMS3.Areas.Prod.Models.CalenderEventModels> calenderEventModels { get; set; }
 
 
     }
