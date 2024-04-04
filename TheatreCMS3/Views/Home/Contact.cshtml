@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="contact-banner" style="background-color: black; height: 300px; min-width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border-bottom-left-radius: 45px; padding-left: -15px; padding-right: -15;">
+    <h1 style="font-family: Broadway; color: white;">Contact Us</h1>
+</div>
+
+<h2 style="text-align: center; color: #bd1a11; text-decoration: underline; margin-bottom: 20px; ">GET IN TOUCH</h2>
+<body style="background-color: #f04d44;">
+    <div class="row">
+        <div class="col-md-6" style="background-color: #f04d44; padding: 20px;">
+            <form>
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="background-color: #bd1a11; margin-top: 20px;">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-6 text-left">
+            <div class="mt-4">
+                <h4>Donate</h4>
+                <p>We've got a Patreon account! Help support the theater in Portland, OR by becoming Patron today!</p>
+                <a href="#" class="btn btn-success mb-2" style="background-color: #bd1a11;">Donate</a>
+
+                <h4 style="margin-top: 20px;">Volunteer</h4>
+                <p>Want to support our efforts in a more hands-on approach? Volunteer to help with set building, lighting, make-up, and more!</p>
+                <a href="#" class="btn btn-info" style="background-color: #bd1a11;">Volunteer</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+
