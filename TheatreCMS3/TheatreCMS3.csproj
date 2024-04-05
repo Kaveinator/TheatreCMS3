@@ -214,6 +214,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Areas\Blog\Models\BlogAuthor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -462,7 +463,6 @@
     <Folder Include="App_Themes\Theme1\" />
     <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Data\" />
-    <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Prod\Controllers\" />
     <Folder Include="Areas\Prod\Data\" />
