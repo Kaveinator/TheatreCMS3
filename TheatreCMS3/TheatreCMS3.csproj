@@ -222,7 +222,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DummyText.txt" />
     <Content Include="Content\all.css" />
     <Content Include="Content\Areas\Blog.css" />
     <Content Include="Content\Areas\images\OLS2VJ0.jpg" />
@@ -466,6 +465,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
     <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
