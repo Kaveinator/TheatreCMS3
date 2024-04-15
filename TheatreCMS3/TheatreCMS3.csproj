@@ -224,7 +224,6 @@
   <ItemGroup>
     <Content Include="Content\all.css" />
     <Content Include="Content\Areas\Blog.css" />
-    <Content Include="Content\Areas\images\OLS2VJ0.jpg" />
     <Content Include="Content\images\access_denied.png" />
     <Content Include="Content\images\BlogPostDefault.jpg" />
     <Content Include="Content\images\chromatic-studio.jpg" />
