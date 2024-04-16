@@ -449,3 +449,24 @@ footer {
 /* NB: End CSS for Donation Form */
 /* ================================== */
 /* row | row-reverse | column-reverse */
+
+/* ====================== */
+/* START NB SignIn CSS */
+.home-signin--container p {
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    padding: 5px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 25px;
+    font-family: 'Comic Sans MS';
+    font-size: 20px;
+    color: #d6972a;
+    background-color: #bd1a11;
+    border: solid;
+    border-width: thin;
+}
+
+/* END NB SignIn CSS */
+/* ====================== */
