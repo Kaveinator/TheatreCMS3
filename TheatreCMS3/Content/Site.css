@@ -438,6 +438,18 @@ footer {
         background: var(--light-color) !important;
     }
 
+
+/* ================================== */
+/* NB: Start CSS for Donation Form */
+.Home-Donate--Form {
+    display: flex; /* also inline-flex */
+    flex-direction: column;
+}
+
+/* NB: End CSS for Donation Form */
+/* ================================== */
+/* row | row-reverse | column-reverse */
+
 /* ====================== */
 /* START NB SignIn CSS */
 .SignIn-div--devs {
