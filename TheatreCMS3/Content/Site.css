@@ -452,27 +452,21 @@ footer {
 
 /* ====================== */
 /* START NB SignIn CSS */
-.SignIn-div--devs {
+.home-signin--container p {
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    padding: 5px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 25px;
     font-family: 'Comic Sans MS';
-    font-size: 24px;
+    font-size: 20px;
     color: #d6972a;
-    column-count: 4;
-    -webkit-column-count: 4;
+    background-color: #bd1a11;
+    border: solid;
+    border-width: thin;
 }
 
-.SignIn-div--table {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    column-width: 153px;
-    -webkit-column-width: 153px;
-    column-gap: 17px;
-    -webkit-column-gap: 17px;
-    margin: 7px;
-    padding: 3px;
-    background: #bd1a11;
-}
 /* END NB SignIn CSS */
 /* ====================== */
-/* 
-
-*/
