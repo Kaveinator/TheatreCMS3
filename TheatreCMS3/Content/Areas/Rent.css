@@ -10,3 +10,26 @@
 /*--dark-color: #000000;*/ /* Black */
 /*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
 /*}*/
+
+/* START NB CSS */
+.rent-create--form {
+    display: inline-block;
+    text-align: left;
+    width: 600px;
+    padding: 20px;
+    margin: 10px;    
+    font-weight: bold;
+    font-size: large;
+    border-radius: 25px;
+    background-color: #bd1a11;
+}
+
+ 
+.rent-create--h2 {
+    display: inline-block;
+    text-align: center;
+    width: 600px;
+    padding: 5px;
+    margin: 10px;
+}
+/* END NB CSS */
