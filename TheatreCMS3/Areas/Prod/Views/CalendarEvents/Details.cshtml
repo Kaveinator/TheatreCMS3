@@ -1,91 +1,40 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.CalendarEvent
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Calendar Event Details";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>CalendarEvent</h4>
+<div class="CalendarEvents-Create--form">
+  <br />
+  <div class="form-group">
+    <h2 class="cms-text-main-light col-md-10" style="padding: 0;">Event Details</h2>
+    <p class="col-md-10" style="padding: 0;">Does the event look right?</p>
+    <table class="cms-text-secondary col-md-10">
+      <tbody>
+        @foreach (var field in new (string, MvcHtmlString)[] {
+        ("Event Name", Html.DisplayFor(m => m.Title)),
+        ("Details", Html.DisplayFor(m => m.Description)),
+        ("Start Date", Html.DisplayFor(m => m.StartDate)),
+        ("End Date", Html.DisplayFor(m => m.EndTime)),
+        ("Event Lasts All Day", Html.DisplayFor(m => m.AllDay)),
+        ("Start Time", Html.DisplayFor(m => m.StartTime)),
+        ("End Time", Html.DisplayFor(m => m.EndTime)),
+        ("Available Tickets", Html.DisplayFor(m => m.TicketsAvailable)),
+        ("Is Production", Html.DisplayFor(m => m.IsProduction))
+      }) {
+          <tr>
+            <td><strong>@field.Item1</strong></td>
+            <td>@field.Item2</td>
+          </tr>
+        }
+      </tbody>
+    </table>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AllDay)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TicketsAvailable)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsProduction)
-        </dd>
-
-    </dl>
+    <div class="col-md-10" style="padding: 0;">
+      <a href="@Url.Action("Edit", new { id = Model.EventId })" class="dropdown-item text-primary">Edit</a>
+      <a href="@Url.Action("Delete", new { id = Model.EventId })" class="dropdown-item text-danger">Delete</a>
+      <a href="@Url.Action("Index")" class="dropdown-item text-secondary cms-text-light">Back to List</a>
+    </div>
+  </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

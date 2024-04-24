@@ -1,82 +1,48 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CalendarEvent>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Calendar Events";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<br />
+<h2 class="cms-text-main-light">Events</h2>
+<p>Don't see an event? <a href="@Url.Action("Create")">Create Event</a></p>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table cms-text-secondary">
+  <tr>
+    @foreach (var cell in new MvcHtmlString[] {
+        Html.DisplayNameFor(m => m.Title),
+        Html.DisplayNameFor(m => m.Description),
+        Html.DisplayNameFor(m => m.StartDate),
+        Html.DisplayNameFor(m => m.EndDate),
+        Html.DisplayNameFor(m => m.AllDay),
+        Html.DisplayNameFor(m => m.StartTime),
+        Html.DisplayNameFor(m => m.EndTime),
+        Html.DisplayNameFor(m => m.TicketsAvailable),
+        Html.DisplayNameFor(m => m.IsProduction)
+      }) { <th>@cell</th> }
+    <th>Actions</th>
+  </tr>
+
+  @foreach (var item in Model) {
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </th>
-        <th></th>
+      @foreach (var cell in new MvcHtmlString[] {
+        Html.DisplayFor(modelItem => item.Title),
+        Html.DisplayFor(modelItem => item.Description),
+        Html.DisplayFor(modelItem => item.StartDate),
+        Html.DisplayFor(modelItem => item.EndDate),
+        Html.DisplayFor(modelItem => item.AllDay),
+        Html.DisplayFor(modelItem => item.StartTime),
+        Html.DisplayFor(modelItem => item.EndTime),
+        Html.DisplayFor(modelItem => item.TicketsAvailable),
+        Html.DisplayFor(modelItem => item.IsProduction)
+      }) { <td>@cell</td> }
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+      </td>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AllDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProduction)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
-        </td>
-    </tr>
-}
-
+  }
 </table>
