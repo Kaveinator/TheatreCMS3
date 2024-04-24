@@ -56,11 +56,12 @@
   border-radius: 0;
   padding: 10px 0;
   box-shadow: 0 -2px var(--main-color--light);
-  --start-date-width: 55px;
+  --start-date-width: 75px;
 }
 
 .CalendarEvents-Index--EventListings > .form-group > .col-md-12.card h5 > small {
   display: block;
+  font-size: 10pt;
 }
 
 .CalendarEvents-Index--EventListings > .form-group > .col-md-12.card > .row > div {
@@ -71,6 +72,13 @@
 .CalendarEvents-Index--EventListings > .form-group > .col-md-12.card > .row > h5 {
   width: var(--start-date-width);
   text-align: center;
+}
+
+.CalendarEvents-Index--EventListings > .form-group > .col-md-12.card > .row > h5 > .eventDuration::after {
+  padding-left: 5px;
+  font-family: "Font Awesome 5 Free"; /* using 'FontAwesome1 as defined in font-awesome.css did not work */
+  content: "\f017";/* Clock Icon */
+  font-weight: 900; /* Sets clock icon to solid instead of regular, only works if font is Font Awesome 5 Free */
 }
 
 .CalendarEvents-Index--EventListings > .form-group > .col-md-12.card > .row > div {
