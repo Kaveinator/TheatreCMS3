@@ -46,7 +46,7 @@
           Html.EditorFor(model => model.TicketsAvailable, new { htmlAttributes = new { @class = "form-control", placeholder = "How many people would be able to attent at max" } }),
           Html.ValidationMessageFor(model => model.TicketsAvailable, "", new { @class = "text-danger" })
         ), (
-          Html.LabelFor(model => model.IsProduction, "Available Tickets"),
+          Html.LabelFor(model => model.IsProduction, "Is Production"),
           Html.EditorFor(model => model.IsProduction),
           Html.ValidationMessageFor(model => model.IsProduction, "", new { @class = "text-danger" })
         )}) {

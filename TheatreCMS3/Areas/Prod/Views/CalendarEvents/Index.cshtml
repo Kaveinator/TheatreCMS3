@@ -5,44 +5,42 @@
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-<h2 class="cms-text-main-light">Events</h2>
-<p>Don't see an event? <a href="@Url.Action("Create")">Create Event</a></p>
+<div class="CalendarEvents-Create--form CalendarEvents-Index--EventListings">
+  <br />
+  <div class="form-group">
+    <h2 class="cms-text-main-light col-md-12" style="padding: 0;">Event</h2>
+    <p class="col-md-12" style="padding: 0;">
+      Don't see an event?
+      <br />
+      <a href="@Url.Action("Create")" class="btn btn-primary">Create Event</a>
+    </p>
+    @foreach (var e in Model) {
+      <div class="card col-md-12 cms-bg-dark">
+        <div class="row no-gutters">
+          <h5 class="card-title">@e.StartDate.Day
+            <small class="text-muted">@e.StartDate.ToString("MMM")</small>
+          </h5>
+          <div>
+            <h5 class="card-title">
+              @e.Title
+              @{
+                bool endDateOnDifferentDay = e.StartDate.Date != e.EndDate.Date;
+                bool sameDayAndTime = !endDateOnDifferentDay && e.StartTime?.TimeOfDay == e.EndTime?.TimeOfDay;
+                string format = endDateOnDifferentDay ? "MMMM d" : "";
+                format += !e.AllDay ? " H:mm" : string.Empty;
 
-<table class="table cms-text-secondary">
-  <tr>
-    @foreach (var cell in new MvcHtmlString[] {
-        Html.DisplayNameFor(m => m.Title),
-        Html.DisplayNameFor(m => m.Description),
-        Html.DisplayNameFor(m => m.StartDate),
-        Html.DisplayNameFor(m => m.EndDate),
-        Html.DisplayNameFor(m => m.AllDay),
-        Html.DisplayNameFor(m => m.StartTime),
-        Html.DisplayNameFor(m => m.EndTime),
-        Html.DisplayNameFor(m => m.TicketsAvailable),
-        Html.DisplayNameFor(m => m.IsProduction)
-      }) { <th>@cell</th> }
-    <th>Actions</th>
-  </tr>
-
-  @foreach (var item in Model) {
-    <tr>
-      @foreach (var cell in new MvcHtmlString[] {
-        Html.DisplayFor(modelItem => item.Title),
-        Html.DisplayFor(modelItem => item.Description),
-        Html.DisplayFor(modelItem => item.StartDate),
-        Html.DisplayFor(modelItem => item.EndDate),
-        Html.DisplayFor(modelItem => item.AllDay),
-        Html.DisplayFor(modelItem => item.StartTime),
-        Html.DisplayFor(modelItem => item.EndTime),
-        Html.DisplayFor(modelItem => item.TicketsAvailable),
-        Html.DisplayFor(modelItem => item.IsProduction)
-      }) { <td>@cell</td> }
-      <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
-      </td>
-    </tr>
-  }
-</table>
+                if (!string.IsNullOrEmpty(format)) {
+                  <small class="text-muted">@($"{(e.StartTime ?? e.StartDate).ToString(format)}" + (sameDayAndTime ? string.Empty : $" - {(e.EndTime ?? e.EndDate).ToString(format)}"))</small>
+                }
+              }
+            </h5>
+            <p class="card-text">@e.Description</p>
+            <a href="@Url.Action("Edit", new { id = e.EventId })" class="card-link text-primary">Edit</a>
+            <a href="@Url.Action("Details", new { id = e.EventId })" class="card-link text-primary">Details</a>
+            <a href="@Url.Action("Delete", new { id = e.EventId })" class="card-link text-danger">Delete</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
