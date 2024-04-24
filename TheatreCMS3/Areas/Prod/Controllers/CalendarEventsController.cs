@@ -14,7 +14,7 @@ namespace TheatreCMS3.Areas.Prod.Controllers {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/CalendarEvents
-        public ActionResult Index() => View(db.CalendarEvents.ToList());
+        public ActionResult Index() => View(db.CalendarEvents.OrderByDescending(e => e.StartDate));
 
         // GET: Prod/CalendarEvents/Details/5
         public ActionResult Details(int? id) {

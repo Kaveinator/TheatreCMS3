@@ -46,4 +46,36 @@
 .CalendarEvents-Create--form .form-group input:not([type="submit"]):active::placeholder {
   opacity: 1;
 }
+
+/* START EVENT LISTING */
+.CalendarEvents-Index--EventListings > .form-group > .col-md-12 {
+  padding: 0;
+}
+
+.CalendarEvents-Index--EventListings > .form-group > .col-md-12.card {
+  border-radius: 0;
+  padding: 10px 0;
+  box-shadow: 0 -2px var(--main-color--light);
+  --start-date-width: 55px;
+}
+
+.CalendarEvents-Index--EventListings > .form-group > .col-md-12.card h5 > small {
+  display: block;
+}
+
+.CalendarEvents-Index--EventListings > .form-group > .col-md-12.card > .row > div {
+  display: inline-block;
+  box-sizing: border-box
+}
+
+.CalendarEvents-Index--EventListings > .form-group > .col-md-12.card > .row > h5 {
+  width: var(--start-date-width);
+  text-align: center;
+}
+
+.CalendarEvents-Index--EventListings > .form-group > .col-md-12.card > .row > div {
+  width: calc(100% - var(--start-date-width));
+}
+/* END EVENT LISTING */
+
 /* END EVENT CALENDAR */
