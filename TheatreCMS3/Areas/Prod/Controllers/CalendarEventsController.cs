@@ -9,119 +9,92 @@ using System.Web.Mvc;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
-namespace TheatreCMS3.Areas.Prod.Controllers
-{
-    public class CalendarEventsController : Controller
-    {
+namespace TheatreCMS3.Areas.Prod.Controllers {
+    public class CalendarEventsController : Controller{
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/CalendarEvents
-        public ActionResult Index()
-        {
-            return View(db.CalendarEvents.ToList());
-        }
+        public ActionResult Index() => View(db.CalendarEvents.ToList());
 
         // GET: Prod/CalendarEvents/Details/5
-        public ActionResult Details(int? id)
-        {
+        public ActionResult Details(int? id) {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+
             CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
             if (calendarEvent == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(calendarEvent);
         }
 
         // GET: Prod/CalendarEvents/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        public ActionResult Create() => View();
 
         // POST: Prod/CalendarEvents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,Title,Description,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEvent calendarEvent)
-        {
-            if (ModelState.IsValid)
-            {
-                db.CalendarEvents.Add(calendarEvent);
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Title,Description,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEvent calendarEvent) {
+            if (ModelState.IsValid) {
+                var e = db.CalendarEvents.Add(calendarEvent);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Details), new { id = e.EventId });
             }
-
             return View(calendarEvent);
         }
 
         // GET: Prod/CalendarEvents/Edit/5
-        public ActionResult Edit(int? id)
-        {
+        public ActionResult Edit(int? id) {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+
             CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
             if (calendarEvent == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(calendarEvent);
         }
 
         // POST: Prod/CalendarEvents/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,Title,Description,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEvent calendarEvent)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(calendarEvent).State = EntityState.Modified;
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "EventId,Title,Description,StartDate,EndDate,StartTime,EndTime,AllDay,TicketsAvailable,IsProduction")] CalendarEvent modifiedEvent) {
+            if (ModelState.IsValid) {
+                db.Entry(modifiedEvent).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Details), new { id = modifiedEvent.EventId });
             }
-            return View(calendarEvent);
+            return View(modifiedEvent);
         }
 
         // GET: Prod/CalendarEvents/Delete/5
-        public ActionResult Delete(int? id)
-        {
+        public ActionResult Delete(int? id) {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+
             CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
             if (calendarEvent == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(calendarEvent);
         }
 
         // POST: Prod/CalendarEvents/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
+        [HttpPost, ActionName(nameof(Delete)), ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id) {
             CalendarEvent calendarEvent = db.CalendarEvents.Find(id);
+            if (calendarEvent == null)
+                return HttpNotFound();
             db.CalendarEvents.Remove(calendarEvent);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
-        protected override void Dispose(bool disposing)
-        {
+        protected override void Dispose(bool disposing) {
             if (disposing)
-            {
                 db.Dispose();
-            }
             base.Dispose(disposing);
         }
     }

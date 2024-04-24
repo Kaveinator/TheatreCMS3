@@ -1,7 +1,7 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.CalendarEvent
 
 @{
-  ViewBag.Title = "Edit";
+  ViewBag.Title = "Edit Calendar Event";
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,7 +11,7 @@
     <h2 class="cms-text-main-light col-md-10" style="padding: 0;">Modify Event</h2>
     <p class="col-md-10" style="padding: 0;">What are the change in plans?</p>
     <div class="cms-text-secondary col-md-10" style="padding: 0;">
-      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      @Html.AntiForgeryToken()
       @Html.HiddenFor(model => model.EventId)
       @foreach (var field in new (MvcHtmlString label, MvcHtmlString editor, MvcHtmlString validator)[] {(
           Html.LabelFor(model => model.Title),
@@ -57,6 +57,7 @@
         </div>
       }
       <hr />
+      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
       <input type="submit" value="Save Changes" class="dropdown-item text-primary" />
       <a href="@Url.Action("Delete", new { id = Model.EventId })" class="dropdown-item text-danger">Delete</a>
       <a href="@Url.Action("Index")" class="dropdown-item text-secondary">Back to List</a>
