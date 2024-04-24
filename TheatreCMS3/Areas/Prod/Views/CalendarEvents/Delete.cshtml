@@ -1,97 +1,40 @@
 ﻿@model TheatreCMS3.Areas.Prod.Models.CalendarEvent
 
 @{
-    ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Delete";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>CalendarEvent</h4>
+<div class="CalendarEvents-Create--form">
+  <br />
+  <div class="form-group">
+    <h2 class="cms-text-main-light col-md-10" style="padding-left: 0;">Delete Event</h2>
+    <p class="col-md-10" style="padding-left: 0;">Are you sure you want to delete this event? This cannot be undone</p>
+    <table class="cms-text-secondary col-md-10">
+      <tbody>
+        @foreach (var field in new (string, MvcHtmlString)[] {
+        ("Event Name", Html.DisplayFor(m => m.Title)),
+        ("Details", Html.DisplayFor(m => m.Description)),
+        ("Start Date", Html.DisplayFor(m => m.StartDate)),
+        ("End Date", Html.DisplayFor(m => m.EndTime)),
+        ("Event Lasts All Day", Html.DisplayFor(m => m.AllDay)),
+        ("Start Time", Html.DisplayFor(m => m.StartTime)),
+        ("End Time", Html.DisplayFor(m => m.EndTime)),
+        ("Available Tickets", Html.DisplayFor(m => m.TicketsAvailable)),
+        ("Is Production", Html.DisplayFor(m => m.IsProduction))
+      }) {
+          <tr>
+            <td><strong>@field.Item1</strong></td>
+            <td>@field.Item2</td>
+          </tr>
+        }
+      </tbody>
+    </table>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AllDay)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AllDay)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TicketsAvailable)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TicketsAvailable)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsProduction)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsProduction)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = " col-md-10", style = "padding: 0;" })) {
+      @Html.AntiForgeryToken()
+      <input type="submit" value="Confirm Delete" class="dropdown-item text-danger" />
+      <a href="@Url.Action("Index")" class="dropdown-item text-primary">Back to List</a>
     }
+  </div>
 </div>
