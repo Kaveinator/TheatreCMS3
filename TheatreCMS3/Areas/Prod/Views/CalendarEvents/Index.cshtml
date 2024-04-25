@@ -57,6 +57,14 @@
           <h5 class="card-title">
             @e.Title
             @{
+              double daysUntilDue = endTime.Subtract(DateTime.Now).TotalDays;
+              /*if (daysUntilDue < 0)
+              { <span class="badge badge-secondary">Done</span> }
+              else*/ if (1 < daysUntilDue)
+              { <span class="badge badge-warning">@Math.Round(daysUntilDue, 0) days left!</span> }
+              else if (0 < daysUntilDue)
+              { <span class="badge badge-danger">Last Day!</span> }
+
               string format = endDateOnDifferentDay ? "MMMM d" : "";
               format += !e.AllDay ? " H:mm" : string.Empty;
 
