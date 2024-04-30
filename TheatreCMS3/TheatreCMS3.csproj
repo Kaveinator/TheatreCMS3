@@ -200,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
+    <Compile Include="Areas\Prod\Controllers\ProductionPhotoEntitiesController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
     <Compile Include="Areas\Prod\Data\EventAuthorizeAttribute.cs" />
     <Compile Include="Areas\Prod\Models\EventPlanner.cs" />
@@ -315,6 +316,11 @@
     <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\AccessDenied.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoEntities\Create.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoEntities\Delete.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoEntities\Details.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoEntities\Edit.cshtml" />
+    <Content Include="Areas\Prod\Views\ProductionPhotoEntities\Index.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
