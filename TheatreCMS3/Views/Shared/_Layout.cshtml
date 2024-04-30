@@ -17,23 +17,24 @@
     @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
-    @Html.Partial("_Navbar")
-    @Html.Partial("_DevNavbar")
+  @Html.Partial("_Navbar")
+  @Html.Partial("_DevNavbar")
 
-    <div class="container body-content">
-        @RenderBody()
+  <div class="container body-content">
+    @RenderBody()
 
-    </div>
-    @Html.Partial("_Footer")
+  </div>
+  @Html.Partial("~/Areas/Prod/Views/CalendarEvents/_LoginBtn-EventPlanner.cshtml")
+  @Html.Partial("_Footer")
 
 
 
     @if (ViewContext.RouteData.DataTokens["area"] != null)
     {
-        <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
-    }
-    @RenderSection("scripts", required: false)
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/Site.js")
+    <script src="~/Scripts/Areas/@(ViewContext.RouteData.DataTokens["area"]).js"></script>
+  }
+  @RenderSection("scripts", required: false)
+  @Scripts.Render("~/bundles/bootstrap")
+  @Scripts.Render("~/Scripts/Site.js")
 </body>
 </html>
