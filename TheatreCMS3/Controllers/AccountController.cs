@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Controllers
@@ -479,7 +480,7 @@ namespace TheatreCMS3.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> LoginAsEventPlanner()
         {
-            var userName = "user"; // Username of the EventPlanner
+            var userName = EventPlanner.SeededUsername; // Username of the EventPlanner
             var user = await UserManager.FindByNameAsync(userName);
 
             if (user != null)
