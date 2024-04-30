@@ -1,0 +1,10 @@
+﻿@{
+  ViewBag.Title = "Access Denied";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Access Denied</h2>
+<p>
+  You are not authorized to visit this page
+  <img style="display: block;" src="~/Content/images/Unauthorized.png" alt="Access Denied Image" />
+  @Html.ActionLink("Log in", "Login")
+</p>

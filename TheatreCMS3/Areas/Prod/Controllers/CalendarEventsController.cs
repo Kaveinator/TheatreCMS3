@@ -6,17 +6,21 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TheatreCMS3.Areas.Prod.Data;
 using TheatreCMS3.Areas.Prod.Models;
 using TheatreCMS3.Models;
 
 namespace TheatreCMS3.Areas.Prod.Controllers {
-    public class CalendarEventsController : Controller{
+    [EventAuthorize]
+    public class CalendarEventsController : Controller {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Prod/CalendarEvents
+        [AllowAnonymous]
         public ActionResult Index() => View(db.CalendarEvents.OrderByDescending(e => e.StartDate));
 
         // GET: Prod/CalendarEvents/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id) {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
