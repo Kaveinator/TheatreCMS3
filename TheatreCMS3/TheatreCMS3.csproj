@@ -201,6 +201,7 @@
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Prod\Controllers\CalendarEventsController.cs" />
     <Compile Include="Areas\Prod\Models\CalendarEvent.cs" />
+    <Compile Include="Areas\Prod\Data\EventAuthorizeAttribute.cs" />
     <Compile Include="Areas\Prod\Models\EventPlanner.cs" />
     <Compile Include="Areas\Prod\ProdAreaRegistration.cs" />
     <Compile Include="Areas\Rent\Controllers\RentalHistoriesController.cs" />
@@ -481,7 +482,6 @@
     <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
-    <Folder Include="Areas\Prod\Data\" />
     <Folder Include="Areas\Prod\Views\Shared\" />
     <Folder Include="Areas\Rent\Data\" />
     <Folder Include="Areas\Rent\Views\Shared\" />
