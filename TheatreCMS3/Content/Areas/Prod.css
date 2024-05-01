@@ -94,3 +94,34 @@
 /* END EVENT LISTING */
 
 /* END EVENT CALENDAR */
+
+/* START PROD PHOTO */
+.ProdPhoto-Index--PhotoListings .card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--secondary-color);
+}
+
+.ProdPhoto-Index--PhotoListings .forcedAspectImage {
+  width: 100%;
+  height: auto;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+.ProdPhoto-Index--PhotoListings .forcedAspectImage img:nth-child(1) {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+}
+
+.ProdPhoto-Index--PhotoListings .forcedAspectImage img:not(:nth-child(1)) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+/* END PROD PHOTO */

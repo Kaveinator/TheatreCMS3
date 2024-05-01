@@ -1,33 +1,41 @@
 ﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.ProductionPhotoEntity>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.Title)</th>
-        <th>Image Preview</th>
-        <th>@Html.DisplayNameFor(model => model.Description)</th>
-        <th>Actions</th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>@Html.DisplayFor(modelItem => item.Title)</td>
-        <td><img src="@Url.Action("View", new { id = item.ProPhotoId })" style="height: 25px; width: auto;" /></td>
-        <td>@Html.DisplayFor(modelItem => item.Description)</td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProPhotoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProPhotoId })
-        </td>
-    </tr>
-}
-</table>
+<div class="CalendarEvents-Create--form ProdPhoto-Index--PhotoListings">
+  <br />
+  <div class="form-group">
+    <h2 class="cms-text-main-light col-md-12" style="padding: 0;">Production Photos</h2>
+    <p class="col-md-12" style="padding: 0;">
+      Don't see an photo?
+      <br />
+      <a href="@Url.Action("Create")" class="btn btn-primary">Add Photo</a>
+    </p>
+    @{
+      foreach (var photos in Model.GroupBy(photo => photo.Title)) {
+        <h3 class="cms-text-main-light col-md-12" style="padding: 0;">@photos.Key <span class="badge badge-pill badge-secondary ">@photos.Count()</span></h3>
+        <div class="row">
+          @foreach (var p in photos) {
+            <div class="card mr-2 cms-bg-main-light" style="width: 18rem;">
+              <a class="forcedAspectImage" href="@Url.Action("Details", new { id = p.ProPhotoId })">
+                <img src="http://via.placeholder.com/16x9">
+                <img src="@Url.Action("View", new { id = p.ProPhotoId })" alt="@p.Title Preview">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">@p.Title</h5>
+                <p class="card-text">@p.Description</p>
+              </div>
+              <div class="card-body">
+                <a href="@Url.Action("Edit", new { id = p.ProPhotoId })" class="badge badge-warning">Edit</a>
+                <a href="@Url.Action("Delete", new { id = p.ProPhotoId })" class="badge badge-danger">Delete</a>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+</div>
