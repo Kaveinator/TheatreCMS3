@@ -316,6 +316,7 @@
     <Content Include="Areas\Prod\Views\CalendarEvents\Edit.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\Index.cshtml" />
     <Content Include="Areas\Prod\Views\CalendarEvents\AccessDenied.cshtml" />
+    <Content Include="Areas\Prod\Views\CalendarEvents\_LoginBtn-EventPlanner.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoEntities\Create.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoEntities\Delete.cshtml" />
     <Content Include="Areas\Prod\Views\ProductionPhotoEntities\Details.cshtml" />

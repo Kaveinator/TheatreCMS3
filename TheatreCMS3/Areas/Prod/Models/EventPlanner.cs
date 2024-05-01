@@ -9,7 +9,11 @@ using System.Data.Entity.Migrations;
 
 namespace TheatreCMS3.Areas.Prod.Models {
     public class EventPlanner : ApplicationUser {
-        const string RoleName = nameof(EventPlanner);
+        public const string RoleName = nameof(EventPlanner);
+        public const string SeededUsername = "Event Planner";
+        public const string SeededPassword = "NotAGoodPassword";
+        public const string SeededEmail = "user@example.com";
+
         public DateTime PlannerStartDate { get; set; }
 
         /// <summary>Seeded in <see cref="TheatreCMS3.Migrations.Configuration"/></summary>
@@ -23,12 +27,12 @@ namespace TheatreCMS3.Areas.Prod.Models {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             // Create Event Planner user
             var eventPlanner = new EventPlanner() {
-                UserName = "Event Planner",
-                Email = "user@example.com",
+                UserName = SeededUsername,
+                Email = SeededEmail,
                 PlannerStartDate = DateTime.Now
             };
             // Add the event planner
-            userManager.Create(eventPlanner, "NotAGoodPassword");
+            userManager.Create(eventPlanner, SeededPassword);
             userManager.AddToRole(eventPlanner.Id, RoleName);
         }
     }
