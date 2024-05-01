@@ -1,0 +1,25 @@
+﻿@using TheatreCMS3.Areas.Prod.Models;
+@if (!HttpContext.Current.User.IsInRole(EventPlanner.RoleName)) {
+  <style>
+    #DevTestLogin {
+      pointer-events: none;
+      height: 0px;
+      width: 0px;
+    }
+
+      #DevTestLogin button[type="submit"] {
+        pointer-events: all;
+        height: auto;
+        width: auto;
+        position: fixed;
+        right: 5px;
+        bottom: 5px;
+        z-index: 10;
+      }
+  </style>
+  <form id="DevTestLogin" action="@Url.Action("LoginAsEventPlanner", "Account", null)" method="POST">
+    <!--<input type="hidden" name="user" value="EventPlanner.SeededUsername" />-->
+    <!--<input type="hidden" name="pass" value="EventPlanner.SeededPassword" />-->
+    <button type="submit" class="btn btn-danger">Log in as Event Planner</button>
+  </form>
+}
