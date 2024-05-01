@@ -23,7 +23,8 @@
   width: 100%;
 }
 
-.CalendarEvents-Create--form .form-group input:not([type="submit"]) {
+.CalendarEvents-Create--form .form-group input:not([type="submit"]):not([type="file"]),
+.CalendarEvents-Create--form .form-group textarea {
   background-color: var(--secondary-color--dark);
   color: var(--light-color);
   outline: none;
@@ -31,19 +32,25 @@
   box-shadow: inset 0 0 0 1px var(--main-color--light);
   transition: 100ms all ease-in-out;
 }
-.CalendarEvents-Create--form .form-group input:not([type="submit"])::placeholder {
+
+.CalendarEvents-Create--form .form-group input:not([type="submit"]):not([type="file"])::placeholder,
+.CalendarEvents-Create--form .form-group textarea::placeholder {
   color: var(--light-color);
   opacity: 0.5;
 }
 
-.CalendarEvents-Create--form .form-group input:not([type="submit"]):focus,
-.CalendarEvents-Create--form .form-group input:not([type="submit"]):active {
+.CalendarEvents-Create--form .form-group input:not([type="submit"]):not([type="file"]):focus,
+.CalendarEvents-Create--form .form-group input:not([type="submit"]):not([type="file"]):active,
+.CalendarEvents-Create--form .form-group textarea:focus,
+.CalendarEvents-Create--form .form-group textarea:active {
   background-color: var(--secondary-color);
   box-shadow: inset 0 0 0 2px var(--main-color);
 }
 
-.CalendarEvents-Create--form .form-group input:not([type="submit"]):focus::placeholder,
-.CalendarEvents-Create--form .form-group input:not([type="submit"]):active::placeholder {
+.CalendarEvents-Create--form .form-group input:not([type="submit"]):not([type="file"]):focus::placeholder,
+.CalendarEvents-Create--form .form-group input:not([type="submit"]):not([type="file"]):active::placeholder,
+.CalendarEvents-Create--form .form-group textarea:focus::placeholder,
+.CalendarEvents-Create--form .form-group textarea:active::placeholder {
   opacity: 1;
 }
 
