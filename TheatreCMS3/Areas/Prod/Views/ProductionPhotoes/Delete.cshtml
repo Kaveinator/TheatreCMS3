@@ -28,11 +28,19 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
 
+        <dt>
+          Current Photo
+        </dt>
+
+        <dd>
+          <img src="@Url.Action("View", new { id = Model.ProPhotoId })" style="width: 200px; height: auto;" />
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
-
+      <input type="hidden" name="id" value="@Model.ProPhotoId" />
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")

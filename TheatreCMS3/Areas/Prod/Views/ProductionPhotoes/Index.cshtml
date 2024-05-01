@@ -12,23 +12,17 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>Image Preview</th>
+        <th>@Html.DisplayNameFor(model => model.Description)</th>
+        <th>Actions</th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
+        <td>@Html.DisplayFor(modelItem => item.Title)</td>
+        <td><img src="@Url.Action("View", new { id = item.ProPhotoId })" style="height: 25px; width: auto;" /></td>
+        <td>@Html.DisplayFor(modelItem => item.Description)</td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProPhotoId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProPhotoId }) |
@@ -36,5 +30,4 @@
         </td>
     </tr>
 }
-
 </table>
